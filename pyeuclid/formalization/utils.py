@@ -1,138 +1,74 @@
 import re
 import hashlib
 
-from itertools import permutations, product
-from collections import deque
+import sympy
+
+
 from typing import List
 
 
-def sort_attributes(*attrs):
-    """
-    Sort the list of attributes by their 'name'. The prop is unchanged when the order is changed
-    e.g. Collinear(a,b,c)
-    """
+def sort_points(*points):
+    return sorted(points, key=lambda i: i.name)
 
-    return sorted(attrs, key=lambda i: i.name)
-
-def sort_cyclic(*attrs):
-    min_index = min(range(len(attrs)), key=lambda i: attrs[i].name)
-    if str(attrs[(min_index+1) % len(attrs)]) > str(attrs[(min_index-1) % len(attrs)]):
-        remaining_list = list(attrs[min_index:] + attrs[:min_index])[1:]
-        return [attrs[min_index]] + remaining_list[::-1]
+def sort_cyclic_points(*points):
+    min_index = min(range(len(points)), key=lambda i: points[i].name)
+    if str(points[(min_index+1) % len(points)]) > str(points[(min_index-1) % len(points)]):
+        remaining_list = list(points[min_index:] + points[:min_index])[1:]
+        return [points[min_index]] + remaining_list[::-1]
     else:
-        return attrs[min_index:] + attrs[:min_index]
+        return points[min_index:] + points[:min_index]
+
+
+def compare_names(g1, g2):
+    assert len(g1) == len(g2)
+    for a, b in zip(g1, g2):
+        if a.name != b.name:
+            return a.name < b.name
+    return True
+
+
+def get_point_mapping(g1, g2):
+    mapping = {}
+    for p1, p2 in zip(g1, g2):
+        mapping[p1] = p2
+        mapping[p2] = p1
+    return mapping
+
+
+def sort_point_groups(g1, g2, mapping=None):
+    if not compare_names(g1, g2):
+        g1, g2 = g2, g1
+    
+    if mapping:
+        g2 = [mapping[p] for p in g1]
+    
+    return g1 + g2
+
+
+def sqrt(x):
+    return sympy.simplify(f"sqrt({x})")
+
+
+def cos(x):
+    return sympy.simplify(f"cos({x})")
+
+
+def sin(x):
+    return sympy.simplify(f"sin({x})")
+
+
+def tan(x):
+    return sympy.simplify(f"tan({x})")
     
 
-def compare_lists(L1, L2):
-    for i in range(len(L1)):
-        if L1[i].name < L2[i].name:
-            return 0  # L1 < L2
-        elif L1[i].name > L2[i].name:
-            return 1  # L1 > L2
-    return 0  # L1 == L2 (all elements are equal)
-
-
-def get_cyclic_permutations(*attrs):
-    permuted_instances = []
-
-    # Generate cyclic permutations
-    for _ in range(len(attrs)):
-        attrs = deque(attrs)
-        attrs.rotate(-1)  # Perform a left rotation
-        permuted_instances.append(attrs)
-
-    return list(permuted_instances)
-
-
-def get_all_permutations(*attrs):
-    return [perm for perm in permutations(attrs)]
-
-
-def get_fixed_first_permutations(first, *rest):
-    return [(first,) + perm for perm in permutations(rest)]
-
-
-def get_double_angle_permutations(*attrs):
-    a, b, c, d, e, f = attrs
-    permuted_instances = []
-
-    for perm in permutations([a,  c]):
-        corresponding_points = {a: d, c: f}
-        mapped = [perm[0], b, perm[1], corresponding_points[perm[0]],
-                  e, corresponding_points[perm[1]]]
-        permuted_instances.append(mapped)
-
-    # Add swapped versions
-    for perm in permutations([d, f]):
-        corresponding_points = {d: a, f: c}
-        mapped = [perm[0], e, perm[1], corresponding_points[perm[0]],
-                  b, corresponding_points[perm[1]]]
-        permuted_instances.append(mapped)
-
-    return permuted_instances
-
-
-def get_double_angle4_permutations(*attrs):
-    a, b, c, d, e, f, g, h = attrs
-    permuted_instances = []
-
-    perms_ab = list(permutations([a, b]))
-    perms_cd = list(permutations([c, d]))
-    perms_ef = list(permutations([e, f]))
-    perms_gh = list(permutations([g, h]))
-    for perm_ab, perm_cd, perm_ef, perm_gh in product(perms_ab, perms_cd, perms_ef, perms_gh):
-        permuted_instances.append(perm_ab + perm_cd + perm_ef + perm_gh)
-        permuted_instances.append(perm_cd + perm_ab + perm_ef + perm_gh)
-        permuted_instances.append(perm_cd + perm_ab + perm_gh + perm_ef)
-        permuted_instances.append(perm_cd + perm_ab + perm_ef + perm_gh)
-        permuted_instances.append(perm_ef + perm_gh + perm_ab + perm_cd)
-        permuted_instances.append(perm_ef + perm_gh + perm_cd + perm_ab)
-        permuted_instances.append(perm_gh + perm_ef + perm_cd + perm_ab)
-        permuted_instances.append(perm_ef + perm_gh + perm_cd + perm_ab)
-    return permuted_instances
-
-
-def get_double_triangle_permutations(*attrs):
-    a, b, c, d, e, f = attrs
-    permuted_instances = []
-
-    for perm in permutations([a, b, c]):
-        corresponding_points = {a: d, b: e, c: f}
-        mapped = [perm[0], perm[1], perm[2], corresponding_points[perm[0]],
-                  corresponding_points[perm[1]], corresponding_points[perm[2]]]
-        permuted_instances.append(mapped)
-
-    # Add swapped versions
-    for perm in permutations([d, e, f]):
-        corresponding_points = {d: a, e: b, f: c}
-        mapped = [perm[0], perm[1], perm[2], corresponding_points[perm[0]],
-                  corresponding_points[perm[1]], corresponding_points[perm[2]]]
-        permuted_instances.append(mapped)
-
-    return permuted_instances
-
-
-def get_double_lines_permutations(*attrs):
-    a, b, c, d = attrs
-    permuted_instances = []
-
-    perms_ab = list(permutations([a, b]))
-    perms_cd = list(permutations([c, d]))
-
-    for perm_ab, perm_cd in product(perms_ab, perms_cd):
-        permuted_instances.append(perm_ab + perm_cd)
-
-    return permuted_instances
-
-
-def expand(props):
-    if not type(props) in (tuple, list):
-        props = props,
+def expand_definition(relation):
+    if not type(relation) in (tuple, list):
+        relation = relation,
     lst = []
-    for prop in props:
+    for prop in relation:
         if hasattr(prop, "definition"):
             for item in prop.definition():
-                lst += expand(item)
+                lst += expand_definition(item)
         else:
             lst += prop,
     return lst
@@ -270,7 +206,13 @@ def classify_equations(equations: List[Traced]):
         else:
             others.append(eq)
     return angle_linear, length_linear, length_ratio, others
-
+    
+def is_float(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
 
 def parse_condition_conclusion(problem): 
     parts = problem.split(' ? ')
