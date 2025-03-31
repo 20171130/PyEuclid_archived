@@ -1,19 +1,23 @@
 from __future__ import annotations
 
+from matplotlib import pyplot as plt
+
 from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.numericals import *
 from pyeuclid.formalization.utils import *
+
 
 
 class Diagram:
     def __init__(self, constructions_list:list[list[ConstructionRule]]=None):
         self.points = []
         self.segments = []
-        self.rays = []
-        self.lines = []
         self.circles = []
         
         self.name2point = {}
+        self.point2name = {}
+        
+        self.fig, self.ax = None, None
         
         if constructions_list is not None:
             self.construct_diagram(constructions_list)
@@ -21,8 +25,6 @@ class Diagram:
     def clear(self):
         self.points.clear()
         self.segments.clear()
-        self.rays.clear()
-        self.lines.clear()
         self.circles.clear()
         
         self.name2point.clear()
@@ -33,6 +35,7 @@ class Diagram:
                 self.clear()
                 for constructions in constructions_list:
                     self.construct(constructions)
+                self.visualize()
                 return
             except:
                 continue
@@ -66,6 +69,10 @@ class Diagram:
         
         for p, np in zip(constructed_points, new_points):
             self.name2point[p.name] = np
+            self.point2name[np] = p.name
+        
+        for construction in constructions:
+            self.draw(new_points, construction)
     
     def numerical_check(relation):
         pass
@@ -671,4 +678,597 @@ class Diagram:
                 return [a]
             else:
                 return [np.random.choice([a, b])]
+    
+    def draw(self, new_points, construction):
+        func = getattr(self, 'draw_' + construction.__class__.__name__[10:])
+        args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.arguments()]
+        func(*new_points, *args)
+    
+    def draw_angle_bisector(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(b, x))
+    
+    def draw_angle_mirror(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(b, x))
+    
+    def draw_circle(self, *args):
+        x, a, b, c = args
+        # self.segments.append(Segment(a, x))
+        # self.segments.append(Segment(b, x))
+        # self.segments.append(Segment(c, x))
+        self.circles.append(Circle(x, x.distance(a)))
         
+    def draw_circumcenter(self, *args):
+        x, a, b, c = args
+        # self.segments.append(Segment(a, x))
+        # self.segments.append(Segment(b, x))
+        # self.segments.append(Segment(c, x))
+        self.circles.append(Circle(x, x.distance(a)))
+        
+    def draw_eq_quadrangle(self, *args):
+        a, b, c, d = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(d, a))
+        
+    def draw_eq_trapezoid(self, *args):
+        a, b, c, d = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(d, a))
+        
+    def draw_eq_triangle(self, *args):
+        x, b, c = args
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, x))
+        self.segments.append(Segment(x, b))
+    
+    def draw_eqangle2(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(b, a))
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(c, b))
+        self.segments.append(Segment(b, b))
+    
+    def draw_eqdia_quadrangle(self, *args):
+        a, b, c, d = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(d, a))
+        self.segments.append(Segment(b, d))
+        self.segments.append(Segment(a, c))
+        
+    def draw_eqdistance(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(b, c))
+    
+    def draw_eqdistance2(self, *args):
+        x, a, b, c, alpha = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(b, c))
+        
+    def draw_eqdistance2(self, *args):
+        x, a, alpha = args
+        self.segments.append(Segment(x, a))
+    
+    def draw_foot(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(x, b))
+        self.segments.append(Segment(x, c))
+        self.segments.append(Segment(b, c))
+    
+    def draw_free(self, *args):
+        x = args
+        
+    def draw_incenter(self, *args):
+        i, a, b, c = args
+        x = i.foot(Line(b, c))
+        y = i.foot(Line(c, a))
+        z = i.foot(Line(a, b))
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+        self.circles.append(Circle(p1=x, p2=y, p3=z))
+        
+    def draw_incenter2(self, *args):
+        x, y, z, i, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+        self.circles.append(Circle(p1=x, p2=y, p3=z))
+    
+    def draw_excenter(self, *args):
+        i, a, b, c = args
+        x = i.foot(Line(b, c))
+        y = i.foot(Line(c, a))
+        z = i.foot(Line(a, b))
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+        self.circles.append(Circle(p1=x, p2=y, p3=z))
+        
+    def draw_excenter2(self, *args):
+        x, y, z, i, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+        self.circles.append(Circle(p1=x, p2=y, p3=z))
+        
+    def draw_centroid(self, *args):
+        x, y, z, i, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(b, y))
+        self.segments.append(Segment(c, z))
+    
+    def draw_intersection_cc(self, *args):
+        x, o, w, a = args
+        self.segments.append(Segment(o, a))
+        self.segments.append(Segment(o, x))
+        self.segments.append(Segment(w, a))
+        self.segments.append(Segment(w, x))
+        self.circles.append(Circle(o, o.distance(a)))
+        self.circles.append(Circle(w, w.distance(a)))
+    
+    def draw_intersection_lc(self, *args):
+        x, a, o, b = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(x, b))
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(o, b))
+        self.segments.append(Segment(o, x))
+        self.circles.append(Circle(o, o.distance(b)))
+        
+    def draw_intersection_ll(self, *args):
+        x, a, b, c, d = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(b, x))
+        self.segments.append(Segment(c, x))
+        self.segments.append(Segment(d, x))
+        
+    def draw_intersection_lp(self, *args):
+        x, a, b, c, m, n = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(m, n))
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(b, x))
+        self.segments.append(Segment(c, x))
+        
+    def draw_intersection_lp(self, *args):
+        x, a, b, c, m, n = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(m, n))
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(b, x))
+        self.segments.append(Segment(c, x))
+        
+    def draw_intersection_lt(self, *args):
+        x, a, b, c, d, e = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(d, e))
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(b, x))
+        self.segments.append(Segment(c, x))
+        
+    def draw_intersection_pp(self, *args):
+        x, a, b, c, d, e, f = args
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(d, x))
+        self.segments.append(Segment(e, f))
+    
+    def draw_intersection_tt(self, *args):
+        x, a, b, c, d, e, f = args
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(d, x))
+        self.segments.append(Segment(e, f))
+    
+    def draw_iso_triangle(self, *args):
+        a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+        
+    def draw_lc_tangent(self, *args):
+        x, a, o = args
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(a, o))
+        self.circles.append(Circle(o, o.distance(a)))
+    
+    def draw_midpoint(self, *args):
+        x, a, b = args
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(b, x))
+    
+    def draw_mirror(self, *args):
+        x, a, b = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, x))
+        
+    def draw_nsquare(self, *args):
+        x, a, b = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, x))
+    
+    def draw_on_aline(self, *args):
+        x, a, b, c, d, e = args
+        self.segments.append(Segment(e, d))
+        self.segments.append(Segment(d, c))
+        self.segments.append(Segment(b, a))
+        self.segments.append(Segment(a, x))
+    
+    def draw_on_bline(self, *args):
+        x, a, b = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(b, x))
+    
+    def draw_on_circle(self, *args):
+        x, o, a = args
+        self.segments.append(Segment(o, a))
+        self.segments.append(Segment(o, x))
+        self.circles.append(Circle(o, o.distance(x)))
+        
+    def draw_on_line(self, *args):
+        x, a, b = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(x, b))
+        self.segments.append(Segment(a, b))
+        
+    def draw_on_pline(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(b, c))
+    
+    def draw_on_tline(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(b, c))
+    
+    def draw_orthocenter(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+    
+    def draw_parallelogram(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, x))
+    
+    def draw_parallelogram(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, x))
+    
+    def draw_pentagon(self, *args):
+        a, b, c, d, e = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(d, e))
+        self.segments.append(Segment(e, a))
+    
+    def draw_psquare(self, *args):
+        x, a, b = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(a, b))
+        
+    def draw_quadrangle(self, *args):
+        a, b, c, d = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(d, a))
+    
+    def draw_r_trapezoid(self, *args):
+        a, b, c, d = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(d, a))
+    
+    def draw_r_triangle(self, *args):
+        a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+        
+    def draw_rectangle(self, *args):
+        a, b, c, d = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(d, a))
+    
+    def draw_reflect(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(b, c))
+    
+    def draw_risos(self, *args):
+        a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+    
+    def draw_s_angle(self, *args):
+        x, a, b, alpha = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, x))
+    
+    def draw_segment(self, *args):
+        a, b = args
+        self.segments.append(Segment(a, b))
+    
+    def draw_s_segment(self, *args):
+        a, b, alpha = args
+        self.segments.append(Segment(a, b))
+        
+    def draw_shift(self, *args):
+        x, b, c, d = args
+        self.segments.append(Segment(x, b))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(x, c))
+        self.segments.append(Segment(b, d))
+    
+    def draw_square(self, *args):
+        x, y, a, b = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, x))
+        self.segments.append(Segment(x, y))
+        self.segments.append(Segment(y, a))
+    
+    def draw_isquare(self, *args):
+        a, b, c, d = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(d, a))
+    
+    def draw_trapezoid(self, *args):
+        a, b, c, d = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(d, a))
+    
+    def draw_triangle(self, *args):
+        a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+    
+    def draw_triangle12(self, *args):
+        a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+    
+    def draw_2l1c(self, *args):
+        x, y, z, i, a, b, c, o = args
+        self.segments.append(Segment(a, c))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(a, o))
+        self.segments.append(Segment(b, o))
+        
+        self.segments.append(Segment(i, x))
+        self.segments.append(Segment(i, y))
+        self.segments.append(Segment(i, z))
+        
+        self.segments.append(Segment(c, x))
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(c, y))
+        self.segments.append(Segment(b, y))
+        self.segments.append(Segment(o, z))
+        
+        self.circles.append(Circle(i, i.distance(x)))
+        self.circles.append(Circle(o, o.distance(a)))
+    
+    def draw_e5128(self, *args):
+        x, y, a, b, c, d = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, d))
+        self.segments.append(Segment(d, a))
+        
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(x, y))
+        self.segments.append(Segment(c, x))
+    
+    def draw_3peq(self, *args):
+        x, y, z, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+        
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(b, x))
+        
+        self.segments.append(Segment(a, y))
+        self.segments.append(Segment(c, y))
+        
+        self.segments.append(Segment(c, z))
+        self.segments.append(Segment(b, z))
+        
+        self.segments.append(Segment(x, y))
+        self.segments.append(Segment(y, z))
+        self.segments.append(Segment(z, x))
+    
+    def draw_trisect(self, *args):
+        x, y, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        
+        self.segments.append(Segment(b, x))
+        self.segments.append(Segment(b, y))
+        
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(x, y))
+        self.segments.append(Segment(y, c))
+        
+    def draw_trisegment(self, *args):
+        x, y, a, b = args
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(x, y))
+        self.segments.append(Segment(y, b))
+    
+    def draw_on_dia(self, *args):
+        x, a, b = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(x, b))
+        
+    def draw_ieq_triangle(self, *args):
+        a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+    
+    def draw_on_opline(self, *args):
+        x, a, b = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(x, b))
+    
+    def draw_cc_tangent0(self, *args):
+        x, y, o, a, w, b = args
+        self.segments.append(Segment(o, a))
+        self.segments.append(Segment(o, x))
+        
+        self.segments.append(Segment(w, b))
+        self.segments.append(Segment(w, y))
+        
+        self.segments.append(Segment(x, y))
+        
+        self.circles.append(Circle(o, o.distance(a)))
+        self.circles.append(Circle(w, w.distance(b)))
+    
+    def draw_cc_tangent(self, *args):
+        x, y, z, i, o, a, w, b = args
+        self.segments.append(Segment(o, a))
+        self.segments.append(Segment(o, x))
+        self.segments.append(Segment(o, z))
+        
+        self.segments.append(Segment(w, b))
+        self.segments.append(Segment(w, y))
+        self.segments.append(Segment(w, i))
+        
+        self.segments.append(Segment(x, y))
+        self.segments.append(Segment(z, i))
+        
+        self.circles.append(Circle(o, o.distance(a)))
+        self.circles.append(Circle(w, w.distance(b)))
+    
+    def draw_eqangle3(self, *args):
+        x, a, b, d, e, f = args
+        self.segments.append(Segment(f, d))
+        self.segments.append(Segment(d, e))
+        
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(x, b))
+    
+    def draw_tangent(self, *args):
+        x, y, a, o, b = args
+        self.segments.append(Segment(o, b))
+        self.segments.append(Segment(o, x))
+        self.segments.append(Segment(o, y))
+        self.segments.append(Segment(a, x))
+        self.segments.append(Segment(a, y))
+        
+        self.circles.append(Circle(o, o.distance(b)))
+    
+    def draw_on_circum(self, *args):
+        x, a, b, c = args
+        
+        self.circles.append(Circle(p1=a, p2=b, p3=c))
+    
+    def draw_sameside(self, *args):
+        x, a, b, c = args
+    
+    def draw_opposingsides(self, *args):
+        x, a, b, c = args
+        
+    def visualize(self):
+        imsize = 512 / 100
+        self.fig, self.ax = plt.subplots(figsize=(imsize, imsize), dpi=300)
+        self.ax.set_facecolor((1.0, 1.0, 1.0))
+        
+        # draw_line
+        # print(self.segments)
+        # segments = []
+        # for segment in self.segments:
+        #     new = True
+        #     for i, s in enumerate(segments):
+        #         if segment.line.same(s.line):
+        #             if segment.p1.x < s.p1.x or segment.p1.x == s.p1.x and segment.p1.y < s.p1.y:
+        #                 p1 = segment.p1
+        #             else:
+        #                 p1 = s.p1
+                        
+        #             if segment.p1.x > s.p1.x or segment.p1.x == s.p1.x and segment.p1.y > s.p1.y:
+        #                 p2 = segment.p2
+        #             else:
+        #                 p2 = s.p2
+                    
+        #             segments[i] = Segment(p1, p2)
+        #             new = False
+        #     if new:
+        #         segments.append(segment)
+                    
+        # print(segments)
+        
+        for segment in self.segments:
+            p1, p2 = segment.p1, segment.p2
+            lx, ly = (p1.x, p2.x), (p1.y, p2.y)
+            self.ax.plot(lx, ly, color='black', lw=1.2, alpha=0.8, ls='-')
+        
+        for circle in self.circles:
+            self.ax.add_patch(
+                plt.Circle(
+                    (circle.center.x, circle.center.y),
+                    circle.radius,
+                    color='red',
+                    alpha=0.8,
+                    fill=False,
+                    lw=1.2,
+                    ls='-'
+                )
+            )
+        
+        for p in self.points:
+            self.ax.scatter(p.x, p.y, color='black', s=15)
+            self.ax.annotate(self.point2name[p], (p.x+0.015, p.y+0.015), color='black', fontsize=8)
+        
+        self.ax.set_aspect('equal')
+        self.ax.set_axis_off()
+        self.fig.subplots_adjust(left=0.05, right=0.95, top=0.95, bottom=0.05, wspace=0, hspace=0)
+        xmin = min([p.x for p in self.points])
+        xmax = max([p.x for p in self.points])
+        ymin = min([p.y for p in self.points])
+        ymax = max([p.y for p in self.points])
+        x_margin = (xmax - xmin) * 0.1
+        y_margin = (ymax - ymin) * 0.1
+
+        self.ax.set_xlim(xmin - x_margin, xmax + x_margin)
+        self.ax.set_ylim(ymin - y_margin, ymax + y_margin)
+        plt.close(self.fig)
+        # plt.show()

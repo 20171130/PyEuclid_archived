@@ -748,20 +748,6 @@ class construct_on_circle(ConstructionRule):
         return [Length(self.o, self.x) - Length(self.o, self.a)]
 
 
-# @register("AG")
-# class construct_notonline(ConstructionRule):
-#     def __init__(self, cond_points, new_points):
-#         assert len(cond_points) == 2 and len(new_points) == 1
-#         self.a, self.b = cond_points[0], cond_points[1]
-#         self.x = new_points[0]
-
-#     def conditions(self):
-#         return [Different(self.a, self.b)]
-
-#     def conclusions(self):
-#         return [NotCollinear(self.x, self.a, self.b)]
-
-
 @register("AG")
 class construct_on_line(ConstructionRule):
     def __init__(self, x, a, b):

@@ -102,6 +102,11 @@ class Line:
         
         self.coefficients = a, b, c
     
+    def same(self, other: Line) -> bool:
+        a, b, c = self.coefficients
+        x, y, z = other.coefficients
+        return close_enough(a * y, b * x) and close_enough(b * z, c * y)
+        
     def parallel_line(self, p: Point) -> Line:
         a, b, _ = self.coefficients
         return Line(coefficients=(a, b, -a * p.x - b * p.y))
@@ -410,7 +415,14 @@ class Ray(Line):
                 raise ValueError("Cannot find a suitable point within the constraints")
             return [result]
 
-
+class Segment(Line):
+    def __init__(self, p1: Point, p2: Point):
+        if p2.x < p1.x or p2.x == p1.x and p2.y < p1.y:
+            p1, p2 = p2, p1
+        self.line = Line(p1, p2)
+        self.coefficients = self.line.coefficients
+        self.p1 = p1
+        self.p2 = p2
 
 class Circle:
     """Numerical circle."""
