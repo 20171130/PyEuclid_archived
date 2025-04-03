@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import os
+import pickle
+import hashlib
+
 from matplotlib import pyplot as plt
 
 from pyeuclid.formalization.construction_rule import *
@@ -7,9 +11,37 @@ from pyeuclid.formalization.numericals import *
 from pyeuclid.formalization.utils import *
 
 
+def hash_constructions_list(constructions_list):
+    s = ",".join(str(c) for constructions in constructions_list for c in constructions)
+    return hashlib.md5(s.encode('utf-8')).hexdigest()
 
-class Diagram:
-    def __init__(self, constructions_list:list[list[ConstructionRule]]=None):
+
+class Diagram:    
+    def __new__(cls, constructions_list:list[list[ConstructionRule]]=None, save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
+        if not resample and cache_folder is not None:
+            if not os.path.exists(cache_folder):
+                os.makedirs(cache_folder)
+            
+            if constructions_list is not None:
+                file_name = f"{hash_constructions_list(constructions_list)}.pkl"
+                file_path = os.path.join(cache_folder, file_name)
+                try:
+                    if os.path.exists(file_path):
+                        with open(file_path, 'rb') as f:
+                            instance = pickle.load(f)
+                            instance.save_path = save_path
+                            instance.save_diagram()
+                            return instance
+                except:
+                    pass
+        
+        instance = super().__new__(cls)
+        return instance
+    
+    def __init__(self, constructions_list:list[list[ConstructionRule]]=None, save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
+        if hasattr(self, 'cache_folder'):
+            return
+        
         self.points = []
         self.segments = []
         self.circles = []
@@ -19,28 +51,56 @@ class Diagram:
         
         self.fig, self.ax = None, None
         
-        if constructions_list is not None:
-            self.construct_diagram(constructions_list)
+        self.constructions_list = constructions_list
+        self.save_path = save_path
+        self.cache_folder = cache_folder
         
+        if constructions_list is not None:                
+            self.construct_diagram()
+            
     def clear(self):
         self.points.clear()
         self.segments.clear()
         self.circles.clear()
         
         self.name2point.clear()
+        self.point2name.clear()
         
-    def construct_diagram(self, constructions_list, resample_iter=100):
-        for _ in range(resample_iter):
+    def show(self):
+        self.draw_diagram(show=True)
+        
+    def save_to_cache(self):
+        if self.cache_folder is not None:
+            file_name = f"{hash_constructions_list(self.constructions_list)}.pkl"
+            file_path = os.path.join(self.cache_folder, file_name)
+            with open(file_path, 'wb') as f:
+                pickle.dump(self, f)
+    
+    def add_constructions(self, constructions):
+        for _ in range(MAX_DIAGRAM_ATTEMPTS):
             try:
-                self.clear()
-                for constructions in constructions_list:
-                    self.construct(constructions)
-                self.visualize()
+                self.construct(constructions)
+                self.constructions_list.append(constructions)
                 return
             except:
                 continue
         
-        print(f"Failed to construct a diagram after {resample_iter} attempts.")
+        print(f"Failed to add the constructions after {MAX_DIAGRAM_ATTEMPTS} attempts.")
+        raise Exception()
+            
+    def construct_diagram(self):
+        for _ in range(MAX_DIAGRAM_ATTEMPTS):
+            try:
+                self.clear()
+                for constructions in self.constructions_list:
+                    self.construct(constructions)
+                self.draw_diagram()
+                self.save_to_cache()
+                return
+            except:
+                continue
+        
+        print(f"Failed to construct a diagram after {MAX_DIAGRAM_ATTEMPTS} attempts.")
         raise Exception()
             
     def construct(self, constructions: list[ConstructionRule]):
@@ -73,10 +133,40 @@ class Diagram:
         
         for construction in constructions:
             self.draw(new_points, construction)
-    
-    def numerical_check(relation):
-        pass
-    
+            
+    def numerical_check_goal(self, goal):
+        if isinstance(goal, tuple):
+            for g in goal:
+                if self.numerical_check(g):
+                    return True, g
+        else:
+            if self.numerical_check(goal):
+                return True, goal
+        return False, goal
+            
+    def numerical_check(self, relation):
+        if isinstance(relation, Relation):
+            func = globals()['check_' + relation.__class__.__name__.lower()]
+            args = [self.name2point[p.name] for p in relation.get_points()]
+            return func(args)
+        else:
+            symbol_to_value = {}
+            symbols, symbol_names = parse_expression(relation)
+            
+            for angle_symbol, angle_name in zip(symbols['Angle'], symbol_names['Angle']):
+                angle_value = calculate_angle(*[self.name2point[n] for n in angle_name])
+                symbol_to_value[angle_symbol] = angle_value
+            
+            for length_symbol, length_name in zip(symbols['Length'], symbol_names['Length']):
+                length_value = calculate_length(*[self.name2point[n] for n in length_name])
+                symbol_to_value[length_symbol] = length_value
+            
+            evaluated_expr = relation.subs(symbol_to_value)
+            if close_enough(float(evaluated_expr.evalf()), 0):
+                return True
+            else:
+                return False
+
     def sketch(self, construction):
         func = getattr(self, 'sketch_' + construction.__class__.__name__[10:])
         args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.arguments()]
@@ -1198,7 +1288,6 @@ class Diagram:
     
     def draw_on_circum(self, *args):
         x, a, b, c = args
-        
         self.circles.append(Circle(p1=a, p2=b, p3=c))
     
     def draw_sameside(self, *args):
@@ -1207,34 +1296,10 @@ class Diagram:
     def draw_opposingsides(self, *args):
         x, a, b, c = args
         
-    def visualize(self):
+    def draw_diagram(self, show=False):
         imsize = 512 / 100
         self.fig, self.ax = plt.subplots(figsize=(imsize, imsize), dpi=300)
         self.ax.set_facecolor((1.0, 1.0, 1.0))
-        
-        # draw_line
-        # print(self.segments)
-        # segments = []
-        # for segment in self.segments:
-        #     new = True
-        #     for i, s in enumerate(segments):
-        #         if segment.line.same(s.line):
-        #             if segment.p1.x < s.p1.x or segment.p1.x == s.p1.x and segment.p1.y < s.p1.y:
-        #                 p1 = segment.p1
-        #             else:
-        #                 p1 = s.p1
-                        
-        #             if segment.p1.x > s.p1.x or segment.p1.x == s.p1.x and segment.p1.y > s.p1.y:
-        #                 p2 = segment.p2
-        #             else:
-        #                 p2 = s.p2
-                    
-        #             segments[i] = Segment(p1, p2)
-        #             new = False
-        #     if new:
-        #         segments.append(segment)
-                    
-        # print(segments)
         
         for segment in self.segments:
             p1, p2 = segment.p1, segment.p2
@@ -1267,8 +1332,20 @@ class Diagram:
         ymax = max([p.y for p in self.points])
         x_margin = (xmax - xmin) * 0.1
         y_margin = (ymax - ymin) * 0.1
-
-        self.ax.set_xlim(xmin - x_margin, xmax + x_margin)
-        self.ax.set_ylim(ymin - y_margin, ymax + y_margin)
+        
+        self.ax.margins(x_margin, y_margin)
+        
+        self.save_diagram()
+        
+        if show:
+            plt.show()
+            
         plt.close(self.fig)
-        # plt.show()
+    
+    def save_diagram(self):
+        if self.save_path is not None:
+            parent_dir = os.path.dirname(self.save_path)
+            if parent_dir and not os.path.exists(parent_dir):
+                os.makedirs(parent_dir)
+            self.fig.savefig(self.save_path)
+        

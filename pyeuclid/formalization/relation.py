@@ -39,15 +39,15 @@ class Relation:
             if isinstance(v, Point):
                 points.append(v)
             elif isinstance(v, list):
-                for _ in v:
-                    if isinstance(_, Point):
-                        points.append(v)
+                for p in v:
+                    if isinstance(p, Point):
+                        points.append(p)
         return points
 
     def __str__(self):
         class_name = self.__class__.__name__
         points = self.get_points()
-        args_name = ",".join(points)
+        args_name = ",".join([p.name for p in points])
         
         if not self.negated:
             return f"{class_name}({args_name})"

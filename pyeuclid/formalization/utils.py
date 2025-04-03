@@ -1,10 +1,12 @@
 import re
-import hashlib
-
 import sympy
 
-
 from typing import List
+from pathlib import Path
+
+
+ROOT_DIR = Path(__file__).parents[2]
+MAX_DIAGRAM_ATTEMPTS = 100
 
 
 def sort_points(*points):
@@ -214,15 +216,33 @@ def is_float(s):
     except ValueError:
         return False
 
-def parse_condition_conclusion(problem): 
-    parts = problem.split(' ? ')
-    if len(parts) > 1:
-        return parts[0].strip()
-    else:
-        return problem.strip()
+def parse_angle_expression(expr):
+    angles = []
+    angle_names = []
+    for arg in expr.free_symbols:
+        if arg.is_Symbol:
+            match = re.match(r'Angle_(\w+)_(\w+)_(\w+)', arg.name)
+            if match:
+                angles.append(arg)
+                angle_names.append(list(match.groups()))
+    return angles, angle_names
 
 
-def generate_md5_filename(problem, extension=".pkl"):
-    cond = parse_condition_conclusion(problem)
-    hash_value = hashlib.md5(cond.encode('utf-8')).hexdigest()
-    return f"{hash_value}{extension}"
+def parse_expression(expr):
+    symbols = {'Angle': [], 'Length': []}
+    symbol_names = {'Angle': [], 'Length': []}
+    
+    for arg in expr.free_symbols:
+        if arg.is_Symbol:
+            match1 = re.match(r'Angle_(\w+)_(\w+)_(\w+)', arg.name)
+            match2 = re.match(r'Length_(\w+)_(\w+)', arg.name)
+        if match1:
+            symbols['Angle'].append(arg)
+            symbol_names['Angle'].append(list(match1.groups()))
+        if match2:
+            symbols['Length'].append(arg)
+            symbol_names['Length'].append(list(match2.groups()))            
+            
+    return symbols, symbol_names
+
+        

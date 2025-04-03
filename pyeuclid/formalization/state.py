@@ -1,12 +1,19 @@
 import os
 import sys
 import logging
+
+from itertools import permutations
+
 from pyeuclid.formalization.utils import *
+from pyeuclid.formalization.translation import *
+from pyeuclid.formalization.diagram import *
 from pyeuclid.formalization.relation import *
 
 
 class State:
-    def __init__(self, conditions=None, queries=None):
+    def __init__(self):
+        self.goal = None
+        self.diagram = None
         self.points = set()
         self.relations = set()
         self.equations = []
@@ -23,17 +30,16 @@ class State:
         self.silent = False
         self.logger = logging.getLogger(__name__)
         
-        self.load_problem(conditions, queries)
         self.set_logger(logging.DEBUG)
         
-    def load_problem(self, conditions, queries):        
+    def load_problem(self, conditions=None, goal=None, diagram=None):        
         if conditions:
             self.add_relations(conditions)
-            
-        if queries:
-            self.add_queries(queries)
-            
-        self.categorize_variable()
+            self.categorize_variable()
+        if goal:
+            self.goal = goal
+        if diagram:
+            self.diagram = diagram
     
     def set_logger(self, level):
         self.logger.setLevel(level)
@@ -48,19 +54,13 @@ class State:
                     rank+' %(levelname)s - %(message)s')
             handler.setFormatter(formatter)
             self.logger.addHandler(handler)
-    
-    def add_queries(self, queries):
-        if not isinstance(queries, (tuple, list, set)):
-            self.queries = [queries]
-        else:
-            self.queries = queries
-    
+        
     def add_relations(self, relations):
         if not isinstance(relations, (tuple, list, set)):
             relations = [relations]
         for item in relations:
             if hasattr(item, "definition") and not item.negated:
-                self.add_conclusions(item.definition())
+                self.add_relations(item.definition())
             else:
                 if isinstance(item, Relation):
                     self.add_relation(item)
@@ -70,16 +70,16 @@ class State:
     def add_relation(self, relation):
         if relation in self.relations:
             return
-        entities = relation.get_entities()
-        for i in entities:
-            self.add_entity(i)
+        points = relation.get_points()
+        for p in points:
+            self.add_point(p)
         self.relations.add(relation)
         
-    def add_entity(self, entity):
-        if not entity in self.points:
+    def add_point(self, p):
+        if not p in self.points:
             for point in self.points:
-                self.lengths.add(Length(point, entity))
-            self.points.add(entity)
+                self.lengths.add(Length(point, p))
+            self.points.add(p)
     
     def add_equation(self, equation):
         # allow redundant equations for neat proofs
@@ -87,9 +87,9 @@ class State:
         for item in self.equations:
             if equation.expr - item.expr == 0:
                 return
-        entities, quantities = get_points_and_symbols(equation)
-        for i in entities:
-            self.add_entity(i)
+        points, quantities = get_points_and_symbols(equation)
+        for p in points:
+            self.add_point(p)
         unionfind = None
         for quantity in quantities:
             if "Angle" in str(quantity):
@@ -123,3 +123,58 @@ class State:
                         assert False
                     else:
                         self.var_types[entity] = label
+        
+    def load_problem_from_text(self, text, diagram_path=None):
+        constructions_list = get_constructions_list_from_text(text)
+        goal = get_goal_from_text(text)
+        
+        diagram = Diagram(constructions_list, diagram_path)
+        satisfied, satisfied_goal = diagram.numerical_check_goal(goal)
+        
+        for _ in range(MAX_DIAGRAM_ATTEMPTS):
+            if satisfied:
+                break
+            diagram = Diagram(constructions_list, diagram_path, resample=True)
+            satisfied, satisfied_goal = diagram.numerical_check_goal(goal)
+
+        if not satisfied:
+            raise Exception(f"Failed to satisfy goal after {MAX_DIAGRAM_ATTEMPTS} attempts.")
+        
+        self.diagram = diagram
+        self.goal = satisfied_goal
+        # self.diagram.show()
+        
+        for constructions in constructions_list:
+            for construction in constructions:
+                for p in construction.constructed_points():
+                    self.add_point(p)
+                
+                relations = construction.conclusions()
+                if isinstance(relations, tuple):
+                    if self.diagram.numerical_check(relations[0]):
+                        assert not self.diagram.numerical_check(relations[1])
+                        self.add_relations(relations[0])
+                    else:
+                        assert self.diagram.numerical_check(relations[1])
+                        self.add_relations(relations[1])
+                else:
+                    self.add_relations(relations)
+        
+        for perm in permutations(self.points, 3):
+            between_relation = Between(*perm)
+            if self.diagram.numerical_check(between_relation):
+                self.add_relations(between_relation)
+                
+            notcollinear_relation = NotCollinear(*perm)
+            if self.diagram.numerical_check(notcollinear_relation):
+                self.add_relations(notcollinear_relation)
+        
+        for perm in permutations(self.points, 4):
+            sameside_relation = SameSide(*perm)
+            if self.diagram.numerical_check(sameside_relation):
+                self.add_relations(sameside_relation)
+                
+            oppositeside_relation = OppositeSide(*perm)
+            if self.diagram.numerical_check(oppositeside_relation):
+                self.add_relations(oppositeside_relation)
+        

@@ -643,3 +643,110 @@ def check_too_far(newpoints: list[Point], points: list[Point], tol: int = 4) -> 
         if p.distance(avg) > maxdist * tol:
             return True
     return False
+
+
+def calculate_angle(a, b, c):
+    ab = Point(a.x - b.x, a.y - b.y)
+    bc = Point(c.x - b.x, c.y - b.y)
+
+    dot_product = ab.x * bc.x + ab.y * bc.y
+    magnitude_ab = math.sqrt(ab.x ** 2 + ab.y ** 2)
+    magnitude_bc = math.sqrt(bc.x ** 2 + bc.y ** 2)
+
+    angle = math.acos(dot_product / (magnitude_ab * magnitude_bc))
+    return angle
+
+def calculate_length(a, b):
+    return a.distance(b)
+
+def check_collinear(points):
+    a, b = points[:2]
+    l = Line(a, b)
+    for p in points[2:]:
+        if abs(l(p.x, p.y)) > ATOM:
+            return False
+    return True
+
+def check_notcollinear(points):
+    return not check_collinear(points)
+
+def check_between(points):
+    p, a, b = points
+    if check_notcollinear([a, b, p]):
+        return False
+      
+    if a.distance(p) < ATOM or b.distance(p) < ATOM:
+      return False
+
+    return min(a.x, b.x)-ATOM <= p.x <= max(a.x, b.x)+ATOM and min(a.y, b.y)-ATOM <= p.y <= max(a.y, b.y)+ATOM
+
+def check_sameside(points):
+    a, b, c, d = points
+    l = Line(c, d)
+    if l.same_side(a, b):
+        return True
+    else:
+        return False
+    
+def check_oppositeside(points):
+    a, b, c, d = points
+    l = Line(c, d)
+    if l.diff_side(a, b):
+        return True
+    else:
+        return False
+    
+def check_concyclic(points):
+    points = list(set(points))
+    a, b, c, *ps = points
+    circle = Circle(p1=a, p2=b, p3=c)
+    for d in ps:
+        if not close_enough(d.distance(circle.center), circle.radius):
+            return False
+    return True
+
+def check_parallel(points):
+    a, b, c, d = points
+    ab = Line(a, b)
+    cd = Line(c, d)
+    if ab.same(cd):
+        return False
+    return ab.is_parallel(cd)
+
+def check_perpendicular(points):
+    a, b, c, d = points
+    ab = Line(a, b)
+    cd = Line(c, d)
+    return ab.is_perp(cd)
+
+def check_midpoint(points):
+    a, b, c = points
+    return check_collinear(points) and close_enough(a.distance(b), a.distance(c))
+
+def check_similar(points):
+    a, b, c, x, y, z = points
+    ab = a.distance(b)
+    bc = b.distance(c)
+    ca = c.distance(a)
+    xy = x.distance(y)
+    yz = y.distance(z)
+    zx = z.distance(x)
+    tol = 1e-9
+    return close_enough(ab * yz, bc * xy, tol) and close_enough(
+        bc * zx, ca * yz, tol
+    )
+
+def check_congruent(points):
+    a, b, c, x, y, z = points
+    ab = a.distance(b)
+    bc = b.distance(c)
+    ca = c.distance(a)
+    xy = x.distance(y)
+    yz = y.distance(z)
+    zx = z.distance(x)
+    tol = 1e-9
+    return (
+        close_enough(ab, xy, tol)
+        and close_enough(bc, yz, tol)
+        and close_enough(ca, zx, tol)
+    )

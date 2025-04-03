@@ -1,6 +1,7 @@
+from sympy import pi
+
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.utils import *
-from sympy import pi
 
 construction_rule_sets = {}
 
@@ -683,30 +684,31 @@ class construct_on_aline(ConstructionRule):
         ]
 
     def conclusions(self):
-        return [Angle(self.x, self.a, self.b) - Angle(self.c, self.d, self.e)]
+        return Angle(self.x, self.a, self.b) - Angle(self.c, self.d, self.e), Angle(self.x, self.a, self.b) + Angle(self.c, self.d, self.e) - pi
 
 
-@register("AG")
-class construct_on_aline2(ConstructionRule):
-    def __init__(self, x, a, b, c, d, e):
-        self.x, self.a, self.b, self.c, self.d, self.e = x, a, b, c, d, e
+
+# @register("AG")
+# class construct_on_aline2(ConstructionRule):
+#     def __init__(self, x, a, b, c, d, e):
+#         self.x, self.a, self.b, self.c, self.d, self.e = x, a, b, c, d, e
     
-    def arguments(self):
-        return [self.a, self.b, self.c, self.d, self.e]
+#     def arguments(self):
+#         return [self.a, self.b, self.c, self.d, self.e]
         
-    def constructed_points(self):
-        return [self.x]
+#     def constructed_points(self):
+#         return [self.x]
 
-    def conditions(self):
-        return [
-            NotCollinear(self.c, self.d, self.e),
-            Different(self.a, self.b),
-            Different(self.c, self.d),
-            Different(self.c, self.e),
-        ]
+#     def conditions(self):
+#         return [
+#             NotCollinear(self.c, self.d, self.e),
+#             Different(self.a, self.b),
+#             Different(self.c, self.d),
+#             Different(self.c, self.e),
+#         ]
 
-    def conclusions(self):
-        return [Angle(self.x, self.a, self.b) + Angle(self.c, self.d, self.e) - pi]
+#     def conclusions(self):
+#         return [Angle(self.x, self.a, self.b) + Angle(self.c, self.d, self.e) - pi]
 
 
 @register("AG")
@@ -1045,7 +1047,7 @@ class construct_square(ConstructionRule):
         return [Different(self.a, self.b)]
 
     def conclusions(self):
-        return (
+        return [
             Perpendicular(self.a, self.b, self.b, self.x),
             Length(self.a, self.b) - Length(self.b, self.x),
             Parallel(self.a, self.b, self.x, self.y),
@@ -1055,7 +1057,7 @@ class construct_square(ConstructionRule):
             Length(self.x, self.y) - Length(self.y, self.a),
             Perpendicular(self.a, self.x, self.b, self.y),
             Length(self.a, self.x) - Length(self.b, self.y),
-        )
+        ]
 
 
 @register("AG")
@@ -1067,7 +1069,7 @@ class construct_isquare(ConstructionRule):
         return [self.a, self.b, self.c, self.d]
     
     def conclusions(self):
-        return (
+        return [
             Perpendicular(self.a, self.b, self.b, self.c),
             Length(self.a, self.b) - Length(self.b, self.c),
             Parallel(self.a, self.b, self.c, self.d),
@@ -1077,7 +1079,7 @@ class construct_isquare(ConstructionRule):
             Length(self.c, self.d) - Length(self.d, self.a),
             Perpendicular(self.a, self.c, self.b, self.d),
             Length(self.a, self.c) - Length(self.b, self.d),
-        )
+        ]
 
 
 @register("AG")
