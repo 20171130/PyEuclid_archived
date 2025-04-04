@@ -55,6 +55,7 @@ def get_goal_from_text(text):
                 return singles[0], repeating, singles[1]
             angle1 = Angle(*extract_angle(args[:4]))
             angle2 = Angle(*extract_angle(args[4:]))
+            # The goal may involve either equal angles or supplementary angles
             goal = (angle1 - angle2, angle1 + angle2 - pi)
         elif goal_name == 'midp':
             goal = Midpoint(*args)
