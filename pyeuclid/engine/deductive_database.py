@@ -5,19 +5,18 @@ from z3 import Solver, BitVec, BitVecVal, ULT, And, Or
 from tqdm import tqdm
 
 from pyeuclid.formalization.state import *
-from pyeuclid.formalization.inference_rule import *
+from pyeuclid.engine.inference_rule import *
 
 
 class DeductiveDatabase:
     def __init__(self, state):
         self.state = state
-        self.solvers = {}
-    
+        
     def get_applicable_theorems(self, theorems):
         def search_assignments(theorem):
-            if not theorem in self.solvers:
-                self.solvers[theorem] = Solver()
-            solver = self.solvers[theorem]
+            if not theorem in self.state.solvers:
+                self.state.solvers[theorem] = Solver()
+            solver = self.state.solvers[theorem]
             solver.push()
             slots = theorem.__init__.__annotations__
             formal_entities = {}
@@ -200,14 +199,14 @@ class DeductiveDatabase:
                 m = solver.model()
                 dic = {str(i): point_decoding[m[i]] for i in m}
                 concrete = theorem(**dic)
-                concrete._depth = self.current_depth
+                concrete._depth = self.state.current_depth
                 # if try complex, solutions in later iterations may be weaker than previous ones and unionfind because of abondoning complex equations, causing check condition failure
-                if not self.try_complex and not self.check_conditions(concrete.condition()):
+                if not self.state.try_complex and not self.state.check_conditions(concrete.condition()):
                     for condition in concrete.condition():
-                        if not self.check_conditions(condition):
+                        if not self.state.check_conditions(condition):
                             print(f"Failed condition: {condition}")
                             breakpoint()
-                            self.check_conditions(condition)
+                            self.state.check_conditions(condition)
                             assert False
                 if not concrete.degenerate():
                     assignments.append(concrete)
@@ -224,10 +223,59 @@ class DeductiveDatabase:
             return assignments
         
         applicable_theorems = []
-        pbar = tqdm(theorems, disable=self.silent)
+        pbar = tqdm(theorems, disable=self.state.silent)
         for theorem in pbar:
             pbar.set_description(
-                f"{theorem.__name__} #rels {len(self.state.relations)} # eqns {len(self.equations)}")
+                f"{theorem.__name__} #rels {len(self.state.relations)} # eqns {len(self.state.equations)}")
             concrete_theorems = search_assignments(theorem)
             applicable_theorems += concrete_theorems
         return applicable_theorems
+    
+    def apply(self, inferences):
+        last = None
+        cnt = 0
+        for item in inferences:
+            tmp = type(item)
+            if not tmp == last:
+                if cnt > 3:
+                    if not self.state.silent:
+                        self.state.logger.debug(f"...and {cnt-3} more.")
+                cnt = 0
+                last = tmp
+            if cnt < 3:
+                self.state.logger.debug(str(item))
+            cnt += 1
+            conclusions = item.conclusion()
+            for i, conclusion in enumerate(conclusions):
+                if isinstance(conclusion, sympy.core.expr.Expr):
+                    conclusion = Traced(conclusion)
+                    conclusion.sources = [item]
+                else:
+                    conclusion.source = item
+                conclusion.depth = self.state.current_depth
+                item.depth = self.state.current_depth
+                conclusions[i] = conclusion
+            self.state.add_relations(conclusions)
+        if cnt > 3:
+            self.state.logger.debug(f"...and {cnt} more.")
+    
+    def run(self):
+        inner_closure = True
+        while True:
+            if self.state.complete() is not None:
+                return
+            inner_applicable = self.get_applicable_theorems(inference_rule_sets["ex"])
+            self.apply(inner_applicable)
+            if len(inner_applicable) == 0:
+                break
+            inner_closure = False
+            
+        if self.state.complete() is not None:
+            return
+        
+        applicable_theorems = self.get_applicable_theorems(inference_rule_sets["basic"])
+        self.apply(applicable_theorems)
+        
+        if len(applicable_theorems) == 0 and inner_closure:
+            self.logger.debug("Found Closure")
+            return
