@@ -11,6 +11,7 @@ from pyeuclid.engine.inference_rule import *
 class DeductiveDatabase:
     def __init__(self, state):
         self.state = state
+        self.closure = False
         
     def get_applicable_theorems(self, theorems):
         def search_assignments(theorem):
@@ -277,5 +278,6 @@ class DeductiveDatabase:
         self.apply(applicable_theorems)
         
         if len(applicable_theorems) == 0 and inner_closure:
-            self.logger.debug("Found Closure")
+            self.closure = True
+            self.state.logger.debug("Found Closure")
             return

@@ -21,6 +21,9 @@ class Engine:
             
             self.deductive_database.run()
             
+            if self.deductive_database.closure:
+                break
+            
             if self.state.complete() is not None:
                 break
             
