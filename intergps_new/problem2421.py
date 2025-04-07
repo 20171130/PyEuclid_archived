@@ -1,0 +1,11 @@
+import sympy
+from pyeuclid.formalization.relation import *
+
+pi = sympy.pi
+
+
+relations = [(Length(Point('B'),Point('C')) - sympy.simplify('12')), (Angle(Point('C'),Point('B'),Point('D')) - sympy.simplify('60/180*pi')), (Length(Point('B'),Point('D')) - sympy.simplify('20')), Between(Point('E'),Point('B'),Point('C')), Collinear(Point('B'),Point('C'),Point('E')), Perpendicular(Point('C'),Point('E'),Point('D'),Point('E')), Parallelogram(Point('A'),Point('C'),Point('B'),Point('D'))]
+goal = (((Length(Point('A'),Point('D')) + Length(Point('A'),Point('C'))) + Length(Point('B'),Point('C'))) + Length(Point('B'),Point('D')))
+solution = '64'
+
+diagrammatic_relations = {OppositeSide(Point('A'),Point('B'),Point('C'),Point('D')), NotCollinear(Point('A'),Point('C'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('C')), SameSide(Point('A'),Point('D'),Point('B'),Point('C')), NotCollinear(Point('A'),Point('B'),Point('D')), NotCollinear(Point('B'),Point('C'),Point('D')), OppositeSide(Point('C'),Point('D'),Point('A'),Point('B')), SameSide(Point('A'),Point('C'),Point('B'),Point('D')), SameSide(Point('B'),Point('C'),Point('A'),Point('D')), SameSide(Point('B'),Point('D'),Point('A'),Point('C'))}

@@ -1,0 +1,11 @@
+import sympy
+from pyeuclid.formalization.relation import *
+
+pi = sympy.pi
+
+
+relations = [Between(Point('C'),Point('P'),Point('R')), Collinear(Point('C'),Point('P'),Point('R')), Between(Point('C'),Point('Q'),Point('S')), Collinear(Point('C'),Point('Q'),Point('S')), Rhombus(Point('P'),Point('Q'),Point('R'),Point('S')), (Length(Point('C'),Point('R')) - Variable('radius_C')), (Length(Point('C'),Point('S')) - Variable('radius_C')), (Length(Point('C'),Point('Q')) - Variable('radius_C')), (Length(Point('C'),Point('P')) - Variable('radius_C')), (Length(Point('C'),Point('P')) - Variable('radius_C')), (Length(Point('C'),Point('Q')) - Variable('radius_C')), (Length(Point('C'),Point('R')) - Variable('radius_C')), (Length(Point('C'),Point('S')) - Variable('radius_C'))]
+goal = Angle(Point('P'),Point('C'),Point('S'))
+solution = '(90)/180*pi'
+
+diagrammatic_relations = {SameSide(Point('C'),Point('R'),Point('P'),Point('Q')), SameSide(Point('P'),Point('Q'),Point('R'),Point('S')), OppositeSide(Point('Q'),Point('S'),Point('P'),Point('R')), SameSide(Point('C'),Point('S'),Point('P'),Point('Q')), SameSide(Point('C'),Point('P'),Point('Q'),Point('R')), NotCollinear(Point('P'),Point('R'),Point('S')), NotCollinear(Point('Q'),Point('R'),Point('S')), NotCollinear(Point('C'),Point('P'),Point('S')), NotCollinear(Point('C'),Point('R'),Point('S')), SameSide(Point('C'),Point('Q'),Point('P'),Point('S')), SameSide(Point('C'),Point('S'),Point('Q'),Point('R')), OppositeSide(Point('Q'),Point('S'),Point('C'),Point('P')), SameSide(Point('C'),Point('Q'),Point('R'),Point('S')), NotCollinear(Point('C'),Point('Q'),Point('R')), SameSide(Point('R'),Point('S'),Point('P'),Point('Q')), NotCollinear(Point('P'),Point('Q'),Point('S')), NotCollinear(Point('P'),Point('Q'),Point('R')), SameSide(Point('C'),Point('P'),Point('R'),Point('S')), SameSide(Point('Q'),Point('R'),Point('P'),Point('S')), OppositeSide(Point('P'),Point('R'),Point('Q'),Point('S')), OppositeSide(Point('P'),Point('R'),Point('C'),Point('Q')), SameSide(Point('P'),Point('S'),Point('Q'),Point('R')), OppositeSide(Point('Q'),Point('S'),Point('C'),Point('R')), SameSide(Point('C'),Point('R'),Point('P'),Point('S')), NotCollinear(Point('C'),Point('P'),Point('Q')), OppositeSide(Point('P'),Point('R'),Point('C'),Point('S'))}

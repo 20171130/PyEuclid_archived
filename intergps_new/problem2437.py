@@ -1,0 +1,11 @@
+import sympy
+from pyeuclid.formalization.relation import *
+
+pi = sympy.pi
+
+
+relations = [(Angle(Point('V'),Point('X'),Point('Z')) - ((((sympy.simplify('2') * Variable('x')) + sympy.simplify('65')) / sympy.simplify('180')) * sympy.simplify('pi'))), (Angle(Point('W'),Point('X'),Point('Y')) - ((((sympy.simplify('4') * Variable('x')) + sympy.simplify('15')) / sympy.simplify('180')) * sympy.simplify('pi'))), Between(Point('X'),Point('W'),Point('Z')), Collinear(Point('W'),Point('X'),Point('Z')), Between(Point('X'),Point('V'),Point('Y')), Collinear(Point('V'),Point('X'),Point('Y')), (Length(Point('W'),Point('X')) - Variable('radius_X')), (Length(Point('X'),Point('Y')) - Variable('radius_X')), (Length(Point('V'),Point('X')) - Variable('radius_X')), (Length(Point('X'),Point('Z')) - Variable('radius_X'))]
+goal = Angle(Point('V'),Point('X'),Point('W'))
+solution = '(65)/180*pi'
+
+diagrammatic_relations = {OppositeSide(Point('W'),Point('Z'),Point('X'),Point('Y')), NotCollinear(Point('V'),Point('X'),Point('Z')), SameSide(Point('W'),Point('Y'),Point('V'),Point('Z')), SameSide(Point('X'),Point('Z'),Point('V'),Point('W')), SameSide(Point('W'),Point('X'),Point('Y'),Point('Z')), SameSide(Point('V'),Point('W'),Point('Y'),Point('Z')), OppositeSide(Point('W'),Point('Z'),Point('V'),Point('Y')), OppositeSide(Point('V'),Point('Y'),Point('X'),Point('Z')), SameSide(Point('V'),Point('X'),Point('W'),Point('Y')), NotCollinear(Point('V'),Point('W'),Point('Z')), NotCollinear(Point('X'),Point('Y'),Point('Z')), SameSide(Point('X'),Point('Z'),Point('W'),Point('Y')), OppositeSide(Point('V'),Point('Y'),Point('W'),Point('X')), NotCollinear(Point('W'),Point('X'),Point('Y')), SameSide(Point('X'),Point('Y'),Point('V'),Point('W')), SameSide(Point('X'),Point('Y'),Point('V'),Point('Z')), NotCollinear(Point('V'),Point('W'),Point('Y')), NotCollinear(Point('V'),Point('W'),Point('X')), NotCollinear(Point('W'),Point('Y'),Point('Z')), SameSide(Point('W'),Point('X'),Point('V'),Point('Z')), SameSide(Point('Y'),Point('Z'),Point('V'),Point('W')), OppositeSide(Point('W'),Point('Z'),Point('V'),Point('X')), SameSide(Point('V'),Point('X'),Point('Y'),Point('Z')), NotCollinear(Point('V'),Point('Y'),Point('Z')), OppositeSide(Point('V'),Point('Y'),Point('W'),Point('Z')), SameSide(Point('V'),Point('Z'),Point('W'),Point('Y'))}

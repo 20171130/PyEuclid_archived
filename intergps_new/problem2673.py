@@ -1,0 +1,11 @@
+import sympy
+from pyeuclid.formalization.relation import *
+
+pi = sympy.pi
+
+
+relations = [Length(Point('U'),Point('S'))-5,Length(Point('R'),Point('S'))-6, (Angle(Point('T'),Point('S'),Point('U')) - Variable('angle_5')), (Angle(Point('R'),Point('S'),Point('T')) - Variable('angle_6')), Between(Point('S'),Point('T'),Point('V')), Collinear(Point('S'),Point('T'),Point('V')), Between(Point('S'),Point('R'),Point('U')), Collinear(Point('R'),Point('S'),Point('U')), Perpendicular(Point('S'),Point('U'),Point('S'),Point('V')), (Length(Point('R'),Point('V')) - Variable('radius_R')), (Length(Point('R'),Point('T')) - Variable('radius_R')), (Length(Point('R'),Point('U')) - Variable('radius_R'))]
+goal = Length(Point('T'),Point('V'))
+solution = '18.44'
+
+diagrammatic_relations = {NotCollinear(Point('R'),Point('S'),Point('V')), SameSide(Point('R'),Point('S'),Point('T'),Point('U')), NotCollinear(Point('R'),Point('U'),Point('V')), SameSide(Point('R'),Point('S'),Point('U'),Point('V')), OppositeSide(Point('T'),Point('V'),Point('S'),Point('U')), SameSide(Point('S'),Point('T'),Point('R'),Point('V')), SameSide(Point('S'),Point('U'),Point('R'),Point('T')), NotCollinear(Point('R'),Point('T'),Point('V')), NotCollinear(Point('S'),Point('U'),Point('V')), OppositeSide(Point('R'),Point('U'),Point('S'),Point('V')), NotCollinear(Point('R'),Point('S'),Point('T')), SameSide(Point('S'),Point('T'),Point('U'),Point('V')), NotCollinear(Point('T'),Point('U'),Point('V')), OppositeSide(Point('T'),Point('V'),Point('R'),Point('U')), SameSide(Point('R'),Point('T'),Point('U'),Point('V')), SameSide(Point('S'),Point('V'),Point('T'),Point('U')), SameSide(Point('T'),Point('U'),Point('R'),Point('V')), NotCollinear(Point('S'),Point('T'),Point('U')), OppositeSide(Point('R'),Point('U'),Point('S'),Point('T')), OppositeSide(Point('T'),Point('V'),Point('R'),Point('S')), NotCollinear(Point('R'),Point('T'),Point('U')), SameSide(Point('U'),Point('V'),Point('R'),Point('T')), OppositeSide(Point('R'),Point('U'),Point('T'),Point('V')), SameSide(Point('S'),Point('V'),Point('R'),Point('T')), SameSide(Point('S'),Point('U'),Point('R'),Point('V')), SameSide(Point('R'),Point('V'),Point('T'),Point('U'))}
