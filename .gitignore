@@ -1,3 +1,6 @@
 pyeuclid.egg-info/
 build/
+cache/
+diagrams/
 .vscode/
+**/__pycache__/
