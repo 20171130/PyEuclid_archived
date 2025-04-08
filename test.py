@@ -27,7 +27,7 @@ class TestBenchmarks(unittest.TestCase):
             t = time.time() - t
             if state.complete() is not None:
                 print(f"Solved in {t} seconds")
-                engine.proof_generartion()
+                engine.generate_proof()
             else:
                 print(f"Not solved in {t} seconds")
             
@@ -64,7 +64,7 @@ class TestBenchmarks(unittest.TestCase):
     #         if result:
     #             assert abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2
     #             print(f"Solved in {t} seconds")
-    #             engine.proof_generartion()
+    #             engine.generate_proof()
     #         else:
     #             print(f"Not solved in {t} seconds")
             

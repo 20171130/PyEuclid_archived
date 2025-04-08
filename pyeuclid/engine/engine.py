@@ -78,5 +78,5 @@ class Engine:
             raise e
     
     
-    def proof_generartion(self):
+    def generate_proof(self):
         self.proof_generator.run(self.state.goal)

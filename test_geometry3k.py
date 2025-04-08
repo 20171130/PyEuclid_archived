@@ -40,6 +40,7 @@ def run_single_problem(idx):
         result = state.complete()
         if result:
             assert abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2
+            engine.generate_proof()
             return idx, True, f"[{idx}] Solved in {t:.2f}s"
         else:
             return idx, False, f"[{idx}] Not solved in {t:.2f}s"
