@@ -17,17 +17,20 @@ class TestBenchmarks(unittest.TestCase):
         texts = parse_texts_from_file('data/JGEX-AG-231.txt')
         for idx, text in enumerate(texts):
             state = State()
+            state.silent = True
             state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
             deductive_database = DeductiveDatabase(state)
             algebraic_system = AlgebraicSystem(state)
             proof_generator = ProofGenerator(state)
-            engine = Engine(state, deductive_database, algebraic_system, proof_generator)
+            engine = Engine(state, deductive_database, algebraic_system)
             t = time.time()
             engine.search()
             t = time.time() - t
             if state.complete() is not None:
                 print(f"Solved in {t} seconds")
-                engine.generate_proof()
+                proof_generator.generate_proof()
+                proof_generator.show_proof()
+                input()
             else:
                 print(f"Not solved in {t} seconds")
             
@@ -54,7 +57,7 @@ class TestBenchmarks(unittest.TestCase):
     #         deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic']+inference_rule_sets['complex'])
     #         algebraic_system = AlgebraicSystem(state)
     #         proof_generator = ProofGenerator(state)
-    #         engine = Engine(state, deductive_database, algebraic_system, proof_generator)
+    #         engine = Engine(state, deductive_database, algebraic_system)
 
     #         t = time.time()
     #         engine.search()
@@ -64,7 +67,8 @@ class TestBenchmarks(unittest.TestCase):
     #         if result:
     #             assert abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2
     #             print(f"Solved in {t} seconds")
-    #             engine.generate_proof()
+    #             proof_generator.generate_proof()
+    #             proof_generator.show_proof()
     #         else:
     #             print(f"Not solved in {t} seconds")
             

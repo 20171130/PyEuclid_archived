@@ -11,6 +11,10 @@ from pyeuclid.engine.inference_rule import *
 class ProofGenerator:
     def __init__(self, state):
         self.state = state
+        self.proof = ""
+    
+    def show_proof(self):
+        print(self.proof)
     
     def traceback(self, augmented_A, e) -> list[str]:
         m, n = augmented_A.shape
@@ -36,8 +40,7 @@ class ProofGenerator:
         model.optimize()
 
         if model.status != GRB.OPTIMAL:
-            print("Optimization failed.")
-            return []
+            raise Exception("Optimization failed.")
         
         return [i for i in range(m) if z[i].x > 0]
     
@@ -159,7 +162,7 @@ class ProofGenerator:
                 proof_steps[node] = (step_counter, conditions, theorem)
                 step_counter += 1
             search(conclusion)
-            print("* Proof steps:")
+            self.proof += "* Proof steps:\n"
             lst = [(key, value) for key, value in proof_steps.items()]
             lst.sort(key=lambda x: x[1][0])
             last = -1
@@ -167,8 +170,7 @@ class ProofGenerator:
                 if step_number == last:
                     continue
                 last = step_number
-                print(
-                    f"{step_number:03}. {format_conditions(node, proof_steps, theorem)} ⇒  {node}\n")
+                self.proof += f"{step_number:03}. {format_conditions(node, proof_steps, theorem)} ⇒ {node}\n"
         if node in visited:
             return {}
         if isinstance(node, InferenceRule):
@@ -231,3 +233,6 @@ class ProofGenerator:
         if root:
             format_proof(result, node)
         return result
+    
+    def generate_proof(self):
+        self.run(self.state.goal)
