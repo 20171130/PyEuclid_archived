@@ -1,0 +1,11 @@
+import sympy
+from pyeuclid.formalization.relation import *
+
+pi = sympy.pi
+
+
+conditions = [(Length(Point('Bprime'),Point('Q')) - sympy.simplify('8')), (Length(Point('B'),Point('Q')) - sympy.simplify('6')), (Length(Point('B'),Point('Bprime')) - Variable('x')), Between(Point('D'),Point('A'),Point('Q')), Collinear(Point('A'),Point('D'),Point('Q')), Between(Point('B'),Point('Bprime'),Point('Q')), Collinear(Point('B'),Point('Bprime'),Point('Q'))]
+goal = (Length(Point('Bprime'),Point('Q')) / Length(Point('B'),Point('Q')))
+solution = '4/3'
+
+diagrammatic_relations = [OppositeSide(Point('A'),Point('Q'),Point('Bprime'),Point('D')), SameSide(Point('D'),Point('Q'),Point('A'),Point('B')), SameSide(Point('A'),Point('D'),Point('Bprime'),Point('Q')), NotCollinear(Point('A'),Point('B'),Point('Q')), OppositeSide(Point('Bprime'),Point('Q'),Point('B'),Point('D')), SameSide(Point('B'),Point('D'),Point('A'),Point('Bprime')), OppositeSide(Point('Bprime'),Point('D'),Point('A'),Point('B')), NotCollinear(Point('A'),Point('B'),Point('Bprime')), SameSide(Point('B'),Point('Q'),Point('Bprime'),Point('D')), SameSide(Point('B'),Point('Bprime'),Point('A'),Point('D')), SameSide(Point('B'),Point('Q'),Point('A'),Point('Bprime')), NotCollinear(Point('B'),Point('D'),Point('Q')), NotCollinear(Point('Bprime'),Point('D'),Point('Q')), SameSide(Point('A'),Point('Bprime'),Point('B'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('D')), SameSide(Point('A'),Point('D'),Point('B'),Point('Bprime')), NotCollinear(Point('A'),Point('Bprime'),Point('Q')), NotCollinear(Point('B'),Point('Bprime'),Point('D')), SameSide(Point('B'),Point('Bprime'),Point('D'),Point('Q')), SameSide(Point('D'),Point('Q'),Point('A'),Point('Bprime')), OppositeSide(Point('A'),Point('B'),Point('Bprime'),Point('D')), NotCollinear(Point('A'),Point('Bprime'),Point('D')), SameSide(Point('A'),Point('D'),Point('B'),Point('Q')), SameSide(Point('B'),Point('Bprime'),Point('A'),Point('Q')), OppositeSide(Point('A'),Point('Q'),Point('B'),Point('D')), OppositeSide(Point('Bprime'),Point('Q'),Point('A'),Point('B'))]

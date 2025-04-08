@@ -17,10 +17,11 @@ def is_small(x):
     try:
         return abs(x) < eps
     except:
-        breakpoint()
+        assert False
+        # breakpoint()
 
 
-class AlgebaicSystem:
+class AlgebraicSystem:
     def __init__(self, state):
         self.state = state
         
@@ -74,7 +75,7 @@ class AlgebaicSystem:
             factors = [item[0] for item in factors if not item[0].is_positive]
             if len(factors) == 0:
                 if check:
-                    breakpoint()  # contradiction
+                    # breakpoint()  # contradiction
                     assert False
                 else:
                     return sympy.sympify(0)
@@ -241,7 +242,7 @@ class AlgebaicSystem:
                 for symbol in symbols:
                     solutions = None
                     solution = None
-                    pattern = re.compile(r"(cos|sin)\(\d+\*" + symbol + r"\)")
+                    pattern = re.compile(r"(cos|sin)\(\d+\*" + str(symbol) + r"\)")
                     # sympy cannot handle solutions with +k*pi/n correctly, only one solution is returned
                     if pattern.search(tmp):
                         continue
@@ -271,7 +272,8 @@ class AlgebaicSystem:
                                 breakpoint()
                                 assert False
                 else:
-                    self.logger.debug(f"abondended complex equation {eqn, raw_eqn}")
+                    if not self.state.silent:
+                        self.state.logger.debug(f"abondended complex equation {eqn, raw_eqn}")
             if not progress and try_complex and not exact_exhausted:
                 progress = True
                 exact_exhausted = True

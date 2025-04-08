@@ -1,0 +1,11 @@
+import sympy
+from pyeuclid.formalization.relation import *
+
+pi = sympy.pi
+
+
+conditions = [(Length(Point('A'),Point('E')) - sympy.simplify('23')), (Length(Point('B'),Point('C')) - sympy.simplify('37')), (Length(Point('A'),Point('D')) - sympy.simplify('22')), Between(Point('E'),Point('B'),Point('C')), Collinear(Point('B'),Point('C'),Point('E')), Perpendicular(Point('A'),Point('E'),Point('C'),Point('E')), Trapezoid(Point('B'),Point('C'),Point('A'),Point('D'))]
+goal = Area(Point('A'),Point('C'),Point('B'),Point('D'))
+solution = '678.5'
+
+diagrammatic_relations = [SameSide(Point('A'),Point('C'),Point('D'),Point('E')), NotCollinear(Point('A'),Point('B'),Point('E')), OppositeSide(Point('A'),Point('E'),Point('C'),Point('D')), SameSide(Point('A'),Point('C'),Point('B'),Point('D')), SameSide(Point('B'),Point('E'),Point('A'),Point('D')), SameSide(Point('A'),Point('D'),Point('C'),Point('E')), OppositeSide(Point('A'),Point('B'),Point('C'),Point('D')), SameSide(Point('B'),Point('D'),Point('A'),Point('E')), SameSide(Point('A'),Point('D'),Point('B'),Point('C')), SameSide(Point('C'),Point('E'),Point('A'),Point('B')), NotCollinear(Point('A'),Point('C'),Point('E')), OppositeSide(Point('C'),Point('D'),Point('A'),Point('B')), OppositeSide(Point('B'),Point('C'),Point('A'),Point('E')), SameSide(Point('A'),Point('D'),Point('B'),Point('E')), SameSide(Point('B'),Point('E'),Point('C'),Point('D')), SameSide(Point('C'),Point('E'),Point('B'),Point('D')), SameSide(Point('A'),Point('E'),Point('B'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('D')), NotCollinear(Point('C'),Point('D'),Point('E')), SameSide(Point('B'),Point('C'),Point('A'),Point('D')), SameSide(Point('B'),Point('E'),Point('A'),Point('C')), SameSide(Point('D'),Point('E'),Point('A'),Point('C')), OppositeSide(Point('C'),Point('D'),Point('A'),Point('E')), NotCollinear(Point('A'),Point('C'),Point('D')), SameSide(Point('C'),Point('E'),Point('A'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('C')), OppositeSide(Point('D'),Point('E'),Point('A'),Point('B')), NotCollinear(Point('A'),Point('D'),Point('E')), OppositeSide(Point('B'),Point('C'),Point('D'),Point('E')), OppositeSide(Point('A'),Point('B'),Point('D'),Point('E')), NotCollinear(Point('B'),Point('D'),Point('E')), NotCollinear(Point('B'),Point('C'),Point('D')), SameSide(Point('B'),Point('D'),Point('A'),Point('C'))]

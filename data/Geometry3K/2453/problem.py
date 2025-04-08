@@ -1,0 +1,11 @@
+import sympy
+from pyeuclid.formalization.relation import *
+
+pi = sympy.pi
+
+
+conditions = [Between(Point('K'),Point('F'),Point('H')), Collinear(Point('F'),Point('H'),Point('K')), Between(Point('K'),Point('G'),Point('J')), Collinear(Point('G'),Point('J'),Point('K')), Rhombus(Point('F'),Point('G'),Point('H'),Point('J')), Collinear(Point('F'),Point('H'),Point('K')), Collinear(Point('G'),Point('J'),Point('K')), (Length(Point('G'),Point('H')) - (Variable('x') + sympy.simplify('9'))), (Length(Point('H'),Point('J')) - ((sympy.simplify('5') * Variable('x')) - sympy.simplify('2'))), Rhombus(Point('F'),Point('G'),Point('H'),Point('J')), Collinear(Point('F'),Point('H'),Point('K')), Collinear(Point('G'),Point('J'),Point('K')), (Length(Point('G'),Point('H')) - (Variable('x') + sympy.simplify('9'))), (Length(Point('H'),Point('J')) - ((sympy.simplify('5') * Variable('x')) - sympy.simplify('2')))]
+goal = Variable('x')
+solution = '2.75'
+
+diagrammatic_relations = [NotCollinear(Point('F'),Point('J'),Point('K')), SameSide(Point('G'),Point('K'),Point('H'),Point('J')), OppositeSide(Point('G'),Point('J'),Point('H'),Point('K')), OppositeSide(Point('F'),Point('H'),Point('G'),Point('J')), SameSide(Point('J'),Point('K'),Point('F'),Point('G')), NotCollinear(Point('F'),Point('G'),Point('J')), SameSide(Point('F'),Point('K'),Point('H'),Point('J')), SameSide(Point('F'),Point('J'),Point('G'),Point('H')), NotCollinear(Point('G'),Point('H'),Point('K')), OppositeSide(Point('F'),Point('H'),Point('G'),Point('K')), OppositeSide(Point('F'),Point('H'),Point('J'),Point('K')), OppositeSide(Point('G'),Point('J'),Point('F'),Point('K')), SameSide(Point('H'),Point('J'),Point('F'),Point('G')), SameSide(Point('F'),Point('K'),Point('G'),Point('H')), OppositeSide(Point('G'),Point('J'),Point('F'),Point('H')), SameSide(Point('G'),Point('K'),Point('F'),Point('J')), SameSide(Point('F'),Point('G'),Point('H'),Point('J')), SameSide(Point('H'),Point('K'),Point('F'),Point('J')), NotCollinear(Point('G'),Point('H'),Point('J')), NotCollinear(Point('F'),Point('H'),Point('J')), SameSide(Point('G'),Point('H'),Point('F'),Point('J')), NotCollinear(Point('F'),Point('G'),Point('K')), SameSide(Point('J'),Point('K'),Point('G'),Point('H')), NotCollinear(Point('H'),Point('J'),Point('K')), SameSide(Point('H'),Point('K'),Point('F'),Point('G')), NotCollinear(Point('F'),Point('G'),Point('H'))]

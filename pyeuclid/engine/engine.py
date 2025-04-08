@@ -1,15 +1,12 @@
 from pyeuclid.formalization.relation import *
-from pyeuclid.engine.deductive_database import DeductiveDatabase
-from pyeuclid.engine.algebraic_system import AlgebaicSystem
-from pyeuclid.engine.proof_generator import ProofGenerator
 
 
 class Engine:
-    def __init__(self, state):
+    def __init__(self, state, deductive_database, algebraic_system, proof_generator):
         self.state = state
-        self.deductive_database = DeductiveDatabase(state)
-        self.algebraic_system = AlgebaicSystem(state)
-        self.proof_generator = ProofGenerator(state)
+        self.deductive_database = deductive_database
+        self.algebraic_system = algebraic_system
+        self.proof_generator = proof_generator
         
     def search(self, depth=9999):
         self.algebraic_system.run()

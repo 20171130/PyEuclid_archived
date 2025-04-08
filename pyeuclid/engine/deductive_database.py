@@ -9,8 +9,10 @@ from pyeuclid.engine.inference_rule import *
 
 
 class DeductiveDatabase:
-    def __init__(self, state):
+    def __init__(self, state, inner_theorems=inference_rule_sets["ex"], outer_theorems=inference_rule_sets["basic"]):
         self.state = state
+        self.inner_theorems = inner_theorems
+        self.outer_theorems = outer_theorems
         self.closure = False
         
     def get_applicable_theorems(self, theorems):
@@ -244,7 +246,8 @@ class DeductiveDatabase:
                 cnt = 0
                 last = tmp
             if cnt < 3:
-                self.state.logger.debug(str(item))
+                if not self.state.silent:
+                    self.state.logger.debug(str(item))
             cnt += 1
             conclusions = item.conclusion()
             for i, conclusion in enumerate(conclusions):
@@ -258,14 +261,15 @@ class DeductiveDatabase:
                 conclusions[i] = conclusion
             self.state.add_relations(conclusions)
         if cnt > 3:
-            self.state.logger.debug(f"...and {cnt} more.")
+            if not self.state.silent:
+                self.state.logger.debug(f"...and {cnt} more.")
     
     def run(self):
         inner_closure = True
         while True:
             if self.state.complete() is not None:
                 return
-            inner_applicable = self.get_applicable_theorems(inference_rule_sets["ex"])
+            inner_applicable = self.get_applicable_theorems(self.inner_theorems)
             self.apply(inner_applicable)
             if len(inner_applicable) == 0:
                 break
@@ -274,10 +278,11 @@ class DeductiveDatabase:
         if self.state.complete() is not None:
             return
         
-        applicable_theorems = self.get_applicable_theorems(inference_rule_sets["basic"])
+        applicable_theorems = self.get_applicable_theorems(self.outer_theorems)
         self.apply(applicable_theorems)
         
         if len(applicable_theorems) == 0 and inner_closure:
             self.closure = True
-            self.state.logger.debug("Found Closure")
+            if not self.state.silent:
+                self.state.logger.debug("Found Closure")
             return
