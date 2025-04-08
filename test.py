@@ -1,6 +1,7 @@
 import unittest
 import time
 
+import os
 from sympy import sympify
 
 from pyeuclid.formalization.translation import parse_texts_from_file
@@ -14,22 +15,31 @@ from pyeuclid.engine.engine import Engine
 
 class TestBenchmarks(unittest.TestCase):
     def test_jgex_ag_231(self):
+        rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
+        world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
         texts = parse_texts_from_file('data/JGEX-AG-231.txt')
         for idx, text in enumerate(texts):
+            if not idx%world_size == rank:
+                continue
             state = State()
-            state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
-            deductive_database = DeductiveDatabase(state)
-            algebraic_system = AlgebraicSystem(state)
-            proof_generator = ProofGenerator(state)
-            engine = Engine(state, deductive_database, algebraic_system, proof_generator)
-            t = time.time()
-            engine.search()
-            t = time.time() - t
-            if state.complete() is not None:
-                print(f"Solved in {t} seconds")
-                engine.proof_generartion()
-            else:
-                print(f"Not solved in {t} seconds")
+            if world_size > 1:
+                state.silent = True
+            try:
+                state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
+                deductive_database = DeductiveDatabase(state)
+                algebraic_system = AlgebraicSystem(state)
+                proof_generator = ProofGenerator(state)
+                engine = Engine(state, deductive_database, algebraic_system, proof_generator)
+                t = time.time()
+                engine.search()
+                t = time.time() - t
+                if state.complete() is not None:
+                    print(f"Solved in {t} seconds")
+                    engine.proof_generartion()
+                else:
+                    print(f"Not solved in {t} seconds")
+            except BaseException as e:
+                print(f"Error {idx} {text} {e}")
             
     # def test_geometry3k(self):
     #     for idx in range(2401, 3002):
