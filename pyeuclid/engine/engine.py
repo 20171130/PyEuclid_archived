@@ -10,10 +10,10 @@ class Engine:
     def search(self, depth=9999):
         self.algebraic_system.run()
         for _ in range(self.state.current_depth, self.state.current_depth + depth):
-            self.state.current_depth += 1
-            
             if self.state.complete() is not None:
                 break
+            
+            self.state.current_depth += 1
             
             self.deductive_database.run()
             

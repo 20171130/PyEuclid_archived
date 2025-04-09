@@ -40,7 +40,8 @@ class ProofGenerator:
         model.optimize()
 
         if model.status != GRB.OPTIMAL:
-            raise Exception("Optimization failed.")
+            print("Optimization failed.")
+            assert False
         
         return [i for i in range(m) if z[i].x > 0]
     
