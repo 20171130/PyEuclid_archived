@@ -41,9 +41,9 @@ class TestBenchmarks(unittest.TestCase):
     #                     proof_generator.show_proof()
     #             else:
     #                 print(f"{idx} unsolved in {t} seconds")
-            # except BaseException as e:
-            #     if isinstance(e, KeyboardInterrupt):
-            #         exit()
+    #         except BaseException as e:
+    #             if isinstance(e, KeyboardInterrupt):
+    #                 exit()
     #             print(f"{idx} error {text} {e}")
     #             print(traceback.format_exc())
             
@@ -79,8 +79,11 @@ class TestBenchmarks(unittest.TestCase):
                 t = time.time() - t
                 result = state.complete()
                 
-                if result and (result is True or abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2):
-                    print(f"{idx} solved in {t} seconds")
+                if result is not None:
+                    if (result is True or abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2):
+                        print(f"{idx} solved in {t} seconds")
+                    else:
+                        print(f"{idx} wrong solution in {t} seconds")
                     proof_generator.generate_proof()
                     if world_size == 1:
                         proof_generator.show_proof()

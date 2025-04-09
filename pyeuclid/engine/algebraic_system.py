@@ -23,36 +23,6 @@ def is_small(x):
 class AlgebraicSystem:
     def __init__(self, state):
         self.state = state
-        
-    def classify_equations(self, equations: List[Traced]):
-        angle_linear, length_linear, length_ratio, others = [], [], [], []
-        cnst = r"(\d+|\d+\.\d*|pi)"
-        cnst = f"{cnst}(\\*{cnst})*(/{cnst})*"
-        length = r"(length\w+\d*|variable\w+\d*)"
-        angle = r"(angle\w+\d*|variable\w+\d*)"
-        length_mono = f"({cnst}\\*)?{length}(/{cnst})?"
-        angle_mono = f"({cnst}\\*)?{angle}(/{cnst})?"
-        length_mono = f"({length_mono}|{cnst})"
-        angle_mono = f"({angle_mono}|{cnst})"
-        length_ratio_pattern = re.compile(
-            f"^-?{length_mono}([\\*/]{length_mono})* [+-] {length_mono}([\\*/]{length_mono})*$")
-        length_linear_pattern = re.compile(
-            f"^-?{length_mono}( [+-] {length_mono})+$")
-        angle_linear_pattern = re.compile(
-            f"^-?{angle_mono}( [+-] {angle_mono})+$")
-        for i, eq in enumerate(equations):
-            tmp = str(eq).lower()
-            if angle_linear_pattern.match(tmp):
-                # eqangle, angle eq const, angle sum
-                angle_linear.append(eq)
-            elif length_ratio_pattern.match(tmp):
-                # eqratio, length eq const, eqlength, linear equations involving length and variables
-                length_ratio.append(eq)
-            elif length_linear_pattern.match(tmp):
-                length_linear.append(eq)
-            else:
-                others.append(eq)
-        return angle_linear, length_linear, length_ratio, others
     
     def process_equation(self, eqn, check=False):
         if isinstance(eqn, sympy.core.add.Add):
@@ -205,7 +175,7 @@ class AlgebraicSystem:
         try_complex = self.state.try_complex
         var_types = self.state.var_types
         solved_vars = {}
-        angle_linear, length_linear, length_ratio, others = self.classify_equations(raw_equations)
+        angle_linear, length_linear, length_ratio, others = classify_equations(raw_equations, var_types)
         for eqs, source in (angle_linear, "angle_linear"),  (length_ratio, "length_ratio"):
             free, solved = self.elim(eqs, var_types)
             for key, value in solved.items():

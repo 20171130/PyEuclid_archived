@@ -93,7 +93,7 @@ class ProofGenerator:
 
 
     def find_conditions(self, equations: list[Traced], conclusion, source):
-        angle_linear, length_linear, length_ratio, others = classify_equations(equations)
+        angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
         """Given sympified equations and conclusions, return a list of necessary conditions"""
         def try_find(equations, conclusion):
             variables = set()
@@ -184,6 +184,12 @@ class ProofGenerator:
             visited.add(node)
             if type(node) in (Between, SameSide, Lt, Equal) or type(node) == Collinear and (node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1):
                 return {}
+            if hasattr(node, "definition"):
+                defs = node.definition()
+                result = {node: defs}
+                for cond in defs:
+                    result.update(self.run(cond, visited, depth=depth, root=False))
+                return result
             result = {}
             for tmp in self.state.relations:
                 if tmp == node:

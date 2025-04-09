@@ -34,7 +34,13 @@ class State:
     def load_problem(self, conditions=None, goal=None, diagram=None):        
         if conditions:
             self.add_relations(conditions)
+            old_size = 0
             self.categorize_variable()
+            size = len(self.var_types)
+            while(size > old_size):
+                self.categorize_variable()
+                old_size = size
+                size = len(self.var_types)
         if goal:
             self.goal = goal
         if diagram:
@@ -100,7 +106,7 @@ class State:
         self.equations.append(equation)
     
     def categorize_variable(self):
-        angle_linear, length_linear, length_ratio, others = classify_equations(self.equations)
+        angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types)
         for eq in self.equations:
             if "Variable" not in str(eq):
                 continue
