@@ -1,7 +1,7 @@
 import math
 import gurobipy as gp
 import numpy as np
-
+import sympy
 from gurobipy import GRB
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.utils import *
@@ -39,10 +39,7 @@ class ProofGenerator:
 
         model.optimize()
 
-        if model.status != GRB.OPTIMAL:
-            print("Optimization failed.")
-            assert False
-        
+        assert model.status == GRB.OPTIMAL        
         return [i for i in range(m) if z[i].x > 0]
     
     def vectorize(self, equations, variables, source):
@@ -51,7 +48,8 @@ class ProofGenerator:
         if source in ("angle_linear", "length_linear"):
             for i, eqn in enumerate(equations):
                 eqn = sympy.expand(eqn)
-                assert isinstance(eqn, sympy.core.add.Add)
+                assert isinstance(eqn, sympy.core.add.Add) or isinstance(eqn, sympy.core.symbol.Symbol)
+
                 for add_arg in eqn.args:
                     if len(add_arg.args) == 0:
                         mul_args = [add_arg]

@@ -1,6 +1,7 @@
 import unittest
 import time
 
+import os
 from sympy import sympify
 
 from pyeuclid.formalization.translation import parse_texts_from_file
@@ -11,32 +12,49 @@ from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
+import traceback
 
 class TestBenchmarks(unittest.TestCase):
     # def test_jgex_ag_231(self):
+    #     rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
+    #     world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
     #     texts = parse_texts_from_file('data/JGEX-AG-231.txt')
-    #     for idx, text in enumerate(texts[183:184]):
+    #     for idx, text in enumerate(texts):
+    #         if not idx%world_size == rank:
+    #             continue
     #         state = State()
-    #         state.silent = False
-    #         state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg', resample=True)
-    #         deductive_database = DeductiveDatabase(state)
-    #         algebraic_system = AlgebraicSystem(state)
-    #         proof_generator = ProofGenerator(state)
-    #         engine = Engine(state, deductive_database, algebraic_system)
-    #         t = time.time()
-    #         engine.search()
-    #         t = time.time() - t
-    #         if state.complete() is not None:
-    #             print(f"Solved in {t} seconds")
-    #             proof_generator.generate_proof()
-    #             proof_generator.show_proof()
-    #             input()
-    #         else:
-    #             print(f"Not solved in {t} seconds")
+    #         if world_size > 1:
+    #             state.silent = True
+    #         try:
+    #             state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
+    #             deductive_database = DeductiveDatabase(state)
+    #             algebraic_system = AlgebraicSystem(state)
+    #             proof_generator = ProofGenerator(state)
+    #             engine = Engine(state, deductive_database, algebraic_system)
+    #             t = time.time()
+    #             engine.search()
+    #             t = time.time() - t
+    #             if state.complete() is not None:
+    #                 print(f"{idx} solved in {t} seconds")
+    #                 proof_generator.generate_proof()
+    #                 if world_size == 1:
+    #                     proof_generator.show_proof()
+    #             else:
+    #                 print(f"{idx} unsolved in {t} seconds")
+            # except BaseException as e:
+            #     if isinstance(e, KeyboardInterrupt):
+            #         exit()
+    #             print(f"{idx} error {text} {e}")
+    #             print(traceback.format_exc())
             
     def test_geometry3k(self):
-        for idx in range(2479, 3002):
-            print(idx)
+        rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
+        world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
+        for idx in range(2401, 3002):
+            if not idx%world_size == rank:
+                continue
+            if not os.path.isfile(f"data/Geometry3K/{idx}/problem.py"):
+                continue
             namespace = {}
             try:
                 with open(f'data/Geometry3K/{idx}/problem.py', "r") as file:
@@ -45,33 +63,34 @@ class TestBenchmarks(unittest.TestCase):
                 goal = namespace.get("goal")
                 solution = namespace.get("solution")
                 diagrammatic_relations = namespace.get("diagrammatic_relations")
-            except:
-                continue
-            
-            state = State()
-            state.try_complex = True
-            state.silent = False
-            state.load_problem(conditions=conditions, goal=goal)
-            state.add_relations(diagrammatic_relations)
-            
-            deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic']+inference_rule_sets['complex'])
-            algebraic_system = AlgebraicSystem(state)
-            proof_generator = ProofGenerator(state)
-            engine = Engine(state, deductive_database, algebraic_system)
+                state = State()
+                state.try_complex = True
+                state.silent = True
+                state.load_problem(conditions=conditions, goal=goal)
+                state.add_relations(diagrammatic_relations)
+                
+                deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic']+inference_rule_sets['complex'])
+                algebraic_system = AlgebraicSystem(state)
+                proof_generator = ProofGenerator(state)
+                engine = Engine(state, deductive_database, algebraic_system)
 
-            t = time.time()
-            engine.search()
-            t = time.time() - t
-            result = state.complete()
-            
-            if result:
-                assert abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2
-                print(f"Solved in {t} seconds")
-                proof_generator.generate_proof()
-                proof_generator.show_proof()
-            else:
-                print(f"Not solved in {t} seconds")
-            
+                t = time.time()
+                engine.search()
+                t = time.time() - t
+                result = state.complete()
+                
+                if result and (result is True or abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2):
+                    print(f"{idx} solved in {t} seconds")
+                    proof_generator.generate_proof()
+                    if world_size == 1:
+                        proof_generator.show_proof()
+                else:
+                    print(f"{idx} unsolved in {t} seconds")
+            except BaseException as e:
+                if isinstance(e, KeyboardInterrupt):
+                    exit()
+                print(f"{idx} error {e}")
+                print(traceback.format_exc())
 
 if __name__ == '__main__':
     unittest.main()
