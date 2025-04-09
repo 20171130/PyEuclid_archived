@@ -2,11 +2,10 @@ from pyeuclid.formalization.relation import *
 
 
 class Engine:
-    def __init__(self, state, deductive_database, algebraic_system, proof_generator):
+    def __init__(self, state, deductive_database, algebraic_system):
         self.state = state
         self.deductive_database = deductive_database
         self.algebraic_system = algebraic_system
-        self.proof_generator = proof_generator
         
     def search(self, depth=9999):
         self.algebraic_system.run()
@@ -77,6 +76,3 @@ class Engine:
             self.state.equations = equations_bak
             raise e
     
-    
-    def proof_generartion(self):
-        self.proof_generator.run(self.state.goal)
