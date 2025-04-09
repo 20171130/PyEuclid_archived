@@ -123,11 +123,11 @@ class State:
                     else:
                         self.var_types[entity] = label
         
-    def load_problem_from_text(self, text, diagram_path=None):
+    def load_problem_from_text(self, text, diagram_path=None, resample=False):
         constructions_list = get_constructions_list_from_text(text)
         goal = get_goal_from_text(text)
         
-        diagram = Diagram(constructions_list, diagram_path)
+        diagram = Diagram(constructions_list, diagram_path, resample=resample)
         satisfied, satisfied_goal = diagram.numerical_check_goal(goal)
         
         for _ in range(MAX_DIAGRAM_ATTEMPTS):

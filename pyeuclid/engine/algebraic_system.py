@@ -18,7 +18,6 @@ def is_small(x):
         return abs(x) < eps
     except:
         assert False
-        # breakpoint()
 
 
 class AlgebraicSystem:
@@ -28,15 +27,15 @@ class AlgebraicSystem:
     def classify_equations(self, equations: List[Traced]):
         angle_linear, length_linear, length_ratio, others = [], [], [], []
         cnst = r"(\d+|\d+\.\d*|pi)"
-        cnst = f"{cnst}(\*{cnst})*(/{cnst})*"
+        cnst = f"{cnst}(\\*{cnst})*(/{cnst})*"
         length = r"(length\w+\d*|variable\w+\d*)"
         angle = r"(angle\w+\d*|variable\w+\d*)"
-        length_mono = f"({cnst}\*)?{length}(/{cnst})?"
-        angle_mono = f"({cnst}\*)?{angle}(/{cnst})?"
+        length_mono = f"({cnst}\\*)?{length}(/{cnst})?"
+        angle_mono = f"({cnst}\\*)?{angle}(/{cnst})?"
         length_mono = f"({length_mono}|{cnst})"
         angle_mono = f"({angle_mono}|{cnst})"
         length_ratio_pattern = re.compile(
-            f"^-?{length_mono}([\*/]{length_mono})* [+-] {length_mono}([\*/]{length_mono})*$")
+            f"^-?{length_mono}([\\*/]{length_mono})* [+-] {length_mono}([\\*/]{length_mono})*$")
         length_linear_pattern = re.compile(
             f"^-?{length_mono}( [+-] {length_mono})+$")
         angle_linear_pattern = re.compile(
@@ -63,8 +62,11 @@ class AlgebraicSystem:
                     continue
                 add_args.append(item)
             eqn = sympy.core.add.Add(*add_args)
-        if is_small(eqn):
-            return sympy.sympify(0)
+        try:
+            if is_small(eqn):
+                return sympy.sympify(0)
+        except:
+            breakpoint()
         eqn, denominator = eqn.as_numer_denom()
         try:
             with Timeout(0.1) as tt:

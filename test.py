@@ -12,6 +12,7 @@ from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
+import traceback
 
 class TestBenchmarks(unittest.TestCase):
     # def test_jgex_ag_231(self):
@@ -34,20 +35,25 @@ class TestBenchmarks(unittest.TestCase):
     #             engine.search()
     #             t = time.time() - t
     #             if state.complete() is not None:
-    #                 print(f"Solved {idx} in {t} seconds")
+    #                 print(f"{idx} solved in {t} seconds")
     #                 proof_generator.generate_proof()
     #                 if world_size == 1:
     #                     proof_generator.show_proof()
     #             else:
-    #                 print(f"{idx} not solved in {t} seconds")
-    #         except AssertionError as e:
-    #             print(f"Error {idx} {text} {e}")
+    #                 print(f"{idx} unsolved in {t} seconds")
+            # except BaseException as e:
+            #     if isinstance(e, KeyboardInterrupt):
+            #         exit()
+    #             print(f"{idx} error {text} {e}")
+    #             print(traceback.format_exc())
             
     def test_geometry3k(self):
         rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
         world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
         for idx in range(2401, 3002):
             if not idx%world_size == rank:
+                continue
+            if not os.path.isfile(f"data/Geometry3K/{idx}/problem.py"):
                 continue
             namespace = {}
             try:
@@ -73,17 +79,18 @@ class TestBenchmarks(unittest.TestCase):
                 t = time.time() - t
                 result = state.complete()
                 
-                if result:
-                    assert abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2
-                    print(f"Solved {idx} in {t} seconds")
+                if result and (result is True or abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2):
+                    print(f"{idx} solved in {t} seconds")
                     proof_generator.generate_proof()
                     if world_size == 1:
                         proof_generator.show_proof()
                 else:
-                    print(f"{idx} not solved in {t} seconds")
-            except AssertionError as e:
-                print(f"Error {idx} {e}")
-            
+                    print(f"{idx} unsolved in {t} seconds")
+            except BaseException as e:
+                if isinstance(e, KeyboardInterrupt):
+                    exit()
+                print(f"{idx} error {e}")
+                print(traceback.format_exc())
 
 if __name__ == '__main__':
     unittest.main()

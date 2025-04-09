@@ -242,12 +242,12 @@ class DeductiveDatabase:
             if not tmp == last:
                 if cnt > 3:
                     if not self.state.silent:
-                        self.state.logger.debug(f"...and {cnt-3} more.")
+                        self.state.logger.info(f"...and {cnt-3} more.")
                 cnt = 0
                 last = tmp
             if cnt < 3:
                 if not self.state.silent:
-                    self.state.logger.debug(str(item))
+                    self.state.logger.info(str(item))
             cnt += 1
             conclusions = item.conclusion()
             for i, conclusion in enumerate(conclusions):
@@ -262,7 +262,7 @@ class DeductiveDatabase:
             self.state.add_relations(conclusions)
         if cnt > 3:
             if not self.state.silent:
-                self.state.logger.debug(f"...and {cnt} more.")
+                self.state.logger.info(f"...and {cnt - 3} more.")
     
     def run(self):
         inner_closure = True
