@@ -9,3 +9,6 @@ goal = Variable('z')
 solution = '(40)/(3)'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C')), NotCollinear(Point('A'),Point('B'),Point('D')), SameSide(Point('C'),Point('D'),Point('A'),Point('B')), NotCollinear(Point('B'),Point('C'),Point('D')), OppositeSide(Point('A'),Point('D'),Point('B'),Point('C')), SameSide(Point('A'),Point('C'),Point('B'),Point('D'))]
+
+new_diagrammatic_relations = {SameSide(Point('C'),Point('D'),Point('A'),Point('B')), OppositeSide(Point('A'),Point('D'),Point('B'),Point('C')), NotCollinear(Point('B'),Point('C'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('D')), Between(Point('C'),Point('A'),Point('D')), SameSide(Point('A'),Point('C'),Point('B'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('C'))}
+

@@ -9,3 +9,6 @@ goal = Length(Point('D'),Point('G'))
 solution = '14'
 
 diagrammatic_relations = [NotCollinear(Point('G'),Point('H'),Point('J')), SameSide(Point('D'),Point('G'),Point('H'),Point('J')), NotCollinear(Point('D'),Point('H'),Point('J')), SameSide(Point('D'),Point('J'),Point('G'),Point('H')), OppositeSide(Point('G'),Point('J'),Point('D'),Point('H')), NotCollinear(Point('D'),Point('G'),Point('H')), Between(Point('D'),Point('G'),Point('J'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('D'),Point('G'),Point('H')), NotCollinear(Point('G'),Point('H'),Point('J')), NotCollinear(Point('D'),Point('H'),Point('J')), OppositeSide(Point('G'),Point('J'),Point('D'),Point('H')), Between(Point('D'),Point('G'),Point('J')), SameSide(Point('D'),Point('J'),Point('G'),Point('H')), SameSide(Point('D'),Point('G'),Point('H'),Point('J'))}
+

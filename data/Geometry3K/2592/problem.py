@@ -9,3 +9,6 @@ goal = Length(Point('B'),Point('C')) ** 2 * sympy.simplify('pi') / 3 - Area(Poin
 solution = '22.1'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
+

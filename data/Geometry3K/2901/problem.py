@@ -9,3 +9,6 @@ goal = Variable('y')
 solution = '4'
 
 diagrammatic_relations = [NotCollinear(Point('W'),Point('X'),Point('Y')), NotCollinear(Point('W'),Point('X'),Point('Z')), NotCollinear(Point('W'),Point('Y'),Point('Z')), Between(Point('X'),Point('Y'),Point('Z')), SameSide(Point('X'),Point('Z'),Point('W'),Point('Y')), SameSide(Point('X'),Point('Y'),Point('W'),Point('Z')), OppositeSide(Point('Y'),Point('Z'),Point('W'),Point('X'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('W'),Point('X'),Point('Z')), NotCollinear(Point('W'),Point('X'),Point('Y')), OppositeSide(Point('Y'),Point('Z'),Point('W'),Point('X')), NotCollinear(Point('W'),Point('Y'),Point('Z')), SameSide(Point('X'),Point('Z'),Point('W'),Point('Y')), Between(Point('X'),Point('Y'),Point('Z')), SameSide(Point('X'),Point('Y'),Point('W'),Point('Z'))}
+

@@ -9,3 +9,6 @@ goal = Length(Point('J'),Point('L'))
 solution = '14'
 
 diagrammatic_relations = [NotCollinear(Point('J'),Point('K'),Point('L'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('J'),Point('K'),Point('L'))}
+

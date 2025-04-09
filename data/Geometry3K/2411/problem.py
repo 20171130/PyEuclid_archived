@@ -9,3 +9,5 @@ goal = (Length(Point('A'),Point('C')) ** 2 - Length(Point('B'),Point('C'))**2 - 
 solution = '157.1'
 
 diagrammatic_relations = set()
+new_diagrammatic_relations = {Between(Point('B'),Point('A'),Point('C'))}
+

@@ -9,3 +9,6 @@ goal = (Length(Point('F'),Point('Wprime')) / Length(Point('F'),Point('W')))
 solution = '(1)/(3)'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('W'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('W'))}
+

@@ -9,3 +9,6 @@ goal = sympy.cos(Angle(Point('M'),Point('N'),Point('P')))
 solution = '0.38'
 
 diagrammatic_relations = [NotCollinear(Point('M'),Point('N'),Point('P'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('M'),Point('N'),Point('P'))}
+

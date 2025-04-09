@@ -9,3 +9,6 @@ goal = Length(Point('J'),Point('K'))
 solution = '12.6'
 
 diagrammatic_relations = [SameSide(Point('C'),Point('K'),Point('A'),Point('J'))]
+
+new_diagrammatic_relations = {Between(Point('J'),Point('A'),Point('C')), Between(Point('C'),Point('J'),Point('K')), Between(Point('B'),Point('A'),Point('C')), Between(Point('C'),Point('B'),Point('K')), Between(Point('J'),Point('A'),Point('B')), Between(Point('B'),Point('A'),Point('K')), Between(Point('B'),Point('C'),Point('J')), Between(Point('B'),Point('J'),Point('K')), Between(Point('J'),Point('A'),Point('K')), Between(Point('C'),Point('A'),Point('K'))}
+

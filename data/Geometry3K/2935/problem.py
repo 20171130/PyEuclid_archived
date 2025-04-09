@@ -9,3 +9,6 @@ goal = Area(Point('A'),Point('B'),Point('C'),Point('D'))
 solution = '34.6'
 
 diagrammatic_relations = set()
+
+new_diagrammatic_relations = set()
+

@@ -9,3 +9,6 @@ goal = Length(Point('K'),Point('M'))
 solution = '15'
 
 diagrammatic_relations = [NotCollinear(Point('K'),Point('P'),Point('M')), NotCollinear(Point('M'),Point('L'),Point('P')), SameSide(Point('L'),Point('R'),Point('K'),Point('P')), SameSide(Point('K'),Point('P'),Point('L'),Point('R')),NotCollinear(Point('K'),Point('L'),Point('R')), NotCollinear(Point('K'),Point('L'),Point('P')), NotCollinear(Point('R'),Point('P'),Point('L')),NotCollinear(Point('R'),Point('P'),Point('K'))]
+
+new_diagrammatic_relations = set()
+

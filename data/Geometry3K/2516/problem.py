@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '12'
 
 diagrammatic_relations = [SameSide(Point('R'),Point('S'),Point('T'),Point('V')), NotCollinear(Point('R'),Point('S'),Point('V')), NotCollinear(Point('R'),Point('T'),Point('V')), OppositeSide(Point('S'),Point('V'),Point('R'),Point('T')), NotCollinear(Point('S'),Point('T'),Point('V')), NotCollinear(Point('R'),Point('S'),Point('T')), SameSide(Point('S'),Point('T'),Point('R'),Point('V')), OppositeSide(Point('R'),Point('T'),Point('S'),Point('V')), SameSide(Point('R'),Point('V'),Point('S'),Point('T')), SameSide(Point('T'),Point('V'),Point('R'),Point('S'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('R'),Point('S'),Point('T')), OppositeSide(Point('S'),Point('V'),Point('R'),Point('T')), SameSide(Point('S'),Point('T'),Point('R'),Point('V')), NotCollinear(Point('R'),Point('T'),Point('V')), SameSide(Point('R'),Point('S'),Point('T'),Point('V')), NotCollinear(Point('R'),Point('S'),Point('V')), SameSide(Point('R'),Point('V'),Point('S'),Point('T')), SameSide(Point('T'),Point('V'),Point('R'),Point('S')), NotCollinear(Point('S'),Point('T'),Point('V')), OppositeSide(Point('R'),Point('T'),Point('S'),Point('V'))}
+

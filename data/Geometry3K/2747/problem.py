@@ -9,3 +9,6 @@ goal = Area(Point('A'),Point('B'),Point('N'),Point('D'))
 solution = '4.8'
 
 diagrammatic_relations = [OppositeSide(Point('B'),Point('D'),Point('A'),Point('N')), NotCollinear(Point('B'),Point('D'),Point('N')), SameSide(Point('D'),Point('N'),Point('A'),Point('B')), NotCollinear(Point('A'),Point('B'),Point('N')), SameSide(Point('A'),Point('B'),Point('D'),Point('N')), OppositeSide(Point('A'),Point('N'),Point('B'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('D')), SameSide(Point('B'),Point('N'),Point('A'),Point('D')), SameSide(Point('A'),Point('D'),Point('B'),Point('N')), NotCollinear(Point('A'),Point('D'),Point('N'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('B'),Point('D'),Point('N')), SameSide(Point('A'),Point('B'),Point('D'),Point('N')), NotCollinear(Point('A'),Point('B'),Point('N')), OppositeSide(Point('A'),Point('N'),Point('B'),Point('D')), SameSide(Point('A'),Point('D'),Point('B'),Point('N')), SameSide(Point('D'),Point('N'),Point('A'),Point('B')), NotCollinear(Point('A'),Point('D'),Point('N')), NotCollinear(Point('A'),Point('B'),Point('D')), OppositeSide(Point('B'),Point('D'),Point('A'),Point('N')), SameSide(Point('B'),Point('N'),Point('A'),Point('D'))}
+

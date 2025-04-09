@@ -9,3 +9,6 @@ goal = Length(Point('F'),Point('G'))
 solution = '7.5'
 
 diagrammatic_relations = [NotCollinear(Point('R'),Point('S'),Point('T'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('R'),Point('S'),Point('T'))}
+

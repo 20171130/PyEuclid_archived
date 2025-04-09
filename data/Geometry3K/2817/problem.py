@@ -9,3 +9,6 @@ goal = Area(Point('A'),Point('B'),Point('C'))
 solution = '54'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
+

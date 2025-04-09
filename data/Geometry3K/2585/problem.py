@@ -9,3 +9,6 @@ goal = sympy.sin(Angle(Point('Q'),Point('P'),Point('R')))
 solution = '0.88'
 
 diagrammatic_relations = [NotCollinear(Point('P'),Point('Q'),Point('R'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('P'),Point('Q'),Point('R'))}
+

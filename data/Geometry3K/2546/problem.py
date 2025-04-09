@@ -9,3 +9,6 @@ goal = (Angle(Point('W'),Point('X'),Point('Y')) * Variable('radius_X'))
 solution = '1.8'
 
 diagrammatic_relations = [NotCollinear(Point('W'),Point('X'),Point('Y'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('W'),Point('X'),Point('Y'))}
+

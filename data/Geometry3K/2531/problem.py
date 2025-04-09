@@ -9,3 +9,6 @@ goal = ((Length(Point('A'),Point('B')) + Length(Point('B'),Point('C'))) + Length
 solution = '8.73'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
+

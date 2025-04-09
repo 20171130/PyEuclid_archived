@@ -9,3 +9,6 @@ goal = sympy.cos(Angle(Point('A'),Point('C'),Point('B')))
 solution = '(4)/(5)'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
+

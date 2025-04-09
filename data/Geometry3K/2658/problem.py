@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '(14)/(3)'
 
 diagrammatic_relations = [NotCollinear(Point('D'),Point('E'),Point('F')), OppositeSide(Point('E'),Point('G'),Point('D'),Point('F')), SameSide(Point('F'),Point('G'),Point('D'),Point('E')), SameSide(Point('E'),Point('F'),Point('D'),Point('G')), NotCollinear(Point('D'),Point('F'),Point('G')), NotCollinear(Point('D'),Point('E'),Point('G'))]
+
+new_diagrammatic_relations = {Between(Point('F'),Point('E'),Point('G')), NotCollinear(Point('D'),Point('E'),Point('G')), OppositeSide(Point('E'),Point('G'),Point('D'),Point('F')), NotCollinear(Point('D'),Point('F'),Point('G')), SameSide(Point('E'),Point('F'),Point('D'),Point('G')), NotCollinear(Point('D'),Point('E'),Point('F')), SameSide(Point('F'),Point('G'),Point('D'),Point('E'))}
+

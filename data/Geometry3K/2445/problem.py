@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '4*sqrt(2)'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('E'),Point('G')), OppositeSide(Point('D'),Point('E'),Point('A'),Point('G')), NotCollinear(Point('A'),Point('D'),Point('E')), SameSide(Point('D'),Point('G'),Point('A'),Point('E')), NotCollinear(Point('A'),Point('D'),Point('G')), SameSide(Point('E'),Point('G'),Point('A'),Point('D'))]
+
+new_diagrammatic_relations = {Between(Point('G'),Point('D'),Point('E')), NotCollinear(Point('A'),Point('D'),Point('E')), OppositeSide(Point('D'),Point('E'),Point('A'),Point('G')), SameSide(Point('D'),Point('G'),Point('A'),Point('E')), NotCollinear(Point('A'),Point('E'),Point('G')), SameSide(Point('E'),Point('G'),Point('A'),Point('D')), NotCollinear(Point('A'),Point('D'),Point('G'))}
+

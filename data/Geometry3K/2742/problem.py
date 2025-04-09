@@ -9,3 +9,5 @@ goal = Length(Point('B'),Point('D'))
 solution = '6.75'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+new_diagrammatic_relations = {SameSide(Point('C'),Point('D'),Point('A'),Point('B')), NotCollinear(Point('B'),Point('C'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('D')), OppositeSide(Point('A'),Point('C'),Point('B'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('C')), SameSide(Point('A'),Point('D'),Point('B'),Point('C')), Between(Point('D'),Point('A'),Point('C'))}
+

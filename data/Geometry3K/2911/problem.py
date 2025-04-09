@@ -9,3 +9,6 @@ goal = Variable('b')
 solution = '2.5*sqrt(3)'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
+

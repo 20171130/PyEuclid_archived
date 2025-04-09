@@ -9,3 +9,6 @@ goal = sympy.tan(Angle(Point('A'),Point('X'),Point('B')))
 solution = '(12)/(5)'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('X'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('X'))}
+

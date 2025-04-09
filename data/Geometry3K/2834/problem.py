@@ -9,3 +9,6 @@ goal = Variable('z')
 solution = '3*sqrt(19)'
 
 diagrammatic_relations = [OppositeSide(Point('B'),Point('Y'),Point('A'),Point('N')), NotCollinear(Point('A'),Point('B'),Point('N')), SameSide(Point('N'),Point('Y'),Point('A'),Point('B')), SameSide(Point('B'),Point('N'),Point('A'),Point('Y')), NotCollinear(Point('A'),Point('B'),Point('Y')), NotCollinear(Point('A'),Point('N'),Point('Y'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('N')), NotCollinear(Point('A'),Point('N'),Point('Y')), SameSide(Point('N'),Point('Y'),Point('A'),Point('B')), NotCollinear(Point('A'),Point('B'),Point('Y')), Between(Point('N'),Point('B'),Point('Y')), OppositeSide(Point('B'),Point('Y'),Point('A'),Point('N')), SameSide(Point('B'),Point('N'),Point('A'),Point('Y'))}
+
