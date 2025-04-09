@@ -9,3 +9,6 @@ goal = Variable('z')
 solution = '3'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('F')), NotCollinear(Point('A'),Point('F'),Point('L')), SameSide(Point('B'),Point('F'),Point('A'),Point('L')), SameSide(Point('B'),Point('L'),Point('A'),Point('F')), NotCollinear(Point('A'),Point('B'),Point('L')), OppositeSide(Point('F'),Point('L'),Point('A'),Point('B'))]
+
+new_diagrammatic_relations = {SameSide(Point('B'),Point('L'),Point('A'),Point('F')), SameSide(Point('B'),Point('F'),Point('A'),Point('L')), NotCollinear(Point('A'),Point('B'),Point('F')), NotCollinear(Point('A'),Point('F'),Point('L')), OppositeSide(Point('F'),Point('L'),Point('A'),Point('B')), Between(Point('B'),Point('F'),Point('L')), NotCollinear(Point('A'),Point('B'),Point('L'))}
+

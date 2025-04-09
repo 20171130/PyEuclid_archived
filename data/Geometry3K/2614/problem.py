@@ -9,3 +9,6 @@ goal = Variable('angle_2')
 solution = '(30)/180*pi'
 
 diagrammatic_relations = [SameSide(Point('F'),Point('H'),Point('E'),Point('G')), SameSide(Point('G'),Point('H'),Point('E'),Point('F')), OppositeSide(Point('F'),Point('G'),Point('E'),Point('H')), NotCollinear(Point('E'),Point('F'),Point('G')), NotCollinear(Point('E'),Point('F'),Point('H')), NotCollinear(Point('E'),Point('G'),Point('H'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('E'),Point('G'),Point('H')), Between(Point('H'),Point('F'),Point('G')), NotCollinear(Point('E'),Point('F'),Point('H')), NotCollinear(Point('E'),Point('F'),Point('G')), SameSide(Point('F'),Point('H'),Point('E'),Point('G')), OppositeSide(Point('F'),Point('G'),Point('E'),Point('H')), SameSide(Point('G'),Point('H'),Point('E'),Point('F'))}
+

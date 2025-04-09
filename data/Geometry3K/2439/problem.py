@@ -9,3 +9,6 @@ goal = Angle(Point('R'),Point('S'),Point('T'))
 solution = '(55)/180*pi'
 
 diagrammatic_relations = [NotCollinear(Point('R'),Point('S'),Point('T'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('R'),Point('S'),Point('T'))}
+

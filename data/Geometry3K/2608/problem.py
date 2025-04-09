@@ -9,3 +9,6 @@ goal = Variable('y')
 solution = '18'
 
 diagrammatic_relations = [NotCollinear(Point('L'),Point('M'),Point('P')), NotCollinear(Point('M'),Point('N'),Point('P')), OppositeSide(Point('L'),Point('N'),Point('M'),Point('P')), NotCollinear(Point('L'),Point('M'),Point('N')), SameSide(Point('L'),Point('P'),Point('M'),Point('N')), SameSide(Point('N'),Point('P'),Point('L'),Point('M'))]
+
+new_diagrammatic_relations = {SameSide(Point('N'),Point('P'),Point('L'),Point('M')), SameSide(Point('L'),Point('P'),Point('M'),Point('N')), NotCollinear(Point('L'),Point('M'),Point('N')), OppositeSide(Point('L'),Point('N'),Point('M'),Point('P')), NotCollinear(Point('L'),Point('M'),Point('P')), Between(Point('P'),Point('L'),Point('N')), NotCollinear(Point('M'),Point('N'),Point('P'))}
+

@@ -9,3 +9,6 @@ goal = sympy.tan(Angle(Point('N'),Point('M'),Point('P')))
 solution = '0.42'
 
 diagrammatic_relations = [NotCollinear(Point('M'),Point('N'),Point('P'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('M'),Point('N'),Point('P'))}
+

@@ -9,3 +9,6 @@ goal = Length(Point('X'),Point('Z'))
 solution = '34'
 
 diagrammatic_relations = [NotCollinear(Point('W'),Point('X'),Point('Y')), SameSide(Point('W'),Point('Y'),Point('X'),Point('Z')), SameSide(Point('W'),Point('Z'),Point('X'),Point('Y')), NotCollinear(Point('W'),Point('X'),Point('Z')), NotCollinear(Point('X'),Point('Y'),Point('Z')), OppositeSide(Point('Y'),Point('Z'),Point('W'),Point('X'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('W'),Point('X'),Point('Z')), OppositeSide(Point('Y'),Point('Z'),Point('W'),Point('X')), NotCollinear(Point('W'),Point('X'),Point('Y')), Between(Point('W'),Point('Y'),Point('Z')), SameSide(Point('W'),Point('Y'),Point('X'),Point('Z')), SameSide(Point('W'),Point('Z'),Point('X'),Point('Y')), NotCollinear(Point('X'),Point('Y'),Point('Z'))}
+

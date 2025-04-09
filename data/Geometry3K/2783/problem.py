@@ -9,3 +9,6 @@ goal = (Angle(Point('J'),Point('C'),Point('K')) * Variable('radius_C'))
 solution = '13.74'
 
 diagrammatic_relations = [SameSide(Point('A'),Point('C'),Point('J'),Point('K')), OppositeSide(Point('A'),Point('J'),Point('C'),Point('K')), NotCollinear(Point('C'),Point('J'),Point('K')), SameSide(Point('C'),Point('J'),Point('A'),Point('K')), NotCollinear(Point('A'),Point('J'),Point('K')), NotCollinear(Point('A'),Point('C'),Point('K'))]
+
+new_diagrammatic_relations = {SameSide(Point('C'),Point('J'),Point('A'),Point('K')), NotCollinear(Point('A'),Point('C'),Point('K')), Between(Point('C'),Point('A'),Point('J')), OppositeSide(Point('A'),Point('J'),Point('C'),Point('K')), SameSide(Point('A'),Point('C'),Point('J'),Point('K')), NotCollinear(Point('A'),Point('J'),Point('K')), NotCollinear(Point('C'),Point('J'),Point('K'))}
+

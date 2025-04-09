@@ -9,3 +9,6 @@ goal = Area(Point('A'),Point('B'),Point('N'))
 solution = '285'
 
 diagrammatic_relations = [SameSide(Point('C'),Point('N'),Point('A'),Point('B')), NotCollinear(Point('A'),Point('B'),Point('N')), NotCollinear(Point('A'),Point('B'),Point('C')), NotCollinear(Point('A'),Point('C'),Point('N')), SameSide(Point('B'),Point('N'),Point('A'),Point('C')), OppositeSide(Point('B'),Point('C'),Point('A'),Point('N'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('N')), SameSide(Point('C'),Point('N'),Point('A'),Point('B')), NotCollinear(Point('A'),Point('C'),Point('N')), OppositeSide(Point('B'),Point('C'),Point('A'),Point('N')), NotCollinear(Point('A'),Point('B'),Point('C')), SameSide(Point('B'),Point('N'),Point('A'),Point('C')), Between(Point('N'),Point('B'),Point('C'))}
+

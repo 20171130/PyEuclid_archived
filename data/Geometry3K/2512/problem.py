@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '2*sqrt(11)'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C')), Between(Point('D'),Point('A'),Point('C')), SameSide(Point('A'),Point('D'),Point('B'),Point('C')), NotCollinear(Point('A'),Point('B'),Point('D')), SameSide(Point('C'),Point('D'),Point('A'),Point('B')), OppositeSide(Point('A'),Point('C'),Point('B'),Point('D')), NotCollinear(Point('B'),Point('C'),Point('D'))]
+
+new_diagrammatic_relations = {SameSide(Point('C'),Point('D'),Point('A'),Point('B')), NotCollinear(Point('B'),Point('C'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('D')), OppositeSide(Point('A'),Point('C'),Point('B'),Point('D')), NotCollinear(Point('A'),Point('B'),Point('C')), SameSide(Point('A'),Point('D'),Point('B'),Point('C')), Between(Point('D'),Point('A'),Point('C'))}
+

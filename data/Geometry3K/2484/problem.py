@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '8*sqrt(5)'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
+

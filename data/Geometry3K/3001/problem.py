@@ -9,3 +9,6 @@ goal = (Angle(Point('J'),Point('C'),Point('K')) * Variable('radius_C'))
 solution = '1.05'
 
 diagrammatic_relations = [NotCollinear(Point('C'),Point('J'),Point('K'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('C'),Point('J'),Point('K'))}
+

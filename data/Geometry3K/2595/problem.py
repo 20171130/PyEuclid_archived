@@ -9,3 +9,6 @@ goal = Length(Point('C'),Point('R'))
 solution = '4'
 
 diagrammatic_relations = set()
+
+new_diagrammatic_relations = {Between(Point('D'),Point('B'),Point('R')), Between(Point('S'),Point('B'),Point('R')), Between(Point('S'),Point('B'),Point('C')), Between(Point('D'),Point('R'),Point('S')), Between(Point('D'),Point('B'),Point('C')), Between(Point('S'),Point('B'),Point('D')), Between(Point('C'),Point('R'),Point('S')), Between(Point('D'),Point('C'),Point('S')), Between(Point('C'),Point('B'),Point('R')), Between(Point('C'),Point('D'),Point('R'))}
+

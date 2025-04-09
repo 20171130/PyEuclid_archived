@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '3'
 
 diagrammatic_relations = [SameSide(Point('A'),Point('B'),Point('C'),Point('E')), NotCollinear(Point('A'),Point('B'),Point('C')), NotCollinear(Point('A'),Point('B'),Point('E')), OppositeSide(Point('A'),Point('C'),Point('B'),Point('E')), NotCollinear(Point('A'),Point('C'),Point('E')), SameSide(Point('C'),Point('E'),Point('A'),Point('B')), NotCollinear(Point('B'),Point('C'),Point('E')), OppositeSide(Point('B'),Point('E'),Point('A'),Point('C')), SameSide(Point('A'),Point('E'),Point('B'),Point('C')), SameSide(Point('B'),Point('C'),Point('A'),Point('E'))]
+
+new_diagrammatic_relations = {OppositeSide(Point('B'),Point('E'),Point('A'),Point('C')), SameSide(Point('B'),Point('C'),Point('A'),Point('E')), SameSide(Point('C'),Point('E'),Point('A'),Point('B')), NotCollinear(Point('A'),Point('B'),Point('E')), NotCollinear(Point('B'),Point('C'),Point('E')), NotCollinear(Point('A'),Point('C'),Point('E')), NotCollinear(Point('A'),Point('B'),Point('C')), SameSide(Point('A'),Point('E'),Point('B'),Point('C')), OppositeSide(Point('A'),Point('C'),Point('B'),Point('E')), SameSide(Point('A'),Point('B'),Point('C'),Point('E'))}
+

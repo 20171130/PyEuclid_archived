@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '9.45'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('K'),Point('L')), NotCollinear(Point('A'),Point('K'),Point('M')), NotCollinear(Point('K'),Point('L'),Point('M')), SameSide(Point('A'),Point('M'),Point('K'),Point('L')), OppositeSide(Point('L'),Point('M'),Point('A'),Point('K')), SameSide(Point('A'),Point('L'),Point('K'),Point('M'))]
+
+new_diagrammatic_relations = {Between(Point('A'),Point('L'),Point('M')), NotCollinear(Point('A'),Point('K'),Point('L')), NotCollinear(Point('A'),Point('K'),Point('M')), OppositeSide(Point('L'),Point('M'),Point('A'),Point('K')), SameSide(Point('A'),Point('M'),Point('K'),Point('L')), NotCollinear(Point('K'),Point('L'),Point('M')), SameSide(Point('A'),Point('L'),Point('K'),Point('M'))}
+

@@ -9,3 +9,6 @@ goal = (Angle(Point('Y'),Point('X'),Point('Z')) * Variable('radius_X'))
 solution = '7.85'
 
 diagrammatic_relations = [NotCollinear(Point('X'),Point('Y'),Point('Z'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('X'),Point('Y'),Point('Z'))}
+

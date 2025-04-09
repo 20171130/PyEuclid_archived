@@ -9,3 +9,6 @@ goal = Variable('y')
 solution = '48'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
+

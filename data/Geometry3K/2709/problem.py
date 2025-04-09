@@ -30,3 +30,5 @@ goal = Length(Point('C'),Point('K'))
 solution = '2.6'
 
 diagrammatic_relations = set()
+new_diagrammatic_relations = {Between(Point('J'),Point('A'),Point('C')), Between(Point('C'),Point('J'),Point('K')), Between(Point('B'),Point('A'),Point('C')), Between(Point('C'),Point('B'),Point('K')), Between(Point('J'),Point('A'),Point('B')), Between(Point('B'),Point('A'),Point('K')), Between(Point('B'),Point('C'),Point('J')), Between(Point('B'),Point('J'),Point('K')), Between(Point('J'),Point('A'),Point('K')), Between(Point('C'),Point('A'),Point('K'))}
+

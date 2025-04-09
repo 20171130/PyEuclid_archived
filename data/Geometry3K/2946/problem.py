@@ -9,3 +9,6 @@ goal = Angle(Point('G'),Point('F'),Point('J'))
 solution = '(80)/180*pi'
 
 diagrammatic_relations = [OppositeSide(Point('F'),Point('H'),Point('G'),Point('J')), SameSide(Point('F'),Point('G'),Point('H'),Point('J')), NotCollinear(Point('G'),Point('H'),Point('J')), NotCollinear(Point('F'),Point('H'),Point('J')), SameSide(Point('H'),Point('J'),Point('F'),Point('G')), NotCollinear(Point('F'),Point('G'),Point('J')), NotCollinear(Point('F'),Point('G'),Point('H')), SameSide(Point('F'),Point('J'),Point('G'),Point('H')), SameSide(Point('G'),Point('H'),Point('F'),Point('J')), OppositeSide(Point('G'),Point('J'),Point('F'),Point('H'))]
+
+new_diagrammatic_relations = {SameSide(Point('F'),Point('G'),Point('H'),Point('J')), NotCollinear(Point('F'),Point('H'),Point('J')), NotCollinear(Point('F'),Point('G'),Point('J')), SameSide(Point('G'),Point('H'),Point('F'),Point('J')), NotCollinear(Point('G'),Point('H'),Point('J')), SameSide(Point('F'),Point('J'),Point('G'),Point('H')), OppositeSide(Point('F'),Point('H'),Point('G'),Point('J')), SameSide(Point('H'),Point('J'),Point('F'),Point('G')), NotCollinear(Point('F'),Point('G'),Point('H')), OppositeSide(Point('G'),Point('J'),Point('F'),Point('H'))}
+

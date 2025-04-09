@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '5'
 
 diagrammatic_relations = [NotCollinear(Point('W'),Point('X'),Point('Y')), SameSide(Point('X'),Point('Y'),Point('T'),Point('W')), SameSide(Point('T'),Point('X'),Point('W'),Point('Y')), SameSide(Point('W'),Point('X'),Point('T'),Point('Y')), NotCollinear(Point('T'),Point('W'),Point('X')), NotCollinear(Point('T'),Point('X'),Point('Y')), OppositeSide(Point('T'),Point('W'),Point('X'),Point('Y')), NotCollinear(Point('T'),Point('W'),Point('Y')), OppositeSide(Point('W'),Point('Y'),Point('T'),Point('X')), OppositeSide(Point('T'),Point('Y'),Point('W'),Point('X'))]
+
+new_diagrammatic_relations = {OppositeSide(Point('T'),Point('Y'),Point('W'),Point('X')), NotCollinear(Point('W'),Point('X'),Point('Y')), SameSide(Point('W'),Point('X'),Point('T'),Point('Y')), OppositeSide(Point('W'),Point('Y'),Point('T'),Point('X')), OppositeSide(Point('T'),Point('W'),Point('X'),Point('Y')), SameSide(Point('X'),Point('Y'),Point('T'),Point('W')), NotCollinear(Point('T'),Point('W'),Point('Y')), NotCollinear(Point('T'),Point('X'),Point('Y')), SameSide(Point('T'),Point('X'),Point('W'),Point('Y')), NotCollinear(Point('T'),Point('W'),Point('X'))}
+

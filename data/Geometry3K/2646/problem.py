@@ -9,3 +9,6 @@ goal = Angle(Point('B'),Point('A'),Point('C'))
 solution = '(41.8)/180*pi'
 
 diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
+

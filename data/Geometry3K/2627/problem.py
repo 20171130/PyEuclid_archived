@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '30'
 
 diagrammatic_relations = [OppositeSide(Point('R'),Point('T'),Point('B'),Point('S')), SameSide(Point('B'),Point('R'),Point('S'),Point('T')), NotCollinear(Point('R'),Point('S'),Point('T')), NotCollinear(Point('B'),Point('S'),Point('T')), NotCollinear(Point('B'),Point('R'),Point('S')), SameSide(Point('B'),Point('T'),Point('R'),Point('S'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('R'),Point('S'),Point('T')), OppositeSide(Point('R'),Point('T'),Point('B'),Point('S')), NotCollinear(Point('B'),Point('S'),Point('T')), NotCollinear(Point('B'),Point('R'),Point('S')), SameSide(Point('B'),Point('T'),Point('R'),Point('S')), Between(Point('B'),Point('R'),Point('T')), SameSide(Point('B'),Point('R'),Point('S'),Point('T'))}
+

@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '13.0'
 
 diagrammatic_relations = set()
+
+new_diagrammatic_relations = {Between(Point('K'),Point('J'),Point('L'))}
+

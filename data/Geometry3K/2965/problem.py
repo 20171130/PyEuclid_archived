@@ -9,3 +9,6 @@ goal = Variable('x')
 solution = '1'
 
 diagrammatic_relations = [NotCollinear(Point('W'),Point('X'),Point('Y'))]
+
+new_diagrammatic_relations = {NotCollinear(Point('W'),Point('X'),Point('Y'))}
+

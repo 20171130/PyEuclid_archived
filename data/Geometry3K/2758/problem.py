@@ -9,3 +9,6 @@ goal = Length(Point('A'),Point('J'))
 solution = '5'
 
 diagrammatic_relations = [SameSide(Point('H'),Point('J'),Point('G'),Point('K')), SameSide(Point('G'),Point('K'),Point('H'),Point('J')), OppositeSide(Point('G'),Point('J'),Point('H'),Point('K')), NotCollinear(Point('G'),Point('J'),Point('K')), SameSide(Point('J'),Point('K'),Point('G'),Point('H')), NotCollinear(Point('G'),Point('H'),Point('J')), NotCollinear(Point('H'),Point('J'),Point('K')), SameSide(Point('G'),Point('H'),Point('J'),Point('K')), NotCollinear(Point('G'),Point('H'),Point('K')), OppositeSide(Point('H'),Point('K'),Point('G'),Point('J'))]
+
+new_diagrammatic_relations = {SameSide(Point('H'),Point('J'),Point('G'),Point('K')), NotCollinear(Point('G'),Point('H'),Point('K')), NotCollinear(Point('H'),Point('J'),Point('K')), NotCollinear(Point('G'),Point('H'),Point('J')), NotCollinear(Point('G'),Point('J'),Point('K')), OppositeSide(Point('G'),Point('J'),Point('H'),Point('K')), SameSide(Point('J'),Point('K'),Point('G'),Point('H')), SameSide(Point('G'),Point('H'),Point('J'),Point('K')), SameSide(Point('G'),Point('K'),Point('H'),Point('J')), OppositeSide(Point('H'),Point('K'),Point('G'),Point('J'))}
+

@@ -9,3 +9,6 @@ goal = ((sympy.simplify('pi') * Variable('radius_A')) * Variable('radius_A'))
 solution = '30.2'
 
 diagrammatic_relations = set()
+
+new_diagrammatic_relations = {Between(Point('A'),Point('B'),Point('C'))}
+

@@ -9,3 +9,6 @@ goal = ((sympy.simplify('pi') * Variable('radius_A')) * Variable('radius_A'))
 solution = '50.2'
 
 diagrammatic_relations = set()
+
+new_diagrammatic_relations = set()
+
