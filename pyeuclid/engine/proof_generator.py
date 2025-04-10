@@ -76,21 +76,20 @@ class ProofGenerator:
                 else:
                     add_args = [eqn]
                 for j, add_arg in enumerate(add_args):
+                    add_arg = abs(add_arg)
                     if len(add_arg.args) > 0:
                         mul_args = add_arg.args
                     else:
                         mul_args = [add_arg]
                     for mul_arg in mul_args:
+                        factor = (-1)**(j)
+                        if isinstance(mul_arg, sympy.core.power.Pow):
+                            factor *= mul_arg.args[1]
+                            mul_arg = mul_arg.args[0]
                         if len(mul_arg.free_symbols) == 0:
-                            b[i, 0] = (-1)**j*math.log(abs(mul_arg))
+                            b[i, 0] += factor * math.log(mul_arg)
                         else:
                             symbol = list(mul_arg.free_symbols)[0]
-                            factor = (-1)**(j)
-                            if "/" in str(mul_arg):
-                                factor *= -1
-                                mul_arg = mul_arg.args[1]
-                            if isinstance(mul_arg, sympy.core.power.Pow):
-                                factor *= mul_arg.args[1]
                             A[i, variables[symbol]] += factor
         return np.concat([A, b], axis=1)
 
