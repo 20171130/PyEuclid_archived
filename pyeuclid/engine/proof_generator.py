@@ -85,10 +85,16 @@ class ProofGenerator:
                             b[i, 0] = (-1)**j*math.log(abs(mul_arg))
                         else:
                             symbol = list(mul_arg.free_symbols)[0]
+                            factor = (-1)**(j)
                             if "/" in str(mul_arg):
-                                A[i, variables[symbol]] = (-1)**(j+1)
-                            else:
-                                A[i, variables[symbol]] = (-1)**j
+                                factor *= -1
+                                mul_arg = mul_arg.args[1]
+                            if isinstance(mul_arg, sympy.core.power.Pow):
+                                factor *= mul_arg.args[1]
+                            A[i, variables[symbol]] += factor
+                if not np.abs(A[i]).sum(axis=-1) == 4:
+                    breakpoint()
+                    assert False
         return np.concat([A, b], axis=1)
 
 
