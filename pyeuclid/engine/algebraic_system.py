@@ -44,6 +44,8 @@ class AlgebraicSystem:
             if is_small(factors[0]):
                 return sympy.sympify(0)
             factors = factors[1]  # removes constant coefficient
+            if any([item[0].is_small() for item in factors]):
+                return sympy.sympify(0)
             factors = [item[0] for item in factors if not item[0].is_positive]
             if len(factors) == 0:
                 if check:
@@ -92,7 +94,7 @@ class AlgebraicSystem:
                 return False
         return True
 
-    def elim(self, equations, var_types):
+    def elim(self, equations, var_types):        
         free_vars = []
         raw_equations = equations
         equations = [item.expr for item in equations]
