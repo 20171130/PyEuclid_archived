@@ -2,7 +2,6 @@ import re
 import math
 import sympy
 
-from typing import List
 from stopit import ThreadingTimeout as Timeout
 from sympy import factor_list
 
@@ -85,14 +84,6 @@ class AlgebraicSystem:
         if len(solutions) == 1:
             return solutions.pop()
         return None
-    
-    def check_equalities(self, equalities):
-        if not type(equalities) in (tuple, list):
-            equalities = [equalities]
-        for cond in equalities:
-            if not (isinstance(cond, sympy.logic.boolalg.BooleanTrue) or isinstance(cond, sympy.core.numbers.Zero)):
-                return False
-        return True
 
     def elim(self, equations, var_types):        
         free_vars = []
@@ -139,7 +130,7 @@ class AlgebraicSystem:
                 assert False
             if not var in exprs:
                 exprs[var] = expr
-            elif self.check_equalities(expr-exprs[var]):  # redundant equation
+            elif check_equalities(expr-exprs[var]):  # redundant equation
                 equations[i] = sympy.sympify(0)
                 raw_equations[i].redundant = True
                 continue
@@ -287,7 +278,7 @@ class AlgebraicSystem:
                 else:
                     dic[expr].append(sympy.core.mul.Mul(
                         x, 1/y, evaluate=False))
-        self.ratios = dic
+        self.state.ratios = dic
         dic = {}
         tmp = self.state.angles.equivalence_classes()
         for x in tmp:
@@ -297,7 +288,7 @@ class AlgebraicSystem:
                     dic[expr] = [x+y]
                 else:
                     dic[expr].append(x+y)
-        self.angle_sums = dic
+        self.state.angle_sums = dic
     
     def run(self):
         self.solve_equation()
