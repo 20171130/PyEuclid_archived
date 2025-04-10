@@ -49,4 +49,4 @@ def run_single_problem(problem):
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':
-    run_single_problem("a b c = triangle a b c; m = midpoint m b a; o = circle o a b c; n = on_line n o m, on_circle n o a ? eqangle c a c n c n c b")
+    run_single_problem(2560)
