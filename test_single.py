@@ -41,8 +41,9 @@ def run_single_problem(problem):
     t = time.time() - t0
     result = state.complete()
     if result is not None:
-        assert result is True or abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2
         proof_generator.generate_proof()
+        proof_generator.show_proof()
+        assert result is True or abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2
         print(f"Solved in {t:.2f}s")
     else:
         print("Not solved in {t:.2f}s")
