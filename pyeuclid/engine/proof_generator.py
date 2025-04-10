@@ -76,24 +76,26 @@ class ProofGenerator:
                 else:
                     add_args = [eqn]
                 for j, add_arg in enumerate(add_args):
+                    add_arg = abs(add_arg)
                     if len(add_arg.args) > 0:
                         mul_args = add_arg.args
                     else:
                         mul_args = [add_arg]
                     for mul_arg in mul_args:
+                        factor = (-1)**(j)
+                        if isinstance(mul_arg, sympy.core.power.Pow):
+                            factor *= mul_arg.args[1]
+                            mul_arg = mul_arg.args[0]
                         if len(mul_arg.free_symbols) == 0:
-                            b[i, 0] = (-1)**j*math.log(abs(mul_arg))
+                            b[i, 0] += factor * math.log(mul_arg)
                         else:
                             symbol = list(mul_arg.free_symbols)[0]
-                            if "/" in str(mul_arg):
-                                A[i, variables[symbol]] = (-1)**(j+1)
-                            else:
-                                A[i, variables[symbol]] = (-1)**j
+                            A[i, variables[symbol]] += factor
         return np.concat([A, b], axis=1)
 
 
     def find_conditions(self, equations: list[Traced], conclusion, source):
-        angle_linear, length_linear, length_ratio, others = classify_equations(equations)
+        angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
         """Given sympified equations and conclusions, return a list of necessary conditions"""
         def try_find(equations, conclusion):
             variables = set()
@@ -184,6 +186,12 @@ class ProofGenerator:
             visited.add(node)
             if type(node) in (Between, SameSide, Lt, Equal) or type(node) == Collinear and (node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1):
                 return {}
+            if hasattr(node, "definition"):
+                defs = node.definition()
+                result = {node: defs}
+                for cond in defs:
+                    result.update(self.run(cond, visited, depth=depth, root=False))
+                return result
             result = {}
             for tmp in self.state.relations:
                 if tmp == node:

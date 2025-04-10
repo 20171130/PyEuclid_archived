@@ -1,6 +1,6 @@
 import re
 import sympy
-
+from typing import List
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parents[2]
@@ -160,33 +160,48 @@ class Traced():
         rep += " ".join([str(hash(item)) for item in self.sources])
         return hash(rep)
 
-
-def classify_equations(equations: list[Traced]):
+        
+def classify_equations(equations: List[Traced], var_types):
     angle_linear, length_linear, length_ratio, others = [], [], [], []
     cnst = r"(\d+|\d+\.\d*|pi)"
-    cnst = f"{cnst}(\*{cnst})*(/{cnst})*"
+    cnst = f"{cnst}(\\*{cnst})*(/{cnst})*"
     length = r"(length\w+\d*|variable\w+\d*)"
     angle = r"(angle\w+\d*|variable\w+\d*)"
-    length_mono = f"({cnst}\*)?{length}(/{cnst})?"
-    angle_mono = f"({cnst}\*)?{angle}(/{cnst})?"
+    length_mono = f"({cnst}\\*)?{length}(/{cnst})?"
+    angle_mono = f"({cnst}\\*)?{angle}(/{cnst})?"
     length_mono = f"({length_mono}|{cnst})"
     angle_mono = f"({angle_mono}|{cnst})"
     length_ratio_pattern = re.compile(
-        f"^-?{length_mono}([\*/]{length_mono})* [+-] {length_mono}([\*/]{length_mono})*$")
+        f"^-?{length_mono}([\\*/]{length_mono})* [+-] {length_mono}([\\*/]{length_mono})*$")
     length_linear_pattern = re.compile(
         f"^-?{length_mono}( [+-] {length_mono})+$")
     angle_linear_pattern = re.compile(
         f"^-?{angle_mono}( [+-] {angle_mono})+$")
     for i, eq in enumerate(equations):
         tmp = str(eq).lower()
-        if angle_linear_pattern.match(tmp):
-            # eqangle, angle eq const, angle sum
-            angle_linear.append(eq)
-        elif length_ratio_pattern.match(tmp):
+        if length_ratio_pattern.match(tmp):
+            # length ratio has higher priority than length linear
             # eqratio, length eq const, eqlength, linear equations involving length and variables
             length_ratio.append(eq)
-        elif length_linear_pattern.match(tmp):
-            length_linear.append(eq)
+        elif angle_linear_pattern.match(tmp) or length_linear_pattern.match(tmp):
+            # eqangle, angle eq const, angle sum
+            eq_type = set()
+            for symbol in eq.free_symbols:
+                if "Length" in str(symbol):
+                    eq_type.add("Length")
+                elif "Angle" in str(symbol):
+                    eq_type.add("Angle")
+                elif symbol in var_types:
+                    eq_type.add(var_types[symbol])
+            if len(eq_type) > 1:
+                breakpoint()
+                assert False
+            if len(eq_type) == 0:
+                others.append(eq)
+            elif eq_type.pop() == "Angle":
+                angle_linear.append(eq)
+            else:
+                length_linear.append(eq)
         else:
             others.append(eq)
     return angle_linear, length_linear, length_ratio, others

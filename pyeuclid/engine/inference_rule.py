@@ -200,7 +200,7 @@ class AlphaGeometry4a(InferenceRule):
         self.q = q
 
     def condition(self):
-        return Concyclic(self.a, self.b, self.p, self.q), Lt(self.a, self.b), Lt(self.p, self.q), Lt(self.a, self.p), SameSide(self.p, self.q, self.a, self.b)
+        return Concyclic(self.a, self.b, self.p, self.q), Lt(self.a, self.b), Lt(self.p, self.q), SameSide(self.p, self.q, self.a, self.b)
 
     def conclusion(self):
         return Angle(self.a, self.p, self.b)-Angle(self.a, self.q, self.b),
@@ -216,7 +216,7 @@ class AlphaGeometry4b(InferenceRule):
         self.q = q
 
     def condition(self):
-        return Concyclic(self.a, self.b, self.p, self.q), Lt(self.a, self.b), Lt(self.p, self.q), Lt(self.a, self.p), OppositeSide(self.p, self.q, self.a, self.b)
+        return Concyclic(self.a, self.b, self.p, self.q), Lt(self.a, self.b), Lt(self.p, self.q), OppositeSide(self.p, self.q, self.a, self.b)
 
     def conclusion(self):
         return Angle(self.a, self.p, self.b)+Angle(self.a, self.q, self.b)-pi,
