@@ -62,11 +62,11 @@ class TestBenchmarks(unittest.TestCase):
                 conditions = namespace.get("conditions")
                 goal = namespace.get("goal")
                 solution = namespace.get("solution")
-                diagrammatic_relations = namespace.get("diagrammatic_relations")
+                diagrammatic_relations = namespace.get("new_diagrammatic_relations")
                 state = State()
                 state.silent = True
                 state.load_problem(conditions=conditions, goal=goal)
-                state.add_relations(diagrammatic_relations)
+                state.add_relations(list(diagrammatic_relations))
                 
                 deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic']+inference_rule_sets['complex'])
                 algebraic_system = AlgebraicSystem(state)
@@ -78,6 +78,7 @@ class TestBenchmarks(unittest.TestCase):
                 result = state.complete()
                 if result is None:
                     state.try_complex = True
+                    engine.deductive_database.closure = False
                     engine.search()
                     result = state.complete()
                 t = time.time() - t
