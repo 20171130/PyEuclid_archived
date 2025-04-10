@@ -46,7 +46,7 @@ def run_single_problem(problem):
         assert result is True or abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2
         print(f"Solved in {t:.2f}s")
     else:
-        print("Not solved in {t:.2f}s")
+        print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':
-    run_single_problem(2742)
+    run_single_problem(2560)

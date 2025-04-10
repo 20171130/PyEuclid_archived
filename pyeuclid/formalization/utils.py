@@ -179,7 +179,11 @@ def classify_equations(equations: List[Traced], var_types):
         f"^-?{angle_mono}( [+-] {angle_mono})+$")
     for i, eq in enumerate(equations):
         tmp = str(eq).lower()
-        if angle_linear_pattern.match(tmp) or length_linear_pattern.match(tmp):
+        if length_ratio_pattern.match(tmp):
+            # length ratio has higher priority than length linear
+            # eqratio, length eq const, eqlength, linear equations involving length and variables
+            length_ratio.append(eq)
+        elif angle_linear_pattern.match(tmp) or length_linear_pattern.match(tmp):
             # eqangle, angle eq const, angle sum
             eq_type = set()
             for symbol in eq.free_symbols:
@@ -198,9 +202,6 @@ def classify_equations(equations: List[Traced], var_types):
                 angle_linear.append(eq)
             else:
                 length_linear.append(eq)
-        elif length_ratio_pattern.match(tmp):
-            # eqratio, length eq const, eqlength, linear equations involving length and variables
-            length_ratio.append(eq)
         else:
             others.append(eq)
     return angle_linear, length_linear, length_ratio, others

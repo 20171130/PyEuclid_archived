@@ -92,9 +92,6 @@ class ProofGenerator:
                             if isinstance(mul_arg, sympy.core.power.Pow):
                                 factor *= mul_arg.args[1]
                             A[i, variables[symbol]] += factor
-                if not np.abs(A[i]).sum(axis=-1) == 4:
-                    breakpoint()
-                    assert False
         return np.concat([A, b], axis=1)
 
 
