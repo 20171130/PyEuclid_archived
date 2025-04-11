@@ -985,7 +985,7 @@ class construct_s_angle(ConstructionRule):
         return [Different(self.a, self.b)]
 
     def conclusions(self):
-        return [Angle(self.a, self.b, self.x) - sympy.simplify(abs(self.alpha)*pi/180)]
+        return [Angle(self.a, self.b, self.x) - sympy.simplify(sympy.Rational(abs(self.alpha),180)*pi)]
 
 
 @register("AG")
