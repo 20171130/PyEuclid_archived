@@ -1533,10 +1533,13 @@ class Similar4PAreaLengthRatio(InferenceRule):
         return self.a == self.e and self.b == self.f and self.c == self.g and self.d == self.h
 
     def condition(self):
-        return [Similar4P(self.a, self.b, self.c, self.d, self.e, self.f, self.g, self.h), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.b, self.c), Lt(self.b, self.d), Quadrilateral(self.a, self.b, self.c, self.d), Quadrilateral(self.e, self.f, self.g, self.h)]
+        return [Similar4P(self.a, self.b, self.c, self.d, self.e, self.f, self.g, self.h), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.b, self.d), Quadrilateral(self.a, self.b, self.c, self.d), Quadrilateral(self.e, self.f, self.g, self.h)]
 
     def conclusion(self):
-        return [Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.a, self.b)**2 / Length(self.e, self.f)**2]
+        return [Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.a, self.b)**2 / Length(self.e, self.f)**2,
+                Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.b, self.c)**2 / Length(self.f, self.g)**2,
+                Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.c, self.d)**2 / Length(self.g, self.h)**2,
+                Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.d, self.a)**2 / Length(self.h, self.e)**2]
 
 
 @register("complex")
