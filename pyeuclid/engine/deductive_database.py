@@ -89,7 +89,7 @@ class DeductiveDatabase:
                             clauses = []
                             for rel in self.state.relations:
                                 if type(rel) == type(cond):
-                                    assert not rel.negatedgit
+                                    assert not rel.negated
                                     permutations = rel.permutations()
                                     for perm in permutations:
                                         assignment = True

@@ -888,7 +888,7 @@ class EqTrapezoid1(InferenceRule):
         )
 
     def conclusion(self):
-        return Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.c)
+        return Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
 
 
 @register("basic")
@@ -912,7 +912,7 @@ class EqTrapezoid2(InferenceRule):
         )
 
     def conclusion(self):
-        return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.c)
+        return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
 
 
 @register("basic")
@@ -928,7 +928,7 @@ class EqTrapezoid3(InferenceRule):
         return (
             Parallel(self.a, self.b, self.c, self.d),
             SameSide(self.a, self.d, self.b, self.c),
-            Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.c),
+            Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d),
             Different(self.a, self.b, self.c, self.d),
             Lt(self.a, self.b),
             Lt(self.a, self.c),
