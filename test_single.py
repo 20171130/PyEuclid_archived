@@ -44,4 +44,4 @@ def run_single_problem(problem):
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':
-    run_single_problem(2516)
+    run_single_problem("a b c = triangle a b c; o = circle o a b c; e = on_pline e a b c, on_circle e o a; f = foot f e a b; g = foot g e a c ? para f g a o")

@@ -119,6 +119,9 @@ class Different(Relation):
 
 class Between(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point):
+        """
+        p1 is between p2 and p3.
+        """
         super().__init__()
         p2, p3 = sort_points(p2, p3)
         self.p1, self.p2, self.p3 = p1, p2, p3
