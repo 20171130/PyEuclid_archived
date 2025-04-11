@@ -1,10 +1,6 @@
-import unittest
 import time
-import multiprocessing
 from sympy import sympify
-from tqdm import tqdm
 import logging
-from concurrent.futures import ProcessPoolExecutor, as_completed, TimeoutError
 
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
@@ -27,7 +23,7 @@ def run_single_problem(problem):
         goal = namespace.get("goal")
         solution = namespace.get("solution")
         diagrammatic_relations = namespace.get("diagrammatic_relations")
-        state.try_complex = True
+       # state.try_complex = True
         state.load_problem(conditions=conditions, goal=goal)
         state.add_relations(diagrammatic_relations)
 
@@ -35,7 +31,6 @@ def run_single_problem(problem):
     algebraic_system = AlgebraicSystem(state)
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
-
     t0 = time.time()
     engine.search()
     t = time.time() - t0
@@ -49,4 +44,4 @@ def run_single_problem(problem):
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':
-    run_single_problem(2468)
+    run_single_problem(2678)

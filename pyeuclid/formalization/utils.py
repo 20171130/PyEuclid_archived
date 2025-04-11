@@ -161,6 +161,18 @@ class Traced():
         return hash(rep)
 
         
+def infer_eq_types(eq, var_types):
+    eq_types = set()
+    for symbol in eq.free_symbols:
+        if "Length" in str(symbol):
+            eq_types.add("Length")
+        elif "Angle" in str(symbol):
+            eq_types.add("Angle")
+        elif symbol in var_types:
+            eq_types.add(var_types[symbol])
+    return eq_types
+    
+    
 def classify_equations(equations: List[Traced], var_types):
     angle_linear, length_linear, length_ratio, others = [], [], [], []
     cnst = r"(\d+|\d+\.\d*|pi)"
@@ -179,26 +191,24 @@ def classify_equations(equations: List[Traced], var_types):
         f"^-?{angle_mono}( [+-] {angle_mono})+$")
     for i, eq in enumerate(equations):
         tmp = str(eq).lower()
+        eq_types = infer_eq_types(eq, var_types)
         if length_ratio_pattern.match(tmp):
             # length ratio has higher priority than length linear
             # eqratio, length eq const, eqlength, linear equations involving length and variables
-            length_ratio.append(eq)
+            if "Length" in eq_types:
+                length_ratio.append(eq)
+            elif "Angle" in eq_types: # such as Variable_angle_2 - piVariable_x/90
+                angle_linear.append(eq)
+            else:
+                others.append(eq)
         elif angle_linear_pattern.match(tmp) or length_linear_pattern.match(tmp):
             # eqangle, angle eq const, angle sum
-            eq_type = set()
-            for symbol in eq.free_symbols:
-                if "Length" in str(symbol):
-                    eq_type.add("Length")
-                elif "Angle" in str(symbol):
-                    eq_type.add("Angle")
-                elif symbol in var_types:
-                    eq_type.add(var_types[symbol])
-            if len(eq_type) > 1:
+            if len(eq_types) > 1:
                 breakpoint()
                 assert False
-            if len(eq_type) == 0:
+            if len(eq_types) == 0:
                 others.append(eq)
-            elif eq_type.pop() == "Angle":
+            elif eq_types.pop() == "Angle":
                 angle_linear.append(eq)
             else:
                 length_linear.append(eq)
