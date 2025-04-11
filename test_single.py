@@ -45,4 +45,4 @@ def run_single_problem(problem):
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':
-    run_single_problem("a b c d = rectangle a b c d; e = on_line e b d, on_line e a c; f = midpoint f e d; g = midpoint g e a ? cong f c g b")
+    run_single_problem(2463)

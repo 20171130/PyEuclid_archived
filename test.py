@@ -4,7 +4,6 @@ import time
 import os
 from sympy import sympify
 
-from pyeuclid.formalization.translation import parse_texts_from_file
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.engine.inference_rule import inference_rule_sets
@@ -13,6 +12,7 @@ from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 import traceback
+from stopit import ThreadingTimeout as Timeout
 
 class TestBenchmarks(unittest.TestCase):
     # def test_jgex_ag_231(self):
@@ -74,12 +74,14 @@ class TestBenchmarks(unittest.TestCase):
                 engine = Engine(state, deductive_database, algebraic_system)
 
                 t = time.time()
-                engine.search()
+                with Timeout(600) as tt:
+                    engine.search()
                 result = state.complete()
                 if result is None:
                     state.try_complex = True
                     engine.deductive_database.closure = False
-                    engine.search()
+                    with Timeout(600) as tt:
+                        engine.search()
                     result = state.complete()
                 t = time.time() - t
                 
