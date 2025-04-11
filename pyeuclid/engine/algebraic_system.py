@@ -7,16 +7,6 @@ from sympy import factor_list
 
 from pyeuclid.formalization.utils import *
 
-eps = 1e-3
-def is_small(x):
-    if len(x.free_symbols) > 0:
-        return False
-    if hasattr(x, "evalf"):
-        x = x.evalf()
-    try:
-        return abs(x) < eps
-    except:
-        assert False
 
 
 class AlgebraicSystem:

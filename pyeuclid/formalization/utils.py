@@ -241,11 +241,21 @@ def parse_expression(expr):
             
     return symbols, symbol_names
 
+eps = 1e-3
+def is_small(x):
+    if len(x.free_symbols) > 0:
+        return False
+    if hasattr(x, "evalf"):
+        x = x.evalf()
+    try:
+        return abs(x) < eps
+    except:
+        assert False
 
 def check_equalities(equalities):
     if not type(equalities) in (tuple, list):
         equalities = [equalities]
     for cond in equalities:
-        if not (isinstance(cond, sympy.logic.boolalg.BooleanTrue) or isinstance(cond, sympy.core.numbers.Zero)):
+        if not (isinstance(cond, sympy.logic.boolalg.BooleanTrue) or isinstance(cond, sympy.core.numbers.Zero) or is_small(cond)):
             return False
     return True

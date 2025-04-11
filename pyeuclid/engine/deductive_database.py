@@ -206,6 +206,8 @@ class DeductiveDatabase:
                 # if try complex, solutions in later iterations may be weaker than previous ones and unionfind because of abondoning complex equations, causing check condition failure
                 if not self.state.try_complex and not self.state.check_conditions(concrete.condition()):
                     for condition in concrete.condition():
+                        if str(condition) == "-Length_R_V/Length_S_T + 1":
+                            breakpoint()
                         if not self.state.check_conditions(condition):
                             print(f"Failed condition: {condition}")
                             breakpoint()

@@ -44,4 +44,4 @@ def run_single_problem(problem):
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':
-    run_single_problem(2678)
+    run_single_problem(2516)
