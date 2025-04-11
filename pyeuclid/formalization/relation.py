@@ -100,7 +100,7 @@ def Length(p1: Point, p2: Point):
 
 
 def Area(*ps: list[Point]):
-    ps = sort_points(*ps)
+    ps = sort_cyclic_points(*ps)
     return Symbol("_".join(["Area"] + [str(item) for item in ps]), positive=True)
 
 
