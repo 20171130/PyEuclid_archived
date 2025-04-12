@@ -5,7 +5,7 @@ import re
 import itertools
 
 from sympy import Symbol, pi
-from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups
+from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups,compare_names
 
 
 class Point:
@@ -334,14 +334,19 @@ class Similar4P(Relation):
         p8: Point,
     ):
         super().__init__()
-        self.p1 = p1
-        self.p2 = p2
-        self.p3 = p3
-        self.p4 = p4
-        self.p5 = p5
-        self.p6 = p6
-        self.p7 = p7
-        self.p8 = p8
+        point_map_12 = {p1: p5, p2: p6, p3: p7, p4: p8}
+        point_map_21 = {p5: p1, p6: p2, p7: p3, p8: p4}
+
+        sorted_1 = sort_cyclic_points(p1, p2, p3, p4)
+        sorted_2 = sort_cyclic_points(p5, p6, p7, p8)
+        if compare_names(sorted_1, sorted_2) == 0:
+            self.p1, self.p2, self.p3, self.p4 = sorted_1
+            self.p5,self.p6,self.p7,self.p8 = point_map_12[self.p1], point_map_12[
+                self.p2], point_map_12[self.p3], point_map_12[self.p4]
+        else:
+            self.p1, self.p2, self.p3, self.p4 = sorted_2
+            self.p5, self.p6, self.p7, self.p8 = point_map_21[self.p1], point_map_21[
+                self.p2], point_map_21[self.p3], point_map_21[self.p4]
 
     def definition(self):
         return [
