@@ -13,7 +13,7 @@ from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
-use_new = True
+use_new = False
 include_new = "new_" if use_new else ""
 RESULTS_PATH = f"{include_new}results.jsonl"
 TIMEOUT = 1200
