@@ -76,7 +76,6 @@ class ProofGenerator:
                 else:
                     add_args = [eqn]
                 for j, add_arg in enumerate(add_args):
-                    add_arg = abs(add_arg)
                     if len(add_arg.args) > 0:
                         mul_args = add_arg.args
                     else:
@@ -87,7 +86,7 @@ class ProofGenerator:
                             factor *= mul_arg.args[1]
                             mul_arg = mul_arg.args[0]
                         if len(mul_arg.free_symbols) == 0:
-                            b[i, 0] += factor * math.log(mul_arg)
+                            b[i, 0] += factor * math.log(abs(mul_arg))
                         else:
                             symbol = list(mul_arg.free_symbols)[0]
                             A[i, variables[symbol]] += factor
