@@ -56,21 +56,39 @@ class AlgebraicSystem:
         if len(symbols) == 1:
             solutions = [sympy.re(sol.simplify())
                         for sol in solutions if abs(sympy.im(sol)) < 1e-3]
-            if str(var).startswith("Angle"):
-                solutions = {j for j in solutions if j >= 0 and j <= math.pi+eps}
-                # Prioitize non-zero and non-flat angle
+            try:
+                if str(var).startswith("Angle"):
+                    solutions = {j for j in solutions if j >= 0 and j <= math.pi+eps}
+                    # Prioitize non-zero and non-flat angle
+                    if len(solutions) > 1:
+                        solutions = {j for j in solutions if j != 0 and j != sympy.pi}
+                elif var_types.get(var, None) == "Angle":
+                    solutions = {j for j in solutions if j >=
+                                0 and j <= 180+eps/math.pi*180}
+                    # Prioitize non-zero and non-flat angle
+                    if len(solutions) > 1:
+                        solutions = {j for j in solutions if j != 0 and j != 180}
                 if len(solutions) > 1:
-                    solutions = {j for j in solutions if j != 0 and j != sympy.pi}
-            elif var_types.get(var, None) == "Angle":
-                solutions = {j for j in solutions if j >=
-                            0 and j <= 180+eps/math.pi*180}
-                # Prioitize non-zero and non-flat angle
+                    solutions = [item for item in solutions if item >= 0]
                 if len(solutions) > 1:
-                    solutions = {j for j in solutions if j != 0 and j != 180}
-            if len(solutions) > 1:
-                solutions = [item for item in solutions if item >= 0]
-            if len(solutions) > 1:
-                solutions = [item for item in solutions if item > 0]
+                    solutions = [item for item in solutions if item > 0]
+            except:
+                if str(var).startswith("Angle"):
+                    solutions = {j for j in solutions if float(j) >= 0 and float(j) <= math.pi+eps}
+                    # Prioitize non-zero and non-flat angle
+                    if len(solutions) > 1:
+                        solutions = {j for j in solutions if float(j) != 0 and float(j) != sympy.pi}
+                elif var_types.get(var, None) == "Angle":
+                    solutions = {j for j in solutions if j >=
+                                0 and j <= 180+eps/math.pi*180}
+                    # Prioitize non-zero and non-flat angle
+                    if len(solutions) > 1:
+                        solutions = {j for j in solutions if float(j) != 0 and float(j) != 180}
+                if len(solutions) > 1:
+                    solutions = [item for item in solutions if float(item) >= 0]
+                if len(solutions) > 1:
+                    solutions = [item for item in solutions if float(item) > 0]
+                    
         if len(solutions) == 1:
             return solutions.pop()
         return None
