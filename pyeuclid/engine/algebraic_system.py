@@ -24,10 +24,13 @@ class AlgebraicSystem:
         if is_small(eqn):
             return sympy.sympify(0)
         eqn, denominator = eqn.as_numer_denom()
+        factors = None
         try:
             with Timeout(0.1) as tt:
                 factors = factor_list(eqn)
         except:
+            pass
+        if factors is None:
             return eqn
         if is_small(factors[0]):
             return sympy.sympify(0)
@@ -37,7 +40,6 @@ class AlgebraicSystem:
         factors = [item[0] for item in factors if not item[0].is_positive]
         if len(factors) == 0:
             if check:
-                # breakpoint()  # contradiction
                 assert False
             else:
                 return sympy.sympify(0)
@@ -192,13 +194,11 @@ class AlgebraicSystem:
                     # sympy cannot handle solutions with +k*pi/n correctly, only one solution is returned
                     if pattern.search(tmp):
                         continue
-                    try:
-                        with Timeout(0.1) as tt:
-                            solutions = sympy.solve(expr, symbol, domain=sympy.S.Reals)
-                            # timeout when solving sin(AngleD_C_E)/20 - sin(AngleD_C_E + pi/3)/12
-                            # stack overflow infinite recursion when computing the real part of sqrt(2)*cos(x)/28 - cos(x + pi/4)/7
-
-                    except:
+                    with Timeout(0.1) as tt:
+                        solutions = sympy.solve(expr, symbol, domain=sympy.S.Reals)
+                        # timeout when solving sin(AngleD_C_E)/20 - sin(AngleD_C_E + pi/3)/12
+                        # stack overflow infinite recursion when computing the real part of sqrt(2)*cos(x)/28 - cos(x + pi/4)/7
+                    if solutions is None:
                         # solving can fail on complicated equations
                         continue
                     solution = self.process_solutions(symbol, expr, solutions, var_types)
