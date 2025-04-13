@@ -62,13 +62,10 @@ def process_problem(idx, return_dict):
         engine = Engine(state, deductive_database, algebraic_system)
 
         t = time.time()
+        state.try_complex = True
+        engine.deductive_database.closure = False
         engine.search()
         result = state.complete()
-        if result is None:
-            state.try_complex = True
-            engine.deductive_database.closure = False
-            engine.search()
-            result = state.complete()
         
         t = time.time() - t
 
