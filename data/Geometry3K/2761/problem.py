@@ -15,5 +15,10 @@ diagrammatic_relations = [OppositeSide(Point('A'),Point('C'),Point('B'),Point('X
                     OppositeSide(Point('G'),Point('E'),Point('F'),Point('H')),
                     NotCollinear(Point('E'),Point('F'),Point('G'))]
 
-new_diagrammatic_relations = {Between(Point('X'),Point('A'),Point('C')), NotCollinear(Point('B'),Point('C'),Point('X')), SameSide(Point('A'),Point('X'),Point('B'),Point('C')), NotCollinear(Point('A'),Point('B'),Point('X')), SameSide(Point('C'),Point('X'),Point('A'),Point('B')), NotCollinear(Point('A'),Point('B'),Point('C')), OppositeSide(Point('A'),Point('C'),Point('B'),Point('X'))}
+new_diagrammatic_relations = {OppositeSide(Point('A'),Point('C'),Point('B'),Point('X')), 
+                    SameSide(Point('C'),Point('X'),Point('A'),Point('B')), 
+                    NotCollinear(Point('A'),Point('B'),Point('C')), NotCollinear(Point('B'),Point('C'),Point('X')), 
+                    SameSide(Point('A'),Point('X'),Point('B'),Point('C')), NotCollinear(Point('A'),Point('B'),Point('X')),
+                    OppositeSide(Point('G'),Point('E'),Point('F'),Point('H')),
+                    NotCollinear(Point('E'),Point('F'),Point('G'))}
 

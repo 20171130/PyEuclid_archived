@@ -8,7 +8,7 @@ conditions = [(Length(Point('A'),Point('C')) - sympy.simplify('29')), (Angle(Poi
 goal = Variable('x')
 solution = '98'
 
-diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
 
 new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
 
