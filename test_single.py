@@ -2,6 +2,7 @@ import time
 from sympy import sympify
 import sympy
 import logging
+from stopit import ThreadingTimeout as Timeout
 
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
@@ -33,8 +34,10 @@ def run_single_problem(problem):
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
-    engine.search()
+    with Timeout(600):
+        engine.search()
     t = time.time() - t0
+    breakpoint()
     result = state.complete()
     if result is not None:
         proof_generator.generate_proof()
@@ -45,4 +48,4 @@ def run_single_problem(problem):
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':
-    run_single_problem(2486)
+    run_single_problem(2520)

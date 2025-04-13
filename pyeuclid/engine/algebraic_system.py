@@ -266,8 +266,23 @@ class AlgebraicSystem:
             if unionfind is not None:
                 l, r = eqn
                 unionfind.union(l, r)
+                
     
     def compute_ratio_and_angle_sum(self):
+        def merge(dic):
+            merged = {}
+            keys = list(dic.keys())
+            for i in range(len(keys)):
+                if keys[i] is None:
+                    continue
+                merged[keys[i]] = dic[keys[i]]
+                for j in range(i+1, len(keys)):
+                    if keys[j] is None:
+                        continue
+                    if is_small(keys[i]-keys[j]):
+                        merged[keys[i]] += dic[keys[j]]
+                        keys[j] = None
+            return merged
         dic = {}
         tmp = self.state.lengths.equivalence_classes()
         for x in tmp:
@@ -278,7 +293,7 @@ class AlgebraicSystem:
                 else:
                     dic[expr].append(sympy.core.mul.Mul(
                         x, 1/y, evaluate=False))
-        self.state.ratios = dic
+        self.state.ratios = merge(dic)
         dic = {}
         tmp = self.state.angles.equivalence_classes()
         for x in tmp:
@@ -288,7 +303,7 @@ class AlgebraicSystem:
                     dic[expr] = [x+y]
                 else:
                     dic[expr].append(x+y)
-        self.state.angle_sums = dic
+        self.state.angle_sums = merge(dic)
     
     def run(self):
         self.solve_equation()
