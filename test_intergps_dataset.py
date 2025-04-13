@@ -42,7 +42,19 @@ def process_problem(idx, return_dict):
         state = State()
         state.silent = True
         state.load_problem(conditions=conditions, goal=goal)
-        state.add_relations(diagrammatic_relations)
+        rs = []
+        for r in list(diagrammatic_relations):
+            f = True
+            ps = r.get_points()
+            for p in ps:
+                if p not in list(state.points):
+                    f = False
+                    break
+            if f:
+                rs.append(r)
+                    
+        
+        state.add_relations(rs)
 
         deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'] + inference_rule_sets['complex'])
         algebraic_system = AlgebraicSystem(state)
