@@ -1,0 +1,375 @@
+Process Process-20:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 95, in worker_loop
+    result = run_with_timeout(idx, timeout=TIMEOUT)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 74, in run_with_timeout
+    mgr = mp.Manager()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 57, in Manager
+    m.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/managers.py", line 562, in start
+    self._process.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Traceback (most recent call last):
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 127, in <module>
+    main()
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 113, in main
+    p.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+Process Process-21:
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 95, in worker_loop
+    result = run_with_timeout(idx, timeout=TIMEOUT)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 74, in run_with_timeout
+    mgr = mp.Manager()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 57, in Manager
+    m.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/managers.py", line 562, in start
+    self._process.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Process Process-18:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 95, in worker_loop
+    result = run_with_timeout(idx, timeout=TIMEOUT)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 77, in run_with_timeout
+    p.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Process Process-19:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 95, in worker_loop
+    result = run_with_timeout(idx, timeout=TIMEOUT)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 77, in run_with_timeout
+    p.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc7957e8f70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+slurmstepd: error: *** JOB 103191 ON cpunode7 CANCELLED AT 2025-04-10T22:55:37 ***

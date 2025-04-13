@@ -1,0 +1,128 @@
+Traceback (most recent call last):
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 125, in <module>
+    main()
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 111, in main
+    p.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+Process Process-20:
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 93, in worker_loop
+    result = run_with_timeout(idx, timeout=TIMEOUT)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 72, in run_with_timeout
+    mgr = mp.Manager()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 57, in Manager
+    m.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/managers.py", line 562, in start
+    self._process.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Process Process-22:
+Process Process-21:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 93, in worker_loop
+    result = run_with_timeout(idx, timeout=TIMEOUT)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 72, in run_with_timeout
+    mgr = mp.Manager()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 57, in Manager
+    m.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/managers.py", line 562, in start
+    self._process.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 93, in worker_loop
+    result = run_with_timeout(idx, timeout=TIMEOUT)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 72, in run_with_timeout
+    mgr = mp.Manager()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 57, in Manager
+    m.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/managers.py", line 562, in start
+    self._process.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Process Process-18:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 93, in worker_loop
+    result = run_with_timeout(idx, timeout=TIMEOUT)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 75, in run_with_timeout
+    p.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Process Process-19:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 93, in worker_loop
+    result = run_with_timeout(idx, timeout=TIMEOUT)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 75, in run_with_timeout
+    p.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+slurmstepd: error: *** JOB 103118 ON cpunode8 CANCELLED AT 2025-04-10T18:24:13 ***

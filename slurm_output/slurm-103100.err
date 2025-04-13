@@ -1,0 +1,31 @@
+  0%|          | 0/601 [00:00<?, ?it/s]  0%|          | 1/601 [00:02<24:05,  2.41s/it]  0%|          | 2/601 [00:02<10:56,  1.10s/it]  0%|          | 3/601 [00:02<06:28,  1.54it/s]  1%|          | 4/601 [00:03<07:43,  1.29it/s]  1%|          | 5/601 [00:05<10:56,  1.10s/it]  1%|          | 6/601 [00:07<13:11,  1.33s/it]  1%|          | 7/601 [00:10<18:38,  1.88s/it]  2%|▏         | 11/601 [00:10<06:53,  1.43it/s]  2%|▏         | 12/601 [00:10<06:02,  1.63it/s]Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f5520db5090>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+  2%|▏         | 13/601 [00:11<05:58,  1.64it/s]  2%|▏         | 15/601 [00:11<03:57,  2.47it/s]  3%|▎         | 16/601 [00:11<03:22,  2.90it/s]  3%|▎         | 18/601 [00:11<02:23,  4.07it/s]  3%|▎         | 19/601 [00:12<03:34,  2.72it/s]  3%|▎         | 20/601 [00:13<05:26,  1.78it/s]  3%|▎         | 21/601 [00:14<05:18,  1.82it/s]  4%|▎         | 22/601 [00:14<05:19,  1.81it/s]  4%|▍         | 23/601 [00:21<21:02,  2.18s/it]  4%|▍         | 24/601 [00:22<17:21,  1.80s/it]  4%|▍         | 25/601 [00:22<12:57,  1.35s/it]  4%|▍         | 26/601 [00:22<10:40,  1.11s/it]  4%|▍         | 27/601 [00:25<15:23,  1.61s/it]Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fef5e3e9090>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+  5%|▍         | 28/601 [00:31<26:02,  2.73s/it]  5%|▍         | 30/601 [00:31<15:48,  1.66s/it]  5%|▌         | 31/601 [00:33<16:33,  1.74s/it]  5%|▌         | 32/601 [00:34<13:24,  1.41s/it]  5%|▌         | 33/601 [00:35<12:13,  1.29s/it]  6%|▌         | 34/601 [00:36<11:30,  1.22s/it]  6%|▌         | 36/601 [00:36<06:40,  1.41it/s]  6%|▌         | 37/601 [00:37<06:32,  1.44it/s]  6%|▋         | 39/601 [00:37<04:33,  2.06it/s]  7%|▋         | 40/601 [00:37<04:25,  2.12it/s]  7%|▋         | 41/601 [00:38<03:47,  2.46it/s]  7%|▋         | 42/601 [00:38<03:07,  2.98it/s]  7%|▋         | 43/601 [00:39<04:23,  2.12it/s]  7%|▋         | 44/601 [00:43<15:30,  1.67s/it]  7%|▋         | 45/601 [00:45<14:10,  1.53s/it]  8%|▊         | 46/601 [00:46<14:41,  1.59s/it]  8%|▊         | 47/601 [00:47<12:34,  1.36s/it]  8%|▊         | 48/601 [00:49<13:16,  1.44s/it]Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc5a4669090>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+  8%|▊         | 49/601 [00:54<24:00,  2.61s/it]  8%|▊         | 50/601 [00:55<20:04,  2.19s/it]Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f5520db5090>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+  8%|▊         | 51/601 [01:03<34:41,  3.78s/it]Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fc5a4669090>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+  9%|▊         | 52/601 [01:03<25:17,  2.76s/it]  9%|▉         | 53/601 [01:03<18:16,  2.00s/it]  9%|▉         | 54/601 [01:04<15:07,  1.66s/it]  9%|▉         | 56/601 [01:05<10:35,  1.17s/it] 10%|▉         | 58/601 [01:09<12:13,  1.35s/it] 10%|▉         | 59/601 [01:10<11:31,  1.28s/it]Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f463018d090>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+ 10%|▉         | 60/601 [01:12<13:02,  1.45s/it] 10%|█         | 61/601 [01:13<11:51,  1.32s/it] 10%|█         | 62/601 [01:14<12:42,  1.41s/it] 11%|█         | 64/601 [01:15<08:15,  1.08it/s] 11%|█         | 65/601 [01:15<06:57,  1.28it/s] 11%|█         | 67/601 [01:16<05:10,  1.72it/s] 11%|█▏        | 68/601 [01:16<04:41,  1.89it/s] 11%|█▏        | 69/601 [01:17<05:46,  1.54it/s]slurmstepd: error: *** JOB 103100 ON cpunode6 CANCELLED AT 2025-04-10T16:15:37 ***

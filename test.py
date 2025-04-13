@@ -51,7 +51,7 @@ class TestBenchmarks(unittest.TestCase):
     def test_geometry3k(self):
         rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
         world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
-        for idx in range(2401, 3002):
+        for idx in [2796]:
             if not idx%world_size == rank:
                 continue
             if not os.path.isfile(f"data/Geometry3K/{idx}/problem.py"):
@@ -65,9 +65,21 @@ class TestBenchmarks(unittest.TestCase):
                 solution = namespace.get("solution")
                 diagrammatic_relations = namespace.get("new_diagrammatic_relations")
                 state = State()
-                state.silent = True
+                state.silent = False
                 state.load_problem(conditions=conditions, goal=goal)
-                state.add_relations(list(diagrammatic_relations))
+                rs = []
+                for r in list(diagrammatic_relations):
+                    f = True
+                    ps = r.get_points()
+                    for p in ps:
+                        if p not in list(state.points):
+                            f = False
+                            break
+                    if f:
+                        rs.append(r)
+                            
+                
+                state.add_relations(rs)
                 
                 deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic']+inference_rule_sets['complex'])
                 algebraic_system = AlgebraicSystem(state)
@@ -75,15 +87,17 @@ class TestBenchmarks(unittest.TestCase):
                 engine = Engine(state, deductive_database, algebraic_system)
 
                 t = time.time()
-                with Timeout(600) as tt:
-                    engine.search()
-                result = state.complete()
-                if result is None:
+                # with Timeout(600) as tt:
+                #     engine.search()
+                # result = state.complete()
+                if True:
                     state.try_complex = True
                     engine.deductive_database.closure = False
                     with Timeout(600) as tt:
                         engine.search()
                     result = state.complete()
+                print(result)
+
                 t = time.time() - t
                 
                 

@@ -1,0 +1,1051 @@
+  0%|          | 0/601 [00:00<?, ?it/s]Process Process-17:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-40:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-48:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-11:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-9:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-39:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-55:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-54:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-27:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-35:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-33:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-51:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-57:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-25:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-23:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-1:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-62:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-60:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-22:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-50:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-3:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-20:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-45:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-43:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-44:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-21:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-42:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-18:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-14:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-63:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-47:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-8:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-30:
+Process Process-13:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-19:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-15:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-29:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-2:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb82059cf70>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+stopit.utils.TimeoutException: 
+Process Process-34:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-36:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-49:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-10:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-24:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-37:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Zero is not JSON serializable
+Process Process-59:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-64:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+  0%|          | 1/601 [00:20<3:27:32, 20.75s/it]Process Process-26:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+  0%|          | 2/601 [00:25<1:53:40, 11.39s/it]Process Process-38:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-32:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-12:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-46:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-61:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-52:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-53:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+Process Process-58:
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 88, in worker_loop
+    append_result_to_file(result)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 79, in append_result_to_file
+    f.write(json.dumps(result) + "\n")
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Float is not JSON serializable
+slurmstepd: error: *** JOB 103113 ON cpunode3 CANCELLED AT 2025-04-10T18:19:18 ***

@@ -1,0 +1,2536 @@
+  0%|          | 0/601 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<string>", line 1, in <module>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 23, in <module>
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    exitcode = _main(fd, parent_sentinel)
+    exitcode = _main(fd, parent_sentinel)
+    exitcode = _main(fd, parent_sentinel)
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    exitcode = _main(fd, parent_sentinel)
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    prepare(preparation_data)
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    prepare(preparation_data)
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    _fixup_main_from_path(data['init_main_from_path'])
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    _fixup_main_from_path(data['init_main_from_path'])
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    _fixup_main_from_path(data['init_main_from_path'])
+Traceback (most recent call last):
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    main_content = runpy.run_path(main_path,
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    return _run_module_code(code, init_globals, run_name,
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    _fixup_main_from_path(data['init_main_from_path'])
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    _run_code(code, mod_globals, init_globals,
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    _run_code(code, mod_globals, init_globals,
+    exec(code, run_globals)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    _run_code(code, mod_globals, init_globals,
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from pyeuclid.formalization.state import State
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    exitcode = _main(fd, parent_sentinel)
+    from pyeuclid.formalization.diagram import *
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+Traceback (most recent call last):
+    exec(code, run_globals)
+  File "<string>", line 1, in <module>
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+    prepare(preparation_data)
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    prepare(preparation_data)
+    from pyeuclid.formalization.state import State
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from pyeuclid.formalization.diagram import *
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 264, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 1573, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/pyplot.py", line 57, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    _check_versions()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 249, in _check_versions
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 28, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 28, in <module>
+    from matplotlib.cm import _colormaps as colormaps  # noqa: E402
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cm.py", line 24, in <module>
+    from . import ft2font  # noqa: F401
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/ft2font.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 78, in <module>
+    from matplotlib._cm_listed import cmaps as cmaps_listed
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 74, in <module>
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 23, in <module>
+MemoryError
+    import matplotlib.colorbar
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/colorbar.py", line 19, in <module>
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    from matplotlib import _api, cbook, collections, cm, colors, contour, ticker
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/contour.py", line 15, in <module>
+    from matplotlib.backend_bases import MouseButton
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 49, in <module>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    from matplotlib import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/text.py", line 16, in <module>
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from . import _api, _version, cbook, _docstring, rcsetup
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from .font_manager import FontProperties
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/font_manager.py", line 1643, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    from numpy.__config__ import show_config
+    exec(code, run_globals)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 74, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 23, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 1573, in <module>
+    fontManager = _load_fontmanager()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/font_manager.py", line 1637, in _load_fontmanager
+    from matplotlib.cm import _colormaps as colormaps  # noqa: E402
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cm.py", line 24, in <module>
+    fm = FontManager()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/font_manager.py", line 1097, in __init__
+    from matplotlib._cm_listed import cmaps as cmaps_listed
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+    timer.start()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/threading.py", line 935, in start
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+    _start_new_thread(self._bootstrap, ())
+RuntimeError: can't start new thread
+    from . import multiarray
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/multiarray.py", line 10, in <module>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    from . import numeric
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/numeric.py", line 25, in <module>
+    from . import numeric
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/numeric.py", line 25, in <module>
+    from .records import record, recarray
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+    from . import shape_base
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/shape_base.py", line 11, in <module>
+    from . import shape_base
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/shape_base.py", line 11, in <module>
+    from . import fromnumeric as _from_nx
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+    from . import fromnumeric as _from_nx
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+    from matplotlib import pyplot as plt
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+MemoryError
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    main_content = runpy.run_path(main_path,
+    from . import multiarray
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/multiarray.py", line 10, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    exitcode = _main(fd, parent_sentinel)
+    from matplotlib.colors import Colormap, is_color_like
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/colors.py", line 57, in <module>
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    exitcode = _main(fd, parent_sentinel)
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    prepare(preparation_data)
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    return _run_module_code(code, init_globals, run_name,
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    from . import multiarray
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/multiarray.py", line 10, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 181, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    return _run_module_code(code, init_globals, run_name,
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from . import overrides
+    exec(code, run_globals)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/overrides.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+Traceback (most recent call last):
+    _run_code(code, mod_globals, init_globals,
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from matplotlib import _api, _cm, cbook, scale, _image
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/scale.py", line 39, in <module>
+    from . import overrides
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/overrides.py", line 7, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    _run_code(code, mod_globals, init_globals,
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from . import lib
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/__init__.py", line 23, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 28, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 28, in <module>
+    from matplotlib.colors import Colormap, is_color_like
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/colors.py", line 57, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 28, in <module>
+    exec(code, run_globals)
+    from matplotlib import _api, _cm, cbook, scale, _image
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/scale.py", line 39, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib.ticker import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/ticker.py", line 144, in <module>
+    from matplotlib import pyplot as plt
+    from matplotlib.colors import Colormap, is_color_like
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 264, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/colors.py", line 52, in <module>
+    from matplotlib.colors import Colormap, is_color_like
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/colors.py", line 57, in <module>
+    from . import overrides
+    _check_versions()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 249, in _check_versions
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/overrides.py", line 7, in <module>
+    from PIL import Image
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/PIL/Image.py", line 97, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/printoptions.py", line 10, in <module>
+    from matplotlib.ticker import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/ticker.py", line 144, in <module>
+    from . import ft2font  # noqa: F401
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/ft2font.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from matplotlib import _api, _cm, cbook, scale, _image
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/scale.py", line 39, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+    from matplotlib.colors import Colormap, is_color_like
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/colors.py", line 52, in <module>
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    from PIL import Image
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/PIL/Image.py", line 97, in <module>
+    from matplotlib import transforms as mtransforms
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/transforms.py", line 49, in <module>
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    return _run_module_code(code, init_globals, run_name,
+    from matplotlib.ticker import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/ticker.py", line 144, in <module>
+    _run_code(code, mod_globals, init_globals,
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+ImportError: libscipy_openblas64_-6bb31eeb.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+    from matplotlib import transforms as mtransforms
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/transforms.py", line 49, in <module>
+    from . import _imaging as core
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/PIL/_imaging.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+    exitcode = _main(fd, parent_sentinel)
+    exec(code, run_globals)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 1007, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from . import _imaging as core
+    from matplotlib import transforms as mtransforms
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/PIL/_imaging.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/transforms.py", line 49, in <module>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 49, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.10 from "/u/sjl/miniconda3/envs/pyeuclid/bin/python"
+  * The NumPy version is: "2.2.3"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: libscipy_openblas64_-6bb31eeb.so: failed to map segment from shared object
+    from matplotlib import pyplot as plt
+
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 28, in <module>
+    from matplotlib._path import (
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_path.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    from matplotlib._path import (
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_path.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/pyplot.py", line 58, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    import matplotlib.image
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 119, in <module>
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+    raise ImportError(msg) from e
+ImportError: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+MemoryError
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 23, in <module>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    main_content = runpy.run_path(main_path,
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    from contextvars import ContextVar
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/contextvars.py", line 1, in <module>
+    from . import _index_tricks_impl
+    from . import multiarray
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/_index_tricks_impl.py", line 16, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/multiarray.py", line 10, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    exitcode = _main(fd, parent_sentinel)
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from _contextvars import Context, ContextVar, Token, copy_context
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/lib-dynload/_contextvars.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+    from matplotlib.colors import Colormap, is_color_like
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/colors.py", line 57, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    exec(code, run_globals)
+    from matplotlib import _api, _cm, cbook, scale, _image
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/scale.py", line 39, in <module>
+    from matplotlib.ticker import (
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/ticker.py", line 144, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 32, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 49, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from matplotlib import transforms as mtransforms
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/transforms.py", line 49, in <module>
+    from matplotlib import _api, _c_internal_utils
+    raise ImportError(msg)
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.10 from "/u/sjl/miniconda3/envs/pyeuclid/bin/python"
+  * The NumPy version is: "2.2.3"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/lib-dynload/_contextvars.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+    from matplotlib._path import (
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_path.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 903, in _rc_params_in_file
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from matplotlib._path import (
+    from . import overrides
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/overrides.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_path.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/printoptions.py", line 10, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    from contextvars import ContextVar
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/contextvars.py", line 1, in <module>
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    from _contextvars import Context, ContextVar, Token, copy_context
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/lib-dynload/_contextvars.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    main_content = runpy.run_path(main_path,
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 32, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import _api, _c_internal_utils
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+    from pyeuclid.formalization.state import State
+    from numpy._core._multiarray_umath import (
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 49, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    prepare(preparation_data)
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from numpy.lib._function_base_impl import diff
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.10 from "/u/sjl/miniconda3/envs/pyeuclid/bin/python"
+  * The NumPy version is: "2.2.3"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/lib-dynload/_contextvars.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/printoptions.py", line 10, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+Traceback (most recent call last):
+    import numpy as np
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 74, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from . import numeric
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/numeric.py", line 25, in <module>
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from . import shape_base
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/shape_base.py", line 11, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from . import fromnumeric as _from_nx
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 78, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+    from .records import record, recarray
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+MemoryError
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from contextvars import ContextVar
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/contextvars.py", line 1, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    prepare(preparation_data)
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 119, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    raise ImportError(msg) from e
+ImportError: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    return _run_module_code(code, init_globals, run_name,
+    exec(code, run_globals)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    exec(code, run_globals)
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 181, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from _contextvars import Context, ContextVar, Token, copy_context
+    from matplotlib import pyplot as plt
+    from pyeuclid.formalization.state import State
+    exitcode = _main(fd, parent_sentinel)
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/lib-dynload/_contextvars.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+
+During handling of the above exception, another exception occurred:
+
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/contextlib.py", line 135, in __enter__
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 78, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from .records import record, recarray
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 880, in _open_file_or_url
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+MemoryError
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 78, in <module>
+MemoryError
+    from .records import record, recarray
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    import numpy as np
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 181, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from . import lib
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/__init__.py", line 23, in <module>
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 49, in <module>
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.10 from "/u/sjl/miniconda3/envs/pyeuclid/bin/python"
+  * The NumPy version is: "2.2.3"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/lib-dynload/_contextvars.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    exec(code, run_globals)
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 264, in <module>
+    _check_versions()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 249, in _check_versions
+    from . import ft2font  # noqa: F401
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/ft2font.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from . import lib
+    from . import _index_tricks_impl
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/__init__.py", line 16, in <module>
+    from pyeuclid.formalization.state import State
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    import numpy as np
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 181, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    from . import lib
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/__init__.py", line 16, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    from . import npyio
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/npyio.py", line 1, in <module>
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from . import npyio
+    from pyeuclid.formalization.state import State
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/npyio.py", line 1, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from ._npyio_impl import (
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+    import numpy as np
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 181, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    from . import lib
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/__init__.py", line 33, in <module>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    from . import _polynomial_impl
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+MemoryError
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    from ._npyio_impl import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/pyplot.py", line 70, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 181, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/figure.py", line 40, in <module>
+    from . import lib
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/__init__.py", line 16, in <module>
+    from . import npyio
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/npyio.py", line 1, in <module>
+    from ._npyio_impl import (
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+MemoryError
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/projections/__init__.py", line 55, in <module>
+MemoryError
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    return _run_module_code(code, init_globals, run_name,
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/axes/__init__.py", line 2, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/axes/_axes.py", line 11, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 119, in <module>
+    exitcode = _main(fd, parent_sentinel)
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 23, in <module>
+    from . import multiarray
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/multiarray.py", line 10, in <module>
+    from . import overrides
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/overrides.py", line 7, in <module>
+    from numpy._core._multiarray_umath import (
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    exitcode = _main(fd, parent_sentinel)
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 49, in <module>
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.10 from "/u/sjl/miniconda3/envs/pyeuclid/bin/python"
+  * The NumPy version is: "2.2.3"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 5, in <module>
+    from sympy import sympify
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/__init__.py", line 195, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/category.py", line 14, in <module>
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from .geometry import (Point, Point2D, Point3D, Line, Ray, Segment, Line2D,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/geometry/__init__.py", line 17, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 119, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    raise ImportError(msg) from e
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 6, in <module>
+ImportError: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+    from sympy.geometry.ellipse import Ellipse, Circle
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/geometry/ellipse.py", line 1777, in <module>
+    raise ImportError(msg) from e
+ImportError: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+    from .polygon import Polygon
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_data
+MemoryError
+    from concurrent.futures import ProcessPoolExecutor, as_completed, TimeoutError
+  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/concurrent/futures/__init__.py", line 44, in __getattr__
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 23, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from pyeuclid.formalization.state import State
+    prepare(preparation_data)
+    from . import multiarray
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/multiarray.py", line 10, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from . import overrides
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/overrides.py", line 7, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 119, in <module>
+    from numpy._core._multiarray_umath import (
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 32, in <module>
+    raise ImportError(msg) from e
+ImportError: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+    from matplotlib import _api, _c_internal_utils
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 49, in <module>
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.10 from "/u/sjl/miniconda3/envs/pyeuclid/bin/python"
+  * The NumPy version is: "2.2.3"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 57, in <module>
+    prepare(preparation_data)
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+    from .process import ProcessPoolExecutor as pe
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/concurrent/futures/process.py", line 52, in <module>
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_data
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+MemoryError
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 5, in <module>
+    from sympy import sympify
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/__init__.py", line 195, in <module>
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    from .geometry import (Point, Point2D, Point3D, Line, Ray, Segment, Line2D,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/geometry/__init__.py", line 13, in <module>
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from sympy.geometry.point import Point, Point2D, Point3D
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    exec(code, run_globals)
+MemoryError
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 57, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 119, in <module>
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_data
+    _fixup_main_from_path(data['init_main_from_path'])
+MemoryError
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 5, in <module>
+    from sympy import sympify
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/__init__.py", line 195, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/geometry/__init__.py", line 17, in <module>
+    from sympy.geometry.ellipse import Ellipse, Circle
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/geometry/ellipse.py", line 1777, in <module>
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+ERROR:root:code for hash md5 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type md5
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 29, in <module>
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+    raise ImportError(msg) from e
+ImportError: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+    import multiprocessing.connection
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py", line 15, in <module>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+ERROR:root:code for hash sha1 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha1
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+ERROR:root:code for hash sha224 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha224
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+ERROR:root:code for hash sha256 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha256
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+ERROR:root:code for hash blake2b was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type blake2b
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 5, in <module>
+    from sympy import sympify
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/__init__.py", line 251, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/plotting/__init__.py", line 2, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/pyparsing/__init__.py", line 136, in <module>
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from .plot_implicit import plot_implicit
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/plotting/plot_implicit.py", line 34, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 32, in <module>
+    from matplotlib import _api, _c_internal_utils
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/sympy/plotting/intervalmath/__init__.py", line 2, in <module>
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+Traceback (most recent call last):
+    from pyeuclid.formalization.diagram import *
+  File "<string>", line 1, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 181, in <module>
+ERROR:root:code for hash blake2s was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type blake2s
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/pyplot.py", line 57, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    from . import lib
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/__init__.py", line 23, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 23, in <module>
+    import matplotlib.colorbar
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/colorbar.py", line 19, in <module>
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    from . import _index_tricks_impl
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    from matplotlib import _api, cbook, collections, cm, colors, contour, ticker
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+    return _run_module_code(code, init_globals, run_name,
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+MemoryError
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+MemoryError
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 181, in <module>
+    from . import lib
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/__init__.py", line 16, in <module>
+    from . import npyio
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/lib/npyio.py", line 1, in <module>
+    from ._npyio_impl import (
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+ERROR:root:code for hash sha3_224 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_224
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+ERROR:root:code for hash md5 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type md5
+ERROR:root:code for hash sha1 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha1
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+ERROR:root:code for hash sha224 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha224
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+ERROR:root:code for hash sha256 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha256
+ERROR:root:code for hash blake2b was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type blake2b
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+ERROR:root:code for hash blake2s was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type blake2s
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+ERROR:root:code for hash sha3_224 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_224
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_data
+MemoryError
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    from . import multiarray
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/multiarray.py", line 10, in <module>
+    from . import overrides
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/overrides.py", line 7, in <module>
+    from numpy._core._multiarray_umath import (
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 49, in <module>
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.10 from "/u/sjl/miniconda3/envs/pyeuclid/bin/python"
+  * The NumPy version is: "2.2.3"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 119, in <module>
+    raise ImportError(msg) from e
+ImportError: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+ERROR:root:code for hash sha3_256 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_256
+ERROR:root:code for hash sha3_256 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_256
+ERROR:root:code for hash sha3_384 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_384
+ERROR:root:code for hash sha3_384 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_384
+ERROR:root:code for hash sha3_512 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_512
+ERROR:root:code for hash sha3_512 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_512
+ERROR:root:code for hash shake_128 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type shake_128
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 264, in <module>
+Traceback (most recent call last):
+ERROR:root:code for hash shake_128 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type shake_128
+  File "<string>", line 1, in <module>
+    _check_versions()
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 249, in _check_versions
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+ERROR:root:code for hash shake_256 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type shake_256
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+ERROR:root:code for hash shake_256 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type shake_256
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 78, in <module>
+    from .records import record, recarray
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+MemoryError
+    from . import ft2font  # noqa: F401
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/ft2font.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+ERROR:root:code for hash md5 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type md5
+ERROR:root:code for hash sha1 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha1
+ERROR:root:code for hash sha224 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha224
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 23, in <module>
+ERROR:root:code for hash sha256 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha256
+ERROR:root:code for hash blake2b was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type blake2b
+ERROR:root:code for hash blake2s was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type blake2s
+ERROR:root:code for hash sha3_224 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_224
+ERROR:root:code for hash sha3_256 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_256
+ERROR:root:code for hash sha3_384 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_384
+ERROR:root:code for hash sha3_512 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha3_512
+ERROR:root:code for hash shake_128 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type shake_128
+    from . import multiarray
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/multiarray.py", line 10, in <module>
+ERROR:root:code for hash shake_256 was not found.
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 261, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/hashlib.py", line 123, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type shake_256
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 23, in <module>
+    from . import multiarray
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/multiarray.py", line 10, in <module>
+    from . import overrides
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/overrides.py", line 7, in <module>
+    from numpy._core._multiarray_umath import (
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 49, in <module>
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.10 from "/u/sjl/miniconda3/envs/pyeuclid/bin/python"
+  * The NumPy version is: "2.2.3"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    from . import overrides
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/overrides.py", line 7, in <module>
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    from numpy._core._multiarray_umath import (
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 49, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.10 from "/u/sjl/miniconda3/envs/pyeuclid/bin/python"
+  * The NumPy version is: "2.2.3"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 119, in <module>
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    raise ImportError(msg) from e
+ImportError: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 119, in <module>
+    raise ImportError(msg) from e
+ImportError: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_api/__init__.py", line 20, in <module>
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_data
+MemoryError
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 23, in <module>
+    from . import multiarray
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/multiarray.py", line 10, in <module>
+    from . import overrides
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/overrides.py", line 7, in <module>
+    from numpy._core._multiarray_umath import (
+ImportError: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 114, in <module>
+    from numpy.__config__ import show_config
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/__init__.py", line 49, in <module>
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.10 from "/u/sjl/miniconda3/envs/pyeuclid/bin/python"
+  * The NumPy version is: "2.2.3"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: /u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so: failed to map segment from shared object
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+    from pyeuclid.formalization.state import State
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+    from pyeuclid.formalization.diagram import *
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+    from matplotlib import pyplot as plt
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/cbook.py", line 24, in <module>
+    import numpy as np
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/numpy/__init__.py", line 119, in <module>
+    raise ImportError(msg) from e
+ImportError: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/__init__.py", line 161, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/_api/__init__.py", line 20, in <module>
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_data
+MemoryError
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 289, in run_path
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 96, in _run_module_code
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/h/346/sjl/PyEuclid/test_intergps_dataset.py", line 11, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/state.py", line 9, in <module>
+  File "/h/346/sjl/PyEuclid/pyeuclid/formalization/diagram.py", line 7, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/pyplot.py", line 70, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/figure.py", line 40, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/projections/__init__.py", line 55, in <module>
+  File "/u/sjl/miniconda3/envs/pyeuclid/lib/python3.10/site-packages/matplotlib/axes/__init__.py", line 1, in <module>
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_data
+MemoryError
+  0%|          | 1/601 [00:01<16:25,  1.64s/it]  2%|▏         | 10/601 [00:01<01:16,  7.75it/s]  8%|▊         | 49/601 [00:01<00:12, 45.94it/s] 15%|█▍        | 88/601 [00:01<00:05, 88.96it/s] 22%|██▏       | 132/601 [00:02<00:03, 141.95it/s] 29%|██▉       | 175/601 [00:02<00:02, 192.78it/s] 36%|███▌      | 216/601 [00:02<00:01, 236.52it/s] 44%|████▍     | 263/601 [00:02<00:01, 288.20it/s] 52%|█████▏    | 312/601 [00:02<00:00, 335.54it/s] 59%|█████▉    | 357/601 [00:02<00:00, 364.29it/s] 67%|██████▋   | 401/601 [00:02<00:00, 381.29it/s] 75%|███████▍  | 448/601 [00:02<00:00, 405.21it/s] 83%|████████▎ | 498/601 [00:02<00:00, 429.52it/s] 91%|█████████ | 544/601 [00:02<00:00, 434.20it/s] 98%|█████████▊| 590/601 [00:03<00:00, 436.94it/s]100%|██████████| 601/601 [00:03<00:00, 193.35it/s]
