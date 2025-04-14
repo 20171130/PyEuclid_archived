@@ -88,7 +88,8 @@ def process_problem(idx, return_dict):
             "ground-truth": str(sympify(solution)) if solution is not None else ''
         }
     except Exception as e:
-        return_dict["result"] = {"problem_number": idx, "status": "unsolved", "time": str(t)}
+        return_dict["result"] = {"problem_number": idx, "status": "unsolved", "time": str(t),"proposed": str(sympify(result)) if result is not None else '',
+            "ground-truth": str(sympify(solution)) if solution is not None else ''}
 
 def run_with_timeout(idx, timeout):
     mgr = mp.Manager()
