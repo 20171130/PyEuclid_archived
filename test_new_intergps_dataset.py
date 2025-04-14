@@ -100,7 +100,7 @@ def run_with_timeout(idx, timeout):
         p.terminate()
         p.join()
         return {"problem_number": idx, "status": "timeout", "time": 0}
-    return return_dict.get("result", {"problem_number": idx, "status": "error", "error": "no result returned", "time": 0})
+    return return_dict.get("result", {"problem_number": idx, "status": "error", "time": 0})
 
 def append_result_to_file(result):
     with open(RESULTS_PATH, "a", encoding="utf-8") as f:
