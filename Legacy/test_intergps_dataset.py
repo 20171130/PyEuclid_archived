@@ -14,7 +14,7 @@ from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 from stopit import ThreadingTimeout as Timeout
 
-use_new = True
+use_new = False
 include_new = "new_" if use_new else ""
 RESULTS_PATH = f"{include_new}results.jsonl"
 TIMEOUT = 1200
@@ -53,15 +53,17 @@ def process_problem(idx, return_dict):
                     break
             if f:
                 rs.append(r)
-    
+                    
+        
         state.add_relations(rs)
+
         deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'] + inference_rule_sets['complex'])
         algebraic_system = AlgebraicSystem(state)
         proof_generator = ProofGenerator(state)
         engine = Engine(state, deductive_database, algebraic_system)
 
         t = time.time()
-
+        
         with Timeout(600) as tt:
             engine.search()
         result = state.complete()
@@ -76,7 +78,7 @@ def process_problem(idx, return_dict):
 
         if result is not None:
             correct = (result is True or abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 2e-2)
-            status = "solved" if correct else "unsolved"
+            status = "solved" if correct else "wrong"
         else:
             status = "unsolved"
 
@@ -88,7 +90,7 @@ def process_problem(idx, return_dict):
             "ground-truth": str(sympify(solution)) if solution is not None else ''
         }
     except Exception as e:
-        return_dict["result"] = {"problem_number": idx, "status": "unsolved", "time": str(t)}
+        return_dict["result"] = {"problem_number": idx, "status": "error", "error": str(e), "time": 0}
 
 def run_with_timeout(idx, timeout):
     mgr = mp.Manager()
