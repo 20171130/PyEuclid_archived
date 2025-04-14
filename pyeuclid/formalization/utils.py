@@ -190,7 +190,7 @@ def classify_equations(equations: List[Traced], var_types):
     angle_linear_pattern = re.compile(
         f"^-?{angle_mono}( [+-] {angle_mono})+$")
     for i, eq in enumerate(equations):
-        tmp = str(eq).lower()
+        tmp = str(eq.expr.expand()).lower()
         eq_types = infer_eq_types(eq, var_types)
         if length_ratio_pattern.match(tmp):
             # length ratio has higher priority than length linear
