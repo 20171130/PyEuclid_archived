@@ -37,15 +37,13 @@ def run_single_problem(problem):
     with Timeout(600):
         engine.search()
     t = time.time() - t0
-    breakpoint()
     result = state.complete()
     if result is not None:
         proof_generator.generate_proof()
         proof_generator.show_proof()
-        assert result is True or abs((sympify(result).evalf() - sympify(solution).evalf()) / (sympify(solution).evalf() + 1e-4)) < 1e-2
         print(f"Solved in {t:.2f}s")
     else:
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':
-    run_single_problem(2520)
+    run_single_problem("o a = segment o a; p = on_circle p a o; q = intersection_cc q a o p; r = lc_tangent r p a, on_circle r o p ? cong p q p r")

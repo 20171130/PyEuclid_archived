@@ -293,7 +293,7 @@ class AlgebraicSystem:
                 else:
                     dic[expr].append(sympy.core.mul.Mul(
                         x, 1/y, evaluate=False))
-        self.state.ratios = merge(dic)
+        self.state.ratios = dic # merge(dic)
         dic = {}
         tmp = self.state.angles.equivalence_classes()
         for x in tmp:
@@ -303,7 +303,7 @@ class AlgebraicSystem:
                     dic[expr] = [x+y]
                 else:
                     dic[expr].append(x+y)
-        self.state.angle_sums = merge(dic)
+        self.state.angle_sums = dic #merge(dic)
     
     def run(self):
         self.solve_equation()
