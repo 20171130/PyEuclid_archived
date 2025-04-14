@@ -14,4 +14,4 @@ conda activate pyeuclid
 # Run your command
 export PYTHONBREAKPOINT=0
 export PYTHONBREAKPOINT=1
-python test_new_intergps_dataset.py
+python test_intergps_dataset.py

@@ -46,4 +46,4 @@ def run_single_problem(problem):
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':
-    run_single_problem("o a = segment o a; p = on_circle p a o; q = intersection_cc q a o p; r = lc_tangent r p a, on_circle r o p ? cong p q p r")
+    run_single_problem(2575)
