@@ -1,5 +1,6 @@
 FROM python:3.11
 RUN mkdir /PyEuclid
-COPY ./requirements.txt /PyEuclid/requirements.txt
+COPY ./ /PyEuclid
+WORKDIR /PyEuclid
 RUN pip install -r requirements.txt
 CMD python test_single.py
