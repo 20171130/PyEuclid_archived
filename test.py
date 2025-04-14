@@ -51,7 +51,7 @@ class TestBenchmarks(unittest.TestCase):
     def test_geometry3k(self):
         rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
         world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
-        for idx in [2796]:
+        for idx in [2992]:
             if not idx%world_size == rank:
                 continue
             if not os.path.isfile(f"data/Geometry3K/{idx}/problem.py"):
