@@ -122,10 +122,11 @@ class State:
                 continue
             for entity in entities:
                 if label is not None:
-                    if entity in self.var_types and self.var_types[entity] != label:
-                        print(
-                            f"Variable {entity} points to two differen entities: {label} and {self.var_types[entity]}")
-                        assert False
+                    if entity in self.var_types:
+                        if self.var_types[entity] is None: # dimensionless variable
+                            continue
+                        elif self.var_types[entity] != label:
+                            self.var_types[entity] = None
                     else:
                         self.var_types[entity] = label
         

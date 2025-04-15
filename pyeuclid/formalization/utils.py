@@ -168,7 +168,7 @@ def infer_eq_types(eq, var_types):
             eq_types.add("Length")
         elif "Angle" in str(symbol):
             eq_types.add("Angle")
-        elif symbol in var_types:
+        elif symbol in var_types and not var_types[symbol] is None:
             eq_types.add(var_types[symbol])
     return eq_types
     
