@@ -1,0 +1,11 @@
+import sympy
+from pyeuclid.formalization.relation import *
+
+pi = sympy.pi
+
+
+conditions = [Between(Point('T'),Point('P'),Point('Q')), Collinear(Point('P'),Point('Q'),Point('T')), Between(Point('S'),Point('P'),Point('R')), Collinear(Point('P'),Point('R'),Point('S')), Parallel(Point('Q'),Point('R'),Point('S'),Point('T')), Parallel(Point('Q'),Point('R'),Point('S'),Point('T')), (Length(Point('P'),Point('S')) - sympy.simplify('12.5000000000000')), (Length(Point('R'),Point('S')) - sympy.simplify('5')), (Length(Point('P'),Point('T')) - sympy.simplify('15')), Parallel(Point('Q'),Point('R'),Point('S'),Point('T')), (Length(Point('P'),Point('S')) - sympy.simplify('12.5000000000000')), (Length(Point('R'),Point('S')) - sympy.simplify('5')), (Length(Point('P'),Point('T')) - sympy.simplify('15'))]
+goal = Length(Point('Q'),Point('T'))
+solution = '6'
+
+diagrammatic_relations = {NotCollinear(Point('R'),Point('S'),Point('T')), NotCollinear(Point('Q'),Point('R'),Point('T')), SameSide(Point('Q'),Point('T'),Point('R'),Point('S')), OppositeSide(Point('P'),Point('R'),Point('Q'),Point('S')), NotCollinear(Point('Q'),Point('S'),Point('T')), SameSide(Point('P'),Point('S'),Point('Q'),Point('R')), OppositeSide(Point('Q'),Point('S'),Point('R'),Point('T')), SameSide(Point('Q'),Point('R'),Point('S'),Point('T')), OppositeSide(Point('P'),Point('Q'),Point('R'),Point('T')), NotCollinear(Point('Q'),Point('R'),Point('S')), SameSide(Point('P'),Point('T'),Point('Q'),Point('R')), OppositeSide(Point('R'),Point('T'),Point('Q'),Point('S')), NotCollinear(Point('P'),Point('S'),Point('T')), NotCollinear(Point('P'),Point('Q'),Point('R')), SameSide(Point('R'),Point('S'),Point('Q'),Point('T')), NotCollinear(Point('P'),Point('Q'),Point('S')), SameSide(Point('R'),Point('S'),Point('P'),Point('T')), SameSide(Point('P'),Point('T'),Point('Q'),Point('S')), Between(Point('S'),Point('P'),Point('R')), SameSide(Point('Q'),Point('T'),Point('P'),Point('S')), SameSide(Point('R'),Point('S'),Point('P'),Point('Q')), Between(Point('T'),Point('P'),Point('Q')), OppositeSide(Point('P'),Point('Q'),Point('S'),Point('T')), SameSide(Point('P'),Point('S'),Point('R'),Point('T')), NotCollinear(Point('P'),Point('R'),Point('T')), SameSide(Point('S'),Point('T'),Point('Q'),Point('R')), SameSide(Point('Q'),Point('T'),Point('P'),Point('R')), OppositeSide(Point('P'),Point('R'),Point('S'),Point('T'))}
