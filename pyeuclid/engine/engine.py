@@ -48,10 +48,10 @@ class Engine:
             self.state.add_relations(conditions)
 
             for relation in diagrammatic_relations:
-                if all([point in self.points for point in relation.get_points()]):
+                if all([point in self.state.points for point in relation.get_points()]):
                     self.state.add_relation(relation)
                 
-            self.deductive_database.run()
+            self.search(depth=1)
             
             for conclusion in conclusions:
                 if not self.state.check_conditions(conclusion):
