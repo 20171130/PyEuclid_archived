@@ -45,19 +45,6 @@ def sort_point_groups(g1, g2, mapping=None):
     return g1 + g2
 
 
-def expand_definition(relation):
-    if not type(relation) in (tuple, list):
-        relation = relation,
-    lst = []
-    for prop in relation:
-        if hasattr(prop, "definition"):
-            for item in prop.definition():
-                lst += expand_definition(item)
-        else:
-            lst += prop,
-    return lst
-
-
 class UnionFind:
     def __init__(self):
         self.parent = {}

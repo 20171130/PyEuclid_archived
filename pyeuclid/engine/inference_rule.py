@@ -7,6 +7,17 @@ import sympy
 
 inference_rule_sets = {}
 
+def expand_definition(relation):
+    if not type(relation) in (tuple, list):
+        relation = relation,
+    lst = []
+    for prop in relation:
+        if hasattr(prop, "definition"):
+            for item in prop.definition():
+                lst += expand_definition(item)
+        else:
+            lst += prop,
+    return lst
 
 class register():
     def __init__(self, *annotations):
@@ -22,6 +33,10 @@ class register():
         def expanded_condition(self):
             lst = expand_definition(self._condition())
             return lst
+            # rel = lst[0]
+            # for item in lst[1:]:
+            #     rel = And(rel, item)
+            # return rel
 
         def expanded_conclusion(self):
             lst = expand_definition(self._conclusion())

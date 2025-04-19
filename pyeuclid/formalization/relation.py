@@ -8,6 +8,13 @@ from sympy import Symbol, pi
 from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups,compare_names
 
 
+relations = {}
+
+def register(relation):
+    name = relation.__name__.lower()
+    relations[name] = relation
+    return relation
+
 class Point:
     def __init__(self, name: str):
         self.name = name
@@ -26,12 +33,9 @@ class Point:
         return hash(str(self))
 
 
-class Relation:
+class Relation:        
     def __init__(self):
         self.negated = False
-
-    def negate(self):
-        self.negated = not self.negated
         
     def get_points(self):
         points = []
@@ -48,11 +52,7 @@ class Relation:
         class_name = self.__class__.__name__
         points = self.get_points()
         args_name = ",".join([p.name for p in points])
-        
-        if not self.negated:
-            return f"{class_name}({args_name})"
-        else:
-            return f"Not({class_name}({args_name}))"
+        return f"{class_name}({args_name})"
 
     def __repr__(self):
         return str(self)
@@ -62,6 +62,34 @@ class Relation:
 
     def __hash__(self):
         return hash(str(self))
+    
+def Not(rel):
+    rel = copy.copy(rel)
+    rel.negated = not rel.negated
+    return rel
+    
+# class Not(Relation):
+#     def __init__(self, r):
+#         super().__init__()
+#         self.r = r
+#     def __str__(self):
+#         return f"Not({self.r})"
+
+# class And(Relation):
+#     def __init__(self, r1, r2):
+#         super().__init__()
+#         self.r1 = r1
+#         self.r2 = r2
+#     def __str__(self):
+#         return f"And({self.r1}, {self.r2})"
+
+# class Or(Relation):
+#     def __init__(self, r1, r2):
+#         super().__init__()
+#         self.r1 = r1
+#         self.r2 = r2
+#     def __str__(self):
+#         return f"Or({self.r1}, {self.r2})"
 
 
 class Lt(Relation):
@@ -81,13 +109,6 @@ class Equal(Relation):
 
     def permutations(self):
         return [(self.v1, self.v2), (self.v2, self.v1)]
-
-
-def Not(p: Relation) -> Relation:
-    other = copy.copy(p)
-    other.negate()
-    return other
-
 
 def Angle(p1: Point, p2: Point, p3: Point):
     p1, p3 = sort_points(p1, p3)
@@ -116,7 +137,7 @@ class Different(Relation):
     def definition(self):
         return [Not(Equal(self.ps[i], self.ps[j])) for i in range(len(self.ps)) for j in range(i + 1, len(self.ps))]
 
-
+@register
 class Between(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point):
         """
@@ -129,7 +150,7 @@ class Between(Relation):
     def permutations(self):
         return [(self.p1, self.p2, self.p3), (self.p1, self.p3, self.p2)]
 
-
+@register
 class SameSide(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
@@ -158,7 +179,7 @@ class OppositeSide(Relation):
             Not(SameSide(self.p1, self.p2, self.p3, self.p4)),
         ]
 
-
+@register
 class Collinear(Relation):
     def __init__(self, p1, p2, p3):
         super().__init__()
@@ -179,7 +200,7 @@ class NotCollinear(Relation):
             Different(self.p1, self.p2, self.p3)
         ]
 
-
+@register
 class Midpoint(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point):
         super().__init__()
@@ -194,7 +215,7 @@ class Midpoint(Relation):
             Between(self.p1, self.p2, self.p3),
         ]
         
-
+@register
 class Congruent(Relation):
     def __init__(
         self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point
@@ -210,7 +231,7 @@ class Congruent(Relation):
             NotCollinear(self.p1, self.p2, self.p3),
         ]
 
-
+@register
 class Similar(Relation):
     def __init__(
         self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point
@@ -227,16 +248,16 @@ class Similar(Relation):
             NotCollinear(self.p1, self.p2, self.p3),
         ]
 
-
+@register
 class Concyclic(Relation):
-    def __init__(self, *ps: Point):
+    def __init__(self, p1, p2, p3, p4):
         super().__init__()
-        self.ps = list(sort_points(*ps))
+        self.p1, self.p2, self.p3, self.p4 = sort_points(p1, p2, p3, p4)
 
     def permutations(self):
-        return itertools.permutations(self.ps)
+        return itertools.permutations([self.p1, self.p2, self.p3, self.p4])
 
-
+@register
 class Parallel(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
@@ -256,7 +277,7 @@ class Parallel(Relation):
             (self.p4, self.p3, self.p2, self.p1),
         ]
 
-
+@register
 class Perpendicular(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
