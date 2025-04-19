@@ -6,7 +6,7 @@ Available badge, functional badge, and reusable badge
 ## Computational Recourses
 We conduct our experiments on a server running Ubuntu 22.04.5 LTS with an AMD Ryzen Threadripper 2990WX processor, utilizing 30 CPU cores in parallel (2 cores per process, each allocated 4 GB of memory). On this setup, experiments on the JGEX-AG-231 dataset take approximately 2 hours to complete, while the Geometry3K dataset takes around 1 hour.
 
-Additionally, we run sequential experiments on an Apple MacBook Pro with an M3 chip, using 2 CPU cores and 4 GB of memory. On this setup, processing the Geometry3K dataset takes approximately 5 hours.
+Additionally, we run sequential experiments on an Apple MacBook Pro with an M3 chip, using 2 CPU cores and 4 GB of memory. On this setup, processing the Geometry3K dataset takes approximately 7~8 hours.
 
 ## Folder Structure
 ```
