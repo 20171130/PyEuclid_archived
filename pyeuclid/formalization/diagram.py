@@ -18,10 +18,11 @@ def hash_constructions_list(constructions_list):
 
 class Diagram:    
     def __new__(cls, constructions_list:list[list[ConstructionRule]]=None, save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
-        if not resample and cache_folder is not None:
+        if cache_folder is not None:
             if not os.path.exists(cache_folder):
                 os.makedirs(cache_folder)
-            
+        
+        if not resample and cache_folder is not None:            
             if constructions_list is not None:
                 file_name = f"{hash_constructions_list(constructions_list)}.pkl"
                 file_path = os.path.join(cache_folder, file_name)
@@ -89,12 +90,17 @@ class Diagram:
         raise Exception()
             
     def construct_diagram(self):
-        for _ in range(MAX_DIAGRAM_ATTEMPTS):
+        mintol = 0.1
+        maxtol = 0.8
+        for iter in range(MAX_DIAGRAM_ATTEMPTS):
+            if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
+                mintol *= 0.7
+                maxtol *= 1.1
             try:
                 self.clear()
                 for constructions in self.constructions_list:
                     self.construct(constructions)
-                self.check_distance()
+                self.check_distance(mintol, maxtol)
                 self.draw_diagram()
                 self.save_to_cache()
                 return
@@ -128,29 +134,33 @@ class Diagram:
         for construction in constructions:
             self.draw(new_points, construction)
             
-    def check_distance(self):
-        self.xmin = min([p.x for p in self.points])
-        self.xmax = max([p.x for p in self.points])
-        self.ymin = min([p.y for p in self.points])
-        self.ymax = max([p.y for p in self.points])
+    def check_distance(self, mintol=0.1, maxtol=1):
+        xmin = min([p.x for p in self.points])
+        xmax = max([p.x for p in self.points])
+        ymin = min([p.y for p in self.points])
+        ymax = max([p.y for p in self.points])
 
         for c in self.circles:
             r = c.radius
             cx, cy = c.center.x, c.center.y
-            self.xmin = min(self.xmin, cx - r)
-            self.xmax = max(self.xmax, cx + r)
-            self.ymin = min(self.ymin, cy - r)
-            self.ymax = max(self.ymax, cy + r)
+            xmin = min(xmin, cx - r)
+            xmax = max(xmax, cx + r)
+            ymin = min(ymin, cy - r)
+            ymax = max(ymax, cy + r)
 
-        xspan = self.xmax - self.xmin
-        yspan = self.ymax - self.ymin
-        self.span = max(xspan, yspan)
+        xspan = xmax - xmin
+        yspan = ymax - ymin
+        span = max(xspan, yspan)
         
-        if check_too_close(self.points, self.span):
+        if check_too_close(self.points, span, mintol):
             raise Exception()
         
-        if check_too_far(self.points, self.span):
+        if check_too_far(self.points, span, maxtol):
             raise Exception()
+        
+        self.xmax, self.xmin = xmax, xmin
+        self.ymax, self.ymin = ymax, ymin
+        self.span = span
             
     def numerical_check_goal(self, goal):
         if isinstance(goal, tuple):
@@ -1369,7 +1379,14 @@ class Diagram:
             
         for p in self.points:
             self.ax.scatter(p.x, p.y, color='black', s=15)
-            self.ax.annotate(self.point2name[p], self.annotation_position(p), color='black', ha='center', va='center', fontsize=15)
+            x_pos, y_pos = self.annotation_position(p)
+            
+            self.xmax = max(self.xmax, x_pos)
+            self.xmin = min(self.xmin, x_pos)
+            self.ymax = max(self.ymax, y_pos)
+            self.ymin = min(self.ymin, y_pos)
+            
+            self.ax.annotate(self.point2name[p], (x_pos, y_pos), color='black', ha='center', va='center', fontsize=15)
         
         self.ax.set_aspect('equal')
         self.ax.set_axis_off()
