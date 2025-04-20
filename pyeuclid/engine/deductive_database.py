@@ -129,51 +129,30 @@ class DeductiveDatabase:
                     pattern_angle_sum = re.compile(
                         r"^-?Angle\w+ [-\+] Angle\w+ [-\+] [\w/\d]+$")
                     s = str(cond)
+                    points, _ = get_points_and_symbols(cond)
                     if pattern_eqlength.match(s):
-                        points, _ = get_points_and_symbols(cond)
                         l, r = points[:2], points[2:]
-                        for component in self.state.lengths.equivalence_classes().values():
-                            clause = Or(clause, And(in_component(
-                                l, component), in_component(r, component)))
+                        query += same_component(l, r)
                     elif pattern_eqangle.match(s):
-                        points, _ = get_points_and_symbols(cond)
                         l, r = points[:3], points[3:]
-                        for component in self.state.angles.equivalence_classes().values():
-                            clause = Or(clause, And(in_component(
-                                l, component), in_component(r, component)))
+                        query += same_component(l, r)
                     elif pattern_eqratio.match(s):
-                        points, _ = get_points_and_symbols(cond)
                         a, b, c, d = points[:2], points[2:4], points[4:6], points[6:8]
-                        for ratios in self.state.ratios.values():
-                            l_clause = False
-                            r_clause = False
-                            for ratio in ratios:
-                                _, symbols = get_points_and_symbols(ratio)
-                                length1, length2 = symbols
-                                length1, length2 = self.state.lengths.find(
-                                    length1), self.state.lengths.find(length2)
-                                component1, component2 = self.state.lengths.equivalence_classes(
-                                )[length1], self.state.lengths.equivalence_classes()[length2]
-                                l_clause = Or(l_clause, And(in_component(
-                                    a, component1), in_component(b, component2)))
-                                r_clause = Or(r_clause, And(in_component(
-                                    c, component1), in_component(d, component2)))
-                            clause = Or(clause, And(l_clause, r_clause))
+                        # join ratio and length
+                        breakpoint()
                     elif pattern_angle_const.match(s):
-                        points, _ = get_points_and_symbols(cond)
                         left = points[:3]
                         cnst = [arg for arg in cond.args if len(arg.free_symbols)==0][0]
                         cnst = abs(cnst)
                         for rep, component in self.state.angles.equivalence_classes().items():
                             if self.state.check_conditions(cnst - rep):
-                                clause = in_component(left, component)
+                                query += in_component(left, component)
                                 break
                     else:
                         assert pattern_angle_sum.match(s)
                         cnst = [arg for arg in cond.args if len(
                             arg.free_symbols) == 0][0]
                         cnst = abs(cnst)
-                        points, _ = get_points_and_symbols(cond)
                         left, right = points[:3], points[3:]
                         for rep, angle_sums in self.state.angle_sums.items():
                             if self.state.check_conditions(cnst-rep):
@@ -186,12 +165,8 @@ class DeductiveDatabase:
                                         angle2 = angle1
                                         # 2 * angle_1
                                     angle1, angle2 = self.state.angles.find(angle1), self.state.angles.find(angle2)
-                                    try:
-                                        component1, component2 = self.state.angles.equivalence_classes(
-                                        )[angle1], self.state.angles.equivalence_classes()[angle2]
-                                    except:
-                                        breakpoint()
-                                        assert False
+                                    component1, component2 = self.state.angles.equivalence_classes(
+                                    )[angle1], self.state.angles.equivalence_classes()[angle2]
                                     clause = Or(clause, And(in_component(
                                         left, component1), in_component(right, component2)))
                                 break
