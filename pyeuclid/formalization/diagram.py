@@ -94,6 +94,7 @@ class Diagram:
                 self.clear()
                 for constructions in self.constructions_list:
                     self.construct(constructions)
+                self.check_distance()
                 self.draw_diagram()
                 self.save_to_cache()
                 return
@@ -118,13 +119,6 @@ class Diagram:
             to_be_intersected += self.sketch(construction)
                 
         new_points = self.reduce(to_be_intersected, self.points)
-        
-        if check_too_close(new_points, self.points):
-            raise Exception()
-        
-        if check_too_far(new_points, self.points):
-            raise Exception()
-        
         self.points += new_points
         
         for p, np in zip(constructed_points, new_points):
@@ -133,6 +127,30 @@ class Diagram:
         
         for construction in constructions:
             self.draw(new_points, construction)
+            
+    def check_distance(self):
+        self.xmin = min([p.x for p in self.points])
+        self.xmax = max([p.x for p in self.points])
+        self.ymin = min([p.y for p in self.points])
+        self.ymax = max([p.y for p in self.points])
+
+        for c in self.circles:
+            r = c.radius
+            cx, cy = c.center.x, c.center.y
+            self.xmin = min(self.xmin, cx - r)
+            self.xmax = max(self.xmax, cx + r)
+            self.ymin = min(self.ymin, cy - r)
+            self.ymax = max(self.ymax, cy + r)
+
+        xspan = self.xmax - self.xmin
+        yspan = self.ymax - self.ymin
+        self.span = max(xspan, yspan)
+        
+        if check_too_close(self.points, self.span):
+            raise Exception()
+        
+        if check_too_far(self.points, self.span):
+            raise Exception()
             
     def numerical_check_goal(self, goal):
         if isinstance(goal, tuple):
@@ -1296,6 +1314,36 @@ class Diagram:
     def draw_opposingsides(self, *args):
         x, a, b, c = args
         
+    def annotation_position(self, p):
+        r = self.span / 20
+        c = Circle(p, r)
+        avoids = []
+        for segment in self.segments:
+            try:
+                avoids.extend(circle_segment_intersection(c, segment))
+            except:
+                continue
+        
+        for circle in self.circles:
+            try:
+                avoids.extend(circle_circle_intersection(c, circle))
+            except:
+                continue
+        
+        if not avoids:
+            point_positions = [(p.x + r, p.y + r), (p.x + r, p.y - r), (p.x - r, p.y + r), (p.x - r, p.y - r)]
+            return  point_positions[np.random.choice(4)]
+        
+        angs = sorted([ang_of(p, a) for a in avoids])
+        angs += [angs[0] + 2 * np.pi]
+        angs = [(angs[i + 1] - a, a) for i, a in enumerate(angs[:-1])]
+        
+        d, a = max(angs)
+        ang = a + d / 2
+        
+        point_position = p + Point(np.cos(ang), np.sin(ang)) * r
+        return point_position.x, point_position.y
+    
     def draw_diagram(self, show=False):
         imsize = 512 / 100
         self.fig, self.ax = plt.subplots(figsize=(imsize, imsize), dpi=300)
@@ -1318,22 +1366,19 @@ class Diagram:
                     ls='-'
                 )
             )
-        
+            
         for p in self.points:
             self.ax.scatter(p.x, p.y, color='black', s=15)
-            self.ax.annotate(self.point2name[p], (p.x+0.015, p.y+0.015), color='black', fontsize=8)
+            self.ax.annotate(self.point2name[p], self.annotation_position(p), color='black', ha='center', va='center', fontsize=15)
         
         self.ax.set_aspect('equal')
         self.ax.set_axis_off()
-        self.fig.subplots_adjust(left=0.05, right=0.95, top=0.95, bottom=0.05, wspace=0, hspace=0)
-        xmin = min([p.x for p in self.points])
-        xmax = max([p.x for p in self.points])
-        ymin = min([p.y for p in self.points])
-        ymax = max([p.y for p in self.points])
-        x_margin = (xmax - xmin) * 0.1
-        y_margin = (ymax - ymin) * 0.1
         
-        self.ax.margins(x_margin, y_margin)
+        x_margin = (self.xmax - self.xmin) * 0.1
+        y_margin = (self.ymax - self.ymin) * 0.1
+
+        self.ax.set_xlim(self.xmin - x_margin, self.xmax + x_margin)
+        self.ax.set_ylim(self.ymin - y_margin, self.ymax + y_margin)
         
         self.save_diagram()
         
@@ -1347,5 +1392,5 @@ class Diagram:
             parent_dir = os.path.dirname(self.save_path)
             if parent_dir and not os.path.exists(parent_dir):
                 os.makedirs(parent_dir)
-            self.fig.savefig(self.save_path)
+            self.fig.savefig(self.save_path, bbox_inches='tight')
         
