@@ -11,10 +11,11 @@ from pyeuclid.engine.inference_rule import *
 class DeductiveDatabase():
     def __init__(self, state, inner_theorems=inference_rule_sets["ex"], outer_theorems=inference_rule_sets["basic"]):
         self.state = state
+        self.name = id(self)
         self.inner_theorems = inner_theorems
         self.outer_theorems = outer_theorems
         self.closure = False
-        self.sqliteConnection = sqlite3.connect("sql.db")
+        self.sqliteConnection = sqlite3.connect(f"{self.name}.db")
         self.cursor = self.sqliteConnection.cursor()
         points = """ CREATE TABLE points (
                     name CHAR(10) PRIMARY KEY NOT NULL
@@ -31,7 +32,7 @@ class DeductiveDatabase():
         
     def __del__(self):
         self.sqliteConnection.close()
-        os.remove("sql.db")
+        os.remove(f"{self.name}.db")
 
     def _create_table(self, name, n_points, equivalence=False):
         query = ", ".join([f"p{i} CHAR(10) NOT NULL" for i in range(n_points)])
@@ -45,6 +46,11 @@ class DeductiveDatabase():
         self.cursor.execute(query)
         return query
 
+    def insert_points(self, *points):
+        for point in points:
+            query = f"INSERT OR IGNORE INTO points (name) VALUES ('{point}');"
+            self.cursor.execute(query)
+        
     def insert_relation(self, relation: Relation):
         table = type(relation).__name__.lower()
         points = relation.get_points()
@@ -65,15 +71,27 @@ class DeductiveDatabase():
         values = []
         for i, component in enumerate(components):
             for item in component:
-                points = str(item).split("_")[1:]
+                points = []
+                symbols = str(item)
+                if symbols.startswith("2*"):
+                    symbols = f"{symbols[2:]}+{symbols[2:]}"
+                symbols = symbols.replace("+", "/")
+                symbols = symbols.split("/")
+                for symbol in symbols:
+                    points += symbol.split("_")[1:]
                 tmp = [f"'{item}'" for item in points] + [str(i)]
                 values.append(f"({','.join(tmp)})")
                 cols = [f"p{i}" for i in range(len(points))]
         cols.append("component")
         cols = ", ".join(cols)
         values = ", ".join(values)
-        query = f"INSERT INTO {table} ({cols}) VALUES {values}"
+        query = f"INSERT OR IGNORE INTO {table} ({cols}) VALUES {values}"
         self.cursor.execute(query)
+        
+        
+    def execute(self, query):
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
             
     def do_query(self, inference: InferenceRule):
         query = "SELECT "
@@ -89,7 +107,8 @@ class DeductiveDatabase():
         query = query[:-2]
         wheres = []
         for i, relation in enumerate(condition):
-            points = relation.get_points()
+            if isinstance(relation, Relation):
+                points = relation.get_points()
             if isinstance(relation, Lt):
                 assert not relation.negated
                 wheres += [f"{points[0]}.name < {points[1]}.name"]
@@ -105,73 +124,89 @@ class DeductiveDatabase():
                     r"^-?Angle\w+ [-\+] [\w/\d]+$")
                 pattern_angle_sum = re.compile(
                     r"^-?Angle\w+ [-\+] Angle\w+ [-\+] [\w/\d]+$")
-                points, _ = get_points_and_symbols(cond)
+                points, _ = get_points_and_symbols(relation)
                 def same_component(l, r, table):
-                    query = f"INNER JOIN {table} r{i}l, INNER JOIN {table} r{i}r"
+                    query_diff = f" INNER JOIN {table} r{i}l INNER JOIN {table} r{i}r"
+                    wheres_diff = []
                     for j, item in enumerate(l):
-                        wheres += [f"r{i}l.p{j} = {item}.name"]
+                        wheres_diff += [f"r{i}l.p{j} = {item}.name"]
                     for j, item in enumerate(r):
-                        wheres += [f"r{i}r.p{j} = {item}.name"]
-                    wheres += [f"r{i}l.component=r{i}r.component"]
-                    return query
-                def in_component(l, component_id, table):
-                    query = f"INNER JOIN {table} r{i} ON"
+                        wheres_diff += [f"r{i}r.p{j} = {item}.name"]
+                    wheres_diff += [f"r{i}l.component=r{i}r.component"]
+                    return query_diff, wheres_diff
+                def in_component(l: List[str], component_id, table):
+                    query_diff = f" INNER JOIN {table} r{i} ON"
                     for j, item in enumerate(l):
-                        query += f"r{i}.p{j} = {item} AND"
-                    query += f"r{i}l.component={component_id}"
-                    return query
+                        if not "." in str(item):
+                            item = f"{item}.name"
+                        query_diff += f" r{i}.p{j} = {item} AND"
+                    query_diff += f" r{i}.component={component_id}"
+                    return query_diff
                 def point_to_ratio(formal_points):
-                    query = f"INNER JOIN length_ratio r{i}, INNER JOIN length r{i}0, INNER JOIN length r{i}1, INNER JOIN length r{i}2, INNER JOIN length r{i}3"
-                    wheres += [f"r{i}0.p0 = {formal_points[0]}.name", f"r{i}0.p1 = {formal_points[1]}.name", f"r{i}1.p0 = {formal_points[2]}.name", f"r{i}1.p1 = {formal_points[3]}.name"]
-                    wheres += [f"r{i}0.component = r{i}2.component", f"r{i}1.component = r{i}3.component"]
-                    wheres += [f"r{i}2.p0 = r{i}.p0", f"r{i}2.p1 = r{i}.p1", f"r{i}3.p0 = r{i}.p2", f"r{i}3.p1 = r{i}.p3"]
-                    return query
-                if pattern_eqlength.match(relation):
+                    query_diff = f" INNER JOIN length_ratio ratio{i} INNER JOIN length num{i} INNER JOIN length denom{i} INNER JOIN length num_rep{i} INNER JOIN length denom_rep{i}"
+                    wheres_diff = []
+                    wheres_diff += [f"num{i}.p0 = {formal_points[0]}.name", f"num{i}.p1 = {formal_points[1]}.name", f"denom{i}.p0 = {formal_points[2]}.name", f"denom{i}.p1 = {formal_points[3]}.name"]
+                    wheres_diff += [f"num{i}.component = num_rep{i}.component", f"denom{i}.component = denom_rep{i}.component"]
+                    wheres_diff += [f"num_rep{i}.p0 = ratio{i}.p0", f"num_rep{i}.p1 = ratio{i}.p1", f"denom_rep{i}.p0 = ratio{i}.p2", f"denom_rep{i}.p1 = ratio{i}.p3"]
+                    return query_diff, wheres_diff
+                def point_to_angle(formal_points):
+                    query_diff = f" INNER JOIN angle angle{i} INNER JOIN angle angle_rep{i}"
+                    wheres_diff = []
+                    wheres_diff += [f"angle{i}.p0 = {formal_points[0]}.name", f"angle{i}.p1 = {formal_points[1]}.name", f"angle{i}.p2 = {formal_points[2]}.name"]
+                    wheres_diff += [f"angle{i}.component = angle_rep{i}.component"]
+                    return query_diff, wheres_diff
+                s = str(relation)
+                if pattern_eqlength.match(s):
                     l, r = points[:2], points[2:]
-                    query += same_component(l, r)
-                elif pattern_eqangle.match(relation):
+                    query_diff, wheres_diff = same_component(l, r, "length")
+                    query += query_diff
+                    wheres += wheres_diff
+                elif pattern_eqangle.match(s):
                     l, r = points[:3], points[3:]
-                    query += same_component(l, r)
-                elif pattern_eqratio.match(relation): # join 2*(point-length-length-ratio)
+                    query_diff, wheres_diff = same_component(l, r, "angle")
+                    query += query_diff
+                    wheres += wheres_diff
+                elif pattern_eqratio.match(s): # join 2*(4point-2length-2length_rep-ratio)
                     l, r = points[:4], points[4:8]
                     i_bak = i
                     i = f"{i_bak}l"
-                    l = point_to_ratio(l)
+                    query_diff, wheres_diff  = point_to_ratio(l)
+                    query += query_diff
+                    wheres += wheres_diff
                     i = f"{i_bak}r"
-                    r = point_to_ratio(r)
+                    query_diff, wheres_diff  = point_to_ratio(r)
+                    query += query_diff
+                    wheres += wheres_diff
                     i = i_bak
-                    wheres += [f"r{i}l.component=r{i}r.component"]
-                    query += l + r
-                elif pattern_angle_const.match(relation):
+                    wheres += [f"ratio{i}l.component=ratio{i}r.component"]
+                elif pattern_angle_const.match(s):
                     left = points[:3]
                     cnst = [arg for arg in relation.args if len(arg.free_symbols)==0][0]
                     cnst = abs(cnst)
-                    for rep, component in self.state.angles.equivalence_classes().items():
+                    for component_id, rep in enumerate(self.state.angles.equivalence_classes()):
                         if self.state.check_conditions(cnst - rep):
-                            query += in_component(left, component)
+                            query += in_component(left, component_id, "angle")
                             break
-                else:
-                    assert pattern_angle_sum.match(relation)
+                else: # join 2*(3point-angle-angle_rep)-angle_sum
+                    assert pattern_angle_sum.match(s)
                     cnst = [arg for arg in relation.args if len(
                         arg.free_symbols) == 0][0]
                     cnst = abs(cnst)
-                    left, right = points[:3], points[3:]
-                    for rep, angle_sums in self.state.angle_sums.items():
+                    for component_id, rep in enumerate(self.state.angle_sums):
                         if self.state.check_conditions(cnst-rep):
-                            for angle_sum in angle_sums:
-                                if isinstance(angle_sum, sympy.core.add.Add):
-                                    angle1, angle2 = angle_sum.args
-                                    # angle1 + angle2
-                                else:
-                                    angle1 = list(angle_sum.free_symbols)[0]
-                                    angle2 = angle1
-                                    # 2 * angle_1
-                                angle1, angle2 = self.state.angles.find(angle1), self.state.angles.find(angle2)
-                                component1, component2 = self.state.angles.equivalence_classes(
-                                )[angle1], self.state.angles.equivalence_classes()[angle2]
-                                wheres += in_component(angle1, component1)
-                                wheres += in_component(angle2, component2)
                             break
+                    l, r = points[:3], points[3:6]
+                    i_bak = i
+                    i = f"{i_bak}l"
+                    query_diff, wheres_diff = point_to_angle(l)
+                    query += query_diff
+                    wheres += wheres_diff
+                    i = f"{i_bak}r"
+                    query_diff, wheres_diff = point_to_angle(r)
+                    query += query_diff
+                    wheres += wheres_diff
+                    i = i_bak
+                    query += in_component([f"angle_rep{i}l.p0", f"angle_rep{i}l.p1", f"angle_rep{i}l.p2", f"angle_rep{i}r.p0", f"angle_rep{i}r.p1", f"angle_rep{i}r.p2"], component_id, "angle_sum")
             else:
                 table = type(relation).__name__.lower()
                 assert table in relations
@@ -187,7 +222,8 @@ class DeductiveDatabase():
                         point_atoms.append(f"{point}.name = r{i}.p{j}")
                     permutation_clauses.append(f"({" AND ".join(point_atoms)})")
                 query += " OR ".join(permutation_clauses)
-        query += " WHERE " + " AND ".join(wheres)
+        if len(wheres) > 0:
+            query += " WHERE " + " AND ".join(wheres)
         self.cursor.execute(query)
         results = self.cursor.fetchall()
         return results
