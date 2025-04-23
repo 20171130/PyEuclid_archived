@@ -19,8 +19,17 @@ def get_constructions_list_from_text(text):
             rule_name = construction_text[0]
             arg_names = [name.replace('_', '') for name in construction_text[1:]]
             rule = globals()['construct_'+rule_name]
-            args = [float(arg_name) if is_float(arg_name) else Point(arg_name) for arg_name in arg_names]
-            construction = rule(*args)
+            all_args = [float(arg_name) if is_float(arg_name) else Point(arg_name) for arg_name in arg_names]    
+            
+            if rule_name == 'parallelogram' or rule_name == 'square':
+                inputs, outputs = all_args[:rule.num_inputs], all_args[rule.num_inputs:]
+            elif rule_name == 's_angle':
+                inputs, outputs = all_args[:2] + [all_args[3]], [all_args[2]]
+            else:
+                outputs, inputs = all_args[:rule.num_outputs], all_args[rule.num_outputs:]
+            
+            construction = rule(*inputs)
+            construction.construct(*outputs)
             constructions.append(construction)
         constructions_list.append(constructions)
     

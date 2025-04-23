@@ -1,7 +1,9 @@
+import inspect
 from sympy import pi
 
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.utils import *
+
 
 construction_rule_sets = {}
 
@@ -10,11 +12,8 @@ class ConstructionRule:
     def __init__(self):
         pass
     
-    def arguments(self):
-        return []
-        
-    def constructed_points(self):
-        return []
+    def construct(self):
+        pass
 
     def conditions(self):
         return []
@@ -24,8 +23,12 @@ class ConstructionRule:
 
     def __str__(self):
         class_name = self.__class__.__name__
-        attributes = ",".join(str(value) for _, value in vars(self).items())
-        return f"{class_name}({attributes})"
+        inputs = ",".join(str(input) for input in self.inputs)
+        if self.outputs:
+            outputs = ",".join(str(out) for out in self.outputs)
+            return f"{outputs} = {class_name}({inputs})"
+        
+        return f"{class_name}({inputs})"
 
 
 class register:
@@ -44,647 +47,697 @@ class register:
 
         cls._conditions = cls.conditions
         cls.conditions = expanded_conditions
+        
+        init_sig = inspect.signature(cls.__init__)
+        init_params = list(init_sig.parameters.values())[1:]
+        cls.input_types = [p.annotation for p in init_params]
+        cls.num_inputs = len(cls.input_types)
+        
+        construct_sig = inspect.signature(cls.construct)
+        cls.num_outputs = len(construct_sig.parameters) - 1
+        
         return cls
 
 
 @register("AG")
 class construct_angle_bisector(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
         
-    def arguments(self):
-        return [self.a, self.b, self.c]
-    
-    def constructed_points(self):
-        return [self.x]
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
-        return [Angle(self.a, self.b, self.x) - Angle(self.x, self.b, self.c)]
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [Angle(a, b, x) - Angle(x, b, c)]
 
 
 @register("AG")
 class construct_angle_mirror(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-        
-    def arguments(self):
-        return [self.a, self.b, self.c]
-    
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
-        return [Angle(self.a, self.b, self.c) - Angle(self.c, self.b, self.x)]
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [Angle(a, b, c) - Angle(c, b, x)]
 
 
 @register("AG")
 class construct_circle(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-        
-    def arguments(self):
-        return [self.a, self.b, self.c]
-    
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, = self.outputs
         return [
-            Length(self.x, self.a) - Length(self.x, self.b),
-            Length(self.x, self.b) - Length(self.x, self.c),
+            Length(x, a) - Length(x, b),
+            Length(x, b) - Length(x, c),
         ]
 
 
 @register("AG")
 class construct_circumcenter(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-        
-    def arguments(self):
-        return [self.a, self.b, self.c]
-    
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, = self.outputs
         return [
-            Length(self.x, self.a) - Length(self.x, self.b),
-            Length(self.x, self.b) - Length(self.x, self.c),
+            Length(x, a) - Length(x, b),
+            Length(x, b) - Length(x, c),
         ]
 
 
 @register("AG")
 class construct_eq_quadrangle(ConstructionRule):
-    def __init__(self, a, b, c, d):
-        self.a, self.b, self.c, self.d = a, b, c, d
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c, self.d]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point):
+        self.outputs = [a, b, c, d]
+
     def conclusions(self):
-        return [
-            Length(self.a, self.d) - Length(self.b, self.c)
-        ]
+        a, b, c, d = self.outputs
+        return [Length(a, d) - Length(b, c)]
 
 
 @register("AG")
 class construct_eq_trapezoid(ConstructionRule):
-    def __init__(self, a, b, c, d):
-        self.a, self.b, self.c, self.d = a, b, c, d
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c, self.d]
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point):
+        self.outputs = [a, b, c, d]
 
     def conclusions(self):
+        a, b, c, d = self.outputs
         return [
-            Length(self.a, self.d) - Length(self.b, self.c),
-            Parallel(self.a, self.b, self.c, self.d),
-            Angle(self.d, self.a, self.b) - Angle(self.a, self.b, self.c),
-            Angle(self.b, self.c, self.d) - Angle(self.c, self.d, self.a),
+            Length(a, d) - Length(b, c),
+            Parallel(a, b, c, d),
+            Angle(d, a, b) - Angle(a, b, c),
+            Angle(b, c, d) - Angle(c, d, a),
         ]
+
 
 
 @register("AG")
 class construct_eq_triangle(ConstructionRule):
-    def __init__(self, x, b, c):
-        self.x, self.b, self.c = x, b, c
-        
-    def arguments(self):
-        return [self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, b: Point, c: Point):
+        self.inputs = [b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.b, self.c)]
+        b, c = self.inputs
+        return [Different(b, c)]
 
     def conclusions(self):
+        b, c = self.inputs
+        x, = self.outputs
         return [
-            Length(self.x, self.b) - Length(self.b, self.c),
-            Length(self.b, self.c) - Length(self.c, self.x),
-            Angle(self.x, self.b, self.c) - Angle(self.b, self.c, self.x),
-            Angle(self.c, self.x, self.b) - Angle(self.x, self.b, self.c),
+            Length(x, b) - Length(b, c),
+            Length(b, c) - Length(c, x),
+            Angle(x, b, c) - Angle(b, c, x),
+            Angle(c, x, b) - Angle(x, b, c),
         ]
 
 
 @register("AG")
 class construct_eqangle2(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-        
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
-        return [Angle(self.b, self.a, self.x) - Angle(self.x, self.c, self.b)]
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [Angle(b, a, x) - Angle(x, c, b)]
+
 
 
 @register("AG")
 class construct_eqdia_quadrangle(ConstructionRule):
-    def __init__(self, a, b, c, d):
-        self.a, self.b, self.c, self.d = a, b, c, d
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c, self.d]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point):
+        self.outputs = [a, b, c, d]
+
     def conclusions(self):
-        return [
-            Length(self.b, self.d) - Length(self.a, self.c)
-        ]
+        a, b, c, d = self.outputs
+        return [Length(b, d) - Length(a, c)]
+
 
 
 @register("AG")
 class construct_eqdistance(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
-    
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
+
     def conditions(self):
-        return [Different(self.b, self.c)]
+        a, b, c = self.inputs
+        return [Different(b, c)]
 
     def conclusions(self):
-        return [Length(self.x, self.a) - Length(self.b, self.c)]
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [Length(x, a) - Length(b, c)]
 
 
-@register("AG")
-class construct_eqdistance2(ConstructionRule):
-    def __init__(self, x, a, b, c, alpha):
-        self.x, self.a, self.b, self.c, self.alpha = x, a, b, c, alpha
-    
-    def arguments(self):
-        return [self.a, self.b, self.c, self.alpha]
-        
-    def constructed_points(self):
-        return [self.x]
-    
-    def conditions(self):
-        return [Different(self.b, self.c)]
+# @register("AG")
+# class construct_eqdistance2(ConstructionRule):
+#     def __init__(self, a: Point, b: Point, c: Point, alpha: float):
+#         self.inputs = [a, b, c, alpha]
+#         self.outputs = None
 
-    def conclusions(self):
-        return [Length(self.x, self.a) - sympy.simplify(self.alpha) * Length(self.b, self.c)]
+#     def construct(self, x: Point):
+#         self.outputs = [x]
+
+#     def conditions(self):
+#         a, b, c, alpha = self.inputs
+#         return [Different(b, c)]
+
+#     def conclusions(self):
+#         a, b, c, alpha = self.inputs
+#         x, = self.outputs
+#         return [Length(x, a) - sympy.simplify(alpha) * Length(b, c)]
 
 
-@register("AG")
-class construct_eqdistance3(ConstructionRule):
-    def __init__(self, x, a, alpha):
-        self.x, self.a, self.alpha = x, a, alpha
-    
-    def arguments(self):
-        return [self.a, self.alpha]
-        
-    def constructed_points(self):
-        return [self.x]
+# @register("AG")
+# class construct_eqdistance3(ConstructionRule):
+#     def __init__(self, a: Point, alpha: float):
+#         self.inputs = [a, alpha]
+#         self.outputs = None
 
-    def conclusions(self):
-        return [Length(self.x, self.a) - sympy.simplify(self.alpha)]
+#     def construct(self, x: Point):
+#         self.outputs = [x]
+
+#     def conclusions(self):
+#         a, alpha = self.inputs
+#         x, = self.outputs
+#         return [Length(x, a) - sympy.simplify(alpha)]
 
 
 @register("AG")
 class construct_foot(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
-        return [Perpendicular(self.x, self.a, self.b, self.c), Collinear(self.x, self.b, self.c)]
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [Perpendicular(x, a, b, c), Collinear(x, b, c)]
 
 
 @register("AG")
 class construct_free(ConstructionRule):
-    def __init__(self, a):
-        self.a = a
-        
-    def constructed_points(self):
-        return [self.a]
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point):
+        self.outputs = [a]
 
 
 @register("AG")
 class construct_incenter(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
-    
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
+
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, = self.outputs
         return [
-            Angle(self.b, self.a, self.x) - Angle(self.x, self.a, self.c),
-            Angle(self.a, self.c, self.x) - Angle(self.x, self.c, self.b),
-            Angle(self.c, self.b, self.x) - Angle(self.x, self.b, self.a),
+            Angle(b, a, x) - Angle(x, a, c),
+            Angle(a, c, x) - Angle(x, c, b),
+            Angle(c, b, x) - Angle(x, b, a),
         ]
 
 
+@register("AG")
 class construct_incenter2(ConstructionRule):
-    def __init__(self, x, y, z, i, a, b, c):
-        self.x, self.y, self.z, self.i, self.a, self.b, self.c = x, y, z, i, a, b, c
-        
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x, self.y, self.z, self.i]
-    
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point, z: Point, i: Point):
+        self.outputs = [x, y, z, i]
+
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, y, z, i = self.outputs
         return [
-            Angle(self.b, self.a, self.i) - Angle(self.i, self.a, self.c),
-            Angle(self.a, self.c, self.i) - Angle(self.i, self.c, self.b),
-            Angle(self.c, self.b, self.i) - Angle(self.i, self.b, self.a),
-            Collinear(self.x, self.b, self.c),
-            Perpendicular(self.i, self.x, self.b, self.c),
-            Collinear(self.y, self.c, self.a),
-            Perpendicular(self.i, self.y, self.c, self.a),
-            Collinear(self.z, self.a, self.b),
-            Perpendicular(self.i, self.z, self.a, self.b),
-            Length(self.i, self.x) - Length(self.i, self.y),
-            Length(self.i, self.y) - Length(self.i, self.z),
+            Angle(b, a, i) - Angle(i, a, c),
+            Angle(a, c, i) - Angle(i, c, b),
+            Angle(c, b, i) - Angle(i, b, a),
+            Collinear(x, b, c),
+            Perpendicular(i, x, b, c),
+            Collinear(y, c, a),
+            Perpendicular(i, y, c, a),
+            Collinear(z, a, b),
+            Perpendicular(i, z, a, b),
+            Length(i, x) - Length(i, y),
+            Length(i, y) - Length(i, z),
         ]
 
 
 @register("AG")
 class construct_excenter(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, = self.outputs
         return [
-            Angle(self.b, self.a, self.x) - Angle(self.x, self.a, self.c),
-            Angle(self.a, self.b, self.x) - (Angle(self.a, self.b, self.c) / 2 + pi / 2),
-            Angle(self.a, self.c, self.x) - (Angle(self.a, self.c, self.b) / 2 + pi / 2),
+            Angle(b, a, x) - Angle(x, a, c),
+            Angle(a, b, x) - (Angle(a, b, c) / 2 + pi / 2),
+            Angle(a, c, x) - (Angle(a, c, b) / 2 + pi / 2),
         ]
 
 
+@register("AG")
 class construct_excenter2(ConstructionRule):
-    def __init__(self, x, y, z, i, a, b, c):
-        self.x, self.y, self.z, self.i, self.a, self.b, self.c = x, y, z, i, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x, self.y, self.z, self.i]
-    
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point, z: Point, i: Point):
+        self.outputs = [x, y, z, i]
+
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, y, z, i = self.outputs
         return [
-            Angle(self.b, self.a, self.i) - Angle(self.i, self.a, self.c),
-            Angle(self.a, self.b, self.i) - (Angle(self.a, self.b, self.c) / 2 + pi / 2),
-            Angle(self.a, self.c, self.i) - (Angle(self.a, self.c, self.b) / 2 + pi / 2),
-            Collinear(self.x, self.b, self.c),
-            Perpendicular(self.i, self.x, self.b, self.c),
-            Collinear(self.y, self.c, self.a),
-            Perpendicular(self.i, self.y, self.c, self.a),
-            Collinear(self.z, self.a, self.b),
-            Perpendicular(self.i, self.z, self.a, self.b),
-            Length(self.i, self.x) - Length(self.i, self.y),
-            Length(self.i, self.y) - Length(self.i, self.z),
+            Angle(b, a, i) - Angle(i, a, c),
+            Angle(a, b, i) - (Angle(a, b, c) / 2 + pi / 2),
+            Angle(a, c, i) - (Angle(a, c, b) / 2 + pi / 2),
+            Collinear(x, b, c),
+            Perpendicular(i, x, b, c),
+            Collinear(y, c, a),
+            Perpendicular(i, y, c, a),
+            Collinear(z, a, b),
+            Perpendicular(i, z, a, b),
+            Length(i, x) - Length(i, y),
+            Length(i, y) - Length(i, z),
         ]
 
 
 @register("AG")
 class construct_centroid(ConstructionRule):
-    def __init__(self, x, y, z, i, a, b, c):
-        self.x, self.y, self.z, self.i, self.a, self.b, self.c = x, y, z, i, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x, self.y, self.z, self.i]
-    
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point, z: Point, i: Point):
+        self.outputs = [x, y, z, i]
+
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, y, z, i = self.outputs
         return [
-            Collinear(self.x, self.b, self.c),
-            Length(self.x, self.b) - Length(self.x, self.c),
-            Collinear(self.y, self.c, self.a),
-            Length(self.y, self.c) - Length(self.y, self.a),
-            Collinear(self.z, self.a, self.b),
-            Length(self.z, self.a) - Length(self.z, self.b),
-            Collinear(self.a, self.x, self.i),
-            Collinear(self.b, self.y, self.i),
-            Collinear(self.c, self.z, self.i),
+            Collinear(x, b, c),
+            Length(x, b) - Length(x, c),
+            Collinear(y, c, a),
+            Length(y, c) - Length(y, a),
+            Collinear(z, a, b),
+            Length(z, a) - Length(z, b),
+            Collinear(a, x, i),
+            Collinear(b, y, i),
+            Collinear(c, z, i),
         ]
 
 
 @register("AG")
 class construct_intersection_cc(ConstructionRule):
-    def __init__(self, x, o, w, a):
-        self.x, self.o, self.w, self.a = x, o, w, a
-    
-    def arguments(self):
-        return [self.o, self.w, self.a]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, o: Point, w: Point, a: Point):
+        self.inputs = [o, w, a]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.o, self.w, self.a)]
+        o, w, a = self.inputs
+        return [NotCollinear(o, w, a)]
 
     def conclusions(self):
+        o, w, a = self.inputs
+        x, = self.outputs
         return [
-            Length(self.o, self.a) - Length(self.o, self.x),
-            Length(self.w, self.a) - Length(self.w, self.x),
+            Length(o, a) - Length(o, x),
+            Length(w, a) - Length(w, x),
         ]
 
 
 @register("AG")
 class construct_intersection_lc(ConstructionRule):
-    def __init__(self, x, a, o, b):
-        self.x, self.a, self.o, self.b = x, a, o, b
-    
-    def arguments(self):
-        return [self.a, self.o, self.b]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, o: Point, b: Point):
+        self.inputs = [a, o, b]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
+        a, o, b = self.inputs
         return [
-            Different(self.a, self.b),
-            Different(self.o, self.b),
-            Not(Perpendicular(self.b, self.o, self.b, self.a)),
+            Different(a, b),
+            Different(o, b),
+            Not(Perpendicular(b, o, b, a)),
         ]
 
     def conclusions(self):
+        a, o, b = self.inputs
+        x, = self.outputs
         return [
-            Collinear(self.x, self.a, self.b),
-            Length(self.o, self.b) - Length(self.o, self.x),
+            Collinear(x, a, b),
+            Length(o, b) - Length(o, x),
         ]
 
 
 @register("AG")
 class construct_intersection_ll(ConstructionRule):
-    def __init__(self, x, a, b, c, d):
-        self.x, self.a, self.b, self.c, self.d = x, a, b, c, d
-    
-    def arguments(self):
-        return [self.a, self.b, self.c, self.d]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        self.inputs = [a, b, c, d]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [
-            Not(Parallel(self.a, self.b, self.c, self.d))
-            # ,Not(Collinear(self.a,self.b,self.c,self.d)) # TODO
-        ]
+        a, b, c, d = self.inputs
+        return [Not(Parallel(a, b, c, d)), Not(Collinear(a, b, c, d))]
 
     def conclusions(self):
-        return [Collinear(self.x, self.a, self.b), Collinear(self.x, self.c, self.d)]
+        a, b, c, d = self.inputs
+        x, = self.outputs
+        return [Collinear(x, a, b), Collinear(x, c, d)]
 
 
 @register("AG")
 class construct_intersection_lp(ConstructionRule):
-    def __init__(self, x, a, b, c, m, n):
-        self.x, self.a, self.b, self.c, self.m, self.n = x, a, b, c, m, n
-    
-    def arguments(self):
-        return [self.a, self.b, self.c, self.m, self.n]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point, m: Point, n: Point):
+        self.inputs = [a, b, c, m, n]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
+        a, b, c, m, n = self.inputs
         return [
-            Not(Parallel(self.m, self.n, self.a, self.b)),
-            NotCollinear(self.a, self.b, self.c),
-            NotCollinear(self.c, self.m, self.n),
+            Not(Parallel(m, n, a, b)),
+            NotCollinear(a, b, c),
+            NotCollinear(c, m, n),
         ]
 
     def conclusions(self):
-        return [Collinear(self.x, self.a, self.b), Parallel(self.c, self.x, self.m, self.n)]
+        a, b, c, m, n = self.inputs
+        x, = self.outputs
+        return [Collinear(x, a, b), Parallel(c, x, m, n)]
 
 
 @register("AG")
 class construct_intersection_lt(ConstructionRule):
-    def __init__(self, x, a, b, c, d, e):
-        self.x, self.a, self.b, self.c, self.d, self.e = x, a, b, c, d, e
-        
-    def arguments(self):
-        return [self.a, self.b, self.c, self.d, self.e]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
+        self.inputs = [a, b, c, d, e]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
+        a, b, c, d, e = self.inputs
         return [
-            NotCollinear(self.a, self.b, self.c),
-            Not(Perpendicular(self.a, self.b, self.d, self.e)),
+            NotCollinear(a, b, c),
+            Not(Perpendicular(a, b, d, e)),
         ]
 
     def conclusions(self):
-        return [Collinear(self.x, self.a, self.b), Perpendicular(self.x, self.c, self.d, self.e)]
+        a, b, c, d, e = self.inputs
+        x, = self.outputs
+        return [Collinear(x, a, b), Perpendicular(x, c, d, e)]
 
 
 @register("AG")
 class construct_intersection_pp(ConstructionRule):
-    def __init__(self, x, a, b, c, d, e, f):
-        self.x, self.a, self.b, self.c, self.d, self.e, self.f = x, a, b, c, d, e, f
-    
-    def arguments(self):
-        return [self.a, self.b, self.c, self.d, self.e, self.f]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+        self.inputs = [a, b, c, d, e, f]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
+        a, b, c, d, e, f = self.inputs
         return [
-            Different(self.a, self.d),
-            Not(Parallel(self.b, self.c, self.e, self.f)),
+            Different(a, d),
+            Not(Parallel(b, c, e, f)),
         ]
 
     def conclusions(self):
+        a, b, c, d, e, f = self.inputs
+        x, = self.outputs
         return [
-            Parallel(self.x, self.a, self.b, self.c),
-            Parallel(self.x, self.d, self.e, self.f),
+            Parallel(x, a, b, c),
+            Parallel(x, d, e, f),
         ]
 
 
 @register("AG")
 class construct_intersection_tt(ConstructionRule):
-    def __init__(self, x, a, b, c, d, e, f):
-        self.x, self.a, self.b, self.c, self.d, self.e, self.f = x, a, b, c, d, e, f
-    
-    def arguments(self):
-        return [self.a, self.b, self.c, self.d, self.e, self.f]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+        self.inputs = [a, b, c, d, e, f]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
+        a, b, c, d, e, f = self.inputs
         return [
-            Different(self.a, self.d),
-            Not(Parallel(self.b, self.c, self.e, self.f)),
+            Different(a, d),
+            Not(Parallel(b, c, e, f)),
         ]
 
     def conclusions(self):
+        a, b, c, d, e, f = self.inputs
+        x, = self.outputs
         return [
-            Perpendicular(self.x, self.a, self.b, self.c),
-            Perpendicular(self.x, self.d, self.e, self.f),
+            Perpendicular(x, a, b, c),
+            Perpendicular(x, d, e, f),
         ]
 
 
 @register("AG")
 class construct_iso_triangle(ConstructionRule):
-    def __init__(self, a, b, c):
-        self.a, self.b, self.c = a, b, c
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point):
+        self.outputs = [a, b, c]
+
     def conclusions(self):
-        return [Length(self.a, self.b) - Length(self.a, self.c), Angle(self.a, self.b, self.c) - Angle(self.b, self.c, self.a)]
+        a, b, c = self.outputs
+        return [
+            Length(a, b) - Length(a, c),
+            Angle(a, b, c) - Angle(b, c, a),
+        ]
 
 
 @register("AG")
 class construct_lc_tangent(ConstructionRule):
-    def __init__(self, x, a, o):
-        self.x, self.a, self.o = x, a, o
-    
-    def arguments(self):
-        return [self.a, self.o]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, o: Point):
+        self.inputs = [a, o]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conclusions(self):
-        return [Perpendicular(self.a, self.x, self.a, self.o)]
+        a, o = self.inputs
+        x, = self.outputs
+        return [Perpendicular(a, x, a, o)]
 
 
 @register("AG")
 class construct_midpoint(ConstructionRule):
-    def __init__(self, x, a, b):
-        self.x, self.a, self.b = x, a, b
-    
-    def arguments(self):
-        return [self.a, self.b]
-        
-    def constructed_points(self):
-        return [self.x]
-    
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
+
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
-        return [Collinear(self.x, self.a, self.b), Length(self.x, self.a) - Length(self.x, self.b)]
+        a, b = self.inputs
+        x, = self.outputs
+        return [
+            Collinear(x, a, b),
+            Length(x, a) - Length(x, b),
+        ]
 
 
 @register("AG")
 class construct_mirror(ConstructionRule):
-    def __init__(self, x, a, b):
-        self.x, self.a, self.b = x, a, b
-    
-    def arguments(self):
-        return [self.a, self.b]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
+        a, b = self.inputs
+        x, = self.outputs
         return [
-            Length(self.b, self.a) - Length(self.b, self.x),
-            Collinear(self.x, self.a, self.b),
+            Length(b, a) - Length(b, x),
+            Collinear(x, a, b),
         ]
 
 
 @register("AG")
 class construct_nsquare(ConstructionRule):
-    def __init__(self, x, a, b):
-        self.x, self.a, self.b = x, a, b
-    
-    def arguments(self):
-        return [self.a, self.b]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
+        a, b = self.inputs
+        x, = self.outputs
         return [
-            Length(self.x, self.a) - Length(self.a, self.b),
-            Perpendicular(self.x, self.a, self.a, self.b),
+            Length(x, a) - Length(a, b),
+            Perpendicular(x, a, a, b),
         ]
 
 
 @register("AG")
 class construct_on_aline(ConstructionRule):
-    def __init__(self, x, a, b, c, d, e):
-        self.x, self.a, self.b, self.c, self.d, self.e = x, a, b, c, d, e
-    
-    def arguments(self):
-        return [self.a, self.b, self.c, self.d, self.e]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
+        self.inputs = [a, b, c, d, e]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
+        a, b, c, d, e = self.inputs
         return [
-            NotCollinear(self.c, self.d, self.e),
-            Different(self.a, self.b),
-            Different(self.c, self.d),
-            Different(self.c, self.e),
+            NotCollinear(c, d, e),
+            Different(a, b),
+            Different(c, d),
+            Different(c, e),
         ]
 
     def conclusions(self):
-        return Angle(self.x, self.a, self.b) - Angle(self.c, self.d, self.e), Angle(self.x, self.a, self.b) + Angle(self.c, self.d, self.e) - pi
+        a, b, c, d, e = self.inputs
+        x, = self.outputs
+        return (
+            Angle(x, a, b) - Angle(c, d, e),
+            Angle(x, a, b) + Angle(c, d, e) - pi,
+        )
 
 
 
@@ -713,740 +766,790 @@ class construct_on_aline(ConstructionRule):
 
 @register("AG")
 class construct_on_bline(ConstructionRule):
-    def __init__(self, x, a, b):
-        self.x, self.a, self.b = x, a, b
-    
-    def arguments(self):
-        return [self.a, self.b]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
+        a, b = self.inputs
+        x, = self.outputs
         return [
-            Length(self.x, self.a) - Length(self.x, self.b),
-            Angle(self.x, self.a, self.b) - Angle(self.a, self.b, self.x),
+            Length(x, a) - Length(x, b),
+            Angle(x, a, b) - Angle(a, b, x),
         ]
 
 
 @register("AG")
 class construct_on_circle(ConstructionRule):
-    def __init__(self, x, o, a):
-        self.x, self.o, self.a = x, o, a
-    
-    def arguments(self):
-        return [self.o, self.a]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, o: Point, a: Point):
+        self.inputs = [o, a]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.o, self.a)]
+        o, a = self.inputs
+        return [Different(o, a)]
 
     def conclusions(self):
-        return [Length(self.o, self.x) - Length(self.o, self.a)]
+        o, a = self.inputs
+        x, = self.outputs
+        return [Length(o, x) - Length(o, a)]
 
 
 @register("AG")
 class construct_on_line(ConstructionRule):
-    def __init__(self, x, a, b):
-        self.x, self.a, self.b = x, a, b
-    
-    def arguments(self):
-        return [self.a, self.b]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
-        return [Collinear(self.x, self.a, self.b)]
+        a, b = self.inputs
+        x, = self.outputs
+        return [Collinear(x, a, b)]
 
 
 @register("AG")
 class construct_on_pline(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.b, self.c), NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [Different(b, c), NotCollinear(a, b, c)]
 
     def conclusions(self):
-        return [Parallel(self.x, self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [Parallel(x, a, b, c)]
 
 
 @register("AG")
 class construct_on_tline(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.b, self.c)]
+        a, b, c = self.inputs
+        return [Different(b, c)]
 
     def conclusions(self):
-        return [Perpendicular(self.x, self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [Perpendicular(x, a, b, c)]
 
 
 @register("AG")
 class construct_orthocenter(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, = self.outputs
         return [
-            Perpendicular(self.x, self.a, self.b, self.c),
-            Perpendicular(self.x, self.b, self.c, self.a),
-            Perpendicular(self.x, self.c, self.a, self.b),
+            Perpendicular(x, a, b, c),
+            Perpendicular(x, b, c, a),
+            Perpendicular(x, c, a, b),
         ]
 
 
 @register("AG")
 class construct_parallelogram(ConstructionRule):
-    def __init__(self, a, b, c, x):
-        self.a, self.b, self.c, self.x = a, b, c, x
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, = self.outputs
         return [
-            Parallel(self.a, self.b, self.c, self.x),
-            Parallel(self.a, self.x, self.b, self.c),
-            Length(self.a, self.b) - Length(self.c, self.x),
-            Length(self.a, self.x) - Length(self.b, self.c),
+            Parallel(a, b, c, x),
+            Parallel(a, x, b, c),
+            Length(a, b) - Length(c, x),
+            Length(a, x) - Length(b, c),
         ]
 
 
 @register("AG")
 class construct_pentagon(ConstructionRule):
-    def __init__(self, a, b, c, d, e):
-        self.a, self.b, self.c, self.d, self.e = a, b, c, d, e
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c, self.d, self.e]
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point, e: Point):
+        self.outputs = [a, b, c, d, e]
 
 
 @register("AG")
 class construct_psquare(ConstructionRule):
-    def __init__(self, x, a, b):
-        self.x, self.a, self.b = x, a, b
-    
-    def arguments(self):
-        return [self.a, self.b]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
+        a, b = self.inputs
+        x, = self.outputs
         return [
-            Length(self.x, self.a) - Length(self.a, self.b),
-            Perpendicular(self.x, self.a, self.a, self.b),
+            Length(x, a) - Length(a, b),
+            Perpendicular(x, a, a, b),
         ]
 
 
 @register("AG")
 class construct_quadrangle(ConstructionRule):
-    def __init__(self, a, b, c, d):
-        self.a, self.b, self.c, self.d = a, b, c, d
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c, self.d]
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point):
+        self.outputs = [a, b, c, d]
 
 
 @register("AG")
 class construct_r_trapezoid(ConstructionRule):
-    def __init__(self, a, b, c, d):
-        self.a, self.b, self.c, self.d = a, b, c, d
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c, self.d]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point):
+        self.outputs = [a, b, c, d]
+
     def conclusions(self):
-        return [Perpendicular(self.a, self.b, self.a, self.d), Parallel(self.a, self.b, self.c, self.d)]
+        a, b, c, d = self.outputs
+        return [
+            Perpendicular(a, b, a, d),
+            Parallel(a, b, c, d),
+        ]
 
 
 @register("AG")
 class construct_r_triangle(ConstructionRule):
-    def __init__(self, a, b, c):
-        self.a, self.b, self.c = a, b, c
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point):
+        self.outputs = [a, b, c]
+
     def conclusions(self):
-        return [Perpendicular(self.a, self.b, self.a, self.c)]
+        a, b, c = self.outputs
+        return [Perpendicular(a, b, a, c)]
 
 
 @register("AG")
 class construct_rectangle(ConstructionRule):
-    def __init__(self, a, b, c, d):
-        self.a, self.b, self.c, self.d = a, b, c, d
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c, self.d]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point):
+        self.outputs = [a, b, c, d]
+
     def conclusions(self):
+        a, b, c, d = self.outputs
         return [
-            Perpendicular(self.a, self.b, self.b, self.c),
-            Parallel(self.a, self.b, self.c, self.d),
-            Parallel(self.a, self.d, self.b, self.c),
-            Perpendicular(self.a, self.b, self.a, self.d),
-            Length(self.a, self.b) - Length(self.c, self.d),
-            Length(self.a, self.d) - Length(self.b, self.c),
-            Length(self.a, self.c) - Length(self.b, self.d),
+            Perpendicular(a, b, b, c),
+            Parallel(a, b, c, d),
+            Parallel(a, d, b, c),
+            Perpendicular(a, b, a, d),
+            Length(a, b) - Length(c, d),
+            Length(a, d) - Length(b, c),
+            Length(a, c) - Length(b, d),
         ]
 
 
 @register("AG")
 class construct_reflect(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.b, self.c), NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [Different(b, c), NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, = self.outputs
         return [
-            Perpendicular(self.b, self.c, self.a, self.x),
-            Length(self.a, self.b) - Length(self.b, self.x),
-            Length(self.a, self.c) - Length(self.c, self.x),
+            Perpendicular(b, c, a, x),
+            Length(a, b) - Length(b, x),
+            Length(a, c) - Length(c, x),
         ]
 
 
 @register("AG")
 class construct_risos(ConstructionRule):
-    def __init__(self, a, b, c):
-        self.a, self.b, self.c = a, b, c
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point):
+        self.outputs = [a, b, c]
+
     def conclusions(self):
+        a, b, c = self.outputs
         return [
-            Angle(self.a, self.b, self.c) - Angle(self.b, self.c, self.a),
-            Perpendicular(self.a, self.b, self.a, self.c),
-            Length(self.a, self.b) - Length(self.a, self.c),
+            Angle(a, b, c) - Angle(b, c, a),
+            Perpendicular(a, b, a, c),
+            Length(a, b) - Length(a, c),
         ]
 
 
 @register("AG")
 class construct_s_angle(ConstructionRule):
-    def __init__(self, a, b, x, alpha):
-        self.a, self.b, self.x, self.alpha = a, b, x, alpha
-    
-    def arguments(self):
-        return [self.a, self.b, self.alpha]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, alpha: float):
+        self.inputs = [a, b, alpha]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b, alpha = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
-        return [Angle(self.a, self.b, self.x) - sympy.simplify(sympy.Rational(abs(self.alpha),180)*pi)]
+        a, b, alpha = self.inputs
+        x, = self.outputs
+        return [Angle(a, b, x) - sympy.simplify(sympy.Rational(abs(alpha), 180) * pi)]
 
 
 @register("AG")
 class construct_segment(ConstructionRule):
-    def __init__(self, a, b):
-        self.a, self.b = a, b
-        
-    def constructed_points(self):
-        return [self.a, self.b]
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point):
+        self.outputs = [a, b]
 
 
 @register("AG")
 class construct_s_segment(ConstructionRule):
-    def __init__(self, a, b, alpha):
-        self.a, self.b, self.alpha = a, b, alpha
-    
-    def arguments(self):
-        return [self.alpha]
-        
-    def constructed_points(self):
-        return [self.a, self.b]
+    def __init__(self, alpha: float):
+        self.inputs = [alpha]
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point):
+        self.outputs = [a, b]
 
     def conclusions(self):
-        return [Length(self.a, self.x) - sympy.simplify(self.alpha)]
+        alpha, = self.inputs
+        a, b = self.outputs
+        return [Length(a, b) - sympy.simplify(alpha)]
 
 
 @register("AG")
 class construct_shift(ConstructionRule):
-    def __init__(self, x, b, c, d):
-        self.x, self.b, self.c, self.d = x, b, c, d
-    
-    def arguments(self):
-        return [self.b, self.c, self.d]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, b: Point, c: Point, d: Point):
+        self.inputs = [b, c, d]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.d, self.b)]
+        b, c, d = self.inputs
+        return [Different(d, b)]
 
     def conclusions(self):
+        b, c, d = self.inputs
+        x, = self.outputs
         return [
-            Length(self.x, self.b) - Length(self.c, self.d),
-            Length(self.x, self.c) - Length(self.b, self.d),
+            Length(x, b) - Length(c, d),
+            Length(x, c) - Length(b, d),
         ]
 
 
+@register("AG")
 class construct_square(ConstructionRule):
-    def __init__(self, a, b, x, y):
-        self.a, self.b, self.x, self.y = a, b, x, y
-    
-    def arguments(self):
-        return [self.a, self.b]
-        
-    def constructed_points(self):
-        return [self.x, self.y]
-    
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point):
+        self.outputs = [x, y]
+
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
+        a, b = self.inputs
+        x, y = self.outputs
         return [
-            Perpendicular(self.a, self.b, self.b, self.x),
-            Length(self.a, self.b) - Length(self.b, self.x),
-            Parallel(self.a, self.b, self.x, self.y),
-            Parallel(self.a, self.y, self.b, self.x),
-            Perpendicular(self.a, self.y, self.y, self.x),
-            Length(self.b, self.x) - Length(self.x, self.y),
-            Length(self.x, self.y) - Length(self.y, self.a),
-            Perpendicular(self.a, self.x, self.b, self.y),
-            Length(self.a, self.x) - Length(self.b, self.y),
+            Perpendicular(a, b, b, x),
+            Length(a, b) - Length(b, x),
+            Parallel(a, b, x, y),
+            Parallel(a, y, b, x),
+            Perpendicular(a, y, y, x),
+            Length(b, x) - Length(x, y),
+            Length(x, y) - Length(y, a),
+            Perpendicular(a, x, b, y),
+            Length(a, x) - Length(b, y),
         ]
 
 
 @register("AG")
 class construct_isquare(ConstructionRule):
-    def __init__(self, a, b, c, d):
-        self.a, self.b, self.c, self.d = a, b, c, d
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c, self.d]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point):
+        self.outputs = [a, b, c, d]
+
     def conclusions(self):
+        a, b, c, d = self.outputs
         return [
-            Perpendicular(self.a, self.b, self.b, self.c),
-            Length(self.a, self.b) - Length(self.b, self.c),
-            Parallel(self.a, self.b, self.c, self.d),
-            Parallel(self.a, self.d, self.b, self.c),
-            Perpendicular(self.a, self.d, self.d, self.c),
-            Length(self.b, self.c) - Length(self.c, self.d),
-            Length(self.c, self.d) - Length(self.d, self.a),
-            Perpendicular(self.a, self.c, self.b, self.d),
-            Length(self.a, self.c) - Length(self.b, self.d),
+            Perpendicular(a, b, b, c),
+            Length(a, b) - Length(b, c),
+            Parallel(a, b, c, d),
+            Parallel(a, d, b, c),
+            Perpendicular(a, d, d, c),
+            Length(b, c) - Length(c, d),
+            Length(c, d) - Length(d, a),
+            Perpendicular(a, c, b, d),
+            Length(a, c) - Length(b, d),
         ]
 
 
 @register("AG")
 class construct_trapezoid(ConstructionRule):
-    def __init__(self, a, b, c, d):
-        self.a, self.b, self.c, self.d = a, b, c, d
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c, self.d]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point):
+        self.outputs = [a, b, c, d]
+
     def conclusions(self):
-        return [Parallel(self.a, self.b, self.c, self.d)]
+        a, b, c, d = self.outputs
+        return [Parallel(a, b, c, d)]
 
 
 @register("AG")
 class construct_triangle(ConstructionRule):
-    def __init__(self, a, b, c):
-        self.a, self.b, self.c = a, b, c
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c]
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point):
+        self.outputs = [a, b, c]
 
 
 @register("AG")
 class construct_triangle12(ConstructionRule):
-    def __init__(self, a, b, c):
-        self.a, self.b, self.c = a, b, c
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point):
+        self.outputs = [a, b, c]
+
     def conclusions(self):
-        return [Length(self.a, self.b) / Length(self.a, self.c) - 1 / 2]
+        a, b, c = self.outputs
+        return [Length(a, b) / Length(a, c) - sympy.Rational(1, 2)]
 
 
 @register("AG")
 class construct_2l1c(ConstructionRule):
-    def __init__(self, x, y, z, i, a, b, c, o):
-        self.x, self.y, self.z, self.i, self.a, self.b, self.c, self.o = x, y, z, i, a, b, c, o
-    
-    def arguments(self):
-        return [self.a, self.b, self.c, self.o]
-        
-    def constructed_points(self):
-        return [self.x, self.y, self.z, self.i]
-    
+    def __init__(self, a: Point, b: Point, c: Point, o: Point):
+        self.inputs = [a, b, c, o]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point, z: Point, i: Point):
+        self.outputs = [x, y, z, i]
+
     def conditions(self):
+        a, b, c, o = self.inputs
         return [
-            Length(self.o, self.a) - Length(self.o, self.b),
-            NotCollinear(self.a, self.b, self.c),
+            Length(o, a) - Length(o, b),
+            NotCollinear(a, b, c),
         ]
 
     def conclusions(self):
+        a, b, c, o = self.inputs
+        x, y, z, i = self.outputs
         return [
-            Collinear(self.x, self.a, self.c),
-            Collinear(self.y, self.b, self.c),
-            Length(self.o, self.a) - Length(self.o, self.z),
-            Collinear(self.i, self.o, self.z),
-            Length(self.i, self.x) - Length(self.i, self.y),
-            Length(self.i, self.y) - Length(self.i, self.z),
-            Perpendicular(self.i, self.x, self.a, self.c),
-            Perpendicular(self.i, self.y, self.b, self.c),
+            Collinear(x, a, c),
+            Collinear(y, b, c),
+            Length(o, a) - Length(o, z),
+            Collinear(i, o, z),
+            Length(i, x) - Length(i, y),
+            Length(i, y) - Length(i, z),
+            Perpendicular(i, x, a, c),
+            Perpendicular(i, y, b, c),
         ]
 
 
-@register("AG")
-class construct_e5128(ConstructionRule):
-    def __init__(self, x, y, a, b, c, d):
-        self.x, self.y, self.a, self.b, self.c, self.d = x, y, a, b, c, d
-    
-    def arguments(self):
-        return [self.a, self.b, self.c, self.d]
-        
-    def constructed_points(self):
-        return [self.x, self.y]
-    
-    def conditions(self):
-        return [
-            Length(self.c, self.b) - Length(self.c, self.d),
-            Perpendicular(self.b, self.c, self.b, self.a),
-        ]
+# @register("AG")
+# class construct_e5128(ConstructionRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
+#         self.inputs = [a, b, c, d]
+#         self.outputs = None
 
-    def conclusions(self):
-        return [
-            Length(self.c, self.b) - Length(self.c, self.x),
-            Collinear(self.y, self.a, self.b),
-            Collinear(self.x, self.y, self.d),
-            Angle(self.b, self.a, self.d) - Angle(self.a, self.x, self.y),
-        ]
+#     def construct(self, x: Point, y: Point):
+#         self.outputs = [x, y]
+
+#     def conditions(self):
+#         a, b, c, d = self.inputs
+#         return [
+#             Length(c, b) - Length(c, d),
+#             Perpendicular(b, c, b, a),
+#         ]
+
+#     def conclusions(self):
+#         a, b, c, d = self.inputs
+#         x, y = self.outputs
+#         return [
+#             Length(c, b) - Length(c, x),
+#             Collinear(y, a, b),
+#             Collinear(x, y, d),
+#             Angle(b, a, d) - Angle(a, x, y),
+#         ]
 
 
 @register("AG")
 class construct_3peq(ConstructionRule):
-    def __init__(self, x, y, z, a, b, c):
-        self.x, self.y, self.z, self.a, self.b, self.c = x, y, z, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x, self.y, self.z]
-    
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point, z: Point):
+        self.outputs = [x, y, z]
+
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, y, z = self.outputs
         return [
-            Collinear(self.z, self.b, self.c),
-            Collinear(self.x, self.a, self.b),
-            Collinear(self.y, self.a, self.c),
-            Collinear(self.x, self.y, self.z),
-            Length(self.z, self.x) - Length(self.z, self.y),
+            Collinear(z, b, c),
+            Collinear(x, a, b),
+            Collinear(y, a, c),
+            Collinear(x, y, z),
+            Length(z, x) - Length(z, y),
         ]
 
 
 @register("AG")
 class construct_trisect(ConstructionRule):
-    def __init__(self, x, y, a, b, c):
-        self.x, self.y, self.a, self.b, self.c = x, y, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x, self.y]
-    
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point):
+        self.outputs = [x, y]
+
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
+        a, b, c = self.inputs
+        x, y = self.outputs
         return [
-            Angle(self.a, self.b, self.x) - Angle(self.x, self.b, self.y),
-            Angle(self.x, self.b, self.y) - Angle(self.y, self.b, self.c),
-            Collinear(self.x, self.a, self.c),
-            Collinear(self.y, self.a, self.c),
+            Angle(a, b, x) - Angle(x, b, y),
+            Angle(x, b, y) - Angle(y, b, c),
+            Collinear(x, a, c),
+            Collinear(y, a, c),
         ]
 
 
 @register("AG")
 class construct_trisegment(ConstructionRule):
-    def __init__(self, x, y, a, b):
-        self.x, self.y, self.a, self.b = x, y, a, b
-    
-    def arguments(self):
-        return [self.a, self.b]
-        
-    def constructed_points(self):
-        return [self.x, self.y]
-    
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point):
+        self.outputs = [x, y]
+
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
+        a, b = self.inputs
+        x, y = self.outputs
         return [
-            Length(self.a, self.x) - Length(self.x, self.y),
-            Length(self.x, self.y) - Length(self.y, self.b),
-            Collinear(self.x, self.a, self.b),
-            Collinear(self.y, self.a, self.b),
+            Length(a, x) - Length(x, y),
+            Length(x, y) - Length(y, b),
+            Collinear(x, a, b),
+            Collinear(y, a, b),
         ]
 
 
 @register("AG")
 class construct_on_dia(ConstructionRule):
-    def __init__(self, x, a, b):
-        self.x, self.a, self.b = x, a, b
-    
-    def arguments(self):
-        return [self.a, self.b]
-        
-    def constructed_points(self):
-        return [self.x]
-        
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
+
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
-        return [Perpendicular(self.x, self.a, self.x, self.b)]
+        a, b = self.inputs
+        x, = self.outputs
+        return [Perpendicular(x, a, x, b)]
 
 
 @register("AG")
 class construct_ieq_triangle(ConstructionRule):
-    def __init__(self, a, b, c):
-        self.a, self.b, self.c = a, b, c
-        
-    def constructed_points(self):
-        return [self.a, self.b, self.c]
-    
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point):
+        self.outputs = [a, b, c]
+
     def conclusions(self):
+        a, b, c = self.outputs
         return [
-            Length(self.a, self.b) - Length(self.b, self.c),
-            Length(self.b, self.c) - Length(self.c, self.a),
-            Angle(self.b, self.a, self.c) - Angle(self.a, self.c, self.b),
-            Angle(self.a, self.c, self.b) - Angle(self.c, self.b, self.a),
+            Length(a, b) - Length(b, c),
+            Length(b, c) - Length(c, a),
+            Angle(b, a, c) - Angle(a, c, b),
+            Angle(a, c, b) - Angle(c, b, a),
         ]
 
 
 @register("AG")
 class construct_on_opline(ConstructionRule):
-    def __init__(self, x, a, b):
-        self.x, self.a, self.b = x, a, b
-    
-    def arguments(self):
-        return [self.a, self.b]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [Different(self.a, self.b)]
+        a, b = self.inputs
+        return [Different(a, b)]
 
     def conclusions(self):
-        return [Collinear(self.x, self.a, self.b)]
+        a, b = self.inputs
+        x, = self.outputs
+        return [Collinear(x, a, b)]
 
 
 class construct_cc_tangent0(ConstructionRule):
-    def __init__(self, x, y, o, a, w, b):
-        self.x, self.y, self.o, self.a, self.w, self.b = x, y, o, a, w, b
-    
-    def arguments(self):
-        return [self.o, self.a, self.w, self.b]
-        
-    def constructed_points(self):
-        return [self.x, self.y]
-    
+    def __init__(self, o: Point, a: Point, w: Point, b: Point):
+        self.inputs = [o, a, w, b]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point):
+        self.outputs = [x, y]
+
     def conditions(self):
+        o, a, w, b = self.inputs
         return [
-            Different(self.o, self.a),
-            Different(self.w, self.b),
-            Different(self.o, self.w),
+            Different(o, a),
+            Different(w, b),
+            Different(o, w),
         ]
 
     def conclusions(self):
+        o, a, w, b = self.inputs
+        x, y = self.outputs
         return [
-            Length(self.o, self.x) - Length(self.o, self.a),
-            Length(self.w, self.y) - Length(self.w, self.b),
-            Perpendicular(self.x, self.o, self.x, self.y),
-            Perpendicular(self.y, self.w, self.y, self.x)
+            Length(o, x) - Length(o, a),
+            Length(w, y) - Length(w, b),
+            Perpendicular(x, o, x, y),
+            Perpendicular(y, w, y, x),
         ]
         
 
 class construct_cc_tangent(ConstructionRule):
-    def __init__(self, x, y, z, i, o, a, w, b):
-        self.x, self.y, self.z, self.i, self.o, self.a, self.w, self.b = x, y, z, i, o, a, w, b
-    
-    def arguments(self):
-        return [self.o, self.a, self.w, self.b]
-        
-    def constructed_points(self):
-        return [self.x, self.y, self.z, self.i]
-    
+    def __init__(self, o: Point, a: Point, w: Point, b: Point):
+        self.inputs = [o, a, w, b]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point, z: Point, i: Point):
+        self.outputs = [x, y, z, i]
+
     def conditions(self):
+        o, a, w, b = self.inputs
         return [
-            Different(self.o, self.a),
-            Different(self.w, self.b),
-            Different(self.o, self.w),
+            Different(o, a),
+            Different(w, b),
+            Different(o, w),
         ]
 
     def conclusions(self):
+        o, a, w, b = self.inputs
+        x, y, z, i = self.outputs
         return [
-            Length(self.o, self.x) - Length(self.o, self.a),
-            Length(self.w, self.y) - Length(self.w, self.b),
-            Perpendicular(self.x, self.o, self.x, self.y),
-            Perpendicular(self.y, self.w, self.y, self.x),
-            Length(self.o, self.z) - Length(self.o, self.a),
-            Length(self.w, self.i) - Length(self.w, self.b),
-            Perpendicular(self.z, self.o, self.z, self.i),
-            Perpendicular(self.i, self.w, self.i, self.z),
+            Length(o, x) - Length(o, a),
+            Length(w, y) - Length(w, b),
+            Perpendicular(x, o, x, y),
+            Perpendicular(y, w, y, x),
+            Length(o, z) - Length(o, a),
+            Length(w, i) - Length(w, b),
+            Perpendicular(z, o, z, i),
+            Perpendicular(i, w, i, z),
         ]
 
 
 @register("AG")
 class construct_eqangle3(ConstructionRule):
-    def __init__(self, x, a, b, d, e, f):
-        self.x, self.a, self.b, self.d, self.e, self.f = x, a, b, d, e, f
-    
-    def arguments(self):
-        return [self.a, self.b, self.d, self.e, self.f]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, d: Point, e: Point, f: Point):
+        self.inputs = [a, b, d, e, f]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
+        a, b, d, e, f = self.inputs
         return [
-            NotCollinear(self.d, self.e, self.f),
-            Different(self.a, self.b),
-            Different(self.d, self.e),
-            Different(self.e, self.f),
+            NotCollinear(d, e, f),
+            Different(a, b),
+            Different(d, e),
+            Different(e, f),
         ]
 
     def conclusions(self):
-        return [Angle(self.a, self.x, self.b) - Angle(self.e, self.d, self.f)]
+        a, b, d, e, f = self.inputs
+        x, = self.outputs
+        return [Angle(a, x, b) - Angle(e, d, f)]
 
 
 @register("AG")
 class construct_tangent(ConstructionRule):
-    def __init__(self, x, y, a, o, b):
-        self.x, self.y, self.a, self.o, self.b = x, y, a, o, b
-    
-    def arguments(self):
-        return [self.a, self.o, self.b]
-        
-    def constructed_points(self):
-        return [self.x, self.y]
-    
+    def __init__(self, a: Point, o: Point, b: Point):
+        self.inputs = [a, o, b]
+        self.outputs = None
+
+    def construct(self, x: Point, y: Point):
+        self.outputs = [x, y]
+
     def conditions(self):
+        a, o, b = self.inputs
         return [
-            Different(self.o, self.a),
-            Different(self.o, self.b),
-            Different(self.a, self.b),
+            Different(o, a),
+            Different(o, b),
+            Different(a, b),
         ]
 
     def conclusions(self):
+        a, o, b = self.inputs
+        x, y = self.outputs
         return [
-            Length(self.o, self.x) - Length(self.o, self.b),
-            Perpendicular(self.a, self.x, self.o, self.x),
-            Length(self.o, self.y) - Length(self.o, self.b),
-            Perpendicular(self.a, self.y, self.o, self.y),
+            Length(o, x) - Length(o, b),
+            Perpendicular(a, x, o, x),
+            Length(o, y) - Length(o, b),
+            Perpendicular(a, y, o, y),
         ]
 
 
 @register("AG")
 class construct_on_circum(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
-        
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
+
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
-    
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
+
     def conclusions(self):
-        return [Concyclic(self.a, self.b, self.c, self.x)]
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [Concyclic(a, b, c, x)]
 
 
 class construct_sameside(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
-        return [SameSide(self.x, self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [SameSide(x, a, b, c)]
 
 
 class construct_opposingsides(ConstructionRule):
-    def __init__(self, x, a, b, c):
-        self.x, self.a, self.b, self.c = x, a, b, c
-    
-    def arguments(self):
-        return [self.a, self.b, self.c]
-        
-    def constructed_points(self):
-        return [self.x]
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        return [NotCollinear(a, b, c)]
 
     def conclusions(self):
-        return [OppositeSide(self.x, self.a, self.b, self.c)]
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [OppositeSide(x, a, b, c)]

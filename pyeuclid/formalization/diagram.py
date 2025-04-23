@@ -39,7 +39,7 @@ class Diagram:
         instance = super().__new__(cls)
         return instance
     
-    def __init__(self, constructions_list:list[list[ConstructionRule]]=None, save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
+    def __init__(self, constructions_list:list[list[ConstructionRule]]=[], save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
         if hasattr(self, 'cache_folder'):
             return
         
@@ -56,7 +56,7 @@ class Diagram:
         self.save_path = save_path
         self.cache_folder = cache_folder
         
-        if constructions_list is not None:                
+        if constructions_list:                
             self.construct_diagram()
             
     def clear(self):
@@ -66,6 +66,23 @@ class Diagram:
         
         self.name2point.clear()
         self.point2name.clear()
+        
+    def save(self):
+        self._saved = {
+            'points': self.points.copy(),
+            'segments': self.segments.copy(),
+            'circles': self.circles.copy(),
+            'name2point': self.name2point.copy(),
+            'point2name': self.point2name.copy(),
+        }
+
+    def restore(self):
+        if hasattr(self, '_saved'):
+            self.points = self._saved['points']
+            self.segments = self._saved['segments']
+            self.circles = self._saved['circles']
+            self.name2point = self._saved['name2point']
+            self.point2name = self._saved['point2name']
         
     def show(self):
         self.draw_diagram(show=True)
@@ -78,13 +95,15 @@ class Diagram:
                 pickle.dump(self, f)
     
     def add_constructions(self, constructions):
+        self.save()
         for _ in range(MAX_DIAGRAM_ATTEMPTS):
             try:
                 self.construct(constructions)
+                self.check_distance()
                 self.constructions_list.append(constructions)
                 return
             except:
-                continue
+                self.restore()
         
         print(f"Failed to add the constructions after {MAX_DIAGRAM_ATTEMPTS} attempts.")
         raise Exception()
@@ -111,13 +130,13 @@ class Diagram:
         raise Exception()
             
     def construct(self, constructions: list[ConstructionRule]):
-        constructed_points = constructions[0].constructed_points()
-        if any(construction.constructed_points() != constructed_points for construction in constructions[1:]):
+        outputs = constructions[0].outputs
+        if any(construction.outputs != outputs for construction in constructions[1:]):
             raise Exception()
 
         to_be_intersected = []
         for construction in constructions:
-            # print(construction.__class__.__name__ + '('+','.join([str(name) for name in construction.arguments()])+')')
+            # print(construction.__class__.__name__ + '('+','.join([str(name) for name in construction.inputs])+')')
             # for c in construction.conditions:
             #     if not self.numerical_check(c):
             #         raise Exception()
@@ -127,7 +146,7 @@ class Diagram:
         new_points = self.reduce(to_be_intersected, self.points)
         self.points += new_points
         
-        for p, np in zip(constructed_points, new_points):
+        for p, np in zip(outputs, new_points):
             self.name2point[p.name] = np
             self.point2name[np] = p.name
         
@@ -152,11 +171,11 @@ class Diagram:
         yspan = ymax - ymin
         span = max(xspan, yspan)
         
-        if check_too_close(self.points, span, mintol):
-            raise Exception()
+        # if check_too_close(self.points, span, mintol):
+        #     raise Exception()
         
-        if check_too_far(self.points, span, maxtol):
-            raise Exception()
+        # if check_too_far(self.points, span, maxtol):
+        #     raise Exception()
         
         self.xmax, self.xmin = xmax, xmin
         self.ymax, self.ymin = ymax, ymin
@@ -197,7 +216,7 @@ class Diagram:
 
     def sketch(self, construction):
         func = getattr(self, 'sketch_' + construction.__class__.__name__[10:])
-        args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.arguments()]
+        args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.inputs]
         result = func(*args)
         if isinstance(result, list):
             return result
@@ -799,7 +818,7 @@ class Diagram:
     
     def draw(self, new_points, construction):
         func = getattr(self, 'draw_' + construction.__class__.__name__[10:])
-        args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.arguments()]
+        args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.inputs]
         func(*new_points, *args)
     
     def draw_angle_bisector(self, *args):
@@ -1341,8 +1360,7 @@ class Diagram:
                 continue
         
         if not avoids:
-            point_positions = [(p.x + r, p.y + r), (p.x + r, p.y - r), (p.x - r, p.y + r), (p.x - r, p.y - r)]
-            return  point_positions[np.random.choice(4)]
+            return p.x + r / np.sqrt(2), p.y + r / np.sqrt(2)
         
         angs = sorted([ang_of(p, a) for a in avoids])
         angs += [angs[0] + 2 * np.pi]
@@ -1387,7 +1405,7 @@ class Diagram:
             self.ymin = min(self.ymin, y_pos)
             
             self.ax.annotate(self.point2name[p], (x_pos, y_pos), color='black', ha='center', va='center', fontsize=15)
-        
+
         self.ax.set_aspect('equal')
         self.ax.set_axis_off()
         

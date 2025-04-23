@@ -129,6 +129,40 @@ class State:
                             self.var_types[entity] = None
                     else:
                         self.var_types[entity] = label
+                        
+    def add_constructions(self, constructions):
+        for construction in constructions:
+            for p in construction.outputs:
+                self.add_point(p)
+            
+            relations = construction.conclusions()
+            if isinstance(relations, tuple):
+                if self.diagram.numerical_check(relations[0]):
+                    assert not self.diagram.numerical_check(relations[1])
+                    self.add_relations(relations[0])
+                else:
+                    assert self.diagram.numerical_check(relations[1])
+                    self.add_relations(relations[1])
+            else:
+                self.add_relations(relations)
+        
+        for perm in permutations(self.points, 3):
+            between_relation = Between(*perm)
+            if self.diagram.numerical_check(between_relation):
+                self.add_relations(between_relation)
+                
+            notcollinear_relation = NotCollinear(*perm)
+            if self.diagram.numerical_check(notcollinear_relation):
+                self.add_relations(notcollinear_relation)
+        
+        for perm in permutations(self.points, 4):
+            sameside_relation = SameSide(*perm)
+            if self.diagram.numerical_check(sameside_relation):
+                self.add_relations(sameside_relation)
+                
+            oppositeside_relation = OppositeSide(*perm)
+            if self.diagram.numerical_check(oppositeside_relation):
+                self.add_relations(oppositeside_relation)
         
     def load_problem_from_text(self, text, diagram_path=None, resample=False):
         constructions_list = get_constructions_list_from_text(text)
@@ -151,40 +185,12 @@ class State:
         # self.diagram.show()
         
         for constructions in constructions_list:
-            for construction in constructions:
-                for p in construction.constructed_points():
-                    self.add_point(p)
-                
-                relations = construction.conclusions()
-                if isinstance(relations, tuple):
-                    if self.diagram.numerical_check(relations[0]):
-                        assert not self.diagram.numerical_check(relations[1])
-                        self.add_relations(relations[0])
-                    else:
-                        assert self.diagram.numerical_check(relations[1])
-                        self.add_relations(relations[1])
-                else:
-                    self.add_relations(relations)
-        
-        for perm in permutations(self.points, 3):
-            between_relation = Between(*perm)
-            if self.diagram.numerical_check(between_relation):
-                self.add_relations(between_relation)
-                
-            notcollinear_relation = NotCollinear(*perm)
-            if self.diagram.numerical_check(notcollinear_relation):
-                self.add_relations(notcollinear_relation)
-        
-        for perm in permutations(self.points, 4):
-            sameside_relation = SameSide(*perm)
-            if self.diagram.numerical_check(sameside_relation):
-                self.add_relations(sameside_relation)
-                
-            oppositeside_relation = OppositeSide(*perm)
-            if self.diagram.numerical_check(oppositeside_relation):
-                self.add_relations(oppositeside_relation)
- 
+            self.add_constructions(constructions)
+
     def complete(self):
+        if not self.goal:
+            return None
+        
         if isinstance(self.goal, Relation):
             if self.check_conditions(self.goal):
                 return True

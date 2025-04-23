@@ -15,9 +15,9 @@ class Engine:
             
             self.state.current_depth += 1
             
-            self.deductive_database.run()
+            closure = self.deductive_database.run()
             
-            if self.deductive_database.closure:
+            if closure:
                 break
             
             if self.state.complete() is not None:

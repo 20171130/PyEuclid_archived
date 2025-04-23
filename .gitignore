@@ -176,3 +176,5 @@ cython_debug/
 cache/
 diagrams/
 *.out
+
+.vscode/

@@ -13,7 +13,6 @@ class DeductiveDatabase:
         self.state = state
         self.inner_theorems = inner_theorems
         self.outer_theorems = outer_theorems
-        self.closure = False
         
     def get_applicable_theorems(self, theorems):
         def search_assignments(theorem):
@@ -268,7 +267,7 @@ class DeductiveDatabase:
         inner_closure = True
         while True:
             if self.state.complete() is not None:
-                return
+                return False
             inner_applicable = self.get_applicable_theorems(self.inner_theorems)
             self.apply(inner_applicable)
             if len(inner_applicable) == 0:
@@ -276,13 +275,12 @@ class DeductiveDatabase:
             inner_closure = False
             
         if self.state.complete() is not None:
-            return
+            return False
         
         applicable_theorems = self.get_applicable_theorems(self.outer_theorems)
         self.apply(applicable_theorems)
         
         if len(applicable_theorems) == 0 and inner_closure:
-            self.closure = True
             if not self.state.silent:
                 self.state.logger.debug("Found Closure")
-            return
+            return True
