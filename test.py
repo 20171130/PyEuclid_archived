@@ -16,38 +16,38 @@ import traceback
 from stopit import ThreadingTimeout as Timeout
 
 class TestBenchmarks(unittest.TestCase):
-    def test_jgex_ag_231(self):
-        rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
-        world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
-        texts = parse_texts_from_file('data/JGEX-AG-231.txt')
-        for idx, text in enumerate(texts):
-            if not idx%world_size == rank:
-                continue
-            state = State()
-            if world_size > 1:
-                state.silent = True
-            try:
-                state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
-                deductive_database = DeductiveDatabase(state)
-                algebraic_system = AlgebraicSystem(state)
-                proof_generator = ProofGenerator(state)
-                engine = Engine(state, deductive_database, algebraic_system)
-                t = time.time()
-                with Timeout(3600):
-                    engine.search()
-                t = time.time() - t
-                if state.complete() is not None:
-                    print(f"{idx} solved in {t} seconds")
-                    proof_generator.generate_proof()
-                    if world_size == 1:
-                        proof_generator.show_proof()
-                else:
-                    print(f"{idx} unsolved in {t} seconds")
-            except BaseException as e:
-                if isinstance(e, KeyboardInterrupt):
-                    exit()
-                print(f"{idx} error {text} {e}")
-                print(traceback.format_exc())
+    # def test_jgex_ag_231(self):
+    #     rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
+    #     world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
+    #     texts = parse_texts_from_file('data/JGEX-AG-231.txt')
+    #     for idx, text in enumerate(texts):
+    #         if not idx%world_size == rank:
+    #             continue
+    #         state = State()
+    #         if world_size > 1:
+    #             state.silent = True
+    #         try:
+    #             state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
+    #             deductive_database = DeductiveDatabase(state)
+    #             algebraic_system = AlgebraicSystem(state)
+    #             proof_generator = ProofGenerator(state)
+    #             engine = Engine(state, deductive_database, algebraic_system)
+    #             t = time.time()
+    #             with Timeout(3600):
+    #                 engine.search()
+    #             t = time.time() - t
+    #             if state.complete() is not None:
+    #                 print(f"{idx} solved in {t} seconds")
+    #                 proof_generator.generate_proof()
+    #                 if world_size == 1:
+    #                     proof_generator.show_proof()
+    #             else:
+    #                 print(f"{idx} unsolved in {t} seconds")
+    #         except BaseException as e:
+    #             if isinstance(e, KeyboardInterrupt):
+    #                 exit()
+    #             print(f"{idx} error {text} {e}")
+    #             print(traceback.format_exc())
             
     def test_geometry3k(self):
         rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
