@@ -292,9 +292,12 @@ class DeductiveDatabase():
             for i, points in enumerate(concrete_theorems):
                 points = [Point(p) for p in points]
                 concrete_theorems[i] = theorem(*points)
-                self.visited.add(concrete_theorems[i])
             applicable_theorems += concrete_theorems
-        return [item for item in applicable_theorems if not item in self.visited]
+        applicable_theorems = [item for item in applicable_theorems if not item in self.visited]
+        applicable_theorems = [item for item in applicable_theorems if self.state.check_conditions(item.condition())]
+        for item in applicable_theorems:
+            self.visited.add(item)
+        return applicable_theorems
     
     def apply(self, inferences):
         last = None
