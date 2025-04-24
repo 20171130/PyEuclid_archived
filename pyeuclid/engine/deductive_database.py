@@ -29,6 +29,7 @@ class DeductiveDatabase():
         self._create_table("angle_sum", 6, True)
         self._create_table("length", 2, True)
         self._create_table("length_ratio", 4, True)
+        self.visited = set()
         
     def __del__(self):
         self.sqliteConnection.close()
@@ -50,8 +51,22 @@ class DeductiveDatabase():
         for point in points:
             query = f"INSERT OR IGNORE INTO points (name) VALUES ('{point}');"
             self.cursor.execute(query)
+            
+    def _sync(self):
+        points = self.state.points
+        relations = self.state.relations
+        equivalence_classes = {"angle": self.state.angles.equivalence_classes().values(), "length": self.state.lengths.equivalence_classes().values(), "length_ratio": self.state.ratios.values(), "angle_sum": self.state.angle_sums.values()}
+        self.insert_points(*list(points))
+        for relation in relations:
+            if type(relation) in [Equal]:
+                continue
+            self.insert_relation(relation)
+        for table, components in equivalence_classes.items():
+            self.update_equivalence_class(components, table)
         
     def insert_relation(self, relation: Relation):
+        if relation.negated:
+            return
         table = type(relation).__name__.lower()
         points = relation.get_points()
         cols = ",".join([f"p{i}" for i in range(len(points))])
@@ -60,13 +75,15 @@ class DeductiveDatabase():
             query = f"INSERT OR IGNORE INTO points (name) VALUES ('{point}');"
             self.cursor.execute(query)
         query = f"""
-        INSERT OR IGNORE INTO {table} ({cols})
+        INSERT OR IGNORE INTO `{table}` ({cols})
         VALUES ({values});
         """
         self.cursor.execute(query)
         
     def update_equivalence_class(self, components, table):
         query = f"DELETE FROM {table}"
+        if len(components) == 0:
+            return
         self.cursor.execute(query)
         values = []
         for i, component in enumerate(components):
@@ -87,7 +104,6 @@ class DeductiveDatabase():
         values = ", ".join(values)
         query = f"INSERT OR IGNORE INTO {table} ({cols}) VALUES {values}"
         self.cursor.execute(query)
-        
         
     def execute(self, query):
         self.cursor.execute(query)
@@ -222,9 +238,12 @@ class DeductiveDatabase():
                     cnst = [arg for arg in relation.args if len(
                         arg.free_symbols) == 0][0]
                     cnst = abs(cnst)
+                    component_id = None
                     for component_id, rep in enumerate(self.state.angle_sums):
                         if self.state.check_conditions(cnst-rep):
                             break
+                    if component_id is None:
+                        return []
                     l, r = points[:3], points[3:6]
                     i_bak = i
                     i = f"{i_bak}l"
@@ -238,9 +257,11 @@ class DeductiveDatabase():
                     i = i_bak
                     query += in_component([f"angle_rep{i}l.p0", f"angle_rep{i}l.p1", f"angle_rep{i}l.p2", f"angle_rep{i}r.p0", f"angle_rep{i}r.p1", f"angle_rep{i}r.p2"], component_id, "angle_sum")
             else:
+                if relation.negated:
+                    continue # does not support negated condition
                 table = type(relation).__name__.lower()
                 assert table in relations
-                query += f" INNER JOIN {table} r{i} ON "
+                query += f" INNER JOIN `{table}` r{i} ON "
                 if hasattr(relation, "permutations"):
                     permutations = relation.permutations()
                 else:
@@ -251,23 +272,29 @@ class DeductiveDatabase():
                     for j, point in enumerate(permutation):
                         point_atoms.append(f"{point}.name = r{i}.p{j}")
                     permutation_clauses.append(f"({" AND ".join(point_atoms)})")
-                query += " OR ".join(permutation_clauses)
+                clause = f"({' OR '.join(permutation_clauses)})"
+                query += clause
         if len(wheres) > 0:
             query += " WHERE " + " AND ".join(wheres)
         self.cursor.execute(query)
         results = self.cursor.fetchall()
+        results.sort()
         return results
 
-        
     def get_applicable_theorems(self, theorems):
+        self._sync()
         applicable_theorems = []
         pbar = tqdm(theorems, disable=self.state.silent)
         for theorem in pbar:
             pbar.set_description(
                 f"{theorem.__name__} #rels {len(self.state.relations)} # eqns {len(self.state.equations)}")
             concrete_theorems = self.do_query(theorem)
+            for i, points in enumerate(concrete_theorems):
+                points = [Point(p) for p in points]
+                concrete_theorems[i] = theorem(*points)
+                self.visited.add(concrete_theorems[i])
             applicable_theorems += concrete_theorems
-        return applicable_theorems
+        return [item for item in applicable_theorems if not item in self.visited]
     
     def apply(self, inferences):
         last = None

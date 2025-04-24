@@ -1424,7 +1424,6 @@ class AreaEqualsBaseTimesHeight(InferenceRule):
         self.d = d
 
     def condition(self):
-
         return [NotCollinear(self.a, self.b, self.c), Different(self.a, self.b, self.c), Perpendicular(self.d, self.a, self.b, self.c), Collinear(self.d, self.b, self.c),
                 ]
 

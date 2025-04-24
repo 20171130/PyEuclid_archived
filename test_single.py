@@ -39,11 +39,7 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
-    try:
-        with Timeout(600):
-            engine.search()
-    except:
-        pass
+    engine.search()
     t = time.time() - t0
     result = state.complete()
     if result is not None:
