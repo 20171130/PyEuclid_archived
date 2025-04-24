@@ -89,9 +89,9 @@ class State:
     def add_equation(self, equation):
         # allow redundant equations for neat proofs
         equation = Traced(equation, depth=self.current_depth)
-        for item in self.equations:
-            if equation.expr - item.expr == 0:
-                return
+        # for item in self.equations:
+        #     if equation.expr - item.expr == 0:
+        #         return
         points, quantities = get_points_and_symbols(equation)
         for p in points:
             self.add_point(p)
