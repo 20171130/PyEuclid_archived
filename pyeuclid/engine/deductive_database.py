@@ -125,36 +125,66 @@ class DeductiveDatabase():
                 pattern_angle_sum = re.compile(
                     r"^-?Angle\w+ [-\+] Angle\w+ [-\+] [\w/\d]+$")
                 points, _ = get_points_and_symbols(relation)
+                
                 def same_component(l, r, table):
                     query_diff = f" INNER JOIN {table} r{i}l INNER JOIN {table} r{i}r"
                     wheres_diff = []
+                    perm1, perm2 = [], []
+                    n_points = len(l) - 1
                     for j, item in enumerate(l):
-                        wheres_diff += [f"r{i}l.p{j} = {item}.name"]
+                        perm1 += [f"r{i}l.p{j} = {item}.name"]
+                        perm2 += [f"r{i}l.p{n_points-j} = {item}.name"]
+                    perm1 = " AND ".join(perm1)
+                    perm2 = " AND ".join(perm2)
+                    wheres_diff += [f"({perm1} OR {perm2})"]
+                    perm1, perm2 = [], []
                     for j, item in enumerate(r):
-                        wheres_diff += [f"r{i}r.p{j} = {item}.name"]
+                        perm1 += [f"r{i}l.p{j} = {item}.name"]
+                        perm2 += [f"r{i}l.p{n_points-j} = {item}.name"]
+                    perm1 = " AND ".join(perm1)
+                    perm2 = " AND ".join(perm2)
+                    wheres_diff += [f"({perm1} OR {perm2})"]
                     wheres_diff += [f"r{i}l.component=r{i}r.component"]
                     return query_diff, wheres_diff
+                
                 def in_component(l: List[str], component_id, table):
                     query_diff = f" INNER JOIN {table} r{i} ON"
+                    perm1, perm2 = [], []
+                    n_points = len(l) - 1
                     for j, item in enumerate(l):
                         if not "." in str(item):
                             item = f"{item}.name"
-                        query_diff += f" r{i}.p{j} = {item} AND"
-                    query_diff += f" r{i}.component={component_id}"
+                        perm1 += [f"r{i}.p{j} = {item}"]
+                        perm2 += [f"r{i}.p{n_points-j} = {item}"]
+                    perm1 = " AND ".join(perm1)
+                    perm2 = " AND ".join(perm2)
+                    query_diff += f"({perm1} OR {perm2}) AND r{i}.component={component_id}"
                     return query_diff
-                def point_to_ratio(formal_points):
-                    query_diff = f" INNER JOIN length_ratio ratio{i} INNER JOIN length num{i} INNER JOIN length denom{i} INNER JOIN length num_rep{i} INNER JOIN length denom_rep{i}"
-                    wheres_diff = []
-                    wheres_diff += [f"num{i}.p0 = {formal_points[0]}.name", f"num{i}.p1 = {formal_points[1]}.name", f"denom{i}.p0 = {formal_points[2]}.name", f"denom{i}.p1 = {formal_points[3]}.name"]
-                    wheres_diff += [f"num{i}.component = num_rep{i}.component", f"denom{i}.component = denom_rep{i}.component"]
-                    wheres_diff += [f"num_rep{i}.p0 = ratio{i}.p0", f"num_rep{i}.p1 = ratio{i}.p1", f"denom_rep{i}.p0 = ratio{i}.p2", f"denom_rep{i}.p1 = ratio{i}.p3"]
-                    return query_diff, wheres_diff
+                
                 def point_to_angle(formal_points):
                     query_diff = f" INNER JOIN angle angle{i} INNER JOIN angle angle_rep{i}"
                     wheres_diff = []
-                    wheres_diff += [f"angle{i}.p0 = {formal_points[0]}.name", f"angle{i}.p1 = {formal_points[1]}.name", f"angle{i}.p2 = {formal_points[2]}.name"]
+                    perm1 = [f"angle{i}.p0 = {formal_points[0]}.name", f"angle{i}.p1 = {formal_points[1]}.name", f"angle{i}.p2 = {formal_points[2]}.name"]
+                    perm2 = [f"angle{i}.p2 = {formal_points[0]}.name", f"angle{i}.p1 = {formal_points[1]}.name", f"angle{i}.p0 = {formal_points[2]}.name"]
+                    perm1, perm2 = " AND ".join(perm1), " AND ".join(perm2)
+                    wheres_diff += [f"({perm1} OR {perm2})"]
                     wheres_diff += [f"angle{i}.component = angle_rep{i}.component"]
                     return query_diff, wheres_diff
+                
+                def point_to_ratio(formal_points):
+                    query_diff = f" INNER JOIN length_ratio ratio{i} INNER JOIN length num{i} INNER JOIN length denom{i} INNER JOIN length num_rep{i} INNER JOIN length denom_rep{i}"
+                    wheres_diff = []
+                    perm1 = [f"num{i}.p0 = {formal_points[0]}.name", f"num{i}.p1 = {formal_points[1]}.name", f"denom{i}.p0 = {formal_points[2]}.name", f"denom{i}.p1 = {formal_points[3]}.name"]
+                    perm2 =[f"num{i}.p0 = {formal_points[0]}.name", f"num{i}.p1 = {formal_points[1]}.name", f"denom{i}.p1 = {formal_points[2]}.name", f"denom{i}.p0 = {formal_points[3]}.name"]
+                    perm3 =[f"num{i}.p1 = {formal_points[0]}.name", f"num{i}.p0 = {formal_points[1]}.name", f"denom{i}.p0 = {formal_points[2]}.name", f"denom{i}.p1 = {formal_points[3]}.name"]
+                    perm4 = [f"num{i}.p1 = {formal_points[0]}.name", f"num{i}.p0 = {formal_points[1]}.name", f"denom{i}.p1 = {formal_points[2]}.name", f"denom{i}.p0 = {formal_points[3]}.name"]
+                    perm1, perm2, perm3, perm4 = " AND ".join(perm1), " AND ".join(perm2), " AND ".join(perm3), " AND ".join(perm4)
+                    wheres_diff += [f"({perm1} OR {perm2} OR {perm3} OR {perm4})"]
+                    wheres_diff += [f"num{i}.component = num_rep{i}.component", f"denom{i}.component = denom_rep{i}.component"]
+                    wheres_diff += [f"num_rep{i}.p0 = ratio{i}.p0", f"num_rep{i}.p1 = ratio{i}.p1", f"denom_rep{i}.p0 = ratio{i}.p2", f"denom_rep{i}.p1 = ratio{i}.p3"]
+                    # no need for permutation, p0 always < p1
+                    return query_diff, wheres_diff
+                
                 s = str(relation)
                 if pattern_eqlength.match(s):
                     l, r = points[:2], points[2:]

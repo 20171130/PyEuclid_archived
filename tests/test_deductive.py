@@ -7,6 +7,9 @@ import sympy
 
 a, b, c, d, e, f, g, h = Point("a"), Point("b"), Point("c"), Point("d"), Point("e"), Point("f"), Point("g"), Point("h")
 
+def assert_len(result, target):
+    assert len(result) == target, f"Length {len(result)}, which should be {target}"
+
 class Test(unittest.TestCase):
     def test_eqlength(self):
         db = DeductiveDatabase(None)
@@ -20,8 +23,8 @@ class Test(unittest.TestCase):
                 self.d = d
             def condition(self):
                 return Length(self.a, self.b) - Length(self.c, self.d),
-        results = db.do_query(theorem)
-        assert len(results) == (2*2+1*1)*4
+        results = db.get_applicable_theorems([theorem])
+        assert_len(results, (2*2+1*1)*4)
         
     def test_eqangle(self):
         db = DeductiveDatabase(None)
@@ -37,8 +40,8 @@ class Test(unittest.TestCase):
                 self.f = f
             def condition(self):
                 return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f),
-        results = db.do_query(theorem)
-        assert len(results) == (3*3)*4
+        results = db.get_applicable_theorems([theorem])
+        assert_len(results, (3*3)*4)
 
     def test_eqratio(self):
         db = DeductiveDatabase(None)
@@ -57,8 +60,8 @@ class Test(unittest.TestCase):
                 self.h = h
             def condition(self):
                 return Length(a, b)/Length(c, d) - Length(e, f)/Length(g, h),
-        results = db.do_query(theorem)
-        assert len(results) == (2*2)*16
+        results = db.get_applicable_theorems([theorem])
+        assert_len(results, (2*2)*16)
         
     def test_angle_const(self):
         state = State()
@@ -77,9 +80,8 @@ class Test(unittest.TestCase):
                 self.c = c
             def condition(self):
                 return Angle(self.a, self.b, self.c) - sympy.pi,
-        results = db.do_query(theorem)
-        print(results)
-        assert len(results) == 2*2
+        results = db.get_applicable_theorems([theorem])
+        assert_len(results, 2*2)
         
     def test_angle_sum(self):
         state = State()
@@ -103,8 +105,8 @@ class Test(unittest.TestCase):
                 self.f = f
             def condition(self):
                 return Angle(self.a, self.b, self.c) + Angle(self.d, self.e, self.f) - sympy.pi,
-        results = db.do_query(theorem)
-        assert len(results) == 4*4
+        results = db.get_applicable_theorems([theorem])
+        assert_len(results, 4*4)
     
 if __name__=="__main__":
     unittest.main()
