@@ -49,6 +49,7 @@ def run_single_problem(args):
         print(f"Solved in {t:.2f}s")
     else:
         print(f"Not solved in {t:.2f}s")
+    breakpoint()
 
 if __name__ == '__main__':
     args = parser.parse_args()

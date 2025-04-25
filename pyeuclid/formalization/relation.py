@@ -52,7 +52,10 @@ class Relation:
         class_name = self.__class__.__name__
         points = self.get_points()
         args_name = ",".join([p.name for p in points])
-        return f"{class_name}({args_name})"
+        if self.negated:
+            return f"Not({class_name}({args_name}))"
+        else:
+            return f"{class_name}({args_name})"
 
     def __repr__(self):
         return str(self)

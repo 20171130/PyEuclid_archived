@@ -3,19 +3,25 @@ from pyeuclid.formalization.relation import Point, Length, Angle
 from pyeuclid.formalization.state import State
 from pyeuclid.engine.algebraic_system import AlgebraicSystem 
 from pyeuclid.engine.deductive_database import DeductiveDatabase
+from pyeuclid.engine.inference_rule import InferenceRule
 import sympy
 
 a, b, c, d, e, f, g, h = Point("a"), Point("b"), Point("c"), Point("d"), Point("e"), Point("f"), Point("g"), Point("h")
+
 
 def assert_len(result, target):
     assert len(result) == target, f"Length {len(result)}, which should be {target}"
 
 class Test(unittest.TestCase):
     def test_eqlength(self):
-        db = DeductiveDatabase(None)
-        db.insert_points(a, b, c, d)
-        db.update_equivalence_class([[Length(a, b), Length(a, c)], [Length(b, c)]], "length")
-        class theorem():
+        state = State()
+        state.add_point(a, b, c, d, e, f, g, h)
+        db = DeductiveDatabase(state)
+        solver = AlgebraicSystem(state)
+        solver.solve_equation()
+        solver.compute_ratio_and_angle_sum()
+        # db.update_equivalence_class([[Length(a, b), Length(a, c)], [Length(b, c)]], "length")
+        class theorem(InferenceRule):
             def __init__(self, a, b, c, d):
                 self.a = a
                 self.b = b
@@ -27,10 +33,14 @@ class Test(unittest.TestCase):
         assert_len(results, (2*2+1*1)*4)
         
     def test_eqangle(self):
-        db = DeductiveDatabase(None)
-        db.insert_points(a, b, c, d)
-        db.update_equivalence_class([[Angle(a, b, c), Angle(a, c, b), Angle(c, a, b)]], "angle")
-        class theorem():
+        state = State()
+        state.add_point(a, b, c, d, e, f, g, h)
+        db = DeductiveDatabase(state)
+        solver = AlgebraicSystem(state)
+        solver.solve_equation()
+        solver.compute_ratio_and_angle_sum()
+        # db.update_equivalence_class([[Angle(a, b, c), Angle(a, c, b), Angle(c, a, b)]], "angle")
+        class theorem(InferenceRule):
             def __init__(self, a, b, c, d, e, f):
                 self.a = a
                 self.b = b
@@ -44,11 +54,15 @@ class Test(unittest.TestCase):
         assert_len(results, (3*3)*4)
 
     def test_eqratio(self):
-        db = DeductiveDatabase(None)
-        db.insert_points(a, b, c, d, e, f, g, h)
-        db.update_equivalence_class([[Length(a, b)], [Length(c, d)], [Length(e, f)], [Length(g, h)]], "length")
-        db.update_equivalence_class([[Length(a, b)/Length(c, d), Length(e, f)/Length(g, h)]], "length_ratio")
-        class theorem():
+        state = State()
+        state.add_point(a, b, c, d, e, f, g, h)
+        db = DeductiveDatabase(state)
+        solver = AlgebraicSystem(state)
+        solver.solve_equation()
+        solver.compute_ratio_and_angle_sum()
+        # db.update_equivalence_class([[Length(a, b)], [Length(c, d)], [Length(e, f)], [Length(g, h)]], "length")
+        # db.update_equivalence_class([[Length(a, b)/Length(c, d), Length(e, f)/Length(g, h)]], "length_ratio")
+        class theorem(InferenceRule):
             def __init__(self, a, b, c, d, e, f, g, h):
                 self.a = a
                 self.b = b
@@ -73,7 +87,7 @@ class Test(unittest.TestCase):
         db = DeductiveDatabase(state)
         db.insert_points(a, b, c, d)
         db.update_equivalence_class(state.angles.equivalence_classes().values(), "angle")
-        class theorem():
+        class theorem(InferenceRule):
             def __init__(self, a, b, c):
                 self.a = a
                 self.b = b
@@ -95,7 +109,7 @@ class Test(unittest.TestCase):
         db.insert_points(a, b, c, d, e, f)
         db.update_equivalence_class(state.angles.equivalence_classes().values(), "angle")
         db.update_equivalence_class(state.angle_sums.values(), "angle_sum")
-        class theorem():
+        class theorem(InferenceRule):
             def __init__(self, a, b, c, d, e, f):
                 self.a = a
                 self.b = b

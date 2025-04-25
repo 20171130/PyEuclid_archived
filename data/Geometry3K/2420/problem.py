@@ -8,7 +8,7 @@ conditions = [(Length(Point('E'),Point('F')) - sympy.simplify('3')), (Length(Poi
 goal = Length(Point('D'),Point('E'))
 solution = '9'
 
-diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
+diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C')), NotCollinear(Point('D'),Point('E'),Point('F'))]
 
-new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
+new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C')), NotCollinear(Point('D'),Point('E'),Point('F'))}
 

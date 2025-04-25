@@ -229,20 +229,25 @@ class DeductiveDatabase():
                     left = points[:3]
                     cnst = [arg for arg in relation.args if len(arg.free_symbols)==0][0]
                     cnst = abs(cnst)
+                    hit = False
                     for component_id, rep in enumerate(self.state.angles.equivalence_classes()):
                         if self.state.check_conditions(cnst - rep):
-                            query += in_component(left, component_id, "angle")
+                            hit = True
                             break
+                    if not hit:
+                        return []
+                    query += in_component(left, component_id, "angle")
                 else: # join 2*(3point-angle-angle_rep)-angle_sum
                     assert pattern_angle_sum.match(s)
                     cnst = [arg for arg in relation.args if len(
                         arg.free_symbols) == 0][0]
                     cnst = abs(cnst)
-                    component_id = None
+                    hit = False
                     for component_id, rep in enumerate(self.state.angle_sums):
                         if self.state.check_conditions(cnst-rep):
+                            hit = True
                             break
-                    if component_id is None:
+                    if not hit:
                         return []
                     l, r = points[:3], points[3:6]
                     i_bak = i
@@ -293,11 +298,13 @@ class DeductiveDatabase():
                 points = [Point(p) for p in points]
                 concrete_theorems[i] = theorem(*points)
             applicable_theorems += concrete_theorems
-        applicable_theorems = [item for item in applicable_theorems if not item in self.visited]
-        applicable_theorems = [item for item in applicable_theorems if self.state.check_conditions(item.condition())]
+        filtered = []
         for item in applicable_theorems:
-            self.visited.add(item)
-        return applicable_theorems
+            if not item in self.visited:
+                self.visited.add(item)
+                if self.state.check_conditions(item.condition()) and not item.degenerate():
+                    filtered += [item]
+        return filtered
     
     def apply(self, inferences):
         last = None

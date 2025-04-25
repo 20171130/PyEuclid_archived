@@ -80,12 +80,13 @@ class State:
             self.add_point(p)
         self.relations.add(relation)
         
-    def add_point(self, p):
-        if not p in self.points:
-            for point in self.points:
-                self.lengths.add(Length(point, p))
-            self.points.add(p)
-    
+    def add_point(self, *ps):
+        for p in ps:
+            if not p in self.points:
+                for point in self.points:
+                    self.lengths.add(Length(point, p))
+                self.points.add(p)
+
     def add_equation(self, equation):
         # allow redundant equations for neat proofs
         equation = Traced(equation, depth=self.current_depth)
