@@ -82,4 +82,7 @@ def parse_texts_from_file(file_name):
     
     texts = [lines[i].strip() for i in range(1, len(lines), 2)]
     return texts
-            
+
+def translate_relations_to_constructions(relations):
+    constructions_list = []
+    

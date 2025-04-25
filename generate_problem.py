@@ -21,12 +21,21 @@ def generate_problem():
     current = 0
     depth = 5
     
-    while current < depth:
+    attempt = 0
+    
+    while current < depth and attempt < 10:
         constructions = []
-        if current >= 1:
-            candidate_set = [rule for rule in construction_rule_sets['AG'] if rule.num_inputs <= len(state.points) and rule.num_inputs > 0]
+        multiconstructions = False
+        
+        if current == 0:
+            candidate_set = construction_rule_sets["independent"]
         else:
-            candidate_set = [rule for rule in construction_rule_sets['AG'] if rule.num_inputs <= len(state.points)]
+            if random.random() < 0.5:
+                candidate_set = [rule for rule in construction_rule_sets['deterministic'] if rule.num_inputs <= len(state.points)]
+            else:
+                multiconstructions = True
+                candidate_set = [rule for rule in construction_rule_sets['nondeterministic'] if rule.num_inputs <= len(state.points)]
+        
         picked = random.choice(candidate_set)
         all_points = list(state.points.copy())
         num_points = len(all_points)
@@ -38,15 +47,13 @@ def generate_problem():
             else:
                 if picked == construct_s_angle:
                     inputs.append(random.choice(range(15, 180, 15)))
-                elif picked == construct_s_segment:
-                    inputs.append(random.choice(range(1, 21)))
         outputs = [Point(chr(ord('a') + num_points + i)) for i in range(picked.num_outputs)]
         construction = picked(*inputs)
         construction.construct(*outputs)
         constructions.append(construction)
         
-        if current >= 1 and random.random() > 1:
-            candidate_set = [rule for rule in construction_rule_sets if rule.num_inputs <= len(state.points) and rule.num_inputs > 0 and rule.num_outputs == picked.num_outputs]
+        if multiconstructions:
+            candidate_set = [rule for rule in construction_rule_sets['nondeterministic'] if rule.num_inputs <= len(state.points) and rule.num_outputs == picked.num_outputs and rule != picked]     
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
             num_points = len(all_points)
@@ -58,24 +65,22 @@ def generate_problem():
                 else:
                     if picked == construct_s_angle:
                         inputs.append(random.choice(range(15, 180, 15)))
-                    elif picked == construct_s_segment:
-                        inputs.append(random.choice(range(1, 21)))
             outputs = [Point(chr(ord('a') + num_points + i)) for i in range(picked.num_outputs)]
             construction = picked(*inputs)
             construction.construct(*outputs)
             constructions.append(construction)
             
-        for construction in constructions:
-            print(construction)
-        
+        attempt += 1
         try:
             diagram.add_constructions(constructions)
         except:
             continue
-            
+        
         state.add_constructions(constructions)
         # engine.search()
         current += 1
+        for construction in constructions:
+            print(construction)
         
     diagram.show()
                 

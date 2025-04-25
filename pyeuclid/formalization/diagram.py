@@ -16,6 +16,10 @@ def hash_constructions_list(constructions_list):
     return hashlib.md5(s.encode('utf-8')).hexdigest()
 
 
+class ReachMaxAttempts(Exception):
+    """Raised when the maximum number of allowed attempts is reached."""
+    pass
+
 class Diagram:    
     def __new__(cls, constructions_list:list[list[ConstructionRule]]=None, save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
         if cache_folder is not None:
@@ -96,17 +100,23 @@ class Diagram:
     
     def add_constructions(self, constructions):
         self.save()
-        for _ in range(MAX_DIAGRAM_ATTEMPTS):
+        mintol = 0.1
+        maxtol = 0.8
+        for iter in range(MAX_DIAGRAM_ATTEMPTS):
+            # if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
+            #     mintol *= 0.7
+            #     maxtol *= 1.1
             try:
-                self.construct(constructions)
-                self.check_distance()
+                new_points = self.construct(constructions)
+                self.check_distance(mintol, maxtol)
+                for construction in constructions:
+                    self.draw(new_points, construction)
                 self.constructions_list.append(constructions)
                 return
             except:
                 self.restore()
         
-        print(f"Failed to add the constructions after {MAX_DIAGRAM_ATTEMPTS} attempts.")
-        raise Exception()
+        raise ReachMaxAttempts()
             
     def construct_diagram(self):
         mintol = 0.1
@@ -118,16 +128,17 @@ class Diagram:
             try:
                 self.clear()
                 for constructions in self.constructions_list:
-                    self.construct(constructions)
-                self.check_distance(mintol, maxtol)
+                    new_points = self.construct(constructions)
+                    self.check_distance(mintol, maxtol)
+                    for construction in constructions:
+                        self.draw(new_points, construction)
                 self.draw_diagram()
                 self.save_to_cache()
                 return
             except:
                 continue
         
-        print(f"Failed to construct a diagram after {MAX_DIAGRAM_ATTEMPTS} attempts.")
-        raise Exception()
+        raise ReachMaxAttempts()
             
     def construct(self, constructions: list[ConstructionRule]):
         outputs = constructions[0].outputs
@@ -144,16 +155,18 @@ class Diagram:
             to_be_intersected += self.sketch(construction)
                 
         new_points = self.reduce(to_be_intersected, self.points)
-        self.points += new_points
+        self.points = self.points + new_points # Rebinds to a new list
         
         for p, np in zip(outputs, new_points):
             self.name2point[p.name] = np
             self.point2name[np] = p.name
         
-        for construction in constructions:
-            self.draw(new_points, construction)
-            
+        return new_points
+        
     def check_distance(self, mintol=0.1, maxtol=1):
+        if len(self.points) == 1:
+            return
+        
         xmin = min([p.x for p in self.points])
         xmax = max([p.x for p in self.points])
         ymin = min([p.y for p in self.points])
@@ -171,11 +184,11 @@ class Diagram:
         yspan = ymax - ymin
         span = max(xspan, yspan)
         
-        # if check_too_close(self.points, span, mintol):
-        #     raise Exception()
+        if check_too_close(self.points, span, mintol):
+            raise Exception()
         
-        # if check_too_far(self.points, span, maxtol):
-        #     raise Exception()
+        if check_too_far(self.points, span, maxtol):
+            raise Exception()
         
         self.xmax, self.xmin = xmax, xmin
         self.ymax, self.ymin = ymax, ymin
@@ -505,7 +518,7 @@ class Diagram:
             point = Point(np.cos(ang), np.sin(ang))
             points.append(point)
 
-        a, b, c, d, e = points  # pylint: disable=unbalanced-tuple-unpacking
+        a, b, c, d, e = points
         a, b, c, d, e = random_rfss(a, b, c, d, e)
         return [a, b, c, d, e]
     
@@ -1405,7 +1418,7 @@ class Diagram:
             self.ymin = min(self.ymin, y_pos)
             
             self.ax.annotate(self.point2name[p], (x_pos, y_pos), color='black', ha='center', va='center', fontsize=15)
-
+            
         self.ax.set_aspect('equal')
         self.ax.set_axis_off()
         

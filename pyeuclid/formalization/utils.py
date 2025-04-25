@@ -4,7 +4,7 @@ from typing import List
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parents[2]
-MAX_DIAGRAM_ATTEMPTS = 1000
+MAX_DIAGRAM_ATTEMPTS = 10
 
 
 def sort_points(*points):
