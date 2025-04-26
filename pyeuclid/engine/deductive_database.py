@@ -15,7 +15,7 @@ class DeductiveDatabase():
         self.inner_theorems = inner_theorems
         self.outer_theorems = outer_theorems
         self.closure = False
-        self.sqliteConnection = sqlite3.connect(f"{self.name}.db")
+        self.sqliteConnection = sqlite3.connect(f"cache/{self.name}.db")
         self.cursor = self.sqliteConnection.cursor()
         points = """ CREATE TABLE points (
                     name CHAR(10) PRIMARY KEY NOT NULL
@@ -33,7 +33,7 @@ class DeductiveDatabase():
         
     def __del__(self):
         self.sqliteConnection.close()
-        os.remove(f"{self.name}.db")
+        os.remove(f"cache/{self.name}.db")
 
     def _create_table(self, name, n_points, equivalence=False):
         query = ", ".join([f"p{i} CHAR(10) NOT NULL" for i in range(n_points)])
@@ -155,8 +155,8 @@ class DeductiveDatabase():
                     wheres_diff += [f"({perm1} OR {perm2})"]
                     perm1, perm2 = [], []
                     for j, item in enumerate(r):
-                        perm1 += [f"r{i}l.p{j} = {item}.name"]
-                        perm2 += [f"r{i}l.p{n_points-j} = {item}.name"]
+                        perm1 += [f"r{i}r.p{j} = {item}.name"]
+                        perm2 += [f"r{i}r.p{n_points-j} = {item}.name"]
                     perm1 = " AND ".join(perm1)
                     perm2 = " AND ".join(perm2)
                     wheres_diff += [f"({perm1} OR {perm2})"]
