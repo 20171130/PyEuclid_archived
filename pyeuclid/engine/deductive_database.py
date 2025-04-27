@@ -96,7 +96,7 @@ class DeductiveDatabase():
                 symbols = symbols.split("/")
                 for symbol in symbols:
                     points += symbol.split("_")[1:]
-                tmp = [f"'{item}'" for item in points] + [str(i)]
+                tmp = [f"'{item.strip()}'" for item in points] + [str(i)]
                 values.append(f"({','.join(tmp)})")
                 cols = [f"p{i}" for i in range(len(points))]
         cols.append("component")

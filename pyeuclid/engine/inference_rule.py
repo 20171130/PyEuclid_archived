@@ -337,8 +337,7 @@ class AlphaGeometry8(InferenceRule):
 
     def conclusion(self):
         # Length(self.a, self.o)/Length(self.b, self.o)-Length(self.c, self.o)/Length(self.d, self.o) by similar triangle
-        return Length(self.a, self.o)/Length(self.b, self.o)-Length(self.a, self.c)/Length(self.b, self.d), Length(self.a, self.o)/Length(self.a, self.c)-Length(self.b, self.o)/Length(self.b, self.d), 
-        Length(self.c, self.o)/Length(self.a, self.c)-Length(self.d, self.o)/Length(self.b, self.d), 
+        return Length(self.a, self.o)/Length(self.b, self.o)-Length(self.a, self.c)/Length(self.b, self.d)#, Length(self.a, self.o)/Length(self.a, self.c)-Length(self.b, self.o)/Length(self.b, self.d), 
 
 
 @register("basic")
