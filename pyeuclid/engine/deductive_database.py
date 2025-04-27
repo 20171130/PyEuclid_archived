@@ -276,7 +276,7 @@ class DeductiveDatabase():
                     point_atoms = []
                     for j, point in enumerate(permutation):
                         point_atoms.append(f"{point}.name = r{i}.p{j}")
-                    permutation_clauses.append(f"({" AND ".join(point_atoms)})")
+                    permutation_clauses.append(f"({' AND '.join(point_atoms)})")
                 clause = f"({' OR '.join(permutation_clauses)})"
                 query += clause
         if len(wheres) > 0:
