@@ -96,7 +96,7 @@ class DeductiveDatabase():
                 symbols = symbols.split("/")
                 for symbol in symbols:
                     points += symbol.split("_")[1:]
-                tmp = [f"'{item}'" for item in points] + [str(i)]
+                tmp = [f"'{item.strip()}'" for item in points] + [str(i)]
                 values.append(f"({','.join(tmp)})")
                 cols = [f"p{i}" for i in range(len(points))]
         cols.append("component")
@@ -276,7 +276,7 @@ class DeductiveDatabase():
                     point_atoms = []
                     for j, point in enumerate(permutation):
                         point_atoms.append(f"{point}.name = r{i}.p{j}")
-                    permutation_clauses.append(f"({" AND ".join(point_atoms)})")
+                    permutation_clauses.append(f"({' AND '.join(point_atoms)})")
                 if table == "collinear":
                     permutation_clauses += [f"{points[0]}.name={points[1]}.name", f"{points[1]}.name={points[2]}.name", f"{points[0]}.name={points[2]}.name"]
                 clause = f"({' OR '.join(permutation_clauses)})"
