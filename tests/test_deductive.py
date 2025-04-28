@@ -1,5 +1,5 @@
 import unittest
-from pyeuclid.formalization.relation import Point, Length, Angle, Lt
+from pyeuclid.formalization.relation import Point, Length, Angle, Lt, Collinear
 from pyeuclid.formalization.state import State
 from pyeuclid.engine.algebraic_system import AlgebraicSystem 
 from pyeuclid.engine.deductive_database import DeductiveDatabase
@@ -9,10 +9,21 @@ import sympy
 a, b, c, d, e, f, g, h = Point("a"), Point("b"), Point("c"), Point("d"), Point("e"), Point("f"), Point("g"), Point("h")
 
 
-def assert_len(result, target):
-    assert len(result) == target, f"Length {len(result)}, which should be {target}"
-
 class Test(unittest.TestCase):
+    def test_collinear(self):
+        state = State()
+        state.add_relation(Collinear(a, b, c))
+        db = DeductiveDatabase(state)
+        class theorem(InferenceRule):
+            def __init__(self, a, b, c):
+                self.a = a
+                self.b = b
+                self.c = c
+            def condition(self):
+                return Collinear(self.a, self.b, self.c),
+        results = db.get_applicable_theorems([theorem])
+        assert theorem(a, b, b) in results
+        
     def test_eqlength(self):
         state = State()
         state.add_point(a, b, c, d, e, f, g, h)
@@ -31,7 +42,6 @@ class Test(unittest.TestCase):
             def condition(self):
                 return Length(self.a, self.b) - Length(self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d)
         results = db.get_applicable_theorems([theorem])
-        breakpoint()
         assert theorem(a, b, a, c) in results
         
     # def test_eqangle(self):
