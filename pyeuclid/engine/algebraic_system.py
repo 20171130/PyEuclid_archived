@@ -105,6 +105,7 @@ class AlgebraicSystem:
         exprs = {}
         # Triangulate
         for i, eqn in enumerate(equations):
+            eqn = self.process_equation(eqn)
             if eqn == 0:
                 raw_equations[i].redundant = True
                 continue
@@ -160,7 +161,6 @@ class AlgebraicSystem:
         exprs = {key: value for key, value in exprs.items()}
         return free_vars, exprs
 
-    
     def solve_equation(self):
         if len(self.state.solutions) > self.state.current_depth: # have solved for this depth
             return
@@ -266,7 +266,6 @@ class AlgebraicSystem:
                 l, r = eqn
                 unionfind.union(l, r)
                 
-    
     def compute_ratio_and_angle_sum(self):
         dic = {}
         tmp = self.state.lengths.equivalence_classes()

@@ -25,28 +25,34 @@ Additionally, we run sequential experiments on an Apple MacBook Pro with an M3 c
 ## Installation
 You can get started with PyEuclid using Docker or a local installation.
 
-You can either build the Docker image locally or run it directly from Docker Hub:
+You can either build the Docker image locally or pull it from Docker Hub:
 ```bash
 # Build the Docker image locally
 docker build -t pyeuclid .
 # Alternatively, pull the image from Docker Hub
-docker run pyeuclid
+docker pull dahubao/pyeuclid
+# After obtaining the image, run
+docker run -it pyeuclid bash
 ```
 
-To install PyEuclid locally without Docker, run:
+To install PyEuclid locally *without* Docker, run:
 ```bash
 conda create -n pyeuclid python=3.11 -y
 conda activate pyeuclid
+cd PyEuclid
 pip install .
 tar -xvzf cache.tar.gz
 ```
 
 After installation, verify that everything is working by running:
 ```bash
+python test_single.py --help
 python test_single.py --show-proof
 ```
 
 If you see output like `Solved in 8.90s`, the setup is successful.
+
+
 
 Note:
 PyEuclid uses Gurobi as a component of its proof generator.

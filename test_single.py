@@ -14,8 +14,8 @@ from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--problem-id', type=int, default=2455)
-parser.add_argument('--problem-string', type=str, default=None)   
+parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default=None)   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
