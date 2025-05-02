@@ -1,11 +1,6 @@
 import cProfile
 import pstats
 from pstats import SortKey
-from euclid.utils import *
-from euclid.proofstate import *
-from euclid.prop import *
-from euclid.inference_rules import *
-from euclid.visualize import *
 import time
 import logging
 import argparse
@@ -59,6 +54,6 @@ def run_single_problem(args):
 if __name__ == '__main__':
     args = parser.parse_args()
     cProfile.run('run_single_problem(args)', 'stats')
-    p = pstats.Stats('stats')
-    p.strip_dirs().sort_stats(SortKey.CUMULATIVE).print_stats(20)
+    stats = pstats.Stats('stats')
+    stats.sort_stats(SortKey.CUMULATIVE).print_stats(40)
     breakpoint()

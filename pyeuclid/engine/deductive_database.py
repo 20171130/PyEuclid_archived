@@ -89,13 +89,21 @@ class DeductiveDatabase():
         for i, component in enumerate(components):
             for item in component:
                 points = []
-                symbols = str(item)
-                if symbols.startswith("2*"):
-                    symbols = f"{symbols[2:]}+{symbols[2:]}"
-                symbols = symbols.replace("+", "/")
-                symbols = symbols.split("/")
+                if table in ("angle", "length"):
+                    symbols = [item]
+                elif table == "angle_sum":
+                    if type(item) == sympy.core.add.Add:
+                        symbols = item.args
+                    else:
+                        assert type(item) == sympy.core.mul.Mul # 2*angle
+                        symbols = [item.args[1], item.args[1]]
+                else: 
+                    assert table == "length_ratio"
+                    symbols = item.args
+
                 for symbol in symbols:
-                    points += symbol.split("_")[1:]
+                    points += str(symbol).split("_")[1:]
+
                 tmp = [f"'{item.strip()}'" for item in points] + [str(i)]
                 values.append(f"({','.join(tmp)})")
                 cols = [f"p{i}" for i in range(len(points))]

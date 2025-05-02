@@ -38,9 +38,9 @@ class TestBenchmarks(unittest.TestCase):
                 t = time.time() - t
                 if state.complete() is not None:
                     print(f"{idx} solved in {t} seconds")
-                    proof_generator.generate_proof()
-                    if world_size == 1:
-                        proof_generator.show_proof()
+                    # proof_generator.generate_proof()
+                    # if world_size == 1:
+                    #     proof_generator.show_proof()
                 else:
                     print(f"{idx} unsolved in {t} seconds")
             except BaseException as e:

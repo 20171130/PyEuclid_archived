@@ -90,7 +90,7 @@ class ProofGenerator:
                         else:
                             symbol = list(mul_arg.free_symbols)[0]
                             A[i, variables[symbol]] += factor
-        return np.concat([A, b], axis=1)
+        return np.concatenate([A, b], axis=1)
 
 
     def find_conditions(self, equations: list[Traced], conclusion, source):

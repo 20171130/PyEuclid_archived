@@ -13,7 +13,6 @@ setup(
         "stopit",
         "sympy",
         "tqdm",
-        "z3-solver"
     ], 
     include_package_data=True,
 )
