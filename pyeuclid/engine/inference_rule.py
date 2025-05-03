@@ -1174,7 +1174,7 @@ class DiagramAngle4a(InferenceRule):  # systemE Diagram-angle transfer 4
         self.c1 = c1
 
     def condition(self):
-        return Not(Between(self.a, self.c1, self.c)), Not(Between(self.a, self.b1, self.b)), Different(self.a, self.b, self.c, self.b1, self.c1), Not(Collinear(self.a, self.b, self.c)), Collinear(self.a, self.c, self.c1), Collinear(self.b, self.b1, self.a)
+        return Not(Between(self.a, self.c1, self.c)), Not(Between(self.a, self.b1, self.b)), Different(self.a, self.b, self.c, self.b1, self.c1), Not(Collinear(self.a, self.b, self.c)), Collinear(self.a, self.c, self.c1), Collinear(self.b, self.b1, self.a), Lt(self.b, self.c)
 
     def conclusion(self):
         return Angle(self.b1, self.a, self.c1) - Angle(self.b, self.a, self.c)

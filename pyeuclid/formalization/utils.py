@@ -230,10 +230,11 @@ def parse_expression(expr):
 
 eps = 1e-3
 def is_small(x):
-    if len(x.free_symbols) > 0:
-        return False
-    if hasattr(x, "evalf"):
-        x = x.evalf()
+    if isinstance(x, sympy.core.expr.Expr):
+        if len(x.free_symbols) > 0:
+            return False
+        if hasattr(x, "evalf"):
+            x = x.evalf()
     try:
         return abs(x) < eps
     except:

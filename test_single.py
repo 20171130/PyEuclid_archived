@@ -34,7 +34,8 @@ def run_single_problem(args):
         state.try_complex = True
         state.load_problem(conditions=conditions, goal=goal)
         state.add_relations(diagrammatic_relations)
-    deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'] + inference_rule_sets['complex'])
+    deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'])
+    # deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'] + inference_rule_sets['complex'])
     algebraic_system = AlgebraicSystem(state)
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)

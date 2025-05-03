@@ -13,6 +13,10 @@ from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
+"""
+CProfile adds a significant overhead. Py-spy is preferred.
+"""
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, default=2455)
 parser.add_argument('--problem-string', type=str, default=None)   
@@ -40,8 +44,12 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
-    engine.search()
-    t = time.time() - t0
+    try:
+        engine.search()
+    except:
+        pass
+    finally:
+        t = time.time() - t0
     result = state.complete()
     if result is not None:
         if args.show_proof:
@@ -55,5 +63,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
     cProfile.run('run_single_problem(args)', 'stats')
     stats = pstats.Stats('stats')
-    stats.sort_stats(SortKey.CUMULATIVE).print_stats(40)
+    stats.sort_stats(SortKey.CUMULATIVE).print_stats(20)
     breakpoint()

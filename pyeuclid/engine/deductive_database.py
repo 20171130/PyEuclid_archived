@@ -45,6 +45,8 @@ class DeductiveDatabase():
         query += f" PRIMARY KEY ({primary})"
         query = f"CREATE TABLE {name} ({query});"
         self.cursor.execute(query)
+        if equivalence:
+            query = f"CREATE INDEX index_{name} ON {name} component;"
         return query
 
     def insert_points(self, *points):

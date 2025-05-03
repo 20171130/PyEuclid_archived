@@ -18,11 +18,14 @@ class AlgebraicSystem:
     def process_equation(self, eqn, check=False):
         if isinstance(eqn, sympy.core.add.Add):
             add_args = []
+            flag = False
             for item in eqn.args:
                 if isinstance(item, sympy.core.mul.Mul) and is_small(item.args[0]):
+                    flag = True
                     continue
                 add_args.append(item)
-            eqn = sympy.core.add.Add(*add_args)
+            if flag:
+                eqn = sympy.core.add.Add(*add_args)
         if is_small(eqn):
             return sympy.sympify(0)
         eqn, denominator = eqn.as_numer_denom()
@@ -149,7 +152,7 @@ class AlgebraicSystem:
         
     #     return free_vars, solved_vars
 
-    def elim(self, equations, var_types):        
+    def elim(self, equations, var_types):
         free_vars = []
         raw_equations = equations
         equations = [item.expr for item in equations]
@@ -159,6 +162,8 @@ class AlgebraicSystem:
         free_vars = list(free_vars)
         free_vars.sort(key=lambda x: x.name)
         exprs = {}
+        # .free_symbols or .atom() are expensive, cache them isntead of compute on the fly
+        eqn2symbols = [item.free_symbols for item in equations]
         # Triangulate
         for i, eqn in enumerate(equations):
             eqn = self.process_equation(eqn, check=True)
@@ -197,22 +202,20 @@ class AlgebraicSystem:
             if var in free_vars:
                 free_vars.remove(var)
             eqns = [(idx+i+1, item) for idx,
-                    item in enumerate(equations[i+1:]) if var in item.free_symbols]
+                    item in enumerate(equations[i+1:]) if var in eqn2symbols[idx+i+1]]
             for idx, item in eqns:
-                if var in getattr(equations[idx], "free_symbols", []):
-                    equations[idx] = item.subs(var, exprs[var])
+                equations[idx] = item.subs(var, exprs[var])
+                eqn2symbols[idx] = equations[idx].free_symbols
 
+        expr2symbols = {key: value.free_symbols for key, value in exprs.items()}
         # Diagonalize
         for i, (key, value) in enumerate(exprs.items()):
             for j, key1 in enumerate(exprs.keys()):
                 if j == i:
                     break
-                if key in getattr(exprs[key1], "free_symbols", []):
-                    old = exprs[key1]
+                if key in expr2symbols[key1]:
                     exprs[key1] = exprs[key1].subs(key, value)
-                    if str(exprs[key1]) == "0" and "Length" in str(key1):
-                        breakpoint()
-                        assert False
+                    expr2symbols[key1] = exprs[key1].free_symbols
         exprs = {key: value for key, value in exprs.items()}
         return free_vars, exprs
 
@@ -342,11 +345,14 @@ class AlgebraicSystem:
                     if operation == "ratio":
                         v = values[x] / values[y]
                         expr = sympy.Mul(x, 1/y, evaluate=False)
+                        key = round(v / tol) * tol
+                        relation_map[key].append(expr)
                     elif operation == "sum":
                         v = values[x] + values[y]
-                        expr = x + y
-                    key = round(v / tol) * tol
-                    relation_map[key].append(expr)
+                        if is_small(v-math.pi) or is_small(v-math.pi/2):
+                            expr = x + y
+                            key = round(v / tol) * tol
+                            relation_map[key].append(expr)
             return dict(relation_map)
 
         lengths = list(self.state.lengths.equivalence_classes())
