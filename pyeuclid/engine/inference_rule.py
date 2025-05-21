@@ -99,6 +99,16 @@ class InferenceRule:
 
     def __hash__(self):
         return hash(str(self))
+    
+    
+# @register("definition")
+# class Definition_of_Arc(InferenceRule):
+#     def __init__(self, o: Point, a: Point, b: Point):
+#         super().__init__()
+#         self.o, self.a, self.b = o, a, b
+    
+#     def condition(self):
+#         return On
 
 
 @register("basic")

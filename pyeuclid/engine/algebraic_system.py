@@ -2,6 +2,7 @@ import re
 import math
 import sympy
 import random
+import numpy as np
 
 from collections import defaultdict
 from stopit import ThreadingTimeout as Timeout
@@ -95,7 +96,7 @@ class AlgebraicSystem:
             return solutions.pop()
         return None
     
-    # def elim1(self, equations, logarithm=False):
+    # def elim(self, equations, logarithm=False):
     #     all_vars = []
     #     traced = [eq for eq in equations if not eq.redundant]
     #     equations = [eq.expr for eq in equations if not eq.redundant]
@@ -119,6 +120,9 @@ class AlgebraicSystem:
     #         all_vars = [log_var for log_var in log_vars.values()]
         
     #     A, b = linear_eq_to_matrix(equations, all_vars)
+    #     A_num = np.array(A.evalf().tolist(), dtype=np.float64)
+    #     b_num = np.array(b.evalf().tolist(), dtype=np.float64).flatten()
+
     #     augmented = A.row_join(b)
     #     rref_matrix, pivot_cols = augmented.rref()
     #     solved_vars = {}

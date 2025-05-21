@@ -1,11 +1,6 @@
 import cProfile
 import pstats
 from pstats import SortKey
-from euclid.utils import *
-from euclid.proofstate import *
-from euclid.prop import *
-from euclid.inference_rules import *
-from euclid.visualize import *
 import time
 import logging
 import argparse
@@ -20,7 +15,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, default=2455)
-parser.add_argument('--problem-string', type=str, default=None)   
+parser.add_argument('--problem-string', type=str, default="a b c = triangle a b c; o = circle o a b c; d = on_circle d o a; q = midpoint q c b; s = midpoint s a d; j = midpoint j s q; m = mirror m o j; i = on_line i a d, on_line i b c ? perp s m b c")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
