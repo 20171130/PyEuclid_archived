@@ -88,15 +88,6 @@ class Segment(Object):
         return [(self.a, self.b), (self.b, self.a)]
 
 
-class Line(Object):
-    def __init__(self, a: Point, b: Point):
-        super().__init__()
-        self.a, self.b = sort_points(a, b)
-    
-    def permutations(self):
-        return [(self.a, self.b), (self.b, self.a)]
-
-
 class Circle(Object):
     def __init__(self, o: Point):
         super().__init__()
@@ -119,23 +110,23 @@ class Angle(Object):
 
 
 class Arc(Object):
-    def __init__(self, o: Point, a: Point, b: Point):
+    def __init__(self, a: Point, o: Point, b: Point):
         super().__init__()
-        self.o = o
-        self.a, self.b = sort_points(a, b)
+        a, b = sort_points(a, b)
+        self.a, self.o, self.b = a, o, b
     
     def permutations(self):
-        return [(self.o, self.a, self.b), (self.o, self.b, self.a)]
+        return [(self.a, self.o, self.b), (self.b, self.o, self.a)]
 
 
 class Sector(Object):
-    def __init__(self, o: Point, a: Point, b: Point):
+    def __init__(self, a: Point, o: Point, b: Point):
         super().__init__()
-        self.o = o
-        self.a, self.b = sort_points(a, b)
+        a, b = sort_points(a, b)
+        self.a, self.o, self.b = a, o, b
     
     def permutations(self):
-        return [(self.o, self.a, self.b), (self.o, self.b, self.a)]
+        return [(self.a, self.o, self.b), (self.b, self.o, self.a)]
 
 
 class Triangle(Object):
@@ -147,7 +138,7 @@ class Triangle(Object):
         return itertools.permutations([self.p1, self.p2, self.p3])
 
 
-class IsoscelesTriangle(Object):
+class IsoscelesTriangle(Triangle):
     def __init__(self, p1: Point, p2: Point, p3: Point):
         super().__init__()
         p2, p3 = sort_points(p2, p3)
@@ -157,7 +148,7 @@ class IsoscelesTriangle(Object):
         return [(self.p1, self.p2, self.p3), (self.p1, self.p3, self.p2)]
     
 
-class EquilateralTriangle(Object):
+class EquilateralTriangle(Triangle):
     def __init__(self, p1: Point, p2: Point, p3: Point):
         super().__init__()
         self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
@@ -166,14 +157,14 @@ class EquilateralTriangle(Object):
         return itertools.permutations([self.p1, self.p2, self.p3])
     
 
-class RightTriangle(Object):
+class RightTriangle(Triangle):
     def __init__(self, p1: Point, p2: Point, p3: Point):
         super().__init__()
-        p2, p3 = sort_points(p2, p3)
+        p1, p3 = sort_points(p1, p3)
         self.p1, self.p2, self.p3 = p1, p2, p3
 
     def permutations(self):
-        return [(self.p1, self.p2, self.p3), (self.p1, self.p3, self.p2)]
+        return [(self.p1, self.p2, self.p3), (self.p3, self.p2, self.p1)]
 
 
 class Quadrilateral(Object):
@@ -185,12 +176,6 @@ class Quadrilateral(Object):
         forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
         reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
         return forward_permutations + reverse_permutations
-
-    # def definition(self):
-    #     return [
-    #         OppositeSide(self.p1, self.p3, self.p2, self.p4),
-    #         OppositeSide(self.p2, self.p4, self.p1, self.p3),
-    #     ]
 
 
 class Parallelogram(Quadrilateral):
@@ -385,6 +370,45 @@ class Octagon(Object):
         forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8]), i, i + 8)) for i in range(8)]
         reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
         return forward_permutations + reverse_permutations
+    
+
+class RightAngle(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        p1, p3 = sort_points(p1, p3)
+        self.p1, self.p2, self.p3 = p1, p2, p3
+
+    def permutations(self):
+        return [(self.p1, self.p2, self.p3), (self.p3, self.p2, self.p1)]
+
+
+class Right(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        p1, p3 = sort_points(p1, p3)
+        self.p1, self.p2, self.p3 = p1, p2, p3
+
+    def permutations(self):
+        return [(self.p1, self.p2, self.p3), (self.p3, self.p2, self.p1)]
+
+
+class Isosceles3(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        p2, p3 = sort_points(p1, p3)
+        self.p1, self.p2, self.p3 = p1, p2, p3
+
+    def permutations(self):
+        return [(self.p1, self.p2, self.p3), (self.p1, self.p3, self.p2)]
+    
+
+class Equilateral3(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+
+    def permutations(self):
+        return itertools.permutations([self.p1, self.p2, self.p3])
 
 
 def Regular(obj: Object):
@@ -558,23 +582,6 @@ class Collinear(Relation):
 #             Different(self.p1, self.p2, self.p3)
 #         ]
 
-
-class Midpoint(Relation):
-    def __init__(self, p1: Point, p2: Point, p3: Point):
-        super().__init__()
-        self.p1 = p1
-        self.p2, self.p3 = sort_points(p2, p3)
-    
-    def permutations(self):
-        return [(self.p1, self.p2, self.p3), (self.p1, self.p3, self.p2)]
-
-    # def definition(self):
-    #     return [
-    #         Length(self.p1, self.p2) - Length(self.p1, self.p3),
-    #         Collinear(self.p1, self.p2, self.p3),
-    #         Different(self.p2, self.p3),
-    #         Between(self.p1, self.p2, self.p3),
-    #     ]
     
 def Congruent(*ps: list[Point]):
     if not len(ps) % 2 == 0:
@@ -776,26 +783,27 @@ class Perpendicular(Relation):
         perm_group1 = list(itertools.permutations([self.p1, self.p2]))
         perm_group2 = list(itertools.permutations([self.p3, self.p4]))
         return [(*p, *q) for p in perm_group1 for q in perm_group2] + [(*q, *p) for p in perm_group1 for q in perm_group2]
+    
 
-
-class Incenter(Relation):
-    def __init__(self, o: Point, p1: Point, p2: Point, p3: Point):
+class IsMidpointOf(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point):
         super().__init__()
-        self.o = o
-        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+        self.p1 = p1
+        self.p2, self.p3 = sort_points(p2, p3)
     
     def permutations(self):
-        return [(self.o, *perm) for perm in itertools.permutations([self.p1, self.p2, self.p3])]
+        return [(self.p1, self.p2, self.p3), (self.p1, self.p3, self.p2)]
 
     # def definition(self):
     #     return [
-    #         Angle(self.p3, self.p2, self.p1) - Angle(self.p1, self.p2, self.p4),
-    #         Angle(self.p2, self.p4, self.p1) - Angle(self.p1, self.p4, self.p3),
-    #         Angle(self.p4, self.p3, self.p1) - Angle(self.p1, self.p3, self.p2),
+    #         Length(self.p1, self.p2) - Length(self.p1, self.p3),
+    #         Collinear(self.p1, self.p2, self.p3),
+    #         Different(self.p2, self.p3),
+    #         Between(self.p1, self.p2, self.p3),
     #     ]
 
 
-class Centroid(Relation):
+class IsCentroidOf(Relation):
     def __init__(self, o: Point, p1: Point, p2: Point, p3: Point):
         super().__init__()
         self.o = o
@@ -818,106 +826,246 @@ class Centroid(Relation):
     #         Between(self.o, self.c, self.f),
     #     ]
 
-class Median(Relation):
-    def __init__(self, p: Point, a: Point, b: Point, c: Point):
+
+class IsIncenterOf(Relation):
+    def __init__(self, o: Point, p1: Point, p2: Point, p3: Point):
         super().__init__()
-        self.p = p
-        self.a, self.b, self.c = sort_points(a, b, c)
+        self.o = o
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
     
     def permutations(self):
-        return [(self.p, self.a, self.b, self.c), (self.p, self.a, self.c, self.b)]
+        return [(self.o, *perm) for perm in itertools.permutations([self.p1, self.p2, self.p3])]
+
+    # def definition(self):
+    #     return [
+    #         Angle(self.p3, self.p2, self.p1) - Angle(self.p1, self.p2, self.p4),
+    #         Angle(self.p2, self.p4, self.p1) - Angle(self.p1, self.p4, self.p3),
+    #         Angle(self.p4, self.p3, self.p1) - Angle(self.p1, self.p3, self.p2),
+    #     ]
 
 
-def Radian(obj: Object):
-    if not isinstance(obj, Angle):
-        raise UnsupportedRelation(f"Radian expects an Angle, but got {type(obj).__name__}")
+class IsRadiusOf(Relation):
+    def __init__(self, a: Point, b: Point, o: Point):
+        super().__init__()
+        self.a, self.b = sort_points(a, b)
+        self.o = o
     
-    return Symbol(f"AngleRadian_{str(obj.a)}_{str(obj.b)}_{str(obj.c)}", non_negative=True)
-
-
-def Degree(obj: Object):
-    if not isinstance(obj, Angle):
-        raise UnsupportedRelation(f"Degree expects an Angle, but got {type(obj).__name__}")
+    def permutations(self):
+        return [(self.a, self.b, self.o), (self.b, self.a, self.o)]
     
-    return (Symbol(f"AngleRadian_{str(obj.a)}_{str(obj.b)}_{str(obj.c)}", non_negative=True) / pi) * 180
+    
+class IsDiameterOf(Relation):
+    def __init__(self, a: Point, b: Point, o: Point):
+        super().__init__()
+        self.a, self.b = sort_points(a, b)
+        self.o = o
+    
+    def permutations(self):
+        return [(self.a, self.b, self.o), (self.b, self.a, self.o)]
+    
+
+class IsMidsegmentOf(Relation):
+    def __init__(self, a: Point, b: Point, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.a, self.b = sort_points(a, b)
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+    
+    def permutations(self):
+        triangle_perms = itertools.permutations([self.p1, self.p2, self.p3])
+        return [
+            (x, y, *perm)
+            for x, y in [(self.a, self.b), (self.b, self.a)]
+            for perm in triangle_perms
+        ]
+        
+class IsChordOf(Relation):
+    def __init__(self, a: Point, b: Point, o: Point):
+        super().__init__()
+        self.a, self.b = sort_points(a, b)
+        self.o = o
+    
+    def permutations(self):
+        return [(self.a, self.b, self.o), (self.b, self.a, self.o)]
 
 
-def Length(obj: Object):
-    if isinstance(obj, Segment):
-        return Symbol(f"SegmentLength_{str(obj.a)}_{str(obj.b)}", positive=True)
-    elif isinstance(obj, Arc):
-        return Symbol(f"ArcLength_{str(obj.o)}_{str(obj.a)}_{str(obj.b)}", positive=True)
-    else:
-        raise UnsupportedRelation(f"Length expects a Segment or Arc, but got {type(obj).__name__}")
+class IsHypotenuseOf(Relation):
+    def __init__(self, a: Point, b: Point, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.a, self.b = sort_points(a, b)
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+    
+    def permutations(self):
+        triangle_perms = itertools.permutations([self.p1, self.p2, self.p3])
+        return [
+            (x, y, *perm)
+            for x, y in [(self.a, self.b), (self.b, self.a)]
+            for perm in triangle_perms
+        ]
 
 
-def Area(obj: Object):
+class IsPerpendicularBisectorOf(Relation):
+    def __init__(self, a: Point, b: Point, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.a, self.b = sort_points(a, b)
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+    
+    def permutations(self):
+        triangle_perms = itertools.permutations([self.p1, self.p2, self.p3])
+        return [
+            (x, y, *perm)
+            for x, y in [(self.a, self.b), (self.b, self.a)]
+            for perm in triangle_perms
+        ]
+
+
+class IsAltitudeOf(Relation):
+    def __init__(self, a: Point, b: Point, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.a, self.b = sort_points(a, b)
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+    
+    def permutations(self):
+        triangle_perms = itertools.permutations([self.p1, self.p2, self.p3])
+        return [
+            (x, y, *perm)
+            for x, y in [(self.a, self.b), (self.b, self.a)]
+            for perm in triangle_perms
+        ]
+
+
+class IsMedianOf(Relation):
+    def __init__(self, a: Point, b: Point, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.a, self.b = sort_points(a, b)
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+    
+    def permutations(self):
+        triangle_perms = itertools.permutations([self.p1, self.p2, self.p3])
+        return [
+            (x, y, *perm)
+            for x, y in [(self.a, self.b), (self.b, self.a)]
+            for perm in triangle_perms
+        ]
+
+
+def AreaOf(obj: Object):
     object_name = obj.__class__.__name__
     ps = obj.get_points()
     if not isinstance(obj) or len(ps) < 3:
         raise UnsupportedRelation(f"Area expects a geometric object with at least 3 points, but got {type(obj).__name__}")
-    return Symbol("_".join([f"{object_name}Area"] + [str(item) for item in ps]), positive=True)
+    return Symbol("_".join([f"AreaOf{object_name}"] + [str(item) for item in ps]), positive=True)
 
 
-def Perimeter(obj: Object):
+def PerimeterOf(obj: Object):
     object_name = obj.__class__.__name__
     ps = obj.get_points()
     if not isinstance(obj) or len(ps) < 3:
         raise UnsupportedRelation(f"Perimeter expects a geometric object with at least 3 points, but got {type(obj).__name__}")
-    return Symbol("_".join([f"{object_name}Perimeter"] + [str(item) for item in ps]), positive=True)
+    return Symbol("_".join([f"PerimeterOf{object_name}"] + [str(item) for item in ps]), positive=True)
 
 
-def Circumference(obj: Object):
-    if not isinstance(obj, Circle):
-        raise UnsupportedRelation(f"Circumference expects a Circle, but got {type(obj).__name__}")
-    
-    return Symbol(f"CircleCircumference_{str(obj.o)}", positive=True)
+def Radius(o: Point):
+    return Symbol(f"RadiusOfCircle_{str(o)}", positive=True)
 
 
-def Radius(obj: Object):
+def RadiusOf(obj: Object):
     if not isinstance(obj, Circle):
         raise UnsupportedRelation(f"Radius expects a Circle, but got {type(obj).__name__}")
     
-    return Symbol(f"CircleRadius_{str(obj.o)}", positive=True)
+    return Symbol(f"RadiusOfCircle_{str(obj.o)}", positive=True)
 
 
-def Diameter(obj: Object):
+def DiameterOf(obj: Object):
     if not isinstance(obj, Circle):
         raise UnsupportedRelation(f"Diameter expects a Circle, but got {type(obj).__name__}")
     
-    return Symbol(f"CircleDiameter_{str(obj.o)}", positive=True)
+    return Symbol(f"DiameterOfCircle_{str(obj.o)}", positive=True)
 
 
-def ScaleFactor(obj1: Object, obj2: Object):
+def CircumferenceOf(obj: Object):
+    if not isinstance(obj, Circle):
+        raise UnsupportedRelation(f"Circumference expects a Circle, but got {type(obj).__name__}")
+    
+    return Symbol(f"CircumferenceOfCircle_{str(obj.o)}", positive=True)
+
+
+def Radian(p1: Point, p2: Point, p3: Point):
+    p1, p3 = sort_points(p1, p3)
+    return Symbol(f"RadianOfAngle_{str(p1)}_{str(p2)}_{str(p3)}", non_negative=True)
+
+
+def RadianOf(obj: Object):
+    if not isinstance(obj, Angle):
+        raise UnsupportedRelation(f"Radian expects an Angle, but got {type(obj).__name__}")
+    
+    return Symbol(f"RadianOfAngle_{str(obj.a)}_{str(obj.b)}_{str(obj.c)}", non_negative=True)
+
+
+def DegreeOf(obj: Object):
+    if not isinstance(obj, Angle):
+        raise UnsupportedRelation(f"Degree expects an Angle, but got {type(obj).__name__}")
+    
+    return (Symbol(f"RadianOfAngle_{str(obj.a)}_{str(obj.b)}_{str(obj.c)}", non_negative=True) / pi) * 180
+
+
+def Length(p1: Point, p2: Point):
+    p1, p2 = sort_points(p1, p2)
+    return Symbol(f"LengthOfSegment_{str(p1)}_{str(p2)}", positive=True)
+
+
+def LengthOf(obj: Object):
+    if isinstance(obj, Segment):
+        return Symbol(f"LengthOfSegment_{str(obj.a)}_{str(obj.b)}", positive=True)
+    elif isinstance(obj, Arc):
+        return Symbol(f"LengthOfArc_{str(obj.a)}_{str(obj.o)}_{str(obj.b)}", positive=True)
+    else:
+        raise UnsupportedRelation(f"Length expects a Segment or Arc, but got {type(obj).__name__}")
+
+
+def SideOf(obj: Object):
+    object_name = obj.__class__.__name__
+    ps = obj.get_points()
+    if not isinstance(obj) or len(ps) < 3:
+        raise UnsupportedRelation(f"Side expects a geometric object with at least 3 points, but got {type(obj).__name__}")
+    
+    return Symbol("_".join([f"SideOf{object_name}"] + [str(item) for item in ps]), positive=True)
+
+
+def ScaleFactorOf(obj1: Object, obj2: Object):
     if not type(obj1) == type(obj2):
         raise UnsupportedRelation(f"ScaleFactor expects two same geometric objects, but got {type(obj1).__name__} and {type(obj2).__name__}")
     
-    return Symbol(f"ScaleFactor_{str(obj1)}_{str(obj2)}", positive=True)
+    object_name = obj1.__class__.__name__
+    ps1 = obj1.get_points()
+    ps2 = obj2.get_points()
+    str1 = "_".join([object_name] + [str(item) for item in ps1])
+    str2 = "_".join([object_name] + [str(item) for item in ps2])
+    return Symbol(f"ScaleFactorOf_{str1}_{str2}", positive=True)
 
 
 def Variable(name: str):
     return Symbol(f"Variable_{name}")
 
 
-def get_points_and_symbols(eqn):
-    pattern = re.compile(r"((?:Angle|Length|Area|Variable)\w+)")
-    # eqn.free_symbols is not apRelationoriate in this case, we need an ordered list instead of a set
-    matches = pattern.findall(str(eqn))
-    symbols = []
-    points = []
-    for match in matches:
-        cls, args = match.split("_")[0], match.split("_")[1:]
-        if cls == "Variable":
-            arg = "_".join(match.split("_")[1:])
-            symbol = Variable(arg)
-        else:
-            args = [Point(item) for item in args]
-            if cls == "Angle":
-                symbol = Angle(*args)
-            elif cls == "Length":
-                symbol = Length(*args)
-            elif cls == "Area":
-                symbol = Area(*args)
-            points += args
-        symbols.append(symbol)
-    return points, symbols
+# def get_points_and_symbols(eqn):
+#     pattern = re.compile(r"((?:Angle|Length|Area|Variable)\w+)")
+#     # eqn.free_symbols is not apRelationoriate in this case, we need an ordered list instead of a set
+#     matches = pattern.findall(str(eqn))
+#     symbols = []
+#     points = []
+#     for match in matches:
+#         cls, args = match.split("_")[0], match.split("_")[1:]
+#         if cls == "Variable":
+#             arg = "_".join(match.split("_")[1:])
+#             symbol = Variable(arg)
+#         else:
+#             args = [Point(item) for item in args]
+#             if cls == "Angle":
+#                 symbol = Angle(*args)
+#             elif cls == "Length":
+#                 symbol = Length(*args)
+#             elif cls == "Area":
+#                 symbol = Area(*args)
+#             points += args
+#         symbols.append(symbol)
+#     return points, symbols
