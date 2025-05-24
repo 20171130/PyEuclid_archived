@@ -109,13 +109,22 @@ def Variable(name: str):
     return Symbol(f"Variable_{name}")
 
 
-class Different(Relation):
-    def __init__(self, *ps: list[Point]):
-        super().__init__()
-        self.ps = ps
 
-    def definition(self):
-        return [Not(Equal(self.ps[i], self.ps[j])) for i in range(len(self.ps)) for j in range(i + 1, len(self.ps))]
+
+class Different2(Relation):
+    def __init__(self, p1: Point, p2: Point):
+        super().__init__()
+        self.p1, self.p2 = sort_points(p1, p2)
+    
+    def permutations(self):
+        return [(self.p1, self.p2), (self.p2, self.p1)]
+
+
+def Different(*ps: Point):
+    return [Different2(ps[i], ps[j]) for i in range(len(ps)) for j in range(i + 1, len(ps))]
+        
+    # def definition(self):
+    #     return [Not(Equal(self.ps[i], self.ps[j])) for i in range(len(self.ps)) for j in range(i + 1, len(self.ps))]
 
 
 @register

@@ -18,6 +18,24 @@ class register():
                 inference_rule_sets[item] = [cls]
             else:
                 inference_rule_sets[item].append(cls)
+        
+        def format_condition(self):
+            result = self._condition()
+            if isinstance(result, Iterable):
+                return list(result)
+            return [result]
+        
+        def format_conclusion(self):
+            result = self._conclusion()
+            if isinstance(result, Iterable):
+                return list(result)
+            return [result]
+        
+        cls._condition = cls.condition        
+        cls._conclusion = cls.conclusion
+        cls.condition = format_condition
+        cls.conclusion = format_conclusion
+            
         return cls
 
 
@@ -77,7 +95,7 @@ class PropertyOfMidpoint(InferenceRule):
         self.a, self.b, self.c = a, b, c
     
     def condition(self):
-        return [Midpoint(self.a, self.b, self.c)]
+        return Midpoint(self.a, self.b, self.c)
     
     def conclusion(self):
         return Length(self.a, self.b) - Length(self.a, self.c), Between(self.a, self.b, self.c)
@@ -90,7 +108,7 @@ class PropertyOfCongruent(InferenceRule):
         self.a, self.b, self.c, self.p, self.q, self.r = a, b, c, p, q, r
     
     def condition(self):
-        return [Congruent(self.a, self.b, self.c, self.p, self.q, self.r)]
+        return Congruent(self.a, self.b, self.c, self.p, self.q, self.r)
     
     def conclusion(self):
         return [
@@ -110,7 +128,7 @@ class PropertyOfSimilar(InferenceRule):
         self.a, self.b, self.c, self.p, self.q, self.r = a, b, c, p, q, r
     
     def condition(self):
-        return [Similar(self.a, self.b, self.c, self.p, self.q, self.r)]
+        return Similar(self.a, self.b, self.c, self.p, self.q, self.r)
     
     def conclusion(self):
         return [
@@ -151,7 +169,7 @@ class CollinearTransist(InferenceRule):
         self.d = d
 
     def condition(self):
-        return Collinear(self.a, self.b, self.c), Collinear(self.a, self.b, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Different(self.a, self.b, self.c, self.d)
+        return Collinear(self.a, self.b, self.c), Collinear(self.a, self.b, self.d), Lt(self.a, self.b), Lt(self.c, self.d), *Different(self.a, self.b, self.c, self.d)
 
     def conclusion(self):
         return Collinear(self.a, self.c, self.d), Collinear(self.b, self.c, self.d)
@@ -303,7 +321,7 @@ class AlphaGeometry6a(InferenceRule):
         self.r = r
 
     def condition(self):
-        return Concyclic(self.a, self.b, self.c, self.p), Concyclic(self.a, self.b, self.c, self.q), Concyclic(self.a, self.b, self.c, self.r), Angle(self.a, self.c, self.b)-Angle(self.p, self.r, self.q), Different(self.a, self.b), Different(self.p, self.q)
+        return Concyclic(self.a, self.b, self.c, self.p), Concyclic(self.a, self.b, self.c, self.q), Concyclic(self.a, self.b, self.c, self.r), Angle(self.a, self.c, self.b)-Angle(self.p, self.r, self.q), *Different(self.a, self.b), *Different(self.p, self.q)
 
     def conclusion(self):
         return Length(self.a, self.b)-Length(self.p, self.q)
@@ -321,7 +339,7 @@ class AlphaGeometry6b(InferenceRule):
         self.r = r
 
     def condition(self):
-        return Concyclic(self.a, self.b, self.c, self.p), Concyclic(self.a, self.b, self.c, self.q), Concyclic(self.a, self.b, self.c, self.r), Angle(self.a, self.c, self.b)+Angle(self.p, self.r, self.q)-pi, Different(self.a, self.b), Different(self.p, self.q)
+        return Concyclic(self.a, self.b, self.c, self.p), Concyclic(self.a, self.b, self.c, self.q), Concyclic(self.a, self.b, self.c, self.r), Angle(self.a, self.c, self.b)+Angle(self.p, self.r, self.q)-pi, *Different(self.a, self.b), *Different(self.p, self.q)
 
     def conclusion(self):
         return Length(self.a, self.b)-Length(self.p, self.q)
@@ -338,7 +356,7 @@ class AlphaGeometry7(InferenceRule):
         self.f = f
 
     def condition(self):
-        return Midpoint(self.e, self.a, self.b), Midpoint(self.f, self.a, self.c), Different(self.b, self.c), Different(self.e, self.f), Lt(self.b, self.c)
+        return Midpoint(self.e, self.a, self.b), Midpoint(self.f, self.a, self.c), *Different(self.b, self.c), *Different(self.e, self.f), Lt(self.b, self.c)
 
     def conclusion(self):
         return Parallel(self.e, self.f, self.b, self.c)
@@ -355,7 +373,7 @@ class AlphaGeometry8(InferenceRule):
         self.o = o
 
     def condition(self):
-        return Collinear(self.o, self.a, self.c), Collinear(self.o, self.b, self.d), Parallel(self.a, self.b, self.c, self.d), Different(self.o, self.a, self.b, self.c, self.d), Not(Collinear(self.a, self.c, self.b)), Not(Collinear(self.a, self.c, self.d)), Lt(self.a, self.c), Lt(self.a, self.b), Lt(self.a, self.d)
+        return Collinear(self.o, self.a, self.c), Collinear(self.o, self.b, self.d), Parallel(self.a, self.b, self.c, self.d), *Different(self.o, self.a, self.b, self.c, self.d), Not(Collinear(self.a, self.c, self.b)), Not(Collinear(self.a, self.c, self.d)), Lt(self.a, self.c), Lt(self.a, self.b), Lt(self.a, self.d)
 
     def conclusion(self):
         # Length(self.a, self.o)/Length(self.b, self.o)-Length(self.c, self.o)/Length(self.d, self.o) by similar triangle
@@ -388,7 +406,7 @@ class AlphaGeometry13(InferenceRule):
         self.d = d
 
     def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Collinear(self.d, self.b, self.c), Angle(self.b, self.a, self.d) - Angle(self.d, self.a, self.c), Different(self.a, self.b, self.c, self.d), Lt(self.b, self.c), Between(self.d, self.b, self.c)
+        return Not(Collinear(self.a, self.b, self.c)), Collinear(self.d, self.b, self.c), Angle(self.b, self.a, self.d) - Angle(self.d, self.a, self.c), *Different(self.a, self.b, self.c, self.d), Lt(self.b, self.c), Between(self.d, self.b, self.c)
 
     def conclusion(self):
         return Length(self.d, self.b)/Length(self.d, self.c)-Length(self.a, self.b)/Length(self.a, self.c)
@@ -435,7 +453,7 @@ class AlphaGeometry16a(InferenceRule):
         self.x = x
 
     def condition(self):
-        return Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Perpendicular(self.o, self.a, self.a, self.x), Different(self.o, self.a, self.b, self.c, self.x), SameSide(self.x, self.c, self.a, self.b)
+        return Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Perpendicular(self.o, self.a, self.a, self.x), *Different(self.o, self.a, self.b, self.c, self.x), SameSide(self.x, self.c, self.a, self.b)
 
     def conclusion(self):
         return Angle(self.x, self.a, self.b)+Angle(self.a, self.c, self.b)-pi
@@ -452,7 +470,7 @@ class AlphaGeometry16b(InferenceRule):
         self.x = x
 
     def condition(self):
-        return Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Perpendicular(self.o, self.a, self.a, self.x), Different(self.o, self.a, self.b, self.c, self.x), OppositeSide(self.x, self.c, self.a, self.b)
+        return Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Perpendicular(self.o, self.a, self.a, self.x), *Different(self.o, self.a, self.b, self.c, self.x), OppositeSide(self.x, self.c, self.a, self.b)
 
     def conclusion(self):
         return Angle(self.x, self.a, self.b)-Angle(self.a, self.c, self.b)
@@ -469,7 +487,7 @@ class AlphaGeometry17a(InferenceRule):
         self.x = x
 
     def condition(self):
-        return Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.x, self.a, self.b)+Angle(self.a, self.c, self.b)-pi, Different(self.o, self.a, self.b, self.c, self.x), Lt(self.a, self.b), SameSide(self.x, self.c, self.a, self.b)
+        return Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.x, self.a, self.b)+Angle(self.a, self.c, self.b)-pi, *Different(self.o, self.a, self.b, self.c, self.x), Lt(self.a, self.b), SameSide(self.x, self.c, self.a, self.b)
 
     def conclusion(self):
         return Perpendicular(self.o, self.a, self.a, self.x)
@@ -486,7 +504,7 @@ class AlphaGeometry17b(InferenceRule):
         self.x = x
 
     def condition(self):
-        return Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.x, self.a, self.b)-Angle(self.a, self.c, self.b), Different(self.o, self.a, self.b, self.c, self.x), Lt(self.a, self.b), OppositeSide(self.x, self.c, self.a, self.b)
+        return Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.x, self.a, self.b)-Angle(self.a, self.c, self.b), *Different(self.o, self.a, self.b, self.c, self.x), Lt(self.a, self.b), OppositeSide(self.x, self.c, self.a, self.b)
 
     def conclusion(self):
         return Perpendicular(self.o, self.a, self.a, self.x)
@@ -503,7 +521,7 @@ class AlphaGeometry18a(InferenceRule):
         self.m = m
 
     def condition(self):
-        return Midpoint(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Different(self.a, self.b, self.c, self.m, self.o), SameSide(self.a, self.o, self.b, self.c)
+        return Midpoint(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), *Different(self.a, self.b, self.c, self.m, self.o), SameSide(self.a, self.o, self.b, self.c)
 
     def conclusion(self):
         return Angle(self.b, self.a, self.c)-Angle(self.b, self.o, self.m)
@@ -520,7 +538,7 @@ class AlphaGeometry18b(InferenceRule):
         self.m = m
 
     def condition(self):
-        return Midpoint(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Different(self.a, self.b, self.c, self.m, self.o), OppositeSide(self.a, self.o, self.b, self.c)
+        return Midpoint(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), *Different(self.a, self.b, self.c, self.m, self.o), OppositeSide(self.a, self.o, self.b, self.c)
 
     def conclusion(self):
         return Angle(self.b, self.a, self.c) + Angle(self.b, self.o, self.m) - pi
@@ -537,7 +555,7 @@ class AlphaGeometry19a(InferenceRule):
         self.m = m
 
     def condition(self):
-        return Collinear(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.b, self.a, self.c)-Angle(self.b, self.o, self.m), Different(self.o, self.a, self.b, self.c, self.m), SameSide(self.a, self.o, self.b, self.c), Between(self.m, self.b, self.c)
+        return Collinear(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.b, self.a, self.c)-Angle(self.b, self.o, self.m), *Different(self.o, self.a, self.b, self.c, self.m), SameSide(self.a, self.o, self.b, self.c), Between(self.m, self.b, self.c)
 
     def conclusion(self):
         return Midpoint(self.m, self.b, self.c)
@@ -554,7 +572,7 @@ class AlphaGeometry19b(InferenceRule):
         self.m = m
 
     def condition(self):
-        return Collinear(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.b, self.o, self.m) + Angle(self.b, self.a, self.c) - pi, Different(self.o, self.a, self.b, self.c, self.m), OppositeSide(self.a, self.o, self.b, self.c), Between(self.m, self.b, self.c)
+        return Collinear(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.b, self.o, self.m) + Angle(self.b, self.a, self.c) - pi, *Different(self.o, self.a, self.b, self.c, self.m), OppositeSide(self.a, self.o, self.b, self.c), Between(self.m, self.b, self.c)
 
     def conclusion(self):
         return Midpoint(self.m, self.b, self.c)
@@ -634,7 +652,7 @@ class AlphaGeometry24(InferenceRule):
         self.q = q
 
     def condition(self):
-        return Length(self.a, self.p)-Length(self.b, self.p), Length(self.a, self.q)-Length(self.b, self.q), Different(self.a, self.b, self.p, self.q), Lt(self.a, self.b), Lt(self.p, self.q)
+        return Length(self.a, self.p)-Length(self.b, self.p), Length(self.a, self.q)-Length(self.b, self.q), *Different(self.a, self.b, self.p, self.q), Lt(self.a, self.b), Lt(self.p, self.q)
 
     def conclusion(self):
         return Perpendicular(self.a, self.b, self.p, self.q)
@@ -701,7 +719,7 @@ class AlphaGeometry28(InferenceRule):
         self.o = o
 
     def condition(self):
-        return Collinear(self.o, self.a, self.c), Collinear(self.o, self.b, self.d), Length(self.o, self.a)/Length(self.a, self.c)-Length(self.o, self.b)/Length(self.b, self.d), SameSide(self.c, self.d, self.a, self.b), SameSide(self.a, self.b, self.c, self.d), Different(self.a, self.b, self.c, self.d, self.o), Lt(self.a, self.b)
+        return Collinear(self.o, self.a, self.c), Collinear(self.o, self.b, self.d), Length(self.o, self.a)/Length(self.a, self.c)-Length(self.o, self.b)/Length(self.b, self.d), SameSide(self.c, self.d, self.a, self.b), SameSide(self.a, self.b, self.c, self.d), *Different(self.a, self.b, self.c, self.d, self.o), Lt(self.a, self.b)
 
     def conclusion(self):
         return Parallel(self.a, self.b, self.c, self.d)
@@ -716,7 +734,7 @@ class AlphaGeometry29(InferenceRule):
         self.c = c
 
     def condition(self):
-        return Parallel(self.a, self.b, self.a, self.c), Different(self.a, self.b, self.c), Lt(self.b, self.c)
+        return Parallel(self.a, self.b, self.a, self.c), *Different(self.a, self.b, self.c), Lt(self.b, self.c)
 
     def conclusion(self):
         return Collinear(self.a, self.b, self.c)
@@ -902,7 +920,7 @@ class AlphaGeometry42(InferenceRule):
         self.n = n
 
     def condition(self):
-        return Collinear(self.m, self.a, self.d), Parallel(self.a, self.b, self.c, self.d), Collinear(self.n, self.b, self.c), Length(self.m, self.a)/Length(self.m, self.d)-Length(self.n, self.b)/Length(self.n, self.c),  SameSide(self.m, self.n, self.a, self.b),  SameSide(self.m, self.n, self.c, self.d), Different(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.d)
+        return Collinear(self.m, self.a, self.d), Parallel(self.a, self.b, self.c, self.d), Collinear(self.n, self.b, self.c), Length(self.m, self.a)/Length(self.m, self.d)-Length(self.n, self.b)/Length(self.n, self.c),  SameSide(self.m, self.n, self.a, self.b),  SameSide(self.m, self.n, self.c, self.d), *Different(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.d)
 
     def conclusion(self):
         return Parallel(self.m, self.n, self.a, self.b)
@@ -920,7 +938,7 @@ class AlphaGeometry43(InferenceRule):
         self.n = n
 
     def condition(self):
-        return Collinear(self.m, self.a, self.d), Collinear(self.n, self.b, self.c), Parallel(self.a, self.b, self.m, self.n), Parallel(self.a, self.b, self.d, self.c), Different(self.a, self.b, self.c, self.d, self.m, self.n), Lt(self.a, self.b), Lt(self.a, self.d), Lt(self.d, self.m), Not(Collinear(self.m, self.n, self.a)), Not(Collinear(self.m, self.n, self.d))
+        return Collinear(self.m, self.a, self.d), Collinear(self.n, self.b, self.c), Parallel(self.a, self.b, self.m, self.n), Parallel(self.a, self.b, self.d, self.c), *Different(self.a, self.b, self.c, self.d, self.m, self.n), Lt(self.a, self.b), Lt(self.a, self.d), Lt(self.d, self.m), Not(Collinear(self.m, self.n, self.a)), Not(Collinear(self.m, self.n, self.d))
 
     def conclusion(self):
         return Length(self.m, self.a)/Length(self.m, self.d)-Length(self.n, self.b)/Length(self.n, self.c)
@@ -940,7 +958,7 @@ class EqTrapezoid1(InferenceRule):
             Parallel(self.a, self.b, self.c, self.d),
             SameSide(self.a, self.d, self.b, self.c),
             Length(self.a, self.c) - Length(self.b, self.d),  # diagonals
-            Different(self.a, self.b, self.c, self.d),
+            *Different(self.a, self.b, self.c, self.d),
             Lt(self.a, self.b),
             Lt(self.a, self.c),
             Lt(self.a, self.d)
@@ -964,7 +982,7 @@ class EqTrapezoid2(InferenceRule):
             Parallel(self.a, self.b, self.c, self.d),
             SameSide(self.a, self.d, self.b, self.c),
             Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d),
-            Different(self.a, self.b, self.c, self.d),
+            *Different(self.a, self.b, self.c, self.d),
             Lt(self.a, self.b),
             Lt(self.a, self.c),
             Lt(self.a, self.d)
@@ -988,7 +1006,7 @@ class EqTrapezoid3(InferenceRule):
             Parallel(self.a, self.b, self.c, self.d),
             SameSide(self.a, self.d, self.b, self.c),
             Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d),
-            Different(self.a, self.b, self.c, self.d),
+            *Different(self.a, self.b, self.c, self.d),
             Lt(self.a, self.b),
             Lt(self.a, self.c),
             Lt(self.a, self.d)
@@ -1013,7 +1031,7 @@ class EqTrapezoid4(InferenceRule):
             Parallel(self.a, self.b, self.c, self.d),
             SameSide(self.a, self.d, self.b, self.c),
             Length(self.b, self.c) - Length(self.a, self.d),  # legs
-            Different(self.a, self.b, self.c, self.d),
+            *Different(self.a, self.b, self.c, self.d),
             Lt(self.a, self.b),
             Lt(self.a, self.c),
             Lt(self.a, self.d)
@@ -1218,7 +1236,7 @@ class DiagramAngle4a(InferenceRule):  # systemE Diagram-angle transfer 4
         self.c1 = c1
 
     def condition(self):
-        return Not(Between(self.a, self.c1, self.c)), Not(Between(self.a, self.b1, self.b)), Different(self.a, self.b, self.c, self.b1, self.c1), Not(Collinear(self.a, self.b, self.c)), Collinear(self.a, self.c, self.c1), Collinear(self.b, self.b1, self.a)
+        return Not(Between(self.a, self.c1, self.c)), Not(Between(self.a, self.b1, self.b)), *Different(self.a, self.b, self.c, self.b1, self.c1), Not(Collinear(self.a, self.b, self.c)), Collinear(self.a, self.c, self.c1), Collinear(self.b, self.b1, self.a)
 
     def conclusion(self):
         return Angle(self.b1, self.a, self.c1) - Angle(self.b, self.a, self.c)
@@ -1234,7 +1252,7 @@ class DiagramAngle4b(InferenceRule):  # systemE Diagram-angle transfer 4
         self.b1 = b1
 
     def condition(self):
-        return Not(Between(self.a, self.b1, self.b)), Different(self.a, self.b, self.c), Different(self.a, self.b, self.c, self.b1), Not(Collinear(self.a, self.b, self.c)), Collinear(self.b, self.b1, self.a)
+        return Not(Between(self.a, self.b1, self.b)), *Different(self.a, self.b, self.c), *Different(self.a, self.b, self.c, self.b1), Not(Collinear(self.a, self.b, self.c)), Collinear(self.b, self.b1, self.a)
 
     def conclusion(self):
         return Angle(self.b1, self.a, self.c) - Angle(self.b, self.a, self.c)
@@ -1297,7 +1315,7 @@ class FlatAngle2(InferenceRule):
         self.d = d
 
     def condition(self):
-        return Collinear(self.a, self.b, self.c), Between(self.b, self.a, self.c), Lt(self.a, self.c), Not(Collinear(self.d, self.a, self.c)), Different(self.a, self.b, self.c, self.d)
+        return Collinear(self.a, self.b, self.c), Between(self.b, self.a, self.c), Lt(self.a, self.c), Not(Collinear(self.d, self.a, self.c)), *Different(self.a, self.b, self.c, self.d)
 
     def conclusion(self):
         return Angle(self.a, self.b, self.d) + Angle(self.c, self.b, self.d) - pi
@@ -1330,7 +1348,7 @@ class ParaTrans(InferenceRule):
         self.f = f
 
     def condition(self):
-        return Parallel(self.a, self.b, self.c, self.d), Parallel(self.a, self.b, self.e, self.f), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.e, self.f), Lt(self.c, self.e), Different(self.a, self.b, self.c), Different(self.a, self.b, self.e)
+        return Parallel(self.a, self.b, self.c, self.d), Parallel(self.a, self.b, self.e, self.f), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.e, self.f), Lt(self.c, self.e), *Different(self.a, self.b, self.c), *Different(self.a, self.b, self.e)
 
     def degenerate(self):
         return self.a == self.c and self.b == self.d or self.a == self.e and self.b == self.f or self.e == self.c and self.f == self.d
@@ -1366,7 +1384,7 @@ class CollinearParallel(InferenceRule):
 #         return [
 #             Not(Collinear(self.a, self.b, self.c)),
 #             Angle(self.a, self.b, self.c) - pi / 2,  # Right angle at B
-#             Different(self.a, self.b, self.c),
+#             *Different(self.a, self.b, self.c),
 #         ]
 
 #     def conclusion(self):
@@ -1389,7 +1407,7 @@ class CollinearParallel(InferenceRule):
 #     def condition(self):
 #         return [
 #             Not(Collinear(self.a, self.b, self.c)),
-#             Different(self.a, self.b, self.c),
+#             *Different(self.a, self.b, self.c),
 #             Lt(self.a, self.b),
 #             Lt(self.b, self.c),
 #             Lt(self.a, self.c)
@@ -1420,7 +1438,7 @@ class CollinearParallel(InferenceRule):
 #     def condition(self):
 #         return [
 #             Not(Collinear(self.a, self.b, self.c)),
-#             Different(self.a, self.b, self.c),
+#             *Different(self.a, self.b, self.c),
 #             Lt(self.a, self.b),
 #             Lt(self.a, self.c),
 #             Lt(self.b, self.c)
@@ -1449,7 +1467,7 @@ class CollinearParallel(InferenceRule):
 #     #     return [
 #     #         NotCollinear(self.a, self.b, self.c),
 #     #         Angle(self.a, self.b, self.c) - pi/2,  # Right angle at B
-#     #         Different(self.a, self.b, self.c),
+#     #         *Different(self.a, self.b, self.c),
 #     #     ]
 
 # #     def conclusion(self):
@@ -1468,7 +1486,7 @@ class CollinearParallel(InferenceRule):
 #         self.d = d
 
 #     def condition(self):
-#         return [Not(Collinear(self.a, self.b, self.c)), Different(self.a, self.b, self.c), Perpendicular(self.d, self.a, self.b, self.c), Collinear(self.d, self.b, self.c),
+#         return [Not(Collinear(self.a, self.b, self.c)), *Different(self.a, self.b, self.c), Perpendicular(self.d, self.a, self.b, self.c), Collinear(self.d, self.b, self.c),
 #                 ]
 
 #     def conclusion(self):
@@ -1484,7 +1502,7 @@ class CollinearParallel(InferenceRule):
 #         self.c = c
 
 #     def condition(self):
-#         return [Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c)-pi/2, Different(self.a, self.b, self.c), Lt(self.a, self.c),]
+#         return [Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c)-pi/2, *Different(self.a, self.b, self.c), Lt(self.a, self.c),]
 
 #     def conclusion(self):
 
@@ -1500,7 +1518,7 @@ class CollinearParallel(InferenceRule):
 #         self.c = c
 
 #     def condition(self):
-#         return [Not(Collinear(self.a, self.b, self.c)), Different(self.a, self.b, self.c), Lt(self.a, self.b), Lt(self.b, self.c)]
+#         return [Not(Collinear(self.a, self.b, self.c)), *Different(self.a, self.b, self.c), Lt(self.a, self.b), Lt(self.b, self.c)]
 
 #     def conclusion(self):
 #         s = (Length(self.a, self.b)+Length(self.a, self.c)+Length(self.b, self.c))/2
@@ -1515,7 +1533,7 @@ class CollinearParallel(InferenceRule):
 # #         self.c = c
 
 # #     def condition(self):
-# #         return [NotCollinear(self.a, self.b, self.c), Different(self.a, self.b, self.c)]
+# #         return [NotCollinear(self.a, self.b, self.c), *Different(self.a, self.b, self.c)]
 
 # #     def conclusion(self):
 # #         return [Area(self.a,self.b,self.c)-Length(self.a,self.b)*Length(self.b,self.c)*Function('sin', Angle(self.a,self.b,self.c))/2]
@@ -1531,7 +1549,7 @@ class CollinearParallel(InferenceRule):
 #         self.d = d
 
 #     def condition(self):
-#         return [Parallelogram(self.a, self.b, self.c, self.d), Different(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d)
+#         return [Parallelogram(self.a, self.b, self.c, self.d), *Different(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d)
 #                 ]
 
 #     def conclusion(self):
@@ -1550,7 +1568,7 @@ class CollinearParallel(InferenceRule):
 
 #     def condition(self):
 
-#         return [Trapezoid(self.a, self.b, self.c, self.d), Perpendicular(self.a, self.e, self.c, self.d), Collinear(self.e, self.c, self.d), Different(self.a, self.b, self.c, self.d)
+#         return [Trapezoid(self.a, self.b, self.c, self.d), Perpendicular(self.a, self.e, self.c, self.d), Collinear(self.e, self.c, self.d), *Different(self.a, self.b, self.c, self.d)
 #                 ]
 
 #     def conclusion(self):
@@ -1610,7 +1628,7 @@ class CollinearParallel(InferenceRule):
 #         self.d = d
 
 #     def condition(self):
-#         return [Perpendicular(self.a, self.c, self.b, self.d), Different(self.a, self.b, self.c, self.d),
+#         return [Perpendicular(self.a, self.c, self.b, self.d), *Different(self.a, self.b, self.c, self.d),
 #                 Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), OppositeSide(self.a, self.c, self.b, self.d), OppositeSide(self.b, self.d, self.a, self.c)]
 
 #     def conclusion(self):
@@ -1627,7 +1645,7 @@ class CollinearParallel(InferenceRule):
 #         self.o = o
 
 #     def condition(self):
-#         return [SameSide(self.o, self.b, self.a, self.c), Lt(self.a, self.c), Different(self.a, self.b, self.c, self.o),
+#         return [SameSide(self.o, self.b, self.a, self.c), Lt(self.a, self.c), *Different(self.a, self.b, self.c, self.o),
 #                 Length(self.o, self.a)-Length(self.o, self.b), Length(self.o, self.b) - Length(self.o, self.c)]
 
 #     def conclusion(self):
@@ -1644,7 +1662,7 @@ class CollinearParallel(InferenceRule):
 #         self.o = o
 
 #     def condition(self):
-#         return [OppositeSide(self.o, self.b, self.a, self.c), Lt(self.a, self.c), Different(self.a, self.b, self.c, self.o),
+#         return [OppositeSide(self.o, self.b, self.a, self.c), Lt(self.a, self.c), *Different(self.a, self.b, self.c, self.o),
 #                 Length(self.o, self.a)-Length(self.o, self.b), Length(self.o, self.b) - Length(self.o, self.c)]
 
 #     def conclusion(self):
@@ -1683,7 +1701,7 @@ class CollinearParallel(InferenceRule):
 #         self.e = e
 
 #     def condition(self):
-#         return [Concyclic(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.a, self.c), Different(self.a, self.b, self.c, self.d, self.e), Collinear(self.e, self.a, self.b), Collinear(self.e, self.c, self.d)]
+#         return [Concyclic(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.a, self.c), *Different(self.a, self.b, self.c, self.d, self.e), Collinear(self.e, self.a, self.b), Collinear(self.e, self.c, self.d)]
 
 #     def conclusion(self):
 #         return [Length(self.a, self.e)/Length(self.c, self.e) - Length(self.d, self.e)/Length(self.b, self.e)]
@@ -1702,7 +1720,7 @@ class CollinearParallel(InferenceRule):
 #         self.e = e
 
 #     def condition(self):
-#         return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.a, self.o)-Length(self.c, self.o), Lt(self.a, self.b), Angle(self.o, self.c, self.e)-pi/2, Collinear(self.a, self.b, self.e), Different(self.a, self.b, self.c, self.o, self.e)]
+#         return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.a, self.o)-Length(self.c, self.o), Lt(self.a, self.b), Angle(self.o, self.c, self.e)-pi/2, Collinear(self.a, self.b, self.e), *Different(self.a, self.b, self.c, self.o, self.e)]
 
 #     def conclusion(self):
 #         return [Length(self.a, self.e) / Length(self.c, self.e) - Length(self.c, self.e) / Length(self.b, self.e)]
@@ -1719,7 +1737,7 @@ class CollinearParallel(InferenceRule):
         
 
 #     def condition(self):
-#         return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.b, self.o)-Length(self.c, self.o), Different(self.a,self.b,self.c,self.d,self.o), OppositeSide(self.a,self.d, self.b,self.c), Angle(self.o,self.c,self.d)-pi / 2, ]
+#         return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.b, self.o)-Length(self.c, self.o), *Different(self.a,self.b,self.c,self.d,self.o), OppositeSide(self.a,self.d, self.b,self.c), Angle(self.o,self.c,self.d)-pi / 2, ]
 
 #     def conclusion(self):
 #         return [Angle(self.b,self.a,self.c)-Angle(self.b,self.c,self.d)]
@@ -1775,7 +1793,7 @@ class CollinearParallel(InferenceRule):
         
 
 #     def condition(self):
-#         return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.b, self.o)-Length(self.c, self.o), Different(self.a,self.b,self.c,self.d,self.o), OppositeSide(self.a,self.d, self.b,self.c), Angle(self.o,self.c,self.d)-pi / 2, ]
+#         return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.b, self.o)-Length(self.c, self.o), *Different(self.a,self.b,self.c,self.d,self.o), OppositeSide(self.a,self.d, self.b,self.c), Angle(self.o,self.c,self.d)-pi / 2, ]
 
 #     def conclusion(self):
 #         return [Angle(self.b,self.a,self.c)-Angle(self.b,self.c,self.d)]

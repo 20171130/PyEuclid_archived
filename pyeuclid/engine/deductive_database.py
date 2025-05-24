@@ -58,7 +58,7 @@ class DeductiveDatabase():
         equivalence_classes = {"angle": self.state.angles.equivalence_classes().values(), "length": self.state.lengths.equivalence_classes().values(), "length_ratio": self.state.ratios.values(), "angle_sum": self.state.angle_sums.values()}
         self.insert_points(*list(points))
         for relation in relations:
-            if type(relation) in [Equal]:
+            if type(relation) in [Different2]:
                 continue
             self.insert_relation(relation)
         for table, components in equivalence_classes.items():
@@ -128,8 +128,8 @@ class DeductiveDatabase():
             if isinstance(relation, Lt):
                 assert not relation.negated
                 wheres += [f"{points[0]}.name < {points[1]}.name"]
-            elif isinstance(relation, Equal):
-                assert relation.negated
+            elif isinstance(relation, Different2):
+                assert not relation.negated
                 wheres += [f"{points[0]}.name != {points[1]}.name"]
             elif isinstance(relation, sympy.core.expr.Expr):
                 pattern_eqlength = re.compile(r"^-?Length\w+ [-\+] Length\w+$")
