@@ -172,7 +172,7 @@ class State:
             if self.diagram.numerical_check(between_relation):
                 self.add_relations(between_relation)
                 
-            notcollinear_relation = NotCollinear(*perm)
+            notcollinear_relation = Not(Collinear(*perm))
             if self.diagram.numerical_check(notcollinear_relation):
                 self.add_relations(notcollinear_relation)
         

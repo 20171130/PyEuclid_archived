@@ -5,15 +5,17 @@ import re
 import itertools
 
 from sympy import Symbol, pi
-from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups,compare_names
+from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups, get_point_mapping
 
 
 relations = {}
+
 
 def register(relation):
     name = relation.__name__.lower()
     relations[name] = relation
     return relation
+
 
 class Point:
     def __init__(self, name: str):
@@ -33,7 +35,7 @@ class Point:
         return hash(str(self))
 
 
-class Relation:        
+class Relation:
     def __init__(self):
         self.negated = False
         
@@ -42,10 +44,6 @@ class Relation:
         for v in vars(self).values():
             if isinstance(v, Point):
                 points.append(v)
-            elif isinstance(v, list):
-                for p in v:
-                    if isinstance(p, Point):
-                        points.append(p)
         return points
 
     def __str__(self):
@@ -65,34 +63,12 @@ class Relation:
 
     def __hash__(self):
         return hash(str(self))
-    
+
+
 def Not(rel):
     rel = copy.copy(rel)
     rel.negated = not rel.negated
     return rel
-    
-# class Not(Relation):
-#     def __init__(self, r):
-#         super().__init__()
-#         self.r = r
-#     def __str__(self):
-#         return f"Not({self.r})"
-
-# class And(Relation):
-#     def __init__(self, r1, r2):
-#         super().__init__()
-#         self.r1 = r1
-#         self.r2 = r2
-#     def __str__(self):
-#         return f"And({self.r1}, {self.r2})"
-
-# class Or(Relation):
-#     def __init__(self, r1, r2):
-#         super().__init__()
-#         self.r1 = r1
-#         self.r2 = r2
-#     def __str__(self):
-#         return f"Or({self.r1}, {self.r2})"
 
 
 class Lt(Relation):
@@ -112,6 +88,7 @@ class Equal(Relation):
 
     def permutations(self):
         return [(self.v1, self.v2), (self.v2, self.v1)]
+
 
 def Angle(p1: Point, p2: Point, p3: Point):
     p1, p3 = sort_points(p1, p3)
@@ -140,6 +117,7 @@ class Different(Relation):
     def definition(self):
         return [Not(Equal(self.ps[i], self.ps[j])) for i in range(len(self.ps)) for j in range(i + 1, len(self.ps))]
 
+
 @register
 class Between(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point):
@@ -152,6 +130,7 @@ class Between(Relation):
 
     def permutations(self):
         return [(self.p1, self.p2, self.p3), (self.p1, self.p3, self.p2)]
+
 
 @register
 class SameSide(Relation):
@@ -168,19 +147,28 @@ class SameSide(Relation):
             (self.p2, self.p1, self.p4, self.p3),
         ]
 
-
+@register
 class OppositeSide(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2 = sort_points(p1, p2)
         self.p3, self.p4 = sort_points(p3, p4)
-
-    def definition(self):
+    
+    def permutations(self):
         return [
-            Not(Collinear(self.p1, self.p3, self.p4)),
-            Not(Collinear(self.p2, self.p3, self.p4)),
-            Not(SameSide(self.p1, self.p2, self.p3, self.p4)),
+            (self.p1, self.p2, self.p3, self.p4),
+            (self.p1, self.p2, self.p4, self.p3),
+            (self.p2, self.p1, self.p3, self.p4),
+            (self.p2, self.p1, self.p4, self.p3),
         ]
+
+    # def definition(self):
+    #     return [
+    #         Not(Collinear(self.p1, self.p3, self.p4)),
+    #         Not(Collinear(self.p2, self.p3, self.p4)),
+    #         Not(SameSide(self.p1, self.p2, self.p3, self.p4)),
+    #     ]
+
 
 @register
 class Collinear(Relation):
@@ -192,16 +180,16 @@ class Collinear(Relation):
         return itertools.permutations([self.p1, self.p2, self.p3])
 
 
-class NotCollinear(Relation):
-    def __init__(self, p1, p2, p3):
-        super().__init__()
-        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+# class NotCollinear(Relation):
+#     def __init__(self, p1, p2, p3):
+#         super().__init__()
+#         self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
 
-    def definition(self):
-        return [
-            Not(Collinear(self.p1, self.p2, self.p3)),
-            Different(self.p1, self.p2, self.p3)
-        ]
+#     def definition(self):
+#         return [
+#             Not(Collinear(self.p1, self.p2, self.p3)),
+#             Different(self.p1, self.p2, self.p3)
+#         ]
 
 @register
 class Midpoint(Relation):
@@ -209,47 +197,67 @@ class Midpoint(Relation):
         super().__init__()
         self.p1 = p1
         self.p2, self.p3 = sort_points(p2, p3)
+    
+    def permutations(self):
+        return [(self.p1, self.p2, self.p3), (self.p1, self.p3, self.p2)]
 
-    def definition(self):
-        return [
-            Length(self.p1, self.p2) - Length(self.p1, self.p3),
-            Collinear(self.p1, self.p2, self.p3),
-            Different(self.p2, self.p3),
-            Between(self.p1, self.p2, self.p3),
-        ]
+    # def definition(self):
+    #     return [
+    #         Length(self.p1, self.p2) - Length(self.p1, self.p3),
+    #         Collinear(self.p1, self.p2, self.p3),
+    #         Different(self.p2, self.p3),
+    #         Between(self.p1, self.p2, self.p3),
+    #     ]
         
 @register
 class Congruent(Relation):
-    def __init__(
-        self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point
-    ):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
         super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = p1, p2, p3, p4, p5, p6
-
-    def definition(self):
-        return [
-            Length(self.p1, self.p2) - Length(self.p4, self.p5),
-            Length(self.p2, self.p3) - Length(self.p5, self.p6),
-            Length(self.p1, self.p3) - Length(self.p4, self.p6),
-            NotCollinear(self.p1, self.p2, self.p3),
-        ]
+        group1 = sort_points(p1, p2, p3)
+        group2 = sort_points(p4, p5, p6)
+        mapping = get_point_mapping([p1, p2, p3], [p4, p5, p6])
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups(group1, group2, mapping)
+        
+    def permutations(self):
+        perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3]), i, i + 3)) for i in range(3)]
+        perm_group1 += [tuple(reversed(perm)) for perm in perm_group1]
+        perm_group2 = [tuple(itertools.islice(itertools.cycle([self.p4, self.p5, self.p6]), i, i + 3)) for i in range(3)]
+        perm_group2 += [tuple(reversed(perm)) for perm in perm_group2]
+        
+        return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
+    
+    # def definition(self):
+    #     return [
+    #         Length(self.p1, self.p2) - Length(self.p4, self.p5),
+    #         Length(self.p2, self.p3) - Length(self.p5, self.p6),
+    #         Length(self.p1, self.p3) - Length(self.p4, self.p6),
+    #         NotCollinear(self.p1, self.p2, self.p3),
+    #     ]
 
 @register
 class Similar(Relation):
-    def __init__(
-        self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point
-    ):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
         super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = p1, p2, p3, p4, p5, p6
-
-    def definition(self):
-        return [
-            Length(self.p1, self.p2) / Length(self.p4, self.p5)
-            - Length(self.p2, self.p3) / Length(self.p5, self.p6),
-            Length(self.p1, self.p2) / Length(self.p4, self.p5)
-            - Length(self.p3, self.p1) / Length(self.p6, self.p4),
-            NotCollinear(self.p1, self.p2, self.p3),
-        ]
+        group1 = sort_points(p1, p2, p3)
+        group2 = sort_points(p4, p5, p6)
+        mapping = get_point_mapping([p1, p2, p3], [p4, p5, p6])
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups(group1, group2, mapping)
+    
+    def permutations(self):
+        perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3]), i, i + 3)) for i in range(3)]
+        perm_group1 += [tuple(reversed(perm)) for perm in perm_group1]
+        perm_group2 = [tuple(itertools.islice(itertools.cycle([self.p4, self.p5, self.p6]), i, i + 3)) for i in range(3)]
+        perm_group2 += [tuple(reversed(perm)) for perm in perm_group2]
+        
+        return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
+    # def definition(self):
+    #     return [
+    #         Length(self.p1, self.p2) / Length(self.p4, self.p5)
+    #         - Length(self.p2, self.p3) / Length(self.p5, self.p6),
+    #         Length(self.p1, self.p2) / Length(self.p4, self.p5)
+    #         - Length(self.p3, self.p1) / Length(self.p6, self.p4),
+    #         NotCollinear(self.p1, self.p2, self.p3),
+    #     ]
 
 @register
 class Concyclic(Relation):
@@ -259,6 +267,7 @@ class Concyclic(Relation):
 
     def permutations(self):
         return itertools.permutations([self.p1, self.p2, self.p3, self.p4])
+
 
 @register
 class Parallel(Relation):
@@ -301,274 +310,274 @@ class Perpendicular(Relation):
         ]
 
 
-class Quadrilateral(Relation):
-    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-        super().__init__()
-        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
+# class Quadrilateral(Relation):
+#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+#         super().__init__()
+#         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
 
-    def permutations(self):
-        return [
-            (self.p1, self.p2, self.p3, self.p4),
-            (self.p2, self.p3, self.p4, self.p1),
-            (self.p3, self.p4, self.p1, self.p2),
-            (self.p4, self.p1, self.p2, self.p3),
-            (self.p4, self.p3, self.p2, self.p1),
-            (self.p3, self.p2, self.p1, self.p4),
-            (self.p2, self.p1, self.p4, self.p3),
-            (self.p1, self.p4, self.p3, self.p2),
-        ]
+#     def permutations(self):
+#         return [
+#             (self.p1, self.p2, self.p3, self.p4),
+#             (self.p2, self.p3, self.p4, self.p1),
+#             (self.p3, self.p4, self.p1, self.p2),
+#             (self.p4, self.p1, self.p2, self.p3),
+#             (self.p4, self.p3, self.p2, self.p1),
+#             (self.p3, self.p2, self.p1, self.p4),
+#             (self.p2, self.p1, self.p4, self.p3),
+#             (self.p1, self.p4, self.p3, self.p2),
+#         ]
 
-    def definition(self):
-        return [
-            OppositeSide(self.p1, self.p3, self.p2, self.p4),
-            OppositeSide(self.p2, self.p4, self.p1, self.p3),
-        ]
-
-
-class Pentagon(Relation):
-    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point):
-        super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5 = sort_cyclic_points(p1, p2, p3, p4, p5)
-
-    def permutations(self):
-        return [
-            (self.p1, self.p2, self.p3, self.p4, self.p5),
-            (self.p2, self.p3, self.p4, self.p5, self.p1),
-            (self.p3, self.p4, self.p5, self.p1, self.p2),
-            (self.p4, self.p5, self.p1, self.p2, self.p3),
-            (self.p5, self.p1, self.p2, self.p3, self.p4),
-            (self.p5, self.p4, self.p3, self.p2, self.p1),
-            (self.p4, self.p3, self.p2, self.p1, self.p5),
-            (self.p3, self.p2, self.p1, self.p5, self.p4),
-            (self.p2, self.p1, self.p5, self.p4, self.p3),
-            (self.p1, self.p5, self.p4, self.p3, self.p2),
-        ]
+#     def definition(self):
+#         return [
+#             OppositeSide(self.p1, self.p3, self.p2, self.p4),
+#             OppositeSide(self.p2, self.p4, self.p1, self.p3),
+#         ]
 
 
-class Similar4P(Relation):
-    def __init__(
-        self,
-        p1: Point,
-        p2: Point,
-        p3: Point,
-        p4: Point,
-        p5: Point,
-        p6: Point,
-        p7: Point,
-        p8: Point,
-    ):
-        super().__init__()
-        point_map_12 = {p1: p5, p2: p6, p3: p7, p4: p8}
-        point_map_21 = {p5: p1, p6: p2, p7: p3, p8: p4}
+# class Pentagon(Relation):
+#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point):
+#         super().__init__()
+#         self.p1, self.p2, self.p3, self.p4, self.p5 = sort_cyclic_points(p1, p2, p3, p4, p5)
 
-        sorted_1 = sort_cyclic_points(p1, p2, p3, p4)
-        sorted_2 = sort_cyclic_points(p5, p6, p7, p8)
-        if compare_names(sorted_1, sorted_2) == 0:
-            self.p1, self.p2, self.p3, self.p4 = sorted_1
-            self.p5,self.p6,self.p7,self.p8 = point_map_12[self.p1], point_map_12[
-                self.p2], point_map_12[self.p3], point_map_12[self.p4]
-        else:
-            self.p1, self.p2, self.p3, self.p4 = sorted_2
-            self.p5, self.p6, self.p7, self.p8 = point_map_21[self.p1], point_map_21[
-                self.p2], point_map_21[self.p3], point_map_21[self.p4]
-
-    def definition(self):
-        return [
-            Length(self.p1, self.p2) / Length(self.p5, self.p6)
-            - Length(self.p2, self.p3) / Length(self.p6, self.p7),
-            Length(self.p1, self.p2) / Length(self.p5, self.p6)
-            - Length(self.p3, self.p4) / Length(self.p7, self.p8),
-            Length(self.p1, self.p2) / Length(self.p5, self.p6)
-            - Length(self.p4, self.p1) / Length(self.p8, self.p5),
-            Angle(self.p1, self.p2, self.p3) - Angle(self.p5, self.p6, self.p7),
-            Angle(self.p2, self.p3, self.p4) - Angle(self.p6, self.p7, self.p8),
-            Angle(self.p3, self.p4, self.p1) - Angle(self.p7, self.p8, self.p5),
-            Angle(self.p4, self.p1, self.p2) - Angle(self.p8, self.p5, self.p6),
-        ]
+#     def permutations(self):
+#         return [
+#             (self.p1, self.p2, self.p3, self.p4, self.p5),
+#             (self.p2, self.p3, self.p4, self.p5, self.p1),
+#             (self.p3, self.p4, self.p5, self.p1, self.p2),
+#             (self.p4, self.p5, self.p1, self.p2, self.p3),
+#             (self.p5, self.p1, self.p2, self.p3, self.p4),
+#             (self.p5, self.p4, self.p3, self.p2, self.p1),
+#             (self.p4, self.p3, self.p2, self.p1, self.p5),
+#             (self.p3, self.p2, self.p1, self.p5, self.p4),
+#             (self.p2, self.p1, self.p5, self.p4, self.p3),
+#             (self.p1, self.p5, self.p4, self.p3, self.p2),
+#         ]
 
 
-class Similar5P(Relation):
-    def __init__(
-        self,
-        p1: Point,
-        p2: Point,
-        p3: Point,
-        p4: Point,
-        p5: Point,
-        p6: Point,
-        p7: Point,
-        p8: Point,
-        p9: Point,
-        p10: Point,
-    ):
-        super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8, self.p9, self.p10 = p1, p2, p3, p4, p5, p6, p7, p8, p9, p10
+# class Similar4P(Relation):
+#     def __init__(
+#         self,
+#         p1: Point,
+#         p2: Point,
+#         p3: Point,
+#         p4: Point,
+#         p5: Point,
+#         p6: Point,
+#         p7: Point,
+#         p8: Point,
+#     ):
+#         super().__init__()
+#         point_map_12 = {p1: p5, p2: p6, p3: p7, p4: p8}
+#         point_map_21 = {p5: p1, p6: p2, p7: p3, p8: p4}
 
-    def definition(self):
-        return [
-            Length(self.p1, self.p2) / Length(self.p6, self.p7)
-            - Length(self.p2, self.p3) / Length(self.p7, self.p8),
-            Length(self.p2, self.p3) / Length(self.p7, self.p8)
-            - Length(self.p3, self.p4) / Length(self.p8, self.p9),
-            Length(self.p3, self.p4) / Length(self.p8, self.p9)
-            - Length(self.p4, self.p5) / Length(self.p9, self.p10),
-            Length(self.p4, self.p5) / Length(self.p9, self.p10)
-            - Length(self.p5, self.p1) / Length(self.p10, self.p6),
-            Length(self.p5, self.p1) / Length(self.p10, self.p6)
-            - Length(self.p1, self.p2) / Length(self.p6, self.p7),
-            Angle(self.p1, self.p2, self.p3) - Angle(self.p6, self.p7, self.p8),
-            Angle(self.p2, self.p3, self.p4) - Angle(self.p7, self.p8, self.p9),
-            Angle(self.p3, self.p4, self.p5) - Angle(self.p8, self.p9, self.p10),
-            Angle(self.p4, self.p5, self.p1) - Angle(self.p9, self.p10, self.p6),
-            Angle(self.p5, self.p1, self.p2) - Angle(self.p10, self.p6, self.p7),
-        ]
+#         sorted_1 = sort_cyclic_points(p1, p2, p3, p4)
+#         sorted_2 = sort_cyclic_points(p5, p6, p7, p8)
+#         if compare_names(sorted_1, sorted_2) == 0:
+#             self.p1, self.p2, self.p3, self.p4 = sorted_1
+#             self.p5,self.p6,self.p7,self.p8 = point_map_12[self.p1], point_map_12[
+#                 self.p2], point_map_12[self.p3], point_map_12[self.p4]
+#         else:
+#             self.p1, self.p2, self.p3, self.p4 = sorted_2
+#             self.p5, self.p6, self.p7, self.p8 = point_map_21[self.p1], point_map_21[
+#                 self.p2], point_map_21[self.p3], point_map_21[self.p4]
 
-
-class Parallelogram(Relation):
-    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-        super().__init__()
-        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
-
-    def definition(self):
-        return [
-            Parallel(self.p1, self.p2, self.p3, self.p4),
-            Parallel(self.p2, self.p3, self.p4, self.p1),
-            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-        ]
+#     def definition(self):
+#         return [
+#             Length(self.p1, self.p2) / Length(self.p5, self.p6)
+#             - Length(self.p2, self.p3) / Length(self.p6, self.p7),
+#             Length(self.p1, self.p2) / Length(self.p5, self.p6)
+#             - Length(self.p3, self.p4) / Length(self.p7, self.p8),
+#             Length(self.p1, self.p2) / Length(self.p5, self.p6)
+#             - Length(self.p4, self.p1) / Length(self.p8, self.p5),
+#             Angle(self.p1, self.p2, self.p3) - Angle(self.p5, self.p6, self.p7),
+#             Angle(self.p2, self.p3, self.p4) - Angle(self.p6, self.p7, self.p8),
+#             Angle(self.p3, self.p4, self.p1) - Angle(self.p7, self.p8, self.p5),
+#             Angle(self.p4, self.p1, self.p2) - Angle(self.p8, self.p5, self.p6),
+#         ]
 
 
-class Square(Relation):
-    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-        super().__init__()
-        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
+# class Similar5P(Relation):
+#     def __init__(
+#         self,
+#         p1: Point,
+#         p2: Point,
+#         p3: Point,
+#         p4: Point,
+#         p5: Point,
+#         p6: Point,
+#         p7: Point,
+#         p8: Point,
+#         p9: Point,
+#         p10: Point,
+#     ):
+#         super().__init__()
+#         self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8, self.p9, self.p10 = p1, p2, p3, p4, p5, p6, p7, p8, p9, p10
 
-    def definition(self):
-        return [
-            Length(self.p1, self.p2) - Length(self.p2, self.p3),
-            Length(self.p2, self.p3) - Length(self.p3, self.p4),
-            Length(self.p3, self.p4) - Length(self.p4, self.p1),
-            Length(self.p4, self.p1) - Length(self.p1, self.p2),
-            Angle(self.p1, self.p2, self.p3) - pi / 2,
-            Angle(self.p2, self.p3, self.p4) - pi / 2,
-            Angle(self.p3, self.p4, self.p1) - pi / 2,
-            Angle(self.p4, self.p1, self.p2) - pi / 2,
-            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-        ]
-
-
-class Rectangle(Relation):
-    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-        super().__init__()
-        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
-
-    def definition(self):
-        return [
-            Length(self.p1, self.p2) - Length(self.p3, self.p4),
-            Length(self.p2, self.p3) - Length(self.p4, self.p1),
-            Angle(self.p1, self.p2, self.p3) - pi / 2,
-            Angle(self.p2, self.p3, self.p4) - pi / 2,
-            Angle(self.p3, self.p4, self.p1) - pi / 2,
-            Angle(self.p4, self.p1, self.p2) - pi / 2,
-            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-        ]
-
-
-class Rhombus(Relation):
-    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-        super().__init__()
-        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
-
-    def definition(self):
-        return [
-            Length(self.p1, self.p2) - Length(self.p2, self.p3),
-            Length(self.p2, self.p3) - Length(self.p3, self.p4),
-            Length(self.p3, self.p4) - Length(self.p4, self.p1),
-            Length(self.p4, self.p1) - Length(self.p1, self.p2),
-            Perpendicular(self.p1, self.p3, self.p2, self.p4),
-            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-        ]
+#     def definition(self):
+#         return [
+#             Length(self.p1, self.p2) / Length(self.p6, self.p7)
+#             - Length(self.p2, self.p3) / Length(self.p7, self.p8),
+#             Length(self.p2, self.p3) / Length(self.p7, self.p8)
+#             - Length(self.p3, self.p4) / Length(self.p8, self.p9),
+#             Length(self.p3, self.p4) / Length(self.p8, self.p9)
+#             - Length(self.p4, self.p5) / Length(self.p9, self.p10),
+#             Length(self.p4, self.p5) / Length(self.p9, self.p10)
+#             - Length(self.p5, self.p1) / Length(self.p10, self.p6),
+#             Length(self.p5, self.p1) / Length(self.p10, self.p6)
+#             - Length(self.p1, self.p2) / Length(self.p6, self.p7),
+#             Angle(self.p1, self.p2, self.p3) - Angle(self.p6, self.p7, self.p8),
+#             Angle(self.p2, self.p3, self.p4) - Angle(self.p7, self.p8, self.p9),
+#             Angle(self.p3, self.p4, self.p5) - Angle(self.p8, self.p9, self.p10),
+#             Angle(self.p4, self.p5, self.p1) - Angle(self.p9, self.p10, self.p6),
+#             Angle(self.p5, self.p1, self.p2) - Angle(self.p10, self.p6, self.p7),
+#         ]
 
 
-class Trapezoid(Relation):
-    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-        super().__init__()
-        if p1.name > p3.name:
-            if p3.name > p4.name:
-                self.p1, self.p2, self.p3, self.p4 = p4, p3, p2, p1
-            else:
-                self.p1, self.p2, self.p3, self.p4 = p3, p4, p1, p2
-        else:
-            if p1.name > p2.name:
-                self.p1, self.p2, self.p3, self.p4 = p2, p1, p4, p3
-            else:
-                self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+# class Parallelogram(Relation):
+#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+#         super().__init__()
+#         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
 
-    def definition(self):
-        return [
-            Parallel(self.p1, self.p2, self.p3, self.p4),
-            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-        ]
+#     def definition(self):
+#         return [
+#             Parallel(self.p1, self.p2, self.p3, self.p4),
+#             Parallel(self.p2, self.p3, self.p4, self.p1),
+#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+#         ]
 
 
-class Kite(Relation):
-    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-        super().__init__()
-        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+# class Square(Relation):
+#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+#         super().__init__()
+#         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
 
-    def definition(self):
-        return [
-            Length(self.p1, self.p2) - Length(self.p2, self.p3),
-            Length(self.p3, self.p4) - Length(self.p4, self.p1),
-            Angle(self.p2, self.p1, self.p4) - Angle(self.p2, self.p3, self.p4),
-            Angle(self.p1, self.p2, self.p3) - Angle(self.p1, self.p4, self.p3),
-            Different(self.p1, self.p2, self.p3, self.p4),
-            Perpendicular(self.p1, self.p3, self.p2, self.p4),
-            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-        ]
-
-
-class Incenter(Relation):
-    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-        super().__init__()
-        self.p1 = p1
-        self.p2 = p2
-        self.p3 = p3
-        self.p4 = p4
-
-    def definition(self):
-        return [
-            Angle(self.p3, self.p2, self.p1) - Angle(self.p1, self.p2, self.p4),
-            Angle(self.p2, self.p4, self.p1) - Angle(self.p1, self.p4, self.p3),
-            Angle(self.p4, self.p3, self.p1) - Angle(self.p1, self.p3, self.p2),
-        ]
+#     def definition(self):
+#         return [
+#             Length(self.p1, self.p2) - Length(self.p2, self.p3),
+#             Length(self.p2, self.p3) - Length(self.p3, self.p4),
+#             Length(self.p3, self.p4) - Length(self.p4, self.p1),
+#             Length(self.p4, self.p1) - Length(self.p1, self.p2),
+#             Angle(self.p1, self.p2, self.p3) - pi / 2,
+#             Angle(self.p2, self.p3, self.p4) - pi / 2,
+#             Angle(self.p3, self.p4, self.p1) - pi / 2,
+#             Angle(self.p4, self.p1, self.p2) - pi / 2,
+#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+#         ]
 
 
-class Centroid(Relation):
-    def __init__(
-        self, o: Point, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point
-    ):
-        super().__init__()
-        self.o = o
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-        self.e = e
-        self.f = f
+# class Rectangle(Relation):
+#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+#         super().__init__()
+#         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
 
-    def definition(self):
-        return [
-            Midpoint(self.d, self.b, self.c),
-            Midpoint(self.e, self.a, self.c),
-            Midpoint(self.f, self.b, self.a),
-            NotCollinear(self.a, self.b, self.c),
-            Collinear(self.o, self.a, self.d),
-            Collinear(self.o, self.b, self.e),
-            Collinear(self.o, self.c, self.f),
-            Between(self.o, self.a, self.d),
-            Between(self.o, self.b, self.e),
-            Between(self.o, self.c, self.f),
-        ]
+#     def definition(self):
+#         return [
+#             Length(self.p1, self.p2) - Length(self.p3, self.p4),
+#             Length(self.p2, self.p3) - Length(self.p4, self.p1),
+#             Angle(self.p1, self.p2, self.p3) - pi / 2,
+#             Angle(self.p2, self.p3, self.p4) - pi / 2,
+#             Angle(self.p3, self.p4, self.p1) - pi / 2,
+#             Angle(self.p4, self.p1, self.p2) - pi / 2,
+#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+#         ]
+
+
+# class Rhombus(Relation):
+#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+#         super().__init__()
+#         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
+
+#     def definition(self):
+#         return [
+#             Length(self.p1, self.p2) - Length(self.p2, self.p3),
+#             Length(self.p2, self.p3) - Length(self.p3, self.p4),
+#             Length(self.p3, self.p4) - Length(self.p4, self.p1),
+#             Length(self.p4, self.p1) - Length(self.p1, self.p2),
+#             Perpendicular(self.p1, self.p3, self.p2, self.p4),
+#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+#         ]
+
+
+# class Trapezoid(Relation):
+#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+#         super().__init__()
+#         if p1.name > p3.name:
+#             if p3.name > p4.name:
+#                 self.p1, self.p2, self.p3, self.p4 = p4, p3, p2, p1
+#             else:
+#                 self.p1, self.p2, self.p3, self.p4 = p3, p4, p1, p2
+#         else:
+#             if p1.name > p2.name:
+#                 self.p1, self.p2, self.p3, self.p4 = p2, p1, p4, p3
+#             else:
+#                 self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+
+#     def definition(self):
+#         return [
+#             Parallel(self.p1, self.p2, self.p3, self.p4),
+#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+#         ]
+
+
+# class Kite(Relation):
+#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+#         super().__init__()
+#         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+
+#     def definition(self):
+#         return [
+#             Length(self.p1, self.p2) - Length(self.p2, self.p3),
+#             Length(self.p3, self.p4) - Length(self.p4, self.p1),
+#             Angle(self.p2, self.p1, self.p4) - Angle(self.p2, self.p3, self.p4),
+#             Angle(self.p1, self.p2, self.p3) - Angle(self.p1, self.p4, self.p3),
+#             Different(self.p1, self.p2, self.p3, self.p4),
+#             Perpendicular(self.p1, self.p3, self.p2, self.p4),
+#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+#         ]
+
+
+# class Incenter(Relation):
+#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+#         super().__init__()
+#         self.p1 = p1
+#         self.p2 = p2
+#         self.p3 = p3
+#         self.p4 = p4
+
+#     def definition(self):
+#         return [
+#             Angle(self.p3, self.p2, self.p1) - Angle(self.p1, self.p2, self.p4),
+#             Angle(self.p2, self.p4, self.p1) - Angle(self.p1, self.p4, self.p3),
+#             Angle(self.p4, self.p3, self.p1) - Angle(self.p1, self.p3, self.p2),
+#         ]
+
+
+# class Centroid(Relation):
+#     def __init__(
+#         self, o: Point, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point
+#     ):
+#         super().__init__()
+#         self.o = o
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
+#         self.e = e
+#         self.f = f
+
+#     def definition(self):
+#         return [
+#             Midpoint(self.d, self.b, self.c),
+#             Midpoint(self.e, self.a, self.c),
+#             Midpoint(self.f, self.b, self.a),
+#             NotCollinear(self.a, self.b, self.c),
+#             Collinear(self.o, self.a, self.d),
+#             Collinear(self.o, self.b, self.e),
+#             Collinear(self.o, self.c, self.f),
+#             Between(self.o, self.a, self.d),
+#             Between(self.o, self.b, self.e),
+#             Between(self.o, self.c, self.f),
+#         ]
 
 
 def get_points_and_symbols(eqn):

@@ -15,7 +15,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default=None)   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; o = circle o a b c; h = midpoint h c b; d = on_line d o h, on_line d a b; e = on_tline e c c o, on_tline e a a o ? cyclic a o e d")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -34,7 +34,7 @@ def run_single_problem(args):
         state.try_complex = True
         state.load_problem(conditions=conditions, goal=goal)
         state.add_relations(diagrammatic_relations)
-    deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'] + inference_rule_sets['complex'])
+    deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'])
     algebraic_system = AlgebraicSystem(state)
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
