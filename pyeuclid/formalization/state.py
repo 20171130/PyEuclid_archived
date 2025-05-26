@@ -238,6 +238,8 @@ class State:
                         return False
             elif isinstance(item, Relation):
                 if isinstance(item, Collinear) and (item.p1 == item.p2 or item.p2 == item.p3 or item.p3 == item.p1):
+                    if item.negated:
+                        return False
                     pass
                 elif not item in self.relations:
                     return False

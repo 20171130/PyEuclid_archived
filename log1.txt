@@ -1,0 +1,515 @@
+22 unsolved in 0.7341790199279785 seconds
+1 solved in 0.7105042934417725 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+13 solved in 1.1289827823638916 seconds
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+20 solved in 1.3230648040771484 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+10 solved in 1.5183804035186768 seconds
+19 solved in 1.5458908081054688 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+24 solved in 2.1543524265289307 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+52 solved in 1.3310961723327637 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+28 solved in 2.506387233734131 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+18 solved in 2.6475586891174316 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+43 solved in 1.2437105178833008 seconds
+16 solved in 3.287307024002075 seconds
+27 solved in 3.342006206512451 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+5 solved in 3.28029465675354 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+21 unsolved in 3.6420211791992188 seconds
+48 solved in 0.5102331638336182 seconds
+50 solved in 0.5817804336547852 seconds
+31 solved in 2.548759698867798 seconds
+7 solved in 4.2940661907196045 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+40 solved in 2.2913978099823 seconds
+54 solved in 1.8809521198272705 seconds
+12 solved in 4.913634538650513 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+0 solved in 5.496139764785767 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+51 solved in 1.5668249130249023 seconds
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+29 solved in 5.690337657928467 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+23 solved in 6.013710021972656 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+57 solved in 1.7560195922851562 seconds
+26 solved in 6.2565999031066895 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+3 solved in 6.5435402393341064 seconds
+49 solved in 4.398972988128662 seconds
+73 solved in 2.6230692863464355 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+80 solved in 2.1916303634643555 seconds
+70 solved in 1.7212965488433838 seconds
+58 solved in 4.460844278335571 seconds
+61 solved in 2.4022791385650635 seconds
+17 solved in 7.873175859451294 seconds
+15 solved in 7.889950275421143 seconds
+82 solved in 5.138152599334717 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+25 solved in 8.482678413391113 seconds
+6 solved in 8.47285795211792 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+42 solved in 2.362751007080078 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+59 solved in 0.768660306930542 seconds
+87 solved in 2.615756034851074 seconds
+110 solved in 2.1042323112487793 seconds
+53 solved in 1.825127124786377 seconds
+8 solved in 10.794505834579468 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+72 solved in 0.6511821746826172 seconds
+37 solved in 5.285578012466431 seconds
+33 solved in 1.3822314739227295 seconds
+100 solved in 3.6552109718322754 seconds
+35 solved in 5.702784776687622 seconds
+83 solved in 1.7121760845184326 seconds
+102 solved in 0.842139482498169 seconds
+45 solved in 1.6715927124023438 seconds
+112 solved in 1.0131351947784424 seconds
+30 solved in 3.232496500015259 seconds
+78 solved in 8.951237201690674 seconds
+103 solved in 5.915788412094116 seconds
+79 solved in 5.352617979049683 seconds
+63 solved in 1.7692558765411377 seconds
+75 solved in 1.1047279834747314 seconds
+46 solved in 9.785384893417358 seconds
+117 solved in 0.46149134635925293 seconds
+60 solved in 0.5788006782531738 seconds
+2 solved in 14.737430334091187 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+113 solved in 0.9751780033111572 seconds
+56 solved in 0.8996767997741699 seconds
+36 solved in 0.8982625007629395 seconds
+91 solved in 7.44066047668457 seconds
+67 solved in 1.9583444595336914 seconds
+93 solved in 1.8745503425598145 seconds
+38 solved in 0.1518845558166504 seconds
+32 solved in 3.4023382663726807 seconds
+142 solved in 5.0566246509552 seconds
+76 solved in 2.585733413696289 seconds
+65 solved in 1.8924925327301025 seconds
+66 solved in 2.746037483215332 seconds
+147 solved in 4.628871917724609 seconds
+90 solved in 4.981464147567749 seconds
+68 solved in 1.5472338199615479 seconds
+84 solved in 13.585367202758789 seconds
+88 solved in 9.471445798873901 seconds
+95 solved in 1.1123032569885254 seconds
+62 solved in 1.5098388195037842 seconds
+97 solved in 2.4403462409973145 seconds
+109 solved in 5.258647918701172 seconds
+118 solved in 1.1008937358856201 seconds
+86 solved in 6.85499382019043 seconds
+14 solved in 23.295732975006104 seconds
+105 solved in 8.616271495819092 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+96 solved in 2.3472249507904053 seconds
+108 solved in 0.8440001010894775 seconds
+89 solved in 14.942816257476807 seconds
+132 solved in 11.135741949081421 seconds
+125 solved in 2.385140895843506 seconds
+140 solved in 11.588595628738403 seconds
+148 solved in 1.3912456035614014 seconds
+55 solved in 1.8752713203430176 seconds
+120 solved in 3.6208271980285645 seconds
+98 solved in 3.433677911758423 seconds
+178 solved in 1.208709716796875 seconds
+133 solved in 12.588196039199829 seconds
+121 solved in 2.025266647338867 seconds
+123 solved in 9.79858660697937 seconds
+143 solved in 11.145020008087158 seconds
+116 solved in 0.9786961078643799 seconds
+127 solved in 4.587296724319458 seconds
+9 solved in 28.120333671569824 seconds
+172 unsolved in 3.8115897178649902 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+208 unsolved in 0.6837043762207031 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 30.771s
+
+OK
+114 solved in 1.2911558151245117 seconds
+92 solved in 5.433987617492676 seconds
+202 solved in 1.2502388954162598 seconds
+39 solved in 1.0036396980285645 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 32.892s
+
+OK
+122 solved in 0.009580850601196289 seconds
+170 solved in 3.156426429748535 seconds
+139 solved in 7.4797327518463135 seconds
+177 solved in 7.146909236907959 seconds
+106 solved in 4.865001916885376 seconds
+130 solved in 19.334991216659546 seconds
+69 solved in 1.6820988655090332 seconds
+138 solved in 7.807584047317505 seconds
+152 solved in 1.8119723796844482 seconds
+85 solved in 8.380767822265625 seconds
+150 solved in 7.363373517990112 seconds
+200 solved in 2.8385238647460938 seconds
+47 solved in 0.502082109451294 seconds
+44 solved in 2.9542996883392334 seconds
+99 solved in 2.8956410884857178 seconds
+155 solved in 12.69373345375061 seconds
+151 solved in 11.19067645072937 seconds
+160 unsolved in 3.668994665145874 seconds
+74 solved in 1.8726270198822021 seconds
+173 unsolved in 0.8482716083526611 seconds
+146 solved in 11.21726655960083 seconds
+163 unsolved in 4.948396682739258 seconds
+144 solved in 10.940831422805786 seconds
+207 unsolved in 1.9317512512207031 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 43.672s
+
+OK
+185 solved in 2.388097047805786 seconds
+129 solved in 3.7079274654388428 seconds
+193 solved in 1.0804297924041748 seconds
+81 solved in 37.20754551887512 seconds
+176 unsolved in 0.8775885105133057 seconds
+168 solved in 2.893540143966675 seconds
+203 solved in 4.24910306930542 seconds
+77 solved in 9.468555927276611 seconds
+174 solved in 0.5145049095153809 seconds
+182 solved in 12.08874225616455 seconds
+215 unsolved in 3.5202345848083496 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 48.252s
+
+OK
+115 solved in 0.3430638313293457 seconds
+223 solved in 3.0838489532470703 seconds
+126 solved in 18.700411558151245 seconds
+206 unsolved in 2.6170566082000732 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 48.716s
+
+OK
+169 solved in 7.754406213760376 seconds
+204 solved in 1.3471169471740723 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 49.849s
+
+OK
+119 solved in 1.675567626953125 seconds
+11 solved in 48.44630551338196 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 50.953s
+
+OK
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+198 solved in 3.4114723205566406 seconds
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+145 solved in 3.142737627029419 seconds
+104 solved in 9.07171630859375 seconds
+181 solved in 0.5911884307861328 seconds
+175 unsolved in 0.7724082469940186 seconds
+228 solved in 1.5380125045776367 seconds
+212 solved in 1.1340150833129883 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 54.178s
+
+OK
+136 solved in 14.965266227722168 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 54.457s
+
+OK
+211 unsolved in 3.5134716033935547 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 56.983s
+
+OK
+205 unsolved in 3.8201162815093994 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 57.533s
+
+OK
+190 solved in 16.059718370437622 seconds
+180 unsolved in 14.562089204788208 seconds
+107 solved in 3.4610493183135986 seconds
+135 solved in 11.009649276733398 seconds
+149 solved in 5.290606260299683 seconds
+162 solved in 15.234107732772827 seconds
+210 solved in 3.8334717750549316 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 65.341s
+
+OK
+199 solved in 15.110023975372314 seconds
+165 solved in 2.9146902561187744 seconds
+179 solved in 7.389029264450073 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 71.133s
+
+OK
+111 solved in 10.163291692733765 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7ff7f780ce00>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+128 solved in 44.000781536102295 seconds
+166 unsolved in 3.173793077468872 seconds
+134 solved in 12.172561407089233 seconds
+209 unsolved in 2.8245980739593506 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 78.071s
+
+OK
+153 solved in 24.95549774169922 seconds
+220 solved in 0.516819953918457 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 80.356s
+
+OK
+141 solved in 8.422690391540527 seconds
+229 unsolved in 1.1672310829162598 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 87.965s
+
+OK
+164 unsolved in 3.6013553142547607 seconds
+196 solved in 13.176453590393066 seconds
+195 solved in 11.904423475265503 seconds
+137 solved in 11.609600305557251 seconds
+41 solved in 2.971008539199829 seconds
+71 solved in 1.0413711071014404 seconds
+225 solved in 0.007082223892211914 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 97.206s
+
+OK
+157 solved in 65.51561689376831 seconds
+4 solved in 96.26402139663696 seconds
+101 solved in 3.1866185665130615 seconds
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2649061
+Academic license 2649061 - for non-commercial use only - registered to ha___@outlook.com
+194 solved in 13.587450742721558 seconds
+131 solved in 4.81436014175415 seconds
+171 solved in 3.1475448608398438 seconds
+183 unsolved in 27.84681248664856 seconds
+213 solved in 1.3274095058441162 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 110.230s
+
+OK
+161 solved in 13.058583736419678 seconds
+167 unsolved in 1.179948091506958 seconds
+201 solved in 19.07225751876831 seconds
+34 solved in 2.703773021697998 seconds
+192 unsolved in 68.18728160858154 seconds
+156 solved in 20.815674543380737 seconds
+64 solved in 2.224876880645752 seconds
+222 unsolved in 2.634202003479004 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 137.680s
+
+OK
+94 solved in 5.602865934371948 seconds
+224 unsolved in 1.8957655429840088 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 146.728s
+
+OK
+124 solved in 4.2319560050964355 seconds
+197 unsolved in 40.8471794128418 seconds
+191 solved in 11.107718467712402 seconds
+227 solved in 1.3488585948944092 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 171.462s
+
+OK
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4f1ad4e00>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+154 solved in 26.936902284622192 seconds
+221 solved in 0.994375467300415 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 183.782s
+
+OK
+230 unsolved in 151.87872838974 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 191.899s
+
+OK
+184 solved in 20.98298716545105 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 213.363s
+
+OK
+214 solved in 2.2790393829345703 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 217.613s
+
+OK
+186 unsolved in 9.4971284866333 seconds
+216 solved in 18.24762463569641 seconds
+/h/99/henryb/PyEuclid/pyeuclid/formalization/diagram.py:31: UserWarning: This figure was saved with matplotlib version 3.9.1 and loaded with 3.9.4 so may not function correctly.
+  instance = pickle.load(f)
+.
+----------------------------------------------------------------------
+Ran 1 test in 242.500s
+
+OK
+187 solved in 2.3965392112731934 seconds
+217 solved in 5.2029078006744385 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 257.028s
+
+OK
+158 solved in 6.529321670532227 seconds
+188 solved in 2.609947443008423 seconds
+218 solved in 41.270811557769775 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 393.176s
+
+OK
+226 unsolved in 799.6498789787292 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 895.937s
+
+OK
+159 unsolved in 3601.0869705677032 seconds
+189 solved in 5.857882261276245 seconds
+219 solved in 1.120743751525879 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 3666.456s
+
+OK
