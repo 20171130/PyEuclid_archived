@@ -39,11 +39,6 @@ class register:
             else:
                 construction_rule_sets[item].append(cls)
 
-        def expanded_conditions(self):
-            return expand_definition(self._conditions())
-
-        cls._conditions = cls.conditions
-        cls.conditions = expanded_conditions
         return cls
 
 
@@ -59,7 +54,7 @@ class construct_angle_bisector(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [Angle(self.a, self.b, self.x) - Angle(self.x, self.b, self.c)]
@@ -77,7 +72,7 @@ class construct_angle_mirror(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [Angle(self.a, self.b, self.c) - Angle(self.c, self.b, self.x)]
@@ -95,7 +90,7 @@ class construct_circle(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -116,7 +111,7 @@ class construct_circumcenter(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -191,7 +186,7 @@ class construct_eqangle2(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [Angle(self.b, self.a, self.x) - Angle(self.x, self.c, self.b)]
@@ -274,7 +269,7 @@ class construct_foot(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [Perpendicular(self.x, self.a, self.b, self.c), Collinear(self.x, self.b, self.c)]
@@ -301,7 +296,7 @@ class construct_incenter(ConstructionRule):
         return [self.x]
     
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -322,7 +317,7 @@ class construct_incenter2(ConstructionRule):
         return [self.x, self.y, self.z, self.i]
     
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -352,7 +347,7 @@ class construct_excenter(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -373,7 +368,7 @@ class construct_excenter2(ConstructionRule):
         return [self.x, self.y, self.z, self.i]
     
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -403,7 +398,7 @@ class construct_centroid(ConstructionRule):
         return [self.x, self.y, self.z, self.i]
     
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -431,7 +426,7 @@ class construct_intersection_cc(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.o, self.w, self.a)]
+        return [Not(Collinear(self.o, self.w, self.a))]
 
     def conclusions(self):
         return [
@@ -500,8 +495,8 @@ class construct_intersection_lp(ConstructionRule):
     def conditions(self):
         return [
             Not(Parallel(self.m, self.n, self.a, self.b)),
-            NotCollinear(self.a, self.b, self.c),
-            NotCollinear(self.c, self.m, self.n),
+            Not(Collinear(self.a, self.b, self.c)),
+            Not(Collinear(self.c, self.m, self.n)),
         ]
 
     def conclusions(self):
@@ -521,7 +516,7 @@ class construct_intersection_lt(ConstructionRule):
 
     def conditions(self):
         return [
-            NotCollinear(self.a, self.b, self.c),
+            Not(Collinear(self.a, self.b, self.c)),
             Not(Perpendicular(self.a, self.b, self.d, self.e)),
         ]
 
@@ -677,7 +672,7 @@ class construct_on_aline(ConstructionRule):
 
     def conditions(self):
         return [
-            NotCollinear(self.c, self.d, self.e),
+            Not(Collinear(self.c, self.d, self.e)),
             Different(self.a, self.b),
             Different(self.c, self.d),
             Different(self.c, self.e),
@@ -780,7 +775,7 @@ class construct_on_pline(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [Different(self.b, self.c), NotCollinear(self.a, self.b, self.c)]
+        return [Different(self.b, self.c), Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [Parallel(self.x, self.a, self.b, self.c)]
@@ -816,7 +811,7 @@ class construct_orthocenter(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -838,7 +833,7 @@ class construct_parallelogram(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -944,7 +939,7 @@ class construct_reflect(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [Different(self.b, self.c), NotCollinear(self.a, self.b, self.c)]
+        return [Different(self.b, self.c), Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -1129,7 +1124,7 @@ class construct_2l1c(ConstructionRule):
     def conditions(self):
         return [
             Length(self.o, self.a) - Length(self.o, self.b),
-            NotCollinear(self.a, self.b, self.c),
+            Not(Collinear(self.a, self.b, self.c)),
         ]
 
     def conclusions(self):
@@ -1183,7 +1178,7 @@ class construct_3peq(ConstructionRule):
         return [self.x, self.y, self.z]
     
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -1207,7 +1202,7 @@ class construct_trisect(ConstructionRule):
         return [self.x, self.y]
     
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [
@@ -1363,7 +1358,7 @@ class construct_eqangle3(ConstructionRule):
 
     def conditions(self):
         return [
-            NotCollinear(self.d, self.e, self.f),
+            Not(Collinear(self.d, self.e, self.f)),
             Different(self.a, self.b),
             Different(self.d, self.e),
             Different(self.e, self.f),
@@ -1412,7 +1407,7 @@ class construct_on_circum(ConstructionRule):
         return [self.x]
         
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
     
     def conclusions(self):
         return [Concyclic(self.a, self.b, self.c, self.x)]
@@ -1429,7 +1424,7 @@ class construct_sameside(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [SameSide(self.x, self.a, self.b, self.c)]
@@ -1446,7 +1441,7 @@ class construct_opposingsides(ConstructionRule):
         return [self.x]
 
     def conditions(self):
-        return [NotCollinear(self.a, self.b, self.c)]
+        return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
         return [OppositeSide(self.x, self.a, self.b, self.c)]

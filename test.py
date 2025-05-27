@@ -24,6 +24,7 @@ class TestBenchmarks(unittest.TestCase):
             if not idx%world_size == rank:
                 continue
             state = State()
+            state.silent = True
             if world_size > 1:
                 state.silent = True
             try:
@@ -33,7 +34,7 @@ class TestBenchmarks(unittest.TestCase):
                 proof_generator = ProofGenerator(state)
                 engine = Engine(state, deductive_database, algebraic_system)
                 t = time.time()
-                with Timeout(3600):
+                with Timeout(600):
                     engine.search()
                 t = time.time() - t
                 if state.complete() is not None:

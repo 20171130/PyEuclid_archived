@@ -82,7 +82,7 @@ class DefinitionOfMidpoint(InferenceRule):
         self.a, self.b, self.c = a, b, c
     
     def condition(self):
-        return Length(self.a, self.b) - Length(self.a, self.c), Between(self.a, self.b, self.c)
+        return Length(self.a, self.b) - Length(self.a, self.c), Between(self.a, self.b, self.c), Lt(self.b, self.c)
     
     def conclusion(self):
         return Midpoint(self.a, self.b, self.c)
@@ -95,7 +95,7 @@ class PropertyOfMidpoint(InferenceRule):
         self.a, self.b, self.c = a, b, c
     
     def condition(self):
-        return Midpoint(self.a, self.b, self.c)
+        return Midpoint(self.a, self.b, self.c), Lt(self.b, self.c)
     
     def conclusion(self):
         return Length(self.a, self.b) - Length(self.a, self.c), Between(self.a, self.b, self.c)
@@ -173,6 +173,23 @@ class CollinearTransist(InferenceRule):
 
     def conclusion(self):
         return Collinear(self.a, self.c, self.d), Collinear(self.b, self.c, self.d)
+
+
+@register("ex")
+class ConcyclicTransist(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+
+    def condition(self):
+        return Concyclic(self.a, self.b, self.c, self.d), Concyclic(self.a, self.b, self.c, self.e), Lt(self.a, self.b), Lt(self.b, self.c), Lt(self.d, self.e), *Different(self.a, self.b, self.c, self.d, self.e)
+
+    def conclusion(self):
+        return Concyclic(self.a, self.b, self.d, self.e), Concyclic(self.b, self.c, self.d, self.e), Concyclic(self.a, self.c, self.d, self.e)
 
 
 @register("ex")

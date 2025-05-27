@@ -176,21 +176,15 @@ class ProofGenerator:
         if isinstance(node, InferenceRule):
             visited.add(node)
             conds = [item for item in node.condition() if type(item)
-                     not in (Equal, Lt) and not item == 0]
+                     not in (Different2, Lt) and not item == 0]
             result = {}
             result[node] = conds
             for cond in conds:
                 result.update(self.run(cond, visited, depth=depth-1, root=False))
         elif isinstance(node, Relation):
             visited.add(node)
-            if type(node) in (Between, SameSide, Lt, Equal) or type(node) == Collinear and (node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1):
+            if type(node) in (Between, SameSide, Lt, Different2) or type(node) == Collinear and (node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1):
                 return {}
-            if hasattr(node, "definition"):
-                defs = node.definition()
-                result = {node: defs}
-                for cond in defs:
-                    result.update(self.run(cond, visited, depth=depth, root=False))
-                return result
             result = {}
             for tmp in self.state.relations:
                 if tmp == node:

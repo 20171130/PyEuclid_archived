@@ -148,7 +148,10 @@ class Diagram:
         if isinstance(relation, Relation):
             func = globals()['check_' + relation.__class__.__name__.lower()]
             args = [self.name2point[p.name] for p in relation.get_points()]
-            return func(args)
+            if relation.negated:
+                return not func(args)
+            else:
+                return func(args)
         else:
             symbol_to_value = {}
             symbols, symbol_names = parse_expression(relation)

@@ -3,6 +3,7 @@ import sys
 import logging
 
 from itertools import permutations
+from typing import Iterable
 
 from pyeuclid.formalization.utils import *
 from pyeuclid.formalization.translation import *
@@ -61,16 +62,25 @@ class State:
             self.logger.addHandler(handler)
         
     def add_relations(self, relations):
-        if not isinstance(relations, (tuple, list, set)):
+        if not isinstance(relations, Iterable):
             relations = [relations]
         for item in relations:
-            if hasattr(item, "definition") and not item.negated:
-                self.add_relations(item.definition())
+            if isinstance(item, Relation):
+                # if self.diagram is not None:
+                #     if not self.diagram.numerical_check(item):
+                #         print(item)
+                #         print("wrong conclusion!!!")
+                #         input()
+                self.add_relation(item)
             else:
-                if isinstance(item, Relation):
-                    self.add_relation(item)
-                else:
-                    self.add_equation(item)
+                # if isinstance(item, Traced):
+                #     item = item.expr
+                # if self.diagram is not None:
+                #     if not self.diagram.numerical_check(item):
+                #         print(item)
+                #         print("wrong conclusion!!!")
+                #         input()
+                self.add_equation(item)
     
     def add_relation(self, relation):
         if relation in self.relations:
@@ -216,14 +226,9 @@ class State:
         i = 0
         while i < len(conditions):
             item = conditions[i]
-            if isinstance(item, Equal):
-                if not ((item.v1 == item.v2) ^ item.negated):
+            if isinstance(item, Different2):
+                if item.negated is True:
                     return False
-            elif hasattr(item, "definition") and not item.negated:
-                unrolled = item.definition()
-                if not (isinstance(unrolled, tuple) or isinstance(unrolled, list)):
-                    unrolled = unrolled,
-                conditions += unrolled
             # auxillary predicate for canonical ordering of inference rule params, does not used for checking
             elif isinstance(item, Lt):
                 pass
@@ -238,7 +243,8 @@ class State:
                         return False
             elif isinstance(item, Relation):
                 if isinstance(item, Collinear) and (item.p1 == item.p2 or item.p2 == item.p3 or item.p3 == item.p1):
-                    pass
+                    if item.negated:
+                        return False
                 elif not item in self.relations:
                     return False
             else:
