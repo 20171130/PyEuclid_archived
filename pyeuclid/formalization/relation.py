@@ -4,7 +4,7 @@ import copy
 import re
 import itertools
 
-from sympy import Symbol, pi
+from sympy import Symbol
 from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups
 
 
@@ -109,8 +109,6 @@ def Variable(name: str):
     return Symbol(f"Variable_{name}")
 
 
-
-
 class Different2(Relation):
     def __init__(self, p1: Point, p2: Point):
         super().__init__()
@@ -122,9 +120,6 @@ class Different2(Relation):
 
 def Different(*ps: Point):
     return [Different2(ps[i], ps[j]) for i in range(len(ps)) for j in range(i + 1, len(ps))]
-        
-    # def definition(self):
-    #     return [Not(Equal(self.ps[i], self.ps[j])) for i in range(len(self.ps)) for j in range(i + 1, len(self.ps))]
 
 
 @register
@@ -171,13 +166,6 @@ class OppositeSide(Relation):
             (self.p2, self.p1, self.p4, self.p3),
         ]
 
-    # def definition(self):
-    #     return [
-    #         Not(Collinear(self.p1, self.p3, self.p4)),
-    #         Not(Collinear(self.p2, self.p3, self.p4)),
-    #         Not(SameSide(self.p1, self.p2, self.p3, self.p4)),
-    #     ]
-
 
 @register
 class Collinear(Relation):
@@ -189,17 +177,6 @@ class Collinear(Relation):
         return itertools.permutations([self.p1, self.p2, self.p3])
 
 
-# class NotCollinear(Relation):
-#     def __init__(self, p1, p2, p3):
-#         super().__init__()
-#         self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
-
-#     def definition(self):
-#         return [
-#             Not(Collinear(self.p1, self.p2, self.p3)),
-#             Different(self.p1, self.p2, self.p3)
-#         ]
-
 @register
 class Midpoint(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point):
@@ -210,13 +187,6 @@ class Midpoint(Relation):
     def permutations(self):
         return [(self.p1, self.p2, self.p3), (self.p1, self.p3, self.p2)]
 
-    # def definition(self):
-    #     return [
-    #         Length(self.p1, self.p2) - Length(self.p1, self.p3),
-    #         Collinear(self.p1, self.p2, self.p3),
-    #         Different(self.p2, self.p3),
-    #         Between(self.p1, self.p2, self.p3),
-    #     ]
         
 @register
 class Congruent(Relation):
@@ -231,14 +201,7 @@ class Congruent(Relation):
         perm_group2 += [tuple(reversed(perm)) for perm in perm_group2]
         
         return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
-    
-    # def definition(self):
-    #     return [
-    #         Length(self.p1, self.p2) - Length(self.p4, self.p5),
-    #         Length(self.p2, self.p3) - Length(self.p5, self.p6),
-    #         Length(self.p1, self.p3) - Length(self.p4, self.p6),
-    #         NotCollinear(self.p1, self.p2, self.p3),
-    #     ]
+
 
 @register
 class Similar(Relation):
@@ -253,14 +216,7 @@ class Similar(Relation):
         perm_group2 += [tuple(reversed(perm)) for perm in perm_group2]
         
         return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
-    # def definition(self):
-    #     return [
-    #         Length(self.p1, self.p2) / Length(self.p4, self.p5)
-    #         - Length(self.p2, self.p3) / Length(self.p5, self.p6),
-    #         Length(self.p1, self.p2) / Length(self.p4, self.p5)
-    #         - Length(self.p3, self.p1) / Length(self.p6, self.p4),
-    #         NotCollinear(self.p1, self.p2, self.p3),
-    #     ]
+
 
 @register
 class Concyclic(Relation):

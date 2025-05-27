@@ -15,7 +15,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b = segment a b; c = midpoint c b a; d = on_tline d b a b; e = on_line e a d, on_circle e c a; f = on_pline f e a b, on_circle f c e; g = foot g d a f ? cong a f f g")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="c d = segment c d; e = midpoint e c d; b = free b; f = midpoint f b c; a = eqdistance a d c b, on_pline a b d c; g = midpoint g a b; h = midpoint h d a ? cong h e e f")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -39,7 +39,7 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
-    engine.search()   
+    engine.search()
     t = time.time() - t0
     result = state.complete()
     if result is not None:

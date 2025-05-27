@@ -2,8 +2,8 @@ from __future__ import annotations
 from typing import Iterable
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.utils import *
-from sympy import sin, cos
-import sympy
+from sympy import pi, sin, cos
+
 
 inference_rule_sets = {}
 
