@@ -5,7 +5,7 @@ import re
 import itertools
 
 from sympy import Symbol, pi
-from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups, get_point_mapping
+from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups
 
 
 relations = {}
@@ -222,10 +222,7 @@ class Midpoint(Relation):
 class Congruent(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
         super().__init__()
-        group1 = sort_points(p1, p2, p3)
-        group2 = sort_points(p4, p5, p6)
-        mapping = get_point_mapping([p1, p2, p3], [p4, p5, p6])
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups(group1, group2, mapping)
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3], [p4, p5, p6], mapping=True)
         
     def permutations(self):
         perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3]), i, i + 3)) for i in range(3)]
@@ -247,10 +244,7 @@ class Congruent(Relation):
 class Similar(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
         super().__init__()
-        group1 = sort_points(p1, p2, p3)
-        group2 = sort_points(p4, p5, p6)
-        mapping = get_point_mapping([p1, p2, p3], [p4, p5, p6])
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups(group1, group2, mapping)
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3], [p4, p5, p6], mapping=True)
     
     def permutations(self):
         perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3]), i, i + 3)) for i in range(3)]
@@ -282,8 +276,6 @@ class Concyclic(Relation):
 class Parallel(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
-        p1, p2 = sort_points(p1, p2)
-        p3, p4 = sort_points(p3, p4)
         self.p1, self.p2, self.p3, self.p4 = sort_point_groups([p1, p2], [p3, p4])
 
     def permutations(self):
@@ -302,8 +294,6 @@ class Parallel(Relation):
 class Perpendicular(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
-        p1, p2 = sort_points(p1, p2)
-        p3, p4 = sort_points(p3, p4)
         self.p1, self.p2, self.p3, self.p4 = sort_point_groups([p1, p2], [p3, p4])
 
     def permutations(self):

@@ -15,7 +15,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; o = circle o a b c; h = midpoint h c b; d = on_line d o h, on_line d a b; e = on_tline e c c o, on_tline e a a o ? cyclic a o e d")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b = segment a b; c = midpoint c b a; d = on_tline d b a b; e = on_line e a d, on_circle e c a; f = on_pline f e a b, on_circle f c e; g = foot g d a f ? cong a f f g")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -31,7 +31,7 @@ def run_single_problem(args):
         goal = namespace.get("goal")
         solution = namespace.get("solution")
         diagrammatic_relations = namespace.get("diagrammatic_relations")
-        state.try_complex = True
+        # state.try_complex = True
         state.load_problem(conditions=conditions, goal=goal)
         state.add_relations(diagrammatic_relations)
     deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'])

@@ -19,7 +19,7 @@ def sort_cyclic_points(*points):
         return points[min_index:] + points[:min_index]
 
 
-def compare_names(g1, g2):
+def ordered_groups(g1, g2):
     assert len(g1) == len(g2)
     for a, b in zip(g1, g2):
         if a.name != b.name:
@@ -31,18 +31,22 @@ def get_point_mapping(g1, g2):
     mapping = {}
     for p1, p2 in zip(g1, g2):
         mapping[p1] = p2
-        mapping[p2] = p1
     return mapping
 
 
-def sort_point_groups(g1, g2, mapping=None):
-    if not compare_names(g1, g2):
+def sort_point_groups(g1, g2, mapping=False): 
+    sorted_g1 = sort_points(*g1)
+    sorted_g2 = sort_points(*g2)
+    
+    if not ordered_groups(sorted_g1, sorted_g2):
         g1, g2 = g2, g1
+        sorted_g1, sorted_g2 = sorted_g2, sorted_g1
     
     if mapping:
-        g2 = [mapping[p] for p in g1]
+        mapping = get_point_mapping(g1, g2)
+        sorted_g2 = [mapping[p] for p in sorted_g1]
     
-    return g1 + g2
+    return sorted_g1 + sorted_g2
 
 
 class UnionFind:

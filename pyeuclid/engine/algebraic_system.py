@@ -161,6 +161,8 @@ class AlgebraicSystem:
         exprs = {}
         # Triangulate
         for i, eqn in enumerate(equations):
+            # print('eqn', eqn)
+            # print('original_eqn', raw_equations[i])
             eqn = self.process_equation(eqn, check=True)
             if eqn == 0:
                 raw_equations[i].redundant = True
@@ -226,7 +228,6 @@ class AlgebraicSystem:
         solved_vars = {}
         angle_linear, length_linear, length_ratio, others = classify_equations(raw_equations, var_types)
         for eqs, source in (angle_linear, "angle_linear"),  (length_ratio, "length_ratio"):
-            # free, solved = self.elim(eqs, logarithm=source=="length_ratio")
             free, solved = self.elim(eqs, var_types)
             for key, value in solved.items():
                 value = Traced(value, depth=self.state.current_depth, sources=[source])

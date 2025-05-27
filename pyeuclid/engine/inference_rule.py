@@ -88,6 +88,19 @@ class DefinitionOfMidpoint(InferenceRule):
         return Midpoint(self.a, self.b, self.c)
 
 
+# @register("ex")
+# class DefinitionOfMidpoint(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point):
+#         super().__init__()
+#         self.a, self.b, self.c = a, b, c
+    
+#     def condition(self):
+#         return Length(self.a, self.b) - Length(self.b, self.c) / 2, Between(self.a, self.b, self.c)
+    
+#     def conclusion(self):
+#         return Midpoint(self.a, self.b, self.c)
+
+
 @register("ex")
 class PropertyOfMidpoint(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
@@ -98,7 +111,12 @@ class PropertyOfMidpoint(InferenceRule):
         return Midpoint(self.a, self.b, self.c), Lt(self.b, self.c)
     
     def conclusion(self):
-        return Length(self.a, self.b) - Length(self.a, self.c), Between(self.a, self.b, self.c)
+        return [
+            Length(self.a, self.b) - Length(self.a, self.c),
+            Length(self.a, self.b) - Length(self.b, self.c) / 2,
+            Length(self.a, self.c) - Length(self.b, self.c) / 2,
+            Between(self.a, self.b, self.c)
+        ]
 
 
 @register("ex")
@@ -961,76 +979,76 @@ class AlphaGeometry43(InferenceRule):
         return Length(self.m, self.a)/Length(self.m, self.d)-Length(self.n, self.b)/Length(self.n, self.c)
 
 
-@register("basic")
-class EqTrapezoid1(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point, d: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
+# @register("basic")
+# class EqTrapezoid1(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
 
-    def condition(self):
-        return (
-            Parallel(self.a, self.b, self.c, self.d),
-            SameSide(self.a, self.d, self.b, self.c),
-            Length(self.a, self.c) - Length(self.b, self.d),  # diagonals
-            *Different(self.a, self.b, self.c, self.d),
-            Lt(self.a, self.b),
-            Lt(self.a, self.c),
-            Lt(self.a, self.d)
-        )
+#     def condition(self):
+#         return (
+#             Parallel(self.a, self.b, self.c, self.d),
+#             SameSide(self.a, self.d, self.b, self.c),
+#             Length(self.a, self.c) - Length(self.b, self.d),  # diagonals
+#             *Different(self.a, self.b, self.c, self.d),
+#             Lt(self.a, self.b),
+#             Lt(self.a, self.c),
+#             Lt(self.a, self.d)
+#         )
 
-    def conclusion(self):
-        return Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
-
-
-@register("basic")
-class EqTrapezoid2(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point, d: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-
-    def condition(self):
-        return (
-            Parallel(self.a, self.b, self.c, self.d),
-            SameSide(self.a, self.d, self.b, self.c),
-            Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d),
-            *Different(self.a, self.b, self.c, self.d),
-            Lt(self.a, self.b),
-            Lt(self.a, self.c),
-            Lt(self.a, self.d)
-        )
-
-    def conclusion(self):
-        return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
+#     def conclusion(self):
+#         return Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
 
 
-@register("basic")
-class EqTrapezoid3(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point, d: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
+# @register("basic")
+# class EqTrapezoid2(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
 
-    def condition(self):
-        return (
-            Parallel(self.a, self.b, self.c, self.d),
-            SameSide(self.a, self.d, self.b, self.c),
-            Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d),
-            *Different(self.a, self.b, self.c, self.d),
-            Lt(self.a, self.b),
-            Lt(self.a, self.c),
-            Lt(self.a, self.d)
-        )
+#     def condition(self):
+#         return (
+#             Parallel(self.a, self.b, self.c, self.d),
+#             SameSide(self.a, self.d, self.b, self.c),
+#             Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d),
+#             *Different(self.a, self.b, self.c, self.d),
+#             Lt(self.a, self.b),
+#             Lt(self.a, self.c),
+#             Lt(self.a, self.d)
+#         )
 
-    def conclusion(self):
-        return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d)
+#     def conclusion(self):
+#         return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
+
+
+# @register("basic")
+# class EqTrapezoid3(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
+
+#     def condition(self):
+#         return (
+#             Parallel(self.a, self.b, self.c, self.d),
+#             SameSide(self.a, self.d, self.b, self.c),
+#             Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d),
+#             *Different(self.a, self.b, self.c, self.d),
+#             Lt(self.a, self.b),
+#             Lt(self.a, self.c),
+#             Lt(self.a, self.d)
+#         )
+
+#     def conclusion(self):
+#         return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d)
 
 """
 # cannot distinguish eqtrapezoid from parallelogram
