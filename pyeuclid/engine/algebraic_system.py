@@ -161,8 +161,6 @@ class AlgebraicSystem:
         exprs = {}
         # Triangulate
         for i, eqn in enumerate(equations):
-            # print('eqn', eqn)
-            # print('original_eqn', raw_equations[i])
             eqn = self.process_equation(eqn, check=True)
             if eqn == 0:
                 raw_equations[i].redundant = True
