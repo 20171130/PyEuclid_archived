@@ -724,7 +724,7 @@ def check_midpoint(points):
     a, b, c = points
     return check_collinear(points) and close_enough(a.distance(b), a.distance(c))
 
-def check_similar(points):
+def check_similar3(points):
     a, b, c, x, y, z = points
     ab = a.distance(b)
     bc = b.distance(c)
@@ -735,7 +735,7 @@ def check_similar(points):
     tol = 1e-6
     return close_enough(ab * yz, bc * xy, tol) and close_enough(bc * zx, ca * yz, tol)
 
-def check_congruent(points):
+def check_congruent3(points):
     a, b, c, x, y, z = points
     ab = a.distance(b)
     bc = b.distance(c)

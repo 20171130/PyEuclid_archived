@@ -146,7 +146,10 @@ class Diagram:
             
     def numerical_check(self, relation):
         if isinstance(relation, Relation):
+            # try:
             func = globals()['check_' + relation.__class__.__name__.lower()]
+            # except:
+            #     return True
             args = [self.name2point[p.name] for p in relation.get_points()]
             if relation.negated:
                 return not func(args)

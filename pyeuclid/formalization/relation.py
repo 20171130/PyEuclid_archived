@@ -8,6 +8,10 @@ from sympy import Symbol
 from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups
 
 
+class UnsupportedRelation(Exception):
+    pass
+
+
 relations = {}
 
 
@@ -187,9 +191,19 @@ class Midpoint(Relation):
     def permutations(self):
         return [(self.p1, self.p2, self.p3), (self.p1, self.p3, self.p2)]
 
-        
+
+def Congruent(*ps: list[Point]):
+    if not len(ps) % 2 == 0:
+        raise UnsupportedRelation(f"Unsupported number of points for a Congruent relation: {len(ps)}")
+    
+    num = len(ps) // 2
+    if num not in [3, 4, 5]:
+        raise UnsupportedRelation(f"Unsupported number of points for a Congruent relation: {len(ps)}")
+    
+    return globals()['Congruent'+str(num)](*ps)
+
 @register
-class Congruent(Relation):
+class Congruent3(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3], [p4, p5, p6], mapping=True)
@@ -202,9 +216,47 @@ class Congruent(Relation):
         
         return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
 
+class Congruent4(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3, p4], [p5, p6, p7, p8], mapping=True)
+    
+    def permutations(self):
+        perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
+        perm_group1 += [tuple(reversed(perm)) for perm in perm_group1]
+        perm_group2 = [tuple(itertools.islice(itertools.cycle([self.p5, self.p6, self.p7, self.p8]), i, i + 4)) for i in range(4)]
+        perm_group2 += [tuple(reversed(perm)) for perm in perm_group2]
+        
+        return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
+
+
+class Congruent5(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point, p9: Point, p10: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3, p4, p5], [p6, p7, p8, p9, p10], mapping=True)
+    
+    def permutations(self):
+        perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5]), i, i + 5)) for i in range(5)]
+        perm_group1 += [tuple(reversed(perm)) for perm in perm_group1]
+        perm_group2 = [tuple(itertools.islice(itertools.cycle([self.p6, self.p7, self.p8, self.p9, self.p10]), i, i + 5)) for i in range(5)]
+        perm_group2 += [tuple(reversed(perm)) for perm in perm_group2]
+        
+        return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
+
+
+def Similar(*ps: list[Point]):
+    if not len(ps) % 2 == 0:
+        raise UnsupportedRelation(f"Unsupported number of points for a Similar relation: {len(ps)}")
+    
+    num = len(ps) // 2
+    if num not in [3, 4, 5]:
+        raise UnsupportedRelation(f"Unsupported number of points for a Similar relation: {len(ps)}")
+    
+    return globals()['Similar'+str(num)](*ps)
+
 
 @register
-class Similar(Relation):
+class Similar3(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3], [p4, p5, p6], mapping=True)
@@ -213,6 +265,34 @@ class Similar(Relation):
         perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3]), i, i + 3)) for i in range(3)]
         perm_group1 += [tuple(reversed(perm)) for perm in perm_group1]
         perm_group2 = [tuple(itertools.islice(itertools.cycle([self.p4, self.p5, self.p6]), i, i + 3)) for i in range(3)]
+        perm_group2 += [tuple(reversed(perm)) for perm in perm_group2]
+        
+        return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
+
+
+class Similar4(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3, p4], [p5, p6, p7, p8], mapping=True)
+    
+    def permutations(self):
+        perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
+        perm_group1 += [tuple(reversed(perm)) for perm in perm_group1]
+        perm_group2 = [tuple(itertools.islice(itertools.cycle([self.p5, self.p6, self.p7, self.p8]), i, i + 4)) for i in range(4)]
+        perm_group2 += [tuple(reversed(perm)) for perm in perm_group2]
+        
+        return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
+
+
+class Similar5(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point, p9: Point, p10: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3, p4, p5], [p6, p7, p8, p9, p10], mapping=True)
+    
+    def permutations(self):
+        perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5]), i, i + 5)) for i in range(5)]
+        perm_group1 += [tuple(reversed(perm)) for perm in perm_group1]
+        perm_group2 = [tuple(itertools.islice(itertools.cycle([self.p6, self.p7, self.p8, self.p9, self.p10]), i, i + 5)) for i in range(5)]
         perm_group2 += [tuple(reversed(perm)) for perm in perm_group2]
         
         return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
@@ -264,128 +344,84 @@ class Perpendicular(Relation):
             (self.p4, self.p3, self.p2, self.p1),
         ]
 
-
-# class Quadrilateral(Relation):
-#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-#         super().__init__()
-#         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
-
-#     def permutations(self):
-#         return [
-#             (self.p1, self.p2, self.p3, self.p4),
-#             (self.p2, self.p3, self.p4, self.p1),
-#             (self.p3, self.p4, self.p1, self.p2),
-#             (self.p4, self.p1, self.p2, self.p3),
-#             (self.p4, self.p3, self.p2, self.p1),
-#             (self.p3, self.p2, self.p1, self.p4),
-#             (self.p2, self.p1, self.p4, self.p3),
-#             (self.p1, self.p4, self.p3, self.p2),
-#         ]
-
-#     def definition(self):
-#         return [
-#             OppositeSide(self.p1, self.p3, self.p2, self.p4),
-#             OppositeSide(self.p2, self.p4, self.p1, self.p3),
-#         ]
+def Polygon(*ps: Point):
+    if len(ps) == 3:
+        return Triangle(*ps)
+    elif len(ps) == 4:
+        return Quadrilateral(*ps)
+    elif len(ps) == 5:
+        return Pentagon(*ps)
+    elif len(ps) == 6:
+        return Hexagon(*ps)
+    elif len(ps) == 7:
+        return Heptagon(*ps)
+    elif len(ps) == 8:
+        return Octagon(*ps)
+    else:
+        raise UnsupportedRelation(f"Unsupported number of points for a Polygon: {len(ps)}")
 
 
-# class Pentagon(Relation):
-#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point):
-#         super().__init__()
-#         self.p1, self.p2, self.p3, self.p4, self.p5 = sort_cyclic_points(p1, p2, p3, p4, p5)
+class Triangle(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
 
-#     def permutations(self):
-#         return [
-#             (self.p1, self.p2, self.p3, self.p4, self.p5),
-#             (self.p2, self.p3, self.p4, self.p5, self.p1),
-#             (self.p3, self.p4, self.p5, self.p1, self.p2),
-#             (self.p4, self.p5, self.p1, self.p2, self.p3),
-#             (self.p5, self.p1, self.p2, self.p3, self.p4),
-#             (self.p5, self.p4, self.p3, self.p2, self.p1),
-#             (self.p4, self.p3, self.p2, self.p1, self.p5),
-#             (self.p3, self.p2, self.p1, self.p5, self.p4),
-#             (self.p2, self.p1, self.p5, self.p4, self.p3),
-#             (self.p1, self.p5, self.p4, self.p3, self.p2),
-#         ]
+    def permutations(self):
+        return itertools.permutations([self.p1, self.p2, self.p3])
 
 
-# class Similar4P(Relation):
-#     def __init__(
-#         self,
-#         p1: Point,
-#         p2: Point,
-#         p3: Point,
-#         p4: Point,
-#         p5: Point,
-#         p6: Point,
-#         p7: Point,
-#         p8: Point,
-#     ):
-#         super().__init__()
-#         point_map_12 = {p1: p5, p2: p6, p3: p7, p4: p8}
-#         point_map_21 = {p5: p1, p6: p2, p7: p3, p8: p4}
+class Quadrilateral(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
 
-#         sorted_1 = sort_cyclic_points(p1, p2, p3, p4)
-#         sorted_2 = sort_cyclic_points(p5, p6, p7, p8)
-#         if compare_names(sorted_1, sorted_2) == 0:
-#             self.p1, self.p2, self.p3, self.p4 = sorted_1
-#             self.p5,self.p6,self.p7,self.p8 = point_map_12[self.p1], point_map_12[
-#                 self.p2], point_map_12[self.p3], point_map_12[self.p4]
-#         else:
-#             self.p1, self.p2, self.p3, self.p4 = sorted_2
-#             self.p5, self.p6, self.p7, self.p8 = point_map_21[self.p1], point_map_21[
-#                 self.p2], point_map_21[self.p3], point_map_21[self.p4]
-
-#     def definition(self):
-#         return [
-#             Length(self.p1, self.p2) / Length(self.p5, self.p6)
-#             - Length(self.p2, self.p3) / Length(self.p6, self.p7),
-#             Length(self.p1, self.p2) / Length(self.p5, self.p6)
-#             - Length(self.p3, self.p4) / Length(self.p7, self.p8),
-#             Length(self.p1, self.p2) / Length(self.p5, self.p6)
-#             - Length(self.p4, self.p1) / Length(self.p8, self.p5),
-#             Angle(self.p1, self.p2, self.p3) - Angle(self.p5, self.p6, self.p7),
-#             Angle(self.p2, self.p3, self.p4) - Angle(self.p6, self.p7, self.p8),
-#             Angle(self.p3, self.p4, self.p1) - Angle(self.p7, self.p8, self.p5),
-#             Angle(self.p4, self.p1, self.p2) - Angle(self.p8, self.p5, self.p6),
-#         ]
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
 
 
-# class Similar5P(Relation):
-#     def __init__(
-#         self,
-#         p1: Point,
-#         p2: Point,
-#         p3: Point,
-#         p4: Point,
-#         p5: Point,
-#         p6: Point,
-#         p7: Point,
-#         p8: Point,
-#         p9: Point,
-#         p10: Point,
-#     ):
-#         super().__init__()
-#         self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8, self.p9, self.p10 = p1, p2, p3, p4, p5, p6, p7, p8, p9, p10
+class Pentagon(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5 = sort_cyclic_points(p1, p2, p3, p4, p5)
 
-#     def definition(self):
-#         return [
-#             Length(self.p1, self.p2) / Length(self.p6, self.p7)
-#             - Length(self.p2, self.p3) / Length(self.p7, self.p8),
-#             Length(self.p2, self.p3) / Length(self.p7, self.p8)
-#             - Length(self.p3, self.p4) / Length(self.p8, self.p9),
-#             Length(self.p3, self.p4) / Length(self.p8, self.p9)
-#             - Length(self.p4, self.p5) / Length(self.p9, self.p10),
-#             Length(self.p4, self.p5) / Length(self.p9, self.p10)
-#             - Length(self.p5, self.p1) / Length(self.p10, self.p6),
-#             Length(self.p5, self.p1) / Length(self.p10, self.p6)
-#             - Length(self.p1, self.p2) / Length(self.p6, self.p7),
-#             Angle(self.p1, self.p2, self.p3) - Angle(self.p6, self.p7, self.p8),
-#             Angle(self.p2, self.p3, self.p4) - Angle(self.p7, self.p8, self.p9),
-#             Angle(self.p3, self.p4, self.p5) - Angle(self.p8, self.p9, self.p10),
-#             Angle(self.p4, self.p5, self.p1) - Angle(self.p9, self.p10, self.p6),
-#             Angle(self.p5, self.p1, self.p2) - Angle(self.p10, self.p6, self.p7),
-#         ]
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5]), i, i + 5)) for i in range(5)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
+
+class Hexagon(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_cyclic_points(p1, p2, p3, p4, p5, p6)
+
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5, self.p6]), i, i + 6)) for i in range(6)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
+
+
+class Heptagon(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7 = sort_cyclic_points(p1, p2, p3, p4, p5, p6, p7)
+
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7]), i, i + 7)) for i in range(7)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
+
+
+class Octagon(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8 = sort_cyclic_points(p1, p2, p3, p4, p5, p6, p7, p8)
+
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8]), i, i + 8)) for i in range(8)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
 
 
 # class Parallelogram(Relation):
