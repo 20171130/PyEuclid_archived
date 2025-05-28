@@ -136,6 +136,8 @@ class DeductiveDatabase():
                 pattern_eqangle = re.compile(r"^-?Angle\w+ [-\+] Angle\w+$")
                 pattern_eqratio = re.compile(
                     r"^-?Length\w+/Length\w+ [\+-] Length\w+/Length\w+$")
+                pattern_ratio_const = re.compile(
+                    r"^-?Length\w+/Length\w+ [\+-] \d+/\d+$")
                 pattern_angle_const = re.compile(
                     r"^-?Angle\w+ [-\+] [\w/\d]+$")
                 pattern_angle_sum = re.compile(
@@ -216,15 +218,30 @@ class DeductiveDatabase():
                     l, r = points[:4], points[4:8]
                     i_bak = i
                     i = f"{i_bak}l"
-                    query_diff, wheres_diff  = point_to_ratio(l)
+                    query_diff, wheres_diff = point_to_ratio(l)
                     query += query_diff
                     wheres += wheres_diff
                     i = f"{i_bak}r"
-                    query_diff, wheres_diff  = point_to_ratio(r)
+                    query_diff, wheres_diff = point_to_ratio(r)
                     query += query_diff
                     wheres += wheres_diff
                     i = i_bak
                     wheres += [f"ratio{i}l.component=ratio{i}r.component"]
+                elif pattern_ratio_const.match(s):
+                    left = points[:4]
+                    cnst = [arg for arg in relation.args if len(arg.free_symbols)==0][0]
+                    cnst = abs(cnst)
+                    hit = False
+                    for component_id, rep in enumerate(self.state.ratios):
+                        if self.state.check_conditions(cnst - rep):
+                            hit = True
+                            break
+                    if not hit:
+                        return []
+                    query_diff, wheres_diff = point_to_ratio(left)
+                    query += query_diff
+                    wheres += wheres_diff
+                    wheres += [f"ratio{i}.component={component_id}"]
                 elif pattern_angle_const.match(s):
                     left = points[:3]
                     cnst = [arg for arg in relation.args if len(arg.free_symbols)==0][0]

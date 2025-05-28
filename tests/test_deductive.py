@@ -24,6 +24,24 @@ class Test(unittest.TestCase):
         results = db.get_applicable_theorems([theorem])
         assert theorem(a, b, b) in results
         
+    def test_ratio_const(self):
+        state = State()
+        solver = AlgebraicSystem(state)
+        state.add_equation(Length(a, b)*2-Length(c, d))
+        solver.solve_equation()
+        solver.compute_ratio_and_angle_sum()
+        db = DeductiveDatabase(state)
+        class theorem(InferenceRule):
+            def __init__(self, a, b, c, d):
+                self.a = a
+                self.b = b
+                self.c = c
+                self.d = d
+            def condition(self):
+                return Length(a, b)/Length(c, d) - sympy.Rational(1, 2),
+        results = db.get_applicable_theorems([theorem])
+        assert theorem(a, b, c, d) in results
+        
     def test_eqlength(self):
         state = State()
         state.add_point(a, b, c, d, e, f, g, h)
