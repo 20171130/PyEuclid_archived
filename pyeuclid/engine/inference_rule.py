@@ -1776,21 +1776,6 @@ class CollinearParallel(InferenceRule):
 
 #     def conclusion(self):
 #         return [Angle(self.b,self.a,self.c)-Angle(self.b,self.c,self.d)]
-    
-
-# @register("ex")
-# class MidpointRatio(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-
-#     def condition(self):
-#         return Midpoint(self.a, self.b, self.c)
-
-#     def conclusion(self):
-#         return Length(self.a, self.b) - Length(self.b, self.c)/2, Length(self.a, self.c) - Length(self.b, self.c)/2
 
 
 # @register("basic")

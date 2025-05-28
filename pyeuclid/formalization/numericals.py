@@ -653,7 +653,10 @@ def calculate_angle(a, b, c):
     magnitude_ab = math.sqrt(ab.x ** 2 + ab.y ** 2)
     magnitude_bc = math.sqrt(bc.x ** 2 + bc.y ** 2)
 
-    angle = math.acos(dot_product / (magnitude_ab * magnitude_bc))
+    cos_angle = dot_product / (magnitude_ab * magnitude_bc)
+    cos_angle = max(min(cos_angle, 1), -1)
+
+    angle = math.acos(cos_angle)
     return angle
 
 def calculate_length(a, b):
