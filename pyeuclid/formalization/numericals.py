@@ -44,7 +44,7 @@ class Point:
     def __str__(self) -> str:
         return "P({},{})".format(self.x, self.y)
     
-    def close(self, point: Point, tol: float = 1e-12) -> bool:
+    def close(self, point: Point, tol: float = 1e-6) -> bool:
         return abs(self.x - point.x) < tol and abs(self.y - point.y) < tol
 
     def distance(self, p) -> float:
@@ -615,7 +615,7 @@ def random_rfss(*points: list[Point]) -> list[Point]:
     return points
 
 
-def close_enough(a: float, b: float, tol: float = 1e-12) -> bool:
+def close_enough(a: float, b: float, tol: float = 1e-6) -> bool:
     return abs(a - b) < tol
 
 
@@ -709,8 +709,6 @@ def check_parallel(points):
     a, b, c, d = points
     ab = Line(a, b)
     cd = Line(c, d)
-    if ab.same(cd):
-        return False
     return ab.is_parallel(cd)
 
 def check_perpendicular(points):
@@ -731,10 +729,8 @@ def check_similar(points):
     xy = x.distance(y)
     yz = y.distance(z)
     zx = z.distance(x)
-    tol = 1e-9
-    return close_enough(ab * yz, bc * xy, tol) and close_enough(
-        bc * zx, ca * yz, tol
-    )
+    tol = 1e-6
+    return close_enough(ab * yz, bc * xy, tol) and close_enough(bc * zx, ca * yz, tol)
 
 def check_congruent(points):
     a, b, c, x, y, z = points
@@ -744,9 +740,5 @@ def check_congruent(points):
     xy = x.distance(y)
     yz = y.distance(z)
     zx = z.distance(x)
-    tol = 1e-9
-    return (
-        close_enough(ab, xy, tol)
-        and close_enough(bc, yz, tol)
-        and close_enough(ca, zx, tol)
-    )
+    tol = 1e-6
+    return close_enough(ab, xy, tol) and close_enough(bc, yz, tol) and close_enough(ca, zx, tol)

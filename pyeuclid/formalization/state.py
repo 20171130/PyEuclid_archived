@@ -66,20 +66,14 @@ class State:
             relations = [relations]
         for item in relations:
             if isinstance(item, Relation):
-                # if self.diagram is not None:
-                #     if not self.diagram.numerical_check(item):
-                #         print(item)
-                #         print("wrong conclusion!!!")
-                #         input()
+                if self.diagram is not None:
+                    assert self.diagram.numerical_check(item)
                 self.add_relation(item)
             else:
-                # if isinstance(item, Traced):
-                #     item = item.expr
-                # if self.diagram is not None:
-                #     if not self.diagram.numerical_check(item):
-                #         print(item)
-                #         print("wrong conclusion!!!")
-                #         input()
+                if isinstance(item, Traced):
+                    item = item.expr
+                if self.diagram is not None:
+                    assert self.diagram.numerical_check(item)
                 self.add_equation(item)
     
     def add_relation(self, relation):
