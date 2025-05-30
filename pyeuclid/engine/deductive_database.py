@@ -137,7 +137,7 @@ class DeductiveDatabase():
                 pattern_eqratio = re.compile(
                     r"^-?Length\w+/Length\w+ [\+-] Length\w+/Length\w+$")
                 pattern_ratio_const = re.compile(
-                    r"^-?Length\w+/Length\w+ [\+-] \d+/\d+$")
+                    r"^(?:(-?Length\w+/Length\w+)\s*([\+-])\s*(\d+/\d+)|([\+-]?\d+/\d+)\s*([\+-])\s*(Length\w+/Length\w+))$")
                 pattern_angle_const = re.compile(
                     r"^-?Angle\w+ [-\+] [\w/\d]+$")
                 pattern_angle_sum = re.compile(

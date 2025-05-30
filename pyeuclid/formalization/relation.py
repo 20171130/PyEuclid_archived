@@ -370,6 +370,7 @@ class Triangle(Relation):
     def permutations(self):
         return itertools.permutations([self.p1, self.p2, self.p3])
 
+
 @register
 class Quadrilateral(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -499,17 +500,7 @@ class Parallelogram(Relation):
         reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
         return forward_permutations + reverse_permutations
 
-# class Parallelogram(Relation):
-#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-#         super().__init__()
-#         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
 
-#     def definition(self):
-#         return [
-#             Parallel(self.p1, self.p2, self.p3, self.p4),
-#             Parallel(self.p2, self.p3, self.p4, self.p1),
-#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-#         ]
 @register
 class Square(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -521,23 +512,7 @@ class Square(Relation):
         reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
         return forward_permutations + reverse_permutations
 
-# class Square(Relation):
-#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-#         super().__init__()
-#         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
 
-#     def definition(self):
-#         return [
-#             Length(self.p1, self.p2) - Length(self.p2, self.p3),
-#             Length(self.p2, self.p3) - Length(self.p3, self.p4),
-#             Length(self.p3, self.p4) - Length(self.p4, self.p1),
-#             Length(self.p4, self.p1) - Length(self.p1, self.p2),
-#             Angle(self.p1, self.p2, self.p3) - pi / 2,
-#             Angle(self.p2, self.p3, self.p4) - pi / 2,
-#             Angle(self.p3, self.p4, self.p1) - pi / 2,
-#             Angle(self.p4, self.p1, self.p2) - pi / 2,
-#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-#         ]
 @register
 class Rectangle(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -550,21 +525,6 @@ class Rectangle(Relation):
         return forward_permutations + reverse_permutations
 
 
-# class Rectangle(Relation):
-#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-#         super().__init__()
-#         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
-
-#     def definition(self):
-#         return [
-#             Length(self.p1, self.p2) - Length(self.p3, self.p4),
-#             Length(self.p2, self.p3) - Length(self.p4, self.p1),
-#             Angle(self.p1, self.p2, self.p3) - pi / 2,
-#             Angle(self.p2, self.p3, self.p4) - pi / 2,
-#             Angle(self.p3, self.p4, self.p1) - pi / 2,
-#             Angle(self.p4, self.p1, self.p2) - pi / 2,
-#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-#         ]
 @register
 class Rhombus(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -576,20 +536,7 @@ class Rhombus(Relation):
         reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
         return forward_permutations + reverse_permutations
 
-# class Rhombus(Relation):
-#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-#         super().__init__()
-#         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
 
-#     def definition(self):
-#         return [
-#             Length(self.p1, self.p2) - Length(self.p2, self.p3),
-#             Length(self.p2, self.p3) - Length(self.p3, self.p4),
-#             Length(self.p3, self.p4) - Length(self.p4, self.p1),
-#             Length(self.p4, self.p1) - Length(self.p1, self.p2),
-#             Perpendicular(self.p1, self.p3, self.p2, self.p4),
-#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-#         ]
 @register
 class Trapezoid(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -604,25 +551,6 @@ class Trapezoid(Relation):
             (self.p2, self.p1, self.p4, self.p3),
         ]
 
-# class Trapezoid(Relation):
-#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-#         super().__init__()
-#         if p1.name > p3.name:
-#             if p3.name > p4.name:
-#                 self.p1, self.p2, self.p3, self.p4 = p4, p3, p2, p1
-#             else:
-#                 self.p1, self.p2, self.p3, self.p4 = p3, p4, p1, p2
-#         else:
-#             if p1.name > p2.name:
-#                 self.p1, self.p2, self.p3, self.p4 = p2, p1, p4, p3
-#             else:
-#                 self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
-
-#     def definition(self):
-#         return [
-#             Parallel(self.p1, self.p2, self.p3, self.p4),
-#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-#         ]
 
 @register
 class Kite(Relation):
@@ -639,66 +567,59 @@ class Kite(Relation):
         ]
 
 
-
-# class Kite(Relation):
-#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-#         super().__init__()
-#         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
-
-#     def definition(self):
-#         return [
-#             Length(self.p1, self.p2) - Length(self.p2, self.p3),
-#             Length(self.p3, self.p4) - Length(self.p4, self.p1),
-#             Angle(self.p2, self.p1, self.p4) - Angle(self.p2, self.p3, self.p4),
-#             Angle(self.p1, self.p2, self.p3) - Angle(self.p1, self.p4, self.p3),
-#             Different(self.p1, self.p2, self.p3, self.p4),
-#             Perpendicular(self.p1, self.p3, self.p2, self.p4),
-#             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-#         ]
+@register
+class Incenter(Relation):
+    def __init__(self, o: Point, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.o = o
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+    
+    def permutations(self):
+        return [(self.o, *perm) for perm in itertools.permutations([self.p1, self.p2, self.p3])]
 
 
-# class Incenter(Relation):
-#     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
-#         super().__init__()
-#         self.p1 = p1
-#         self.p2 = p2
-#         self.p3 = p3
-#         self.p4 = p4
-
-#     def definition(self):
-#         return [
-#             Angle(self.p3, self.p2, self.p1) - Angle(self.p1, self.p2, self.p4),
-#             Angle(self.p2, self.p4, self.p1) - Angle(self.p1, self.p4, self.p3),
-#             Angle(self.p4, self.p3, self.p1) - Angle(self.p1, self.p3, self.p2),
-#         ]
+@register
+class Centroid(Relation):
+    def __init__(self, o: Point, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.o = o
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+    
+    def permutations(self):
+        return [(self.o, *perm) for perm in itertools.permutations([self.p1, self.p2, self.p3])]
 
 
-# class Centroid(Relation):
-#     def __init__(
-#         self, o: Point, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point
-#     ):
-#         super().__init__()
-#         self.o = o
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-#         self.e = e
-#         self.f = f
+@register
+class Orthocenter(Relation):
+    def __init__(self, o: Point, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.o = o
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+    
+    def permutations(self):
+        return [(self.o, *perm) for perm in itertools.permutations([self.p1, self.p2, self.p3])]
 
-#     def definition(self):
-#         return [
-#             Midpoint(self.d, self.b, self.c),
-#             Midpoint(self.e, self.a, self.c),
-#             Midpoint(self.f, self.b, self.a),
-#             NotCollinear(self.a, self.b, self.c),
-#             Collinear(self.o, self.a, self.d),
-#             Collinear(self.o, self.b, self.e),
-#             Collinear(self.o, self.c, self.f),
-#             Between(self.o, self.a, self.d),
-#             Between(self.o, self.b, self.e),
-#             Between(self.o, self.c, self.f),
-#         ]
+
+@register
+class Circumcenter(Relation):
+    def __init__(self, o: Point, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.o = o
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+    
+    def permutations(self):
+        return [(self.o, *perm) for perm in itertools.permutations([self.p1, self.p2, self.p3])]
+
+
+@register
+class Excenter(Relation):
+    def __init__(self, o: Point, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.o = o
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+    
+    def permutations(self):
+        return [(self.o, *perm) for perm in itertools.permutations([self.p1, self.p2, self.p3])]
 
 
 def get_points_and_symbols(eqn):
