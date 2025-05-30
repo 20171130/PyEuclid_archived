@@ -218,15 +218,19 @@ class ProofGenerator:
             else:
                 assert isinstance(node, sympy.core.expr.Expr)
                 sources = []
-                solved_vars = self.state.solutions[min(int(depth), len(self.state.solutions)-1)]
-                for symbol in node.free_symbols:
-                    if not symbol in solved_vars:
-                        continue  # free vars
-                    expr = symbol-solved_vars[symbol].expr
-                    expr = Traced(expr, sources=solved_vars[symbol].sources, depth=int(depth))
-                    sources.append(expr)
-                if isinstance(node, sympy.core.symbol.Symbol):
-                    node = node - solved_vars[node].expr
+                depth = min(int(depth), len(self.state.solutions)-1)
+                equations = [item for item in self.state.equations if item.depth <= depth]
+                if "Angle" in str(node):
+                    conditions = self.find_conditions(equations, node, "angle_linear")
+                else:
+                    for tmp in ("length_ratio", "length_linear"):
+                        conditions = self.find_conditions(equations, node, tmp)
+                        if conditions:
+                            break
+                if not conditions:
+                    breakpoint()
+                    assert False
+                sources = conditions
             result = {node: sources}
             for item in sources:
                 result.update(self.run(item, visited, root=False))
