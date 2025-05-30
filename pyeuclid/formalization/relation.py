@@ -216,6 +216,7 @@ class Congruent3(Relation):
         
         return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
 
+
 class Congruent4(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point):
         super().__init__()
@@ -360,7 +361,7 @@ def Polygon(*ps: Point):
     else:
         raise UnsupportedRelation(f"Unsupported number of points for a Polygon: {len(ps)}")
 
-
+@register
 class Triangle(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point):
         super().__init__()
@@ -369,7 +370,7 @@ class Triangle(Relation):
     def permutations(self):
         return itertools.permutations([self.p1, self.p2, self.p3])
 
-
+@register
 class Quadrilateral(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
@@ -390,6 +391,7 @@ class Pentagon(Relation):
         forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5]), i, i + 5)) for i in range(5)]
         reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
         return forward_permutations + reverse_permutations
+
 
 class Hexagon(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
@@ -424,6 +426,79 @@ class Octagon(Relation):
         return forward_permutations + reverse_permutations
 
 
+# def Regular(*ps: Point):
+#     if len(ps) ==3
+#     ps = obj.get_points()
+#     if isinstance(obj, Triangle):
+#         return EquilateralTriangle(*ps)
+#     elif isinstance(obj, Quadrilateral):
+#         return Square(*ps)
+#     elif isinstance(obj, Pentagon):
+#         return Regular5(*ps)
+#     elif isinstance(obj, Hexagon):
+#         return Regular6(*ps)
+#     elif isinstance(obj, Heptagon):
+#         return Regular7(*ps)
+#     elif isinstance(obj, Octagon):
+#         return Regular8(*ps)
+#     else:
+#         raise UnsupportedRelation(f"Unsupported number of points for a Regular Object: {len(ps)}")
+
+
+class Regular5(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5 = sort_cyclic_points(p1, p2, p3, p4, p5)
+
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5]), i, i + 5)) for i in range(5)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
+
+
+class Regular6(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_cyclic_points(p1, p2, p3, p4, p5, p6)
+
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5, self.p6]), i, i + 6)) for i in range(6)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
+
+
+class Regular7(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7 = sort_cyclic_points(p1, p2, p3, p4, p5, p6, p7)
+
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7]), i, i + 7)) for i in range(7)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
+
+
+class Regular8(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8 = sort_cyclic_points(p1, p2, p3, p4, p5, p6, p7, p8)
+
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8]), i, i + 8)) for i in range(8)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
+
+@register
+class Parallelogram(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
+    
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
+
 # class Parallelogram(Relation):
 #     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
 #         super().__init__()
@@ -435,7 +510,16 @@ class Octagon(Relation):
 #             Parallel(self.p2, self.p3, self.p4, self.p1),
 #             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
 #         ]
-
+@register
+class Square(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
+    
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
 
 # class Square(Relation):
 #     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -454,6 +538,16 @@ class Octagon(Relation):
 #             Angle(self.p4, self.p1, self.p2) - pi / 2,
 #             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
 #         ]
+@register
+class Rectangle(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
+    
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
 
 
 # class Rectangle(Relation):
@@ -471,7 +565,16 @@ class Octagon(Relation):
 #             Angle(self.p4, self.p1, self.p2) - pi / 2,
 #             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
 #         ]
-
+@register
+class Rhombus(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
+    
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
 
 # class Rhombus(Relation):
 #     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -487,7 +590,19 @@ class Octagon(Relation):
 #             Perpendicular(self.p1, self.p3, self.p2, self.p4),
 #             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
 #         ]
-
+@register
+class Trapezoid(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
+    
+    def permutations(self):
+        return [
+            (self.p1, self.p2, self.p3, self.p4),
+            (self.p3, self.p4, self.p1, self.p2),
+            (self.p4, self.p3, self.p2, self.p1),
+            (self.p2, self.p1, self.p4, self.p3),
+        ]
 
 # class Trapezoid(Relation):
 #     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -508,6 +623,21 @@ class Octagon(Relation):
 #             Parallel(self.p1, self.p2, self.p3, self.p4),
 #             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
 #         ]
+
+@register
+class Kite(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
+    
+    def permutations(self):
+        return [
+            (self.p1, self.p2, self.p3, self.p4),
+            (self.p1, self.p4, self.p3, self.p2),
+            (self.p3, self.p2, self.p1, self.p4),
+            (self.p3, self.p4, self.p1, self.p2),
+        ]
+
 
 
 # class Kite(Relation):

@@ -670,12 +670,9 @@ def check_collinear(points):
             return False
     return True
 
-def check_notcollinear(points):
-    return not check_collinear(points)
-
 def check_between(points):
     p, a, b = points
-    if check_notcollinear([a, b, p]):
+    if not check_collinear([a, b, p]):
         return False
       
     if a.distance(p) < ATOM or b.distance(p) < ATOM:
@@ -719,29 +716,3 @@ def check_perpendicular(points):
     ab = Line(a, b)
     cd = Line(c, d)
     return ab.is_perp(cd)
-
-def check_midpoint(points):
-    a, b, c = points
-    return check_collinear(points) and close_enough(a.distance(b), a.distance(c))
-
-def check_similar3(points):
-    a, b, c, x, y, z = points
-    ab = a.distance(b)
-    bc = b.distance(c)
-    ca = c.distance(a)
-    xy = x.distance(y)
-    yz = y.distance(z)
-    zx = z.distance(x)
-    tol = 1e-6
-    return close_enough(ab * yz, bc * xy, tol) and close_enough(bc * zx, ca * yz, tol)
-
-def check_congruent3(points):
-    a, b, c, x, y, z = points
-    ab = a.distance(b)
-    bc = b.distance(c)
-    ca = c.distance(a)
-    xy = x.distance(y)
-    yz = y.distance(z)
-    zx = z.distance(x)
-    tol = 1e-6
-    return close_enough(ab, xy, tol) and close_enough(bc, yz, tol) and close_enough(ca, zx, tol)

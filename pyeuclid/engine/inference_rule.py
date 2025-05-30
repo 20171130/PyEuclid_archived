@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import Iterable
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.utils import *
-from sympy import pi, sin, cos
+from sympy import Rational, pi, sin, cos
 
 
 inference_rule_sets = {}
@@ -87,18 +87,17 @@ class DefinitionOfMidpoint(InferenceRule):
     def conclusion(self):
         return Midpoint(self.a, self.b, self.c)
 
-
-# @register("ex")
-# class DefinitionOfMidpoint(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point):
-#         super().__init__()
-#         self.a, self.b, self.c = a, b, c
+@register("ex")
+class DefinitionOfMidpoint(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
     
-#     def condition(self):
-#         return Length(self.a, self.b) - Length(self.b, self.c) / 2, Between(self.a, self.b, self.c)
+    def condition(self):
+        return Length(self.a, self.b)/Length(self.b, self.c) - Rational(1,2), Between(self.a, self.b, self.c)
     
-#     def conclusion(self):
-#         return Midpoint(self.a, self.b, self.c)
+    def conclusion(self):
+        return Midpoint(self.a, self.b, self.c)
 
 
 @register("ex")
@@ -156,6 +155,504 @@ class PropertyOfSimilar(InferenceRule):
             Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r),
             Angle(self.b, self.c, self.a) - Angle(self.q, self.r, self.p),
             Angle(self.c, self.a, self.b) - Angle(self.r, self.p, self.q),
+        ]
+
+@register("ex")
+class DefinitionOfTriangle(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
+    
+    def condition(self):
+        return Not(Collinear(self.a, self.b, self.c)), Lt(self.a, self.b), Lt(self.b, self.c)
+    
+    def conclusion(self):
+        return Triangle(self.a, self.b, self.c)
+
+
+@register("ex")
+class DefinitionOfTriangle(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
+    
+    def condition(self):
+        return Not(Collinear(self.a, self.b, self.c)), Lt(self.a, self.b), Lt(self.b, self.c)
+    
+    def conclusion(self):
+        return Triangle(self.a, self.b, self.c)
+
+
+@register("ex")
+class PropertyOfTriangle(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
+    
+    def condition(self):
+        return Triangle(self.a, self.b, self.c)
+    
+    def conclusion(self):
+        return [
+            Not(Collinear(self.a, self.b, self.c)), 
+            Angle(self.b, self.a, self.c) + Angle(self.c, self.b, self.a) + Angle(self.a, self.c, self.b) - pi
+        ]
+
+
+@register("ex")
+class DefinitionOfQuadrilateral(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            OppositeSide(self.p1, self.p3, self.p2, self.p4),
+            OppositeSide(self.p2, self.p4, self.p1, self.p3),
+            Not(Collinear(self.p1, self.p2, self.p3)),
+            Not(Collinear(self.p2, self.p3, self.p4)),
+            Not(Collinear(self.p3, self.p4, self.p1)),
+            Not(Collinear(self.p4, self.p1, self.p2)),
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+            Lt(self.p2, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Quadrilateral(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class PropertyOfQuadrilateral(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return Quadrilateral(self.p1, self.p2, self.p3, self.p4)
+    
+    def conclusion(self):
+        return [
+            # Angle(self.p4, self.p1, self.p2) + Angle(self.p1, self.p2, self.p3) + Angle(self.p2, self.p3, self.p4) + Angle(self.p3, self.p4, self.p1) - 2 * pi,
+            OppositeSide(self.p1, self.p3, self.p2, self.p4),
+            OppositeSide(self.p2, self.p4, self.p1, self.p3),
+            Not(Collinear(self.p1, self.p2, self.p3)),
+            Not(Collinear(self.p2, self.p3, self.p4)),
+            Not(Collinear(self.p3, self.p4, self.p1)),
+            Not(Collinear(self.p4, self.p1, self.p2)),
+        ]
+
+
+@register("ex")
+class DefinitionOfParallelogram1(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p4, self.p2, self.p3),
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+            Lt(self.p2, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Parallelogram(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class DefinitionOfParallelogram2(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p2) - Length(self.p3, self.p4),
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Parallelogram(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class DefinitionOfParallelogram3(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p2) - Length(self.p3, self.p4),
+            Length(self.p1, self.p4) - Length(self.p2, self.p3),
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+            Lt(self.p2, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Parallelogram(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class DefinitionOfParallelogram4(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Angle(self.p4, self.p1, self.p2) - Angle(self.p2, self.p3, self.p4),
+            Angle(self.p1, self.p2, self.p3) - Angle(self.p3, self.p4, self.p1),
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+            Lt(self.p2, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Parallelogram(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class PropertyOfParallelogram(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return Parallelogram(self.p1, self.p2, self.p3, self.p4)
+    
+    def conclusion(self):
+        return [
+            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p4, self.p2, self.p3),
+            Length(self.p1, self.p2) - Length(self.p3, self.p4),
+            Length(self.p1, self.p4) - Length(self.p2, self.p3),
+            Angle(self.p4, self.p1, self.p2) + Angle(self.p1, self.p2, self.p3) - pi,
+            Angle(self.p1, self.p2, self.p3) + Angle(self.p2, self.p3, self.p4) - pi,
+            Angle(self.p2, self.p3, self.p4) + Angle(self.p3, self.p4, self.p1) - pi,
+            Angle(self.p3, self.p4, self.p1) + Angle(self.p4, self.p1, self.p2) - pi,
+            Angle(self.p4, self.p1, self.p2) - Angle(self.p2, self.p3, self.p4),
+            Angle(self.p1, self.p2, self.p3) - Angle(self.p3, self.p4, self.p1),
+        ]
+
+
+@register("ex")
+class DefinitionOfRectangle1(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Parallelogram(self.p1, self.p2, self.p3, self.p4),
+            Angle(self.p1, self.p2, self.p3) - pi / 2
+        ]
+    
+    def conclusion(self):
+        return Rectangle(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class DefinitionOfRectangle2(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Parallelogram(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p3) - Length(self.p2, self.p4),
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+            Lt(self.p2, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Rectangle(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class PropertyOfRectangle(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return Rectangle(self.p1, self.p2, self.p3, self.p4)
+    
+    def conclusion(self):
+        return [
+            Parallelogram(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p3) - Length(self.p2, self.p4),
+            Angle(self.p4, self.p1, self.p2) - pi / 2,
+            Angle(self.p1, self.p2, self.p3) - pi / 2,
+            Angle(self.p2, self.p3, self.p4) - pi / 2,
+            Angle(self.p3, self.p4, self.p1) - pi / 2,
+        ]
+
+
+@register("ex")
+class DefinitionOfRhombus1(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Length(self.p1, self.p2) - Length(self.p2, self.p3),
+            Length(self.p2, self.p3) - Length(self.p3, self.p4),
+            Length(self.p3, self.p4) - Length(self.p4, self.p1),
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+            Lt(self.p2, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Rhombus(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class DefinitionOfRhombus2(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Parallelogram(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p2) - Length(self.p2, self.p3),
+            Lt(self.p1, self.p3)
+        ]
+    
+    def conclusion(self):
+        return Rhombus(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class DefinitionOfRhombus3(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Parallelogram(self.p1, self.p2, self.p3, self.p4),
+            Perpendicular(self.p1, self.p3, self.p2, self.p4),
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+            Lt(self.p2, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Rhombus(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class DefinitionOfRhombus4(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Parallelogram(self.p1, self.p2, self.p3, self.p4),
+            Angle(self.p1, self.p2, self.p4) - Angle(self.p3, self.p2, self.p4),
+            Lt(self.p1, self.p3),
+        ]
+    
+    def conclusion(self):
+        return Rhombus(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class PropertyOfRhombus(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return Rhombus(self.p1, self.p2, self.p3, self.p4)
+    
+    def conclusion(self):
+        return [
+            Parallelogram(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p2) - Length(self.p2, self.p3),
+            Length(self.p2, self.p3) - Length(self.p3, self.p4),
+            Length(self.p3, self.p4) - Length(self.p4, self.p1),
+            Perpendicular(self.p1, self.p3, self.p2, self.p4),
+            Angle(self.p4, self.p1, self.p3) - Angle(self.p2, self.p1, self.p3),
+            Angle(self.p1, self.p2, self.p4) - Angle(self.p3, self.p2, self.p4),
+            Angle(self.p2, self.p3, self.p1) - Angle(self.p4, self.p3, self.p1),
+            Angle(self.p3, self.p4, self.p2) - Angle(self.p1, self.p4, self.p2),
+        ]
+
+
+@register("ex")
+class DefinitionOfSquare1(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Rectangle(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p2) - Length(self.p1, self.p4),
+            Lt(self.p2, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Square(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class DefinitionOfSquare2(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Rhombus(self.p1, self.p2, self.p3, self.p4),
+            Angle(self.p1, self.p2, self.p3) - pi / 2,
+            Lt(self.p1, self.p3),
+        ]
+    
+    def conclusion(self):
+        return Square(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class DefinitionOfSquare3(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Rhombus(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p3) - Length(self.p2, self.p4),
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+            Lt(self.p2, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Square(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class PropertyOfSquare(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return Square(self.p1, self.p2, self.p3, self.p4)
+    
+    def conclusion(self):
+        return [
+            Rectangle(self.p1, self.p2, self.p3, self.p4),
+            Rhombus(self.p1, self.p2, self.p3, self.p4),
+        ]
+
+
+@register("ex")
+class DefinitionOfTrapezoid(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+        ]
+    
+    def conclusion(self):
+        return Trapezoid(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class PropertyOfTrapezoid(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Trapezoid(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
+        ]
+    
+    def conclusion(self):
+        return [
+            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Angle(self.p1, self.p2, self.p3) + Angle(self.p2, self.p3, self.p4) - pi,
+            Angle(self.p4, self.p1, self.p2) + Angle(self.p3, self.p4, self.p1) - pi,
+        ]
+
+
+@register("ex")
+class DefinitionOfKite1(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p2) - Length(self.p2, self.p3),
+            Length(self.p3, self.p4) - Length(self.p4, self.p1),
+        ]
+    
+    def conclusion(self):
+        return Kite(self.p1, self.p2, self.p3, self.p4)
+
+
+@register("ex")
+class PropertyOfKite(InferenceRule):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Kite(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p2) - Length(self.p2, self.p3),
+            Length(self.p3, self.p4) - Length(self.p4, self.p1),
+        ]
+    
+    def conclusion(self):
+        return [
+            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Perpendicular(self.p1, self.p3, self.p2, self.p4),
+            Angle(self.p2, self.p1, self.p4) - Angle(self.p2, self.p3, self.p4),
+
+            Angle(self.p1, self.p2, self.p4) - Angle(self.p3, self.p2, self.p4),
+            Angle(self.p1, self.p4, self.p2) - Angle(self.p3, self.p4, self.p2),
         ]
 
 
@@ -1310,19 +1807,19 @@ class DiagramAngle2(InferenceRule):
         return Angle(self.b, self.a, self.c) - Angle(self.d, self.a, self.c) - Angle(self.d, self.a, self.b)
 
 
-@register("ex")
-class TriangleAngles(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
+# @register("ex")
+# class TriangleAngles(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
 
-    def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Lt(self.a, self.b), Lt(self.b, self.c)
+#     def condition(self):
+#         return Not(Collinear(self.a, self.b, self.c)), Lt(self.a, self.b), Lt(self.b, self.c)
 
-    def conclusion(self):
-        return Angle(self.b, self.a, self.c)+Angle(self.c, self.b, self.a)+Angle(self.a, self.c, self.b) - pi
+#     def conclusion(self):
+#         return Angle(self.b, self.a, self.c)+Angle(self.c, self.b, self.a)+Angle(self.a, self.c, self.b) - pi
 
 
 @register("ex")
