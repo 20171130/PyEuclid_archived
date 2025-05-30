@@ -75,7 +75,7 @@ class construct_angle_mirror(ConstructionRule):
         return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusions(self):
-        return [Angle(self.a, self.b, self.c) - Angle(self.c, self.b, self.x)]
+        return Angle(self.a, self.b, self.c) - Angle(self.c, self.b, self.x), Angle(self.a, self.b, self.c) + Angle(self.c, self.b, self.x) - pi
 
 
 @register("AG")

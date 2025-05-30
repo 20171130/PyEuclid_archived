@@ -8,5 +8,4 @@
 
 export PYTHONBREAKPOINT=0
 
-conda activate pyeuclid
 mpirun python3 test.py

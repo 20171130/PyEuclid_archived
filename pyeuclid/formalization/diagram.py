@@ -146,6 +146,9 @@ class Diagram:
             
     def numerical_check(self, relation):
         if isinstance(relation, Relation):
+            # high-level relations
+            if not 'check_' + relation.__class__.__name__.lower() in globals():
+                return True
             func = globals()['check_' + relation.__class__.__name__.lower()]
             args = [self.name2point[p.name] for p in relation.get_points()]
             if relation.negated:
@@ -153,18 +156,18 @@ class Diagram:
             else:
                 return func(args)
         else:
-            symbol_to_value = {}
+            symbol2value = {}
             symbols, symbol_names = parse_expression(relation)
             
             for angle_symbol, angle_name in zip(symbols['Angle'], symbol_names['Angle']):
                 angle_value = calculate_angle(*[self.name2point[n] for n in angle_name])
-                symbol_to_value[angle_symbol] = angle_value
+                symbol2value[angle_symbol] = angle_value
             
             for length_symbol, length_name in zip(symbols['Length'], symbol_names['Length']):
                 length_value = calculate_length(*[self.name2point[n] for n in length_name])
-                symbol_to_value[length_symbol] = length_value
+                symbol2value[length_symbol] = length_value
             
-            evaluated_expr = relation.subs(symbol_to_value)
+            evaluated_expr = relation.subs(symbol2value)
             if close_enough(float(evaluated_expr.evalf()), 0):
                 return True
             else:

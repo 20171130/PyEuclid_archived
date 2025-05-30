@@ -44,7 +44,7 @@ class Point:
     def __str__(self) -> str:
         return "P({},{})".format(self.x, self.y)
     
-    def close(self, point: Point, tol: float = 1e-12) -> bool:
+    def close(self, point: Point, tol: float = 1e-6) -> bool:
         return abs(self.x - point.x) < tol and abs(self.y - point.y) < tol
 
     def distance(self, p) -> float:
@@ -615,7 +615,7 @@ def random_rfss(*points: list[Point]) -> list[Point]:
     return points
 
 
-def close_enough(a: float, b: float, tol: float = 1e-12) -> bool:
+def close_enough(a: float, b: float, tol: float = 1e-6) -> bool:
     return abs(a - b) < tol
 
 
@@ -653,7 +653,10 @@ def calculate_angle(a, b, c):
     magnitude_ab = math.sqrt(ab.x ** 2 + ab.y ** 2)
     magnitude_bc = math.sqrt(bc.x ** 2 + bc.y ** 2)
 
-    angle = math.acos(dot_product / (magnitude_ab * magnitude_bc))
+    cos_angle = dot_product / (magnitude_ab * magnitude_bc)
+    cos_angle = max(min(cos_angle, 1), -1)
+
+    angle = math.acos(cos_angle)
     return angle
 
 def calculate_length(a, b):
@@ -667,12 +670,9 @@ def check_collinear(points):
             return False
     return True
 
-def check_notcollinear(points):
-    return not check_collinear(points)
-
 def check_between(points):
     p, a, b = points
-    if check_notcollinear([a, b, p]):
+    if not check_collinear([a, b, p]):
         return False
       
     if a.distance(p) < ATOM or b.distance(p) < ATOM:
@@ -709,8 +709,6 @@ def check_parallel(points):
     a, b, c, d = points
     ab = Line(a, b)
     cd = Line(c, d)
-    if ab.same(cd):
-        return False
     return ab.is_parallel(cd)
 
 def check_perpendicular(points):
@@ -718,35 +716,3 @@ def check_perpendicular(points):
     ab = Line(a, b)
     cd = Line(c, d)
     return ab.is_perp(cd)
-
-def check_midpoint(points):
-    a, b, c = points
-    return check_collinear(points) and close_enough(a.distance(b), a.distance(c))
-
-def check_similar(points):
-    a, b, c, x, y, z = points
-    ab = a.distance(b)
-    bc = b.distance(c)
-    ca = c.distance(a)
-    xy = x.distance(y)
-    yz = y.distance(z)
-    zx = z.distance(x)
-    tol = 1e-9
-    return close_enough(ab * yz, bc * xy, tol) and close_enough(
-        bc * zx, ca * yz, tol
-    )
-
-def check_congruent(points):
-    a, b, c, x, y, z = points
-    ab = a.distance(b)
-    bc = b.distance(c)
-    ca = c.distance(a)
-    xy = x.distance(y)
-    yz = y.distance(z)
-    zx = z.distance(x)
-    tol = 1e-9
-    return (
-        close_enough(ab, xy, tol)
-        and close_enough(bc, yz, tol)
-        and close_enough(ca, zx, tol)
-    )
