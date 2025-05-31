@@ -657,6 +657,336 @@ class PropertyOfKite(InferenceRule):
 
 
 @register("basic")
+class DefinitionOfIncenter1(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c = o, a, b, c
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Angle(self.a, self.b, self.o) - Angle(self.c, self.b, self.o),
+            Angle(self.a, self.c, self.o) - Angle(self.b, self.c, self.o),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return Incenter(self.o, self.a, self.b, self.c)
+
+
+@register("basic")
+class DefinitionOfIncenter2(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c, self.p, self.q, self.r = o, a, b, c, p, q, r
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Collinear(self.p, self.a, self.b),
+            Collinear(self.q, self.b, self.c),
+            Collinear(self.r, self.c, self.a),
+            SameSide(self.o, self.a, self.b, self.c),
+            SameSide(self.o, self.b, self.c, self.a),
+            SameSide(self.o, self.c, self.a, self.b),
+            Perpendicular(self.o, self.p, self.a, self.b),
+            Perpendicular(self.o, self.q, self.b, self.c),
+            Perpendicular(self.o, self.r, self.c, self.a),
+            Length(self.o, self.p) - Length(self.o, self.q),
+            Length(self.o, self.q) - Length(self.o, self.r),
+            Lt(self.a, self.b),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return Incenter(self.o, self.a, self.b, self.c)
+
+
+@register("basic")
+class PropertyOfIncenter1(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c = o, a, b, c
+    
+    def condition(self):
+        return Incenter(self.o, self.a, self.b, self.c)
+    
+    def conclusion(self):
+        return [
+            Angle(self.b, self.a, self.o) - Angle(self.c, self.a, self.o),
+            Angle(self.a, self.b, self.o) - Angle(self.c, self.b, self.o),
+            Angle(self.a, self.c, self.o) - Angle(self.b, self.c, self.o),
+        ]
+
+
+@register("basic")
+class PropertyOfIncenter2(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point, q: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c, self.p, self.q = o, a, b, c, p, q
+    
+    def condition(self):
+        return [
+            Incenter(self.o, self.a, self.b, self.c),
+            Collinear(self.a, self.b, self.p),
+            Collinear(self.b, self.c, self.q),
+            Perpendicular(self.o, self.p, self.a, self.b),
+            Perpendicular(self.o, self.q, self.b, self.c),
+        ]
+    
+    def conclusion(self):
+        return [
+            Length(self.o, self.p) - Length(self.o, self.q)
+        ]
+
+
+@register("basic")
+class DefinitionOfCentroid1(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point, q: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c, self.p, self.q = o, a, b, c, p, q
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Midpoint(self.p, self.a, self.b),
+            Midpoint(self.q, self.b, self.c),
+            Collinear(self.c, self.o, self.p),
+            Collinear(self.a, self.o, self.q),
+        ]
+    
+    def conclusion(self):
+        return Centroid(self.o, self.a, self.b, self.c)
+
+
+@register("basic")
+class DefinitionOfCentroid2(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c, self.p = o, a, b, c, p
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Midpoint(self.p, self.a, self.b),
+            Collinear(self.c, self.o, self.p),
+            Length(self.o, self.p)/Length(self.o, self.c) - Rational(1,2)
+        ]
+    
+    def conclusion(self):
+        return Centroid(self.o, self.a, self.b, self.c)
+
+
+@register("basic")
+class PropertyOfCentroid(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c, self.p = o, a, b, c, p
+    
+    def condition(self):
+        return [
+            Centroid(self.o, self.a, self.b, self.c),
+            Collinear(self.p, self.a, self.b),
+            Collinear(self.p, self.o, self.c),
+        ]
+    
+    def conclusion(self):
+        return [
+            Midpoint(self.p, self.a, self.b),
+            Length(self.o, self.p)/Length(self.o, self.c) - 1/2
+        ]
+
+
+@register("basic")
+class DefinitionOfOrthocenter(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c = o, a, b, c
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Perpendicular(self.o, self.a, self.b, self.c),
+            Perpendicular(self.o, self.b, self.a, self.c),
+            Lt(self.a, self.b)
+        ]
+    
+    def conclusion(self):
+        return Orthocenter(self.o, self.a, self.b, self.c)
+
+
+@register("basic")
+class PropertyOfOrthocenter(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c = o, a, b, c
+    
+    def condition(self):
+        return [
+            Orthocenter(self.o, self.a, self.b, self.c),
+            Lt(self.a, self.b),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            Perpendicular(self.o, self.a, self.b, self.c),
+            Perpendicular(self.o, self.b, self.c, self.a),
+            Perpendicular(self.o, self.c, self.a, self.b),
+        ]
+
+
+@register("basic")
+class DefinitionOfCircumcenter(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c = o, a, b, c
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Length(self.o, self.a) - Length(self.o, self.b),
+            Length(self.o, self.b) - Length(self.o, self.c),
+            Lt(self.a, self.c)
+        ]
+    
+    def conclusion(self):
+        return Circumcenter(self.o, self.a, self.b, self.c)
+
+
+@register("basic")
+class PropertyOfCircumcenter(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c = o, a, b, c
+    
+    def condition(self):
+        return [
+            Circumcenter(self.o, self.a, self.b, self.c),
+            Lt(self.a, self.b),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            Length(self.o, self.a) - Length(self.o, self.b),
+            Length(self.o, self.b) - Length(self.o, self.c),
+            Length(self.o, self.c) - Length(self.o, self.a),
+        ]
+
+
+# @register("basic")
+# class DefinitionOfExcenter1(InferenceRule):
+#     def __init__(self, o: Point, a: Point, b: Point, c: Point):
+#         super().__init__()
+#         self.o, self.a, self.b, self.c = o, a, b, c
+    
+#     def condition(self):
+#         return [
+#             Triangle(self.a, self.b, self.c),
+#             OppositeSide(self.o, self.a, self.b, self.c),
+#             SameSide(self.o, self.b, self.c, self.a),
+#             SameSide(self.o, self.c, self.a, self.b),
+#             Angle(self.o, self.a, self.b) - Angle(self.o, self.a, self.c),
+#             2 * Angle(self.o, self.b, self.c) + Angle(self.a, self.b, self.c) - pi,
+#         ]
+    
+#     def conclusion(self):
+#         return Excenter(self.o, self.a, self.b, self.c)
+
+
+# @register("basic")
+# class DefinitionOfExcenter2(InferenceRule):
+#     def __init__(self, o: Point, a: Point, b: Point, c: Point):
+#         super().__init__()
+#         self.o, self.a, self.b, self.c = o, a, b, c
+    
+#     def condition(self):
+#         return [
+#             Triangle(self.a, self.b, self.c),
+#             OppositeSide(self.o, self.a, self.b, self.c),
+#             SameSide(self.o, self.b, self.c, self.a),
+#             SameSide(self.o, self.c, self.a, self.b),
+#             Angle(self.o, self.b, self.c) * 2 + Angle(self.a, self.b, self.c) - pi,
+#             Angle(self.o, self.c, self.b) * 2 + Angle(self.a, self.c, self.b) - pi,
+#             Lt(self.b, self.c)
+#         ]
+    
+#     def conclusion(self):
+#         return Excenter(self.o, self.a, self.b, self.c)
+
+
+@register("basic")
+class DefinitionOfExcenter3(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c, self.p, self.q, self.r = o, a, b, c, p, q, r
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Collinear(self.p, self.a, self.b),
+            Collinear(self.q, self.b, self.c),
+            Collinear(self.r, self.c, self.a),
+            OppositeSide(self.o, self.a, self.b, self.c),
+            SameSide(self.o, self.b, self.c, self.a),
+            SameSide(self.o, self.c, self.a, self.b),
+            Perpendicular(self.o, self.p, self.a, self.b),
+            Perpendicular(self.o, self.q, self.b, self.c),
+            Perpendicular(self.o, self.r, self.c, self.a),
+            Length(self.o, self.p) - Length(self.o, self.q),
+            Length(self.o, self.q) - Length(self.o, self.r),
+        ]
+    
+    def conclusion(self):
+        return Excenter(self.o, self.a, self.b, self.c)
+
+
+@register("basic")
+class PropertyOfExcenter1(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c = o, a, b, c
+    
+    def condition(self):
+        return [
+            Excenter(self.o, self.a, self.b, self.c),
+            OppositeSide(self.o, self.a, self.b, self.c),
+            SameSide(self.o, self.b, self.c, self.a),
+            SameSide(self.o, self.c, self.a, self.b),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            Angle(self.o, self.a, self.b) - Angle(self.o, self.a, self.c),
+            Angle(self.o, self.b, self.c) * 2 + Angle(self.a, self.b, self.c) - pi,
+            Angle(self.o, self.c, self.b) * 2 + Angle(self.a, self.c, self.b) - pi,
+        ]
+
+
+@register("basic")
+class PropertyOfExcenter2(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point, q: Point):
+        super().__init__()
+        self.o, self.a, self.b, self.c, self.p, self.q = o, a, b, c, p, q
+    
+    def condition(self):
+        return [
+            Excenter(self.o, self.a, self.b, self.c),
+            Collinear(self.p, self.a, self.b),
+            Collinear(self.q, self.b, self.c),
+            Perpendicular(self.o, self.p, self.a, self.b),
+            Perpendicular(self.o, self.q, self.b, self.c),
+        ]
+    
+    def conclusion(self):
+        return [
+            Length(self.o, self.p) - Length(self.o, self.q),
+        ]
+
+
+@register("basic")
 class AlphaGeometry1(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()

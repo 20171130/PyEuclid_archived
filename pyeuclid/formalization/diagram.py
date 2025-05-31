@@ -16,12 +16,18 @@ def hash_constructions_list(constructions_list):
     return hashlib.md5(s.encode('utf-8')).hexdigest()
 
 
+class ReachMaxAttempts(Exception):
+    """Raised when the maximum number of allowed attempts is reached."""
+    pass
+
+
 class Diagram:    
     def __new__(cls, constructions_list:list[list[ConstructionRule]]=None, save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
-        if not resample and cache_folder is not None:
+        if cache_folder is not None:
             if not os.path.exists(cache_folder):
                 os.makedirs(cache_folder)
-            
+        
+        if not resample and cache_folder is not None:            
             if constructions_list is not None:
                 file_name = f"{hash_constructions_list(constructions_list)}.pkl"
                 file_path = os.path.join(cache_folder, file_name)
@@ -65,6 +71,23 @@ class Diagram:
         
         self.name2point.clear()
         self.point2name.clear()
+    
+    def save(self):
+        self._saved = {
+            'points': self.points.copy(),
+            'segments': self.segments.copy(),
+            'circles': self.circles.copy(),
+            'name2point': self.name2point.copy(),
+            'point2name': self.point2name.copy(),
+        }
+    
+    def restore(self):
+        if hasattr(self, '_saved'):
+            self.points = self._saved['points']
+            self.segments = self._saved['segments']
+            self.circles = self._saved['circles']
+            self.name2point = self._saved['name2point']
+            self.point2name = self._saved['point2name']
         
     def show(self):
         self.draw_diagram(show=True)
@@ -77,40 +100,55 @@ class Diagram:
                 pickle.dump(self, f)
     
     def add_constructions(self, constructions):
-        for _ in range(MAX_DIAGRAM_ATTEMPTS):
+        self.save()
+        mintol = 0.02
+        maxtol = 0.9
+        for iter in range(MAX_DIAGRAM_ATTEMPTS):
+            # if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
+            #     mintol *= 0.7
+            #     maxtol *= 1.1
             try:
-                self.construct(constructions)
+                new_points = self.construct(constructions)
+                self.check_distance(mintol, maxtol)
+                for construction in constructions:
+                    self.draw(new_points, construction)
                 self.constructions_list.append(constructions)
                 return
             except:
-                continue
+                self.restore()
         
-        print(f"Failed to add the constructions after {MAX_DIAGRAM_ATTEMPTS} attempts.")
-        raise Exception()
+        raise ReachMaxAttempts()
             
     def construct_diagram(self):
-        for _ in range(MAX_DIAGRAM_ATTEMPTS):
+        mintol = 0.02
+        maxtol = 0.9
+        for iter in range(MAX_DIAGRAM_ATTEMPTS):
+            if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
+                mintol *= 0.7
+                maxtol *= 1.1
             try:
                 self.clear()
                 for constructions in self.constructions_list:
-                    self.construct(constructions)
+                    new_points = self.construct(constructions)
+                    self.check_distance(mintol, maxtol)
+                    for construction in constructions:
+                        self.draw(new_points, construction)
                 self.draw_diagram()
                 self.save_to_cache()
                 return
             except:
                 continue
         
-        print(f"Failed to construct a diagram after {MAX_DIAGRAM_ATTEMPTS} attempts.")
-        raise Exception()
+        raise ReachMaxAttempts()
             
     def construct(self, constructions: list[ConstructionRule]):
-        constructed_points = constructions[0].constructed_points()
-        if any(construction.constructed_points() != constructed_points for construction in constructions[1:]):
+        outputs = constructions[0].outputs
+        if any(construction.outputs != outputs for construction in constructions[1:]):
             raise Exception()
 
         to_be_intersected = []
         for construction in constructions:
-            # print(construction.__class__.__name__ + '('+','.join([str(name) for name in construction.arguments()])+')')
+            # print(construction.__class__.__name__ + '('+','.join([str(name) for name in construction.inputs])+')')
             # for c in construction.conditions:
             #     if not self.numerical_check(c):
             #         raise Exception()
@@ -118,21 +156,44 @@ class Diagram:
             to_be_intersected += self.sketch(construction)
                 
         new_points = self.reduce(to_be_intersected, self.points)
+        self.points = self.points + new_points # Rebinds to a new list
         
-        if check_too_close(new_points, self.points):
-            raise Exception()
-        
-        if check_too_far(new_points, self.points):
-            raise Exception()
-        
-        self.points += new_points
-        
-        for p, np in zip(constructed_points, new_points):
+        for p, np in zip(outputs, new_points):
             self.name2point[p.name] = np
             self.point2name[np] = p.name
         
-        for construction in constructions:
-            self.draw(new_points, construction)
+        return new_points
+    
+    def check_distance(self, mintol=0.1, maxtol=1):
+        if len(self.points) == 1:
+            return
+        
+        xmin = min([p.x for p in self.points])
+        xmax = max([p.x for p in self.points])
+        ymin = min([p.y for p in self.points])
+        ymax = max([p.y for p in self.points])
+
+        for c in self.circles:
+            r = c.radius
+            cx, cy = c.center.x, c.center.y
+            xmin = min(xmin, cx - r)
+            xmax = max(xmax, cx + r)
+            ymin = min(ymin, cy - r)
+            ymax = max(ymax, cy + r)
+
+        xspan = xmax - xmin
+        yspan = ymax - ymin
+        span = max(xspan, yspan)
+        
+        # if check_too_close(self.points, span, mintol):
+        #     raise Exception()
+        
+        # if check_too_far(self.points, span, maxtol):
+        #     raise Exception()
+        
+        self.xmax, self.xmin = xmax, xmin
+        self.ymax, self.ymin = ymax, ymin
+        self.span = span
             
     def numerical_check_goal(self, goal):
         if isinstance(goal, tuple):
@@ -175,7 +236,7 @@ class Diagram:
 
     def sketch(self, construction):
         func = getattr(self, 'sketch_' + construction.__class__.__name__[10:])
-        args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.arguments()]
+        args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.inputs]
         result = func(*args)
         if isinstance(result, list):
             return result
@@ -777,7 +838,7 @@ class Diagram:
     
     def draw(self, new_points, construction):
         func = getattr(self, 'draw_' + construction.__class__.__name__[10:])
-        args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.arguments()]
+        args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.inputs]
         func(*new_points, *args)
     
     def draw_angle_bisector(self, *args):
@@ -1302,6 +1363,35 @@ class Diagram:
     def draw_opposingsides(self, *args):
         x, a, b, c = args
         
+    def annotation_position(self, p):
+        r = self.span / 20
+        c = Circle(p, r)
+        avoids = []
+        for segment in self.segments:
+            try:
+                avoids.extend(circle_segment_intersection(c, segment))
+            except:
+                continue
+        
+        for circle in self.circles:
+            try:
+                avoids.extend(circle_circle_intersection(c, circle))
+            except:
+                continue
+        
+        if not avoids:
+            return p.x + r / np.sqrt(2), p.y + r / np.sqrt(2)
+        
+        angs = sorted([ang_of(p, a) for a in avoids])
+        angs += [angs[0] + 2 * np.pi]
+        angs = [(angs[i + 1] - a, a) for i, a in enumerate(angs[:-1])]
+        
+        d, a = max(angs)
+        ang = a + d / 2
+        
+        point_position = p + Point(np.cos(ang), np.sin(ang)) * r
+        return point_position.x, point_position.y
+    
     def draw_diagram(self, show=False):
         imsize = 512 / 100
         self.fig, self.ax = plt.subplots(figsize=(imsize, imsize), dpi=300)
@@ -1324,22 +1414,26 @@ class Diagram:
                     ls='-'
                 )
             )
-        
+            
         for p in self.points:
             self.ax.scatter(p.x, p.y, color='black', s=15)
-            self.ax.annotate(self.point2name[p], (p.x+0.015, p.y+0.015), color='black', fontsize=8)
-        
+            x_pos, y_pos = self.annotation_position(p)
+            
+            self.xmax = max(self.xmax, x_pos)
+            self.xmin = min(self.xmin, x_pos)
+            self.ymax = max(self.ymax, y_pos)
+            self.ymin = min(self.ymin, y_pos)
+            
+            self.ax.annotate(self.point2name[p], (x_pos, y_pos), color='black', ha='center', va='center', fontsize=12)
+            
         self.ax.set_aspect('equal')
         self.ax.set_axis_off()
-        self.fig.subplots_adjust(left=0.05, right=0.95, top=0.95, bottom=0.05, wspace=0, hspace=0)
-        xmin = min([p.x for p in self.points])
-        xmax = max([p.x for p in self.points])
-        ymin = min([p.y for p in self.points])
-        ymax = max([p.y for p in self.points])
-        x_margin = (xmax - xmin) * 0.1
-        y_margin = (ymax - ymin) * 0.1
         
-        self.ax.margins(x_margin, y_margin)
+        x_margin = (self.xmax - self.xmin) * 0.1
+        y_margin = (self.ymax - self.ymin) * 0.1
+
+        self.ax.set_xlim(self.xmin - x_margin, self.xmax + x_margin)
+        self.ax.set_ylim(self.ymin - y_margin, self.ymax + y_margin)
         
         self.save_diagram()
         
