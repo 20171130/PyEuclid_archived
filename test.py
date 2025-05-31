@@ -19,7 +19,7 @@ class TestBenchmarks(unittest.TestCase):
     def test_jgex_ag_231(self):
         rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
         world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
-        texts = parse_texts_from_file('data/JGEX-AG-231.txt')
+        texts = parse_texts_from_file('data/IMO-AG-30.txt')
         for idx, text in enumerate(texts):
             if not idx%world_size == rank:
                 continue
@@ -28,7 +28,7 @@ class TestBenchmarks(unittest.TestCase):
             if world_size > 1:
                 state.silent = True
             try:
-                state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
+                state.load_problem_from_text(text, f'diagrams/IMO-AG-30/{idx+1}.jpg')
                 deductive_database = DeductiveDatabase(state)
                 algebraic_system = AlgebraicSystem(state)
                 proof_generator = ProofGenerator(state)

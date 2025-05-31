@@ -11,16 +11,30 @@ def get_constructions_list_from_text(text):
     constructions_list = []
     
     for constructions_text in constructions_text_list:
-        constructions_text = constructions_text.split(' = ')[1]
+        outputs_text, constructions_text = constructions_text.split(' = ')
         construction_text_list = constructions_text.split(', ')
+        output_names = [name.replace('_', '') for name in outputs_text.split(' ')]
+        outputs = [Point(name) for name in output_names]
         constructions = []
         for construction_text in construction_text_list:
             construction_text = construction_text.split(' ')
             rule_name = construction_text[0]
             arg_names = [name.replace('_', '') for name in construction_text[1:]]
             rule = globals()['construct_'+rule_name]
-            args = [float(arg_name) if is_float(arg_name) else Point(arg_name) for arg_name in arg_names]
-            construction = rule(*args)
+            all_args = [float(arg_name) if is_float(arg_name) else Point(arg_name) for arg_name in arg_names]
+            if len(all_args) != rule.num_inputs + rule.num_outputs:
+                all_args = outputs + all_args
+            assert len(all_args) == rule.num_inputs + rule.num_outputs
+            
+            if rule_name == 'parallelogram' or rule_name == 'square':
+                inputs, outputs = all_args[:rule.num_inputs], all_args[rule.num_inputs:]
+            elif rule_name == 's_angle':
+                inputs, outputs = all_args[:2] + [all_args[3]], [all_args[2]]
+            else:
+                outputs, inputs = all_args[:rule.num_outputs], all_args[rule.num_outputs:]
+            
+            construction = rule(*inputs)
+            construction.construct(*outputs)
             constructions.append(construction)
         constructions_list.append(constructions)
     

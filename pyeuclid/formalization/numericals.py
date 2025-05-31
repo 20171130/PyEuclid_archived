@@ -510,6 +510,10 @@ def circle_circle_intersection(c1: Circle, c2: Circle) -> tuple[Point, Point]:
     return Point(x3, y3), Point(x4, y4)
 
 
+def circle_segment_intersection(circle: Circle, segment: Segment):
+    return [p for p in line_circle_intersection(segment, circle) if check_between([p, segment.p1, segment.p2])]
+
+
 def solve_quad(a: float, b: float, c: float) -> tuple[float, float]:
     """Solve a x^2 + bx + c = 0."""
     a = 2 * a
@@ -619,30 +623,12 @@ def close_enough(a: float, b: float, tol: float = 1e-6) -> bool:
     return abs(a - b) < tol
 
 
-def check_too_close(
-    newpoints: list[Point], points: list[Point], tol: int = 0.1  # was 0.1
-) -> bool:
-
-    if not points:
-        return False
-    avg = sum(points, Point(0.0, 0.0)) * 1.0 / len(points)
-    mindist = min([p.distance(avg) for p in points])
-    for p0 in newpoints:
-        for p1 in points:
-            if p0.distance(p1) < tol * mindist:
-                return True
-    return False
+def check_too_close(points: list[Point], maxspan: float, tol: float = 0.1) -> bool:
+    return any(p.distance(q) < maxspan * tol for p in points for q in points if q != p)
 
 
-def check_too_far(newpoints: list[Point], points: list[Point], tol: int = 4) -> bool:
-    if len(points) < 2:
-        return False
-    avg = sum(points, Point(0.0, 0.0)) * 1.0 / len(points)
-    maxdist = max([p.distance(avg) for p in points])
-    for p in newpoints:
-        if p.distance(avg) > maxdist * tol:
-            return True
-    return False
+def check_too_far(points: list[Point], maxspan: float, tol: float = 1) -> bool:
+    return any(all(p.distance(q) > maxspan * tol for q in points if q != p) for p in points)
 
 
 def calculate_angle(a, b, c):
