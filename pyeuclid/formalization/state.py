@@ -141,6 +141,14 @@ class State:
                 self.add_point(p)
             
             relations = construction.conclusions()
+
+            for relation in relations:
+                if isinstance(relation, sympy.core.expr.Expr):
+                    relation = Traced(relation)
+                    relation.sources = [construction]
+                else:
+                    relation.source = construction
+
             if isinstance(relations, tuple):
                 if self.diagram.numerical_check(relations[0]):
                     assert not self.diagram.numerical_check(relations[1])
@@ -187,12 +195,15 @@ class State:
         
         self.diagram = diagram
         self.goal = satisfied_goal
-        # self.diagram.show()
+        self.diagram.show()
         
         for constructions in constructions_list:
             self.add_constructions(constructions)
  
     def complete(self):
+        if not self.goal:
+            return None
+        
         if isinstance(self.goal, Relation):
             if self.check_conditions(self.goal):
                 return True

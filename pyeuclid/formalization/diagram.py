@@ -16,8 +16,13 @@ def hash_constructions_list(constructions_list):
     return hashlib.md5(s.encode('utf-8')).hexdigest()
 
 
-class ReachMaxAttempts(Exception):
+class MaxAttemptsError(Exception):
     """Raised when the maximum number of allowed attempts is reached."""
+    pass
+
+
+class NumericalCheckingError(Exception):
+    """Raised when numerical checking fails."""
     pass
 
 
@@ -44,7 +49,7 @@ class Diagram:
         instance = super().__new__(cls)
         return instance
     
-    def __init__(self, constructions_list:list[list[ConstructionRule]]=None, save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
+    def __init__(self, constructions_list:list[list[ConstructionRule]]=[], save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
         if hasattr(self, 'cache_folder'):
             return
         
@@ -61,7 +66,7 @@ class Diagram:
         self.save_path = save_path
         self.cache_folder = cache_folder
         
-        if constructions_list is not None:                
+        if constructions_list:                
             self.construct_diagram()
             
     def clear(self):
@@ -101,8 +106,8 @@ class Diagram:
     
     def add_constructions(self, constructions):
         self.save()
-        mintol = 0.02
-        maxtol = 0.9
+        mintol = 0.1
+        maxtol = 0.8
         for iter in range(MAX_DIAGRAM_ATTEMPTS):
             # if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
             #     mintol *= 0.7
@@ -117,7 +122,7 @@ class Diagram:
             except:
                 self.restore()
         
-        raise ReachMaxAttempts()
+        raise MaxAttemptsError()
             
     def construct_diagram(self):
         mintol = 0.02
@@ -139,7 +144,7 @@ class Diagram:
             except:
                 continue
         
-        raise ReachMaxAttempts()
+        raise MaxAttemptsError()
             
     def construct(self, constructions: list[ConstructionRule]):
         outputs = constructions[0].outputs
@@ -148,10 +153,9 @@ class Diagram:
 
         to_be_intersected = []
         for construction in constructions:
-            # print(construction.__class__.__name__ + '('+','.join([str(name) for name in construction.inputs])+')')
-            # for c in construction.conditions:
-            #     if not self.numerical_check(c):
-            #         raise Exception()
+            for c in construction.conditions():
+                if not self.numerical_check(c):
+                    raise NumericalCheckingError()
             
             to_be_intersected += self.sketch(construction)
                 
@@ -185,11 +189,11 @@ class Diagram:
         yspan = ymax - ymin
         span = max(xspan, yspan)
         
-        # if check_too_close(self.points, span, mintol):
-        #     raise Exception()
+        if check_too_close(self.points, span, mintol):
+            raise Exception()
         
-        # if check_too_far(self.points, span, maxtol):
-        #     raise Exception()
+        if check_too_far(self.points, span, maxtol):
+            raise Exception()
         
         self.xmax, self.xmin = xmax, xmin
         self.ymax, self.ymin = ymax, ymin
