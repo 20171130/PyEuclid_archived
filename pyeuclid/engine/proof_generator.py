@@ -14,8 +14,7 @@ class ProofGenerator:
         self.proof = []
     
     def show_proof(self):
-        lst = [f"{item[0]}=>{item[1]}" for item in self.proof]
-        print("\n".join(lst))
+        print(self.proof)
     
     def traceback(self, augmented_A, e) -> list[str]:
         m, n = augmented_A.shape
@@ -170,7 +169,8 @@ class ProofGenerator:
                 if step_number == last:
                     continue
                 last = step_number
-                self.proof.append((f"{format_conditions(node, proof_steps, theorem)}", f"{node}"))
+                dic = {"condition": conditions, "step": step_number, "theorem": theorem, "conclusion": node}
+                self.proof.append(dic)
         if node in visited:
             return {}
         if isinstance(node, InferenceRule):
