@@ -77,6 +77,7 @@ class InferenceRule:
 
 @register("ex")
 class DefinitionOfMidpoint(InferenceRule):
+    """ Definition of Midpoint """
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()
         self.a, self.b, self.c = a, b, c
@@ -88,7 +89,8 @@ class DefinitionOfMidpoint(InferenceRule):
         return Midpoint(self.a, self.b, self.c)
 
 @register("ex")
-class DefinitionOfMidpoint(InferenceRule):
+class DefinitionOfMidpoint1(InferenceRule):
+    """ Definition of Midpoint """
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()
         self.a, self.b, self.c = a, b, c
@@ -102,6 +104,7 @@ class DefinitionOfMidpoint(InferenceRule):
 
 @register("ex")
 class PropertyOfMidpoint(InferenceRule):
+    """ Property of Midpoint """
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()
         self.a, self.b, self.c = a, b, c
@@ -120,6 +123,7 @@ class PropertyOfMidpoint(InferenceRule):
 
 @register("ex")
 class PropertyOfCongruent(InferenceRule):
+    """ Property of Triangle Congruence """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a, self.b, self.c, self.p, self.q, self.r = a, b, c, p, q, r
@@ -140,6 +144,7 @@ class PropertyOfCongruent(InferenceRule):
 
 @register("ex")
 class PropertyOfSimilar(InferenceRule):
+    """ Property of Similar Triangles """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a, self.b, self.c, self.p, self.q, self.r = a, b, c, p, q, r
@@ -246,6 +251,7 @@ class PropertyOfQuadrilateral(InferenceRule):
 
 @register("ex")
 class DefinitionOfParallelogram1(InferenceRule):
+    """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -267,6 +273,7 @@ class DefinitionOfParallelogram1(InferenceRule):
 
 @register("ex")
 class DefinitionOfParallelogram2(InferenceRule):
+    """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -287,6 +294,7 @@ class DefinitionOfParallelogram2(InferenceRule):
 
 @register("ex")
 class DefinitionOfParallelogram3(InferenceRule):
+    """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -308,6 +316,7 @@ class DefinitionOfParallelogram3(InferenceRule):
 
 @register("ex")
 class DefinitionOfParallelogram4(InferenceRule):
+    """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -329,6 +338,7 @@ class DefinitionOfParallelogram4(InferenceRule):
 
 @register("ex")
 class PropertyOfParallelogram(InferenceRule):
+    """ Property of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -354,6 +364,7 @@ class PropertyOfParallelogram(InferenceRule):
 
 @register("ex")
 class DefinitionOfRectangle1(InferenceRule):
+    """ Definition of Rectangle """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -370,6 +381,7 @@ class DefinitionOfRectangle1(InferenceRule):
 
 @register("ex")
 class DefinitionOfRectangle2(InferenceRule):
+    """ Definition of Rectangle """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -390,6 +402,7 @@ class DefinitionOfRectangle2(InferenceRule):
 
 @register("ex")
 class PropertyOfRectangle(InferenceRule):
+    """ Property of Rectangle """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -410,6 +423,7 @@ class PropertyOfRectangle(InferenceRule):
 
 @register("ex")
 class DefinitionOfRhombus1(InferenceRule):
+    """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -431,6 +445,7 @@ class DefinitionOfRhombus1(InferenceRule):
 
 @register("ex")
 class DefinitionOfRhombus2(InferenceRule):
+    """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -448,6 +463,7 @@ class DefinitionOfRhombus2(InferenceRule):
 
 @register("ex")
 class DefinitionOfRhombus3(InferenceRule):
+    """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -468,6 +484,7 @@ class DefinitionOfRhombus3(InferenceRule):
 
 @register("ex")
 class DefinitionOfRhombus4(InferenceRule):
+    """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -485,6 +502,7 @@ class DefinitionOfRhombus4(InferenceRule):
 
 @register("ex")
 class PropertyOfRhombus(InferenceRule):
+    """ Property of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -508,6 +526,7 @@ class PropertyOfRhombus(InferenceRule):
 
 @register("ex")
 class DefinitionOfSquare1(InferenceRule):
+    """ Definition of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -525,6 +544,7 @@ class DefinitionOfSquare1(InferenceRule):
 
 @register("ex")
 class DefinitionOfSquare2(InferenceRule):
+    """ Definition of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -542,6 +562,7 @@ class DefinitionOfSquare2(InferenceRule):
 
 @register("ex")
 class DefinitionOfSquare3(InferenceRule):
+    """ Definition of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -562,6 +583,7 @@ class DefinitionOfSquare3(InferenceRule):
 
 @register("ex")
 class PropertyOfSquare(InferenceRule):
+    """ Property of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -578,6 +600,7 @@ class PropertyOfSquare(InferenceRule):
 
 @register("ex")
 class DefinitionOfTrapezoid(InferenceRule):
+    """ Definition of Trapezoid """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -597,6 +620,7 @@ class DefinitionOfTrapezoid(InferenceRule):
 
 @register("ex")
 class PropertyOfTrapezoid(InferenceRule):
+    """ Definition of Trapezoid """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -617,6 +641,7 @@ class PropertyOfTrapezoid(InferenceRule):
 
 @register("ex")
 class DefinitionOfKite1(InferenceRule):
+    """ Definition of Kite """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -634,6 +659,7 @@ class DefinitionOfKite1(InferenceRule):
 
 @register("ex")
 class PropertyOfKite(InferenceRule):
+    """ Property of Kite """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
@@ -658,6 +684,7 @@ class PropertyOfKite(InferenceRule):
 
 @register("basic")
 class DefinitionOfIncenter1(InferenceRule):
+    """ Definition of Incenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point):
         super().__init__()
         self.o, self.a, self.b, self.c = o, a, b, c
@@ -676,6 +703,7 @@ class DefinitionOfIncenter1(InferenceRule):
 
 @register("basic")
 class DefinitionOfIncenter2(InferenceRule):
+    """ Definition of Incenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.o, self.a, self.b, self.c, self.p, self.q, self.r = o, a, b, c, p, q, r
@@ -704,6 +732,7 @@ class DefinitionOfIncenter2(InferenceRule):
 
 @register("basic")
 class PropertyOfIncenter1(InferenceRule):
+    """ Property of Incenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point):
         super().__init__()
         self.o, self.a, self.b, self.c = o, a, b, c
@@ -721,6 +750,7 @@ class PropertyOfIncenter1(InferenceRule):
 
 @register("basic")
 class PropertyOfIncenter2(InferenceRule):
+    """ Property of Incenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point, q: Point):
         super().__init__()
         self.o, self.a, self.b, self.c, self.p, self.q = o, a, b, c, p, q
@@ -742,6 +772,7 @@ class PropertyOfIncenter2(InferenceRule):
 
 @register("basic")
 class DefinitionOfCentroid1(InferenceRule):
+    """ Definition of Centroid """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point, q: Point):
         super().__init__()
         self.o, self.a, self.b, self.c, self.p, self.q = o, a, b, c, p, q
@@ -761,6 +792,7 @@ class DefinitionOfCentroid1(InferenceRule):
 
 @register("basic")
 class DefinitionOfCentroid2(InferenceRule):
+    """ Definition of Centroid """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point):
         super().__init__()
         self.o, self.a, self.b, self.c, self.p = o, a, b, c, p
@@ -779,6 +811,7 @@ class DefinitionOfCentroid2(InferenceRule):
 
 @register("basic")
 class PropertyOfCentroid(InferenceRule):
+    """ Property of Centroid """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point):
         super().__init__()
         self.o, self.a, self.b, self.c, self.p = o, a, b, c, p
@@ -799,6 +832,7 @@ class PropertyOfCentroid(InferenceRule):
 
 @register("basic")
 class DefinitionOfOrthocenter(InferenceRule):
+    """ Definition of Orthocenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point):
         super().__init__()
         self.o, self.a, self.b, self.c = o, a, b, c
@@ -817,6 +851,7 @@ class DefinitionOfOrthocenter(InferenceRule):
 
 @register("basic")
 class PropertyOfOrthocenter(InferenceRule):
+    """ Property of Orthocenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point):
         super().__init__()
         self.o, self.a, self.b, self.c = o, a, b, c
@@ -838,6 +873,7 @@ class PropertyOfOrthocenter(InferenceRule):
 
 @register("basic")
 class DefinitionOfCircumcenter(InferenceRule):
+    """ Definition of Circumcenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point):
         super().__init__()
         self.o, self.a, self.b, self.c = o, a, b, c
@@ -856,6 +892,7 @@ class DefinitionOfCircumcenter(InferenceRule):
 
 @register("basic")
 class PropertyOfCircumcenter(InferenceRule):
+    """ Property of Circumcenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point):
         super().__init__()
         self.o, self.a, self.b, self.c = o, a, b, c
@@ -918,6 +955,7 @@ class PropertyOfCircumcenter(InferenceRule):
 
 @register("basic")
 class DefinitionOfExcenter3(InferenceRule):
+    """ Definition of Excenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.o, self.a, self.b, self.c, self.p, self.q, self.r = o, a, b, c, p, q, r
@@ -944,6 +982,7 @@ class DefinitionOfExcenter3(InferenceRule):
 
 @register("basic")
 class PropertyOfExcenter1(InferenceRule):
+    """ Property of Excenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point):
         super().__init__()
         self.o, self.a, self.b, self.c = o, a, b, c
@@ -967,6 +1006,7 @@ class PropertyOfExcenter1(InferenceRule):
 
 @register("basic")
 class PropertyOfExcenter2(InferenceRule):
+    """ Property of Excenter """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, p: Point, q: Point):
         super().__init__()
         self.o, self.a, self.b, self.c, self.p, self.q = o, a, b, c, p, q
@@ -988,6 +1028,7 @@ class PropertyOfExcenter2(InferenceRule):
 
 @register("basic")
 class AlphaGeometry1(InferenceRule):
+    """ Perpendiculars give parallel """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()
         self.a = a
@@ -1006,6 +1047,7 @@ class AlphaGeometry1(InferenceRule):
 
 @register("ex")
 class CollinearTransist(InferenceRule):
+    """ Collinearity transitivity """
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
         self.a = a
@@ -1022,6 +1064,7 @@ class CollinearTransist(InferenceRule):
 
 @register("ex")
 class ConcyclicTransist(InferenceRule):
+    """ Concyclic Transitivity"""
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
         super().__init__()
         self.a = a
@@ -1039,6 +1082,7 @@ class ConcyclicTransist(InferenceRule):
 
 @register("ex")
 class AlphaGeometry1b(InferenceRule):
+    """ Two lines perpendicular to the same line are parallel """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()
         self.a = a
@@ -1057,6 +1101,7 @@ class AlphaGeometry1b(InferenceRule):
 
 @register("basic")
 class AlphaGeometry2(InferenceRule):
+    """ Definition of Concyclic """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
         self.o = o
@@ -1074,6 +1119,7 @@ class AlphaGeometry2(InferenceRule):
 
 @register("ex")
 class AlphaGeometry3a(InferenceRule):
+    """ Parallel From Corresponding Angles """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()
         self.a = a
@@ -1092,6 +1138,7 @@ class AlphaGeometry3a(InferenceRule):
 
 @register("ex")
 class AlphaGeometry3b(InferenceRule):
+    """ Parallel From Corresponding Angles """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
         super().__init__()
         self.a = a
@@ -1109,6 +1156,7 @@ class AlphaGeometry3b(InferenceRule):
 
 @register("basic")
 class AlphaGeometry4a(InferenceRule):
+    """ Angles subtended by the same chord (or arc) and on the same side of the chord are equal in a circle """
     def __init__(self, a: Point, b: Point, p: Point, q: Point):
         super().__init__()
         self.a = a
@@ -1125,6 +1173,7 @@ class AlphaGeometry4a(InferenceRule):
 
 @register("basic")
 class AlphaGeometry4b(InferenceRule):
+    """ Angles subtended by the same chord from opposite arcs (sides) sum to π """
     def __init__(self, a: Point, b: Point, p: Point, q: Point):
         super().__init__()
         self.a = a
@@ -1141,6 +1190,7 @@ class AlphaGeometry4b(InferenceRule):
 
 @register("basic")
 class AlphaGeometry5a(InferenceRule):
+    """ If two angles from the same chord to two points on the same side are equal, then the four points lie on a circle """
     def __init__(self, a: Point, b: Point, p: Point, q: Point):
         super().__init__()
         self.a = a
@@ -1157,6 +1207,7 @@ class AlphaGeometry5a(InferenceRule):
 
 @register("basic")
 class AlphaGeometry5b(InferenceRule):
+    """ If two angles from opposite sides of the same chord sum to π, then the points lie on a circle """
     def __init__(self, a: Point, b: Point, p: Point, q: Point):
         super().__init__()
         self.a = a
@@ -1173,6 +1224,7 @@ class AlphaGeometry5b(InferenceRule):
 
 @register("basic")
 class AlphaGeometry6a(InferenceRule):
+    """ If two chords subtend the same angle on the same circle, they are equal in length """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a = a
@@ -1191,6 +1243,7 @@ class AlphaGeometry6a(InferenceRule):
 
 @register("basic")
 class AlphaGeometry6b(InferenceRule):
+    """ If two chords subtend angles that are supplementary to each other across a circle, their lengths are equal """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a = a
@@ -1209,6 +1262,7 @@ class AlphaGeometry6b(InferenceRule):
 
 @register("basic")
 class AlphaGeometry7(InferenceRule):
+    """ The segment joining the midpoints of two sides of a triangle is parallel to the third side. """
     def __init__(self, a: Point, b: Point, c: Point, e: Point, f: Point):
         super().__init__()
         self.a = a
@@ -1226,6 +1280,7 @@ class AlphaGeometry7(InferenceRule):
 
 @register("basic")
 class AlphaGeometry8(InferenceRule):
+    """ length ratios arising from similar triangles """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, o: Point):
         super().__init__()
         self.a = a
@@ -1244,6 +1299,7 @@ class AlphaGeometry8(InferenceRule):
 
 @register("basic")
 class AlphaGeometry12(InferenceRule):
+    """ Inversed Angle Bisector Theorem """
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
         self.a = a
@@ -1260,6 +1316,7 @@ class AlphaGeometry12(InferenceRule):
 
 @register("basic")
 class AlphaGeometry13(InferenceRule):
+    """ Angle Bisector Theorem """
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
         self.a = a
@@ -1276,6 +1333,7 @@ class AlphaGeometry13(InferenceRule):
 
 @register("basic")
 class AlphaGeometry14(InferenceRule):
+    """ Isosceles Equal Sides Implies Equal Base Angles """
     def __init__(self, o: Point, a: Point, b: Point):
         super().__init__()
         self.o = o
@@ -1291,6 +1349,7 @@ class AlphaGeometry14(InferenceRule):
 
 @register("basic")
 class AlphaGeometry15(InferenceRule):
+    """ Isosceles Equal Base Angles Implies Equal Sides """
     def __init__(self, o: Point, a: Point, b: Point):
         super().__init__()
         self.o = o
@@ -1306,6 +1365,7 @@ class AlphaGeometry15(InferenceRule):
 
 @register("basic")
 class AlphaGeometry16a(InferenceRule):
+    """ the inscribed angle and the tangent angle at the same chord are supplementary """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, x: Point):
         super().__init__()
         self.o = o
@@ -1323,6 +1383,7 @@ class AlphaGeometry16a(InferenceRule):
 
 @register("basic")
 class AlphaGeometry16b(InferenceRule):
+    """ the inscribed angle and the tangent angle at the same chord are equal """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, x: Point):
         super().__init__()
         self.o = o
@@ -1340,6 +1401,7 @@ class AlphaGeometry16b(InferenceRule):
 
 @register("basic")
 class AlphaGeometry17a(InferenceRule):
+    """ the inscribed angle and the tangent angle at the same chord are supplementary """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, x: Point):
         super().__init__()
         self.o = o
@@ -1357,6 +1419,7 @@ class AlphaGeometry17a(InferenceRule):
 
 @register("basic")
 class AlphaGeometry17b(InferenceRule):
+    """ the inscribed angle and the tangent angle at the same chord are equal """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, x: Point):
         super().__init__()
         self.o = o
@@ -1374,6 +1437,7 @@ class AlphaGeometry17b(InferenceRule):
 
 @register("basic")
 class AlphaGeometry18a(InferenceRule):
+    """ inscribed angle and half central angles"""
     def __init__(self, o: Point, a: Point, b: Point, c: Point, m: Point):
         super().__init__()
         self.o = o
@@ -1391,6 +1455,7 @@ class AlphaGeometry18a(InferenceRule):
 
 @register("basic")
 class AlphaGeometry18b(InferenceRule):
+    """ inscribed angle and half central angles"""
     def __init__(self, o: Point, a: Point, b: Point, c: Point, m: Point):
         super().__init__()
         self.o = o
@@ -1408,6 +1473,7 @@ class AlphaGeometry18b(InferenceRule):
 
 @register("basic")
 class AlphaGeometry19a(InferenceRule):
+    """ inscribed angle and half central angles"""
     def __init__(self, o: Point, a: Point, b: Point, c: Point, m: Point):
         super().__init__()
         self.o = o
@@ -1425,6 +1491,7 @@ class AlphaGeometry19a(InferenceRule):
 
 @register("basic")
 class AlphaGeometry19b(InferenceRule):
+    """ inscribed angle and half central angles"""
     def __init__(self, o: Point, a: Point, b: Point, c: Point, m: Point):
         super().__init__()
         self.o = o
@@ -1442,6 +1509,7 @@ class AlphaGeometry19b(InferenceRule):
 
 @register("basic")
 class AlphaGeometry20(InferenceRule):
+    """ Inversed Thales Theorem """
     def __init__(self, a: Point, b: Point, c: Point, m: Point):
         super().__init__()
         self.a = a
@@ -1458,6 +1526,7 @@ class AlphaGeometry20(InferenceRule):
 
 @register("basic")
 class AlphaGeometry21(InferenceRule):
+    """ Thales Theorem """
     def __init__(self, o: Point, a: Point, b: Point, c: Point):
         super().__init__()
         self.o = o
@@ -1474,6 +1543,7 @@ class AlphaGeometry21(InferenceRule):
 
 @register("basic")
 class AlphaGeometry22(InferenceRule):
+    """ Parallel lines intersect a circle forming a trapezoid """
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
         self.a = a
@@ -1490,6 +1560,7 @@ class AlphaGeometry22(InferenceRule):
 
 @register("basic")
 class AlphaGeometry23(InferenceRule):
+    """ Points on the Perpendicular bisector are Equidistant from Segment Endpoints """
     def __init__(self, m: Point, o: Point, a: Point, b: Point):
         super().__init__()
         self.m = m
@@ -1506,6 +1577,7 @@ class AlphaGeometry23(InferenceRule):
 
 @register("basic")
 class AlphaGeometry24(InferenceRule):
+    """ Points Equidistant from Segment Endpoints Determine its Perpendicular bisector """
     def __init__(self, a: Point, b: Point, p: Point, q: Point):
         super().__init__()
         self.a = a
@@ -1522,6 +1594,7 @@ class AlphaGeometry24(InferenceRule):
 
 @register("basic")
 class AlphaGeometry25(InferenceRule):
+    """ Perpendicular bisector intersecting a circle forming a kite """
     def __init__(self, a: Point, b: Point, p: Point, q: Point):
         super().__init__()
         self.a = a
@@ -1538,6 +1611,7 @@ class AlphaGeometry25(InferenceRule):
 
 @register("basic")
 class AlphaGeometry26(InferenceRule):
+    """ If a point a the midpoint of two segments, the endpoints form a parallelogram """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, m: Point):
         super().__init__()
         self.a = a
@@ -1555,6 +1629,7 @@ class AlphaGeometry26(InferenceRule):
 
 @register("basic")
 class AlphaGeometry27(InferenceRule):
+    """ diagonals of a parallelogram share a midpoint """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, m: Point):
         super().__init__()
         self.a = a
@@ -1572,6 +1647,7 @@ class AlphaGeometry27(InferenceRule):
 
 @register("basic")
 class AlphaGeometry28(InferenceRule):
+    """ inversed basic proportionality theorem """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, o: Point):
         super().__init__()
         self.a = a
@@ -1589,6 +1665,7 @@ class AlphaGeometry28(InferenceRule):
 
 @register("basic")
 class AlphaGeometry29(InferenceRule):
+    """ Parallel lines sharing a point are collinear """
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()
         self.a = a
@@ -1604,6 +1681,7 @@ class AlphaGeometry29(InferenceRule):
 
 @register("basic")
 class AlphaGeometry34(InferenceRule):  # SAS
+    """ Triangle Congruence via SAS """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a = a
@@ -1646,6 +1724,7 @@ class AlphaGeometry34(InferenceRule):  # SAS
 
 @register("basic")
 class AlphaGeometry3536(InferenceRule):
+    """ Similar Triangle via Equal angles """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a = a
@@ -1666,7 +1745,8 @@ class AlphaGeometry3536(InferenceRule):
     
 
 @register("basic")
-class SSS(InferenceRule):  # ASA
+class SSS(InferenceRule):
+    """ Triangle Congruence via SSS """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a = a
@@ -1687,7 +1767,8 @@ class SSS(InferenceRule):  # ASA
 
 
 @register("basic")
-class AlphaGeometry37(InferenceRule):  # ASA
+class AlphaGeometry37(InferenceRule):
+    """ Triangle Congruence via ASA """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a = a
@@ -1708,7 +1789,8 @@ class AlphaGeometry37(InferenceRule):  # ASA
 
 
 @register("basic")
-class AlphaGeometry38(InferenceRule):  # AAS
+class AlphaGeometry38(InferenceRule):
+    """ Triangle Congruence via AAS """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a = a
@@ -1730,6 +1812,7 @@ class AlphaGeometry38(InferenceRule):  # AAS
 
 @register("basic")
 class RTSSA(InferenceRule):
+    """ Hypotenuse-Leg (HL) congruence criterion for right triangles """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a = a
@@ -1751,6 +1834,7 @@ class RTSSA(InferenceRule):
 
 @register("basic")
 class AlphaGeometry40(InferenceRule):
+    """ Similar triangle via equal angle and length ratio """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
         self.a = a
@@ -1772,6 +1856,7 @@ class AlphaGeometry40(InferenceRule):
 
 @register("basic")
 class AlphaGeometry42(InferenceRule):
+    """ inversed basic proportionality theorem """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, m: Point, n: Point):
         super().__init__()
         self.a = a
@@ -1790,6 +1875,7 @@ class AlphaGeometry42(InferenceRule):
 
 @register("basic")
 class AlphaGeometry43(InferenceRule):
+    """ The basic proportionality theorem """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, m: Point, n: Point):
         super().__init__()
         self.a = a
@@ -1906,6 +1992,7 @@ class EqTrapezoid4(InferenceRule):
     
 @register("basic")
 class SimilarImplication(InferenceRule):
+    """ Property of Similar Triangles """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()
         self.a = a
@@ -1927,6 +2014,7 @@ class SimilarImplication(InferenceRule):
 
 @register("basic")
 class CongruentImplication(InferenceRule):
+    """ Property of Congruent Triangles """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()
         self.a = a
@@ -2232,415 +2320,3 @@ class CollinearParallel(InferenceRule):
 
     def conclusion(self):
         return Parallel(self.a, self.b, self.b, self.c), Parallel(self.a, self.b, self.a, self.c), Parallel(self.a, self.c, self.b, self.c)
-
-
-# @register("complex")
-# class RightTriangleTrigonometry(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point):
-#         super().__init__()
-#         self.a = a  # Vertex at angle A
-#         self.b = b  # Right angle at B
-#         self.c = c  # Vertex at C
-
-#     def condition(self):
-#         return [
-#             Not(Collinear(self.a, self.b, self.c)),
-#             Angle(self.a, self.b, self.c) - pi / 2,  # Right angle at B
-#             *Different(self.a, self.b, self.c),
-#         ]
-
-#     def conclusion(self):
-#         return [
-#             sin(Angle(self.b, self.a, self.c)) -
-#             Length(self.b, self.c) / Length(self.a, self.c),
-#             cos(Angle(self.b, self.a, self.c)) -
-#             Length(self.a, self.b) / Length(self.a, self.c),
-#         ]
-
-
-# @register("complex")
-# class LawOfSines(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-
-#     def condition(self):
-#         return [
-#             Not(Collinear(self.a, self.b, self.c)),
-#             *Different(self.a, self.b, self.c),
-#             Lt(self.a, self.b),
-#             Lt(self.b, self.c),
-#             Lt(self.a, self.c)
-#         ]
-
-#     def conclusion(self):
-#         return [
-#             sin(Angle(self.a, self.c, self.b)) / Length(self.a, self.b) -
-#             sin(Angle(self.a, self.b, self.c)) /
-#             Length(self.a, self.c),
-#             sin(Angle(self.a, self.b, self.c)) / Length(self.a, self.c) -
-#             sin(Angle(self.b, self.a, self.c)) /
-#             Length(self.b, self.c),
-#             sin(Angle(self.b, self.a, self.c)) / Length(self.b, self.c) -
-#             sin(Angle(self.a, self.c, self.b)) /
-#             Length(self.a, self.b)
-#         ]
-
-
-# @register("complex")
-# class LawOfCosines(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-
-#     def condition(self):
-#         return [
-#             Not(Collinear(self.a, self.b, self.c)),
-#             *Different(self.a, self.b, self.c),
-#             Lt(self.a, self.b),
-#             Lt(self.a, self.c),
-#             Lt(self.b, self.c)
-#         ]
-
-#     def conclusion(self):
-#         return [
-#             Length(self.b, self.c)**2 - Length(self.a, self.b)**2 - Length(self.a, self.c)**2 + Length(
-#                 self.a, self.b) * Length(self.a, self.c) * 2 * cos(Angle(self.b, self.a, self.c)),
-#             Length(self.a, self.c)**2 - Length(self.a, self.b)**2 - Length(self.b, self.c)**2 + Length(
-#                 self.a, self.b) * Length(self.b, self.c) * 2 * cos(Angle(self.a, self.b, self.c)),
-#             Length(self.a, self.b)**2 - Length(self.a, self.c)**2 - Length(self.b, self.c)**2 + Length(
-#                 self.a, self.c) * Length(self.b, self.c) * 2 * cos(Angle(self.a, self.c, self.b))
-#         ]
-
-
-# # @register('complex')
-# # class Pythagorean(InferenceRule): # a special case of law of cosines
-# #     def __init__(self, a: Point, b: Point, c: Point):
-# #         super().__init__()
-# #         self.a = a  # Vertex at angle A
-# #         self.b = b  # Right angle at B
-# #         self.c = c  # Vertex at C
-
-#     # def condition(self):
-#     #     return [
-#     #         NotCollinear(self.a, self.b, self.c),
-#     #         Angle(self.a, self.b, self.c) - pi/2,  # Right angle at B
-#     #         *Different(self.a, self.b, self.c),
-#     #     ]
-
-# #     def conclusion(self):
-# #         return [
-# #             (Length(self.a,self.b)**2+Length(self.b,self.c)**2) - Length(self.a,self.c)**2
-# #         ]
-
-
-# @register('complex')
-# class AreaEqualsBaseTimesHeight(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-
-#     def condition(self):
-#         return [Not(Collinear(self.a, self.b, self.c)), *Different(self.a, self.b, self.c), Perpendicular(self.d, self.a, self.b, self.c), Collinear(self.d, self.b, self.c),
-#                 ]
-
-#     def conclusion(self):
-#         return [Area(self.a, self.b, self.c)-(Length(self.a, self.d)*Length(self.b, self.c))/2]
-
-
-# @register('complex')
-# class AreaRightTriangle(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-
-#     def condition(self):
-#         return [Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c)-pi/2, *Different(self.a, self.b, self.c), Lt(self.a, self.c),]
-
-#     def conclusion(self):
-
-#         return [Area(self.a, self.b, self.c)-Length(self.a, self.b) * Length(self.b, self.c) / 2]
-
-
-# @register('complex')
-# class AreaHeronFormula(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-
-#     def condition(self):
-#         return [Not(Collinear(self.a, self.b, self.c)), *Different(self.a, self.b, self.c), Lt(self.a, self.b), Lt(self.b, self.c)]
-
-#     def conclusion(self):
-#         s = (Length(self.a, self.b)+Length(self.a, self.c)+Length(self.b, self.c))/2
-#         return [Area(self.a, self.b, self.c)**2-(s*(s-Length(self.a, self.b))*(s-Length(self.a, self.c))*(s-Length(self.b, self.c)))]
-
-# # @register("complex")
-# # class AreaEqualsBaseHeightSin(InferenceRule):
-# #     def __init__(self, a: Point, b: Point, c: Point):
-# #         super().__init__()
-# #         self.a = a
-# #         self.b = b
-# #         self.c = c
-
-# #     def condition(self):
-# #         return [NotCollinear(self.a, self.b, self.c), *Different(self.a, self.b, self.c)]
-
-# #     def conclusion(self):
-# #         return [Area(self.a,self.b,self.c)-Length(self.a,self.b)*Length(self.b,self.c)*Function('sin', Angle(self.a,self.b,self.c))/2]
-
-
-# @register("complex")
-# class ParallelogramArea(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-
-#     def condition(self):
-#         return [Parallelogram(self.a, self.b, self.c, self.d), *Different(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d)
-#                 ]
-
-#     def conclusion(self):
-#         return [Area(self.a, self.b, self.c, self.d) - Length(self.a, self.b) * Length(self.b, self.c) * sin(Angle(self.a, self.b, self.c))]
-
-
-# @register("complex")
-# class TrapezoidArea(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-#         self.e = e
-
-#     def condition(self):
-
-#         return [Trapezoid(self.a, self.b, self.c, self.d), Perpendicular(self.a, self.e, self.c, self.d), Collinear(self.e, self.c, self.d), *Different(self.a, self.b, self.c, self.d)
-#                 ]
-
-#     def conclusion(self):
-#         return [Area(self.a, self.b, self.c, self.d) - (Length(self.a, self.b) + Length(self.c, self.d)) * Length(self.a, self.e) / 2]
-
-
-# @register("complex")
-# class RightTrapezoidArea(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-
-#     def condition(self):
-#         return [Trapezoid(self.a, self.b, self.c, self.d), Perpendicular(self.a, self.b, self.b, self.c)]
-
-#     def conclusion(self):
-#         return [Area(self.a, self.b, self.c, self.d) - (Length(self.a, self.b) + Length(self.c, self.d)) * Length(self.b, self.c) / 2]
-
-
-# @register("complex")
-# class Similar4PAreaLengthRatio(InferenceRule):
-#     # only consider convex polygons
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point, g: Point, h: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-#         self.e = e
-#         self.f = f
-#         self.g = g
-#         self.h = h
-
-#     def degenerate(self):
-#         return self.a == self.e and self.b == self.f and self.c == self.g and self.d == self.h
-
-#     def condition(self):
-#         return [Similar4P(self.a, self.b, self.c, self.d, self.e, self.f, self.g, self.h), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.b, self.d), Quadrilateral(self.a, self.b, self.c, self.d), Quadrilateral(self.e, self.f, self.g, self.h)]
-
-#     def conclusion(self):
-#         return [Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.a, self.b)**2 / Length(self.e, self.f)**2,
-#                 Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.b, self.c)**2 / Length(self.f, self.g)**2,
-#                 Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.c, self.d)**2 / Length(self.g, self.h)**2,
-#                 Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.d, self.a)**2 / Length(self.h, self.e)**2]
-
-
-# @register("complex")
-# class RhombusArea(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-
-#     def condition(self):
-#         return [Perpendicular(self.a, self.c, self.b, self.d), *Different(self.a, self.b, self.c, self.d),
-#                 Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), OppositeSide(self.a, self.c, self.b, self.d), OppositeSide(self.b, self.d, self.a, self.c)]
-
-#     def conclusion(self):
-#         return [Area(self.a, self.b, self.c, self.d) - Length(self.a, self.c) * Length(self.b, self.d) / 2]
-
-
-# @register("basic")
-# class InscribedAngleTheorem1(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, o: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.o = o
-
-#     def condition(self):
-#         return [SameSide(self.o, self.b, self.a, self.c), Lt(self.a, self.c), *Different(self.a, self.b, self.c, self.o),
-#                 Length(self.o, self.a)-Length(self.o, self.b), Length(self.o, self.b) - Length(self.o, self.c)]
-
-#     def conclusion(self):
-#         return [Angle(self.a, self.b, self.c) - Angle(self.a, self.o, self.c) / 2]
-
-
-# @register("basic")
-# class InscribedAngleTheorem2(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, o: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.o = o
-
-#     def condition(self):
-#         return [OppositeSide(self.o, self.b, self.a, self.c), Lt(self.a, self.c), *Different(self.a, self.b, self.c, self.o),
-#                 Length(self.o, self.a)-Length(self.o, self.b), Length(self.o, self.b) - Length(self.o, self.c)]
-
-#     def conclusion(self):
-#         return [Angle(self.a, self.b, self.c) + Angle(self.a, self.o, self.c) / 2 - pi]
-
-
-# @register("basic")
-# class MidsegmentTheorem(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-#         self.e = e
-#         self.f = f
-
-#     def condition(self):
-#         return [OppositeSide(self.a, self.b, self.c, self.d),
-#                 OppositeSide(self.c, self.d, self.a, self.b),
-#                 Parallel(self.a, self.b, self.c, self.d),
-#                 Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d),
-#                 Midpoint(self.e, self.a, self.d), Midpoint(self.f, self.b, self.c), ]
-
-#     def conclusion(self):
-#         return [Length(self.e, self.f) - (Length(self.a, self.b) + Length(self.c, self.d)) / 2]
-
-# @register("basic")
-# class IntersectingChordsTheorem(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-#         self.e = e
-
-#     def condition(self):
-#         return [Concyclic(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.a, self.c), *Different(self.a, self.b, self.c, self.d, self.e), Collinear(self.e, self.a, self.b), Collinear(self.e, self.c, self.d)]
-
-#     def conclusion(self):
-#         return [Length(self.a, self.e)/Length(self.c, self.e) - Length(self.d, self.e)/Length(self.b, self.e)]
-
-# # When one line is tangent to the circle
-
-
-# @register("basic")
-# class IntersectingChordsTheorem2(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, o: Point, e: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.o = o
-#         self.e = e
-
-#     def condition(self):
-#         return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.a, self.o)-Length(self.c, self.o), Lt(self.a, self.b), Angle(self.o, self.c, self.e)-pi/2, Collinear(self.a, self.b, self.e), *Different(self.a, self.b, self.c, self.o, self.e)]
-
-#     def conclusion(self):
-#         return [Length(self.a, self.e) / Length(self.c, self.e) - Length(self.c, self.e) / Length(self.b, self.e)]
-
-# @register("basic")
-# class AlternateSegmentTheorem(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point, o: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-#         self.o = o
-        
-
-#     def condition(self):
-#         return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.b, self.o)-Length(self.c, self.o), *Different(self.a,self.b,self.c,self.d,self.o), OppositeSide(self.a,self.d, self.b,self.c), Angle(self.o,self.c,self.d)-pi / 2, ]
-
-#     def conclusion(self):
-#         return [Angle(self.b,self.a,self.c)-Angle(self.b,self.c,self.d)]
-
-
-# @register("basic")
-# class CentroidTheorem(InferenceRule):
-#     def __init__(self, o: Point, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point, ):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-#         self.e = e
-#         self.f = f
-#         self.o = o
-
-#     def condition(self):
-#         return [Centroid(self.o, self.a, self.b, self.c, self.d, self.e, self.f), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.b, self.c)]
-
-#     def conclusion(self):
-#         return [Length(self.o, self.d) / Length(self.a, self.d) - sympy.simplify('1/3'),
-#                 Length(self.o, self.a) / Length(self.a, self.d) - sympy.simplify('2/3'),
-#                 Length(self.o, self.e) / Length(self.b, self.e) - sympy.simplify('1/3'),
-#                 Length(self.o, self.b) / Length(self.b, self.e) - sympy.simplify('2/3'),
-#                 Length(self.o, self.f) / Length(self.c, self.f) - sympy.simplify('1/3'),
-#                 Length(self.o, self.c) / Length(self.c, self.f) - sympy.simplify('2/3'),]
-
-# @register("basic")
-# class AlternateSegmentTheorem(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point, o: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-#         self.o = o
-        
-
-#     def condition(self):
-#         return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.b, self.o)-Length(self.c, self.o), *Different(self.a,self.b,self.c,self.d,self.o), OppositeSide(self.a,self.d, self.b,self.c), Angle(self.o,self.c,self.d)-pi / 2, ]
-
-#     def conclusion(self):
-#         return [Angle(self.b,self.a,self.c)-Angle(self.b,self.c,self.d)]
