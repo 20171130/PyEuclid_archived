@@ -15,11 +15,12 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="r s = segment r s; t = mirror t r s; o = on_bline o r s; j = on_circle j o s; o1 = circle o1 j s t; a = on_tline a r o r, on_circle a o1 s; b = on_tline b r o r, on_circle b o1 s; k = on_line k j a, on_circle k o s ? perp k t o1 t")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a c = segment a c; b = on_tline b c a c; d = on_dia d b a, on_circle d a c; e = on_line e b c, on_circle e a b; f = on_line f b d, on_circle f a b ? para c d e f")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
     state = State()
+    state.silent = True
     state.logger.setLevel(logging.INFO)
     if args.problem_string is not None:
         state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg')
@@ -31,7 +32,6 @@ def run_single_problem(args):
         goal = namespace.get("goal")
         solution = namespace.get("solution")
         diagrammatic_relations = namespace.get("diagrammatic_relations")
-        # state.try_complex = True
         state.load_problem(conditions=conditions, goal=goal)
         state.add_relations(diagrammatic_relations)
     deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'])

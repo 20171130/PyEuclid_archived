@@ -2,8 +2,9 @@ import math
 import gurobipy as gp
 import numpy as np
 import sympy
-from gurobipy import GRB
+from pyscipopt import Model, quicksum
 from pyeuclid.formalization.relation import *
+from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.utils import *
 from pyeuclid.engine.inference_rule import *
 
@@ -19,29 +20,32 @@ class ProofGenerator:
     def traceback(self, augmented_A, e) -> list[str]:
         m, n = augmented_A.shape
         e = e[0]
-        n = n-1
+        n = n - 1
 
-        model = gp.Model()
-        model.setParam('OutputFlag', 0)
+        model = Model()
+        model.setParam('display/verblevel', 0)
 
-        x = model.addVars(m, lb=-GRB.INFINITY, ub=GRB.INFINITY, vtype=GRB.CONTINUOUS, name="x")
-        z = model.addVars(m, vtype=GRB.BINARY, name="z")
+        x = {}
+        z = {}
+        for i in range(m):
+            x[i] = model.addVar(lb=-model.infinity(), ub=model.infinity(), vtype="C", name=f"x_{i}")
+            z[i] = model.addVar(vtype="B", name=f"z_{i}")
 
-        model.setObjective(gp.quicksum(z[i] for i in range(m)), GRB.MINIMIZE)
+        model.setObjective(quicksum(z[i] for i in range(m)), sense="minimize")
 
         for i in range(n + 1):
-            model.addConstr(gp.quicksum(augmented_A[j, i] * x[j] for j in range(m)) == e[i])
+            model.addCons(quicksum(augmented_A[j, i] * x[j] for j in range(m)) == e[i])
 
         M = 1e6
         for i in range(m):
-            model.addConstr(x[i] <= M * z[i])
-            model.addConstr(x[i] >= -M * z[i])
+            model.addCons(x[i] <= M * z[i])
+            model.addCons(x[i] >= -M * z[i])
 
         model.optimize()
 
-        assert model.status == GRB.OPTIMAL        
-        return [i for i in range(m) if z[i].x > 0]
-    
+        assert model.getStatus() == "optimal"
+        return [i for i in range(m) if model.getVal(z[i]) > 0]
+
     def vectorize(self, equations, variables, source):
         A = np.zeros(shape=(len(equations), len(variables)), dtype=np.float64)
         b = np.zeros(shape=(len(equations), 1), dtype=np.float64)
@@ -118,9 +122,17 @@ class ProofGenerator:
         if root:
             depth = self.state.current_depth
             visited = set([])
-        elif depth is None:
+
+        if isinstance(node, ConstructionRule):
+            visited.add(node)
+            return {}
+        
+        if node in visited:
+            return {}
+        
+        if depth is None:
             depth = node.depth
-        # self.logger.debug(f"{node}@{depth}: {getattr(node, 'sources', None)}")
+        
         def format_proof(proof_dict, conclusion):
             proof_steps = {}
             visited = set()
@@ -171,8 +183,7 @@ class ProofGenerator:
                 last = step_number
                 dic = {"condition": conditions, "step": step_number, "theorem": theorem, "conclusion": node}
                 self.proof.append(dic)
-        if node in visited:
-            return {}
+        
         if isinstance(node, InferenceRule):
             visited.add(node)
             conds = [item for item in node.condition() if type(item)
@@ -200,6 +211,7 @@ class ProofGenerator:
             if isinstance(node, Traced):
                 sources = node.sources
                 if len(sources) == 0: # initial conditions
+                    breakpoint()
                     visited.add(node)
                 elif isinstance(sources[0], str):
                     # backtrace linear systems

@@ -70,10 +70,11 @@ class State:
                     assert self.diagram.numerical_check(item)
                 self.add_relation(item)
             else:
-                if isinstance(item, Traced):
-                    item = item.expr
                 if self.diagram is not None:
-                    assert self.diagram.numerical_check(item)
+                    if isinstance(item, Traced):
+                        assert self.diagram.numerical_check(item.expr)
+                    else:
+                        assert self.diagram.numerical_check(item)
                 self.add_equation(item)
     
     def add_relation(self, relation):
@@ -94,9 +95,6 @@ class State:
     def add_equation(self, equation):
         # allow redundant equations for neat proofs
         equation = Traced(equation, depth=self.current_depth)
-        # for item in self.equations:
-        #     if equation.expr - item.expr == 0:
-        #         return
         points, quantities = get_points_and_symbols(equation)
         for p in points:
             self.add_point(p)
