@@ -15,8 +15,12 @@ class ProofGenerator:
         self.proof = []
     
     def show_proof(self):
-        print(self.proof)
-    
+        step = 1
+        for proof_step in self.proof:
+            if not isinstance(proof_step['condition'][0], ConstructionRule):
+                print(f'{step}. ' + ' & '.join(str(item) for item in proof_step['condition']) + ' => ' + str(proof_step['conclusion']))
+                step += 1
+
     def traceback(self, augmented_A, e) -> list[str]:
         m, n = augmented_A.shape
         e = e[0]
@@ -36,15 +40,20 @@ class ProofGenerator:
         for i in range(n + 1):
             model.addCons(quicksum(augmented_A[j, i] * x[j] for j in range(m)) == e[i])
 
-        M = 1e6
+        M = 10
         for i in range(m):
             model.addCons(x[i] <= M * z[i])
             model.addCons(x[i] >= -M * z[i])
 
         model.optimize()
 
-        assert model.getStatus() == "optimal"
-        return [i for i in range(m) if model.getVal(z[i]) > 0]
+        obj_val = model.getObjVal()
+
+        indices = [i for i in range(m) if model.getVal(z[i]) > 0.5]
+
+        assert round(obj_val) == len(indices)
+        
+        return indices
 
     def vectorize(self, equations, variables, source):
         A = np.zeros(shape=(len(equations), len(variables)), dtype=np.float64)
@@ -109,6 +118,7 @@ class ProofGenerator:
             eq = self.vectorize([conclusion], variables, source)
             deps = self.traceback(mat, eq)
             return [equations[i] for i in deps]
+        
         if source == "angle_linear":
             equations = angle_linear
         elif source == "length_linear":
@@ -210,10 +220,10 @@ class ProofGenerator:
         else:
             if isinstance(node, Traced):
                 sources = node.sources
-                if len(sources) == 0: # initial conditions
-                    breakpoint()
-                    visited.add(node)
-                elif isinstance(sources[0], str):
+                # if len(sources) == 0: # initial conditions
+                #     breakpoint()
+                #     visited.add(node)
+                if isinstance(sources[0], str):
                     # backtrace linear systems
                     equations = [item for item in self.state.equations if item.depth <= node.depth]
                     if not node.symbol is None:

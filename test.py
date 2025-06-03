@@ -47,7 +47,8 @@ class TestBenchmarks(unittest.TestCase):
             except BaseException as e:
                 if isinstance(e, KeyboardInterrupt):
                     exit()
-                print(f"{idx} error {text} {e}")
+                print(f"{idx} error {text}")
+                print(e)
                 print(traceback.format_exc())
             
     # def test_geometry3k(self):

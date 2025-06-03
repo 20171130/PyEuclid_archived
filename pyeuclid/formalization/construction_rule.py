@@ -87,10 +87,10 @@ class construct_angle_mirror(ConstructionRule):
     def conclusions(self):
         a, b, c = self.inputs
         x, = self.outputs
-        return (
+        return [(
             Angle(a, b, c) - Angle(c, b, x), 
             Angle(a, b, c) + Angle(c, b, x) - pi
-        )
+        )]
 
 @register("deterministic")
 class construct_circle(ConstructionRule):
@@ -506,7 +506,7 @@ class construct_intersection_ll(ConstructionRule):
 
     def conditions(self):
         a, b, c, d = self.inputs
-        return [Not(Parallel(a, b, c, d)), Not(Collinear(a, b, c, d))]
+        return [Not(Parallel(a, b, c, d)), Not(Collinear(a, b, c)), Not(Collinear(a, b, d)), Not(Collinear(a, c, d)), Not(Collinear(b, c, d))]
 
     def conclusions(self):
         a, b, c, d = self.inputs
@@ -728,10 +728,10 @@ class construct_on_aline(ConstructionRule):
     def conclusions(self):
         a, b, c, d, e = self.inputs
         x, = self.outputs
-        return (
+        return [(
             Angle(x, a, b) - Angle(c, d, e),
             Angle(x, a, b) + Angle(c, d, e) - pi,
-        )
+        )]
 
 
 
@@ -1465,7 +1465,7 @@ class construct_eqangle3(ConstructionRule):
     def conclusions(self):
         a, b, d, e, f = self.inputs
         x, = self.outputs
-        return Angle(a, x, b) - Angle(e, d, f), Angle(a, x, b) + Angle(e, d, f) - pi
+        return [(Angle(a, x, b) - Angle(e, d, f), Angle(a, x, b) + Angle(e, d, f) - pi)]
 
 
 @register("deterministic")

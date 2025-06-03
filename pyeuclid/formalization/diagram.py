@@ -27,13 +27,13 @@ class NumericalCheckingError(Exception):
 
 
 class Diagram:    
-    def __new__(cls, constructions_list:list[list[ConstructionRule]]=None, save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
+    def __new__(cls, constructions_list:list[list[ConstructionRule]]=[], save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
         if cache_folder is not None:
             if not os.path.exists(cache_folder):
                 os.makedirs(cache_folder)
         
-        if not resample and cache_folder is not None:            
-            if constructions_list is not None:
+        if not resample and cache_folder is not None:
+            if constructions_list:
                 file_name = f"{hash_constructions_list(constructions_list)}.pkl"
                 file_path = os.path.join(cache_folder, file_name)
                 try:
@@ -52,7 +52,7 @@ class Diagram:
     def __init__(self, constructions_list:list[list[ConstructionRule]]=[], save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
         if hasattr(self, 'cache_folder'):
             return
-        
+    
         self.points = []
         self.segments = []
         self.circles = []

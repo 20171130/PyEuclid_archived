@@ -141,21 +141,21 @@ class State:
             relations = construction.conclusions()
 
             for relation in relations:
+                if isinstance(relation, tuple):
+                    if self.diagram.numerical_check(relation[0]):
+                        assert not self.diagram.numerical_check(relation[1])
+                        relation = relation[0]
+                    else:
+                        assert self.diagram.numerical_check(relation[1])
+                        relation = relation[1]
+                
                 if isinstance(relation, sympy.core.expr.Expr):
                     relation = Traced(relation)
                     relation.sources = [construction]
                 else:
                     relation.source = construction
-
-            if isinstance(relations, tuple):
-                if self.diagram.numerical_check(relations[0]):
-                    assert not self.diagram.numerical_check(relations[1])
-                    self.add_relations(relations[0])
-                else:
-                    assert self.diagram.numerical_check(relations[1])
-                    self.add_relations(relations[1])
-            else:
-                self.add_relations(relations)
+                
+                self.add_relations(relation)
         
         for perm in permutations(self.points, 3):
             between_relation = Between(*perm)
