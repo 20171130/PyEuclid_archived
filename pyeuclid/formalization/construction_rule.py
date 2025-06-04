@@ -1227,56 +1227,56 @@ class construct_2l1c(ConstructionRule):
         ]
 
 
-# @register("AG")
-# class construct_e5128(ConstructionRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
-#         self.inputs = [a, b, c, d]
-#         self.outputs = None
+@register("AG")
+class construct_e5128(ConstructionRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        self.inputs = [a, b, c, d]
+        self.outputs = None
 
-#     def construct(self, x: Point, y: Point):
-#         self.outputs = [x, y]
+    def construct(self, x: Point, y: Point):
+        self.outputs = [x, y]
 
-#     def conditions(self):
-#         a, b, c, d = self.inputs
-#         return [
-#             Length(c, b) - Length(c, d),
-#             Perpendicular(b, c, b, a),
-#         ]
+    def conditions(self):
+        a, b, c, d = self.inputs
+        return [
+            Length(c, b) - Length(c, d),
+            Perpendicular(b, c, b, a),
+        ]
 
-#     def conclusions(self):
-#         a, b, c, d = self.inputs
-#         x, y = self.outputs
-#         return [
-#             Length(c, b) - Length(c, x),
-#             Collinear(y, a, b),
-#             Collinear(x, y, d),
-#             Angle(b, a, d) - Angle(a, x, y),
-#         ]
+    def conclusions(self):
+        a, b, c, d = self.inputs
+        x, y = self.outputs
+        return [
+            Length(c, b) - Length(c, x),
+            Collinear(y, a, b),
+            Collinear(x, y, d),
+            Angle(b, a, d) - Angle(a, x, y),
+        ]
 
 
-# @register("AG")
-# class construct_3peq(ConstructionRule):
-#     def __init__(self, a: Point, b: Point, c: Point):
-#         self.inputs = [a, b, c]
-#         self.outputs = None
+@register("AG")
+class construct_3peq(ConstructionRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
 
-#     def construct(self, x: Point, y: Point, z: Point):
-#         self.outputs = [x, y, z]
+    def construct(self, x: Point, y: Point, z: Point):
+        self.outputs = [x, y, z]
 
-#     def conditions(self):
-#         a, b, c = self.inputs
-#         return [Not(Collinear(a, b, c))]
+    def conditions(self):
+        a, b, c = self.inputs
+        return [Not(Collinear(a, b, c))]
 
-#     def conclusions(self):
-#         a, b, c = self.inputs
-#         x, y, z = self.outputs
-#         return [
-#             Collinear(z, b, c),
-#             Collinear(x, a, b),
-#             Collinear(y, a, c),
-#             Collinear(x, y, z),
-#             Length(z, x) - Length(z, y),
-#         ]
+    def conclusions(self):
+        a, b, c = self.inputs
+        x, y, z = self.outputs
+        return [
+            Collinear(z, b, c),
+            Collinear(x, a, b),
+            Collinear(y, a, c),
+            Collinear(x, y, z),
+            Length(z, x) - Length(z, y),
+        ]
 
 
 @register("deterministic")

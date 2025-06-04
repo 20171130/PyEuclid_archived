@@ -12,7 +12,7 @@ from pyeuclid.engine.engine import Engine
 
 def generate():
     state = State()
-    state.silent = True
+    # state.silent = True
     deductive_database = DeductiveDatabase(state)
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
@@ -20,7 +20,7 @@ def generate():
     state.diagram = diagram
     
     current = 0
-    depth = 5
+    depth = 3
     
     attempt = 0
     
@@ -31,7 +31,10 @@ def generate():
         if current == 0:
             candidate_set = construction_rule_sets["independent"]
         else:
-            if random.random() < 0.5:
+            rand = random.random()
+            if rand < 0.02:
+                candidate_set = construction_rule_sets["independent"]
+            elif rand < 0.51:
                 candidate_set = [rule for rule in construction_rule_sets['deterministic'] if rule.num_inputs <= len(state.points)]
             else:
                 multiconstructions = True

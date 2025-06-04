@@ -6,7 +6,7 @@ from typing import Any, Optional, Union
 import numpy as np
 from numpy.random import uniform as unif
 
-ATOM = 0.0001
+ATOM = 1e-6
 
 
 class Point:
