@@ -34,7 +34,7 @@ class State:
         
     def load_problem(self, conditions=None, goal=None, diagram=None):        
         if conditions:
-            self.add_relations(conditions)
+            self.add_conditions(conditions)
             old_size = 0
             self.categorize_variable()
             size = len(self.var_types)
@@ -61,7 +61,7 @@ class State:
             handler.setFormatter(formatter)
             self.logger.addHandler(handler)
         
-    def add_relations(self, relations):
+    def add_conditions(self, relations):
         if not isinstance(relations, Iterable):
             relations = [relations]
         for item in relations:
@@ -155,25 +155,25 @@ class State:
                 else:
                     relation.source = construction
                 
-                self.add_relations(relation)
+                self.add_conditions(relation)
         
         for perm in permutations(self.points, 3):
             between_relation = Between(*perm)
             if self.diagram.numerical_check(between_relation):
-                self.add_relations(between_relation)
+                self.add_conditions(between_relation)
                 
             notcollinear_relation = Not(Collinear(*perm))
             if self.diagram.numerical_check(notcollinear_relation):
-                self.add_relations(notcollinear_relation)
+                self.add_conditions(notcollinear_relation)
         
         for perm in permutations(self.points, 4):
             sameside_relation = SameSide(*perm)
             if self.diagram.numerical_check(sameside_relation):
-                self.add_relations(sameside_relation)
+                self.add_conditions(sameside_relation)
                 
             oppositeside_relation = OppositeSide(*perm)
             if self.diagram.numerical_check(oppositeside_relation):
-                self.add_relations(oppositeside_relation)
+                self.add_conditions(oppositeside_relation)
         
     def load_problem_from_text(self, text, diagram_path=None, resample=False):
         constructions_list = get_constructions_list_from_text(text)
