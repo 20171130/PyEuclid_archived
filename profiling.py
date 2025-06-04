@@ -38,7 +38,7 @@ def run_single_problem(args):
         diagrammatic_relations = namespace.get("diagrammatic_relations")
         state.try_complex = True
         state.load_problem(conditions=conditions, goal=goal)
-        state.add_relations(diagrammatic_relations)
+        state.add_conditions(diagrammatic_relations)
     # deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'] + inference_rule_sets['complex'])
     deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'])
     algebraic_system = AlgebraicSystem(state)

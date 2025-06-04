@@ -350,7 +350,7 @@ class DeductiveDatabase():
                 conclusion.depth = self.state.current_depth
                 item.depth = self.state.current_depth
                 conclusions[i] = conclusion
-            self.state.add_relations(conclusions)
+            self.state.add_conditions(conclusions)
         if cnt > 3:
             if not self.state.silent:
                 self.state.logger.info(f"...and {cnt - 3} more.")

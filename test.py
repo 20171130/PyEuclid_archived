@@ -73,7 +73,7 @@ class TestBenchmarks(unittest.TestCase):
     #             state = State()
     #             state.silent = True
     #             state.load_problem(conditions=conditions, goal=goal)
-    #             state.add_relations(list(diagrammatic_relations))
+    #             state.add_conditions(list(diagrammatic_relations))
                 
     #             deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic']+inference_rule_sets['complex'])
     #             algebraic_system = AlgebraicSystem(state)

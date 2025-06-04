@@ -1,4 +1,5 @@
 from pyeuclid.formalization.relation import *
+import sympy
 
 
 class Engine:
@@ -25,7 +26,7 @@ class Engine:
             
             self.algebraic_system.run()
     
-    def step(self, conditions, conclusions=[]):
+    def step(self, conditions, conclusions=[], depth=1):
         """
         Only considers a subset of points and conditions
         """
@@ -36,22 +37,22 @@ class Engine:
         angles_bak = self.state.angles
         points_bak = self.state.points
         
-        diagrammatic_relations = (Between, SameSide, Collinear)
-        
         try:
             self.algebraic_system.solve_equation()
             for condition in conditions:
                 if not self.state.check_conditions(condition):
                     raise Exception(f"Condition {condition} is not verified")
-            diagrammatic_relations = [item for item in self.state.relations if isinstance(item, diagrammatic_relations)]
             
-            self.state.add_relations(conditions)
+            self.state.equations = []
+            self.state.relations = set()
 
-            for relation in diagrammatic_relations:
-                if all([point in self.state.points for point in relation.get_points()]):
-                    self.state.add_relation(relation)
+            self.state.add_conditions(conditions) # this method supports both equations and relations
+            for relation in relations_bak:
+                if type(relation) in (Between, SameSide) or type(relation) == Collinear and relation.negated:
+                    if all([point in self.state.points for point in relation.get_points()]):
+                        self.state.add_relation(relation)
                 
-            self.search(depth=1)
+            self.search(depth=depth)
             
             for conclusion in conclusions:
                 if not self.state.check_conditions(conclusion):
@@ -64,7 +65,7 @@ class Engine:
             new_equations = [item for item in self.state.equations if not item in conditions]
             self.state.relations = relations_bak
             self.state.equations = equations_bak
-            self.state.add_relations(new_relations + new_equations)
+            self.state.add_conditions(new_relations + new_equations)
             self.state.solutions = self.state.solutions[:-1]
             self.algebraic_system.solve_equation()
         
@@ -75,4 +76,5 @@ class Engine:
             self.state.relations = relations_bak
             self.state.equations = equations_bak
             raise e
+        return new_relations + new_equations
     
