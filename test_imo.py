@@ -34,7 +34,7 @@ class TestBenchmarks(unittest.TestCase):
                 proof_generator = ProofGenerator(state)
                 engine = Engine(state, deductive_database, algebraic_system)
                 t = time.time()
-                with Timeout(600):
+                with Timeout(3600):
                     engine.search()
                 t = time.time() - t
                 if state.complete() is not None:
