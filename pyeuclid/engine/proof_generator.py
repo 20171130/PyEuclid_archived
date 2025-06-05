@@ -2,7 +2,10 @@ import math
 import gurobipy as gp
 import numpy as np
 import sympy
+
 from pyscipopt import Model, quicksum
+from collections import defaultdict
+
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.utils import *
@@ -10,13 +13,189 @@ from pyeuclid.engine.inference_rule import *
 
 
 class ProofGenerator:
-    def __init__(self, state):
+    def __init__(self, state, verbose=False):
         self.state = state
-        self.proof = []
+        self.visited = set()
+        self.deps = {}
+        self.verbose = verbose
+
+    def run(self, node=None, depth=None, root=True):
+        if not node and self.state.goal:
+            node = self.state.goal
+        
+        if root:
+            depth = self.state.current_depth
+
+        if isinstance(node, ConstructionRule):
+            self.visited.add(node)
+            return
+        
+        if node in self.visited:
+            return
+        
+        if depth is None:
+            depth = node.depth
+        
+        if isinstance(node, InferenceRule):
+            self.visited.add(node)
+            conds = [item for item in node.condition() if type(item)
+                     not in (Different2, Lt) and not item == 0]
+            self.deps[node] = conds
+            for cond in conds:
+                self.run(cond, depth=depth-1, root=False)
+        
+        elif isinstance(node, Relation):
+            self.visited.add(node)
+            if type(node) in (Between, SameSide, Lt, Different2) or type(node) == Collinear and (node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1):
+                return {}
+            for tmp in self.state.relations:
+                if tmp == node:
+                    if hasattr(tmp, "source"):
+                        source = tmp.source
+                        self.deps[node] = [source]
+                        self.run(source, root=False)
+                    break
+            else:
+                assert False, f"{node} is not proved"
+        else:
+            if isinstance(node, Traced):
+                sources = node.sources
+                if isinstance(sources[0], str):
+                    # backtrace linear systems
+                    equations = [item for item in self.state.equations if item.depth <= node.depth]
+                    if not node.symbol is None:
+                        expr = node.symbol - node.expr
+                    else:
+                        expr = node.expr
+                    conditions = self.find_conditions(equations, expr, sources[0])
+                    if not conditions:
+                        breakpoint()
+                        assert False
+                    sources = conditions
+                else:
+                    self.visited.add(node)
+            else:
+                assert isinstance(node, sympy.core.expr.Expr)
+                sources = []
+                depth = min(int(depth), len(self.state.solutions)-1)
+                equations = [item for item in self.state.equations if item.depth <= depth]
+                if "Angle" in str(node):
+                    conditions = self.find_conditions(equations, node, "angle_linear")
+                else:
+                    for tmp in ("length_ratio", "length_linear"):
+                        conditions = self.find_conditions(equations, node, tmp)
+                        if conditions:
+                            break
+                if not conditions:
+                    breakpoint()
+                    assert False
+                sources = conditions
+            self.deps[node] = sources
+            for item in sources:
+                self.run(item, root=False)
+        
+        if root and self.verbose:
+            self.show_proof()
+
+    def track_constructions(self, condition=None):
+        self.source_constructions = defaultdict(set)
+
+        if not condition and self.state.goal:
+            condition = self.state.goal
+        
+        def refine_constructions(constructions):
+            require_points = {p for construction in constructions for p in construction.inputs}
+            produced_points = {p for construction in constructions for p in construction.outputs}
+            
+            missing_points = require_points - produced_points
+            return constructions.union({self.state.point2construction[p] for p in missing_points})
+            
+        def collect(node):
+            if node in self.source_constructions:
+                return self.source_constructions[node]
+
+            if isinstance(node, ConstructionRule):
+                return [node]
+
+            constructions = set()
+
+            if node in self.deps:
+                for child in self.deps[node]:
+                    child_constructions = collect(child)
+                    constructions.update(child_constructions)
+                
+                constructions = refine_constructions(constructions)
+                self.source_constructions[node] = constructions
+            
+            return constructions
+        
+        collect(condition)
+
     
-    def show_proof(self):
+    def show_proof(self, node=None):
+        def format_proof(proof_dict, conclusion):
+            proof = []
+            proof_steps = {}
+            visited = set()
+            step_counter = 1
+
+            def format_conditions(condition, proof_steps, theorem):
+                s = []
+                for condition in conditions:
+                    if condition in proof_steps:
+                        s.append(f"{condition}({proof_steps[condition][0]})")
+                    else:
+                        s.append(f"{condition}")
+                if theorem is None:
+                    return " &\n".join(s)
+                return " &\n".join(s) + f"({theorem})"
+        
+            def search(node):  # root-last traversal
+                nonlocal step_counter
+                if node in visited or node not in proof_dict or proof_dict[node] is None:
+                    return
+                visited.add(node)
+                conditions = proof_dict[node]
+                theorem = None
+                while len(conditions) == 1 and conditions[0] in proof_dict: # collapse single-condition inferences
+                    if isinstance(conditions[0], InferenceRule) and not type(conditions[0]) in inference_rule_sets["ex"]:
+                        theorem = conditions[0]
+                    conditions = proof_dict[conditions[0]]
+                for condition in conditions:
+                    if condition is not None:
+                        search(condition)
+                if all([type(item) in (Collinear, Between, SameSide)for item in conditions]):
+                    return
+                if type(node) in (Traced, sympy.core.add.Add):
+                    for item in visited:
+                        if not item is node and type(item) in (Traced, sympy.core.add.Add):
+                            if getattr(node, "expr", node) - getattr(item, "expr", item) == 0:
+                                return
+                            if getattr(node, "expr", node) + getattr(item, "expr", item) == 0:
+                                return
+                proof_steps[node] = (step_counter, conditions, theorem)
+                step_counter += 1
+
+            search(conclusion)
+            lst = [(key, value) for key, value in proof_steps.items()]
+            lst.sort(key=lambda x: x[1][0])
+            last = -1
+            for node, (step_number, conditions, theorem) in lst:
+                if step_number == last:
+                    continue
+                last = step_number
+                dic = {"condition": conditions, "step": step_number, "theorem": theorem, "conclusion": node}
+                proof.append(dic)
+            
+            return proof
+        
+        if not node and self.state.goal:
+            node = self.state.goal
+        
+        proof = format_proof(self.deps, node)
+
         step = 1
-        for proof_step in self.proof:
+        for proof_step in proof:
             if not isinstance(proof_step['condition'][0], ConstructionRule):
                 print(f'{step}. ' + ' & '.join(str(item) for item in proof_step['condition']) + ' => ' + str(proof_step['conclusion']))
                 step += 1
@@ -105,7 +284,6 @@ class ProofGenerator:
                             A[i, variables[symbol]] += factor
         return np.concat([A, b], axis=1)
 
-
     def find_conditions(self, equations: list[Traced], conclusion, source):
         angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
         """Given sympified equations and conclusions, return a list of necessary conditions"""
@@ -128,137 +306,4 @@ class ProofGenerator:
             equations = length_ratio
         return try_find(equations, conclusion)
     
-    def run(self, node, visited=set([]), depth=None, verbose=False, root=True):
-        if root:
-            depth = self.state.current_depth
-            visited = set([])
-
-        if isinstance(node, ConstructionRule):
-            visited.add(node)
-            return {}
-        
-        if node in visited:
-            return {}
-        
-        if depth is None:
-            depth = node.depth
-        
-        def format_proof(proof_dict, conclusion):
-            proof_steps = {}
-            visited = set()
-            step_counter = 1
-
-            def format_conditions(condition, proof_steps, theorem):
-                s = []
-                for condition in conditions:
-                    if condition in proof_steps:
-                        s.append(f"{condition}({proof_steps[condition][0]})")
-                    else:
-                        s.append(f"{condition}")
-                if theorem is None:
-                    return " &\n".join(s)
-                return " &\n".join(s) + f"({theorem})"
-            def search(node):  # root-last traversal
-                nonlocal step_counter
-                if node in visited or node not in proof_dict or proof_dict[node] is None:
-                    return
-                visited.add(node)
-                conditions = proof_dict[node]
-                theorem = None
-                while len(conditions) == 1 and conditions[0] in proof_dict: # collapse single-condition inferences
-                    if isinstance(conditions[0], InferenceRule) and not type(conditions[0]) in inference_rule_sets["ex"]:
-                        theorem = conditions[0]
-                    conditions = proof_dict[conditions[0]]
-                for condition in conditions:
-                    if condition is not None:
-                        search(condition)
-                if all([type(item) in (Collinear, Between, SameSide)for item in conditions]):
-                    return
-                if type(node) in (Traced, sympy.core.add.Add):
-                    for item in visited:
-                        if not item is node and type(item) in (Traced, sympy.core.add.Add):
-                            if getattr(node, "expr", node) - getattr(item, "expr", item) == 0:
-                                return
-                            if getattr(node, "expr", node) + getattr(item, "expr", item) == 0:
-                                return
-                proof_steps[node] = (step_counter, conditions, theorem)
-                step_counter += 1
-            search(conclusion)
-            lst = [(key, value) for key, value in proof_steps.items()]
-            lst.sort(key=lambda x: x[1][0])
-            last = -1
-            for node, (step_number, conditions, theorem) in lst:
-                if step_number == last:
-                    continue
-                last = step_number
-                dic = {"condition": conditions, "step": step_number, "theorem": theorem, "conclusion": node}
-                self.proof.append(dic)
-        
-        if isinstance(node, InferenceRule):
-            visited.add(node)
-            conds = [item for item in node.condition() if type(item)
-                     not in (Different2, Lt) and not item == 0]
-            result = {}
-            result[node] = conds
-            for cond in conds:
-                result.update(self.run(cond, visited, depth=depth-1, root=False))
-        elif isinstance(node, Relation):
-            visited.add(node)
-            if type(node) in (Between, SameSide, Lt, Different2) or type(node) == Collinear and (node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1):
-                return {}
-            result = {}
-            for tmp in self.state.relations:
-                if tmp == node:
-                    if hasattr(tmp, "source"):
-                        source = tmp.source
-                        result = {node: [source]}
-                        result.update(self.run(source, visited, root=False))
-                    else:
-                        result = {node: []}
-                    break
-            assert len(result) > 0, f"{node} is not proved"
-        else:
-            if isinstance(node, Traced):
-                sources = node.sources
-                # if len(sources) == 0: # initial conditions
-                #     breakpoint()
-                #     visited.add(node)
-                if isinstance(sources[0], str):
-                    # backtrace linear systems
-                    equations = [item for item in self.state.equations if item.depth <= node.depth]
-                    if not node.symbol is None:
-                        expr = node.symbol - node.expr
-                    else:
-                        expr = node.expr
-                    conditions = self.find_conditions(equations, expr, sources[0])
-                    if not conditions:
-                        breakpoint()
-                        assert False
-                    sources = conditions
-                else:
-                    visited.add(node)
-            else:
-                assert isinstance(node, sympy.core.expr.Expr)
-                sources = []
-                depth = min(int(depth), len(self.state.solutions)-1)
-                equations = [item for item in self.state.equations if item.depth <= depth]
-                if "Angle" in str(node):
-                    conditions = self.find_conditions(equations, node, "angle_linear")
-                else:
-                    for tmp in ("length_ratio", "length_linear"):
-                        conditions = self.find_conditions(equations, node, tmp)
-                        if conditions:
-                            break
-                if not conditions:
-                    breakpoint()
-                    assert False
-                sources = conditions
-            result = {node: sources}
-            for item in sources:
-                result.update(self.run(item, visited, root=False))
-        if root:
-            format_proof(result, node)
-        return result
     
-    def generate_proof(self):
-        self.run(self.state.goal)

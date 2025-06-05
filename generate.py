@@ -19,16 +19,16 @@ def generate():
     diagram = Diagram(cache_folder=None, save_path=os.path.join(ROOT_DIR, 'samples/test.jpg'))
     state.diagram = diagram
     
-    current = 0
-    depth = 3
-    
+    depth = 0
     attempt = 0
+    points = 0
     
-    while current < depth and attempt < 10:
+    
+    while depth < 3 and attempt < 10 and points < 6:
         constructions = []
         multiconstructions = False
         
-        if current == 0:
+        if depth == 0:
             candidate_set = construction_rule_sets["independent"]
         else:
             rand = random.random()
@@ -81,12 +81,29 @@ def generate():
             continue
         
         state.add_constructions(constructions)
-        current += 1
+        depth += 1
+        points += len(outputs)
+
         for construction in constructions:
             print(construction)
     
     diagram.draw_diagram()
     engine.search()
+
+    proof_generator = ProofGenerator(state)
+
+    for relation in state.relations:
+        if isinstance(relation, (Between, SameSide, OppositeSide)):
+            continue
+        if isinstance(relation, Collinear) and relation.negated:
+            continue
+        proof_generator.run(relation)
+        
+        print(relation)
+        proof_generator.track_constructions(relation)
+        for cond in proof_generator.source_constructions[relation]:
+            print(cond, end=' ')
+        input()
 
         
 if __name__ == '__main__':

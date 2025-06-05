@@ -4,11 +4,9 @@ import sympy
 import random
 
 from collections import defaultdict
-from stopit import ThreadingTimeout as Timeout
 from sympy import symbols, factor_list, linear_eq_to_matrix, expand_log, log, exp
 
 from pyeuclid.formalization.utils import *
-
 
 
 class AlgebraicSystem:
@@ -28,7 +26,7 @@ class AlgebraicSystem:
         eqn, denominator = eqn.as_numer_denom()
         factors = None
         try:
-            with Timeout(0.1) as tt:
+            with Timeout(0.1):
                 factors = factor_list(eqn)
         except:
             pass

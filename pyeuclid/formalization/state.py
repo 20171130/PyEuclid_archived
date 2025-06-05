@@ -23,6 +23,7 @@ class State:
         self.var_types = {}
         self.ratios = {}
         self.angle_sums = {}
+        self.point2construction = {}
         
         self.current_depth = 0
         self.solutions = []
@@ -137,7 +138,8 @@ class State:
         for construction in constructions:
             for p in construction.outputs:
                 self.add_point(p)
-            
+                self.point2construction[p] = construction
+                
             relations = construction.conclusions()
 
             for relation in relations:

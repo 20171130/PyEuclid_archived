@@ -1,10 +1,33 @@
 import re
 import sympy
+import signal
+
 from typing import List
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parents[2]
 MAX_DIAGRAM_ATTEMPTS = 1000
+
+
+class TimeoutException(Exception):
+    pass
+
+
+class Timeout:
+    def __init__(self, seconds):
+        self.seconds = seconds
+
+    def __enter__(self):
+        signal.signal(signal.SIGALRM, self._handle_timeout)
+        # `signal.setitimer` allows float values
+        signal.setitimer(signal.ITIMER_REAL, self.seconds)
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        signal.setitimer(signal.ITIMER_REAL, 0)  # Cancel timer
+        signal.signal(signal.SIGALRM, signal.SIG_DFL)
+
+    def _handle_timeout(self, signum, frame):
+        raise TimeoutException("Operation timed out")
 
 
 def sort_points(*points):

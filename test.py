@@ -7,13 +7,13 @@ from sympy import sympify
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.translation import parse_texts_from_file
+from pyeuclid.formalization.utils import Timeout, TimeoutException
 from pyeuclid.engine.inference_rule import inference_rule_sets
 from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 import traceback
-from stopit import ThreadingTimeout as Timeout
 
 class TestBenchmarks(unittest.TestCase):
     def test_jgex_ag_231(self):
@@ -39,7 +39,8 @@ class TestBenchmarks(unittest.TestCase):
                 t = time.time() - t
                 if state.complete() is not None:
                     print(f"{idx} solved in {t} seconds")
-                    proof_generator.generate_proof()
+                    with Timeout(600):
+                        proof_generator.run()
                     # if world_size == 1:
                     #     proof_generator.show_proof()
                 else:
