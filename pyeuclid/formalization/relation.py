@@ -622,6 +622,14 @@ class Excenter(Relation):
         return [(self.o, *perm) for perm in itertools.permutations([self.p1, self.p2, self.p3])]
 
 
+def trivial_condition(node):
+    if type(node) in (Between, SameSide, OppositeSide, Lt, Different2):
+        return True
+    if type(node) == Collinear and ((node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1) or node.negated):
+        return True
+    return False
+
+
 def get_points_and_symbols(eqn):
     pattern = re.compile(r"((?:Angle|Length|Area|Variable)\w+)")
     # eqn.free_symbols is not apRelationoriate in this case, we need an ordered list instead of a set

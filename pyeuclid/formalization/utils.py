@@ -19,7 +19,6 @@ class Timeout:
 
     def __enter__(self):
         signal.signal(signal.SIGALRM, self._handle_timeout)
-        # `signal.setitimer` allows float values
         signal.setitimer(signal.ITIMER_REAL, self.seconds)
 
     def __exit__(self, exc_type, exc_val, exc_tb):

@@ -16,9 +16,10 @@ class ProofGenerator:
     def __init__(self, state, verbose=False):
         self.state = state
         self.visited = set()
-        self.deps = {}
+        self.proof_dict = {}
+        self.source_constructions = defaultdict(set)
         self.verbose = verbose
-
+    
     def run(self, node=None, depth=None, root=True):
         if not node and self.state.goal:
             node = self.state.goal
@@ -40,19 +41,19 @@ class ProofGenerator:
             self.visited.add(node)
             conds = [item for item in node.condition() if type(item)
                      not in (Different2, Lt) and not item == 0]
-            self.deps[node] = conds
+            self.proof_dict[node] = conds
             for cond in conds:
                 self.run(cond, depth=depth-1, root=False)
         
         elif isinstance(node, Relation):
             self.visited.add(node)
-            if type(node) in (Between, SameSide, Lt, Different2) or type(node) == Collinear and (node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1):
-                return {}
+            if trivial_condition(node):
+                return
             for tmp in self.state.relations:
                 if tmp == node:
                     if hasattr(tmp, "source"):
                         source = tmp.source
-                        self.deps[node] = [source]
+                        self.proof_dict[node] = [source]
                         self.run(source, root=False)
                     break
             else:
@@ -90,7 +91,7 @@ class ProofGenerator:
                     breakpoint()
                     assert False
                 sources = conditions
-            self.deps[node] = sources
+            self.proof_dict[node] = sources
             for item in sources:
                 self.run(item, root=False)
         
@@ -98,8 +99,6 @@ class ProofGenerator:
             self.show_proof()
 
     def track_constructions(self, condition=None):
-        self.source_constructions = defaultdict(set)
-
         if not condition and self.state.goal:
             condition = self.state.goal
         
@@ -119,8 +118,8 @@ class ProofGenerator:
 
             constructions = set()
 
-            if node in self.deps:
-                for child in self.deps[node]:
+            if node in self.proof_dict:
+                for child in self.proof_dict[node]:
                     child_constructions = collect(child)
                     constructions.update(child_constructions)
                 
@@ -130,77 +129,110 @@ class ProofGenerator:
             return constructions
         
         collect(condition)
-
     
+    def format_proof(self, conclusion=None):
+        proof = []
+        proof_steps = {}
+        visited = set()
+        step_counter = 1
+
+        def format_conditions(condition, proof_steps, theorem):
+            s = []
+            for condition in conditions:
+                if condition in proof_steps:
+                    s.append(f"{condition}({proof_steps[condition][0]})")
+                else:
+                    s.append(f"{condition}")
+            if theorem is None:
+                return " &\n".join(s)
+            return " &\n".join(s) + f"({theorem})"
+    
+        def search(node):  # root-last traversal
+            nonlocal step_counter
+            if node in visited or node not in self.proof_dict or self.proof_dict[node] is None:
+                return
+            visited.add(node)
+            conditions = self.proof_dict[node]
+            theorem = None
+            while len(conditions) == 1 and conditions[0] in self.proof_dict: # collapse single-condition inferences
+                if isinstance(conditions[0], InferenceRule) and not type(conditions[0]) in inference_rule_sets["ex"]:
+                    theorem = conditions[0]
+                conditions = self.proof_dict[conditions[0]]
+            for condition in conditions:
+                if condition is not None:
+                    search(condition)
+            if all([type(item) in (Collinear, Between, SameSide)for item in conditions]):
+                return
+            if type(node) in (Traced, sympy.core.add.Add):
+                for item in visited:
+                    if not item is node and type(item) in (Traced, sympy.core.add.Add):
+                        if getattr(node, "expr", node) - getattr(item, "expr", item) == 0:
+                            return
+                        if getattr(node, "expr", node) + getattr(item, "expr", item) == 0:
+                            return
+            proof_steps[node] = (step_counter, conditions, theorem)
+            step_counter += 1
+
+        if not conclusion and self.state.goal:
+            conclusion = self.state.goal
+
+        search(conclusion)
+        lst = [(key, value) for key, value in proof_steps.items()]
+        lst.sort(key=lambda x: x[1][0])
+        last = -1
+        for node, (step_number, conditions, theorem) in lst:
+            if step_number == last:
+                continue
+            last = step_number
+            dic = {"condition": conditions, "step": step_number, "theorem": theorem, "conclusion": node}
+            proof.append(dic)
+        
+        return proof
+        
     def show_proof(self, node=None):
-        def format_proof(proof_dict, conclusion):
-            proof = []
-            proof_steps = {}
-            visited = set()
-            step_counter = 1
-
-            def format_conditions(condition, proof_steps, theorem):
-                s = []
-                for condition in conditions:
-                    if condition in proof_steps:
-                        s.append(f"{condition}({proof_steps[condition][0]})")
-                    else:
-                        s.append(f"{condition}")
-                if theorem is None:
-                    return " &\n".join(s)
-                return " &\n".join(s) + f"({theorem})"
-        
-            def search(node):  # root-last traversal
-                nonlocal step_counter
-                if node in visited or node not in proof_dict or proof_dict[node] is None:
-                    return
-                visited.add(node)
-                conditions = proof_dict[node]
-                theorem = None
-                while len(conditions) == 1 and conditions[0] in proof_dict: # collapse single-condition inferences
-                    if isinstance(conditions[0], InferenceRule) and not type(conditions[0]) in inference_rule_sets["ex"]:
-                        theorem = conditions[0]
-                    conditions = proof_dict[conditions[0]]
-                for condition in conditions:
-                    if condition is not None:
-                        search(condition)
-                if all([type(item) in (Collinear, Between, SameSide)for item in conditions]):
-                    return
-                if type(node) in (Traced, sympy.core.add.Add):
-                    for item in visited:
-                        if not item is node and type(item) in (Traced, sympy.core.add.Add):
-                            if getattr(node, "expr", node) - getattr(item, "expr", item) == 0:
-                                return
-                            if getattr(node, "expr", node) + getattr(item, "expr", item) == 0:
-                                return
-                proof_steps[node] = (step_counter, conditions, theorem)
-                step_counter += 1
-
-            search(conclusion)
-            lst = [(key, value) for key, value in proof_steps.items()]
-            lst.sort(key=lambda x: x[1][0])
-            last = -1
-            for node, (step_number, conditions, theorem) in lst:
-                if step_number == last:
-                    continue
-                last = step_number
-                dic = {"condition": conditions, "step": step_number, "theorem": theorem, "conclusion": node}
-                proof.append(dic)
-            
-            return proof
-        
         if not node and self.state.goal:
             node = self.state.goal
         
-        proof = format_proof(self.deps, node)
+        proof = self.format_proof(node)
 
         step = 1
         for proof_step in proof:
             if not isinstance(proof_step['condition'][0], ConstructionRule):
-                print(f'{step}. ' + ' & '.join(str(item) for item in proof_step['condition']) + ' => ' + str(proof_step['conclusion']))
+                print(f'{step}. ' + ' & '.join(str(item) for item in proof_step['condition'] if not trivial_condition(item)) + ' => ' + str(proof_step['conclusion']))
                 step += 1
 
-    def traceback(self, augmented_A, e) -> list[str]:
+    def traceback_l1(self, augmented_A, e, threshold=1e-6):
+        m, n = augmented_A.shape
+        e = e[0]
+        n = n - 1
+
+        model = Model()
+        model.setParam('display/verblevel', 0)
+
+        x_pos = {}
+        x_neg = {}
+        for i in range(m):
+            x_pos[i] = model.addVar(lb=0.0, vtype="C", name=f"x_pos_{i}")
+            x_neg[i] = model.addVar(lb=0.0, vtype="C", name=f"x_neg_{i}")
+
+        model.setObjective(
+            quicksum(x_pos[i] + x_neg[i] for i in range(m)),
+            sense="minimize"
+        )
+
+        for i in range(n + 1):
+            model.addCons(
+                quicksum(augmented_A[j, i] * (x_pos[j] - x_neg[j]) for j in range(m)) == e[i]
+            )
+
+        model.optimize()
+        x_values = [model.getVal(x_pos[i]) - model.getVal(x_neg[i]) for i in range(m)]
+        indices = [i for i, val in enumerate(x_values) if abs(val) > threshold]
+
+        return indices
+
+
+    def traceback_l0(self, augmented_A, e) -> list[str]:
         m, n = augmented_A.shape
         e = e[0]
         n = n - 1
@@ -294,7 +326,12 @@ class ProofGenerator:
             variables = {item: i for i, item in enumerate(list(variables))}
             mat = self.vectorize([item.expr for item in equations], variables, source)
             eq = self.vectorize([conclusion], variables, source)
-            deps = self.traceback(mat, eq)
+            try:
+                with Timeout(60):
+                    deps = self.traceback_l0(mat, eq)
+            except:
+                deps = self.traceback_l1(mat, eq)
+
             return [equations[i] for i in deps]
         
         if source == "angle_linear":

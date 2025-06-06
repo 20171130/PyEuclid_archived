@@ -6,6 +6,8 @@ import argparse
 
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
+from pyeuclid.formalization.construction_rule import *
+from pyeuclid.formalization.utils import *
 from pyeuclid.engine.inference_rule import inference_rule_sets
 from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
@@ -14,7 +16,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default=" b c = triangle a b c; o = circle o a b c; h = midpoint h c b; d = on_line d o h, on_line d a b; e = on_tline e c c o, on_tline e a a o ? cyclic a o e d")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; d = foot d b a c; e = foot e c a b; g = circumcenter g b c a; h = intersection_lc h g g a; f = on_line f b d, on_line f c e; i = on_line i b c, on_line i f h ? cong f i i h")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -38,16 +40,29 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
-    engine.search()
+    engine.run()
     t = time.time() - t0
     result = state.complete()
     if result is not None:
         if args.show_proof:
-            proof_generator.run()
-            proof_generator.track_constructions()
-            for c in proof_generator.source_constructions[state.goal]:
-                print(c)
-            # proof_generator.show_proof()
+            t0 = time.time()
+            with Timeout(600):
+                proof_generator.run()
+                proof = proof_generator.format_proof()
+                max_cond_num = 0
+                acc_cond_num = 0
+                step = 0
+                for proof_step in proof:
+                    if not isinstance(proof_step['condition'][0], ConstructionRule):
+                        print(f'{step+1}. ' + ' & '.join(str(item) for item in proof_step['condition'] if not trivial_condition(item)) + ' => ' + str(proof_step['conclusion']))
+                        step += 1
+                        max_cond_num = max(max_cond_num, len(proof_step['condition']))
+                        acc_cond_num += len(proof_step['condition'])
+            
+            print(f'proof genratation runs in {time.time()-t0}')
+            print(f'Proof steps: ', step)
+            print(f'Max condition number: ', max_cond_num)
+            print(f'Average condition number: ', acc_cond_num / step)
         print(f"Solved in {t:.2f}s")
     else:
         print(f"Not solved in {t:.2f}s")

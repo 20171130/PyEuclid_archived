@@ -1,4 +1,5 @@
 from pyeuclid.formalization.relation import *
+from pyeuclid.engine.inference_rule import *
 import sympy
 
 
@@ -7,6 +8,14 @@ class Engine:
         self.state = state
         self.deductive_database = deductive_database
         self.algebraic_system = algebraic_system
+    
+    def run(self):
+        self.deductive_database.inner_theorems.remove(PropertyOfTriangle)
+        self.search()
+        if self.state.complete() is not None:
+            return
+        self.deductive_database.inner_theorems.append(PropertyOfTriangle)
+        self.search()
         
     def search(self, depth=9999):
         self.algebraic_system.run()
@@ -16,12 +25,9 @@ class Engine:
             
             self.state.current_depth += 1
             
-            self.deductive_database.run()
+            closure = self.deductive_database.run()
             
-            if self.deductive_database.closure:
-                break
-            
-            if self.state.complete() is not None:
+            if self.state.complete() is not None or closure:
                 break
             
             self.algebraic_system.run()

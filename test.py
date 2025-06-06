@@ -8,6 +8,7 @@ from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.translation import parse_texts_from_file
 from pyeuclid.formalization.utils import Timeout, TimeoutException
+from pyeuclid.formalization.construction_rule import *
 from pyeuclid.engine.inference_rule import inference_rule_sets
 from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
@@ -35,12 +36,28 @@ class TestBenchmarks(unittest.TestCase):
                 engine = Engine(state, deductive_database, algebraic_system)
                 t = time.time()
                 with Timeout(600):
-                    engine.search()
+                    engine.run()
                 t = time.time() - t
                 if state.complete() is not None:
                     print(f"{idx} solved in {t} seconds")
-                    with Timeout(600):
-                        proof_generator.run()
+                    # t0 = time.time()
+                    # with Timeout(600):
+                    #     proof_generator.run()
+                    #     proof = proof_generator.format_proof()
+                    #     max_cond_num = 0
+                    #     acc_cond_num = 0
+                    #     step = 0
+                    #     for proof_step in proof:
+                    #         if not isinstance(proof_step['condition'][0], ConstructionRule):
+                    #             step += 1
+                    #             max_cond_num = max(max_cond_num, len(proof_step['condition']))
+                    #             acc_cond_num += len(proof_step['condition'])
+                    
+                    # print(idx)
+                    # print(f'proof genratation runs in {time.time()-t0}')
+                    # print(f'Proof steps: ', step)
+                    # print(f'Max condition number: ', max_cond_num)
+                    # print(f'Average condition number: ', acc_cond_num / step)
                     # if world_size == 1:
                     #     proof_generator.show_proof()
                 else:
