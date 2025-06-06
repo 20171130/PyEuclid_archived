@@ -105,9 +105,14 @@ class ProofGenerator:
         def refine_constructions(constructions):
             require_points = {p for construction in constructions for p in construction.inputs}
             produced_points = {p for construction in constructions for p in construction.outputs}
-            
+
             missing_points = require_points - produced_points
-            return constructions.union({self.state.point2construction[p] for p in missing_points})
+            additional_constructions = set()
+            for p in missing_points:
+                for constr in self.state.point2construction[p]:
+                    additional_constructions.add(constr)
+            
+            return constructions.union(additional_constructions)
             
         def collect(node):
             if node in self.source_constructions:

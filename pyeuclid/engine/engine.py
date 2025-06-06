@@ -10,11 +10,11 @@ class Engine:
         self.algebraic_system = algebraic_system
     
     def run(self):
-        self.deductive_database.inner_theorems.remove(PropertyOfTriangle)
-        self.search()
-        if self.state.complete() is not None:
-            return
-        self.deductive_database.inner_theorems.append(PropertyOfTriangle)
+        # self.deductive_database.inner_theorems.remove(PropertyOfTriangle)
+        # self.search()
+        # if self.state.complete() is not None:
+        #     return
+        # self.deductive_database.inner_theorems.append(PropertyOfTriangle)
         self.search()
         
     def search(self, depth=9999):

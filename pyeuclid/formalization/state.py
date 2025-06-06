@@ -2,6 +2,7 @@ import os
 import sys
 import logging
 
+from collections import defaultdict
 from itertools import permutations
 from typing import Iterable
 
@@ -23,7 +24,7 @@ class State:
         self.var_types = {}
         self.ratios = {}
         self.angle_sums = {}
-        self.point2construction = {}
+        self.point2construction = defaultdict(list)
         
         self.current_depth = 0
         self.solutions = []
@@ -138,18 +139,18 @@ class State:
         for construction in constructions:
             for p in construction.outputs:
                 self.add_point(p)
-                self.point2construction[p] = construction
+                self.point2construction[p].append(construction)
                 
             relations = construction.conclusions()
 
             for relation in relations:
-                if isinstance(relation, tuple):
-                    if self.diagram.numerical_check(relation[0]):
-                        assert not self.diagram.numerical_check(relation[1])
-                        relation = relation[0]
-                    else:
-                        assert self.diagram.numerical_check(relation[1])
-                        relation = relation[1]
+                # if isinstance(relation, tuple):
+                #     if self.diagram.numerical_check(relation[0]):
+                #         assert not self.diagram.numerical_check(relation[1])
+                #         relation = relation[0]
+                #     else:
+                #         assert self.diagram.numerical_check(relation[1])
+                #         relation = relation[1]
                 
                 if isinstance(relation, sympy.core.expr.Expr):
                     relation = Traced(relation)

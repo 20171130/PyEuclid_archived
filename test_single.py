@@ -16,7 +16,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; d = foot d b a c; e = foot e c a b; g = circumcenter g b c a; h = intersection_lc h g g a; f = on_line f b d, on_line f c e; i = on_line i b c, on_line i f h ? cong f i i h")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle; a1 = on_line b c; b1 = on_line a c; p = on_line a a1; q = on_line b b1, on_pline p a b; p1 = on_line p b1, eqangle3 p c a b c; q1 = on_line q a1, eqangle3 c q b c a ? cyclic p q p1 q1")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -24,7 +24,8 @@ def run_single_problem(args):
     # state.silent = True
     state.logger.setLevel(logging.INFO)
     if args.problem_string is not None:
-        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg')
+        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg', resample=True)
+        input()
     else:
         namespace = {}
         with open(f'data/Geometry3K/{args.problem_id}/problem.py', "r") as file:

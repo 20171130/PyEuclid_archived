@@ -1,7 +1,6 @@
 from __future__ import annotations
 import math
 from pyeuclid.formalization.relation import *
-
 from typing import Any, Optional, Union
 import numpy as np
 from numpy.random import uniform as unif
@@ -114,13 +113,6 @@ class Line:
     def perpendicular_line(self, p: Point) -> Line:
         a, b, _ = self.coefficients
         return Line(p, p + Point(a, b))
-   
-    def intersect(self, obj):
-        if isinstance(obj, Line):
-            return line_line_intersection(self, obj)
-
-        if isinstance(obj, Circle):
-            return line_circle_intersection(self, obj)
     
     def distance(self, p: Point) -> float:
         a, b, c = self.coefficients
@@ -294,29 +286,7 @@ class Ray(Line):
         self.coefficients = self.line.coefficients
         self.tail = tail
         self.head = head
-        
-    def intersect(self, obj) -> Point:
-        if isinstance(obj, (Ray, Line)):
-            return line_line_intersection(self.line, obj)
-        
-        a, b = line_circle_intersection(self.line, obj)
-        
-        if a.close(self.tail):
-            return b
-        if b.close(self.tail):
-            return a
-        
-        v = self.head - self.tail
-        va = a - self.tail
-        vb = b - self.tail
-        
-        if v.dot(va) > 0:
-            return a
-        if v.dot(vb) > 0:
-            return b
-        
-        raise Exception()
-    
+
     def sample_within_halfplanes(self, points: list[Point], halfplanes: list[HalfPlane], n: int = 5) -> list[Point]:
         """Sample points on the half-line within the intersection of half-plane constraints and near existing points."""
 
@@ -424,6 +394,7 @@ class Segment(Line):
         self.p1 = p1
         self.p2 = p2
 
+
 class Circle:
     """Numerical circle."""
 
@@ -446,13 +417,6 @@ class Circle:
         
         self.center = center
         self.radius = radius
-    
-    def intersect(self, obj: Union[Line, Circle]) -> tuple[Point, ...]:
-        if isinstance(obj, Line):
-            return obj.intersect(self)
-        
-        if isinstance(obj, Circle):
-            return circle_circle_intersection(self, obj)
         
     def sample_within(self, points: list[Point], n: int = 5) -> list[Point]:
         """Sample a point within the boundary of points."""
@@ -477,6 +441,60 @@ class HalfPlane:
         self.sign = self.line.sign(a)
         if opposingsides:
             self.sign = -self.sign
+    
+    def contains(self, point: Point) -> bool:
+        if abs(self.line(point)) <= ATOM : 
+          return False
+        else:
+          s = self.line.sign(point)
+          if s == 0:
+              return False
+          return s == self.sign
+
+def intersect(a, b):
+    if isinstance(a, Line) and isinstance(b, Line):
+        return line_line_intersection(a, b)
+    elif isinstance(a, Line) and isinstance(b, Ray):
+        return intersect(b, a)
+    elif isinstance(a, Line) and isinstance(b, Circle):
+        return line_circle_intersection(a, b)
+    elif isinstance(a, Ray) and isinstance(b, Ray):
+        try:
+            P = line_line_intersection(a.line, b.line)
+        except ValueError:
+            return None
+        if a._forward_dot(P) >= -ATOM and b._forward_dot(P) >= -ATOM:
+            return P
+        return None
+    elif isinstance(a, Ray) and isinstance(b, Line):
+        try:
+            P = line_line_intersection(a.line, b)
+        except ValueError:
+            return None
+        return P if a._forward_dot(P) >= -ATOM else None
+    elif isinstance(a, Ray) and isinstance(b, Circle):
+        try:
+            pts = line_circle_intersection(a.line, b)
+        except ValueError:
+            return None
+        valid = []
+        for Q in pts:
+            if Q.close(a.tail) or a._forward_dot(Q) > ATOM:
+                valid.append(Q)
+        if not valid:
+            return None
+        if len(valid) == 1:
+            return valid[0]
+        return valid
+    elif isinstance(a, Circle) and isinstance(b, Line):
+        return line_circle_intersection(b, a)
+    elif isinstance(a, Circle) and isinstance(b, Circle):
+        return circle_circle_intersection(a, b)
+    
+    elif isinstance(a, Circle) and isinstance(b, Ray):
+        return intersect(b, a)
+
+    raise ValueError(f"No intersection rule for ({type(a).__name__}, {type(b).__name__}).")
 
 
 def perpendicular_bisector(p1: Point, p2: Point) -> Line:

@@ -158,7 +158,7 @@ class Diagram:
                     raise NumericalCheckingError()
             
             to_be_intersected += self.sketch(construction)
-                
+        
         new_points = self.reduce(to_be_intersected, self.points)
         self.points = self.points + new_points # Rebinds to a new list
         
@@ -273,14 +273,14 @@ class Diagram:
         a, b, c = args
         l1 = perpendicular_bisector(a, b)
         l2 = perpendicular_bisector(b, c)
-        x = line_line_intersection(l1, l2)
+        x = intersect(l1, l2)
         return x
     
     def sketch_circumcenter(self, *args: list[Point]) -> Point:
         a, b, c = args
         l1 = perpendicular_bisector(a, b)
         l2 = perpendicular_bisector(b, c)
-        x = line_line_intersection(l1, l2)
+        x = intersect(l1, l2)
         return x
     
     def sketch_eq_quadrangle(self, *args: list[Point]) -> list[Point]:
@@ -329,7 +329,7 @@ class Diagram:
 
         e = b + (c - b) * (be / bc)
         y = b + (a - b) * (be / l)
-        return line_line_intersection(Line(c, y), Line(a, e))
+        return intersect(Line(c, y), Line(a, e))
     
     def sketch_eqdia_quadrangle(self, *args) -> list[Point]:
         m = unif(0.3, 0.7)
@@ -362,7 +362,7 @@ class Diagram:
         a, b, c = args
         line_bc = Line(b, c)
         tline = a.perpendicular_line(line_bc)
-        return line_line_intersection(tline, line_bc)
+        return intersect(tline, line_bc)
     
     def sketch_free(self, *args) -> Point:
         return Point(unif(-1, 1), unif(-1, 1))
@@ -371,7 +371,7 @@ class Diagram:
         a, b, c = args
         l1 = self.sketch_angle_bisector(a, b, c)
         l2 = self.sketch_angle_bisector(b, c, a)
-        return line_line_intersection(l1, l2)
+        return intersect(l1, l2)
     
     def sketch_incenter2(self, *args) -> list[Point]:
         a, b, c = args
@@ -385,7 +385,7 @@ class Diagram:
         a, b, c = args
         l1 = self.sketch_angle_bisector(b, a, c)
         l2 = self.sketch_angle_bisector(a, b, c).perpendicular_line(b)
-        return line_line_intersection(l1, l2)
+        return intersect(l1, l2)
     
     def sketch_excenter2(self, *args) -> list[Point]:
         a, b, c = args
@@ -400,7 +400,7 @@ class Diagram:
         x = (b + c) * 0.5
         y = (c + a) * 0.5
         z = (a + b) * 0.5
-        i = line_line_intersection(Line(a, x), Line(b, y))
+        i = intersect(Line(a, x), Line(b, y))
         return [x, y, z, i]
     
     def sketch_intersection_cc(self, *args) -> list[Circle]:
@@ -415,31 +415,31 @@ class Diagram:
         a, b, c, d = args
         l1 = Line(a, b)
         l2 = Line(c, d)
-        return line_line_intersection(l1, l2)
+        return intersect(l1, l2)
     
     def sketch_intersection_lp(self, *args) -> Point:
         a, b, c, m, n = args
         l1 = Line(a,b)
         l2 = self.sketch_on_pline(c, m, n)
-        return line_line_intersection(l1, l2)
+        return intersect(l1, l2)
     
     def sketch_intersection_lt(self, *args) -> Point:
         a, b, c, d, e = args
         l1 = Line(a, b)
         l2 = self.sketch_on_tline(c, d, e)
-        return line_line_intersection(l1, l2)
+        return intersect(l1, l2)
     
     def sketch_intersection_pp(self, *args) -> Point:
         a, b, c, d, e, f = args
         l1 = self.sketch_on_pline(a, b, c)
         l2 = self.sketch_on_pline(d, e, f)
-        return line_line_intersection(l1, l2)
+        return intersect(l1, l2)
     
     def sketch_intersection_tt(self, *args) -> Point:
         a, b, c, d, e, f = args
         l1 = self.sketch_on_tline(a, b, c)
         l2 = self.sketch_on_tline(d, e, f)
-        return line_line_intersection(l1, l2)
+        return intersect(l1, l2)
     
     def sketch_iso_triangle(self, *args) -> list[Point]:
         base = unif(0.5, 1.5)
@@ -512,13 +512,13 @@ class Diagram:
         a, b, c = args
         l1 = self.sketch_on_tline(a, b, c)
         l2 = self.sketch_on_tline(b, c, a)
-        return line_line_intersection(l1, l2)
+        return intersect(l1, l2)
     
     def sketch_parallelogram(self, *args) -> Point:
         a, b, c = args
         l1 = self.sketch_on_pline(a, b, c)
         l2 = self.sketch_on_pline(c, a, b)
-        return line_line_intersection(l1, l2)
+        return intersect(l1, l2)
     
     def sketch_pentagon(self, *args) -> list[Point]:
         points = [Point(1.0, 0.0)]
@@ -639,7 +639,7 @@ class Diagram:
     def sketch_triangle12(self, *args) -> list[Point]:
         b = Point(0.0, 0.0)
         c = Point(unif(1.5, 2.5), 0.0)
-        a, _ = circle_circle_intersection(Circle(b, 1.0), Circle(c, 2.0))
+        a, _ = intersect(Circle(b, 1.0), Circle(c, 2.0))
         a, b, c = random_rfss(a, b, c)
         return [a, b, c]
     
@@ -648,26 +648,26 @@ class Diagram:
         bc, ac = Line(b, c), Line(a, c)
         circle = Circle(p, p.distance(a))
 
-        d, d_ = line_circle_intersection(p.perpendicular_line(bc), circle)
+        d, d_ = intersect(p.perpendicular_line(bc), circle)
         if bc.diff_side(d_, a):
             d = d_
 
-        e, e_ = line_circle_intersection(p.perpendicular_line(ac), circle)
+        e, e_ = intersect(p.perpendicular_line(ac), circle)
         if ac.diff_side(e_, b):
             e = e_
 
         df = d.perpendicular_line(Line(p, d))
         ef = e.perpendicular_line(Line(p, e))
-        f = line_line_intersection(df, ef)
+        f = intersect(df, ef)
 
-        g, g_ = line_circle_intersection(Line(c, f), circle)
+        g, g_ = intersect(Line(c, f), circle)
         if bc.same_side(g_, a):
             g = g_
 
         b_ = c + (b - c) / b.distance(c)
         a_ = c + (a - c) / a.distance(c)
         m = (a_ + b_) * 0.5
-        x = line_line_intersection(Line(c, m), Line(p, g))
+        x = intersect(Line(c, m), Line(p, g))
         return [x.foot(ac), x.foot(bc), g, x]
     
     def sketch_e5128(self, *args) -> list[Point]:
@@ -675,7 +675,7 @@ class Diagram:
         g = (a + b) * 0.5
         de = Line(d, g)
 
-        e, f = line_circle_intersection(de, Circle(c, c.distance(b)))
+        e, f = intersect(de, Circle(c, c.distance(b)))
 
         if e.distance(d) < f.distance(d):
             e = f
@@ -689,7 +689,7 @@ class Diagram:
 
         z_ = z * 2 - c
         l = z_.parallel_line(ca)
-        x = line_line_intersection(l, ab)
+        x = intersect(l, ab)
         y = z * 2 - x
         return [x, y, z]
     
@@ -714,8 +714,8 @@ class Diagram:
         y = b + Point(np.cos(angy), np.sin(angy))
 
         ac = Line(a, c)
-        x = line_line_intersection(Line(b, x), ac)
-        y = line_line_intersection(Line(b, y), ac)
+        x = intersect(Line(b, x), ac)
+        y = intersect(Line(b, y), ac)
 
         if swap == 1:
             return [y, x]
@@ -735,7 +735,7 @@ class Diagram:
         a = Point(0.0, 0.0)
         b = Point(1.0, 0.0)
 
-        c, _ = Circle(a, a.distance(b)).intersect(Circle(b, b.distance(a)))
+        c, _ = intersect(Circle(a, a.distance(b)), Circle(b, b.distance(a)))
         return [a, b, c]
     
     def sketch_on_opline(self, *args) -> Ray:
@@ -750,7 +750,7 @@ class Diagram:
         if close_enough(ra, rb):
             oo = ow.perpendicular_line(o)
             oa = Circle(o, ra)
-            x, z = line_circle_intersection(oo, oa)
+            x, z = intersect(oo, oa)
             y = x + w - o
             t = z + w - o
             return [x, y, z, t]
@@ -759,20 +759,21 @@ class Diagram:
         o, a, w, b = args
         return self.sketch_cc_tangent(o, a, w, b)[:2]
     
+    # TODO other side of x
     def sketch_eqangle3(self, *args) -> list[Point]:
         a, b, d, e, f = args
         de = d.distance(e)
         ef = e.distance(f)
         ab = b.distance(a)
         ang_ax = ang_of(a, b) + ang_between(e, d, f)
-        x = head_from(a, ang_ax, length=de / ef * ab)   
+        x = head_from(a, ang_ax, length=de / ef * ab)
         o = self.sketch_circle(a, b, x)
-        return Circle(o, o.distance(a))
+        return [Circle(o, o.distance(a)), HalfPlane(o, a, b, opposingsides=calculate_angle(e,d,f)>pi/2)]
     
     def sketch_tangent(self, *args) -> list[Point]:
         a, o, b = args
         dia = self.sketch_dia([a, o])
-        return list(circle_circle_intersection(Circle(o, o.distance(b)), dia))
+        return list(intersect(Circle(o, o.distance(b)), dia))
     
     def sketch_on_circum(self, *args) -> Circle:
         a, b, c = args
@@ -794,13 +795,6 @@ class Diagram:
   
         if all(isinstance(o, Point) for o in objs):
             return objs
-  
-        elif all(isinstance(o, HalfPlane) for o in objs):
-            if len(objs) == 1:
-                return objs[0].sample_within_halfplanes(existing_points,[])
-            else:
-                return objs[0].sample_within_halfplanes(existing_points,objs[1:])
-
         elif len(essential_objs) == 1:
             if not halfplane_objs:
                 return objs[0].sample_within(existing_points)
@@ -809,8 +803,8 @@ class Diagram:
   
         elif len(essential_objs) == 2:
             a, b = essential_objs
-            result = a.intersect(b)
-            
+            result = intersect(a, b)
+
             if isinstance(result, Point):
                 if halfplane_objs and not all(i.contains(result) for i in halfplane_objs):
                     raise Exception()
@@ -1379,7 +1373,7 @@ class Diagram:
         
         for circle in self.circles:
             try:
-                avoids.extend(circle_circle_intersection(c, circle))
+                avoids.extend(intersect(c, circle))
             except:
                 continue
         

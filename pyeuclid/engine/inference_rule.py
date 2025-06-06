@@ -842,6 +842,9 @@ class DefinitionOfOrthocenter(InferenceRule):
             Triangle(self.a, self.b, self.c),
             Perpendicular(self.o, self.a, self.b, self.c),
             Perpendicular(self.o, self.b, self.a, self.c),
+            Different2(self.o, self.a),
+            Different2(self.o, self.b),
+            Different2(self.o, self.c),
             Lt(self.a, self.b)
         ]
     
@@ -859,6 +862,9 @@ class PropertyOfOrthocenter(InferenceRule):
     def condition(self):
         return [
             Orthocenter(self.o, self.a, self.b, self.c),
+            Different2(self.o, self.a),
+            Different2(self.o, self.b),
+            Different2(self.o, self.c),
             Lt(self.a, self.b),
             Lt(self.b, self.c)
         ]

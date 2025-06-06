@@ -68,7 +68,11 @@ class construct_angle_bisector(ConstructionRule):
     def conclusions(self):
         a, b, c = self.inputs
         x, = self.outputs
-        return [Angle(a, b, x) - Angle(x, b, c)]
+        return [
+            Angle(a, b, x) - Angle(x, b, c),
+            # Angle(c, b, a) - 2 * Angle(a, b, x),
+            # Angle(c, b, a) - 2 * Angle(x, b, c),
+        ]
 
 
 @register("nondeterministic")
@@ -87,10 +91,11 @@ class construct_angle_mirror(ConstructionRule):
     def conclusions(self):
         a, b, c = self.inputs
         x, = self.outputs
-        return [(
-            Angle(a, b, c) - Angle(c, b, x), 
-            Angle(a, b, c) + Angle(c, b, x) - pi
-        )]
+        return [
+            Angle(a, b, c) - Angle(c, b, x),
+            # Angle(x, b, a) - 2 * Angle(a, b, c),
+            # Angle(x, b, a) - 2 * Angle(c, b, x),
+        ]
 
 @register("deterministic")
 class construct_circle(ConstructionRule):
@@ -111,6 +116,7 @@ class construct_circle(ConstructionRule):
         return [
             Length(x, a) - Length(x, b),
             Length(x, b) - Length(x, c),
+            Length(x, c) - Length(x, a),
         ]
 
 
@@ -133,6 +139,7 @@ class construct_circumcenter(ConstructionRule):
         return [
             Length(x, a) - Length(x, b),
             Length(x, b) - Length(x, c),
+            Length(x, c) - Length(x, a),
         ]
 
 
@@ -147,7 +154,10 @@ class construct_eq_quadrangle(ConstructionRule):
 
     def conclusions(self):
         a, b, c, d = self.outputs
-        return [Length(a, d) - Length(b, c)]
+        return [
+            # Quadrilateral(a, b, c, d),
+            Length(a, d) - Length(b, c)
+        ]
 
 
 @register("independent")
@@ -162,8 +172,9 @@ class construct_eq_trapezoid(ConstructionRule):
     def conclusions(self):
         a, b, c, d = self.outputs
         return [
-            Length(a, d) - Length(b, c),
+            # Trapezoid(a, b, c, d),
             Parallel(a, b, c, d),
+            Length(a, d) - Length(b, c),
             Angle(d, a, b) - Angle(a, b, c),
             Angle(b, c, d) - Angle(c, d, a),
         ]
@@ -327,9 +338,10 @@ class construct_incenter(ConstructionRule):
         a, b, c = self.inputs
         x, = self.outputs
         return [
-            Angle(b, a, x) - Angle(x, a, c),
-            Angle(a, c, x) - Angle(x, c, b),
-            Angle(c, b, x) - Angle(x, b, a),
+            Incenter(x, a, b, c)
+            # Angle(b, a, x) - Angle(x, a, c),
+            # Angle(a, c, x) - Angle(x, c, b),
+            # Angle(c, b, x) - Angle(x, b, a),
         ]
 
 
@@ -350,15 +362,16 @@ class construct_incenter2(ConstructionRule):
         a, b, c = self.inputs
         x, y, z, i = self.outputs
         return [
-            Angle(b, a, i) - Angle(i, a, c),
-            Angle(a, c, i) - Angle(i, c, b),
-            Angle(c, b, i) - Angle(i, b, a),
+            Incenter(i, a, b, c),
             Collinear(x, b, c),
             Perpendicular(i, x, b, c),
             Collinear(y, c, a),
             Perpendicular(i, y, c, a),
             Collinear(z, a, b),
             Perpendicular(i, z, a, b),
+            Angle(b, a, i) - Angle(i, a, c),
+            Angle(a, c, i) - Angle(i, c, b),
+            Angle(c, b, i) - Angle(i, b, a),
             Length(i, x) - Length(i, y),
             Length(i, y) - Length(i, z),
         ]
@@ -381,6 +394,7 @@ class construct_excenter(ConstructionRule):
         a, b, c = self.inputs
         x, = self.outputs
         return [
+            Excenter(x, a, b, c),
             Angle(b, a, x) - Angle(x, a, c),
             Angle(a, b, x) - (Angle(a, b, c) / 2 + pi / 2),
             Angle(a, c, x) - (Angle(a, c, b) / 2 + pi / 2),
@@ -404,6 +418,7 @@ class construct_excenter2(ConstructionRule):
         a, b, c = self.inputs
         x, y, z, i = self.outputs
         return [
+            Excenter(a, b, c),
             Angle(b, a, i) - Angle(i, a, c),
             Angle(a, b, i) - (Angle(a, b, c) / 2 + pi / 2),
             Angle(a, c, i) - (Angle(a, c, b) / 2 + pi / 2),
@@ -435,6 +450,7 @@ class construct_centroid(ConstructionRule):
         a, b, c = self.inputs
         x, y, z, i = self.outputs
         return [
+            Centroid(i, a, b, c),
             Collinear(x, b, c),
             Length(x, b) - Length(x, c),
             Collinear(y, c, a),
@@ -728,10 +744,9 @@ class construct_on_aline(ConstructionRule):
     def conclusions(self):
         a, b, c, d, e = self.inputs
         x, = self.outputs
-        return [(
+        return [
             Angle(x, a, b) - Angle(c, d, e),
-            Angle(x, a, b) + Angle(c, d, e) - pi,
-        )]
+        ]
 
 
 
@@ -867,12 +882,13 @@ class construct_orthocenter(ConstructionRule):
 
     def conditions(self):
         a, b, c = self.inputs
-        return [Not(Collinear(a, b, c))]
+        return [Not(Collinear(a, b, c)), Not(Perpendicular(a, b, b, c)), Not(Perpendicular(b, c, c, a)), Not(Perpendicular(c, a, a, b))]
 
     def conclusions(self):
         a, b, c = self.inputs
         x, = self.outputs
         return [
+            Orthocenter(x, a, b, c),
             Perpendicular(x, a, b, c),
             Perpendicular(x, b, c, a),
             Perpendicular(x, c, a, b),
@@ -1465,7 +1481,7 @@ class construct_eqangle3(ConstructionRule):
     def conclusions(self):
         a, b, d, e, f = self.inputs
         x, = self.outputs
-        return [(Angle(a, x, b) - Angle(e, d, f), Angle(a, x, b) + Angle(e, d, f) - pi)]
+        return [Angle(a, x, b) - Angle(e, d, f)]
 
 
 @register("deterministic")
