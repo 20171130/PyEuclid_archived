@@ -278,14 +278,28 @@ class Line:
             return [result]
     
 
-class Ray(Line):
+class Ray:
     """Numerical ray."""
 
     def __init__(self, tail: Point, head: Point):
         self.line = Line(tail, head)
         self.coefficients = self.line.coefficients
+
+        self._dx = head.x - tail.x
+        self._dy = head.y - tail.y
+
         self.tail = tail
         self.head = head
+    
+    def contains(self, P: Point, tol: float = ATOM) -> bool:
+        vx = P.x - self.tail.x
+        vy = P.y - self.tail.y
+
+        cross = self._dx * vy - self._dy * vx
+        if abs(cross) > tol:
+            return False
+        dot = self._dx * vx + self._dy * vy
+        return dot >= -tol
 
     def sample_within_halfplanes(self, points: list[Point], halfplanes: list[HalfPlane], n: int = 5) -> list[Point]:
         """Sample points on the half-line within the intersection of half-plane constraints and near existing points."""
@@ -459,11 +473,8 @@ def intersect(a, b):
     elif isinstance(a, Line) and isinstance(b, Circle):
         return line_circle_intersection(a, b)
     elif isinstance(a, Ray) and isinstance(b, Ray):
-        try:
-            P = line_line_intersection(a.line, b.line)
-        except ValueError:
-            return None
-        if a._forward_dot(P) >= -ATOM and b._forward_dot(P) >= -ATOM:
+        P = line_line_intersection(a.line, b.line)
+        if a.contains(P) and b.contains(P):
             return P
         return None
     elif isinstance(a, Ray) and isinstance(b, Line):
@@ -471,7 +482,7 @@ def intersect(a, b):
             P = line_line_intersection(a.line, b)
         except ValueError:
             return None
-        return P if a._forward_dot(P) >= -ATOM else None
+        return P if a.contains(P) else None
     elif isinstance(a, Ray) and isinstance(b, Circle):
         try:
             pts = line_circle_intersection(a.line, b)
@@ -479,7 +490,7 @@ def intersect(a, b):
             return None
         valid = []
         for Q in pts:
-            if Q.close(a.tail) or a._forward_dot(Q) > ATOM:
+            if Q.close(a.tail) or a.contains(Q):
                 valid.append(Q)
         if not valid:
             return None
@@ -588,7 +599,7 @@ def line_line_intersection(l1: Line, l2: Line) -> Point:
     # a1x + b1y + c1 = 0
     # a2x + b2y + c2 = 0
     d = a1 * b2 - a2 * b1
-    if d == 0:
+    if close_enough(d, 0):
         raise Exception()
     return Point((c2 * b1 - c1 * b2) / d, (c1 * a2 - c2 * a1) / d)
 

@@ -5,6 +5,7 @@ import pickle
 import hashlib
 
 from matplotlib import pyplot as plt
+from itertools import product
 
 from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.numericals import *
@@ -107,7 +108,7 @@ class Diagram:
     def add_constructions(self, constructions):
         self.save()
         mintol = 0.1
-        maxtol = 0.8
+        maxtol = 1.1
         for iter in range(MAX_DIAGRAM_ATTEMPTS):
             # if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
             #     mintol *= 0.7
@@ -126,12 +127,12 @@ class Diagram:
             
     def construct_diagram(self):
         mintol = 0.02
-        maxtol = 0.9
+        maxtol = 1.1
         for iter in range(MAX_DIAGRAM_ATTEMPTS):
             if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
                 mintol *= 0.7
                 maxtol *= 1.1
-            try:
+            # try:
                 self.clear()
                 for constructions in self.constructions_list:
                     new_points = self.construct(constructions)
@@ -141,8 +142,8 @@ class Diagram:
                 self.draw_diagram()
                 self.save_to_cache()
                 return
-            except:
-                continue
+            # except:
+            #     continue
         
         raise MaxAttemptsError()
             
@@ -156,7 +157,6 @@ class Diagram:
             for c in construction.conditions():
                 if not self.numerical_check(c):
                     raise NumericalCheckingError()
-            
             to_be_intersected += self.sketch(construction)
         
         new_points = self.reduce(to_be_intersected, self.points)
@@ -189,11 +189,11 @@ class Diagram:
         yspan = ymax - ymin
         span = max(xspan, yspan)
         
-        if check_too_close(self.points, span, mintol):
-            raise Exception()
+        # if check_too_close(self.points, span, mintol):
+        #     raise Exception()
         
-        if check_too_far(self.points, span, maxtol):
-            raise Exception()
+        # if check_too_far(self.points, span, maxtol):
+        #     raise Exception()
         
         self.xmax, self.xmin = xmax, xmin
         self.ymax, self.ymin = ymax, ymin
@@ -468,25 +468,76 @@ class Diagram:
         ang = -np.pi / 2
         return a + (b - a).rotate(np.sin(ang), np.cos(ang))
     
-    def sketch_on_aline(self, *args) -> Line:
-        e, d, c, b, a = args
-        ab = a - b
-        cb = c - b
-        de = d - e
+    # def sketch_on_aline(self, *args) -> Ray:
+    #     a, b, c, d, e = args
+    #     '''
+    #     x = xxx such that Angle(x, a, b) = Angle(c, d, e)
+    #     return Ray(e, x)
+    #     '''
+    #     e, d, c, b, a = args
+    #     ab = a - b
+    #     cb = c - b
+    #     de = d - e
 
-        dab = a.distance(b)
-        ang_ab = np.arctan2(ab.y / dab, ab.x / dab)
+    #     dab = a.distance(b)
+    #     ang_ab = np.arctan2(ab.y / dab, ab.x / dab)
 
-        dcb = c.distance(b)
-        ang_bc = np.arctan2(cb.y / dcb, cb.x / dcb)
+    #     dcb = c.distance(b)
+    #     ang_bc = np.arctan2(cb.y / dcb, cb.x / dcb)
 
-        dde = d.distance(e)
-        ang_de = np.arctan2(de.y / dde, de.x / dde)
+    #     dde = d.distance(e)
+    #     ang_de = np.arctan2(de.y / dde, de.x / dde)
 
-        ang_ex = ang_de + ang_bc - ang_ab
-        x = e + Point(np.cos(ang_ex), np.sin(ang_ex))
-        return Ray(e, x)
+    #     ang_ex = ang_de + ang_bc - ang_ab
+    #     x = e + Point(np.cos(ang_ex), np.sin(ang_ex))
+    #     return Ray(e, x)
+
+    def sketch_on_aline(self, *args) -> Ray:
+        a, b, c, d, e = args
+
+        # 1) compute the (unsigned) angle at d: ∠CDE in [0, π]
+        ang_cde = calculate_angle(c, d, e)
+
+        # 2) compute the baseline direction at a: angle of vector a→b
+        dx_ab = b.x - a.x
+        dy_ab = b.y - a.y
+        ang_ab = np.arctan2(dy_ab, dx_ab)
+
+        # 3) rotate the baseline by +ang_cde so that ∠XAB = ang_cde
+        ang_ax1 = ang_ab + ang_cde
+        ang_ax2 = ang_ab - ang_cde
+
+        # 4) place x one unit from a along that direction
+        x1 = Point(a.x + np.cos(ang_ax1), a.y + np.sin(ang_ax1))
+        x2 = Point(a.x + np.cos(ang_ax2), a.y + np.sin(ang_ax2))
+
+        assert close_enough(calculate_angle(b, a, x1), calculate_angle(c, d, e))
+        assert close_enough(calculate_angle(b, a, x2), calculate_angle(c, d, e))
+
+        return (Ray(a, x1), Ray(a, x2))
     
+    def sketch_on_aline2(self, *args) -> Ray:
+        a, b, c, d, e = args
+
+        ang_cde = calculate_angle(c, d, e)
+        dx_ab = b.x - a.x
+        dy_ab = b.y - a.y
+        ang_ab = np.arctan2(dy_ab, dx_ab)
+
+        ang_ax1 = ang_ab + ang_cde
+        ang_ax2 = ang_ab - ang_cde
+
+        x1 = Point(a.x + np.cos(ang_ax1), a.y + np.sin(ang_ax1))
+        x1 = Point(2*a.x - x1.x, 2*a.y - x1.y)
+        
+        x2 = Point(a.x + np.cos(ang_ax2), a.y + np.sin(ang_ax2))
+        x2 = Point(2*a.x - x2.x, 2*a.y - x2.y)
+
+        assert close_enough(calculate_angle(b, a, x1) + calculate_angle(c, d, e), np.pi)
+        assert close_enough(calculate_angle(b, a, x2) + calculate_angle(c, d, e), np.pi)
+
+        return (Ray(a, x1), Ray(a, x2))
+
     def sketch_on_bline(self, *args) -> Line:
         a, b = args
         m = (a + b) * 0.5
@@ -768,7 +819,7 @@ class Diagram:
         ang_ax = ang_of(a, b) + ang_between(e, d, f)
         x = head_from(a, ang_ax, length=de / ef * ab)
         o = self.sketch_circle(a, b, x)
-        return [Circle(o, o.distance(a)), HalfPlane(o, a, b, opposingsides=calculate_angle(e,d,f)>pi/2)]
+        return Circle(o, o.distance(a)), HalfPlane(o, a, b, opposingsides=calculate_angle(e,d,f)>pi/2)
     
     def sketch_tangent(self, *args) -> list[Point]:
         a, o, b = args
@@ -788,8 +839,24 @@ class Diagram:
         a, b, c = args
         return HalfPlane(a, b, c, opposingsides=True)
     
-    def reduce(self, objs, existing_points) -> list[Point]:
-        """Reduce intersecting objects into one point of intersections."""
+    def reduce(self, objs: List[Any], existing_points) -> List[Point]:
+        choices = []
+        for obj in objs:
+            if isinstance(obj, tuple):
+                assert isinstance(obj[0], Ray)
+                choices.append(obj)
+            else:
+                choices.append((obj,))
+
+        for combo in product(*choices):
+            try:
+                new_points = self._reduce(list(combo), existing_points)
+                return new_points
+            except:
+                continue
+        raise Exception()
+    
+    def _reduce(self, objs, existing_points) -> list[Point]:
         essential_objs = [i for i in objs if not isinstance(i, HalfPlane)]
         halfplane_objs = [i for i in objs if isinstance(i, HalfPlane)]
   
@@ -804,14 +871,12 @@ class Diagram:
         elif len(essential_objs) == 2:
             a, b = essential_objs
             result = intersect(a, b)
-
             if isinstance(result, Point):
                 if halfplane_objs and not all(i.contains(result) for i in halfplane_objs):
                     raise Exception()
                 return [result]
             
             a, b = result
-            
             if halfplane_objs:
                 a_correct_side = all(i.contains(a) for i in halfplane_objs)
                 b_correct_side = all(i.contains(b) for i in halfplane_objs)
@@ -826,9 +891,10 @@ class Diagram:
             a_close = any([a.close(x) for x in existing_points])
             b_close = any([b.close(x) for x in existing_points])
             
-            if a_close and not b_close:
+            if a_close and b_close:
+                raise Exception()
+            elif a_close and not b_close:
                 return [b]
-            
             elif b_close and not a_close:
                 return [a]
             else:
@@ -1062,6 +1128,13 @@ class Diagram:
         self.segments.append(Segment(b, x))
     
     def draw_on_aline(self, *args):
+        x, a, b, c, d, e = args
+        self.segments.append(Segment(e, d))
+        self.segments.append(Segment(d, c))
+        self.segments.append(Segment(b, a))
+        self.segments.append(Segment(a, x))
+    
+    def draw_on_aline2(self, *args):
         x, a, b, c, d, e = args
         self.segments.append(Segment(e, d))
         self.segments.append(Segment(d, c))

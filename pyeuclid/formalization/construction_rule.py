@@ -749,6 +749,25 @@ class construct_on_aline(ConstructionRule):
         ]
 
 
+@register("nondeterministic")
+class construct_on_aline2(ConstructionRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
+        self.inputs = [a, b, c, d, e]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
+
+    def conditions(self):
+        a, b, c, d, e = self.inputs
+        return [Not(Collinear(c, d, e))]
+
+    def conclusions(self):
+        a, b, c, d, e = self.inputs
+        x, = self.outputs
+        return [
+            Angle(x, a, b) + Angle(c, d, e) - pi
+        ]
 
 # @register("AG")
 # class construct_on_aline2(ConstructionRule):
