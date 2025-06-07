@@ -159,6 +159,7 @@ class Diagram:
                     raise NumericalCheckingError()
             to_be_intersected += self.sketch(construction)
         
+        # print(constructions)
         new_points = self.reduce(to_be_intersected, self.points)
         self.points = self.points + new_points # Rebinds to a new list
         
@@ -254,6 +255,15 @@ class Diagram:
         x = b + (c - b) * (dist_ab / dist_bc)
         m = (a + x) * 0.5
         return Ray(b, m)
+    
+    def sketch_angle_bisector2(self, *args: list[Point]) -> Ray:
+        a, b, c = args
+        dist_ab = a.distance(b)
+        dist_bc = b.distance(c)
+        x = b + (c - b) * (dist_ab / dist_bc)
+        m = (a + x) * 0.5
+        m_prime = Point(2*b.x - m.x, 2*b.y - m.y)
+        return Ray(b, m_prime)
     
     def sketch_angle_mirror(self, *args: list[Point]) -> Ray:
         a, b, c = args
@@ -528,15 +538,15 @@ class Diagram:
         ang_ax2 = ang_ab - ang_cde
 
         x1 = Point(a.x + np.cos(ang_ax1), a.y + np.sin(ang_ax1))
-        x1 = Point(2*a.x - x1.x, 2*a.y - x1.y)
+        x1_prime = Point(2*a.x - x1.x, 2*a.y - x1.y)
         
         x2 = Point(a.x + np.cos(ang_ax2), a.y + np.sin(ang_ax2))
-        x2 = Point(2*a.x - x2.x, 2*a.y - x2.y)
+        x2_prime = Point(2*a.x - x2.x, 2*a.y - x2.y)
 
-        assert close_enough(calculate_angle(b, a, x1) + calculate_angle(c, d, e), np.pi)
-        assert close_enough(calculate_angle(b, a, x2) + calculate_angle(c, d, e), np.pi)
+        assert close_enough(calculate_angle(b, a, x1_prime) + calculate_angle(c, d, e), np.pi)
+        assert close_enough(calculate_angle(b, a, x2_prime) + calculate_angle(c, d, e), np.pi)
 
-        return (Ray(a, x1), Ray(a, x2))
+        return (Ray(a, x1_prime), Ray(a, x2_prime))
 
     def sketch_on_bline(self, *args) -> Line:
         a, b = args
@@ -849,11 +859,11 @@ class Diagram:
                 choices.append((obj,))
 
         for combo in product(*choices):
-            try:
+            # try:
                 new_points = self._reduce(list(combo), existing_points)
                 return new_points
-            except:
-                continue
+            # except:
+            #     continue
         raise Exception()
     
     def _reduce(self, objs, existing_points) -> list[Point]:
@@ -906,6 +916,12 @@ class Diagram:
         func(*new_points, *args)
     
     def draw_angle_bisector(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(b, x))
+    
+    def draw_angle_bisector2(self, *args):
         x, a, b, c = args
         self.segments.append(Segment(a, b))
         self.segments.append(Segment(b, c))

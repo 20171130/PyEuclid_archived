@@ -300,6 +300,29 @@ class Ray:
             return False
         dot = self._dx * vx + self._dy * vy
         return dot >= -tol
+    
+    def sample_within(self, points: list[Point], n: int = 10) -> list[Point]:
+        """Sample a point within the boundary of points."""
+        center = sum(points, Point(0.0, 0.0)) * (1.0 / len(points))
+        radius = max([p.distance(center) for p in points])
+        # if close_enough(center.distance(self.line), radius):
+        #     center = center.foot(self.line)
+        # pts = intersect(self, Circle(center.foot(self.line), radius))
+        a = self.tail,
+        norm = math.hypot(self._dx, self._dy)
+        direction = Point(self._dx / norm, self._dy / norm)
+        a = self.tail
+        b = a + direction * 2 * radius
+        result = None
+        best = -1.0
+        for _ in range(n):
+            rand = unif(0.0, 1.0)
+            x = a + (b - a) * rand
+            mind = min([x.distance(p) for p in points])
+            if mind > best:
+                best = mind
+                result = x
+        return [result]
 
     def sample_within_halfplanes(self, points: list[Point], halfplanes: list[HalfPlane], n: int = 5) -> list[Point]:
         """Sample points on the half-line within the intersection of half-plane constraints and near existing points."""

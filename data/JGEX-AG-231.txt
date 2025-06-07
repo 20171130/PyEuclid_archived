@@ -205,7 +205,7 @@ a b c = triangle a b c; h = orthocenter h a b c; o = circumcenter o a b c; c1 = 
 examples/complete2/011/complete_003_6_GDD_FULL_21-40_34.gex
 a b c = triangle a b c; h = orthocenter h a b c; o = circle o h b c; p = on_tline p h c h, on_circle p o b ? para a h b p
 examples/complete2/011/complete_004_6_GDD_FULL_81-109_99.gex
-a b c = triangle a b c; m = free m; n = on_aline n a c b a m; q = foot q m a b; p = foot p m a c ? perp a n p q
+a b c = triangle a b c; m = free m; n = on_aline2 n a c b a m; q = foot q m a b; p = foot p m a c ? perp a n p q
 examples/complete2/011/complete_003_6_GDD_FULL_21-40_35.gex
 a b c = triangle a b c; d = foot d c a b; e = foot e b a c; o = circle o a b c; k = on_circle k o c, on_line k c d; h = on_line h c d, on_line h b e ? cong a k a h
 examples/complete2/011/complete_003_6_GDD_FULL_21-40_31.gex
@@ -325,7 +325,7 @@ a b = segment a b; c = on_tline c b a b; d = on_circle d a b; f = midpoint f c b
 examples/complete2/unsolved2/complete_006_7_Book_LLL_yL252-6.gex
 a c d = triangle a c d; b = on_pline b c d a, on_pline b a d c; e = on_line e a c; g = on_line g a b, on_pline g e a d; f = on_line f a d, on_pline f e c d; h = on_line h e g, on_line h c d; i = on_line i b c, on_line i e f ? para f g h i
 examples/complete2/unsolved2/complete_015_7_Book_00EE_08_E059-59.gex
-a b c = triangle a b c; d = angle_bisector d b a c; e = on_pline e c b d, on_pline e b c d; f = on_line f b e, on_line f a c; g = on_line g c e, on_line g a b ? cong b g c f
+a b c = triangle a b c; d = angle_bisector2 d b a c; e = on_pline e c b d, on_pline e b c d; f = on_line f b e, on_line f a c; g = on_line g c e, on_line g a b ? cong b g c f
 examples/complete2/unsolved2/complete_013_7_Book_00EE_10_E072-16.gex
 a b c = triangle a b c; d = parallelogram a b c d; e = on_line e c d; f = on_line f a d, eqdistance f c a e; g = on_line g a e, on_line g c f ? eqangle g a g b g b g c
 examples/complete2/unsolved2/complete_003_6_GDD_FULL_more_E023-19.gex
