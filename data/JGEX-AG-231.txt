@@ -151,7 +151,7 @@ a b = segment a b; c = on_circle c a b; d = on_circle d a b; e = circle e c a d;
 examples/complete2/008/complete_013_7_Book_00EE_07_E057-44.gex
 c a b = iso_triangle c a b; d = foot d a b c; e = foot e b a c; f = on_line f a d, on_line f b e ? cong f a f b
 examples/complete2/001/complete_006_7_Book_LLL_L046-16.gex
-a b = segment a b; c = on_line c a b; d = on_circle d c a, on_circle d a c; e = on_aline e b a d c a, on_aline e c a d a b; f = on_line f c d, on_line f a e; g = on_line g b d, on_line g c e ? cong c f c g
+a b = segment a b; c = on_line c a b; d = on_circle d c a, on_circle d a c; e = on_aline e b a d c a, on_aline2 e c a d a b; f = on_line f c d, on_line f a e; g = on_line g b d, on_line g c e ? cong c f c g
 examples/complete2/001/complete_016_ex-gao_gao_M_M010-32.gex
 b c a = triangle b c a; d = on_pline d a b c, on_pline d c a b; e = on_line e b c; f = on_line f a d, on_pline f e a b; g = on_line g a e, on_line g b f; h = on_line h c f, on_line h d e ? para h g d a
 examples/complete2/001/complete_016_ex-gao_gao_M_M010-26.gex
