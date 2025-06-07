@@ -52,17 +52,12 @@ def run_single_problem(args):
                 max_cond_num = 0
                 acc_cond_num = 0
                 step = 0
-                for proof_step in proof:
-                    if not isinstance(proof_step['condition'][0], ConstructionRule):
-                        print(f'{step+1}. ' + ' & '.join(str(item) for item in proof_step['condition'] if not trivial_condition(item)) + ' => ' + str(proof_step['conclusion']))
-                        step += 1
-                        max_cond_num = max(max_cond_num, len(proof_step['condition']))
-                        acc_cond_num += len(proof_step['condition'])
+                proof_generator.show_proof()
             
-            print(f'proof genratation runs in {time.time()-t0}')
-            print(f'Proof steps: ', step)
-            print(f'Max condition number: ', max_cond_num)
-            print(f'Average condition number: ', acc_cond_num / step)
+            # print(f'proof genratation runs in {time.time()-t0}')
+            # print(f'Proof steps: ', step)
+            # print(f'Max condition number: ', max_cond_num)
+            # print(f'Average condition number: ', acc_cond_num / step)
         print(f"Solved in {t:.2f}s")
     else:
         print(f"Not solved in {t:.2f}s")
