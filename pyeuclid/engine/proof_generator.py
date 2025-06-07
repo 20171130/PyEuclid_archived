@@ -141,17 +141,6 @@ class ProofGenerator:
         visited = set()
         step_counter = 1
 
-        def format_conditions(condition, proof_steps, theorem):
-            s = []
-            for condition in conditions:
-                if condition in proof_steps:
-                    s.append(f"{condition}({proof_steps[condition][0]})")
-                else:
-                    s.append(f"{condition}")
-            if theorem is None:
-                return " &\n".join(s)
-            return " &\n".join(s) + f"({theorem})"
-    
         def search(node):  # root-last traversal
             nonlocal step_counter
             if node in visited or node not in self.proof_dict or self.proof_dict[node] is None:
@@ -199,11 +188,14 @@ class ProofGenerator:
             node = self.state.goal
         
         proof = self.format_proof(node)
-
+        def trivial_inference(item):
+            for source in getattr(item, "sources", []):
+                if type(source) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle):
+                    return True
         step = 1
         for proof_step in proof:
             if not isinstance(proof_step['condition'][0], ConstructionRule):
-                print(f'{step}. ' + ' & '.join(str(item) for item in proof_step['condition'] if not trivial_condition(item)) + ' => ' + str(proof_step['conclusion']))
+                print(f'{step}. ' + ' & '.join(str(item) for item in proof_step['condition'] if not (trivial_condition(item) or trivial_inference(item))) + ' => ' + str(proof_step['conclusion']))
                 step += 1
 
     def traceback_l1(self, augmented_A, e, threshold=1e-6):
