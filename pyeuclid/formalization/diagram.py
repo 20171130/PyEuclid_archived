@@ -107,12 +107,12 @@ class Diagram:
     
     def add_constructions(self, constructions):
         self.save()
-        mintol = 0.1
-        maxtol = 1.1
+        mintol = 0.05
+        maxtol = 0.9
         for iter in range(MAX_DIAGRAM_ATTEMPTS):
-            # if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
-            #     mintol *= 0.7
-            #     maxtol *= 1.1
+            if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
+                mintol *= 0.7
+                maxtol *= 1.1
             try:
                 new_points = self.construct(constructions)
                 self.check_distance(mintol, maxtol)
@@ -126,13 +126,13 @@ class Diagram:
         raise MaxAttemptsError()
             
     def construct_diagram(self):
-        mintol = 0.02
-        maxtol = 1.1
+        mintol = 0.05
+        maxtol = 0.9
         for iter in range(MAX_DIAGRAM_ATTEMPTS):
             if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
                 mintol *= 0.7
                 maxtol *= 1.1
-            # try:
+            try:
                 self.clear()
                 for constructions in self.constructions_list:
                     new_points = self.construct(constructions)
@@ -142,8 +142,8 @@ class Diagram:
                 self.draw_diagram()
                 self.save_to_cache()
                 return
-            # except:
-            #     continue
+            except:
+                continue
         
         raise MaxAttemptsError()
             
@@ -159,7 +159,6 @@ class Diagram:
                     raise NumericalCheckingError()
             to_be_intersected += self.sketch(construction)
         
-        # print(constructions)
         new_points = self.reduce(to_be_intersected, self.points)
         self.points = self.points + new_points # Rebinds to a new list
         
@@ -190,11 +189,11 @@ class Diagram:
         yspan = ymax - ymin
         span = max(xspan, yspan)
         
-        # if check_too_close(self.points, span, mintol):
-        #     raise Exception()
+        if check_too_close(self.points, span, mintol):
+            raise Exception()
         
-        # if check_too_far(self.points, span, maxtol):
-        #     raise Exception()
+        if check_too_far(self.points, span, maxtol):
+            raise Exception()
         
         self.xmax, self.xmin = xmax, xmin
         self.ymax, self.ymin = ymax, ymin
@@ -859,11 +858,11 @@ class Diagram:
                 choices.append((obj,))
 
         for combo in product(*choices):
-            # try:
+            try:
                 new_points = self._reduce(list(combo), existing_points)
                 return new_points
-            # except:
-            #     continue
+            except:
+                continue
         raise Exception()
     
     def _reduce(self, objs, existing_points) -> list[Point]:
