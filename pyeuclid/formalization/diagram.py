@@ -854,7 +854,6 @@ class Diagram:
                 return new_points
             except:
                 continue
-        raise Exception()
     
     def _reduce(self, objs, existing_points) -> list[Point]:
         essential_objs = [i for i in objs if not isinstance(i, HalfPlane)]

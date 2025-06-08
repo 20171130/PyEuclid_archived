@@ -2230,22 +2230,6 @@ class DiagramAngle2(InferenceRule):
     def conclusion(self):
         return Angle(self.b, self.a, self.c) - Angle(self.d, self.a, self.c) - Angle(self.d, self.a, self.b)
 
-
-# @register("ex")
-# class TriangleAngles(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-
-#     def condition(self):
-#         return Not(Collinear(self.a, self.b, self.c)), Lt(self.a, self.b), Lt(self.b, self.c)
-
-#     def conclusion(self):
-#         return Angle(self.b, self.a, self.c)+Angle(self.c, self.b, self.a)+Angle(self.a, self.c, self.b) - pi
-
-
 @register("ex")
 class FlatAngle(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
