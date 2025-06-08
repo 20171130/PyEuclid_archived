@@ -1,453 +1,374 @@
-22 unsolved in 2.92356538772583 seconds
-13 solved in 3.038926839828491 seconds
-10 solved in 4.462281703948975 seconds
-24 solved in 4.72620153427124 seconds
-20 solved in 5.773683786392212 seconds
-28 solved in 5.922083616256714 seconds
-16 solved in 5.879744052886963 seconds
-18 solved in 6.400729656219482 seconds
-1 solved in 3.046401023864746 seconds
-52 solved in 3.2973580360412598 seconds
-19 solved in 7.364624977111816 seconds
-50 solved in 1.8672475814819336 seconds
-43 solved in 4.948082208633423 seconds
-27 solved in 9.008879661560059 seconds
-48 solved in 2.7926056385040283 seconds
-5 solved in 9.712595462799072 seconds
-7 solved in 9.952999830245972 seconds
-15 solved in 10.701589107513428 seconds
-54 solved in 5.682830572128296 seconds
-12 solved in 10.992489099502563 seconds
-40 solved in 6.8533713817596436 seconds
-21 unsolved in 12.08264446258545 seconds
-57 solved in 4.857600212097168 seconds
-73 solved in 6.342181205749512 seconds
-45 solved in 4.181396245956421 seconds
-80 solved in 6.902809381484985 seconds
-26 solved in 16.47804617881775 seconds
-0 solved in 13.07021450996399 seconds
-42 solved in 4.931630373001099 seconds
-31 solved in 9.428426504135132 seconds
-51 solved in 4.783336162567139 seconds
-70 solved in 5.239783525466919 seconds
-6 solved in 18.253262996673584 seconds
-49 solved in 10.683565855026245 seconds
-75 solved in 3.072051525115967 seconds
-72 solved in 2.406027317047119 seconds
-56 solved in 2.74141526222229 seconds
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f1a70fbade0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-84 solved in 9.662063598632812 seconds
-23 solved in 21.304136037826538 seconds
-58 solved in 15.270002365112305 seconds
-110 solved in 6.141164064407349 seconds
-3 solved in 18.70462203025818 seconds
-102 solved in 2.73557710647583 seconds
-36 solved in 5.214065790176392 seconds
-8 solved in 24.459011793136597 seconds
-29 solved in 25.00265669822693 seconds
-82 solved in 17.716020107269287 seconds
-87 solved in 10.269252300262451 seconds
-38 solved in 0.5274960994720459 seconds
-114 solved in 3.7663321495056152 seconds
-46 solved in 19.242754459381104 seconds
-100 solved in 9.068690776824951 seconds
-59 solved in 2.06579852104187 seconds
-53 solved in 5.83698296546936 seconds
-35 solved in 17.551029205322266 seconds
-33 solved in 4.835726737976074 seconds
-103 solved in 12.283278465270996 seconds
-30 solved in 11.172863006591797 seconds
-37 solved in 18.064605474472046 seconds
-117 solved in 2.929224729537964 seconds
-112 solved in 3.39700984954834 seconds
-17 solved in 29.90300703048706 seconds
-25 solved in 31.155784368515015 seconds
-79 solved in 12.102731943130493 seconds
-61 solved in 14.385908842086792 seconds
-47 solved in 1.7461087703704834 seconds
-60 solved in 3.21745228767395 seconds
-68 solved in 6.469345808029175 seconds
-63 solved in 3.985914707183838 seconds
-105 solved in 13.668495178222656 seconds
-65 solved in 5.912958860397339 seconds
-83 solved in 7.0687196254730225 seconds
-2 solved in 32.77772283554077 seconds
-67 solved in 7.482086896896362 seconds
-66 solved in 13.071617364883423 seconds
-76 solved in 11.862683296203613 seconds
-55 solved in 6.871426105499268 seconds
-95 solved in 3.4982411861419678 seconds
-93 solved in 7.3432207107543945 seconds
-142 solved in 11.432276725769043 seconds
-113 solved in 5.465501546859741 seconds
-147 solved in 12.756051063537598 seconds
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f7c8664ede0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-98 solved in 9.82527756690979 seconds
-88 solved in 22.136716842651367 seconds
-109 solved in 13.197909593582153 seconds
-96 solved in 6.593493700027466 seconds
-78 solved in 34.972726345062256 seconds
-118 solved in 3.5233776569366455 seconds
-108 solved in 2.674973964691162 seconds
-86 solved in 28.644079208374023 seconds
-140 solved in 26.651771068572998 seconds
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fbc825b2de0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-32 solved in 13.517184734344482 seconds
-172 unsolved in 9.302322387695312 seconds
-91 solved in 18.31131601333618 seconds
-106 solved in 12.36903691291809 seconds
-148 solved in 3.330521583557129 seconds
-116 solved in 4.000922679901123 seconds
-14 solved in 53.687342405319214 seconds
-90 solved in 20.269829750061035 seconds
-97 solved in 17.325167655944824 seconds
-89 solved in 26.597514867782593 seconds
-77 solved in 22.652543306350708 seconds
-133 solved in 26.86073660850525 seconds
-202 solved in 5.039630651473999 seconds
+1 solved in 2.2505486011505127 seconds
+22 unsolved in 2.164449691772461 seconds
+13 solved in 3.0757107734680176 seconds
+10 solved in 4.363102912902832 seconds
+24 solved in 4.600132465362549 seconds
+28 solved in 5.454516410827637 seconds
+52 solved in 3.3163633346557617 seconds
+20 solved in 5.940962791442871 seconds
+16 solved in 5.81637167930603 seconds
+18 solved in 6.333153009414673 seconds
+19 solved in 6.7093870639801025 seconds
+27 solved in 8.159675121307373 seconds
+50 solved in 1.8985836505889893 seconds
+43 solved in 4.93609881401062 seconds
+5 solved in 8.446130275726318 seconds
+21 unsolved in 8.519734859466553 seconds
+31 solved in 6.805188894271851 seconds
+0 solved in 10.28755521774292 seconds
+7 solved in 9.296637535095215 seconds
+48 solved in 2.860473155975342 seconds
+54 solved in 5.361239433288574 seconds
+15 solved in 10.616981506347656 seconds
+12 solved in 10.85512113571167 seconds
+40 solved in 6.518636703491211 seconds
+57 solved in 4.6854143142700195 seconds
+51 solved in 4.887185335159302 seconds
+3 solved in 13.98448896408081 seconds
+80 solved in 6.242957353591919 seconds
+73 solved in 6.381394624710083 seconds
+45 solved in 4.2095046043396 seconds
+6 solved in 15.986931562423706 seconds
+26 solved in 16.248361825942993 seconds
+42 solved in 4.9858129024505615 seconds
+70 solved in 5.1413960456848145 seconds
+30 solved in 8.479719877243042 seconds
+33 solved in 3.5203821659088135 seconds
+75 solved in 2.9804415702819824 seconds
+49 solved in 11.90988278388977 seconds
+72 solved in 2.4830613136291504 seconds
+56 solved in 2.7247543334960938 seconds
+23 solved in 20.131637573242188 seconds
+61 solved in 11.064555644989014 seconds
+84 solved in 9.329598426818848 seconds
+58 solved in 14.583056449890137 seconds
+36 solved in 4.552422523498535 seconds
+60 solved in 2.422368049621582 seconds
+110 solved in 6.287459373474121 seconds
+63 solved in 2.576936960220337 seconds
+102 solved in 2.5845470428466797 seconds
+8 solved in 22.609073400497437 seconds
+38 solved in 0.4807918071746826 seconds
+87 solved in 10.390165090560913 seconds
+82 solved in 18.067452669143677 seconds
+114 solved in 3.525444984436035 seconds
+2 solved in 23.720597743988037 seconds
+35 solved in 15.702880859375 seconds
+29 solved in 25.103153467178345 seconds
+46 solved in 18.6381778717041 seconds
+53 solved in 5.415173053741455 seconds
+37 solved in 16.812305450439453 seconds
+100 solved in 9.441814184188843 seconds
+117 solved in 2.780238628387451 seconds
+59 solved in 2.008805751800537 seconds
+112 solved in 3.3814260959625244 seconds
+93 solved in 6.060927391052246 seconds
+68 solved in 5.819714307785034 seconds
+65 solved in 5.320712089538574 seconds
+17 solved in 31.837241649627686 seconds
+103 unsolved in 16.210490703582764 seconds
+79 solved in 12.336143255233765 seconds
+66 solved in 11.377708911895752 seconds
+105 solved in 13.891681671142578 seconds
+83 solved in 6.925135374069214 seconds
+95 solved in 2.99543833732605 seconds
+67 solved in 6.8481285572052 seconds
+47 solved in 1.835249662399292 seconds
+32 solved in 9.572953462600708 seconds
+91 solved in 13.849617004394531 seconds
+76 solved in 11.939125776290894 seconds
+90 solved in 16.084648609161377 seconds
+113 solved in 5.142202854156494 seconds
+98 solved in 8.849953174591064 seconds
+96 solved in 6.116099119186401 seconds
+62 solved in 4.450892210006714 seconds
+142 solved in 11.290102243423462 seconds
+78 solved in 30.179821014404297 seconds
+147 solved in 12.255618810653687 seconds
+25 unsolved in 41.27873945236206 seconds
+121 solved in 6.188164234161377 seconds
+88 solved in 21.94814372062683 seconds
+108 solved in 2.5932233333587646 seconds
+140 solved in 22.380629062652588 seconds
+109 solved in 13.16886830329895 seconds
+118 solved in 3.3602395057678223 seconds
+55 solved in 6.815962791442871 seconds
+86 solved in 28.575969696044922 seconds
+120 solved in 10.681311130523682 seconds
+172 unsolved in 8.78989052772522 seconds
+125 solved in 15.665871381759644 seconds
+97 solved in 15.77718997001648 seconds
+148 solved in 3.2126832008361816 seconds
+106 solved in 12.965009450912476 seconds
+89 solved in 24.17550492286682 seconds
+14 solved in 52.767114877700806 seconds
+116 solved in 3.8513221740722656 seconds
+170 solved in 8.671282291412354 seconds
+9 solved in 54.895719051361084 seconds
+202 solved in 4.943078994750977 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 58.417s
+Ran 1 test in 56.718s
 
 OK
-144 solved in 30.725178241729736 seconds
-178 solved in 3.9356231689453125 seconds
-125 solved in 18.14359188079834 seconds
-11 solved in 57.767903089523315 seconds
-62 solved in 6.69772481918335 seconds
-170 solved in 8.44019365310669 seconds
-174 solved in 1.7615675926208496 seconds
-9 solved in 59.602810859680176 seconds
-121 solved in 8.186999320983887 seconds
-208 unsolved in 2.8483948707580566 seconds
+178 solved in 3.8447723388671875 seconds
+123 solved in 26.97112464904785 seconds
+92 solved in 16.146340131759644 seconds
+122 solved in 0.0135040283203125 seconds
+208 unsolved in 2.0220184326171875 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 62.116s
+Ran 1 test in 59.329s
 
 OK
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f1a70fbade0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-44 solved in 7.644125938415527 seconds
-119 solved in 7.126413822174072 seconds
-204 solved in 3.469801425933838 seconds
+144 solved in 32.961732625961304 seconds
+11 solved in 58.40637278556824 seconds
+119 solved in 6.627395868301392 seconds
+127 solved in 8.946024656295776 seconds
+133 solved in 27.396068334579468 seconds
+174 solved in 1.620011806488037 seconds
+39 solved in 5.382596015930176 seconds
+44 solved in 7.6266868114471436 seconds
+177 solved in 20.177122116088867 seconds
+77 solved in 27.434253215789795 seconds
+143 solved in 23.022513389587402 seconds
+152 solved in 5.17853045463562 seconds
+204 solved in 3.28096342086792 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 65.071s
+Ran 1 test in 65.631s
 
 OK
-177 solved in 21.23928928375244 seconds
-127 solved in 9.902195692062378 seconds
-39 solved in 5.953253269195557 seconds
-143 solved in 24.945221662521362 seconds
-135 solved in 32.940534830093384 seconds
-74 solved in 4.972478151321411 seconds
-163 unsolved in 11.587143421173096 seconds
-41 solved in 9.651588201522827 seconds
-120 solved in 13.956667423248291 seconds
-138 solved in 20.05308198928833 seconds
-207 unsolved in 5.195408344268799 seconds
+138 solved in 20.209312438964844 seconds
+173 unsolved in 2.3367061614990234 seconds
+69 solved in 4.750219821929932 seconds
+74 solved in 5.038204669952393 seconds
+207 unsolved in 4.979688882827759 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 71.599s
+Ran 1 test in 68.392s
 
 OK
-173 unsolved in 3.48808217048645 seconds
-107 solved in 15.139314413070679 seconds
-130 solved in 43.70411491394043 seconds
-69 solved in 5.275607585906982 seconds
-193 solved in 4.5149147510528564 seconds
-71 solved in 6.120636940002441 seconds
-200 solved in 15.608914613723755 seconds
-85 solved in 36.5782949924469 seconds
-149 solved in 12.923564195632935 seconds
-139 solved in 31.025643587112427 seconds
-115 solved in 1.1669459342956543 seconds
-123 solved in 36.107672452926636 seconds
-168 solved in 9.105981588363647 seconds
-92 solved in 19.870270490646362 seconds
-122 solved in 0.026406526565551758 seconds
-165 solved in 12.619232416152954 seconds
-99 solved in 7.662883758544922 seconds
-146 solved in 26.622865676879883 seconds
-176 unsolved in 2.870360851287842 seconds
-160 unsolved in 12.565074443817139 seconds
-101 solved in 9.57406497001648 seconds
-223 solved in 12.904553651809692 seconds
+135 solved in 33.377578258514404 seconds
+41 solved in 9.646625280380249 seconds
+200 solved in 16.03520941734314 seconds
+150 solved in 20.692776441574097 seconds
+130 solved in 43.42086982727051 seconds
+149 solved in 11.820401906967163 seconds
+151 solved in 30.515065670013428 seconds
+168 solved in 8.950817823410034 seconds
+99 solved in 7.182002305984497 seconds
+163 unsolved in 13.636964082717896 seconds
+71 solved in 5.945326566696167 seconds
+181 solved in 1.7808401584625244 seconds
+139 solved in 30.880598068237305 seconds
+107 solved in 15.903897285461426 seconds
+193 solved in 4.476803779602051 seconds
+146 solved in 26.693366527557373 seconds
+129 solved in 5.954116344451904 seconds
+165 solved in 12.826525211334229 seconds
+126 solved in 40.460617542266846 seconds
+203 solved in 16.118417739868164 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 88.345s
+Ran 1 test in 83.865s
 
 OK
-132 solved in 63.36825895309448 seconds
-198 solved in 8.086678743362427 seconds
-129 solved in 6.895910978317261 seconds
-145 solved in 10.111551523208618 seconds
-152 solved in 7.513237953186035 seconds
-104 solved in 21.86898446083069 seconds
-203 solved in 18.729813814163208 seconds
+198 solved in 8.012316942214966 seconds
+85 solved in 33.8398642539978 seconds
+155 solved in 32.1656231880188 seconds
+176 unsolved in 2.452305793762207 seconds
+160 unsolved in 12.422695875167847 seconds
+115 solved in 1.0165808200836182 seconds
+211 unsolved in 9.0352144241333 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 92.113s
+Ran 1 test in 86.741s
 
 OK
-136 solved in 38.80008363723755 seconds
-126 solved in 45.072864055633545 seconds
-150 solved in 21.88319158554077 seconds
-175 unsolved in 3.783052921295166 seconds
-206 unsolved in 8.495225667953491 seconds
+101 solved in 9.56656002998352 seconds
+81 solved in 70.95750904083252 seconds
+132 solved in 63.106772899627686 seconds
+228 solved in 5.926536321640015 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 95.139s
+Ran 1 test in 90.430s
 
 OK
-228 solved in 5.8740763664245605 seconds
+104 solved in 21.820679187774658 seconds
+206 unsolved in 5.705578088760376 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 96.022s
+Ran 1 test in 91.079s
 
 OK
-81 solved in 76.26529479026794 seconds
-131 solved in 8.88130235671997 seconds
-155 solved in 37.03696370124817 seconds
-169 solved in 19.450732231140137 seconds
-179 solved in 24.665005445480347 seconds
-151 solved in 41.336066007614136 seconds
-166 unsolved in 10.911069631576538 seconds
-137 solved in 30.660187244415283 seconds
-205 unsolved in 11.635693311691284 seconds
+185 solved in 7.1584413051605225 seconds
+136 solved in 39.988571643829346 seconds
+223 solved in 12.904572010040283 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 106.520s
+Ran 1 test in 94.349s
 
 OK
-181 solved in 2.7539141178131104 seconds
-167 unsolved in 3.3160035610198975 seconds
-209 solved in 5.320404291152954 seconds
+179 solved in 21.24026894569397 seconds
+145 solved in 8.723920583724976 seconds
+131 solved in 8.83669376373291 seconds
+175 unsolved in 3.3438167572021484 seconds
+169 solved in 19.818187475204468 seconds
+209 solved in 4.478498697280884 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 109.157s
+Ran 1 test in 100.309s
 
 OK
-195 solved in 31.906301736831665 seconds
-225 solved in 0.011794328689575195 seconds
+182 unsolved in 37.287602186203 seconds
+215 unsolved in 11.215648174285889 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 115.162s
+Ran 1 test in 104.390s
 
 OK
-111 solved in 21.86506199836731 seconds
-185 unsolved in 20.950798273086548 seconds
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fe65962ade0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-134 solved in 31.204469203948975 seconds
-211 unsolved in 17.20939874649048 seconds
+166 unsolved in 11.22006106376648 seconds
+153 solved in 46.84332752227783 seconds
+205 unsolved in 7.378255128860474 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 121.293s
+Ran 1 test in 107.173s
 
 OK
-162 solved in 40.150614500045776 seconds
-161 solved in 34.4483540058136 seconds
-215 unsolved in 12.639546632766724 seconds
+212 solved in 5.5960142612457275 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 132.123s
+Ran 1 test in 107.521s
 
 OK
-153 solved in 51.826871156692505 seconds
-164 unsolved in 13.150640726089478 seconds
-199 solved in 38.402294874191284 seconds
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f522341ede0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-229 unsolved in 3.1299526691436768 seconds
+111 solved in 22.74697971343994 seconds
+137 solved in 30.481728315353394 seconds
+167 unsolved in 3.452216386795044 seconds
+195 solved in 32.383684396743774 seconds
+225 solved in 0.011606693267822266 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 141.444s
+Ran 1 test in 116.114s
 
 OK
-141 solved in 22.861462116241455 seconds
-190 solved in 55.19142007827759 seconds
-220 solved in 1.5347657203674316 seconds
+180 unsolved in 43.12521433830261 seconds
+134 solved in 33.127482414245605 seconds
+162 solved in 41.05536603927612 seconds
+210 solved in 13.995356321334839 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 144.795s
+Ran 1 test in 131.039s
 
 OK
-196 solved in 40.704086780548096 seconds
-182 unsolved in 55.60543942451477 seconds
-180 unsolved in 53.55453300476074 seconds
-128 solved in 106.38493418693542 seconds
-212 solved in 8.096822738647461 seconds
+161 solved in 34.99103784561157 seconds
+141 solved in 24.38250970840454 seconds
+164 unsolved in 12.29921817779541 seconds
+199 solved in 39.60496258735657 seconds
+196 solved in 34.86312961578369 seconds
+156 solved in 57.90198826789856 seconds
+128 solved in 99.99924826622009 seconds
+229 unsolved in 3.4317188262939453 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 151.024s
+Ran 1 test in 143.597s
 
 OK
-156 solved in 61.829651832580566 seconds
-171 solved in 12.84998893737793 seconds
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fbc825b2de0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-191 solved in 31.6865336894989 seconds
-210 solved in 17.67932367324829 seconds
+190 solved in 57.1380717754364 seconds
+220 solved in 1.6732432842254639 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 161.842s
+Ran 1 test in 145.875s
 
 OK
-221 solved in 2.5359554290771484 seconds
+171 solved in 14.53079867362976 seconds
+158 solved in 13.645127296447754 seconds
+188 solved in 7.115521430969238 seconds
+191 solved in 33.855425119400024 seconds
+183 unsolved in 61.78646230697632 seconds
+221 solved in 2.913458824157715 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 167.230s
+Ran 1 test in 170.220s
 
 OK
-158 solved in 14.683001279830933 seconds
-194 solved in 32.077722787857056 seconds
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fbc825b2de0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-224 unsolved in 4.160027742385864 seconds
+186 unsolved in 28.72610569000244 seconds
+213 solved in 3.9297399520874023 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 175.071s
+Ran 1 test in 171.487s
 
 OK
-186 unsolved in 18.745465993881226 seconds
-188 solved in 7.7662951946258545 seconds
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fe65962ade0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-197 unsolved in 86.68787693977356 seconds
-227 solved in 2.6886212825775146 seconds
+194 solved in 35.3914430141449 seconds
+224 unsolved in 5.294983148574829 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 199.287s
+Ran 1 test in 179.415s
 
 OK
-216 solved in 27.68926239013672 seconds
+4 solved in 181.7746067047119 seconds
+34 solved in 6.5448620319366455 seconds
+216 solved in 25.31552743911743 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 203.850s
+Ran 1 test in 196.954s
 
 OK
-201 solved in 49.441728591918945 seconds
+64 solved in 6.977538585662842 seconds
+201 solved in 55.91258955001831 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 205.860s
+Ran 1 test in 207.351s
 
 OK
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fbc825b2de0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-183 unsolved in 84.05238366127014 seconds
-213 solved in 5.287005662918091 seconds
+94 solved in 14.095614433288574 seconds
+197 unsolved in 99.05932450294495 seconds
+227 solved in 3.405796766281128 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 220.368s
+Ran 1 test in 219.200s
 
 OK
-230 unsolved in 155.87496733665466 seconds
+124 solved in 8.499470710754395 seconds
+218 solved in 65.48158526420593 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 234.066s
+Ran 1 test in 230.806s
 
 OK
-4 solved in 242.28909301757812 seconds
-218 solved in 70.72173357009888 seconds
+157 solved in 176.24035096168518 seconds
+230 unsolved in 175.643963098526 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 248.590s
+Ran 1 test in 249.472s
 
 OK
-157 solved in 188.46338868141174 seconds
-34 solved in 9.589456558227539 seconds
-192 unsolved in 128.66687989234924 seconds
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f2a41026de0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-187 solved in 7.931397199630737 seconds
-222 unsolved in 5.548412799835205 seconds
+187 unsolved in 16.962337255477905 seconds
+154 solved in 38.656984090805054 seconds
+217 solved in 11.951476335525513 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 265.559s
+Ran 1 test in 268.834s
 
 OK
-64 solved in 10.443910360336304 seconds
-217 solved in 15.049741506576538 seconds
+192 unsolved in 144.07510256767273 seconds
+222 unsolved in 5.936092138290405 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 280.966s
+Ran 1 test in 281.123s
 
 OK
-94 solved in 19.33246421813965 seconds
-124 solved in 12.800097227096558 seconds
-154 solved in 62.56060791015625 seconds
-184 solved in 60.1985297203064 seconds
-214 solved in 10.459237575531006 seconds
+184 solved in 30.804446697235107 seconds
+214 solved in 5.834735870361328 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 437.324s
+Ran 1 test in 299.730s
 
 OK
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f7ce81f2de0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-159 unsolved in 600.0173182487488 seconds
-189 solved in 18.889496564865112 seconds
-219 solved in 4.515744924545288 seconds
+226 unsolved in 1668.6952147483826 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 728.658s
+Ran 1 test in 1811.725s
 
 OK
-226 unsolved in 600.2095367908478 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 747.814s
-
-OK
+slurmstepd: error: *** JOB 48609468 ON learnfair1070 CANCELLED AT 2025-06-07T07:08:09 DUE TO TIME LIMIT ***

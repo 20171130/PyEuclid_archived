@@ -107,12 +107,12 @@ class Diagram:
     
     def add_constructions(self, constructions):
         self.save()
-        mintol = 0.1
-        maxtol = 1.1
+        mintol = 0.05
+        maxtol = 0.9
         for iter in range(MAX_DIAGRAM_ATTEMPTS):
-            # if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
-            #     mintol *= 0.7
-            #     maxtol *= 1.1
+            if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
+                mintol *= 0.7
+                maxtol *= 1.1
             try:
                 new_points = self.construct(constructions)
                 self.check_distance(mintol, maxtol)
@@ -126,13 +126,13 @@ class Diagram:
         raise MaxAttemptsError()
             
     def construct_diagram(self):
-        mintol = 0.02
-        maxtol = 1.1
+        mintol = 0.05
+        maxtol = 0.9
         for iter in range(MAX_DIAGRAM_ATTEMPTS):
             if (iter + 1) % (MAX_DIAGRAM_ATTEMPTS // 5) == 0:
                 mintol *= 0.7
                 maxtol *= 1.1
-            # try:
+            try:
                 self.clear()
                 for constructions in self.constructions_list:
                     new_points = self.construct(constructions)
@@ -142,8 +142,8 @@ class Diagram:
                 self.draw_diagram()
                 self.save_to_cache()
                 return
-            # except:
-            #     continue
+            except:
+                continue
         
         raise MaxAttemptsError()
             
@@ -189,11 +189,11 @@ class Diagram:
         yspan = ymax - ymin
         span = max(xspan, yspan)
         
-        # if check_too_close(self.points, span, mintol):
-        #     raise Exception()
+        if check_too_close(self.points, span, mintol):
+            raise Exception()
         
-        # if check_too_far(self.points, span, maxtol):
-        #     raise Exception()
+        if check_too_far(self.points, span, maxtol):
+            raise Exception()
         
         self.xmax, self.xmin = xmax, xmin
         self.ymax, self.ymin = ymax, ymin
@@ -254,6 +254,15 @@ class Diagram:
         x = b + (c - b) * (dist_ab / dist_bc)
         m = (a + x) * 0.5
         return Ray(b, m)
+    
+    def sketch_angle_bisector2(self, *args: list[Point]) -> Ray:
+        a, b, c = args
+        dist_ab = a.distance(b)
+        dist_bc = b.distance(c)
+        x = b + (c - b) * (dist_ab / dist_bc)
+        m = (a + x) * 0.5
+        m_prime = Point(2*b.x - m.x, 2*b.y - m.y)
+        return Ray(b, m_prime)
     
     def sketch_angle_mirror(self, *args: list[Point]) -> Ray:
         a, b, c = args
@@ -528,15 +537,15 @@ class Diagram:
         ang_ax2 = ang_ab - ang_cde
 
         x1 = Point(a.x + np.cos(ang_ax1), a.y + np.sin(ang_ax1))
-        x1 = Point(2*a.x - x1.x, 2*a.y - x1.y)
+        x1_prime = Point(2*a.x - x1.x, 2*a.y - x1.y)
         
         x2 = Point(a.x + np.cos(ang_ax2), a.y + np.sin(ang_ax2))
-        x2 = Point(2*a.x - x2.x, 2*a.y - x2.y)
+        x2_prime = Point(2*a.x - x2.x, 2*a.y - x2.y)
 
-        assert close_enough(calculate_angle(b, a, x1) + calculate_angle(c, d, e), np.pi)
-        assert close_enough(calculate_angle(b, a, x2) + calculate_angle(c, d, e), np.pi)
+        assert close_enough(calculate_angle(b, a, x1_prime) + calculate_angle(c, d, e), np.pi)
+        assert close_enough(calculate_angle(b, a, x2_prime) + calculate_angle(c, d, e), np.pi)
 
-        return (Ray(a, x1), Ray(a, x2))
+        return (Ray(a, x1_prime), Ray(a, x2_prime))
 
     def sketch_on_bline(self, *args) -> Line:
         a, b = args
@@ -905,6 +914,12 @@ class Diagram:
         func(*new_points, *args)
     
     def draw_angle_bisector(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(b, x))
+    
+    def draw_angle_bisector2(self, *args):
         x, a, b, c = args
         self.segments.append(Segment(a, b))
         self.segments.append(Segment(b, c))

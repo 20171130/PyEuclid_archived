@@ -76,6 +76,29 @@ class construct_angle_bisector(ConstructionRule):
 
 
 @register("nondeterministic")
+class construct_angle_bisector2(ConstructionRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+        
+    def construct(self, x: Point):
+        self.outputs = [x]
+
+    def conditions(self):
+        a, b, c = self.inputs
+        return [Not(Collinear(a, b, c))]
+
+    def conclusions(self):
+        a, b, c = self.inputs
+        x, = self.outputs
+        return [
+            Angle(a, b, x) - Angle(x, b, c),
+            # Angle(c, b, a) - 2 * Angle(a, b, x),
+            # Angle(c, b, a) - 2 * Angle(x, b, c),
+        ]
+
+
+@register("nondeterministic")
 class construct_angle_mirror(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -96,6 +119,7 @@ class construct_angle_mirror(ConstructionRule):
             # Angle(x, b, a) - 2 * Angle(a, b, c),
             # Angle(x, b, a) - 2 * Angle(c, b, x),
         ]
+
 
 @register("deterministic")
 class construct_circle(ConstructionRule):
