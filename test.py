@@ -40,29 +40,29 @@ class TestBenchmarks(unittest.TestCase):
                 t = time.time() - t
                 if state.complete() is not None:
                     print(f"{idx} solved in {t} seconds")
-                    t0 = time.time()
-                    with Timeout(600):
-                        proof_generator.run()
-                        proof = proof_generator.format_proof()
-                        max_cond_num = 0
-                        acc_cond_num = 0
-                        step = 0
-                        for proof_step in proof:
-                            if not isinstance(proof_step['condition'][0], ConstructionRule):
-                                step += 1
-                                def trivial_inference(item):
-                                    for source in getattr(item, "sources", []):
-                                        if type(source) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, PropertyOfTriangle):
-                                            return True
-                                conditions = [item for item in proof_step['condition'] if not trivial_inference(item)]
-                                max_cond_num = max(max_cond_num, len(conditions))
-                                acc_cond_num += len(conditions)
+                #     t0 = time.time()
+                #     with Timeout(600):
+                #         proof_generator.run()
+                #         proof = proof_generator.format_proof()
+                #         max_cond_num = 0
+                #         acc_cond_num = 0
+                #         step = 0
+                #         for proof_step in proof:
+                #             if not isinstance(proof_step['condition'][0], ConstructionRule):
+                #                 step += 1
+                #                 def trivial_inference(item):
+                #                     for source in getattr(item, "sources", []):
+                #                         if type(source) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, PropertyOfTriangle):
+                #                             return True
+                #                 conditions = [item for item in proof_step['condition'] if not trivial_inference(item)]
+                #                 max_cond_num = max(max_cond_num, len(conditions))
+                #                 acc_cond_num += len(conditions)
                     
-                    print(idx)
-                    print(f'proof genratation runs in {time.time()-t0}')
-                    print(f'Proof steps: ', step)
-                    print(f'Max condition number: ', max_cond_num)
-                    print(f'Average condition number: ', acc_cond_num / step)
+                #     print(idx)
+                #     print(f'proof genratation runs in {time.time()-t0}')
+                #     print(f'Proof steps: ', step)
+                #     print(f'Max condition number: ', max_cond_num)
+                #     print(f'Average condition number: ', acc_cond_num / step)
                     if world_size == 1:
                         proof_generator.show_proof()
                 else:

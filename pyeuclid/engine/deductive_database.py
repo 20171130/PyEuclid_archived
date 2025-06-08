@@ -88,8 +88,14 @@ class DeductiveDatabase():
         for i, component in enumerate(components):
             for item in component:
                 points = []
-                symbols = [str(symbol) for symbol in item.free_symbols]
-                if isinstance(item, sympy.core.mul.Mul):
+                symbols = []
+                if item.args:
+                    args = item.args
+                else:
+                    args = [item]
+                for arg in args:
+                    symbols += [str(symbol) for symbol in arg.free_symbols]
+                if isinstance(item, sympy.core.mul.Mul) and item.args[0]==2:
                     symbols *= 2
                 for symbol in symbols:
                     points += symbol.split("_")[1:]
@@ -100,10 +106,8 @@ class DeductiveDatabase():
         cols = ", ".join(cols)
         values = ", ".join(values)
         query = f"INSERT OR IGNORE INTO {table} ({cols}) VALUES {values}"
-        try:
-            self.cursor.execute(query)
-        except:
-            breakpoint()
+        self.cursor.execute(query)
+
         
     def execute(self, query):
         self.cursor.execute(query)
