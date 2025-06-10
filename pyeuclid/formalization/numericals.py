@@ -675,12 +675,14 @@ def close_enough(a: float, b: float, tol: float = 1e-6) -> bool:
     return abs(a - b) < tol
 
 
-def check_too_close(points: list[Point], maxspan: float, tol: float = 0.1) -> bool:
-    return any(p.distance(q) < maxspan * tol for p in points for q in points if q != p)
+def check_too_close(points: list[Point], new_points, tol: float = 0.1) -> bool:
+    max_dist = max([p.distance(q) for p in points for q in points if q != p])
+    return any(p.distance(q) < max_dist * tol for q in points for p in new_points)
 
 
-def check_too_far(points: list[Point], maxspan: float, tol: float = 1) -> bool:
-    return any(all(p.distance(q) > maxspan * tol for q in points if q != p) for p in points)
+def check_too_far(points: list[Point], new_points, tol: float = 2) -> bool:
+    max_dist = max([p.distance(q) for p in points for q in points if q != p])
+    return any(all(p.distance(q) > max_dist * tol for q in points) for p in new_points)
 
 
 def calculate_angle(a, b, c):

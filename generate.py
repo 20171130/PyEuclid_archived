@@ -24,7 +24,7 @@ def generate():
     points = 0
     
     
-    while depth < 3 and attempt < 10 and points < 6:
+    while depth < 4 and attempt < 20 and points < 10:
         constructions = []
         multiconstructions = False
         
@@ -87,11 +87,11 @@ def generate():
         for construction in constructions:
             print(construction)
     
-    diagram.draw_diagram()
+    diagram.draw_diagram(save=True)
     engine.search()
 
     proof_generator = ProofGenerator(state)
-
+    i = 0
     for relation in state.relations:
         if isinstance(relation, (Between, SameSide, OppositeSide)):
             continue
@@ -99,10 +99,15 @@ def generate():
             continue
         proof_generator.run(relation)
         
-        print(relation)
         proof_generator.track_constructions(relation)
+        if not proof_generator.source_constructions[relation]:
+            continue
+        
+        diagram.save_path = os.path.join(ROOT_DIR, f'samples/test{i}.jpg')
+        diagram.draw_diagram(constructions_list=list(proof_generator.source_constructions[relation]), save=True)
         for cond in proof_generator.source_constructions[relation]:
             print(cond, end=' ')
+        i += 1
         input()
 
         
