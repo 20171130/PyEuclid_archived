@@ -39,6 +39,13 @@ class register():
         return cls
 
 
+def equal(*lst):
+    result = []
+    for i in range(len(lst)):
+        for j in range(i+1, len(lst)):
+            result.append(lst[i]-lst[j])
+    return result
+
 class InferenceRule:
     def __init__(self):
         pass
@@ -154,26 +161,14 @@ class PropertyOfSimilar(InferenceRule):
     
     def conclusion(self):
         return [
-            Length(self.a, self.b) / Length(self.p, self.q) - Length(self.b, self.c) / Length(self.q, self.r),
-            Length(self.b, self.c) / Length(self.q, self.r) - Length(self.c, self.a) / Length(self.r, self.p),
-            Length(self.c, self.a) / Length(self.r, self.p) - Length(self.a, self.b) / Length(self.p, self.q),
+            *equal(Length(self.a, self.b) / Length(self.p, self.q), Length(self.b, self.c) / Length(self.q, self.r), Length(self.c, self.a) / Length(self.r, self.p)),
+            Length(self.a, self.b)/Length(self.b, self.c) - Length(self.p, self.q)/Length(self.q, self.r),
+            Length(self.a, self.b)/Length(self.c, self.a) - Length(self.p, self.q)/Length(self.r, self.p),
+            Length(self.b, self.c)/Length(self.c, self.a) - Length(self.q, self.r)/Length(self.r, self.p),
             Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r),
             Angle(self.b, self.c, self.a) - Angle(self.q, self.r, self.p),
             Angle(self.c, self.a, self.b) - Angle(self.r, self.p, self.q),
         ]
-
-@register("ex")
-class DefinitionOfTriangle(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point):
-        super().__init__()
-        self.a, self.b, self.c = a, b, c
-    
-    def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Lt(self.a, self.b), Lt(self.b, self.c)
-    
-    def conclusion(self):
-        return Triangle(self.a, self.b, self.c)
-
 
 @register("ex")
 class DefinitionOfTriangle(InferenceRule):
@@ -513,14 +508,11 @@ class PropertyOfRhombus(InferenceRule):
     def conclusion(self):
         return [
             Parallelogram(self.p1, self.p2, self.p3, self.p4),
-            Length(self.p1, self.p2) - Length(self.p2, self.p3),
-            Length(self.p2, self.p3) - Length(self.p3, self.p4),
-            Length(self.p3, self.p4) - Length(self.p4, self.p1),
+            *equal(Length(self.p1, self.p2), Length(self.p2, self.p3), Length(self.p3, self.p4), Length(self.p4, self.p1)),
+            Length(self.p1, self.p3) - Length(self.p2, self.p4),
             Perpendicular(self.p1, self.p3, self.p2, self.p4),
-            Angle(self.p4, self.p1, self.p3) - Angle(self.p2, self.p1, self.p3),
-            Angle(self.p1, self.p2, self.p4) - Angle(self.p3, self.p2, self.p4),
-            Angle(self.p2, self.p3, self.p1) - Angle(self.p4, self.p3, self.p1),
-            Angle(self.p3, self.p4, self.p2) - Angle(self.p1, self.p4, self.p2),
+            *equal(Angle(self.p2, self.p1, self.p3), Angle(self.p3, self.p1, self.p4), Angle(self.p2, self.p3, self.p1), Angle(self.p1, self.p3, self.p4)),
+            *equal(Angle(self.p1, self.p2, self.p4), Angle(self.p1, self.p4, self.p2), Angle(self.p3, self.p2, self.p4), Angle(self.p3, self.p4, self.p2))
         ]
 
 
@@ -634,8 +626,12 @@ class PropertyOfTrapezoid(InferenceRule):
     def conclusion(self):
         return [
             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Angle(self.p1, self.p2, self.p3) - Angle(self.p4, self.p1, self.p2),
+            Angle(self.p2, self.p3, self.p4) - Angle(self.p3, self.p4, self.p1),
             Angle(self.p1, self.p2, self.p3) + Angle(self.p2, self.p3, self.p4) - pi,
             Angle(self.p4, self.p1, self.p2) + Angle(self.p3, self.p4, self.p1) - pi,
+            Angle(self.p1, self.p2, self.p3) + Angle(self.p1, self.p4, self.p3) - pi,
+            Angle(self.p4, self.p1, self.p2) + Angle(self.p2, self.p3, self.p4) - pi,
         ]
 
 
@@ -676,7 +672,6 @@ class PropertyOfKite(InferenceRule):
             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
             Perpendicular(self.p1, self.p3, self.p2, self.p4),
             Angle(self.p2, self.p1, self.p4) - Angle(self.p2, self.p3, self.p4),
-
             Angle(self.p1, self.p2, self.p4) - Angle(self.p3, self.p2, self.p4),
             Angle(self.p1, self.p4, self.p2) - Angle(self.p3, self.p4, self.p2),
         ]
@@ -1088,7 +1083,7 @@ class ConcyclicTransist(InferenceRule):
 
 @register("ex")
 class AlphaGeometry1b(InferenceRule):
-    """ Two lines perpendicular to the same line are parallel """
+    """ Perpendicular + paralel -> perpendicular """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()
         self.a = a
@@ -1281,7 +1276,7 @@ class AlphaGeometry7(InferenceRule):
         return Midpoint(self.e, self.a, self.b), Midpoint(self.f, self.a, self.c), *Different(self.b, self.c), *Different(self.e, self.f), Lt(self.b, self.c)
 
     def conclusion(self):
-        return Parallel(self.e, self.f, self.b, self.c)
+        return Parallel(self.e, self.f, self.b, self.c), Similar(self.a, self.e, self.f, self.a, self.b, self.c)
 
 
 @register("basic")
@@ -1299,8 +1294,7 @@ class AlphaGeometry8(InferenceRule):
         return Collinear(self.o, self.a, self.c), Collinear(self.o, self.b, self.d), Parallel(self.a, self.b, self.c, self.d), *Different(self.o, self.a, self.b, self.c, self.d), Not(Collinear(self.a, self.c, self.b)), Not(Collinear(self.a, self.c, self.d)), Lt(self.a, self.c), Lt(self.a, self.b), Lt(self.a, self.d)
 
     def conclusion(self):
-        # Length(self.a, self.o)/Length(self.b, self.o)-Length(self.c, self.o)/Length(self.d, self.o) by similar triangle
-        return Length(self.a, self.o)/Length(self.b, self.o)-Length(self.a, self.c)/Length(self.b, self.d)#, Length(self.a, self.o)/Length(self.a, self.c)-Length(self.b, self.o)/Length(self.b, self.d), 
+        return Length(self.a, self.o)/Length(self.b, self.o)-Length(self.a, self.c)/Length(self.b, self.d), Similar(self.o, self.a, self.b, self.o, self.c, self.d)
 
 
 @register("basic")
@@ -1314,7 +1308,7 @@ class AlphaGeometry12(InferenceRule):
         self.d = d
 
     def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)),  Collinear(self.d, self.b, self.c), Length(self.d, self.b)/Length(self.d, self.c)-Length(self.a, self.b)/Length(self.a, self.c), Lt(self.b, self.c), Between(self.d, self.b, self.c)
+        return Not(Collinear(self.a, self.b, self.c)), Collinear(self.d, self.b, self.c), Length(self.d, self.b)/Length(self.d, self.c)-Length(self.a, self.b)/Length(self.a, self.c), Lt(self.b, self.c), Between(self.d, self.b, self.c)
 
     def conclusion(self):
         return Angle(self.b, self.a, self.d)-Angle(self.d, self.a, self.c)
@@ -1453,10 +1447,10 @@ class AlphaGeometry18a(InferenceRule):
         self.m = m
 
     def condition(self):
-        return Midpoint(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), *Different(self.a, self.b, self.c, self.m, self.o), SameSide(self.a, self.o, self.b, self.c)
+        return Midpoint(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), *Different(self.a, self.b, self.c, self.m, self.o), SameSide(self.a, self.o, self.b, self.c), Lt(self.b, self.c)
 
     def conclusion(self):
-        return Angle(self.b, self.a, self.c)-Angle(self.b, self.o, self.m)
+        return Angle(self.b, self.a, self.c)-Angle(self.b, self.o, self.m), Angle(self.b, self.a, self.c)-Angle(self.c, self.o, self.m), Perpendicular(self.o, self.m, self.b, self.c), Congruent3(self.o, self.m, self.b, self.o, self.m, self.c)
 
 
 @register("basic")
@@ -1471,10 +1465,10 @@ class AlphaGeometry18b(InferenceRule):
         self.m = m
 
     def condition(self):
-        return Midpoint(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), *Different(self.a, self.b, self.c, self.m, self.o), OppositeSide(self.a, self.o, self.b, self.c)
+        return Midpoint(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), *Different(self.a, self.b, self.c, self.m, self.o), OppositeSide(self.a, self.o, self.b, self.c), Lt(self.b, self.c)
 
     def conclusion(self):
-        return Angle(self.b, self.a, self.c) + Angle(self.b, self.o, self.m) - pi
+        return Angle(self.b, self.a, self.c) + Angle(self.b, self.o, self.m) - pi, Angle(self.b, self.a, self.c) + Angle(self.c, self.o, self.m) - pi, Perpendicular(self.o, self.m, self.b, self.c), Congruent3(self.o, self.m, self.b, self.o, self.m, self.c)
 
 
 @register("basic")
@@ -1492,7 +1486,7 @@ class AlphaGeometry19a(InferenceRule):
         return Collinear(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.b, self.a, self.c)-Angle(self.b, self.o, self.m), *Different(self.o, self.a, self.b, self.c, self.m), SameSide(self.a, self.o, self.b, self.c), Between(self.m, self.b, self.c)
 
     def conclusion(self):
-        return Midpoint(self.m, self.b, self.c)
+        return Midpoint(self.m, self.b, self.c), Angle(self.b, self.a, self.c)-Angle(self.c, self.o, self.m), Perpendicular(self.o, self.m, self.b, self.c), Congruent3(self.o, self.m, self.b, self.o, self.m, self.c)
 
 
 @register("basic")
@@ -1510,7 +1504,7 @@ class AlphaGeometry19b(InferenceRule):
         return Collinear(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.b, self.o, self.m) + Angle(self.b, self.a, self.c) - pi, *Different(self.o, self.a, self.b, self.c, self.m), OppositeSide(self.a, self.o, self.b, self.c), Between(self.m, self.b, self.c)
 
     def conclusion(self):
-        return Midpoint(self.m, self.b, self.c)
+        return Midpoint(self.m, self.b, self.c), Angle(self.c, self.o, self.m) + Angle(self.b, self.a, self.c) - pi, Perpendicular(self.o, self.m, self.b, self.c), Congruent3(self.o, self.m, self.b, self.o, self.m, self.c)
 
 
 @register("basic")
@@ -1527,7 +1521,7 @@ class AlphaGeometry20(InferenceRule):
         return Midpoint(self.m, self.a, self.c), Perpendicular(self.a, self.b, self.b, self.c), Lt(self.a, self.c)
 
     def conclusion(self):
-        return Length(self.a, self.m)-Length(self.b, self.m)
+        return equal(Length(self.a, self.m), Length(self.b, self.m), Length(self.c, self.m))
 
 
 @register("basic")
@@ -1549,7 +1543,7 @@ class AlphaGeometry21(InferenceRule):
 
 @register("basic")
 class AlphaGeometry22(InferenceRule):
-    """ Parallel lines intersect a circle forming a trapezoid """
+    """ Parallel lines intersect a circle forming a isosceles trapezoid """
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
         self.a = a
@@ -1561,7 +1555,7 @@ class AlphaGeometry22(InferenceRule):
         return Concyclic(self.a, self.b, self.c, self.d), Parallel(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.a, self.c)
 
     def conclusion(self):
-        return Angle(self.a, self.d, self.c)-Angle(self.d, self.c, self.b)
+        return Angle(self.a, self.d, self.c)-Angle(self.d, self.c, self.b), Angle(self.b, self.a, self.d)-Angle(self.a, self.b, self.c)
 
 
 @register("basic")
@@ -1578,7 +1572,7 @@ class AlphaGeometry23(InferenceRule):
         return Midpoint(self.m, self.a, self.b), Perpendicular(self.o, self.m, self.a, self.b), Lt(self.a, self.b)
 
     def conclusion(self):
-        return Length(self.o, self.a)-Length(self.o, self.b)
+        return Length(self.o, self.a)-Length(self.o, self.b), Congruent3(self.o, self.m, self.b, self.o, self.m, self.b)
 
 
 @register("basic")
@@ -1595,7 +1589,7 @@ class AlphaGeometry24(InferenceRule):
         return Length(self.a, self.p)-Length(self.b, self.p), Length(self.a, self.q)-Length(self.b, self.q), *Different(self.a, self.b, self.p, self.q), Lt(self.a, self.b), Lt(self.p, self.q)
 
     def conclusion(self):
-        return Perpendicular(self.a, self.b, self.p, self.q)
+        return Perpendicular(self.a, self.b, self.p, self.q), Congruent3(self.p, self.q, self.a, self.p, self.q, self.b)
 
 
 @register("basic")
@@ -1630,7 +1624,7 @@ class AlphaGeometry26(InferenceRule):
         return Midpoint(self.m, self.a, self.b), Midpoint(self.m, self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.a, self.c)
 
     def conclusion(self):
-        return Parallel(self.a, self.c, self.b, self.d), Parallel(self.a, self.d, self.b, self.c)
+        return Parallel(self.a, self.c, self.b, self.d), Parallel(self.a, self.d, self.b, self.c), Parallelogram(self.a, self.c, self.b, self.d)
 
 
 @register("basic")
@@ -1996,49 +1990,6 @@ class EqTrapezoid4(InferenceRule):
 """
 
     
-@register("basic")
-class SimilarImplication(InferenceRule):
-    """ Property of Similar Triangles """
-    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-        self.e = e
-        self.f = f
-
-    def condition(self):
-        return Similar(self.a, self.b, self.c, self.d, self.e, self.f), Lt(self.a, self.b), Lt(self.b, self.c)
-
-    def degenerate(self):
-        return self.a == self.d and self.b == self.e and self.c == self.f
-
-    def conclusion(self):
-        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f), Angle(self.b, self.c, self.a) - Angle(self.e, self.f, self.d), Angle(self.c, self.a, self.b) - Angle(self.f, self.d, self.e),
-
-
-@register("basic")
-class CongruentImplication(InferenceRule):
-    """ Property of Congruent Triangles """
-    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-        self.e = e
-        self.f = f
-
-    def condition(self):
-        return Congruent(self.a, self.b, self.c, self.d, self.e, self.f), Lt(self.a, self.b), Lt(self.b, self.c)
-
-    def degenerate(self):
-        return self.a == self.d and self.b == self.e and self.c == self.f
-
-    def conclusion(self):
-        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f), Angle(self.b, self.c, self.a) - Angle(self.e, self.f, self.d), Angle(self.c, self.a, self.b) - Angle(self.f, self.d, self.e)
-
 
 @register("ex")
 class BetweenLength(InferenceRule):
