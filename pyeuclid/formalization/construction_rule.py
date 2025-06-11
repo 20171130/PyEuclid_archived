@@ -442,7 +442,7 @@ class construct_excenter2(ConstructionRule):
         a, b, c = self.inputs
         x, y, z, i = self.outputs
         return [
-            Excenter(a, b, c),
+            Excenter(i, a, b, c),
             Angle(b, a, i) - Angle(i, a, c),
             Angle(a, b, i) - (Angle(a, b, c) / 2 + pi / 2),
             Angle(a, c, i) - (Angle(a, c, b) / 2 + pi / 2),

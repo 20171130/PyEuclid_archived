@@ -24,7 +24,8 @@ def run_single_problem(args):
     # state.silent = True
     state.logger.setLevel(logging.INFO)
     if args.problem_string is not None:
-        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg')
+        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg', resample=True)
+        input()
     else:
         namespace = {}
         with open(f'data/Geometry3K/{args.problem_id}/problem.py', "r") as file:
