@@ -179,7 +179,7 @@ class construct_eq_quadrangle(ConstructionRule):
     def conclusions(self):
         a, b, c, d = self.outputs
         return [
-            # Quadrilateral(a, b, c, d),
+            Quadrilateral(a, b, c, d),
             Length(a, d) - Length(b, c)
         ]
 
@@ -196,11 +196,11 @@ class construct_eq_trapezoid(ConstructionRule):
     def conclusions(self):
         a, b, c, d = self.outputs
         return [
-            # Trapezoid(a, b, c, d),
+            Trapezoid(a, b, c, d),
             Parallel(a, b, c, d),
-            Length(a, d) - Length(b, c),
-            Angle(d, a, b) - Angle(a, b, c),
-            Angle(b, c, d) - Angle(c, d, a),
+            # Length(a, d) - Length(b, c),
+            # Angle(d, a, b) - Angle(a, b, c),
+            # Angle(b, c, d) - Angle(c, d, a),
         ]
 
 
@@ -259,7 +259,10 @@ class construct_eqdia_quadrangle(ConstructionRule):
 
     def conclusions(self):
         a, b, c, d = self.outputs
-        return [Length(b, d) - Length(a, c)]
+        return [
+            Quadrilateral(a, b, c, d),
+            Length(b, d) - Length(a, c),
+        ]
 
 
 
@@ -662,6 +665,7 @@ class construct_iso_triangle(ConstructionRule):
     def conclusions(self):
         a, b, c = self.outputs
         return [
+            Triangle(a, b, c),
             Length(a, b) - Length(a, c),
             Angle(a, b, c) - Angle(b, c, a),
         ]
@@ -970,6 +974,12 @@ class construct_pentagon(ConstructionRule):
 
     def construct(self, a: Point, b: Point, c: Point, d: Point, e: Point):
         self.outputs = [a, b, c, d, e]
+    
+    def conclusions(self):
+        a, b, c, d, e = self.outputs
+        return [
+            Pentagon(a, b, c, d, e),
+        ]
 
 
 @register("deterministic")
@@ -1002,6 +1012,13 @@ class construct_quadrangle(ConstructionRule):
 
     def construct(self, a: Point, b: Point, c: Point, d: Point):
         self.outputs = [a, b, c, d]
+    
+    def conclusions(self):
+        a, b, c, d = self.outputs
+        return [
+            Quadrilateral(a, b, c, d),
+        ]
+    
 
 
 @register("independent")
@@ -1016,8 +1033,9 @@ class construct_r_trapezoid(ConstructionRule):
     def conclusions(self):
         a, b, c, d = self.outputs
         return [
-            Perpendicular(a, b, a, d),
+            Trapezoid(a, b, c, d),
             Parallel(a, b, c, d),
+            Perpendicular(a, b, a, d),
         ]
 
 
@@ -1032,7 +1050,10 @@ class construct_r_triangle(ConstructionRule):
 
     def conclusions(self):
         a, b, c = self.outputs
-        return [Perpendicular(a, b, a, c)]
+        return [
+            Triangle(a, b, c),
+            Perpendicular(a, b, a, c)
+        ]
 
 
 @register("independent")
@@ -1047,6 +1068,7 @@ class construct_rectangle(ConstructionRule):
     def conclusions(self):
         a, b, c, d = self.outputs
         return [
+            Rectangle(a, b, c, d),
             Perpendicular(a, b, b, c),
             Parallel(a, b, c, d),
             Parallel(a, d, b, c),
@@ -1092,6 +1114,7 @@ class construct_risos(ConstructionRule):
     def conclusions(self):
         a, b, c = self.outputs
         return [
+            Triangle(a, b, c),
             Angle(a, b, c) - Angle(b, c, a),
             Perpendicular(a, b, a, c),
             Length(a, b) - Length(a, c),
@@ -1205,6 +1228,7 @@ class construct_isquare(ConstructionRule):
     def conclusions(self):
         a, b, c, d = self.outputs
         return [
+            Square(a, b, c, d),
             Perpendicular(a, b, b, c),
             Length(a, b) - Length(b, c),
             Parallel(a, b, c, d),
@@ -1228,7 +1252,10 @@ class construct_trapezoid(ConstructionRule):
 
     def conclusions(self):
         a, b, c, d = self.outputs
-        return [Parallel(a, b, c, d)]
+        return [
+            Trapezoid(a, b, c, d),
+            Parallel(a, b, c, d),
+        ]
 
 
 @register("independent")
@@ -1239,6 +1266,12 @@ class construct_triangle(ConstructionRule):
 
     def construct(self, a: Point, b: Point, c: Point):
         self.outputs = [a, b, c]
+    
+    def conclusions(self):
+        a, b, c = self.outputs
+        return [
+            Triangle(a, b, c)
+        ]
 
 
 @register("independent")
@@ -1252,7 +1285,10 @@ class construct_triangle12(ConstructionRule):
 
     def conclusions(self):
         a, b, c = self.outputs
-        return [Length(a, b) / Length(a, c) - sympy.Rational(1, 2)]
+        return [
+            Triangle(a, b, c),
+            Length(a, b) / Length(a, c) - sympy.Rational(1, 2)
+        ]
 
 
 @register("deterministic")
@@ -1417,6 +1453,7 @@ class construct_ieq_triangle(ConstructionRule):
     def conclusions(self):
         a, b, c = self.outputs
         return [
+            Triangle(a, b, c),
             Length(a, b) - Length(b, c),
             Length(b, c) - Length(c, a),
             Angle(b, a, c) - Angle(a, c, b),

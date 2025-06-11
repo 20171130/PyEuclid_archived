@@ -24,7 +24,7 @@ def generate():
     points = 0
     
     
-    while depth < 4 and attempt < 20 and points < 10:
+    while depth < 3 and attempt < 20 and points < 8:
         constructions = []
         multiconstructions = False
         
@@ -90,6 +90,24 @@ def generate():
     diagram.draw_diagram(save=True)
     engine.search()
 
+    def trace_constructions_list(points):
+        constructions_list = []
+        visited = set()
+        queue = points.copy()
+
+        while queue:
+            p = queue.pop()
+            if p in visited:
+                continue
+            visited.add(p)
+            if state.point2constructions[p] not in constructions_list:
+                constructions_list.append(state.point2constructions[p])
+            for construction in state.point2constructions[p]:
+                for dep_p in construction.inputs:
+                    if dep_p not in visited:
+                        queue.append(dep_p)
+        return constructions_list
+
     proof_generator = ProofGenerator(state)
     i = 0
     for relation in state.relations:
@@ -100,13 +118,21 @@ def generate():
         proof_generator.run(relation)
         
         proof_generator.track_constructions(relation)
-        if not proof_generator.source_constructions[relation]:
+        if not isinstance(relation, (Concyclic, Collinear, Perpendicular, Parallel, Midpoint, Similar3, Congruent3)):
             continue
-        
+
+        points = relation.get_points()
         diagram.save_path = os.path.join(ROOT_DIR, f'samples/test{i}.jpg')
-        diagram.draw_diagram(constructions_list=list(proof_generator.source_constructions[relation]), save=True)
-        for cond in proof_generator.source_constructions[relation]:
-            print(cond, end=' ')
+        
+        if len(proof_generator.source_constructions[relation]) == 1:
+            continue
+
+        print(relation)
+        for con in list(proof_generator.source_constructions[relation]):
+            print(con, end=' ')
+        print()
+        
+        diagram.draw_diagram(constructions=list(proof_generator.source_constructions[relation]), save=True)
         i += 1
         input()
 

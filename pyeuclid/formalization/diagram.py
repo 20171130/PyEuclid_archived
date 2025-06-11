@@ -60,7 +60,7 @@ class Diagram:
         
         self.name2point = {}
         self.point2name = {}
-        self.constructions2diagram = {}
+        self.construction2diagram = {}
         
         self.fig, self.ax = None, None
         
@@ -78,7 +78,7 @@ class Diagram:
         
         self.name2point.clear()
         self.point2name.clear()
-        self.constructions2diagram.clear()
+        self.construction2diagram.clear()
         self.constructions_list.clear()
     
     def save(self):
@@ -88,7 +88,7 @@ class Diagram:
             'circles': self.circles.copy(),
             'name2point': self.name2point.copy(),
             'point2name': self.point2name.copy(),
-            'constructions2diagram': self.constructions2diagram.copy(),
+            'construction2diagram': self.construction2diagram.copy(),
             'constructions_list': self.constructions_list.copy()
         }
     
@@ -99,7 +99,7 @@ class Diagram:
             self.circles = self._saved['circles']
             self.name2point = self._saved['name2point']
             self.point2name = self._saved['point2name']
-            self.constructions2diagram = self._saved['constructions2diagram']
+            self.construction2diagram = self._saved['construction2diagram']
             self.constructions_list = self._saved['constructions_list']
         
     def show(self):
@@ -117,13 +117,8 @@ class Diagram:
         for _ in range(MAX_DIAGRAM_ATTEMPTS):
             try:
                 new_points = self.construct(constructions)
-                new_segments, new_circles = self.draw(new_points, constructions)
+                self.draw(new_points, constructions)
                 self.constructions_list.append(constructions)
-                self.constructions2diagram[tuple(constructions)] = (
-                    new_points,
-                    new_segments,
-                    new_circles
-                )
                 return
             except:
                 self.restore()
@@ -136,13 +131,8 @@ class Diagram:
                 self.clear()
                 for constructions in constructions_list:
                     new_points = self.construct(constructions)
-                    new_segments, new_circles = self.draw(new_points, constructions)
+                    self.draw(new_points, constructions)
                     self.constructions_list.append(constructions)
-                    self.constructions2diagram[tuple(constructions)] = (
-                        new_points,
-                        new_segments,
-                        new_circles
-                    )
                 self.draw_diagram()
                 self.save_to_cache()
                 return
@@ -899,15 +889,19 @@ class Diagram:
                 return [np.random.choice([a, b])]
     
     def draw(self, new_points, constructions):
-        before_segments = len(self.segments)
-        before_circles = len(self.circles)
         for construction in constructions:
+            before_segments = len(self.segments)
+            before_circles = len(self.circles)
             func = getattr(self, 'draw_' + construction.__class__.__name__[10:])
             args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.inputs]
             func(*new_points, *args)
-        after_segments = len(self.segments)
-        after_circles = len(self.circles)
-        return self.segments[before_segments:after_segments], self.circles[before_circles:after_circles]
+            after_segments = len(self.segments)
+            after_circles = len(self.circles)
+            self.construction2diagram[construction] = (
+                new_points,
+                self.segments[before_segments:after_segments],
+                self.circles[before_circles:after_circles],
+            )
     
     def draw_angle_bisector(self, *args):
         x, a, b, c = args
@@ -1444,21 +1438,20 @@ class Diagram:
     def draw_opposingsides(self, *args):
         x, a, b, c = args
     
-    def draw_diagram(self, constructions_list=None, show=False, save=False):
+    def draw_diagram(self, constructions=None, show=False, save=False):
         imsize = 512 / 100
         self.fig, self.ax = plt.subplots(figsize=(imsize, imsize), dpi=300)
         self.ax.set_facecolor((1.0, 1.0, 1.0))
         
-        if not constructions_list:
-            constructions_list = self.constructions_list
+        if constructions is None:
+            constructions = [c for constructions in self.constructions_list for c in constructions]
 
         points = []
         segments = []
         circles = []
         
-        for constructions in constructions_list:
-            new_points, new_segments, new_circles = self.constructions2diagram[tuple(constructions)]
-
+        for construction in constructions:
+            new_points, new_segments, new_circles = self.construction2diagram[construction]
             points.extend(new_points)
             segments.extend(new_segments)
             circles.extend(new_circles)
@@ -1563,8 +1556,5 @@ class Diagram:
             if parent_dir and not os.path.exists(parent_dir):
                 os.makedirs(parent_dir)
             self.fig.savefig(self.save_path)
-    
-    # #  
-    # def trace_constructions(self, point):
-    #     return constructions_list
+
         
