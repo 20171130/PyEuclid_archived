@@ -682,7 +682,7 @@ FG ⟂ DF [06]
 007. CE ∥ GF [12] & C,E,A are collinear [02] ⇒  AC ∥ FG
 ==========================
 examples/complete2/007/complete_012_7_Book_00EE_02_E028-2.gex
-
+a b c = triangle a b c; d e = square a c d e; g f = square c b g f ? perp d b f a
 ==========================
  * From theorem premises:
 A B C D G F : Points
@@ -932,7 +932,7 @@ FG = FC [07]
 007. ∠CEG = ∠ECB [08] & ∠CGE = ∠EBC [13] (Similar Triangles)⇒  EG = CB
 ==========================
 examples/complete2/007/complete_013_7_Book_00EE_11_E077-37.gex
-
+a b = segment a b; c = midpoint c b a; d = on_circle d c b; e = foot e d a b; f = lc_tangent f d c; g = on_line g d f ? eqangle d f d a d a d e
 ==========================
  * From theorem premises:
 A B C D E F : Points
@@ -991,7 +991,8 @@ B,G,F are collinear [09]
 012. ∠GEF = ∠EFG [20] ⇒  GE = GF
 ==========================
 examples/complete2/007/complete_008_ex-gao_ex160_e201f.gex
-
+examples/complete2/007/complete_008_ex-gao_ex160_e201f.gex
+a b c = triangle a b c; d e = square a b d e; f = foot f a b c; g = on_line g a f, eqdistance g a b c ? perp g b c d
 ==========================
  * From theorem premises:
 A B C D F G : Points
@@ -1110,7 +1111,7 @@ D,F,C are collinear [05]
 005. DB ⟂ BF [07] & BE ⟂ BD [09] ⇒  E,B,F are collinear
 ==========================
 examples/complete2/000/complete_007_7_Book_LLL_L054-2-1.gex
-
+a b = segment a b; c = on_bline c a b; d = on_line d a c; e = eqdistance e b a d, on_line e b c; f = on_line f a b, on_line f d e; g = on_line g b c, on_pline g d a b ? cong d f f e
 ==========================
  * From theorem premises:
 A B C D E F : Points
@@ -1134,7 +1135,7 @@ B,C,G are collinear [07]
 005. BE:BG = FE:FD [10] & AC:BC = AD:BG [11] & CA = CB [00] & EB = AD [03] ⇒  FE = FD
 ==========================
 examples/complete2/000/complete_007_7_Book_LLL_L057-1-1.gex
-
+a b = segment a b; m = midpoint m a b; c = on_circle c m a; d = angle_mirror d a b c; e = midpoint e a d; f = on_line f b d, on_line f a c ? para c e b d
 ==========================
  * From theorem premises:
 A B M C D E : Points
@@ -2437,7 +2438,7 @@ C,B,G are collinear [07]
 008. CD:EG = CD:EF [14] & CD:CA = CD:CA [01] ⇒  EF = EG
 ==========================
 examples/complete2/001/complete_016_ex-gao_gao_L_LL153-1.gex
-
+c a d = triangle c a d; e = foot e c a d; b = free b; f = foot f b a d; g = midpoint g c b; h = midpoint h e f ? cong g e g f
 ==========================
  * From theorem premises:
 C A D E B F G : Points
@@ -2645,7 +2646,7 @@ EG ⟂ AB [06]
 014. ∠FEG = ∠CEB [15] & ∠EFG = ∠ECB [19] (Similar Triangles)⇒  ΔEFG is similar to ΔECB
 ==========================
 examples/complete2/006/complete_013_7_Book_00EE_11_E075-26.gex
-
+a b = segment a b; c = mirror c a b; d = mirror d b c; e = midpoint e c b; f = on_circle f e c, on_dia f a e; g = on_line g a f ? eqangle b f a f c f e f
 ==========================
  * From theorem premises:
 A B C E F : Points

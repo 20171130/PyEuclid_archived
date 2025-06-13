@@ -1349,7 +1349,7 @@ class construct_e5128(ConstructionRule):
         ]
 
 
-@register("AG")
+@register("deterministic")
 class construct_3peq(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -1610,6 +1610,16 @@ class construct_on_circum(ConstructionRule):
         x, = self.outputs
         return [Concyclic(a, b, c, x)]
 
+
+@register("diagrammatic")
+class construct_connect(ConstructionRule):
+    def __init__(self, a: Point, b: Point):
+        self.inputs = [a, b]
+        self.outputs = None
+
+    def conditions(self):
+        a, b, c = self.inputs
+        return [Different2(a, b)]
 
 @register("diagrammatic")
 class construct_sameside(ConstructionRule):

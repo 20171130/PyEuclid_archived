@@ -1,4 +1,5 @@
 import os
+import json
 import random
 
 from pyeuclid.formalization.diagram import Diagram
@@ -11,6 +12,9 @@ from pyeuclid.engine.engine import Engine
 
 
 def generate():
+    # array_task_id = int(os.environ["SLURM_ARRAY_TASK_ID"])
+    # os.makedirs(f'samples/{array_task_id}/')
+
     state = State()
     # state.silent = True
     deductive_database = DeductiveDatabase(state)
@@ -24,16 +28,18 @@ def generate():
     points = 0
     
     
-    while depth < 3 and attempt < 20 and points < 8:
+    while depth < 5 and attempt < 20 and points < 10:
         constructions = []
         multiconstructions = False
         
         if depth == 0:
             candidate_set = construction_rule_sets["independent"]
+            candidate_set.remove(construct_free)
+            candidate_set = [construct_r_triangle]
         else:
             rand = random.random()
             if rand < 0.02:
-                candidate_set = construction_rule_sets["independent"]
+                candidate_set = [construct_free]
             elif rand < 0.51:
                 candidate_set = [rule for rule in construction_rule_sets['deterministic'] if rule.num_inputs <= len(state.points)]
             else:
@@ -57,7 +63,7 @@ def generate():
         constructions.append(construction)
         
         if multiconstructions:
-            candidate_set = [rule for rule in construction_rule_sets['nondeterministic'] if rule.num_inputs <= len(state.points) and rule.num_outputs == picked.num_outputs and rule != picked]     
+            candidate_set = [rule for rule in construction_rule_sets['nondeterministic'] if rule.num_inputs <= len(state.points) and rule.num_outputs == picked.num_outputs and rule != picked]
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
             num_points = len(all_points)
@@ -85,56 +91,115 @@ def generate():
         points += len(outputs)
 
         for construction in constructions:
-            print(construction)
+            print(construction.index, construction)
     
     diagram.draw_diagram(save=True)
     engine.search()
 
-    def trace_constructions_list(points):
-        constructions_list = []
-        visited = set()
-        queue = points.copy()
-
-        while queue:
-            p = queue.pop()
-            if p in visited:
-                continue
-            visited.add(p)
-            if state.point2constructions[p] not in constructions_list:
-                constructions_list.append(state.point2constructions[p])
-            for construction in state.point2constructions[p]:
-                for dep_p in construction.inputs:
-                    if dep_p not in visited:
-                        queue.append(dep_p)
-        return constructions_list
-
-    proof_generator = ProofGenerator(state)
     i = 0
+    def generate_data(relation, i):
+        if isinstance(relation, Relation):  
+            points = relation.get_points()
+        else:
+            points = get_points_and_symbols(relation)[0]
+        
+        constructions = proof_generator.source_constructions[relation]
+        auxilirary_constructions = []
+        required_points = set(points)
+
+        for construction in constructions:
+            if any(p in construction.outputs for p in points):
+                required_points.update(construction.inputs)
+        
+        for construction in constructions:
+            if all(p not in required_points for p in construction.outputs):
+                auxilirary_constructions.append(construction)
+
+        proof_str = proof_generator.get_proof_str(relation)
+        if auxilirary_constructions:
+            auxilirary_constructions = sorted(auxilirary_constructions, key=lambda c: c.index)
+            aux_proof = 'Auxilirary Constructions:\n'
+            for construction in auxilirary_constructions:
+                aux_proof = aux_proof + str(construction) + '\n'
+            proof_str = aux_proof + proof_str
+
+        diagram.save()
+        proof = proof_generator.get_proof(relation)        
+        diagram.auxiliary_constructions.extend(auxilirary_constructions)
+        diagram_path = os.path.join(ROOT_DIR, f'samples/{i}/diagram.jpg')
+        diagram.save_path = diagram_path
+        diagram.draw_diagram(constructions=constructions, save=True)
+        diagram.restore()
+        
+        data_path = os.path.join(ROOT_DIR, f'samples/{i}/')
+        data = {
+            "problem": ', '.join([str(construction) for construction in constructions]),
+            "diagram": diagram_path,
+            "proof": proof_str,
+        }
+
+        with open(f"{data_path}/data.json", "w") as f:
+            json.dump(data, f, indent=2)
+        i += 1
+
+        print(relation)
+        input()
+    
+    proof_generator = ProofGenerator(state)
+    
     for relation in state.relations:
-        if isinstance(relation, (Between, SameSide, OppositeSide)):
+        if not isinstance(relation, (Concyclic, Collinear, Perpendicular, Parallel, Midpoint, Similar3, Congruent3)):
             continue
         if isinstance(relation, Collinear) and relation.negated:
             continue
+        
         proof_generator.run(relation)
-        
         proof_generator.track_constructions(relation)
-        if not isinstance(relation, (Concyclic, Collinear, Perpendicular, Parallel, Midpoint, Similar3, Congruent3)):
+
+        if len(proof_generator.source_constructions[relation]) <= 2:
             continue
 
-        points = relation.get_points()
-        diagram.save_path = os.path.join(ROOT_DIR, f'samples/test{i}.jpg')
-        
-        if len(proof_generator.source_constructions[relation]) == 1:
-            continue
+        generate_data(relation, i)
 
-        print(relation)
-        for con in list(proof_generator.source_constructions[relation]):
-            print(con, end=' ')
-        print()
+    # print(state.angles.equivalence_classes())
+    # input()
+
+    # print(state.lengths.equivalence_classes())
+    # input()
         
-        diagram.draw_diagram(constructions=list(proof_generator.source_constructions[relation]), save=True)
-        i += 1
-        input()
+    # for quantities in list(state.angles.equivalence_classes().values()) + list(state.lengths.equivalence_classes().values()):
+    #     if len(quantities) < 2:
+    #         continue
+    #     for i in range(len(quantities)):
+    #         for j in range(i+1, len(quantities)):
+    #             relation = quantities[i] - quantities[j]
+    #             proof_generator.run(relation)
+    #             proof_generator.track_constructions(relation)
+    #             if len(proof_generator.source_constructions[relation]) < 2:
+    #                 continue
+                
+    #             generate_data(relation)
+    
+    # for angle_sum, angles in state.angle_sums.items():
+    #     if len(angle_sum.free_symbols) == 0:
+    #         relation = angles - angle_sum
+    #         relation = quantities[i] -quantities[j]
+    #         proof_generator.run(relation)
+    #         proof_generator.track_constructions(relation)
+    #         if len(proof_generator.source_constructions[relation]) <= 2:
+    #             continue
+
+    #         generate_data(relation)
+
+
+
+    # print(state.angle_sums[sympy.pi])
+    # print(state.ratios)
+
+    # print(state.angles.equivalence_classes())
+    # for equation in state.angles.equivalence_classes():
+    #     print
+
 
         
 if __name__ == '__main__':

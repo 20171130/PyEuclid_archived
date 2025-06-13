@@ -92,60 +92,6 @@ class AlgebraicSystem:
         if len(solutions) == 1:
             return solutions.pop()
         return None
-    
-    # def elim1(self, equations, logarithm=False):
-    #     all_vars = []
-    #     traced = [eq for eq in equations if not eq.redundant]
-    #     equations = [eq.expr for eq in equations if not eq.redundant]
-    #     for eqn in equations:
-    #         all_vars += eqn.free_symbols
-    #     all_vars = list(set(all_vars))
-    #     all_vars.sort(key=lambda x: x.name)
-        
-    #     if logarithm:
-    #         log_vars = {var: symbols(f"log_{var.name}") for var in all_vars}
-    #         inv_log_vars = {v: k for k, v in log_vars.items()}
-    #         subs_dict = {log(v): log_vars[v] for v in all_vars}
-    #         linearized_equations = []
-    #         for eq in equations:
-    #             log_eq = sympy.Add(*[-log(-term) if term.could_extract_minus_sign() else log(term) for term in eq.args])
-    #             log_eq = expand_log(log_eq, force=True)
-    #             log_eq = log_eq.subs(subs_dict)
-    #             linearized_equations.append(log_eq)
-            
-    #         equations = linearized_equations
-    #         all_vars = [log_var for log_var in log_vars.values()]
-        
-    #     A, b = linear_eq_to_matrix(equations, all_vars)
-    #     augmented = A.row_join(b)
-    #     rref_matrix, pivot_cols = augmented.rref()
-    #     solved_vars = {}
-    #     free_vars = []
-        
-    #     pivot_row_set = set(range(len(pivot_cols)))
-    #     for i in range(augmented.rows):
-    #         is_zero_row = all(rref_matrix[i, j] == 0 for j in range(rref_matrix.cols))
-    #         is_pivot_row = i in pivot_row_set
-    #         if is_zero_row or not is_pivot_row:
-    #             traced[i].redundant = True
-
-    #     for i, var in enumerate(all_vars):
-    #         if i in pivot_cols:
-    #             row_idx = pivot_cols.index(i)
-    #             expr = -sum(rref_matrix[row_idx, j] * all_vars[j] for j in range(len(all_vars)) if j != i) + rref_matrix[row_idx, -1]
-    #             solved_vars[var] = expr
-    #         else:
-    #             free_vars.append(var)
-        
-    #     if logarithm:
-    #         subs_dict = {v: log(inv_log_vars[v]) for v in all_vars}
-    #         final_solved = {inv_log_vars[log_var]: sympy.simplify(exp(log_expr.subs(subs_dict))) for log_var, log_expr in solved_vars.items()}
-    #         final_free = [inv_log_vars[v] for v in free_vars]
-            
-    #         solved_vars = final_solved
-    #         free_vars = final_free
-        
-    #     return free_vars, solved_vars
 
     def elim(self, equations, var_types):        
         free_vars = []
@@ -319,62 +265,29 @@ class AlgebraicSystem:
             if unionfind is not None:
                 l, r = eqn
                 unionfind.union(l, r)
-
-    def compute_ratio_and_angle_sum(self):
-        def _compute_relations(equivalence_classes, solved_vars, value_range, operation, tol=1e-10):
-            values = {}
-            for var in equivalence_classes:
-                if var in solved_vars:
-                    expr = solved_vars[var].expr
-                    for symbol in expr.free_symbols:
-                        if symbol not in values:
-                            values[symbol] = random.uniform(*value_range)
-                    values[var] = float(expr.evalf(subs=values))
-                elif var not in values:
-                    values[var] = random.uniform(*value_range)
-
-            relation_map = defaultdict(list)
-            for x in equivalence_classes:
-                for y in equivalence_classes:
-                    if operation == "ratio":
-                        v = values[x] / values[y]
-                        expr = sympy.Mul(x, 1/y, evaluate=False)
-                    elif operation == "sum":
-                        v = values[x] + values[y]
-                        expr = x + y
-                    key = round(v / tol) * tol
-                    relation_map[key].append(expr)
-            return dict(relation_map)
-
-        lengths = list(self.state.lengths.equivalence_classes())
-        angles = list(self.state.angles.equivalence_classes())
-        solved_vars = self.state.solutions[-1]
-
-        self.state.ratios = _compute_relations(lengths, solved_vars, (1.0, 10.0), operation="ratio")
-        self.state.angle_sums = _compute_relations(angles, solved_vars, (1e-6, math.pi / 2), operation="sum")
         
-    # def compute_ratio_and_angle_sum(self):
-    #     dic = {}
-    #     tmp = self.state.lengths.equivalence_classes()
-    #     for x in tmp:
-    #         for y in tmp:
-    #             expr = self.state.simplify_equation(x/y)
-    #             if not expr in dic:
-    #                 dic[expr] = [sympy.core.mul.Mul(x, 1/y, evaluate=False)]
-    #             else:
-    #                 dic[expr].append(sympy.core.mul.Mul(
-    #                     x, 1/y, evaluate=False))
-    #     self.state.ratios = dic
-    #     dic = {}
-    #     tmp = self.state.angles.equivalence_classes()
-    #     for x in tmp:
-    #         for y in tmp:
-    #             expr = self.state.simplify_equation(x+y)
-    #             if not expr in dic:
-    #                 dic[expr] = [x+y]
-    #             else:
-    #                 dic[expr].append(x+y)
-    #     self.state.angle_sums = dic
+    def compute_ratio_and_angle_sum(self):
+        dic = {}
+        tmp = self.state.lengths.equivalence_classes()
+        for x in tmp:
+            for y in tmp:
+                expr = self.state.simplify_equation(x/y)
+                if not expr in dic:
+                    dic[expr] = [sympy.core.mul.Mul(x, 1/y, evaluate=False)]
+                else:
+                    dic[expr].append(sympy.core.mul.Mul(
+                        x, 1/y, evaluate=False))
+        self.state.ratios = dic
+        dic = {}
+        tmp = self.state.angles.equivalence_classes()
+        for x in tmp:
+            for y in tmp:
+                expr = self.state.simplify_equation(x+y)
+                if not expr in dic:
+                    dic[expr] = [x+y]
+                else:
+                    dic[expr].append(x+y)
+        self.state.angle_sums = dic
 
     def run(self):
         self.solve_equation()

@@ -509,7 +509,6 @@ class PropertyOfRhombus(InferenceRule):
         return [
             Parallelogram(self.p1, self.p2, self.p3, self.p4),
             *equal(Length(self.p1, self.p2), Length(self.p2, self.p3), Length(self.p3, self.p4), Length(self.p4, self.p1)),
-            Length(self.p1, self.p3) - Length(self.p2, self.p4),
             Perpendicular(self.p1, self.p3, self.p2, self.p4),
             *equal(Angle(self.p2, self.p1, self.p3), Angle(self.p3, self.p1, self.p4), Angle(self.p2, self.p3, self.p1), Angle(self.p1, self.p3, self.p4)),
             *equal(Angle(self.p1, self.p2, self.p4), Angle(self.p1, self.p4, self.p2), Angle(self.p3, self.p2, self.p4), Angle(self.p3, self.p4, self.p2))
@@ -626,12 +625,8 @@ class PropertyOfTrapezoid(InferenceRule):
     def conclusion(self):
         return [
             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
-            Angle(self.p1, self.p2, self.p3) - Angle(self.p4, self.p1, self.p2),
-            Angle(self.p2, self.p3, self.p4) - Angle(self.p3, self.p4, self.p1),
             Angle(self.p1, self.p2, self.p3) + Angle(self.p2, self.p3, self.p4) - pi,
             Angle(self.p4, self.p1, self.p2) + Angle(self.p3, self.p4, self.p1) - pi,
-            Angle(self.p1, self.p2, self.p3) + Angle(self.p1, self.p4, self.p3) - pi,
-            Angle(self.p4, self.p1, self.p2) + Angle(self.p2, self.p3, self.p4) - pi,
         ]
 
 

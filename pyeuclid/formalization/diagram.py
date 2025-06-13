@@ -7,6 +7,7 @@ import hashlib
 from matplotlib import pyplot as plt
 from itertools import product
 
+from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.numericals import *
 from pyeuclid.formalization.utils import *
@@ -60,11 +61,13 @@ class Diagram:
         
         self.name2point = {}
         self.point2name = {}
+        
+        self.auxiliary_constructions = []
         self.construction2diagram = {}
+        self.constructions_list = []
         
         self.fig, self.ax = None, None
-        
-        self.constructions_list = []
+
         self.save_path = save_path
         self.cache_folder = cache_folder
         
@@ -78,6 +81,7 @@ class Diagram:
         
         self.name2point.clear()
         self.point2name.clear()
+        self.auxiliary_constructions.clear()
         self.construction2diagram.clear()
         self.constructions_list.clear()
     
@@ -88,6 +92,7 @@ class Diagram:
             'circles': self.circles.copy(),
             'name2point': self.name2point.copy(),
             'point2name': self.point2name.copy(),
+            'auxiliary_constructions': self.auxiliary_constructions.copy(),
             'construction2diagram': self.construction2diagram.copy(),
             'constructions_list': self.constructions_list.copy()
         }
@@ -99,6 +104,7 @@ class Diagram:
             self.circles = self._saved['circles']
             self.name2point = self._saved['name2point']
             self.point2name = self._saved['point2name']
+            self.auxiliary_constructions = self._saved['auxiliary_constructions']
             self.construction2diagram = self._saved['construction2diagram']
             self.constructions_list = self._saved['constructions_list']
         
@@ -112,12 +118,12 @@ class Diagram:
             with open(file_path, 'wb') as f:
                 pickle.dump(self, f)
     
-    def add_constructions(self, constructions):
+    def add_constructions(self, constructions, auxiliary=False):
         self.save()
         for _ in range(MAX_DIAGRAM_ATTEMPTS):
             try:
                 new_points = self.construct(constructions)
-                self.draw(new_points, constructions)
+                self.draw(new_points, constructions, auxiliary)
                 self.constructions_list.append(constructions)
                 return
             except:
@@ -131,7 +137,7 @@ class Diagram:
                 self.clear()
                 for constructions in constructions_list:
                     new_points = self.construct(constructions)
-                    self.draw(new_points, constructions)
+                    self.draw(new_points, constructions, auxiliary=False)
                     self.constructions_list.append(constructions)
                 self.draw_diagram()
                 self.save_to_cache()
@@ -888,7 +894,7 @@ class Diagram:
             else:
                 return [np.random.choice([a, b])]
     
-    def draw(self, new_points, constructions):
+    def draw(self, new_points, constructions, auxiliary):
         for construction in constructions:
             before_segments = len(self.segments)
             before_circles = len(self.circles)
@@ -897,12 +903,15 @@ class Diagram:
             func(*new_points, *args)
             after_segments = len(self.segments)
             after_circles = len(self.circles)
+            construction.index = len(self.construction2diagram.keys())
             self.construction2diagram[construction] = (
                 new_points,
                 self.segments[before_segments:after_segments],
                 self.circles[before_circles:after_circles],
             )
-    
+            if auxiliary:
+                self.auxiliary_constructions.append(construction)
+            
     def draw_angle_bisector(self, *args):
         x, a, b, c = args
         self.segments.append(Segment(a, b))
@@ -1431,6 +1440,10 @@ class Diagram:
     def draw_on_circum(self, *args):
         x, a, b, c = args
         self.circles.append(Circle(p1=a, p2=b, p3=c))
+
+    def draw_connect(self, *args):
+        a, b = args
+        self.segments.append(Segment(a, b))
     
     def draw_sameside(self, *args):
         x, a, b, c = args
@@ -1449,9 +1462,11 @@ class Diagram:
         points = []
         segments = []
         circles = []
-        
+        required_points = set()
+
         for construction in constructions:
             new_points, new_segments, new_circles = self.construction2diagram[construction]
+            required_points.update(set(self.name2point[p.name] for p in construction.inputs))
             points.extend(new_points)
             segments.extend(new_segments)
             circles.extend(new_circles)
@@ -1462,7 +1477,8 @@ class Diagram:
             for segment in new_segments:
                 p1, p2 = segment.p1, segment.p2
                 lx, ly = (p1.x, p2.x), (p1.y, p2.y)
-                self.ax.plot(lx, ly, color='black', lw=1.2, alpha=0.8, ls='-')
+                self.ax.plot(lx, ly, color='black', lw=1.2, alpha=0.8, 
+                             ls='-' if construction not in self.auxiliary_constructions else '--')
                 
             for circle in new_circles:
                 self.ax.add_patch(
@@ -1473,9 +1489,13 @@ class Diagram:
                         alpha=0.8,
                         fill=False,
                         lw=1.2,
-                        ls='-'
+                        ls='-' if construction not in self.auxiliary_constructions else '--'
                     )
                 )
+        
+        for p in required_points:
+            if p not in points:
+                points.append(p)
         
         xmin = min([p.x for p in points])
         xmax = max([p.x for p in points])
@@ -1531,7 +1551,7 @@ class Diagram:
             ymax = max(ymax, y_pos)
             ymin = min(ymin, y_pos)
             
-            self.ax.annotate(self.point2name[p], (x_pos, y_pos), color='black', ha='center', va='center', fontsize=12)
+            self.ax.annotate(self.point2name[p].upper(), (x_pos, y_pos), color='black', ha='center', va='center', fontsize=12)
             
         self.ax.set_aspect('equal')
         self.ax.set_axis_off()

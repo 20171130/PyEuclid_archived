@@ -17,7 +17,7 @@ class ProofGenerator:
         self.state = state
         self.visited = set()
         self.proof_dict = {}
-        self.source_constructions = defaultdict(set)
+        self.source_constructions = defaultdict(list)
         self.verbose = verbose
     
     def run(self, node=None, depth=None, root=True):
@@ -121,17 +121,17 @@ class ProofGenerator:
             if isinstance(node, ConstructionRule):
                 return [node]
 
-            constructions = set()
-
             if node in self.proof_dict:
+                constructions = set()
                 for child in self.proof_dict[node]:
                     child_constructions = collect(child)
                     constructions.update(child_constructions)
                 
                 # constructions = refine_constructions(constructions)
-                self.source_constructions[node] = constructions
+                self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
+                return self.source_constructions[node]
             
-            return constructions
+            return []
         
         collect(condition)
     
@@ -182,21 +182,32 @@ class ProofGenerator:
             proof.append(dic)
         
         return proof
-        
+
     def show_proof(self, node=None):
+        res = self.get_proof_str(node)
+        print(res)
+    
+    def get_proof_str(self, node=None):
+        res = ""
+        proof = self.get_proof(node)
+        for step, (condition, conclusion) in enumerate(proof):
+            res += f'{step+1}. ' + ' & '.join([str(item) for item in condition]) + ' => ' + str(conclusion) + '\n'
+        return res
+    
+    def get_proof(self, node=None):
+        res = []
         if not node and self.state.goal:
             node = self.state.goal
         
-        proof = self.format_proof(node)
+        proof_steps = self.format_proof(node)
         def trivial_inference(item):
             for source in getattr(item, "sources", []):
                 if type(source) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle):
                     return True
-        step = 1
-        for proof_step in proof:
+        for proof_step in proof_steps:
             if not isinstance(proof_step['condition'][0], ConstructionRule):
-                print(f'{step}. ' + ' & '.join(str(item) for item in proof_step['condition'] if not (trivial_condition(item) or trivial_inference(item))) + ' => ' + str(proof_step['conclusion']))
-                step += 1
+                res.append(([item for item in proof_step['condition'] if not (trivial_condition(item) or trivial_inference(item))], proof_step['conclusion']))
+        return res
 
     def traceback_l1(self, augmented_A, e, threshold=1e-6):
         m, n = augmented_A.shape
@@ -324,7 +335,7 @@ class ProofGenerator:
             mat = self.vectorize([item.expr for item in equations], variables, source)
             eq = self.vectorize([conclusion], variables, source)
             try:
-                with Timeout(60):
+                with Timeout(10):
                     deps = self.traceback_l0(mat, eq)
             except:
                 deps = self.traceback_l1(mat, eq)

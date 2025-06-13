@@ -74,6 +74,8 @@ class State:
             else:
                 if self.diagram is not None:
                     if isinstance(item, Traced):
+                        # if not self.diagram.numerical_check(item.expr):
+                        #     breakpoint()
                         assert self.diagram.numerical_check(item.expr)
                     else:
                         assert self.diagram.numerical_check(item)

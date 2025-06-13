@@ -382,7 +382,7 @@ class Quadrilateral(Relation):
         reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
         return forward_permutations + reverse_permutations
 
-
+@register
 class Pentagon(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point):
         super().__init__()

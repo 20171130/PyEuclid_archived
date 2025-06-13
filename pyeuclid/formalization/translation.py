@@ -40,6 +40,30 @@ def get_constructions_list_from_text(text):
     
     return constructions_list
 
+def get_constructions_from_goal(goal):
+    if isinstance(goal, Relation):
+        if isinstance(goal, Concyclic):
+            pass
+        elif isinstance(goal, Collinear):
+            pass
+        elif isinstance(goal, Perpendicular):
+            pass
+        elif isinstance(goal, Parallel):
+            pass
+        elif isinstance(goal, Midpoint):
+            pass
+        elif isinstance(goal, Similar3):
+            pass
+        elif isinstance(goal, Congruent3):
+            pass
+        else:
+            return []
+    else:
+        # classify angles - angles, angles + angles - const, angles - const, angles / angles - const,
+        # lengths - lenghs, lengths + lengths - const, lengths - const, lengths / lengths - const, length/length - length/length
+        return []
+
+
 def get_goal_from_text(text):
     parts = text.split(' ? ')
     goal_text = parts[1] if len(parts) > 1 else None
