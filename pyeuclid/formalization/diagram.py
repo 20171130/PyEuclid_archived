@@ -65,6 +65,9 @@ class Diagram:
         self.auxiliary_constructions = []
         self.construction2diagram = {}
         self.constructions_list = []
+
+        self.min_tol = 0.2
+        self.max_tol = 2
         
         self.fig, self.ax = None, None
 
@@ -175,15 +178,13 @@ class Diagram:
         if not self.points:
             return
         
-        if check_too_close(self.points, new_points):
+        if check_too_close(self.points, new_points, self.min_tol):
+            self.min_tol = max(1e-4, self.min_tol - 0.01)
             raise Exception()
         
-        if check_too_far(self.points, new_points):
+        if check_too_far(self.points, new_points, self.max_tol):
+            self.max_tol = min(10, self.max_tol + 1)
             raise Exception()
-        
-        # self.xmax, self.xmin = xmax, xmin
-        # self.ymax, self.ymin = ymax, ymin
-        # self.span = span
             
     def numerical_check_goal(self, goal):
         if isinstance(goal, tuple):
@@ -1466,7 +1467,7 @@ class Diagram:
 
         for construction in constructions:
             new_points, new_segments, new_circles = self.construction2diagram[construction]
-            required_points.update(set(self.name2point[p.name] for p in construction.inputs))
+            required_points.update(set(self.name2point[p.name] for p in construction.inputs if isinstance(p, Point)))
             points.extend(new_points)
             segments.extend(new_segments)
             circles.extend(new_circles)
