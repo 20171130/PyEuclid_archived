@@ -1537,7 +1537,7 @@ class InversedThales2(InferenceRule):
         return Perpendicular(self.a, self.b, self.b, self.c), Lt(self.a, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c)
 
     def conclusion(self):
-        return Collinear(self.b, self.c, self.o), Midpoint(self.o, self.b, self.c)
+        return Collinear(self.a, self.c, self.o), Midpoint(self.o, self.a, self.c)
 
 
 @register("basic")
