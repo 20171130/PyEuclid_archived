@@ -1637,7 +1637,7 @@ class AlphaGeometry26(InferenceRule):
         self.m = m
 
     def condition(self):
-        return Midpoint(self.m, self.a, self.b), Midpoint(self.m, self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.a, self.c)
+        return Midpoint(self.m, self.a, self.b), Midpoint(self.m, self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.a, self.c), Different(self.a, self.b, self.c, self.d, self.m), Not(Collinear(self.a, self.b, self.c))
 
     def conclusion(self):
         return Parallel(self.a, self.c, self.b, self.d), Parallel(self.a, self.d, self.b, self.c), Parallelogram(self.a, self.c, self.b, self.d)
