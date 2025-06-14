@@ -149,13 +149,16 @@ class Traced():
             setattr(self, key, getattr(self.expr, key))
     
     def subs(self, key, value):
-        assert isinstance(value, Traced)
-        if len(self.sources)>0 and isinstance(self.sources[0], Traced):
-            sources = [item for item in self.sources] + [value]
+        if isinstance(value, Traced):
+            if len(self.sources)>0 and isinstance(self.sources[0], Traced):
+                sources = [item for item in self.sources] + [value]
+            else:
+                sources = [self, value]
+            value.symbol = key
+            value = value.expr
         else:
-            sources = [self, value]
-        value.symbol = key
-        expr = self.expr.subs(key, value.expr)
+            sources = self.sources
+        expr = self.expr.subs(key, value)
         other = Traced(expr, sources=sources)
         other.symbol = self.symbol
         return other

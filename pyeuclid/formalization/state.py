@@ -19,6 +19,8 @@ class State:
         self.points = set()
         self.relations = set()
         self.equations = set()
+        self.extra_equations = []
+        self.extra_solutions = {}
         self.lengths = UnionFind()
         self.angles = UnionFind()
         self.var_types = {}

@@ -95,7 +95,7 @@ class DefinitionOfMidpoint(InferenceRule):
     def conclusion(self):
         return Midpoint(self.a, self.b, self.c)
 
-@register("ex")
+@register("basic")
 class DefinitionOfMidpoint1(InferenceRule):
     """ Definition of Midpoint """
     def __init__(self, a: Point, b: Point, c: Point):
@@ -109,7 +109,7 @@ class DefinitionOfMidpoint1(InferenceRule):
         return Midpoint(self.a, self.b, self.c)
 
 
-@register("ex")
+@register("basic")
 class PropertyOfMidpoint(InferenceRule):
     """ Property of Midpoint """
     def __init__(self, a: Point, b: Point, c: Point):
@@ -128,7 +128,7 @@ class PropertyOfMidpoint(InferenceRule):
         ]
 
 
-@register("ex")
+@register("basic")
 class PropertyOfCongruent(InferenceRule):
     """ Property of Triangle Congruence """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
@@ -152,7 +152,7 @@ class PropertyOfCongruent(InferenceRule):
         ]
 
 
-@register("ex")
+@register("Basic")
 class PropertyOfSimilar(InferenceRule):
     """ Property of Similar Triangles """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
@@ -250,7 +250,7 @@ class PropertyOfQuadrilateral(InferenceRule):
         ]
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfParallelogram1(InferenceRule):
     """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -272,7 +272,7 @@ class DefinitionOfParallelogram1(InferenceRule):
         return Parallelogram(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfParallelogram2(InferenceRule):
     """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -293,7 +293,7 @@ class DefinitionOfParallelogram2(InferenceRule):
         return Parallelogram(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfParallelogram3(InferenceRule):
     """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -315,7 +315,7 @@ class DefinitionOfParallelogram3(InferenceRule):
         return Parallelogram(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfParallelogram4(InferenceRule):
     """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -337,7 +337,7 @@ class DefinitionOfParallelogram4(InferenceRule):
         return Parallelogram(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class PropertyOfParallelogram(InferenceRule):
     """ Property of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -363,7 +363,7 @@ class PropertyOfParallelogram(InferenceRule):
         ]
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfRectangle1(InferenceRule):
     """ Definition of Rectangle """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -380,7 +380,7 @@ class DefinitionOfRectangle1(InferenceRule):
         return Rectangle(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfRectangle2(InferenceRule):
     """ Definition of Rectangle """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -401,7 +401,7 @@ class DefinitionOfRectangle2(InferenceRule):
         return Rectangle(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class PropertyOfRectangle(InferenceRule):
     """ Property of Rectangle """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -422,7 +422,7 @@ class PropertyOfRectangle(InferenceRule):
         ]
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfRhombus1(InferenceRule):
     """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -444,7 +444,7 @@ class DefinitionOfRhombus1(InferenceRule):
         return Rhombus(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfRhombus2(InferenceRule):
     """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -462,7 +462,7 @@ class DefinitionOfRhombus2(InferenceRule):
         return Rhombus(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfRhombus3(InferenceRule):
     """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -483,7 +483,7 @@ class DefinitionOfRhombus3(InferenceRule):
         return Rhombus(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfRhombus4(InferenceRule):
     """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -501,7 +501,7 @@ class DefinitionOfRhombus4(InferenceRule):
         return Rhombus(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class PropertyOfRhombus(InferenceRule):
     """ Property of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -521,7 +521,7 @@ class PropertyOfRhombus(InferenceRule):
         ]
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfSquare1(InferenceRule):
     """ Definition of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -539,7 +539,7 @@ class DefinitionOfSquare1(InferenceRule):
         return Square(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfSquare2(InferenceRule):
     """ Definition of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -557,7 +557,7 @@ class DefinitionOfSquare2(InferenceRule):
         return Square(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfSquare3(InferenceRule):
     """ Definition of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -578,7 +578,7 @@ class DefinitionOfSquare3(InferenceRule):
         return Square(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class PropertyOfSquare(InferenceRule):
     """ Property of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -595,7 +595,7 @@ class PropertyOfSquare(InferenceRule):
         ]
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfTrapezoid(InferenceRule):
     """ Definition of Trapezoid """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -615,7 +615,7 @@ class DefinitionOfTrapezoid(InferenceRule):
         return Trapezoid(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class PropertyOfTrapezoid(InferenceRule):
     """ Definition of Trapezoid """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -636,7 +636,7 @@ class PropertyOfTrapezoid(InferenceRule):
         ]
 
 
-@register("ex")
+@register("basic")
 class DefinitionOfKite1(InferenceRule):
     """ Definition of Kite """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -654,7 +654,7 @@ class DefinitionOfKite1(InferenceRule):
         return Kite(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("basic")
 class PropertyOfKite(InferenceRule):
     """ Property of Kite """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -1637,7 +1637,7 @@ class AlphaGeometry26(InferenceRule):
         self.m = m
 
     def condition(self):
-        return Midpoint(self.m, self.a, self.b), Midpoint(self.m, self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.a, self.c), Different(self.a, self.b, self.c, self.d, self.m), Not(Collinear(self.a, self.b, self.c))
+        return Midpoint(self.m, self.a, self.b), Midpoint(self.m, self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.a, self.c), *Different(self.a, self.b, self.c, self.d, self.m), Not(Collinear(self.a, self.b, self.c))
 
     def conclusion(self):
         return Parallel(self.a, self.c, self.b, self.d), Parallel(self.a, self.d, self.b, self.c), Parallelogram(self.a, self.c, self.b, self.d)
@@ -2217,7 +2217,7 @@ class FlatAngle2Collinear(InferenceRule):
         return Collinear(self.a, self.b, self.c)
 
 
-@register("ex")
+@register("basic")
 class ParaTrans(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()

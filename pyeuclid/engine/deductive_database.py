@@ -335,7 +335,6 @@ class DeductiveDatabase():
     def apply(self, inferences):
         last = None
         cnt = 0
-        # extra_equations = []
         for item in inferences:
             tmp = type(item)
             if not tmp == last:
@@ -348,27 +347,23 @@ class DeductiveDatabase():
                 if not self.state.silent:
                     self.state.logger.info(str(item))
             cnt += 1
-            conclusions = item.conclusion()
-            for i, conclusion in enumerate(conclusions):
+            conclusions = []
+            for conclusion in item.conclusion():
                 if isinstance(conclusion, sympy.core.expr.Expr):
                     conclusion = Traced(conclusion)
                     conclusion.sources = [item]
+                    if tmp in inference_rule_sets["ex"]:
+                        self.state.extra_equations.append(conclusion)
+                        continue
                 else:
                     conclusion.source = item
                 conclusion.depth = self.state.current_depth
                 item.depth = self.state.current_depth
-                conclusions[i] = conclusion
-            # if tmp in inference_rule_sets["ex"] and len(self.state.extra_equations) == 0:
-            #     eqns = [item for item in conclusions if isinstance(item, Traced)]
-            #     conclusions = [item for item in conclusions if not item in eqns]
-            #     extra_equations += eqns
+                conclusions.append(conclusion)
             self.state.add_conditions(conclusions)
-        # if len(self.state.extra_equations) == 0:
-        #     self.state.extra_equations = extra_equations
         if cnt > 3:
             if not self.state.silent:
                 self.state.logger.info(f"...and {cnt - 3} more.")
-        print(len(self.state.equations))
 
     
     def run(self):

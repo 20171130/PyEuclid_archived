@@ -19,8 +19,25 @@ class ProofGenerator:
         self.proof_dict = {}
         self.source_constructions = defaultdict(list)
         self.verbose = verbose
+        self.non_trivial_equations = []
+    
+    def simplify_expr(self, expr):
+        for symbol in expr.free_symbols:
+            if symbol in self.state.extra_solutions:
+                sol = self.state.extra_solutions[symbol]
+                expr = expr.subs(symbol, sol)
+        return expr
+    
+    def recover_equations(self, equations):
+        for i, item in enumerate(equations):
+            if item in self.non_trivial_equations:
+                equations[i] = self.equations[self.non_trivial_equations.index(item)]
+        return equations
     
     def run(self, node=None, depth=None, root=True):
+        self.equations = list(self.state.equations)
+        self.non_trivial_equations = [self.simplify_expr(item) for item in self.equations]
+            
         if not node and self.state.goal:
             node = self.state.goal
         
@@ -60,7 +77,7 @@ class ProofGenerator:
                 sources = node.sources
                 if isinstance(sources[0], str):
                     # backtrace linear systems
-                    equations = [item for item in self.state.equations if item.depth <= node.depth]
+                    equations = [item for item in self.non_trivial_equations if item.depth <= node.depth]
                     if not node.symbol is None:
                         expr = node.symbol - node.expr
                     else:
@@ -76,7 +93,7 @@ class ProofGenerator:
                 assert isinstance(node, sympy.core.expr.Expr)
                 sources = []
                 depth = min(int(depth), len(self.state.solutions)-1)
-                equations = [item for item in self.state.equations if item.depth <= depth]
+                equations = [item for item in self.non_trivial_equations if item.depth <= depth]
                 if "Angle" in str(node):
                     conditions = self.find_conditions(equations, node, "angle_linear")
                 else:
@@ -177,7 +194,7 @@ class ProofGenerator:
             last = step_number
             dic = {"condition": conditions, "step": step_number, "theorem": theorem, "conclusion": node}
             proof.append(dic)
-        
+        print(proof)
         return proof
 
     def show_proof(self, node=None):
@@ -322,6 +339,7 @@ class ProofGenerator:
         return np.concat([A, b], axis=1)
 
     def find_conditions(self, equations: list[Traced], conclusion, source):
+        conclusion = self.simplify_expr(conclusion)
         angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
         """Given sympified equations and conclusions, return a list of necessary conditions"""
         def try_find(equations, conclusion):
@@ -346,6 +364,8 @@ class ProofGenerator:
         else:
             assert source == "length_ratio"
             equations = length_ratio
-        return try_find(equations, conclusion)
+        results = try_find(equations, conclusion)
+        results = self.recover_equations(results)
+        return results
     
     
