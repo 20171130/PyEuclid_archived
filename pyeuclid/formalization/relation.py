@@ -626,7 +626,7 @@ class Excenter(Relation):
 
 
 def trivial_condition(node):
-    if type(node) in (Between, SameSide, OppositeSide, Lt, Different2):
+    if type(node) in (Between, SameSide, OppositeSide, Lt, Different2, Triangle, Quadrilateral):
         return True
     if type(node) == Collinear and ((node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1) or node.negated):
         return True

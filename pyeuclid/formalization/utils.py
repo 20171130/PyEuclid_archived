@@ -169,8 +169,9 @@ class Traced():
     def __eq__(self, other):
         return hash(self) == hash(other)
     def __hash__(self):
-        rep = f"{self}@{self.depth}"
-        rep += " ".join([str(hash(item)) for item in self.sources])
+        # rep = f"{self}@{self.depth}"
+        # rep += " ".join([str(hash(item)) for item in self.sources])
+        rep = str(self)
         return hash(rep)
 
         

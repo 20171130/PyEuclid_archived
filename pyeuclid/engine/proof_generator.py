@@ -39,16 +39,13 @@ class ProofGenerator:
         
         if isinstance(node, InferenceRule):
             self.visited.add(node)
-            conds = [item for item in node.condition() if type(item)
-                     not in (Different2, Lt) and not item == 0]
+            conds = [item for item in node.condition() if not trivial_condition(item) and not item == 0]
             self.proof_dict[node] = conds
             for cond in conds:
                 self.run(cond, depth=depth-1, root=False)
         
         elif isinstance(node, Relation):
             self.visited.add(node)
-            if trivial_condition(node):
-                return
             for tmp in self.state.relations:
                 if tmp == node:
                     if hasattr(tmp, "source"):

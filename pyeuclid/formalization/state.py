@@ -18,7 +18,7 @@ class State:
         self.diagram = None
         self.points = set()
         self.relations = set()
-        self.equations = []
+        self.equations = set()
         self.lengths = UnionFind()
         self.angles = UnionFind()
         self.var_types = {}
@@ -110,7 +110,7 @@ class State:
             elif "Length" in str(quantity):
                 unionfind = self.lengths
                 unionfind.add(quantity)
-        self.equations.append(equation)
+        self.equations.add(equation)
     
     def categorize_variable(self):
         angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types)
