@@ -136,7 +136,10 @@ class PropertyOfCongruent(InferenceRule):
         self.a, self.b, self.c, self.p, self.q, self.r = a, b, c, p, q, r
     
     def condition(self):
-        return Congruent(self.a, self.b, self.c, self.p, self.q, self.r)
+        return Congruent(self.a, self.b, self.c, self.p, self.q, self.r), Lt(self.a, self.b), Lt(self.b, self.c), Leq(self.a, self.p)
+    
+    def degenerate(self):
+        return self.a == self.p and self.b == self.q and self.c == self.r
     
     def conclusion(self):
         return [
@@ -157,7 +160,10 @@ class PropertyOfSimilar(InferenceRule):
         self.a, self.b, self.c, self.p, self.q, self.r = a, b, c, p, q, r
     
     def condition(self):
-        return Similar(self.a, self.b, self.c, self.p, self.q, self.r)
+        return Similar(self.a, self.b, self.c, self.p, self.q, self.r), Lt(self.a, self.b), Lt(self.b, self.c), Leq(self.a, self.p)
+    
+    def degenerate(self):
+        return self.a == self.p and self.b == self.q and self.c == self.r
     
     def conclusion(self):
         return [
@@ -190,7 +196,7 @@ class PropertyOfTriangle(InferenceRule):
         self.a, self.b, self.c = a, b, c
     
     def condition(self):
-        return Triangle(self.a, self.b, self.c)
+        return Triangle(self.a, self.b, self.c), Lt(self.a, self.b), Lt(self.b, self.c)
     
     def conclusion(self):
         return [
@@ -230,7 +236,7 @@ class PropertyOfQuadrilateral(InferenceRule):
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
     
     def condition(self):
-        return Quadrilateral(self.p1, self.p2, self.p3, self.p4)
+        return Quadrilateral(self.p1, self.p2, self.p3, self.p4), Lt(self.p1, self.p2), Lt(self.p1, self.p3), Lt(self.p1, self.p4), Lt(self.p2, self.p4)
     
     def conclusion(self):
         return [
@@ -1687,7 +1693,7 @@ class AlphaGeometry34(InferenceRule):  # SAS
         self.r = r
 
     def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Length(self.a, self.b)-Length(self.p, self.q), Length(self.b, self.c)-Length(self.q, self.r), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Lt(self.a, self.c)
+        return Not(Collinear(self.a, self.b, self.c)), Length(self.a, self.b)-Length(self.p, self.q), Length(self.b, self.c)-Length(self.q, self.r), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Lt(self.a, self.c), Leq(self.b, self.q)
 
     def degenerate(self):
         return self.a == self.p and self.b == self.q and self.c == self.r
@@ -1730,7 +1736,7 @@ class AlphaGeometry3536(InferenceRule):
         self.r = r
 
     def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Angle(self.a, self.c, self.b) - Angle(self.p, self.r, self.q), Lt(self.b, self.c)
+        return Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Angle(self.a, self.c, self.b) - Angle(self.p, self.r, self.q), Lt(self.a, self.b), Lt(self.b, self.c), Leq(self.a, self.p)
 
     def degenerate(self):
         return self.a == self.p and self.b == self.q and self.c == self.r
@@ -1752,7 +1758,7 @@ class SSS(InferenceRule):
         self.r = r
 
     def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Length(self.a, self.b) - Length(self.p, self.q), Length(self.b, self.c)-Length(self.q, self.r), Length(self.c, self.a)-Length(self.r, self.p), Lt(self.b, self.c)
+        return Not(Collinear(self.a, self.b, self.c)), Length(self.a, self.b) - Length(self.p, self.q), Length(self.b, self.c)-Length(self.q, self.r), Length(self.c, self.a)-Length(self.r, self.p), Lt(self.a, self.b), Lt(self.b, self.c), Leq(self.a, self.p)
 
     def degenerate(self):
         return self.a == self.p and self.b == self.q and self.c == self.r
@@ -1774,7 +1780,7 @@ class AlphaGeometry37(InferenceRule):
         self.r = r
 
     def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Angle(self.a, self.c, self.b) - Angle(self.p, self.r, self.q), Length(self.b, self.c)-Length(self.q, self.r), Lt(self.b, self.c)
+        return Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Angle(self.a, self.c, self.b) - Angle(self.p, self.r, self.q), Length(self.b, self.c)-Length(self.q, self.r), Lt(self.b, self.c), Leq(self.a, self.p)
 
     def degenerate(self):
         return self.a == self.p and self.b == self.q and self.c == self.r
@@ -1796,7 +1802,7 @@ class AlphaGeometry38(InferenceRule):
         self.r = r
 
     def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Angle(self.b, self.a, self.c) - Angle(self.q, self.p, self.r), Length(self.b, self.c)-Length(self.q, self.r), Lt(self.b, self.c)
+        return Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Angle(self.b, self.a, self.c) - Angle(self.q, self.p, self.r), Length(self.b, self.c)-Length(self.q, self.r), Lt(self.b, self.c), Leq(self.a, self.p)
 
     def degenerate(self):
         return self.a == self.p and self.b == self.q and self.c == self.r
@@ -1818,7 +1824,7 @@ class RTSSA(InferenceRule):
         self.r = r
 
     def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c) - pi/2, Angle(self.p, self.q, self.r)-pi/2, Length(self.a, self.b)-Length(self.p, self.q), Length(self.a, self.c)-Length(self.p, self.r)
+        return Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c) - pi/2, Angle(self.p, self.q, self.r)-pi/2, Length(self.a, self.b)-Length(self.p, self.q), Length(self.a, self.c)-Length(self.p, self.r), Lt(self.a, self.c), Leq(self.b, self.q)
 
     def degenerate(self):
         return self.a == self.p and self.b == self.q and self.c == self.r
@@ -1840,7 +1846,7 @@ class AlphaGeometry40(InferenceRule):
         self.r = r
 
     def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Length(self.a, self.b)/Length(self.p, self.q)-Length(self.b, self.c)/Length(self.q, self.r), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Lt(self.a, self.c)
+        return Not(Collinear(self.a, self.b, self.c)), Length(self.a, self.b)/Length(self.p, self.q)-Length(self.b, self.c)/Length(self.q, self.r), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Lt(self.a, self.c), Leq(self.p, self.q)
 
     def degenerate(self):
         return self.a == self.p and self.b == self.q and self.c == self.r
@@ -1887,81 +1893,8 @@ class AlphaGeometry43(InferenceRule):
         return Length(self.m, self.a)/Length(self.m, self.d)-Length(self.n, self.b)/Length(self.n, self.c)
 
 
-# @register("basic")
-# class EqTrapezoid1(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-
-#     def condition(self):
-#         return (
-#             Parallel(self.a, self.b, self.c, self.d),
-#             SameSide(self.a, self.d, self.b, self.c),
-#             Length(self.a, self.c) - Length(self.b, self.d),  # diagonals
-#             *Different(self.a, self.b, self.c, self.d),
-#             Lt(self.a, self.b),
-#             Lt(self.a, self.c),
-#             Lt(self.a, self.d)
-#         )
-
-#     def conclusion(self):
-#         return Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
-
-
-# @register("basic")
-# class EqTrapezoid2(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-
-#     def condition(self):
-#         return (
-#             Parallel(self.a, self.b, self.c, self.d),
-#             SameSide(self.a, self.d, self.b, self.c),
-#             Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d),
-#             *Different(self.a, self.b, self.c, self.d),
-#             Lt(self.a, self.b),
-#             Lt(self.a, self.c),
-#             Lt(self.a, self.d)
-#         )
-
-#     def conclusion(self):
-#         return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
-
-
-# @register("basic")
-# class EqTrapezoid3(InferenceRule):
-#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
-#         super().__init__()
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#         self.d = d
-
-#     def condition(self):
-#         return (
-#             Parallel(self.a, self.b, self.c, self.d),
-#             SameSide(self.a, self.d, self.b, self.c),
-#             Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d),
-#             *Different(self.a, self.b, self.c, self.d),
-#             Lt(self.a, self.b),
-#             Lt(self.a, self.c),
-#             Lt(self.a, self.d)
-#         )
-
-#     def conclusion(self):
-#         return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d)
-
-"""
-# cannot distinguish eqtrapezoid from parallelogram
 @register("basic")
-class EqTrapezoid4(InferenceRule):
+class EqTrapezoid1(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
         self.a = a
@@ -1973,7 +1906,7 @@ class EqTrapezoid4(InferenceRule):
         return (
             Parallel(self.a, self.b, self.c, self.d),
             SameSide(self.a, self.d, self.b, self.c),
-            Length(self.b, self.c) - Length(self.a, self.d),  # legs
+            Length(self.a, self.c) - Length(self.b, self.d),  # diagonals
             *Different(self.a, self.b, self.c, self.d),
             Lt(self.a, self.b),
             Lt(self.a, self.c),
@@ -1981,8 +1914,55 @@ class EqTrapezoid4(InferenceRule):
         )
 
     def conclusion(self):
-        return Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.c)
-"""
+        return Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
+
+
+@register("basic")
+class EqTrapezoid2(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return (
+            Parallel(self.a, self.b, self.c, self.d),
+            SameSide(self.a, self.d, self.b, self.c),
+            Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d),
+            *Different(self.a, self.b, self.c, self.d),
+            Lt(self.a, self.b),
+            Lt(self.a, self.c),
+            Lt(self.a, self.d)
+        )
+
+    def conclusion(self):
+        return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
+
+
+@register("basic")
+class EqTrapezoid3(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return (
+            Parallel(self.a, self.b, self.c, self.d),
+            SameSide(self.a, self.d, self.b, self.c),
+            Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d),
+            *Different(self.a, self.b, self.c, self.d),
+            Lt(self.a, self.b),
+            Lt(self.a, self.c),
+            Lt(self.a, self.d)
+        )
+
+    def conclusion(self):
+        return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d)
 
     
 
@@ -2001,7 +1981,7 @@ class BetweenLength(InferenceRule):
         return Length(self.a, self.b)+Length(self.b, self.c)-Length(self.a, self.c)
 
 
-@register("ex")  # stronger than basic9
+@register("basic")  # stronger than basic9
 class Perp2Angle(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()
@@ -2016,7 +1996,7 @@ class Perp2Angle(InferenceRule):
         return Angle(self.a, self.b, self.c) - pi/2
 
 
-@register("ex")
+@register("basic")
 class Perp2Angle2(InferenceRule):  # one point inside triangle
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
@@ -2032,7 +2012,7 @@ class Perp2Angle2(InferenceRule):  # one point inside triangle
         return Angle(self.b, self.a, self.d) + Angle(self.c, self.d, self.a) - pi/2, Angle(self.b, self.a, self.c) + Angle(self.d, self.c, self.a) - pi/2, Angle(self.a, self.b, self.c) - Angle(self.b, self.c, self.d) - pi/2, Angle(self.a, self.b, self.d) - Angle(self.c, self.d, self.b) - pi/2
 
 
-@register("ex")
+@register("basic")
 class Perp2Angle3(InferenceRule):  # segments cross
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()

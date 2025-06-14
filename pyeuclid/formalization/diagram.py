@@ -1451,7 +1451,7 @@ class Diagram:
     def draw_opposingsides(self, *args):
         x, a, b, c = args
     
-    def draw_diagram(self, constructions=None, show=False, save=False):
+    def draw_diagram(self, constructions=None, show=False, save=True):
         imsize = 512 / 100
         self.fig, self.ax = plt.subplots(figsize=(imsize, imsize), dpi=300)
         self.ax.set_facecolor((1.0, 1.0, 1.0))
