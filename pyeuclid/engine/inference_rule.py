@@ -1523,6 +1523,21 @@ class AlphaGeometry20(InferenceRule):
 
     def conclusion(self):
         return equal(Length(self.a, self.m), Length(self.b, self.m), Length(self.c, self.m))
+    
+@register("basic")
+class InversedThales2(InferenceRule):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.o = o
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def condition(self):
+        return Perpendicular(self.a, self.b, self.b, self.c), Lt(self.a, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c)
+
+    def conclusion(self):
+        return Collinear(self.b, self.c, self.o), Midpoint(self.o, self.b, self.c)
 
 
 @register("basic")
