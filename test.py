@@ -40,9 +40,9 @@ class TestBenchmarks(unittest.TestCase):
                 t = time.time() - t
                 if state.complete() is not None:
                     print(f"{idx} solved in {t} seconds")
-                #     t0 = time.time()
-                #     with Timeout(600):
-                #         proof_generator.run()
+                    # t0 = time.time()
+                    # with Timeout(60):
+                    #     proof_generator.run()
                 #         proof = proof_generator.format_proof()
                 #         max_cond_num = 0
                 #         acc_cond_num = 0
@@ -58,13 +58,13 @@ class TestBenchmarks(unittest.TestCase):
                 #                 max_cond_num = max(max_cond_num, len(conditions))
                 #                 acc_cond_num += len(conditions)
                     
-                #     print(idx)
-                #     print(f'proof genratation runs in {time.time()-t0}')
+                    # print(idx)
+                    # print(f'proof genratation runs in {time.time()-t0}')
                 #     print(f'Proof steps: ', step)
                 #     print(f'Max condition number: ', max_cond_num)
                 #     print(f'Average condition number: ', acc_cond_num / step)
-                    if world_size == 1:
-                        proof_generator.show_proof()
+                    # if world_size == 1:
+                    #     proof_generator.show_proof()
                 else:
                     print(f"{idx} unsolved in {t} seconds")
             except BaseException as e:

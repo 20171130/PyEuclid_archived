@@ -194,7 +194,6 @@ class ProofGenerator:
             last = step_number
             dic = {"condition": conditions, "step": step_number, "theorem": theorem, "conclusion": node}
             proof.append(dic)
-        print(proof)
         return proof
 
     def show_proof(self, node=None):
@@ -341,6 +340,7 @@ class ProofGenerator:
     def find_conditions(self, equations: list[Traced], conclusion, source):
         conclusion = self.simplify_expr(conclusion)
         angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
+        print('length_ratio', length_ratio)
         """Given sympified equations and conclusions, return a list of necessary conditions"""
         def try_find(equations, conclusion):
             variables = set()
