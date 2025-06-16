@@ -82,7 +82,7 @@ class InferenceRule:
         return hash(str(self))
     
 
-@register("ex")
+@register("basic")
 class DefinitionOfMidpoint(InferenceRule):
     """ Definition of Midpoint """
     def __init__(self, a: Point, b: Point, c: Point):
@@ -1047,7 +1047,7 @@ class AlphaGeometry1(InferenceRule):
         return Parallel(self.a, self.b, self.e, self.f)
 
 
-@register("ex")
+@register("basic")
 class CollinearTransist(InferenceRule):
     """ Collinearity transitivity """
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
@@ -1064,7 +1064,7 @@ class CollinearTransist(InferenceRule):
         return Collinear(self.a, self.c, self.d), Collinear(self.b, self.c, self.d)
 
 
-@register("ex")
+@register("basic")
 class ConcyclicTransist(InferenceRule):
     """ Concyclic Transitivity"""
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
@@ -1082,7 +1082,7 @@ class ConcyclicTransist(InferenceRule):
         return Concyclic(self.a, self.b, self.d, self.e), Concyclic(self.b, self.c, self.d, self.e), Concyclic(self.a, self.c, self.d, self.e)
 
 
-@register("ex")
+@register("basic")
 class AlphaGeometry1b(InferenceRule):
     """ Perpendicular + paralel -> perpendicular """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
@@ -1138,7 +1138,7 @@ class AlphaGeometry3a(InferenceRule):
         return Parallel(self.b, self.a, self.d, self.e)
 
 
-@register("ex")
+@register("basic")
 class AlphaGeometry3b(InferenceRule):
     """ Parallel From Corresponding Angles """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
@@ -2043,7 +2043,7 @@ class Perp2Angle3(InferenceRule):  # segments cross
         return Angle(self.b, self.a, self.d) + Angle(self.c, self.d, self.a) - pi/2, Angle(self.b, self.a, self.c) + Angle(self.d, self.c, self.a) - pi/2, Angle(self.b, self.c, self.d) + Angle(self.a, self.b, self.c) - pi/2, Angle(self.a, self.b, self.d) + Angle(self.c, self.d, self.b) - pi/2
 
 
-@register("ex")
+@register("basic")
 class Angle2Perp(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()
@@ -2058,7 +2058,7 @@ class Angle2Perp(InferenceRule):
         return Perpendicular(self.a, self.b, self.b, self.c)
 
 
-@register("ex")
+@register("basic")
 class Angle2Perp2(InferenceRule):  # point b inside triangle
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
@@ -2074,7 +2074,7 @@ class Angle2Perp2(InferenceRule):  # point b inside triangle
         return Perpendicular(self.a, self.b, self.c, self.d)
 
 
-@register("ex")
+@register("basic")
 class Angle2Perp3(InferenceRule):  # segments cross
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
@@ -2090,7 +2090,7 @@ class Angle2Perp3(InferenceRule):  # segments cross
         return Perpendicular(self.a, self.b, self.c, self.d)
 
 
-@register("ex")
+@register("basic")
 class Angle2Para(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
@@ -2106,7 +2106,7 @@ class Angle2Para(InferenceRule):
         return Parallel(self.a, self.b, self.c, self.d)
 
 
-@register("ex")
+@register("basic")
 class Para2Angle(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
@@ -2202,7 +2202,7 @@ class FlatAngle2(InferenceRule):
         return Angle(self.a, self.b, self.d) + Angle(self.c, self.b, self.d) - pi
 
 
-@register("ex")
+@register("basic")
 class FlatAngle2Collinear(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()
@@ -2238,7 +2238,7 @@ class ParaTrans(InferenceRule):
         return Parallel(self.c, self.d, self.e, self.f)
 
 
-@register("ex")
+@register("basic")
 class CollinearParallel(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()
