@@ -152,7 +152,7 @@ class PropertyOfCongruent(InferenceRule):
         ]
 
 
-@register("Basic")
+@register("basic")
 class PropertyOfSimilar(InferenceRule):
     """ Property of Similar Triangles """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
