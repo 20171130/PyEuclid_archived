@@ -201,7 +201,7 @@ class ProofGenerator:
         print(res)
     
     def get_proof_str(self, node=None):
-        res = ""
+        res = "Solution:\n"
         proof = self.get_proof(node)
         for step, (condition, conclusion) in enumerate(proof):
             res += f'{step+1}. ' + ' & '.join([str(item) for item in condition]) + ' => ' + str(conclusion) + '\n'
@@ -340,7 +340,6 @@ class ProofGenerator:
     def find_conditions(self, equations: list[Traced], conclusion, source):
         conclusion = self.simplify_expr(conclusion)
         angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
-        print('length_ratio', length_ratio)
         """Given sympified equations and conclusions, return a list of necessary conditions"""
         def try_find(equations, conclusion):
             variables = set()

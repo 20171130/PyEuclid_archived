@@ -1,5 +1,5 @@
 {
-  "problem": "a,b,c = construct_r_triangle(), d,e,f = construct_3peq(b,c,a), h = construct_intersection_tt(c,d,f,b,e,a)",
+  "problem": "a,b,c = construct_r_triangle(), f = construct_reflect(c,b,a), g,h,i,j = construct_incenter2(f,c,e)",
   "diagram": "/private/home/zhaoyuli/PyEuclid_archived/samples/0/diagram.jpg",
-  "proof": "1. Perpendicular(a,b,a,c) & Parallel(a,c,a,f) => Perpendicular(a,b,a,f)\n2. Perpendicular(a,e,b,h) & Parallel(a,b,a,e) => Perpendicular(a,b,b,h)\n3. Perpendicular(a,b,a,f) & Perpendicular(a,b,b,h) => Parallel(a,f,b,h)\n"
+  "proof": "1. Perpendicular(a,b,c,f) & Parallel(c,f,f,i) => Perpendicular(a,b,f,i)\n2. Perpendicular(a,b,a,c) & Perpendicular(a,b,f,i) => Parallel(a,c,f,i)\n"
 }

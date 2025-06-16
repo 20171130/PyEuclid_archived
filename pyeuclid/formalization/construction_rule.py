@@ -1618,7 +1618,7 @@ class construct_connect(ConstructionRule):
         self.outputs = None
 
     def conditions(self):
-        a, b, c = self.inputs
+        a, b = self.inputs
         return [Different2(a, b)]
 
 @register("diagrammatic")

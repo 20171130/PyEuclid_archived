@@ -101,7 +101,8 @@ class State:
     def add_equation(self, equation):
         # allow redundant equations for neat proofs
         equation = Traced(equation, depth=self.current_depth)
-        points, quantities = get_points_and_symbols(equation)
+        points_list, quantities = get_points_and_symbols(equation)
+        points = [p for points in points_list for p in points]
         for p in points:
             self.add_point(p)
         unionfind = None
@@ -200,7 +201,9 @@ class State:
         
         self.diagram = diagram
         self.goal = satisfied_goal
-        self.diagram.show()
+        goal_constructions = get_constructions_from_goal(satisfied_goal)
+        self.diagram.draw([], goal_constructions)
+        self.diagram.draw_diagram()
         
         for constructions in constructions_list:
             self.add_constructions(constructions)

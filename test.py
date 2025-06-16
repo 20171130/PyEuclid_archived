@@ -4,6 +4,8 @@ import time
 import os
 from sympy import sympify
 
+from stopit import ThreadingTimeout as TT
+
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.translation import parse_texts_from_file
@@ -14,6 +16,7 @@ from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
+
 import traceback
 
 class TestBenchmarks(unittest.TestCase):
@@ -35,13 +38,13 @@ class TestBenchmarks(unittest.TestCase):
                 proof_generator = ProofGenerator(state)
                 engine = Engine(state, deductive_database, algebraic_system)
                 t = time.time()
-                with Timeout(600):
+                with TT(600):
                     engine.run()
                 t = time.time() - t
                 if state.complete() is not None:
                     print(f"{idx} solved in {t} seconds")
                     # t0 = time.time()
-                    # with Timeout(60):
+                    # with TT(60):
                     #     proof_generator.run()
                 #         proof = proof_generator.format_proof()
                 #         max_cond_num = 0

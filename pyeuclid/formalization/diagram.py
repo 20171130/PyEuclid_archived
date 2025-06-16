@@ -127,7 +127,6 @@ class Diagram:
             try:
                 new_points = self.construct(constructions)
                 self.draw(new_points, constructions, auxiliary)
-                self.constructions_list.append(constructions)
                 return
             except:
                 self.restore()
@@ -141,7 +140,6 @@ class Diagram:
                 for constructions in constructions_list:
                     new_points = self.construct(constructions)
                     self.draw(new_points, constructions, auxiliary=False)
-                    self.constructions_list.append(constructions)
                 self.draw_diagram()
                 self.save_to_cache()
                 return
@@ -895,7 +893,7 @@ class Diagram:
             else:
                 return [np.random.choice([a, b])]
     
-    def draw(self, new_points, constructions, auxiliary):
+    def draw(self, new_points, constructions, auxiliary=False):
         for construction in constructions:
             before_segments = len(self.segments)
             before_circles = len(self.circles)
@@ -912,6 +910,7 @@ class Diagram:
             )
             if auxiliary:
                 self.auxiliary_constructions.append(construction)
+            self.constructions_list.append(constructions)
             
     def draw_angle_bisector(self, *args):
         x, a, b, c = args

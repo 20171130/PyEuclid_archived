@@ -652,6 +652,6 @@ def get_points_and_symbols(eqn):
                 symbol = Length(*args)
             elif cls == "Area":
                 symbol = Area(*args)
-            points += args
+            points.append(args)
         symbols.append(symbol)
     return points, symbols

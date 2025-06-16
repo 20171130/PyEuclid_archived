@@ -4,11 +4,13 @@ import sympy
 import logging
 import argparse
 
+from stopit import ThreadingTimeout as TT
+
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.utils import *
-from pyeuclid.engine.inference_rule import inference_rule_sets
+from pyeuclid.engine.inference_rule import *
 from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
@@ -24,7 +26,7 @@ def run_single_problem(args):
     # state.silent = True
     state.logger.setLevel(logging.INFO)
     if args.problem_string is not None:
-        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg', resample=True)
+        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg')
     else:
         namespace = {}
         with open(f'data/Geometry3K/{args.problem_id}/problem.py', "r") as file:
@@ -40,32 +42,36 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
-    engine.run()
-    # while True:
-    #     # 001. BC ∥ FG [04] & BG ∥ CF [05] ⇒  ∠FGB = ∠BCF [07]
-    #     # 002. BG ∥ CF [05] ⇒  ∠FBG = ∠BFC [08]
-    #     # 003. ∠FGB = ∠BCF [07] & ∠FBG = ∠BFC [08] (Similar Triangles)⇒  BG = FC [09]
-    #     # 004. CB = BG [02] & BG = FC [09] ⇒  CF = CB [10]
-    #     # 005. BC ⟂ BG [03] & BC ∥ FG [04] ⇒  GF ⟂ GB [11]
-    #     # 006. AC ⟂ CD [01] & CD ∥ AE [06] ⇒  CA ⟂ AE [12]
-    #     # 007. GF ⟂ GB [11] & CA ⟂ AE [12] ⇒  ∠(FG-AE) = ∠(BG-AC) [13]
-    #     # 008. GF ⟂ GB [11] & CA ⟂ AE [12] ⇒  ∠FGB = ∠CAE [14]
-    #     # 009. ∠(FG-AE) = ∠(BG-AC) [13] & BC ∥ FG [04] & AE ∥ CD [06] & BG ∥ CF [05] ⇒  ∠ACF = ∠DCB [15]
-    #     # 010. AC = CD [00] & CF = CB [10] & ∠ACF = ∠DCB [15] (SAS)⇒  ∠(AF-BD) = ∠FCB [16]
-    #     # 011. AC = CD [00] & CF = CB [10] & ∠ACF = ∠DCB [15] (SAS)⇒  ∠DCA = ∠(BD-AF) [17]
-    #     # 012. ∠(AF-BD) = ∠FCB [16] & CF ∥ BG [05] & ∠FGB = ∠CAE [14] & BC ∥ FG [04] & AE ∥ CD [06] & ∠DCA = ∠(BD-AF) [17] ⇒  DB ⟂ FA
-    #     engine.search(depth=1)
-    #     p1 = state.check_conditions(Length(Point('b'),Point('g'))-Length(Point('f'),Point('c')))
-    #     p2 = state.check_conditions(Angle(Point('f'),Point('g'),Point('b'))-Angle(Point('c'),Point('a'),Point('e')))
-    #     p3 = state.check_conditions(Angle(Point('a'),Point('c'),Point('f'))-Angle(Point('d'),Point('c'),Point('b')))
-    #     print(p1, p2, p3)
-    #     input()
+    # engine.run()
+    while True:
+        engine.search(depth=1)
+    # 001. P,C,A are collinear [03] & B,Q,A are collinear [01] & DQ ⟂ AB [02] & DP ⟂ AC [04] ⇒  ∠APD = ∠AQD [05]
+    # 002. ∠APD = ∠AQD [05] ⇒  P,Q,D,A are concyclic [06]
+    # 003. P,Q,D,A are concyclic [06] ⇒  ∠PQD = ∠PAD [07]
+    # 004. B,Q,A are collinear [01] & DQ ⟂ AB [02] ⇒  QD ⟂ BQ [08]
+    # 005. QD ⟂ BQ [08] & AD ⟂ BC [00] ⇒  ∠QDA = ∠QBC [09]
+    # 006. B,Q,A are collinear [01] & P,C,A are collinear [03] & ∠PQD = ∠PAD [07] & ∠QDA = ∠QBC [09] ⇒  ∠QBC = ∠QPC [10]
+    # 007. ∠QBC = ∠QPC [10] ⇒  B,Q,P,C are concyclic
+        p1 = state.check_conditions(Angle(Point('a'),Point('p'),Point('d'))-Angle(Point('a'),Point('q'),Point('d')))
+        p2 = state.check_conditions(Concyclic(Point('p'),Point('q'),Point('d'),Point('a')))
+        p3 = state.check_conditions(Angle(Point('p'),Point('q'),Point('d'))-Angle(Point('p'),Point('a'),Point('d')))
+        p4 = state.check_conditions(Perpendicular(Point('q'),Point('d'),Point('b'),Point('q')))
+        p5 = state.check_conditions(Angle(Point('q'),Point('d'),Point('a'))-Angle(Point('q'),Point('b'),Point('c')))
+        p6 = state.check_conditions(Angle(Point('q'),Point('b'),Point('c'))+Angle(Point('q'),Point('p'),Point('c'))-pi)
+        p7 = state.check_conditions(Concyclic(Point('b'),Point('q'),Point('p'),Point('c')))
+        print(p1, p2, p3, p4, p5, p6,p7)
+        for cond in AlphaGeometry5b(Point('c'),Point('q'),Point('b'),Point('p')).condition():
+            print(cond, state.check_conditions(cond))
+        print(AlphaGeometry5b(Point('c'),Point('q'),Point('b'),Point('p')).conclusion())
+        print(state.angles.equivalence_classes())
+        breakpoint()
+        
     t = time.time() - t0
     result = state.complete()
     if result is not None:
         if args.show_proof:
             t0 = time.time()
-            with Timeout(600):
+            with TT(600):
                 proof_generator.run()
                 proof = proof_generator.format_proof()
                 max_cond_num = 0

@@ -149,7 +149,8 @@ class DeductiveDatabase():
                     r"^-?Angle\w+ [-\+] [\w/\d]+$")
                 pattern_angle_sum = re.compile(
                     r"^-?Angle\w+ [-\+] Angle\w+ [-\+] [\w/\d]+$")
-                points, _ = get_points_and_symbols(relation)
+                points_list, _ = get_points_and_symbols(relation)
+                points = [p for points in points_list for p in points]
                 
                 def same_component(l, r, table):
                     query_diff = f" INNER JOIN {table} r{i}l INNER JOIN {table} r{i}r"

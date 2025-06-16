@@ -43,25 +43,47 @@ def get_constructions_list_from_text(text):
 def get_constructions_from_goal(goal):
     if isinstance(goal, Relation):
         if isinstance(goal, Concyclic):
-            pass
+            a, b, c, d = goal.get_points()
+            return [construct_connect(a, b), construct_connect(b, c), construct_connect(c, d), construct_connect(d, a)]
         elif isinstance(goal, Collinear):
-            pass
+            a, b, c = goal.get_points()
+            return [construct_connect(a, b), construct_connect(b, c), construct_connect(c, a)]
         elif isinstance(goal, Perpendicular):
-            pass
+            a, b, c, d = goal.get_points()
+            return [construct_connect(a, b), construct_connect(c, d)]
         elif isinstance(goal, Parallel):
-            pass
+            a, b, c, d = goal.get_points()
+            return [construct_connect(a, b), construct_connect(c, d)]
         elif isinstance(goal, Midpoint):
-            pass
+            a, b, c = goal.get_points()
+            return [construct_connect(a, b), construct_connect(b, c), construct_connect(c, a)]
         elif isinstance(goal, Similar3):
-            pass
+            a, b, c, d, e, f = goal.get_points()
+            return [construct_connect(a, b), construct_connect(b, c), construct_connect(c, a), construct_connect(d, e), construct_connect(e, f), construct_connect(f, d)]
         elif isinstance(goal, Congruent3):
-            pass
+            a, b, c, d, e, f = goal.get_points()
+            return [construct_connect(a, b), construct_connect(b, c), construct_connect(c, a), construct_connect(d, e), construct_connect(e, f), construct_connect(f, d)]
         else:
             return []
     else:
+
         # classify angles - angles, angles + angles - const, angles - const, angles / angles - const,
-        # lengths - lenghs, lengths + lengths - const, lengths - const, lengths / lengths - const, length/length - length/length
-        return []
+        # lengths - lenghs, lengths + lengths - const, lengths - const, lengths / lengths - const, length/length - length/length 
+        res = []
+        points_list, symbols = get_points_and_symbols(goal)
+        for points, symbol in zip(points_list, symbols):
+            if 'Length' in str(symbol):
+                assert len(points) == 2
+                res.append(construct_connect(points[0], points[1]))
+            elif 'Angle' in str(symbol):
+                assert len(points) == 3
+                res.append(construct_connect(points[0], points[1]), construct_connect(points[1], points[2]))
+            else:
+                l = len(points)
+                for i in range(l-1):
+                    res.append(construct_connect(points[i], points[i+1]))
+                res.append(construct_connect(points[l-1], points[0]))
+        return res
 
 
 def get_goal_from_text(text):

@@ -5,6 +5,7 @@ import random
 from pyeuclid.formalization.diagram import Diagram
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.construction_rule import *
+from pyeuclid.formalization.translation import get_constructions_from_goal
 from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
@@ -97,13 +98,14 @@ def generate():
     engine.search()
 
     i = 0
-    def generate_data(relation, i):
-        if isinstance(relation, Relation):  
-            points = relation.get_points()
+    def generate_data(goal, i):
+        if isinstance(goal, Relation):  
+            points = goal.get_points()
         else:
-            points = get_points_and_symbols(relation)[0]
+            points_list = get_points_and_symbols(goal)[0]
+            points = [p for points in points_list for p in points]
         
-        constructions = proof_generator.source_constructions[relation]
+        constructions = proof_generator.source_constructions[goal]
         auxilirary_constructions = []
         required_points = set(points)
 
@@ -115,7 +117,7 @@ def generate():
             if all(p not in required_points for p in construction.outputs):
                 auxilirary_constructions.append(construction)
 
-        proof_str = proof_generator.get_proof_str(relation)
+        proof_str = proof_generator.get_proof_str(goal)
         if auxilirary_constructions:
             auxilirary_constructions = sorted(auxilirary_constructions, key=lambda c: c.index)
             aux_proof = 'Auxilirary Constructions:\n'
@@ -124,16 +126,19 @@ def generate():
             proof_str = aux_proof + proof_str
 
         diagram.save()
-        proof = proof_generator.get_proof(relation)        
+        proof = proof_generator.get_proof(goal)        
         diagram.auxiliary_constructions.extend(auxilirary_constructions)
         diagram_path = os.path.join(ROOT_DIR, f'samples/{i}/diagram.jpg')
         diagram.save_path = diagram_path
-        diagram.draw_diagram(constructions=constructions, save=True)
+        goal_constructions = get_constructions_from_goal(goal)
+        diagram.draw([], goal_constructions)
+        diagram.draw_diagram(constructions=constructions+goal_constructions, save=True)
         diagram.restore()
         
         data_path = os.path.join(ROOT_DIR, f'samples/{i}/')
         data = {
             "problem": ', '.join([str(construction) for construction in constructions]),
+            "goal": goal,
             "diagram": diagram_path,
             "proof": proof_str,
         }
@@ -142,7 +147,7 @@ def generate():
             json.dump(data, f, indent=2)
         i += 1
 
-        print(relation)
+        print(goal)
         input()
     
     proof_generator = ProofGenerator(state)
