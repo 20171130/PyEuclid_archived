@@ -42,9 +42,9 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
-    # engine.run()
-    while True:
-        engine.search(depth=1)
+    engine.run()
+    # while True:
+    #     engine.search(depth=1)
     # 001. P,C,A are collinear [03] & B,Q,A are collinear [01] & DQ ⟂ AB [02] & DP ⟂ AC [04] ⇒  ∠APD = ∠AQD [05]
     # 002. ∠APD = ∠AQD [05] ⇒  P,Q,D,A are concyclic [06]
     # 003. P,Q,D,A are concyclic [06] ⇒  ∠PQD = ∠PAD [07]
@@ -52,19 +52,19 @@ def run_single_problem(args):
     # 005. QD ⟂ BQ [08] & AD ⟂ BC [00] ⇒  ∠QDA = ∠QBC [09]
     # 006. B,Q,A are collinear [01] & P,C,A are collinear [03] & ∠PQD = ∠PAD [07] & ∠QDA = ∠QBC [09] ⇒  ∠QBC = ∠QPC [10]
     # 007. ∠QBC = ∠QPC [10] ⇒  B,Q,P,C are concyclic
-        p1 = state.check_conditions(Angle(Point('a'),Point('p'),Point('d'))-Angle(Point('a'),Point('q'),Point('d')))
-        p2 = state.check_conditions(Concyclic(Point('p'),Point('q'),Point('d'),Point('a')))
-        p3 = state.check_conditions(Angle(Point('p'),Point('q'),Point('d'))-Angle(Point('p'),Point('a'),Point('d')))
-        p4 = state.check_conditions(Perpendicular(Point('q'),Point('d'),Point('b'),Point('q')))
-        p5 = state.check_conditions(Angle(Point('q'),Point('d'),Point('a'))-Angle(Point('q'),Point('b'),Point('c')))
-        p6 = state.check_conditions(Angle(Point('q'),Point('b'),Point('c'))+Angle(Point('q'),Point('p'),Point('c'))-pi)
-        p7 = state.check_conditions(Concyclic(Point('b'),Point('q'),Point('p'),Point('c')))
-        print(p1, p2, p3, p4, p5, p6,p7)
-        for cond in AlphaGeometry5b(Point('c'),Point('q'),Point('b'),Point('p')).condition():
-            print(cond, state.check_conditions(cond))
-        print(AlphaGeometry5b(Point('c'),Point('q'),Point('b'),Point('p')).conclusion())
-        print(state.angles.equivalence_classes())
-        breakpoint()
+        # p1 = state.check_conditions(Angle(Point('a'),Point('p'),Point('d'))-Angle(Point('a'),Point('q'),Point('d')))
+        # p2 = state.check_conditions(Concyclic(Point('p'),Point('q'),Point('d'),Point('a')))
+        # p3 = state.check_conditions(Angle(Point('p'),Point('q'),Point('d'))-Angle(Point('p'),Point('a'),Point('d')))
+        # p4 = state.check_conditions(Perpendicular(Point('q'),Point('d'),Point('b'),Point('q')))
+        # p5 = state.check_conditions(Angle(Point('q'),Point('d'),Point('a'))-Angle(Point('q'),Point('b'),Point('c')))
+        # p6 = state.check_conditions(Angle(Point('q'),Point('b'),Point('c'))+Angle(Point('q'),Point('p'),Point('c'))-pi)
+        # p7 = state.check_conditions(Concyclic(Point('b'),Point('q'),Point('p'),Point('c')))
+        # print(p1, p2, p3, p4, p5, p6,p7)
+        # for cond in AlphaGeometry5b(Point('c'),Point('q'),Point('b'),Point('p')).condition():
+        #     print(cond, state.check_conditions(cond))
+        # print(AlphaGeometry5b(Point('c'),Point('q'),Point('b'),Point('p')).conclusion())
+        # print(state.angles.equivalence_classes())
+        # breakpoint()
         
     t = time.time() - t0
     result = state.complete()

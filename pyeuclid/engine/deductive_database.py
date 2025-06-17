@@ -354,7 +354,7 @@ class DeductiveDatabase():
                     conclusion = Traced(conclusion)
                     conclusion.sources = [item]
                     if tmp in inference_rule_sets["ex"] and not tmp == BetweenLength:
-                        self.state.extra_equations.append(conclusion)
+                        self.state.add_equation(conclusion, extra=True)
                         continue
                 else:
                     conclusion.source = item

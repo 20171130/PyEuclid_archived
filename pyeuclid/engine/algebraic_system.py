@@ -167,7 +167,8 @@ class AlgebraicSystem:
         var_types = self.state.var_types
         solved_vars = {}
         if self.state.extra_equations:
-            _, self.state.extra_solutions = self.elim(self.state.extra_equations, var_types)
+            raw_extra_equations = [item for item in self.state.extra_equations if not item.redundant]
+            _, self.state.extra_solutions = self.elim(raw_extra_equations, var_types)
         angle_linear, length_linear, length_ratio, others = classify_equations(raw_equations, var_types)
         for key, value in self.state.extra_solutions.items():
             angle_linear.append(Traced(key-value))
