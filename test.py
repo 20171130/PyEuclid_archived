@@ -32,7 +32,7 @@ class TestBenchmarks(unittest.TestCase):
             if world_size > 1:
                 state.silent = True
             try:
-                state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
+                state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg', resample=True)
                 deductive_database = DeductiveDatabase(state)
                 algebraic_system = AlgebraicSystem(state)
                 proof_generator = ProofGenerator(state)

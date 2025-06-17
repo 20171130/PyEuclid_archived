@@ -1,381 +1,381 @@
-22 unsolved in 2.1757407188415527 seconds
-13 solved in 2.468815803527832 seconds
-1 solved in 2.464137077331543 seconds
-10 solved in 3.2501158714294434 seconds
-28 solved in 3.907445192337036 seconds
-24 solved in 4.580129861831665 seconds
-20 solved in 5.38018012046814 seconds
-52 solved in 3.3121531009674072 seconds
-19 solved in 5.6179540157318115 seconds
-27 solved in 5.97761607170105 seconds
-21 unsolved in 6.390614986419678 seconds
-16 solved in 6.17503023147583 seconds
-18 solved in 6.955507040023804 seconds
-50 solved in 1.6498908996582031 seconds
-12 solved in 7.7291810512542725 seconds
-0 solved in 7.93133282661438 seconds
-5 solved in 8.47748589515686 seconds
-43 solved in 5.952653408050537 seconds
-48 solved in 1.6997020244598389 seconds
-54 solved in 4.382000923156738 seconds
-40 solved in 5.405963659286499 seconds
-57 solved in 3.807518243789673 seconds
-31 solved in 7.017623662948608 seconds
-23 solved in 11.342542171478271 seconds
-51 solved in 4.554574489593506 seconds
-15 solved in 10.878989934921265 seconds
-58 solved in 7.757666349411011 seconds
-80 solved in 4.085238933563232 seconds
-42 solved in 3.879065752029419 seconds
-26 solved in 14.003238201141357 seconds
-70 solved in 4.157132863998413 seconds
-29 solved in 14.52192759513855 seconds
-72 solved in 1.7492623329162598 seconds
-45 solved in 3.350351572036743 seconds
-49 solved in 8.95234227180481 seconds
-73 solved in 6.699814558029175 seconds
-56 solved in 2.2141482830047607 seconds
-59 solved in 1.8440208435058594 seconds
-53 solved in 5.272506237030029 seconds
-6 solved in 16.69903326034546 seconds
-30 solved in 8.097368955612183 seconds
-102 solved in 2.2609691619873047 seconds
-75 solved in 3.1894452571868896 seconds
-61 solved in 8.55345106124878 seconds
-60 solved in 2.191939353942871 seconds
-36 solved in 2.2182486057281494 seconds
-87 solved in 9.853609561920166 seconds
-2 solved in 20.309419870376587 seconds
-25 solved in 21.57201910018921 seconds
-110 unsolved in 9.96567678451538 seconds
-117 solved in 1.753387451171875 seconds
-83 solved in 6.550182580947876 seconds
-82 solved in 18.395046710968018 seconds
-35 solved in 17.60632872581482 seconds
-79 solved in 11.920238018035889 seconds
-55 solved in 6.129622936248779 seconds
-46 unsolved in 20.81473994255066 seconds
-66 solved in 7.5056915283203125 seconds
-113 solved in 3.635114908218384 seconds
-112 solved in 2.897129774093628 seconds
-84 solved in 18.639047622680664 seconds
-86 solved in 11.595242977142334 seconds
-100 unsolved in 14.230962991714478 seconds
-88 solved in 16.63403844833374 seconds
-103 unsolved in 12.561936140060425 seconds
-32 solved in 8.60775351524353 seconds
-105 solved in 11.03536319732666 seconds
-65 solved in 4.038271903991699 seconds
-91 solved in 11.548394918441772 seconds
-114 solved in 3.3277995586395264 seconds
-118 solved in 2.9187166690826416 seconds
-17 solved in 32.32163071632385 seconds
-8 solved in 32.627652406692505 seconds
-11 solved in 32.46309232711792 seconds
-116 solved in 3.855813503265381 seconds
-90 solved in 12.831308126449585 seconds
-38 solved in 0.42928123474121094 seconds
-147 solved in 11.024566411972046 seconds
-96 solved in 6.0453667640686035 seconds
-95 solved in 2.769364595413208 seconds
-7 unsolved in 34.65032243728638 seconds
-47 solved in 2.5405237674713135 seconds
-148 solved in 3.155442714691162 seconds
-62 solved in 5.979059457778931 seconds
-78 solved in 27.674601316452026 seconds
-14 solved in 37.40764927864075 seconds
-76 solved in 9.296360969543457 seconds
-142 solved in 10.556852579116821 seconds
-109 solved in 11.049941778182983 seconds
-68 solved in 5.3132569789886475 seconds
-178 solved in 3.4454421997070312 seconds
-140 solved in 17.74168872833252 seconds
-108 solved in 2.776026964187622 seconds
-208 unsolved in 1.8741462230682373 seconds
+22 unsolved in 2.4114463329315186 seconds
+1 solved in 2.244731903076172 seconds
+13 solved in 2.5335731506347656 seconds
+10 solved in 5.177051305770874 seconds
+20 solved in 5.633064270019531 seconds
+19 solved in 6.130909204483032 seconds
+24 solved in 6.143042802810669 seconds
+18 solved in 8.228418827056885 seconds
+50 solved in 3.3165736198425293 seconds
+5 solved in 9.57510232925415 seconds
+0 solved in 9.782808542251587 seconds
+31 solved in 6.939966678619385 seconds
+52 solved in 7.588181257247925 seconds
+43 solved in 7.831182956695557 seconds
+48 solved in 2.5713326930999756 seconds
+54 solved in 6.990179777145386 seconds
+7 solved in 14.71480393409729 seconds
+40 solved in 9.595900058746338 seconds
+27 solved in 15.929604053497314 seconds
+28 solved in 17.696680307388306 seconds
+73 solved in 7.728078126907349 seconds
+80 solved in 9.071208238601685 seconds
+23 solved in 20.51120400428772 seconds
+21 unsolved in 21.003501892089844 seconds
+70 solved in 4.723205089569092 seconds
+57 solved in 4.8895583152771 seconds
+61 solved in 11.077560901641846 seconds
+49 solved in 14.87485384941101 seconds
+29 solved in 23.1300265789032 seconds
+26 solved in 24.570003032684326 seconds
+15 solved in 26.053154945373535 seconds
+53 solved in 5.674316644668579 seconds
+56 solved in 3.409698247909546 seconds
+12 solved in 29.785488605499268 seconds
+110 solved in 10.278375387191772 seconds
+59 solved in 7.121165752410889 seconds
+51 solved in 9.31213092803955 seconds
+16 solved in 31.148151397705078 seconds
+58 solved in 13.255498170852661 seconds
+45 solved in 5.845495700836182 seconds
+87 solved in 10.803018569946289 seconds
+30 solved in 22.890207767486572 seconds
+37 solved in 18.438501119613647 seconds
+83 solved in 6.122527122497559 seconds
+42 solved in 3.554495334625244 seconds
+117 solved in 1.7670857906341553 seconds
+60 solved in 2.864619255065918 seconds
+72 solved in 2.4820938110351562 seconds
+113 solved in 4.20109748840332 seconds
+82 solved in 28.41482901573181 seconds
+75 solved in 6.198120355606079 seconds
+35 solved in 30.479865550994873 seconds
+102 solved in 3.2630393505096436 seconds
+67 solved in 7.42265248298645 seconds
+17 solved in 42.379013538360596 seconds
+112 solved in 3.0822596549987793 seconds
+91 solved in 21.00250792503357 seconds
+84 solved in 29.701568603515625 seconds
+25 unsolved in 44.490243673324585 seconds
+100 solved in 22.414167881011963 seconds
+47 solved in 2.486311912536621 seconds
+65 solved in 4.445899486541748 seconds
+8 solved in 46.882442235946655 seconds
+38 solved in 1.0706593990325928 seconds
+114 solved in 3.7005856037139893 seconds
+95 solved in 3.032351016998291 seconds
+97 solved in 9.358486652374268 seconds
+55 solved in 8.060399293899536 seconds
+79 solved in 31.34673285484314 seconds
+68 solved in 5.460213661193848 seconds
+90 solved in 17.31652283668518 seconds
+103 unsolved in 35.4776873588562 seconds
+86 solved in 26.597994565963745 seconds
+105 solved in 15.801311731338501 seconds
+121 solved in 13.166995525360107 seconds
+78 solved in 45.730690717697144 seconds
+140 solved in 26.70015859603882 seconds
+3 solved in 58.95095896720886 seconds
+147 solved in 23.144750595092773 seconds
+108 solved in 2.9210450649261475 seconds
+116 solved in 6.149637937545776 seconds
+98 solved in 8.23734164237976 seconds
+127 solved in 14.035722494125366 seconds
+125 solved in 16.077141046524048 seconds
+89 solved in 36.83213925361633 seconds
+142 solved in 25.66756319999695 seconds
+170 solved in 11.191301107406616 seconds
+109 solved in 15.739553213119507 seconds
+33 solved in 12.525118827819824 seconds
+120 solved in 16.970730304718018 seconds
+77 solved in 28.07939648628235 seconds
+119 solved in 6.502813816070557 seconds
+88 solved in 45.06408143043518 seconds
+63 solved in 4.853914499282837 seconds
+144 solved in 29.296156883239746 seconds
+174 solved in 2.0098958015441895 seconds
+118 solved in 3.5152640342712402 seconds
+200 solved in 11.78059434890747 seconds
+6 solved in 84.38298153877258 seconds
+107 solved in 9.532614707946777 seconds
+172 unsolved in 14.290741205215454 seconds
+46 solved in 53.35415697097778 seconds
+2 solved in 85.25293278694153 seconds
+130 solved in 41.544474840164185 seconds
+9 solved in 87.07940912246704 seconds
+148 solved in 4.842207193374634 seconds
+36 solved in 2.219479560852051 seconds
+151 solved in 29.709640741348267 seconds
+93 solved in 9.8242506980896 seconds
+181 solved in 1.4809401035308838 seconds
+85 solved in 36.70272445678711 seconds
+204 solved in 8.842526197433472 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 43.999s
+Ran 1 test in 92.373s
 
 OK
-41 solved in 9.46240758895874 seconds
-89 solved in 27.656803131103516 seconds
-44 solved in 7.10608172416687 seconds
-120 solved in 11.637247800827026 seconds
-71 solved in 2.5087087154388428 seconds
-172 unsolved in 6.551725387573242 seconds
-143 solved in 17.893136978149414 seconds
-170 solved in 5.457250356674194 seconds
-146 solved in 13.688673973083496 seconds
-98 solved in 7.354007244110107 seconds
-125 solved in 12.118159532546997 seconds
-106 solved in 9.62137746810913 seconds
-92 solved in 11.212974071502686 seconds
-121 unsolved in 16.1687228679657 seconds
-173 unsolved in 2.149595260620117 seconds
-74 solved in 3.790642499923706 seconds
-130 solved in 20.719454526901245 seconds
-77 solved in 14.27672815322876 seconds
-176 unsolved in 3.379934310913086 seconds
-119 solved in 6.369797468185425 seconds
-202 solved in 5.7450175285339355 seconds
+143 solved in 51.45296549797058 seconds
+149 solved in 15.090934753417969 seconds
+178 solved in 3.6144235134124756 seconds
+150 solved in 18.762681245803833 seconds
+177 solved in 32.60560345649719 seconds
+115 solved in 1.3595523834228516 seconds
+202 solved in 8.12202501296997 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 54.109s
+Ran 1 test in 95.122s
 
 OK
-9 solved in 52.82727122306824 seconds
-122 unsolved in 5.418514728546143 seconds
-144 solved in 21.88915991783142 seconds
-132 solved in 37.00778007507324 seconds
-39 solved in 2.2271692752838135 seconds
-174 solved in 1.6997160911560059 seconds
-206 unsolved in 6.256441354751587 seconds
+39 solved in 6.284940719604492 seconds
+173 unsolved in 2.7684123516082764 seconds
+135 solved in 37.56004762649536 seconds
+208 unsolved in 3.3278253078460693 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 59.343s
+Ran 1 test in 97.410s
 
 OK
-138 solved in 16.692994832992554 seconds
-150 solved in 12.008944511413574 seconds
-200 solved in 11.352386474609375 seconds
-139 solved in 18.9671950340271 seconds
-85 solved in 30.806512355804443 seconds
-177 solved in 24.92907953262329 seconds
-135 solved in 28.801969289779663 seconds
-133 solved in 29.88082218170166 seconds
-69 solved in 3.817126512527466 seconds
-107 solved in 9.295708417892456 seconds
-152 solved in 5.238282918930054 seconds
-115 solved in 0.9072628021240234 seconds
-204 solved in 3.2499840259552 seconds
+66 solved in 9.390217781066895 seconds
+76 solved in 11.760266065597534 seconds
+132 solved in 57.38363718986511 seconds
+32 solved in 14.767722368240356 seconds
+207 unsolved in 8.155425548553467 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 62.308s
+Ran 1 test in 103.122s
 
 OK
-37 solved in 25.985719203948975 seconds
-160 unsolved in 11.252530574798584 seconds
-203 solved in 13.577866315841675 seconds
+69 solved in 6.431823492050171 seconds
+138 solved in 41.12603139877319 seconds
+160 unsolved in 16.077322244644165 seconds
+139 solved in 35.25527286529541 seconds
+146 solved in 43.53679013252258 seconds
+99 solved in 7.193577527999878 seconds
+62 solved in 8.84446406364441 seconds
+96 solved in 12.682108640670776 seconds
+211 unsolved in 20.95464777946472 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 64.813s
+Ran 1 test in 113.323s
 
 OK
-101 solved in 17.256826400756836 seconds
-149 solved in 12.17730975151062 seconds
-168 unsolved in 7.383037805557251 seconds
-67 solved in 5.2530677318573 seconds
-207 unsolved in 7.041207790374756 seconds
+165 solved in 16.63460373878479 seconds
+176 unsolved in 5.207627058029175 seconds
+168 unsolved in 9.049625396728516 seconds
+203 solved in 18.543959856033325 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 68.969s
+Ran 1 test in 115.347s
 
 OK
-99 solved in 7.278769493103027 seconds
-104 solved in 19.00715208053589 seconds
-145 solved in 8.701683521270752 seconds
-165 solved in 10.675836086273193 seconds
-131 solved in 7.521819591522217 seconds
-198 solved in 6.734576225280762 seconds
-175 unsolved in 3.2204108238220215 seconds
-163 unsolved in 14.282206535339355 seconds
-129 solved in 6.129858732223511 seconds
-3 unsolved in 75.46201777458191 seconds
-81 solved in 64.90557789802551 seconds
-155 solved in 28.418137073516846 seconds
-97 solved in 9.378557920455933 seconds
-193 solved in 2.939683437347412 seconds
-162 solved in 22.83972454071045 seconds
-169 solved in 19.252442836761475 seconds
-228 solved in 5.274787664413452 seconds
+145 solved in 26.312740087509155 seconds
+155 solved in 51.983418226242065 seconds
+123 solved in 32.01365900039673 seconds
+137 solved in 36.059858322143555 seconds
+179 solved in 30.091835737228394 seconds
+129 solved in 12.95249056816101 seconds
+198 solved in 9.491259336471558 seconds
+175 unsolved in 3.9552457332611084 seconds
+133 solved in 67.69956612586975 seconds
+106 solved in 27.174655437469482 seconds
+167 unsolved in 3.682856559753418 seconds
+206 unsolved in 13.798720359802246 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 80.702s
+Ran 1 test in 128.751s
 
 OK
-136 solved in 30.744481801986694 seconds
-205 unsolved in 6.144266605377197 seconds
+92 solved in 18.05220365524292 seconds
+228 solved in 6.433837175369263 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 82.024s
+Ran 1 test in 132.075s
 
 OK
-33 solved in 4.3249030113220215 seconds
-151 solved in 32.93188667297363 seconds
-63 solved in 2.7461349964141846 seconds
-179 solved in 19.152661323547363 seconds
-127 solved in 6.674230098724365 seconds
-181 solved in 1.9950752258300781 seconds
-4 solved in 86.3466317653656 seconds
-137 solved in 25.97927689552307 seconds
-126 solved in 52.7592887878418 seconds
-111 solved in 11.57960820198059 seconds
-93 solved in 6.238600254058838 seconds
-167 unsolved in 3.4556446075439453 seconds
-195 solved in 19.214603662490845 seconds
-209 solved in 6.4768877029418945 seconds
+122 unsolved in 3.84980845451355 seconds
+209 solved in 12.424642324447632 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 92.978s
+Ran 1 test in 137.361s
 
 OK
-185 unsolved in 14.709291458129883 seconds
-225 unsolved in 0.7948768138885498 seconds
+169 solved in 31.110925912857056 seconds
+152 solved in 4.875786066055298 seconds
+185 unsolved in 19.956562519073486 seconds
+163 unsolved in 17.55712652206421 seconds
+195 solved in 29.60863184928894 seconds
+81 solved in 112.27808737754822 seconds
+225 unsolved in 0.8585643768310547 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 93.796s
+Ran 1 test in 145.826s
 
 OK
-166 unsolved in 13.055811882019043 seconds
-34 solved in 6.08577561378479 seconds
-211 unsolved in 8.064672946929932 seconds
+205 unsolved in 22.203417539596558 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 94.960s
+Ran 1 test in 148.799s
 
 OK
-134 solved in 27.07488489151001 seconds
-180 unsolved in 39.752902030944824 seconds
-223 unsolved in 19.971628427505493 seconds
+193 solved in 4.371980667114258 seconds
+162 solved in 50.82243514060974 seconds
+215 unsolved in 10.74715280532837 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 100.267s
+Ran 1 test in 153.989s
 
 OK
-161 unsolved in 26.469827890396118 seconds
-64 solved in 5.535010814666748 seconds
-182 unsolved in 39.580864906311035 seconds
-128 solved in 53.5867075920105 seconds
-215 unsolved in 9.471379280090332 seconds
+14 solved in 152.11738228797913 seconds
+180 unsolved in 66.77765440940857 seconds
+223 solved in 12.001458883285522 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 103.553s
+Ran 1 test in 162.187s
 
 OK
-141 solved in 15.813048362731934 seconds
-212 solved in 8.583622932434082 seconds
+128 solved in 102.8623685836792 seconds
+111 solved in 24.906590938568115 seconds
+44 solved in 17.25287103652954 seconds
+210 solved in 13.591112613677979 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 111.244s
+Ran 1 test in 175.522s
 
 OK
-94 solved in 10.640162229537964 seconds
-199 solved in 32.543503284454346 seconds
-196 solved in 18.67042636871338 seconds
-210 solved in 14.313696384429932 seconds
+74 solved in 4.300365924835205 seconds
+182 unsolved in 41.523656606674194 seconds
+199 solved in 48.18055009841919 seconds
+141 solved in 19.7790470123291 seconds
+212 solved in 8.538478374481201 seconds
+158 solved in 22.518446922302246 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 114.942s
+Ran 1 test in 193.114s
 
 OK
-164 unsolved in 15.784193754196167 seconds
-190 solved in 51.12288284301758 seconds
-123 solved in 22.720308542251587 seconds
-229 unsolved in 3.3916900157928467 seconds
+229 unsolved in 4.693536281585693 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 117.407s
+Ran 1 test in 194.162s
 
 OK
-158 solved in 13.481406927108765 seconds
-220 solved in 1.4318430423736572 seconds
+136 solved in 71.92000675201416 seconds
+171 solved in 8.322565793991089 seconds
+188 solved in 7.69407844543457 seconds
+126 solved in 93.97097635269165 seconds
+166 unsolved in 14.526933193206787 seconds
+190 solved in 114.61738276481628 seconds
+220 solved in 3.1463236808776855 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 117.588s
+Ran 1 test in 225.123s
 
 OK
-171 unsolved in 11.27372121810913 seconds
-124 solved in 7.041729927062988 seconds
-188 solved in 6.128874063491821 seconds
-191 solved in 29.720219373703003 seconds
-221 solved in 2.229550838470459 seconds
+104 solved in 47.89519500732422 seconds
+11 solved in 228.9249885082245 seconds
+153 solved in 106.48122477531433 seconds
+157 solved in 164.01264333724976 seconds
+187 solved in 6.15279483795166 seconds
+41 solved in 12.031196594238281 seconds
+71 solved in 4.758848190307617 seconds
+217 solved in 27.26189374923706 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 133.872s
+Ran 1 test in 268.549s
 
 OK
-153 solved in 24.07866883277893 seconds
-194 unsolved in 26.28082251548767 seconds
-156 solved in 52.837311029434204 seconds
-157 solved in 62.979751110076904 seconds
-224 unsolved in 7.3008644580841064 seconds
+156 solved in 65.06427693367004 seconds
+196 solved in 58.48273205757141 seconds
+101 solved in 26.726999521255493 seconds
+197 unsolved in 152.03186440467834 seconds
+227 solved in 9.536314249038696 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 150.121s
+Ran 1 test in 291.284s
 
 OK
-230 unsolved in 88.86140275001526 seconds
+131 solved in 15.265149116516113 seconds
+134 solved in 72.29138851165771 seconds
+164 unsolved in 17.08533787727356 seconds
+186 unsolved in 42.76363205909729 seconds
+183 unsolved in 86.4648334980011 seconds
+201 unsolved in 119.87666654586792 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 150.689s
+Ran 1 test in 321.707s
 
 OK
-192 unsolved in 71.05797290802002 seconds
-187 solved in 4.455120325088501 seconds
-201 solved in 35.75791549682617 seconds
+213 solved in 5.566420555114746 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 155.321s
+Ran 1 test in 324.853s
 
 OK
-186 unsolved in 13.009345054626465 seconds
-222 unsolved in 4.953030109405518 seconds
+161 solved in 44.34858775138855 seconds
+194 unsolved in 40.15648937225342 seconds
+218 solved in 159.52090549468994 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 157.725s
+Ran 1 test in 363.070s
 
 OK
-197 unsolved in 67.68611645698547 seconds
-154 solved in 42.247400999069214 seconds
-227 solved in 3.4126996994018555 seconds
+224 unsolved in 8.117497682571411 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 165.061s
+Ran 1 test in 367.220s
 
 OK
-217 solved in 10.62066650390625 seconds
+216 solved in 54.56266379356384 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 166.087s
+Ran 1 test in 373.548s
 
 OK
-218 solved in 44.509122133255005 seconds
+192 unsolved in 222.90456867218018 seconds
+222 unsolved in 6.558849096298218 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 170.435s
+Ran 1 test in 384.987s
 
 OK
-216 solved in 19.0159752368927 seconds
+4 solved in 393.8448419570923 seconds
+34 solved in 5.536423683166504 seconds
+64 solved in 5.656741619110107 seconds
+191 solved in 76.34261965751648 seconds
+221 solved in 2.3218283653259277 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 176.951s
+Ran 1 test in 418.220s
 
 OK
-184 solved in 26.03554344177246 seconds
-183 unsolved in 52.477487564086914 seconds
-214 solved in 4.656363010406494 seconds
+94 solved in 23.34049391746521 seconds
+124 solved in 12.39395523071289 seconds
+154 solved in 74.6823627948761 seconds
+184 solved in 148.2776699066162 seconds
+214 solved in 5.250737905502319 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 195.215s
+Ran 1 test in 676.658s
 
 OK
-213 solved in 4.146356582641602 seconds
+230 unsolved in 600.0107443332672 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 199.172s
+Ran 1 test in 686.102s
 
 OK
-226 unsolved in 539.0479512214661 seconds
+159 unsolved in 600.0155487060547 seconds
+189 solved in 14.521489143371582 seconds
+219 solved in 3.0328850746154785 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 654.739s
+Ran 1 test in 758.931s
 
 OK
-159 solved in 2029.0635850429535 seconds
-189 solved in 11.0905921459198 seconds
-219 solved in 2.7910354137420654 seconds
+226 unsolved in 600.0567770004272 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 2134.008s
+Ran 1 test in 877.501s
 
 OK

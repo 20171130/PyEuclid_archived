@@ -77,7 +77,8 @@ def get_constructions_from_goal(goal):
                 res.append(construct_connect(points[0], points[1]))
             elif 'Angle' in str(symbol):
                 assert len(points) == 3
-                res.append(construct_connect(points[0], points[1]), construct_connect(points[1], points[2]))
+                res.append(construct_connect(points[0], points[1]))
+                res.append(construct_connect(points[1], points[2]))
             else:
                 l = len(points)
                 for i in range(l-1):

@@ -198,9 +198,9 @@ class construct_eq_trapezoid(ConstructionRule):
         return [
             Trapezoid(a, b, c, d),
             Parallel(a, b, c, d),
-            # Length(a, d) - Length(b, c),
-            # Angle(d, a, b) - Angle(a, b, c),
-            # Angle(b, c, d) - Angle(c, d, a),
+            Length(a, d) - Length(b, c),
+            Angle(d, a, b) - Angle(a, b, c),
+            Angle(b, c, d) - Angle(c, d, a),
         ]
 
 
@@ -365,10 +365,10 @@ class construct_incenter(ConstructionRule):
         a, b, c = self.inputs
         x, = self.outputs
         return [
-            Incenter(x, a, b, c)
-            # Angle(b, a, x) - Angle(x, a, c),
-            # Angle(a, c, x) - Angle(x, c, b),
-            # Angle(c, b, x) - Angle(x, b, a),
+            Incenter(x, a, b, c),
+            Angle(b, a, x) - Angle(x, a, c),
+            Angle(a, c, x) - Angle(x, c, b),
+            Angle(c, b, x) - Angle(x, b, a),
         ]
 
 
