@@ -1861,7 +1861,7 @@ class AlphaGeometry40(InferenceRule):
         self.r = r
 
     def condition(self):
-        return Not(Collinear(self.a, self.b, self.c)), Length(self.a, self.b)/Length(self.p, self.q)-Length(self.b, self.c)/Length(self.q, self.r), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Lt(self.a, self.c), Leq(self.p, self.q)
+        return Not(Collinear(self.a, self.b, self.c)), Length(self.a, self.b)/Length(self.p, self.q)-Length(self.b, self.c)/Length(self.q, self.r), Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r), Lt(self.a, self.c), Leq(self.b, self.q)
 
     def degenerate(self):
         return self.a == self.p and self.b == self.q and self.c == self.r

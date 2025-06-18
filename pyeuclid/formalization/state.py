@@ -96,6 +96,12 @@ class State:
             if not p in self.points:
                 for point in self.points:
                     self.lengths.add(Length(point, p))
+                    for point1 in self.points:
+                        if point1 == point:
+                            continue
+                        self.angles.add(Angle(point1, p, point))
+                        self.angles.add(Angle(p, point, point1))
+                        self.angles.add(Angle(p, point1, point))
                 self.points.add(p)
 
     def add_equation(self, equation, extra=False):

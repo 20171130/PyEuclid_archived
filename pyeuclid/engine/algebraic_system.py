@@ -166,12 +166,7 @@ class AlgebraicSystem:
         try_complex = self.state.try_complex
         var_types = self.state.var_types
         solved_vars = {}
-        if self.state.extra_equations:
-            raw_extra_equations = [item for item in self.state.extra_solutions if not item.redundant]
-            _, self.state.extra_solutions = self.elim(raw_extra_equations, var_types)
         angle_linear, length_linear, length_ratio, others = classify_equations(raw_equations, var_types)
-        for key, value in self.state.extra_solutions.items():
-            angle_linear.append(Traced(key-value))
         for eqs, source in (angle_linear, "angle_linear"),  (length_ratio, "length_ratio"):
             free, solved = self.elim(eqs, var_types)
             for key, value in solved.items():

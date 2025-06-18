@@ -1,381 +1,601 @@
-22 unsolved in 2.4114463329315186 seconds
-1 solved in 2.244731903076172 seconds
-13 solved in 2.5335731506347656 seconds
-10 solved in 5.177051305770874 seconds
-20 solved in 5.633064270019531 seconds
-19 solved in 6.130909204483032 seconds
-24 solved in 6.143042802810669 seconds
-18 solved in 8.228418827056885 seconds
-50 solved in 3.3165736198425293 seconds
-5 solved in 9.57510232925415 seconds
-0 solved in 9.782808542251587 seconds
-31 solved in 6.939966678619385 seconds
-52 solved in 7.588181257247925 seconds
-43 solved in 7.831182956695557 seconds
-48 solved in 2.5713326930999756 seconds
-54 solved in 6.990179777145386 seconds
-7 solved in 14.71480393409729 seconds
-40 solved in 9.595900058746338 seconds
-27 solved in 15.929604053497314 seconds
-28 solved in 17.696680307388306 seconds
-73 solved in 7.728078126907349 seconds
-80 solved in 9.071208238601685 seconds
-23 solved in 20.51120400428772 seconds
-21 unsolved in 21.003501892089844 seconds
-70 solved in 4.723205089569092 seconds
-57 solved in 4.8895583152771 seconds
-61 solved in 11.077560901641846 seconds
-49 solved in 14.87485384941101 seconds
-29 solved in 23.1300265789032 seconds
-26 solved in 24.570003032684326 seconds
-15 solved in 26.053154945373535 seconds
-53 solved in 5.674316644668579 seconds
-56 solved in 3.409698247909546 seconds
-12 solved in 29.785488605499268 seconds
-110 solved in 10.278375387191772 seconds
-59 solved in 7.121165752410889 seconds
-51 solved in 9.31213092803955 seconds
-16 solved in 31.148151397705078 seconds
-58 solved in 13.255498170852661 seconds
-45 solved in 5.845495700836182 seconds
-87 solved in 10.803018569946289 seconds
-30 solved in 22.890207767486572 seconds
-37 solved in 18.438501119613647 seconds
-83 solved in 6.122527122497559 seconds
-42 solved in 3.554495334625244 seconds
-117 solved in 1.7670857906341553 seconds
-60 solved in 2.864619255065918 seconds
-72 solved in 2.4820938110351562 seconds
-113 solved in 4.20109748840332 seconds
-82 solved in 28.41482901573181 seconds
-75 solved in 6.198120355606079 seconds
-35 solved in 30.479865550994873 seconds
-102 solved in 3.2630393505096436 seconds
-67 solved in 7.42265248298645 seconds
-17 solved in 42.379013538360596 seconds
-112 solved in 3.0822596549987793 seconds
-91 solved in 21.00250792503357 seconds
-84 solved in 29.701568603515625 seconds
-25 unsolved in 44.490243673324585 seconds
-100 solved in 22.414167881011963 seconds
-47 solved in 2.486311912536621 seconds
-65 solved in 4.445899486541748 seconds
-8 solved in 46.882442235946655 seconds
-38 solved in 1.0706593990325928 seconds
-114 solved in 3.7005856037139893 seconds
-95 solved in 3.032351016998291 seconds
-97 solved in 9.358486652374268 seconds
-55 solved in 8.060399293899536 seconds
-79 solved in 31.34673285484314 seconds
-68 solved in 5.460213661193848 seconds
-90 solved in 17.31652283668518 seconds
-103 unsolved in 35.4776873588562 seconds
-86 solved in 26.597994565963745 seconds
-105 solved in 15.801311731338501 seconds
-121 solved in 13.166995525360107 seconds
-78 solved in 45.730690717697144 seconds
-140 solved in 26.70015859603882 seconds
-3 solved in 58.95095896720886 seconds
-147 solved in 23.144750595092773 seconds
-108 solved in 2.9210450649261475 seconds
-116 solved in 6.149637937545776 seconds
-98 solved in 8.23734164237976 seconds
-127 solved in 14.035722494125366 seconds
-125 solved in 16.077141046524048 seconds
-89 solved in 36.83213925361633 seconds
-142 solved in 25.66756319999695 seconds
-170 solved in 11.191301107406616 seconds
-109 solved in 15.739553213119507 seconds
-33 solved in 12.525118827819824 seconds
-120 solved in 16.970730304718018 seconds
-77 solved in 28.07939648628235 seconds
-119 solved in 6.502813816070557 seconds
-88 solved in 45.06408143043518 seconds
-63 solved in 4.853914499282837 seconds
-144 solved in 29.296156883239746 seconds
-174 solved in 2.0098958015441895 seconds
-118 solved in 3.5152640342712402 seconds
-200 solved in 11.78059434890747 seconds
-6 solved in 84.38298153877258 seconds
-107 solved in 9.532614707946777 seconds
-172 unsolved in 14.290741205215454 seconds
-46 solved in 53.35415697097778 seconds
-2 solved in 85.25293278694153 seconds
-130 solved in 41.544474840164185 seconds
-9 solved in 87.07940912246704 seconds
-148 solved in 4.842207193374634 seconds
-36 solved in 2.219479560852051 seconds
-151 solved in 29.709640741348267 seconds
-93 solved in 9.8242506980896 seconds
-181 solved in 1.4809401035308838 seconds
-85 solved in 36.70272445678711 seconds
-204 solved in 8.842526197433472 seconds
+22 unsolved in 2.431929111480713 seconds
+13 solved in 2.764826774597168 seconds
+13 proof generation runs in 0.05095863342285156
+1 solved in 3.7814905643463135 seconds
+1 proof generation runs in 0.17787742614746094
+20 solved in 6.3278820514678955 seconds
+19 solved in 6.456227779388428 seconds
+19 proof generation runs in 0.10515713691711426
+20 proof generation runs in 0.5730831623077393
+18 solved in 7.852500915527344 seconds
+18 proof generation runs in 0.04985523223876953
+52 solved in 7.8092451095581055 seconds
+52 proof generation runs in 0.22687649726867676
+24 solved in 11.735700845718384 seconds
+48 solved in 2.6492056846618652 seconds
+10 solved in 10.98287296295166 seconds
+48 proof generation runs in 0.15354537963867188
+43 solved in 8.05359935760498 seconds
+24 proof generation runs in 0.47318148612976074
+10 proof generation runs in 0.5845646858215332
+43 proof generation runs in 0.3257486820220947
+50 solved in 4.5327677726745605 seconds
+50 proof generation runs in 0.15130996704101562
+5 solved in 13.37076735496521 seconds
+5 proof generation runs in 0.15638256072998047
+0 solved in 13.561763763427734 seconds
+0 proof generation runs in 0.7158842086791992
+31 solved in 11.770686864852905 seconds
+31 proof generation runs in 0.09781599044799805
+28 solved in 20.72460651397705 seconds
+28 proof generation runs in 0.16385698318481445
+54 solved in 8.018341779708862 seconds
+27 solved in 21.044607400894165 seconds
+54 proof generation runs in 0.2268373966217041
+73 solved in 8.064359188079834 seconds
+73 proof generation runs in 0.05629849433898926
+27 proof generation runs in 1.5184557437896729
+21 unsolved in 22.44753670692444 seconds
+23 solved in 23.42058801651001 seconds
+23 proof generation runs in 0.20403695106506348
+29 solved in 25.513291597366333 seconds
+25 solved in 26.02998113632202 seconds
+49 solved in 18.482197761535645 seconds
+7 solved in 26.719432592391968 seconds
+49 proof generation runs in 1.0342106819152832
+26 solved in 27.34423828125 seconds
+61 solved in 10.343840599060059 seconds
+80 solved in 14.176954507827759 seconds
+80 proof generation runs in 0.3410811424255371
+7 proof generation runs in 1.039444923400879
+61 proof generation runs in 0.5565905570983887
+40 solved in 15.07575535774231 seconds
+26 proof generation runs in 0.8636033535003662
+25 proof generation runs in 2.2623562812805176
+40 proof generation runs in 0.20251965522766113
+29 proof generation runs in 3.2728829383850098
+57 solved in 5.830714225769043 seconds
+57 proof generation runs in 0.07886624336242676
+53 solved in 6.403453350067139 seconds
+53 proof generation runs in 0.18358325958251953
+51 solved in 9.310201168060303 seconds
+51 proof generation runs in 0.1673738956451416
+56 solved in 4.973945617675781 seconds
+56 proof generation runs in 0.19955158233642578
+58 solved in 13.142682313919067 seconds
+30 solved in 19.888553857803345 seconds
+70 solved in 6.027177810668945 seconds
+58 proof generation runs in 0.8270947933197021
+70 proof generation runs in 0.444622278213501
+30 proof generation runs in 0.5787928104400635
+59 solved in 7.360250473022461 seconds
+59 proof generation runs in 0.3858609199523926
+55 solved in 9.043305397033691 seconds
+55 proof generation runs in 0.3394942283630371
+110 solved in 10.102989196777344 seconds
+110 proof generation runs in 0.19301247596740723
+83 solved in 7.0930564403533936 seconds
+83 proof generation runs in 0.7693572044372559
+60 solved in 4.176568269729614 seconds
+16 solved in 39.73469305038452 seconds
+60 proof generation runs in 0.038857460021972656
+16 proof generation runs in 1.1444497108459473
+12 solved in 42.06590700149536 seconds
+113 solved in 3.709831476211548 seconds
+113 proof generation runs in 0.11748242378234863
+35 solved in 30.02204155921936 seconds
+35 proof generation runs in 0.5908119678497314
+87 solved in 15.953657627105713 seconds
+12 proof generation runs in 4.076143980026245
+87 proof generation runs in 1.6418581008911133
+37 solved in 19.763427734375 seconds
+117 solved in 2.1074111461639404 seconds
+117 proof generation runs in 0.04653000831604004
+37 proof generation runs in 1.524991512298584
+103 solved in 29.4768967628479 seconds
+65 solved in 5.7175586223602295 seconds
+91 solved in 22.554256439208984 seconds
+65 proof generation runs in 0.08763575553894043
+103 proof generation runs in 0.3482973575592041
+91 proof generation runs in 0.906353235244751
+42 solved in 5.107034921646118 seconds
+42 proof generation runs in 0.24763727188110352
+82 solved in 41.686288356781006 seconds
+8 solved in 54.49587321281433 seconds
+8 proof generation runs in 1.115400791168213
+100 solved in 20.523306846618652 seconds
+72 solved in 4.147824048995972 seconds
+82 proof generation runs in 3.8217828273773193
+72 proof generation runs in 0.17619085311889648
+38 solved in 0.9280600547790527 seconds
+38 proof generation runs in 0.027118444442749023
+100 proof generation runs in 1.2796127796173096
+67 solved in 8.141783475875854 seconds
+67 proof generation runs in 0.31792426109313965
+90 solved in 19.295149326324463 seconds
+95 solved in 9.04996657371521 seconds
+112 solved in 2.8634543418884277 seconds
+112 proof generation runs in 0.12390947341918945
+95 proof generation runs in 0.21309995651245117
+15 solved in 60.537914514541626 seconds
+90 proof generation runs in 1.2832732200622559
+102 solved in 4.927704811096191 seconds
+102 proof generation runs in 0.17589688301086426
+15 proof generation runs in 2.416816234588623
+68 solved in 7.31715989112854 seconds
+84 solved in 44.3404815196991 seconds
+68 proof generation runs in 0.5473940372467041
+84 proof generation runs in 1.4138097763061523
+121 solved in 15.990052938461304 seconds
+79 solved in 40.997050762176514 seconds
+121 proof generation runs in 0.46420836448669434
+79 proof generation runs in 1.8390226364135742
+86 solved in 38.02018451690674 seconds
+86 proof generation runs in 0.39395880699157715
+114 solved in 4.96347451210022 seconds
+114 proof generation runs in 0.08426761627197266
+17 solved in 72.76227688789368 seconds
+97 solved in 14.044419765472412 seconds
+17 proof generation runs in 0.5991306304931641
+97 proof generation runs in 0.6968502998352051
+45 solved in 11.049471855163574 seconds
+140 solved in 35.886255979537964 seconds
+45 proof generation runs in 0.03938174247741699
+140 proof generation runs in 0.2229146957397461
+147 solved in 25.870386600494385 seconds
+47 solved in 2.234053134918213 seconds
+47 proof generation runs in 0.05489373207092285
+147 proof generation runs in 0.9643311500549316
+116 solved in 5.035334348678589 seconds
+116 proof generation runs in 0.06986093521118164
+98 solved in 13.16037392616272 seconds
+98 proof generation runs in 0.17273855209350586
+120 solved in 19.33855128288269 seconds
+120 proof generation runs in 1.142709732055664
+75 solved in 6.89875602722168 seconds
+75 proof generation runs in 0.05618786811828613
+89 solved in 49.39049792289734 seconds
+85 solved in 48.99533033370972 seconds
+109 solved in 17.950068712234497 seconds
+109 proof generation runs in 1.0567364692687988
+125 solved in 28.71037483215332 seconds
+89 proof generation runs in 4.006455421447754
+78 solved in 78.70732975006104 seconds
+125 proof generation runs in 0.8763594627380371
+88 solved in 61.53557729721069 seconds
+88 proof generation runs in 0.17872214317321777
+142 solved in 36.528974771499634 seconds
+78 proof generation runs in 7.3992791175842285
+85 proof generation runs in 11.195316314697266
+119 solved in 7.531174421310425 seconds
+119 proof generation runs in 0.7271661758422852
+142 proof generation runs in 1.8676064014434814
+143 solved in 55.519997119903564 seconds
+170 solved in 24.440975666046143 seconds
+170 proof generation runs in 0.8503053188323975
+115 solved in 1.850801706314087 seconds
+143 proof generation runs in 1.2445509433746338
+115 proof generation runs in 0.06564927101135254
+118 solved in 3.5107057094573975 seconds
+118 proof generation runs in 0.0818171501159668
+46 solved in 60.9133243560791 seconds
+150 solved in 20.273168325424194 seconds
+108 solved in 4.5371317863464355 seconds
+108 proof generation runs in 0.02628326416015625
+46 proof generation runs in 1.0992908477783203
+150 proof generation runs in 0.7325038909912109
+173 unsolved in 2.468942403793335 seconds
+127 solved in 29.715871334075928 seconds
+9 solved in 105.11833500862122 seconds
+127 proof generation runs in 0.9734952449798584
+9 proof generation runs in 0.5391359329223633
+151 solved in 39.60946083068848 seconds
+151 proof generation runs in 1.2450928688049316
+39 solved in 5.818991422653198 seconds
+39 proof generation runs in 0.14944934844970703
+148 solved in 10.446934223175049 seconds
+105 solved in 29.58722734451294 seconds
+181 solved in 1.7626450061798096 seconds
+181 proof generation runs in 0.03935050964355469
+148 proof generation runs in 0.436553955078125
+105 proof generation runs in 1.7296535968780518
+200 solved in 13.485390901565552 seconds
+200 proof generation runs in 1.0289840698242188
+77 solved in 39.3260293006897 seconds
+76 solved in 12.464511156082153 seconds
+3 solved in 118.09109091758728 seconds
+178 solved in 5.027400016784668 seconds
+178 proof generation runs in 0.0761878490447998
+149 solved in 19.008114099502563 seconds
+76 proof generation runs in 2.537069082260132
+172 unsolved in 18.96745538711548 seconds
+144 solved in 46.54580044746399 seconds
+149 proof generation runs in 0.9423823356628418
+77 proof generation runs in 3.9589133262634277
+69 solved in 7.70158839225769 seconds
+69 proof generation runs in 0.4835631847381592
+177 solved in 45.09394359588623 seconds
+208 unsolved in 3.4771478176116943 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 92.373s
+Ran 1 test in 124.491s
 
 OK
-143 solved in 51.45296549797058 seconds
-149 solved in 15.090934753417969 seconds
-178 solved in 3.6144235134124756 seconds
-150 solved in 18.762681245803833 seconds
-177 solved in 32.60560345649719 seconds
-115 solved in 1.3595523834228516 seconds
-202 solved in 8.12202501296997 seconds
+3 proof generation runs in 5.821184158325195
+144 proof generation runs in 4.0712621212005615
+203 solved in 21.53827142715454 seconds
+174 solved in 1.8405396938323975 seconds
+174 proof generation runs in 0.07958412170410156
+177 proof generation runs in 3.9678194522857666
+203 proof generation runs in 1.1296167373657227
 .
 ----------------------------------------------------------------------
-Ran 1 test in 95.122s
+Ran 1 test in 129.239s
 
 OK
-39 solved in 6.284940719604492 seconds
-173 unsolved in 2.7684123516082764 seconds
-135 solved in 37.56004762649536 seconds
-208 unsolved in 3.3278253078460693 seconds
+202 solved in 8.437508821487427 seconds
+202 proof generation runs in 0.3111269474029541
 .
 ----------------------------------------------------------------------
-Ran 1 test in 97.410s
+Ran 1 test in 130.480s
 
 OK
-66 solved in 9.390217781066895 seconds
-76 solved in 11.760266065597534 seconds
-132 solved in 57.38363718986511 seconds
-32 solved in 14.767722368240356 seconds
-207 unsolved in 8.155425548553467 seconds
+145 solved in 27.9748694896698 seconds
+145 proof generation runs in 0.19624829292297363
+107 solved in 9.814779281616211 seconds
+107 proof generation runs in 1.2495827674865723
+146 solved in 54.066969871520996 seconds
+175 unsolved in 3.5473129749298096 seconds
+130 solved in 76.03535842895508 seconds
+146 proof generation runs in 1.3951897621154785
+139 solved in 44.87221813201904 seconds
+204 solved in 9.456132173538208 seconds
+207 unsolved in 9.193335771560669 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 103.122s
+Ran 1 test in 138.263s
 
 OK
-69 solved in 6.431823492050171 seconds
-138 solved in 41.12603139877319 seconds
-160 unsolved in 16.077322244644165 seconds
-139 solved in 35.25527286529541 seconds
-146 solved in 43.53679013252258 seconds
-99 solved in 7.193577527999878 seconds
-62 solved in 8.84446406364441 seconds
-96 solved in 12.682108640670776 seconds
-211 unsolved in 20.95464777946472 seconds
+99 solved in 13.425239324569702 seconds
+204 proof generation runs in 0.19352293014526367
+99 proof generation runs in 0.07499885559082031
 .
 ----------------------------------------------------------------------
-Ran 1 test in 113.323s
+Ran 1 test in 138.414s
 
 OK
-165 solved in 16.63460373878479 seconds
-176 unsolved in 5.207627058029175 seconds
-168 unsolved in 9.049625396728516 seconds
-203 solved in 18.543959856033325 seconds
+130 proof generation runs in 2.6983180046081543
+211 unsolved in 25.16498374938965 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 115.347s
+Ran 1 test in 140.078s
 
 OK
-145 solved in 26.312740087509155 seconds
-155 solved in 51.983418226242065 seconds
-123 solved in 32.01365900039673 seconds
-137 solved in 36.059858322143555 seconds
-179 solved in 30.091835737228394 seconds
-129 solved in 12.95249056816101 seconds
-198 solved in 9.491259336471558 seconds
-175 unsolved in 3.9552457332611084 seconds
-133 solved in 67.69956612586975 seconds
-106 solved in 27.174655437469482 seconds
-167 unsolved in 3.682856559753418 seconds
-206 unsolved in 13.798720359802246 seconds
+139 proof generation runs in 3.6386473178863525
+176 unsolved in 4.127274751663208 seconds
+33 solved in 16.01505422592163 seconds
+33 proof generation runs in 0.3636479377746582
+106 solved in 24.68430995941162 seconds
+106 proof generation runs in 0.4105207920074463
+63 solved in 5.738748550415039 seconds
+63 proof generation runs in 0.0025763511657714844
+133 solved in 95.24059081077576 seconds
+133 proof generation runs in 0.3952045440673828
+132 solved in 87.7640175819397 seconds
+138 solved in 51.81905961036682 seconds
+206 unsolved in 16.927624225616455 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 128.751s
+Ran 1 test in 158.361s
 
 OK
-92 solved in 18.05220365524292 seconds
-228 solved in 6.433837175369263 seconds
+138 proof generation runs in 1.1188139915466309
+132 proof generation runs in 5.697145700454712
+205 unsolved in 24.156280755996704 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 132.075s
+Ran 1 test in 160.614s
 
 OK
-122 unsolved in 3.84980845451355 seconds
-209 solved in 12.424642324447632 seconds
+2 solved in 159.2595920562744 seconds
+2 proof generation runs in 0.06026935577392578
+6 solved in 159.63651537895203 seconds
+160 unsolved in 22.653144359588623 seconds
+93 solved in 13.738819360733032 seconds
+93 proof generation runs in 0.4297175407409668
+179 solved in 43.371583700180054 seconds
+6 proof generation runs in 5.763258695602417
+135 solved in 50.65108013153076 seconds
+179 proof generation runs in 1.9236292839050293
+129 solved in 29.836669445037842 seconds
+135 proof generation runs in 2.446256399154663
+36 solved in 2.348317861557007 seconds
+36 proof generation runs in 0.05404400825500488
+168 solved in 9.929385423660278 seconds
+168 proof generation runs in 0.13906383514404297
+129 proof generation runs in 0.9567492008209229
+169 solved in 29.116999626159668 seconds
+169 proof generation runs in 0.20586276054382324
+180 unsolved in 65.08615398406982 seconds
+163 unsolved in 22.57118511199951 seconds
+209 solved in 9.459953546524048 seconds
+32 solved in 16.89763855934143 seconds
+209 proof generation runs in 0.563154935836792
 .
 ----------------------------------------------------------------------
-Ran 1 test in 137.361s
+Ran 1 test in 178.587s
 
 OK
-169 solved in 31.110925912857056 seconds
-152 solved in 4.875786066055298 seconds
-185 unsolved in 19.956562519073486 seconds
-163 unsolved in 17.55712652206421 seconds
-195 solved in 29.60863184928894 seconds
-81 solved in 112.27808737754822 seconds
-225 unsolved in 0.8585643768310547 seconds
+32 proof generation runs in 0.2576279640197754
+66 solved in 8.797311544418335 seconds
+66 proof generation runs in 0.39653968811035156
+137 solved in 45.08041429519653 seconds
+193 solved in 6.487478494644165 seconds
+193 proof generation runs in 0.06999659538269043
+155 solved in 87.17726135253906 seconds
+137 proof generation runs in 1.4314396381378174
+81 solved in 148.2909963130951 seconds
+155 proof generation runs in 4.755693674087524
+198 solved in 13.577512502670288 seconds
+198 proof generation runs in 0.1054692268371582
+62 solved in 8.76986813545227 seconds
+167 unsolved in 4.938968896865845 seconds
+62 proof generation runs in 0.5989217758178711
+81 proof generation runs in 5.841757774353027
+210 unsolved in 21.98828625679016 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 145.826s
+Ran 1 test in 193.980s
 
 OK
-205 unsolved in 22.203417539596558 seconds
+228 solved in 6.767731666564941 seconds
+165 solved in 21.972936630249023 seconds
+228 proof generation runs in 0.3072633743286133
 .
 ----------------------------------------------------------------------
-Ran 1 test in 148.799s
+Ran 1 test in 195.819s
 
 OK
-193 solved in 4.371980667114258 seconds
-162 solved in 50.82243514060974 seconds
-215 unsolved in 10.74715280532837 seconds
+96 solved in 16.06987762451172 seconds
+96 proof generation runs in 0.1157371997833252
+165 proof generation runs in 2.005645275115967
+223 solved in 17.860248565673828 seconds
+223 proof generation runs in 0.19959449768066406
 .
 ----------------------------------------------------------------------
-Ran 1 test in 153.989s
+Ran 1 test in 200.446s
 
 OK
-14 solved in 152.11738228797913 seconds
-180 unsolved in 66.77765440940857 seconds
-223 solved in 12.001458883285522 seconds
+123 solved in 39.84012293815613 seconds
+123 proof generation runs in 1.3085479736328125
+185 unsolved in 21.00683331489563 seconds
+92 solved in 19.950268268585205 seconds
+92 proof generation runs in 0.7464590072631836
+122 solved in 0.05242657661437988 seconds
+122 proof generation runs in 0.010004997253417969
+128 solved in 130.78635025024414 seconds
+152 solved in 10.427199840545654 seconds
+215 unsolved in 13.711411237716675 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 162.187s
+Ran 1 test in 221.598s
 
 OK
-128 solved in 102.8623685836792 seconds
-111 solved in 24.906590938568115 seconds
-44 solved in 17.25287103652954 seconds
-210 solved in 13.591112613677979 seconds
+152 proof generation runs in 0.3967156410217285
+199 solved in 53.61420035362244 seconds
+128 proof generation runs in 15.17968225479126
+199 proof generation runs in 1.1358215808868408
+162 solved in 71.88416409492493 seconds
+162 proof generation runs in 0.40128040313720703
+229 unsolved in 5.693258285522461 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 175.522s
+Ran 1 test in 235.565s
 
 OK
-74 solved in 4.300365924835205 seconds
-182 unsolved in 41.523656606674194 seconds
-199 solved in 48.18055009841919 seconds
-141 solved in 19.7790470123291 seconds
-212 solved in 8.538478374481201 seconds
-158 solved in 22.518446922302246 seconds
+195 solved in 43.81997108459473 seconds
+136 solved in 95.74474573135376 seconds
+136 proof generation runs in 0.7872264385223389
+111 solved in 54.17259407043457 seconds
+195 proof generation runs in 2.1587164402008057
+225 solved in 0.0197451114654541 seconds
+225 proof generation runs in 0.01184988021850586
 .
 ----------------------------------------------------------------------
-Ran 1 test in 193.114s
+Ran 1 test in 246.016s
 
 OK
-229 unsolved in 4.693536281585693 seconds
+111 proof generation runs in 2.0962374210357666
+14 solved in 249.18445205688477 seconds
+166 unsolved in 12.487121343612671 seconds
+14 proof generation runs in 21.538177251815796
+182 unsolved in 54.15389943122864 seconds
+141 solved in 31.177724361419678 seconds
+141 proof generation runs in 2.774648427963257
+212 solved in 7.037945032119751 seconds
+212 proof generation runs in 0.3712155818939209
 .
 ----------------------------------------------------------------------
-Ran 1 test in 194.162s
+Ran 1 test in 284.689s
 
 OK
-136 solved in 71.92000675201416 seconds
-171 solved in 8.322565793991089 seconds
-188 solved in 7.69407844543457 seconds
-126 solved in 93.97097635269165 seconds
-166 unsolved in 14.526933193206787 seconds
-190 solved in 114.61738276481628 seconds
-220 solved in 3.1463236808776855 seconds
+171 solved in 8.583499670028687 seconds
+171 proof generation runs in 2.093665599822998
+158 solved in 72.2335193157196 seconds
+158 proof generation runs in 2.2138195037841797
+44 solved in 31.01928162574768 seconds
+44 proof generation runs in 1.018270492553711
+190 solved in 143.11205124855042 seconds
+157 solved in 203.47144436836243 seconds
+74 solved in 5.636573076248169 seconds
+74 proof generation runs in 0.09496688842773438
+196 solved in 57.51457738876343 seconds
+188 solved in 11.476539134979248 seconds
+188 proof generation runs in 0.4267756938934326
+196 proof generation runs in 2.5730488300323486
+190 proof generation runs in 13.404275178909302
+220 solved in 4.023951292037964 seconds
+220 proof generation runs in 0.13144588470458984
 .
 ----------------------------------------------------------------------
-Ran 1 test in 225.123s
+Ran 1 test in 325.517s
 
 OK
-104 solved in 47.89519500732422 seconds
-11 solved in 228.9249885082245 seconds
-153 solved in 106.48122477531433 seconds
-157 solved in 164.01264333724976 seconds
-187 solved in 6.15279483795166 seconds
-41 solved in 12.031196594238281 seconds
-71 solved in 4.758848190307617 seconds
-217 solved in 27.26189374923706 seconds
+126 solved in 151.4697208404541 seconds
+157 proof generation runs in 41.30485820770264
+104 solved in 48.325231313705444 seconds
+153 solved in 156.17686343193054 seconds
+153 proof generation runs in 0.4247262477874756
+187 solved in 9.8016037940979 seconds
+187 proof generation runs in 0.6199121475219727
+104 proof generation runs in 3.1821987628936768
+126 proof generation runs in 23.82758116722107
+217 solved in 22.12371015548706 seconds
+201 solved in 93.62946605682373 seconds
+217 proof generation runs in 1.3454203605651855
 .
 ----------------------------------------------------------------------
-Ran 1 test in 268.549s
+Ran 1 test in 387.756s
 
 OK
-156 solved in 65.06427693367004 seconds
-196 solved in 58.48273205757141 seconds
-101 solved in 26.726999521255493 seconds
-197 unsolved in 152.03186440467834 seconds
-227 solved in 9.536314249038696 seconds
+11 solved in 397.81749057769775 seconds
+11 proof generation runs in 0.04071450233459473
+197 unsolved in 217.39144158363342 seconds
+41 solved in 14.10625410079956 seconds
+41 proof generation runs in 0.4282865524291992
+201 proof generation runs in 33.110355615615845
 .
 ----------------------------------------------------------------------
-Ran 1 test in 291.284s
+Ran 1 test in 420.733s
 
 OK
-131 solved in 15.265149116516113 seconds
-134 solved in 72.29138851165771 seconds
-164 unsolved in 17.08533787727356 seconds
-186 unsolved in 42.76363205909729 seconds
-183 unsolved in 86.4648334980011 seconds
-201 unsolved in 119.87666654586792 seconds
+71 solved in 5.414446592330933 seconds
+227 solved in 12.56049919128418 seconds
+71 proof generation runs in 0.20360827445983887
+227 proof generation runs in 0.39301109313964844
 .
 ----------------------------------------------------------------------
-Ran 1 test in 321.707s
+Ran 1 test in 421.347s
 
 OK
-213 solved in 5.566420555114746 seconds
+101 solved in 31.693013668060303 seconds
+101 proof generation runs in 0.06758737564086914
+156 solved in 80.33426761627197 seconds
+156 proof generation runs in 0.6795401573181152
+183 unsolved in 93.5075216293335 seconds
+134 solved in 97.47264194488525 seconds
+213 solved in 5.307115793228149 seconds
+213 proof generation runs in 0.056447744369506836
 .
 ----------------------------------------------------------------------
-Ran 1 test in 324.853s
+Ran 1 test in 462.932s
 
 OK
-161 solved in 44.34858775138855 seconds
-194 unsolved in 40.15648937225342 seconds
-218 solved in 159.52090549468994 seconds
+134 proof generation runs in 2.9081039428710938
+131 solved in 26.874353170394897 seconds
+131 proof generation runs in 0.8690054416656494
+164 unsolved in 22.009088277816772 seconds
+4 solved in 487.89937829971313 seconds
+4 proof generation runs in 7.999438047409058
+192 unsolved in 264.53759574890137 seconds
+186 unsolved in 49.940895318984985 seconds
+222 unsolved in 7.819738388061523 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 363.070s
+Ran 1 test in 507.292s
 
 OK
-224 unsolved in 8.117497682571411 seconds
+34 solved in 9.586743831634521 seconds
+34 proof generation runs in 0.10935521125793457
+64 solved in 5.978386163711548 seconds
+64 proof generation runs in 0.3569049835205078
+161 solved in 45.911463022232056 seconds
+161 proof generation runs in 1.1328861713409424
+94 solved in 22.322107315063477 seconds
+94 proof generation runs in 0.6032438278198242
+194 solved in 52.27918815612793 seconds
+194 proof generation runs in 1.2280173301696777
+224 unsolved in 7.800419569015503 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 367.220s
+Ran 1 test in 550.160s
 
 OK
-216 solved in 54.56266379356384 seconds
+124 solved in 24.601465225219727 seconds
+124 proof generation runs in 0.8524868488311768
+216 solved in 110.36544466018677 seconds
+216 proof generation runs in 4.066880226135254
 .
 ----------------------------------------------------------------------
-Ran 1 test in 373.548s
+Ran 1 test in 620.435s
 
 OK
-192 unsolved in 222.90456867218018 seconds
-222 unsolved in 6.558849096298218 seconds
+191 solved in 94.99249529838562 seconds
+191 proof generation runs in 12.419788360595703
+221 solved in 3.6358916759490967 seconds
+221 proof generation runs in 0.056555986404418945
 .
 ----------------------------------------------------------------------
-Ran 1 test in 384.987s
+Ran 1 test in 642.109s
 
 OK
-4 solved in 393.8448419570923 seconds
-34 solved in 5.536423683166504 seconds
-64 solved in 5.656741619110107 seconds
-191 solved in 76.34261965751648 seconds
-221 solved in 2.3218283653259277 seconds
+154 solved in 88.83191919326782 seconds
+154 proof generation runs in 0.3436095714569092
+218 solved in 399.75141954421997 seconds
+230 unsolved in 600.0238199234009 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 418.220s
+Ran 1 test in 719.456s
 
 OK
-94 solved in 23.34049391746521 seconds
-124 solved in 12.39395523071289 seconds
-154 solved in 74.6823627948761 seconds
-184 solved in 148.2776699066162 seconds
-214 solved in 5.250737905502319 seconds
+218 proof generation runs in 12.79008412361145
 .
 ----------------------------------------------------------------------
-Ran 1 test in 676.658s
+Ran 1 test in 730.697s
 
 OK
-230 unsolved in 600.0107443332672 seconds
+159 error q4 q1 q3 q0 q2 = pentagon q4 q1 q3 q0 q2; p0 = on_line p0 q4 q1, on_line p0 q0 q2; p4 = on_line p4 q4 q1, on_line p4 q3 q0; p3 = on_line p3 q3 q0, on_line p3 q4 q2; p2 = on_line p2 q1 q3, on_line p2 q4 q2; p1 = on_line p1 q1 q3, on_line p1 q0 q2; o0 = circle o0 q0 p0 p4; o1 = circle o1 p1 q1 p0; o4 = circle o4 p4 p3 q4; o3 = circle o3 p3 p2 q3; o2 = circle o2 p1 p2 q2; m0 = on_circle m0 o0 q0, on_circle m0 o1 q1; m4 = on_circle m4 o0 q0, on_circle m4 o4 q4; m3 = on_circle m3 o4 q4, on_circle m3 o3 q3; m2 = on_circle m2 o3 q3, on_circle m2 o2 q2; m1 = on_circle m1 o2 q2, on_circle m1 o1 q1 ? cyclic m4 m3 m2 m1
+
+Traceback (most recent call last):
+  File "/private/home/zhaoyuli/PyEuclid_archived/test.py", line 42, in test_jgex_ag_231
+    engine.run()
+  File "/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/engine/engine.py", line 18, in run
+    self.search()
+  File "/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/engine/engine.py", line 28, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+MemoryError
+
+189 solved in 16.456538677215576 seconds
+189 proof generation runs in 0.6627702713012695
+219 solved in 4.109292030334473 seconds
+219 proof generation runs in 0.18888497352600098
 .
 ----------------------------------------------------------------------
-Ran 1 test in 686.102s
+Ran 1 test in 807.834s
 
 OK
-159 unsolved in 600.0155487060547 seconds
-189 solved in 14.521489143371582 seconds
-219 solved in 3.0328850746154785 seconds
+184 solved in 228.052964925766 seconds
+184 proof generation runs in 6.682179927825928
+214 solved in 5.587080240249634 seconds
+214 proof generation runs in 0.0949251651763916
 .
 ----------------------------------------------------------------------
-Ran 1 test in 758.931s
+Ran 1 test in 896.077s
 
 OK
-226 unsolved in 600.0567770004272 seconds
+226 unsolved in 600.0087125301361 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 877.501s
+Ran 1 test in 921.300s
 
 OK

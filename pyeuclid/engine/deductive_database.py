@@ -353,9 +353,6 @@ class DeductiveDatabase():
                 if isinstance(conclusion, sympy.core.expr.Expr):
                     conclusion = Traced(conclusion)
                     conclusion.sources = [item]
-                    if tmp in inference_rule_sets["ex"] and not tmp == BetweenLength:
-                        self.state.add_equation(conclusion, extra=True)
-                        continue
                 else:
                     conclusion.source = item
                 conclusion.depth = self.state.current_depth

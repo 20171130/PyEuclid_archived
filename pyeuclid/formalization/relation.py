@@ -87,7 +87,6 @@ class Lt(Relation):
 def Leq(v1: Point, v2: Point):
     return Not(Lt(v2, v1))
 
-
 class Equal(Relation):
     def __init__(self, v1: Point, v2: Point):
         super().__init__()

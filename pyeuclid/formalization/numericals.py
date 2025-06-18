@@ -756,3 +756,32 @@ def check_perpendicular(points):
     ab = Line(a, b)
     cd = Line(c, d)
     return ab.is_perp(cd)
+
+def check_congruent3(points: list[Point]) -> bool:
+  a, b, c, x, y, z = points
+  ab = a.distance(b)
+  bc = b.distance(c)
+  ca = c.distance(a)
+  xy = x.distance(y)
+  yz = y.distance(z)
+  zx = z.distance(x)
+  tol = 1e-9
+  return (
+      close_enough(ab, xy, tol)
+      and close_enough(bc, yz, tol)
+      and close_enough(ca, zx, tol)
+  )
+
+def check_similiar3(points: list[Point]) -> bool:
+  """Check if 6 points make a pair of similar triangles."""
+  a, b, c, x, y, z = points
+  ab = a.distance(b)
+  bc = b.distance(c)
+  ca = c.distance(a)
+  xy = x.distance(y)
+  yz = y.distance(z)
+  zx = z.distance(x)
+  tol = 1e-9
+  return close_enough(ab * yz, bc * xy, tol) and close_enough(
+      bc * zx, ca * yz, tol
+  )
