@@ -18,7 +18,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b = segment a b; d = midpoint d b a; f = on_circle f d a; c = intersection_lt c a b f d f; e = midpoint e c a; g = on_tline g b a b, on_circle g e a ? eqangle f c f g g f g c")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; m = midpoint m b a; o = circle o a b c; n = on_line n o m, on_circle n o a ? eqangle c a c n c n c b")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):

@@ -222,7 +222,6 @@ class ProofGenerator:
 
         return indices
 
-
     def traceback_l0(self, augmented_A, e) -> list[str]:
         m, n = augmented_A.shape
         e = e[0]
@@ -331,3 +330,13 @@ class ProofGenerator:
             equations = length_ratio
         return try_find(equations, conclusion)
     
+    def find_end_nodes(self):
+        nodes_with_dependents = set()
+        for sources in self.proof_dict.values():
+            if sources:
+                nodes_with_dependents.update(sources)
+
+        all_nodes = set(self.proof_dict.keys())
+        end_nodes = all_nodes - nodes_with_dependents
+        
+        return list(end_nodes)

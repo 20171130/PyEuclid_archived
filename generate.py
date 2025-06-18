@@ -10,6 +10,7 @@ from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
+import tqdm
 
 
 def generate():
@@ -98,12 +99,16 @@ def generate():
     engine.search()
 
     i = 0
-    def generate_data(goal, i):
+    def generate_data(goal):
+        nonlocal i
         if isinstance(goal, Relation):  
             points = goal.get_points()
         else:
             points_list = get_points_and_symbols(goal)[0]
+            print('points_list', points_list)
             points = [p for points in points_list for p in points]
+            print('points', points)
+
         
         constructions = proof_generator.source_constructions[goal]
         auxilirary_constructions = []
@@ -138,73 +143,36 @@ def generate():
         data_path = os.path.join(ROOT_DIR, f'samples/{i}/')
         data = {
             "problem": ', '.join([str(construction) for construction in constructions]),
-            "goal": goal,
+            "goal": str(goal),
             "diagram": diagram_path,
             "proof": proof_str,
         }
 
+        print(proof_str)
+
         with open(f"{data_path}/data.json", "w") as f:
             json.dump(data, f, indent=2)
         i += 1
-
-        print(goal)
-        input()
     
     proof_generator = ProofGenerator(state)
+
+    for depth in tqdm.tqdm(range(state.current_depth, 0, -1)): # no need to trace depth 0
+        for cond in tqdm.tqdm(state.depth2conditions[depth]):
+            proof_generator.run(cond)
+            proof_generator.track_constructions(cond)
     
-    for relation in state.relations:
-        if not isinstance(relation, (Concyclic, Collinear, Perpendicular, Parallel, Midpoint, Similar3, Congruent3)):
-            continue
-        if isinstance(relation, Collinear) and relation.negated:
-            continue
-        
-        proof_generator.run(relation)
+    end_relations = proof_generator.find_end_nodes()
+    print('end_relations', end_relations)
+    input()
+
+    for relation in end_relations:
         proof_generator.track_constructions(relation)
-
-        if len(proof_generator.source_constructions[relation]) <= 2:
+        if state.condition2depth[relation] <= 2 and len(proof_generator.source_constructions[relation]) <= 2:
             continue
-
-        generate_data(relation, i)
-
-    # print(state.angles.equivalence_classes())
-    # input()
-
-    # print(state.lengths.equivalence_classes())
-    # input()
-        
-    # for quantities in list(state.angles.equivalence_classes().values()) + list(state.lengths.equivalence_classes().values()):
-    #     if len(quantities) < 2:
-    #         continue
-    #     for i in range(len(quantities)):
-    #         for j in range(i+1, len(quantities)):
-    #             relation = quantities[i] - quantities[j]
-    #             proof_generator.run(relation)
-    #             proof_generator.track_constructions(relation)
-    #             if len(proof_generator.source_constructions[relation]) < 2:
-    #                 continue
-                
-    #             generate_data(relation)
-    
-    # for angle_sum, angles in state.angle_sums.items():
-    #     if len(angle_sum.free_symbols) == 0:
-    #         relation = angles - angle_sum
-    #         relation = quantities[i] -quantities[j]
-    #         proof_generator.run(relation)
-    #         proof_generator.track_constructions(relation)
-    #         if len(proof_generator.source_constructions[relation]) <= 2:
-    #             continue
-
-    #         generate_data(relation)
-
-
-
-    # print(state.angle_sums[sympy.pi])
-    # print(state.ratios)
-
-    # print(state.angles.equivalence_classes())
-    # for equation in state.angles.equivalence_classes():
-    #     print
-
+        print(relation)
+        print(state.condition2depth[relation])
+        input()
+        generate_data(relation)
 
         
 if __name__ == '__main__':

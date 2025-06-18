@@ -1,0 +1,6 @@
+{
+  "problem": "g,h,i,j = construct_centroid(d,c,f)",
+  "goal": "Angle_c_i_g - Angle_f_h_g",
+  "diagram": "/private/home/zhaoyuli/PyEuclid_archived/samples/2/diagram.jpg",
+  "proof": "Solution:\n1. Angle_d_f_i + Angle_d_i_f + Angle_f_d_i - pi => -Angle_c_g_i + Angle_g_f_h\n2. Angle_d_f_i + Angle_d_i_f + Angle_f_d_i - pi => Angle_f_g_h - Angle_g_c_i\n3. Centroid(j,c,d,f) & Collinear(c,d,i) & Collinear(f,i,j) [PropertyOfCentroid(j,c,d,f,i)] => -Length_c_g + Length_f_g\n4. -Angle_c_g_i + Angle_g_f_h & Angle_f_g_h - Angle_g_c_i & -Length_c_g + Length_f_g [AlphaGeometry37(h,f,g,i,g,c)] => Angle_c_i_g - Angle_f_h_g\n"
+}

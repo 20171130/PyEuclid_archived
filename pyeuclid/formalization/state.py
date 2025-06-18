@@ -25,6 +25,8 @@ class State:
         self.ratios = {}
         self.angle_sums = {}
         self.point2constructions = defaultdict(list)
+        self.depth2conditions = defaultdict(list)
+        self.condition2depth = defaultdict(int)
         
         self.current_depth = 0
         self.solutions = []
@@ -74,13 +76,14 @@ class State:
             else:
                 if self.diagram is not None:
                     if isinstance(item, Traced):
-                        if not self.diagram.numerical_check(item.expr):
-                            breakpoint()
                         assert self.diagram.numerical_check(item.expr)
                     else:
                         assert self.diagram.numerical_check(item)
                 self.add_equation(item)
-    
+            
+            self.depth2conditions[self.current_depth].append(item)
+            self.condition2depth[item] = self.current_depth
+ 
     def add_relation(self, relation):
         if relation in self.relations:
             return

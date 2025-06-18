@@ -14,7 +14,7 @@ from pyeuclid.formalization.utils import *
 
 
 def hash_constructions_list(constructions_list):
-    s = ",".join(str(c) for constructions in constructions_list for c in constructions)
+    s = ", ".join(str(c) for constructions in constructions_list for c in constructions)
     return hashlib.md5(s.encode('utf-8')).hexdigest()
 
 
@@ -177,7 +177,7 @@ class Diagram:
             return
         
         if check_too_close(self.points, new_points, self.min_tol):
-            self.min_tol = max(1e-4, self.min_tol - 0.01)
+            self.min_tol = max(1e-2, self.min_tol - 0.01)
             raise Exception()
         
         if check_too_far(self.points, new_points, self.max_tol):
@@ -1459,17 +1459,17 @@ class Diagram:
         if constructions is None:
             constructions = [c for constructions in self.constructions_list for c in constructions]
 
-        points = []
-        segments = []
-        circles = []
+        points = set()
+        segments = set()
+        circles = set()
         required_points = set()
 
         for construction in constructions:
             new_points, new_segments, new_circles = self.construction2diagram[construction]
-            required_points.update(set(self.name2point[p.name] for p in construction.inputs if isinstance(p, Point)))
-            points.extend(new_points)
-            segments.extend(new_segments)
-            circles.extend(new_circles)
+            required_points.update(set(self.name2point[p.name] for p in construction.inputs if not isinstance(p, float)))
+            points.update(new_points)
+            segments.update(new_segments)
+            circles.update(new_circles)
 
             for point in new_points:
                 self.ax.scatter(point.x, point.y, color='black', s=15)
@@ -1495,7 +1495,7 @@ class Diagram:
         
         for p in required_points:
             if p not in points:
-                points.append(p)
+                points.add(p)
         
         xmin = min([p.x for p in points])
         xmax = max([p.x for p in points])
