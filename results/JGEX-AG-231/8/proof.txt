@@ -1,0 +1,3 @@
+Solution:
+1. Angle_f_o_p + Angle_f_p_o + Angle_o_f_p - pi & Angle_b_f_e + Angle_d_f_e - pi & Angle_b_e_p + Angle_b_p_e + Angle_e_b_p - pi & Angle_c_d_f + Angle_c_f_d + Angle_d_c_f - pi => Angle_b_d_c - Angle_b_f_e
+2. Angle_b_d_c - Angle_b_f_e & Collinear(b,d,f) [AlphaGeometry3b(d,c,b,e,f)] => Parallel(c,d,e,f)

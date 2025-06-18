@@ -1,0 +1,4 @@
+Solution:
+1. Perpendicular(a,b,o,q) & Parallel(m,o,o,q) [AlphaGeometry1b(o,q,a,b,m,o)] => Angle_a_m_o + Angle_b_a_m - pi/2
+2. Perpendicular(a,b,o,q) & Parallel(a,b,a,q) [AlphaGeometry1b(a,b,o,q,a,q)] => Angle_a_q_o - pi/2
+3. Angle_c_e_m + Angle_c_m_e + Angle_e_c_m - pi & Angle_a_m_o + Angle_b_a_m - pi/2 & Angle_a_q_o - pi/2 => Angle_a_d_e - Angle_a_e_d

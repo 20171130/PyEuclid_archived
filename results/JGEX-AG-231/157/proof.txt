@@ -1,0 +1,4 @@
+Solution:
+1. Angle_b_h_i + Angle_b_i_h + Angle_h_b_i - pi => Angle_a_b_d - Angle_a_e_h
+2. Angle_b_h_i + Angle_b_i_h + Angle_h_b_i - pi => Angle_a_d_b - Angle_a_h_e
+3. Angle_a_b_d - Angle_a_e_h & Angle_a_d_b - Angle_a_h_e [AlphaGeometry3536(a,b,d,a,e,h)] => -Length_b_i + Length_c_h

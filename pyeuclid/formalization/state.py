@@ -19,8 +19,6 @@ class State:
         self.points = set()
         self.relations = set()
         self.equations = set()
-        self.extra_equations = set()
-        self.extra_solutions = {}
         self.lengths = UnionFind()
         self.angles = UnionFind()
         self.var_types = {}
@@ -104,7 +102,7 @@ class State:
                         self.angles.add(Angle(p, point1, point))
                 self.points.add(p)
 
-    def add_equation(self, equation, extra=False):
+    def add_equation(self, equation):
         # allow redundant equations for neat proofs
         equation = Traced(equation, depth=self.current_depth)
         points_list, quantities = get_points_and_symbols(equation)
@@ -119,10 +117,7 @@ class State:
             elif "Length" in str(quantity):
                 unionfind = self.lengths
                 unionfind.add(quantity)
-        if extra:
-            self.extra_equations.add(equation)
-        else:
-            self.equations.add(equation)
+        self.equations.add(equation)
     
     def categorize_variable(self):
         angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types)

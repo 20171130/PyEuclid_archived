@@ -1,0 +1,4 @@
+Solution:
+1. Length_a1_o1 - Length_b1_o1 & Length_a1_o - Length_a_o => Length_a1_o - Length_b_o
+2. Angle_a_b1_o1 + Angle_a_o1_b1 + Angle_b1_a_o1 - pi & Angle_b_o_p + Angle_b_p_o + Angle_o_b_p - pi & Angle_a1_b1_o + Angle_a1_o_b1 + Angle_b1_a1_o - pi & Angle_a_b_o1 + Angle_a_o1_b + Angle_b_a_o1 - pi & Angle_b1_o_p + Angle_b1_p_o + Angle_o_b1_p - pi & Angle_a1_o_b + Angle_a_o_a1 - pi & Angle_a1_a_b1 + Angle_a_a1_b1 + Angle_a_b1_a1 - pi & Angle_a1_o1_o + Angle_a1_o_o1 + Angle_o_a1_o1 - pi & Angle_a1_b_o + Angle_a1_o_b + Angle_b_a1_o - pi => Angle_a1_a_b + Angle_b_a1_o1 - pi
+3. Length_a1_o - Length_b_o & Length_a1_o - Length_a_o & Angle_a1_a_b + Angle_b_a1_o1 - pi [AlphaGeometry17a(o,a1,b,a,o1)] => Perpendicular(a1,o,a1,o1)

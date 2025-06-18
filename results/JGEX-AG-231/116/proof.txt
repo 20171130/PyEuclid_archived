@@ -1,0 +1,2 @@
+Solution:
+1. Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_b_c_e + Angle_b_e_c + Angle_c_b_e - pi [Angle2Perp(a,e,d)] => Perpendicular(a,e,d,e)

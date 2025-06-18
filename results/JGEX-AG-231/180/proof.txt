@@ -1,0 +1,5 @@
+Solution:
+1. -Length_a_b + Length_a_c & -Length_a_b + Length_a_d [AlphaGeometry40(c,a,h,h,a,c)] => Length_a_c/Length_a_h - 1
+2. Angle_b_c_e + Angle_b_e_c + Angle_c_b_e - pi => Angle_d_h_g - Angle_g_e_h
+3. Angle_d_g_h - Angle_e_g_h & Angle_d_h_g - Angle_g_e_h [AlphaGeometry3536(d,g,h,h,g,e)] => Length_e_g/Length_g_h - Length_g_h/Length_d_g
+4. Length_a_c/Length_a_h - 1 & Length_e_g/Length_g_h - Length_g_h/Length_d_g => Length_f_g - Length_g_h

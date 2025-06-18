@@ -162,7 +162,7 @@ class ProofGenerator:
             if step_number == last:
                 continue
             last = step_number
-            dic = {"condition": conditions, "step": step_number, "theorem": theorem, "conclusion": node}
+            dic = {"condition": conditions, "theorem": theorem, "conclusion": node}
             proof.append(dic)
         
         return proof
@@ -174,8 +174,9 @@ class ProofGenerator:
     def get_proof_str(self, node=None):
         res = "Solution:\n"
         proof = self.get_proof(node)
-        for step, (condition, conclusion) in enumerate(proof):
-            res += f'{step+1}. ' + ' & '.join([str(item) for item in condition]) + ' => ' + str(conclusion) + '\n'
+        for step, (condition, theorem, conclusion) in enumerate(proof):
+            theorem_str = ' [' + str(theorem) + ']' if theorem else ''
+            res += f'{step+1}. ' + ' & '.join([str(item) for item in condition]) + theorem_str + ' => ' + str(conclusion) + '\n'
         return res
     
     def get_proof(self, node=None):
@@ -184,13 +185,11 @@ class ProofGenerator:
             node = self.state.goal
         
         proof_steps = self.format_proof(node)
-        def trivial_inference(item):
-            for source in getattr(item, "sources", []):
-                if type(source) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle):
-                    return True
+        
         for proof_step in proof_steps:
             if not isinstance(proof_step['condition'][0], ConstructionRule):
-                res.append(([item for item in proof_step['condition'] if not (trivial_condition(item) or trivial_inference(item))], proof_step['conclusion']))
+                # res.append(([item for item in proof_step['condition'] if not trivial_condition(item)], proof_step['conclusion']))
+                res.append(([item for item in proof_step['condition'] if not (trivial_condition(item) or trivial_inference(item))], proof_step['theorem'], proof_step['conclusion']))
         return res
 
     def traceback_l1(self, augmented_A, e, threshold=1e-6):

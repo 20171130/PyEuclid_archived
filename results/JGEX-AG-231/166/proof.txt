@@ -1,0 +1,10 @@
+Solution:
+1.  => Angle_a_c_b - Angle_b_d_c
+2. Angle_a_b_c - Angle_c_b_d & Angle_a_c_b - Angle_b_d_c [AlphaGeometry3536(a,b,c,c,b,d)] => -Length_b_d/Length_b_c + Length_b_c/Length_a_b
+3. Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_a_c_e - Angle_c_b_f
+4. Perpendicular(a,b,c,d) & Parallel(c,d,c,e) [AlphaGeometry1b(c,d,a,b,c,e)] => Angle_a_b_c + Angle_b_c_e - pi/2
+5. Perpendicular(a,b,c,d) & Parallel(a,b,a,d) [AlphaGeometry1b(a,b,c,d,a,d)] => Angle_a_d_c - pi/2
+6. Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi & Angle_a_b_c + Angle_b_c_e - pi/2 & Angle_a_d_c - pi/2 => Angle_a_e_c - Angle_b_f_c
+7. Angle_a_c_e - Angle_c_b_f & Angle_a_e_c - Angle_b_f_c [AlphaGeometry3536(a,c,e,c,b,f)] => -Length_a_e/Length_c_e + Length_c_f/Length_b_f
+8. -Length_b_d/Length_b_c + Length_b_c/Length_a_b & -Length_a_e/Length_c_e + Length_c_f/Length_b_f => Length_b_d/Length_b_f - Length_c_d/Length_c_e
+9. Collinear(b,d,f) & Collinear(c,d,e) & Length_b_d/Length_b_f - Length_c_d/Length_c_e [AlphaGeometry28(b,c,f,e,d)] => Parallel(b,c,e,f)

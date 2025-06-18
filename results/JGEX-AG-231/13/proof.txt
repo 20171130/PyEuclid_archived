@@ -1,0 +1,10 @@
+Solution:
+1. -Angle_b_i_o + Angle_i_b_o => Angle_b_c_ic - Angle_i_c_m
+2. -Angle_b_i_o + Angle_i_b_o & Angle_a_c_m + Angle_a_m_c + Angle_c_a_m - pi & Angle_ib_ic_o + Angle_ib_o_ic + Angle_ic_ib_o - pi => Angle_b_ic_c - Angle_c_m_i
+3. Angle_b_c_ic - Angle_i_c_m & Angle_b_ic_c - Angle_c_m_i [AlphaGeometry3536(b,c,ic,i,c,m)] => Length_a_b - Length_a_ib
+4. Angle_b_c_ic - Angle_i_c_m & Angle_b_ic_c - Angle_c_m_i [AlphaGeometry3536(b,c,ic,i,c,m)] => -Length_c_m/Length_c_ic + Length_i_m/Length_b_ic
+5. Angle_b_c_ic - Angle_i_c_m & Angle_b_ic_c - Angle_c_m_i [AlphaGeometry3536(b,c,ic,i,c,m)] => Length_b_c/Length_b_ic - Length_c_i/Length_i_m
+6. -Length_c_m/Length_c_ic + Length_i_m/Length_b_ic & Length_b_c/Length_b_ic - Length_c_i/Length_i_m => Length_a_b - Length_a_c
+7. -Angle_b_i_o + Angle_i_b_o & Angle_a_c_m + Angle_a_m_c + Angle_c_a_m - pi & Angle_ib_ic_o + Angle_ib_o_ic + Angle_ic_ib_o - pi [AlphaGeometry5b(b,c,m,o)] => Angle_m_b_o + Angle_m_c_o - pi
+8. -Angle_b_i_o + Angle_i_b_o & Angle_m_b_o + Angle_m_c_o - pi & Angle_a_c_m + Angle_a_m_c + Angle_c_a_m - pi => Angle_b_c_ib + Angle_ib_b_o - pi
+9. Length_a_b - Length_a_ib & Length_a_b - Length_a_c & Angle_b_c_ib + Angle_ib_b_o - pi [AlphaGeometry17a(a,b,ib,c,o)] => Perpendicular(a,b,b,o)

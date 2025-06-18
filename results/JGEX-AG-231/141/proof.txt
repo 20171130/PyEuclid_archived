@@ -1,0 +1,2 @@
+Solution:
+1. Midpoint(f,a,b) & Midpoint(d,a,c) [AlphaGeometry7(a,b,c,f,d)] => Length_d_g - Length_d_h

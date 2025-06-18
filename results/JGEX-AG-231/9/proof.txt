@@ -1,0 +1,4 @@
+Solution:
+1. -Length_c_o + Length_d_o & Length_a_o - Length_b_o => Length_a_o - Length_d_o
+2. Length_a_o - Length_b_o & Length_a_o - Length_c_o & Length_a_o - Length_d_o [AlphaGeometry2(o,a,b,c,d)] => Angle_c_a_d - Angle_c_b_d
+3. Angle_c_a_d - Angle_c_b_d & Angle_a_e_o + Angle_c_e_o - pi [AlphaGeometry5b(a,f,b,e)] => Concyclic(a,b,e,f)

@@ -1,0 +1,5 @@
+Solution:
+1. -Length_a_b + Length_a_c & Length_a_c - Length_a_e [AlphaGeometry40(b,a,e,e,a,b)] => Length_b_d - Length_c_d
+2. Length_a_b - Length_a_c & Length_b_d - Length_c_d [AlphaGeometry24(b,c,a,d)] => Perpendicular(a,d,b,c)
+3. Collinear(a,c,e) & -Length_a_b + Length_a_c & Length_a_c - Length_a_e [AlphaGeometry21(a,c,b,e)] => Perpendicular(b,c,b,e)
+4. Perpendicular(a,d,b,c) & Perpendicular(b,c,b,e) [AlphaGeometry1(a,d,b,c,b,e)] => Parallel(a,d,b,e)

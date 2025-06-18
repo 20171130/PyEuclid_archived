@@ -1,0 +1,8 @@
+Solution:
+1.  => Angle_a_b_c - Angle_b_c_d
+2. Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_a_c_b - Angle_b_d_c
+3. Angle_a_b_c - Angle_b_c_d & Angle_a_c_b - Angle_b_d_c [AlphaGeometry3536(a,b,c,b,c,d)] => -Length_a_c/Length_b_d + Length_b_c/Length_c_d
+4. Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_a_c_d - Angle_c_b_d
+5.  => Angle_a_d_c - Angle_b_c_d
+6. Angle_a_c_d - Angle_c_b_d & Angle_a_d_c - Angle_b_c_d [AlphaGeometry3536(a,c,d,d,b,c)] => Length_b_c/Length_c_d - Length_b_d/Length_a_c
+7. -Length_a_c/Length_b_d + Length_b_c/Length_c_d & Length_b_c/Length_c_d - Length_b_d/Length_a_c => Length_a_e - Length_f_g

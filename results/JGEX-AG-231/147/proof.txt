@@ -1,0 +1,4 @@
+Solution:
+1. Length_e_o - Length_f_o & -Length_b_f + Length_c_f => Length_c_f/Length_b_f - Length_c_g/Length_a_g
+2. Collinear(b,c,f) & Collinear(a,c,g) & Length_c_f/Length_b_f - Length_c_g/Length_a_g [AlphaGeometry28(f,g,b,a,c)] => Angle_a_g_f + Angle_b_a_g - pi
+3. Angle_a_f_o + Angle_a_o_f + Angle_f_a_o - pi & Angle_c_d_e + Angle_c_e_d + Angle_d_c_e - pi & Angle_a_g_f + Angle_b_a_g - pi [AlphaGeometry5a(d,e,f,g)] => Concyclic(d,e,f,g)

@@ -1,0 +1,3 @@
+Solution:
+1. Angle_b_f_g + Angle_b_g_f + Angle_f_b_g - pi => Angle_b_e_g - Angle_d_e_g
+2. Collinear(b,d,g) & Angle_b_e_g - Angle_d_e_g [AlphaGeometry13(e,b,d,g)] => Length_d_f - Length_d_g

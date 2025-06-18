@@ -1,0 +1,5 @@
+Solution:
+1. Angle_a_c_m + Angle_a_m_c + Angle_c_a_m - pi [AlphaGeometry15(b,a,f)] => Length_a_b - Length_b_f
+2. -Length_a_m/Length_c_m + Length_c_m/Length_a_m & -Length_a_m/Length_c_m + 1 & Length_a_b - Length_b_f => Length_a_c/Length_c_f - Length_a_e/Length_d_e
+3. Collinear(a,c,f) & Collinear(a,d,e) & Length_a_c/Length_c_f - Length_a_e/Length_d_e [AlphaGeometry28(c,e,f,d,a)] => Parallel(c,e,d,f)
+4. Parallel(b,d,d,f) & Parallel(c,e,d,f) [ParaTrans(d,f,b,d,c,e)] => Parallel(b,d,c,e)

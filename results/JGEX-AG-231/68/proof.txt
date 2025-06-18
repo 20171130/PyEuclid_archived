@@ -1,0 +1,4 @@
+Solution:
+1. Length_b_c - Length_b_d & -Length_b_c + Length_b_d [AlphaGeometry34(c,b,d,d,b,c)] => -Angle_b_c_d + Angle_b_d_c
+2. -Angle_b_c_d + Angle_b_d_c [Angle2Perp(a,f,d)] => Perpendicular(a,f,d,f)
+3. Perpendicular(a,f,d,f) & Parallel(a,c,a,f) [AlphaGeometry1b(a,f,d,f,a,c)] => Perpendicular(a,c,d,f)

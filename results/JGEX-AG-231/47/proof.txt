@@ -1,0 +1,2 @@
+Solution:
+1. Angle_b_a1_g + Angle_g_a1_s - pi & Angle_a1_g_b + Angle_a_g_a1 - pi & Angle_a1_b_h + Angle_a1_h_b + Angle_b_a1_h - pi [Angle2Perp3(a,s,g,h)] => Perpendicular(a,s,g,h)

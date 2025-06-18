@@ -1,0 +1,4 @@
+Solution:
+1. Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_a_b_c - Angle_a_d_c
+2. Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_a_c_b - Angle_c_a_d
+3. Angle_a_b_c - Angle_a_d_c & Angle_a_c_b - Angle_c_a_d [AlphaGeometry3536(a,b,c,c,d,a)] => Length_d_f - Length_f_g

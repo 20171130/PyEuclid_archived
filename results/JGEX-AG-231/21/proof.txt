@@ -1,0 +1,6 @@
+Solution:
+1.  => Angle_c_d_e - Angle_e_c_f
+2.  => Angle_c_e_d - Angle_c_e_f
+3. Angle_c_d_e - Angle_e_c_f & Angle_c_e_d - Angle_c_e_f [AlphaGeometry3536(c,d,e,f,c,e)] => Length_c_d/Length_c_f - Length_d_e/Length_c_e
+4. Angle_c_d_e - Angle_e_c_f & Angle_c_e_d - Angle_c_e_f [AlphaGeometry3536(c,d,e,f,c,e)] => Length_c_e/Length_e_f - Length_d_e/Length_c_e
+5. Length_c_d/Length_c_f - Length_d_e/Length_c_e & Length_c_e/Length_e_f - Length_d_e/Length_c_e => Length_a_e - Length_a_f

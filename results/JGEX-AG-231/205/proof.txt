@@ -1,0 +1,2 @@
+Solution:
+1. Angle_a_b_e + Angle_b_e_f - pi & Angle_a_f_d + Angle_c_f_d - pi [AlphaGeometry3536(a,e,f,e,a,f)] => -Length_c_f + Length_e_f

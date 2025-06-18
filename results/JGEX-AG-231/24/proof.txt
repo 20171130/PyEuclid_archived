@@ -1,0 +1,8 @@
+Solution:
+1. Angle_c_e_g + Angle_c_g_e + Angle_e_c_g - pi => -Angle_a_g_f + Angle_d_a_g
+2. Angle_c_e_g + Angle_c_g_e + Angle_e_c_g - pi => Angle_a_g_d - Angle_f_a_g
+3. -Angle_a_g_f + Angle_d_a_g & Angle_a_g_d - Angle_f_a_g [AlphaGeometry37(d,a,g,f,g,a)] => -Length_a_d + Length_f_g
+4. Midpoint(e,a,b) & Midpoint(f,b,c) [AlphaGeometry7(b,a,c,e,f)] => -Length_b_f/Length_b_c + Length_b_e/Length_a_b
+5. -Angle_a_g_f + Angle_d_a_g & Angle_a_g_d - Angle_f_a_g [AlphaGeometry37(d,a,g,f,g,a)] => -Length_a_f + Length_d_g
+6. -Length_a_d + Length_f_g & -Length_b_f/Length_b_c + Length_b_e/Length_a_b & -Length_a_f + Length_d_g & -Length_a_c/2 + Length_a_d [DefinitionOfMidpoint(f,e,g)] => Midpoint(f,e,g)
+7. Midpoint(f,b,c) & Midpoint(f,e,g) [AlphaGeometry26(b,c,e,g,f)] => Parallel(b,g,c,e)

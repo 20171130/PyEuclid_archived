@@ -1,0 +1,2 @@
+Solution:
+1. Length_c_e - Length_e_f & -Length_a_c/Length_b_c + 1 => Length_c_g - Length_f_g

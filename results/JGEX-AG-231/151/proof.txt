@@ -1,0 +1,4 @@
+Solution:
+1.  => Angle_a_c_g - Angle_a_d_f
+2.  => -Angle_a_f_d + Angle_a_g_c
+3. Angle_a_c_g - Angle_a_d_f & -Angle_a_f_d + Angle_a_g_c [AlphaGeometry3536(a,c,g,a,d,f)] => Similar3(a,c,g,a,d,f)

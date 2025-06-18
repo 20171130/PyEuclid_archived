@@ -1,0 +1,4 @@
+Solution:
+1. Angle_b_d_o + Angle_b_o_d + Angle_d_b_o - pi & -Angle_a_c_o + Angle_c_a_o & Angle_a_c_o + Angle_a_o_c + Angle_c_a_o - pi [AlphaGeometry5a(a,o,c,d)] => Concyclic(a,c,d,o)
+2. Angle_b_d_o + Angle_b_o_d + Angle_d_b_o - pi [AlphaGeometry5b(a,c,e,o)] => Concyclic(a,c,e,o)
+3. Concyclic(a,c,d,o) & Concyclic(a,c,e,o) [ConcyclicTransist(a,c,o,d,e)] => Concyclic(a,d,e,o)

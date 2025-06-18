@@ -1,0 +1,3 @@
+Solution:
+1. -Length_c_e + Length_c_f & -Length_a_c + Length_b_c [AlphaGeometry40(a,c,f,f,c,a)] => -Length_a_c/Length_a_f + Length_c_f/Length_a_f
+2. Length_a_c/Length_a_e - Length_c_e/Length_a_e & -Length_a_c/Length_a_f + Length_c_f/Length_a_f => Length_a_f - Length_f_g

@@ -1,0 +1,4 @@
+Solution:
+1. Length_a_b - Length_b_d & Length_a_g - Length_b_c & Length_b_d - Length_d_e => Length_a_b - Length_a_e
+2. Length_a_b - Length_a_e & -Length_a_b + Length_a_e [AlphaGeometry34(b,a,e,e,a,b)] => -Angle_a_b_e + Angle_a_e_b
+3. -Angle_a_b_e + Angle_a_e_b [Angle2Perp3(b,g,c,d)] => Perpendicular(b,g,c,d)

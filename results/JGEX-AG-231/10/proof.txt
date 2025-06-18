@@ -1,0 +1,2 @@
+Solution:
+1. Midpoint(p,a,b) & Midpoint(q,b,c) [AlphaGeometry7(b,a,c,p,q)] => -Length_o_r + Length_o_s

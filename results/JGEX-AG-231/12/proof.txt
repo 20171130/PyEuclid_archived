@@ -1,0 +1,6 @@
+Solution:
+1. Perpendicular(a,o,q,t) & Parallel(q,s,q,t) [AlphaGeometry1b(q,t,a,o,q,s)] => Perpendicular(a,o,q,s)
+2. Perpendicular(a,o,q,s) & Parallel(a,o,o,p) [AlphaGeometry1b(a,o,q,s,o,p)] => Perpendicular(o,p,q,s)
+3. Perpendicular(b,o,k,p) & Parallel(k,p,p,s) [AlphaGeometry1b(k,p,b,o,p,s)] => Perpendicular(b,o,p,s)
+4. Perpendicular(b,o,p,s) & Parallel(b,o,o,q) [AlphaGeometry1b(b,o,p,s,o,q)] => Perpendicular(o,q,p,s)
+5. Perpendicular(o,p,q,s) & Perpendicular(o,q,p,s) [DefinitionOfOrthocenter(o,p,q,s)] => Perpendicular(o,s,p,q)

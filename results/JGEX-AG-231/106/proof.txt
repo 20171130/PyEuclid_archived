@@ -1,0 +1,4 @@
+Solution:
+1.  [AlphaGeometry5a(b,p,c,o)] => Concyclic(b,c,o,p)
+2.  [AlphaGeometry5a(b,o,c,q)] => Concyclic(b,c,o,q)
+3. Concyclic(b,c,o,p) & Concyclic(b,c,o,q) [ConcyclicTransist(b,c,o,p,q)] => Concyclic(b,c,p,q)

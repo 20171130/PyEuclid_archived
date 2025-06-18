@@ -1,0 +1,9 @@
+Solution:
+1. Length_a_c - Length_c_d & -Length_a_e + Length_d_e => Length_b_g - Length_c_f
+2. Length_b_f - Length_c_g & Length_b_g - Length_c_f [SSS(b,f,g,c,g,f)] => Angle_b_f_g - Angle_c_g_f
+3. Parallel(b,c,f,g) & Length_b_f - Length_c_g [EqTrapezoid1(b,c,f,g)] => Angle_b_c_f - Angle_c_b_g
+4. Length_a_c - Length_c_d & -Length_a_e + Length_d_e & Length_b_g - Length_f_g => -Length_b_c + Length_c_f
+5. Length_b_c - Length_b_g & -Length_b_c + Length_c_f & Length_b_f - Length_c_g [SSS(b,c,f,g,b,c)] => -Angle_b_c_g + Angle_b_f_c
+6. Angle_b_c_f - Angle_c_b_g => Angle_a_c_d - Angle_b_c_f
+7. Angle_b_c_f - Angle_c_b_g => Angle_a_c_d - Angle_c_b_g
+8. Angle_b_f_g - Angle_c_g_f & Angle_b_c_f - Angle_c_b_g & -Angle_b_c_g + Angle_b_f_c & Angle_a_d_c - Angle_b_f_c & Angle_a_d_c - Angle_b_c_g [Angle2Perp3(a,f,b,d)] => Perpendicular(a,f,b,d)

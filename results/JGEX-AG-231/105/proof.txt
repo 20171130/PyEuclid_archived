@@ -1,0 +1,3 @@
+Solution:
+1.  => Angle_a_e_b - Angle_b_d_h
+2. Angle_a_b_e - Angle_d_b_h & Angle_a_e_b - Angle_b_d_h [AlphaGeometry3536(a,b,e,h,b,d)] => -Length_a_h + Length_a_k

@@ -1,0 +1,8 @@
+Solution:
+1. Angle_a_g_f + Angle_d_g_f - pi & Angle_b_f_g + Angle_d_f_g - pi => Angle_a_b_d - Angle_d_f_g
+2. Angle_a_b_d - Angle_d_f_g & Angle_a_d_b - Angle_f_d_g [AlphaGeometry3536(a,b,d,g,f,d)] => Length_a_b/Length_f_g - Length_a_d/Length_d_g
+3. Angle_a_b_d - Angle_d_f_g & Angle_a_d_b - Angle_f_d_g [AlphaGeometry3536(a,b,d,g,f,d)] => Length_d_f/Length_b_d - Length_f_g/Length_a_b
+4. Angle_a_g_f + Angle_d_g_f - pi & Angle_b_f_g + Angle_d_f_g - pi => Angle_a_c_d - Angle_a_e_g
+5. Angle_a_g_f + Angle_d_g_f - pi & Angle_b_f_g + Angle_d_f_g - pi => Angle_a_d_c - Angle_a_g_e
+6. Angle_a_c_d - Angle_a_e_g & Angle_a_d_c - Angle_a_g_e [AlphaGeometry3536(a,c,d,a,e,g)] => Length_e_g/Length_c_d - Length_a_g/Length_a_d
+7. Length_a_b/Length_f_g - Length_a_d/Length_d_g & Length_d_f/Length_b_d - Length_f_g/Length_a_b & Length_e_g/Length_c_d - Length_a_g/Length_a_d [DefinitionOfMidpoint(g,a,d)] => Midpoint(g,a,d)

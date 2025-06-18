@@ -1,0 +1,4 @@
+Solution:
+1. Perpendicular(a,b,c,e) & Parallel(c,e,c,f) [AlphaGeometry1b(c,e,a,b,c,f)] => Perpendicular(a,b,c,f)
+2. Perpendicular(a,c,b,d) & Parallel(b,d,b,f) [AlphaGeometry1b(b,d,a,c,b,f)] => Perpendicular(a,c,b,f)
+3. Perpendicular(a,b,c,f) & Perpendicular(a,c,b,f) [DefinitionOfOrthocenter(a,b,c,f)] => Perpendicular(a,f,b,c)

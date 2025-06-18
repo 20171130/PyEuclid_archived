@@ -1,0 +1,5 @@
+Solution:
+1. Angle_b_g_e + Angle_d_g_e - pi & Angle_a_e_d + Angle_c_e_d - pi & Angle_a_d_b + Angle_a_d_c - pi => Angle_d_c_e - Angle_d_f_e
+2. Angle_b_g_e + Angle_d_g_e - pi => Angle_c_d_f - Angle_c_e_f
+3. Angle_d_c_e - Angle_d_f_e & Angle_c_d_f - Angle_c_e_f [DefinitionOfParallelogram4(c,d,f,e)] => Angle_c_d_f + Angle_d_f_e - pi
+4. Angle_b_g_e + Angle_d_g_e - pi & Angle_c_d_f + Angle_d_f_e - pi => Angle_e_d_f - Angle_e_g_f

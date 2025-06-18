@@ -1,0 +1,5 @@
+Solution:
+1. Perpendicular(a,c,b,c) & Perpendicular(a,c,e,f) [AlphaGeometry1(b,c,a,c,e,f)] => Angle_b_e_f + Angle_c_b_e - pi
+2. Angle_b_e_f + Angle_c_b_e - pi & Angle_c_e_g + Angle_c_g_e + Angle_e_c_g - pi => Angle_c_e_f - Angle_e_c_g
+3. Angle_b_e_f + Angle_c_b_e - pi & Angle_c_e_g + Angle_c_g_e + Angle_e_c_g - pi => Angle_c_f_e - Angle_c_g_e
+4. Angle_c_e_f - Angle_e_c_g & Angle_c_f_e - Angle_c_g_e [AlphaGeometry3536(c,e,f,e,c,g)] => Length_d_f - Length_d_g

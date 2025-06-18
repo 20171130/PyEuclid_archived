@@ -1,0 +1,4 @@
+Solution:
+1. Length_a_b - Length_a_c & Length_a_b - Length_a_f & Perpendicular(a,b,b,d) [AlphaGeometry16a(a,b,c,f,d)] => Angle_b_f_c + Angle_c_b_d - pi
+2. Angle_b_f_c + Angle_c_b_d - pi [AlphaGeometry5b(a,d,b,g)] => Angle_d_a_g - Angle_d_b_g
+3. Angle_d_a_g - Angle_d_b_g & Angle_b_f_c + Angle_c_b_d - pi & Angle_a_c_h + Angle_a_h_c + Angle_c_a_h - pi [Angle2Para(b,h,f,e)] => Parallel(b,h,e,f)

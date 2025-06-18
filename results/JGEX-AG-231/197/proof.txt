@@ -1,0 +1,5 @@
+Solution:
+1. Angle_c_i_j + Angle_c_j_i + Angle_i_c_j - pi & Angle_b_o_i + Angle_i_o_l - pi & Angle_c_e_i + Angle_c_i_e + Angle_e_c_i - pi & Angle_a_e_o + Angle_j_e_o - pi => Angle_b_c_l - Angle_c_o_i
+2.  => Angle_b_l_c - Angle_c_i_o
+3. Angle_b_c_l - Angle_c_o_i & Angle_b_l_c - Angle_c_i_o [AlphaGeometry3536(b,c,l,c,o,i)] => Angle_c_b_l - Angle_i_c_o
+4. Angle_c_b_l - Angle_i_c_o [AlphaGeometry3b(i,j,a,l,i)] => Collinear(i,j,l)

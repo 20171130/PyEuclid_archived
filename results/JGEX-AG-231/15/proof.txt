@@ -1,0 +1,2 @@
+Solution:
+1. Angle_p1_b_y + Angle_q_b_y - pi [AlphaGeometry5a(o,p,p1,q)] => Concyclic(o,p,p1,q)

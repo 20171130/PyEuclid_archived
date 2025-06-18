@@ -1,0 +1,5 @@
+Solution:
+1. Collinear(a,e,h) & Collinear(a,g,i) & Parallel(e,g,h,i) [AlphaGeometry8(e,g,h,i,a)] => Length_a_e/Length_a_g - Length_e_h/Length_g_i
+2. Collinear(a,f,j) & Collinear(a,g,i) & Parallel(f,g,i,j) [AlphaGeometry8(f,g,j,i,a)] => Length_a_f/Length_a_g - Length_f_j/Length_g_i
+3. Length_a_e/Length_a_g - Length_e_h/Length_g_i & Length_a_f/Length_a_g - Length_f_j/Length_g_i => Length_a_e/Length_e_h - Length_a_f/Length_f_j
+4. Collinear(a,e,h) & Collinear(a,f,j) & Length_a_e/Length_e_h - Length_a_f/Length_f_j [AlphaGeometry28(e,f,h,j,a)] => Parallel(e,f,h,j)

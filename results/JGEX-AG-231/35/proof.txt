@@ -1,0 +1,2 @@
+Solution:
+1. Angle_a_b_f - pi/2 & Angle_d_e_f + Angle_d_f_e + Angle_e_d_f - pi & Angle_b_c_e - Angle_b_e_c [AlphaGeometry15(g,e,f)] => Length_e_g - Length_f_g

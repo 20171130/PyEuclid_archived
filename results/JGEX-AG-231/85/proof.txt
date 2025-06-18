@@ -1,0 +1,2 @@
+Solution:
+1.  [Angle2Perp(f,e,h)] => Perpendicular(e,f,e,h)

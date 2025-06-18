@@ -1,0 +1,2 @@
+Solution:
+1. Angle_a_i_k + Angle_a_k_i + Angle_i_a_k - pi & Angle_b_d_c + Angle_b_d_g - pi & Angle_f_i_j + Angle_f_j_i + Angle_i_f_j - pi & Angle_e_g_k + Angle_e_k_g + Angle_g_e_k - pi & Angle_d_h_i + Angle_d_i_h + Angle_h_d_i - pi & Angle_f_i_l + Angle_f_l_i + Angle_i_f_l - pi & Angle_a_d_j + Angle_a_j_d + Angle_d_a_j - pi & Angle_a_e_d + Angle_a_e_f - pi & Angle_c_b_h + Angle_f_b_h - pi & Angle_a_f_k + Angle_a_k_f + Angle_f_a_k - pi & Angle_b_j_g + Angle_b_j_i - pi [Angle2Perp3(f,h,g,i)] => Perpendicular(f,h,g,i)

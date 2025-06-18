@@ -1,0 +1,5 @@
+Solution:
+1. Length_c_o - Length_f_o & -Length_a_p + Length_d_p => Length_a_o - Length_f_o
+2. Length_a_o - Length_f_o & Length_a_o - Length_c_o & Perpendicular(a,o,a,p) [AlphaGeometry16b(o,a,f,c,p)] => -Angle_a_c_f + Angle_f_a_p
+3. -Angle_a_c_f + Angle_f_a_p => Angle_c_d_p - Angle_c_f_e
+4. Angle_c_d_p - Angle_c_f_e & Collinear(c,d,f) [AlphaGeometry3b(d,p,c,e,f)] => Parallel(d,p,e,f)

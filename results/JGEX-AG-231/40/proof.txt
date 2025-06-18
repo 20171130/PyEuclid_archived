@@ -1,0 +1,2 @@
+Solution:
+1. Angle_a_b_f + Angle_a_f_b + Angle_b_a_f - pi & Angle_b_c_e + Angle_b_e_c + Angle_c_b_e - pi & Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi [AlphaGeometry3b(b,e,a,f,b)] => Collinear(b,e,f)

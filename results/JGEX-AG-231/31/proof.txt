@@ -1,0 +1,7 @@
+Solution:
+1. Perpendicular(a,b,c,d) & Parallel(a,b,b,d) [AlphaGeometry1b(a,b,c,d,b,d)] => Perpendicular(b,d,c,d)
+2. Midpoint(g,b,c) & Perpendicular(b,d,c,d) [AlphaGeometry20(b,d,c,g)] => Length_d_f - Length_e_f
+3. Midpoint(g,b,c) & Perpendicular(b,d,c,d) [AlphaGeometry20(b,d,c,g)] => -Length_a_f + Length_d_f
+4.  [Angle2Perp2(a,f,c,g)] => Angle_a_c_g + Angle_c_a_f - pi/2
+5. Angle_a_c_g + Angle_c_a_f - pi/2 => -Angle_d_a_e + Angle_e_d_g
+6. Length_d_f - Length_e_f & -Length_a_f + Length_d_f & -Angle_d_a_e + Angle_e_d_g [AlphaGeometry17b(f,d,e,a,g)] => Perpendicular(d,f,d,g)

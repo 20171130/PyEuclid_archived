@@ -1,0 +1,2 @@
+Solution:
+1. -Length_o_p + Length_o_r & Length_a_p - Length_a_q [AlphaGeometry40(o,a,q,q,a,o)] => Length_p_q - Length_p_r

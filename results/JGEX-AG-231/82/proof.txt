@@ -1,0 +1,4 @@
+Solution:
+1. Midpoint(g,a,b) & Midpoint(e,b,c) [AlphaGeometry7(b,a,c,g,e)] => Length_b_e/Length_b_g - Length_b_c/Length_a_b
+2. Midpoint(h,f,g) & Collinear(e,h,i) & -1/2 + Length_h_i/Length_e_i [DefinitionOfCentroid2(i,f,g,e,h)] => Centroid(i,e,f,g)
+3. Length_a_g - Length_b_g & -0.5 + Length_h_i/Length_e_i & -Length_f_h + Length_g_h => Length_a_i - Length_d_i

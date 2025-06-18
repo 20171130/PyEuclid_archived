@@ -1,0 +1,2 @@
+Solution:
+1.  [AlphaGeometry5a(b,i,c,h)] => Concyclic(b,c,h,i)

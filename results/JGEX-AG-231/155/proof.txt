@@ -1,0 +1,4 @@
+Solution:
+1. Midpoint(h,a,b) & Midpoint(g,a,d) [AlphaGeometry7(a,b,d,h,g)] => -Length_a_d/Length_a_g + Length_b_d/Length_g_h
+2. Midpoint(h,a,b) & Midpoint(g,a,d) [AlphaGeometry7(a,b,d,h,g)] => -Length_g_h/Length_a_g + Length_b_d/Length_a_d
+3. -Length_a_d/Length_a_g + Length_b_d/Length_g_h & -Length_g_h/Length_a_g + Length_b_d/Length_a_d [DefinitionOfMidpoint(i,f,h)] => Midpoint(i,f,h)

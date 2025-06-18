@@ -1,0 +1,2 @@
+Solution:
+1. Length_a_c - Length_b_c & -Length_a_c + Length_b_c [AlphaGeometry34(a,c,b,b,c,a)] => Length_a_f - Length_b_f

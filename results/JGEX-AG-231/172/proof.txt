@@ -1,0 +1,26 @@
+Solution:
+1. Length_a_b - Length_b_c & Length_a_d - Length_c_d [AlphaGeometry24(a,c,b,d)] => -Angle_a_d_b + Angle_b_d_c
+2. Parallel(a,d,b,c) & Length_a_c - Length_b_d [EqTrapezoid1(a,d,c,b)] => -Angle_a_d_b + Angle_c_a_d
+3. Length_b_c - Length_c_d & Length_a_c - Length_b_d => Length_a_b - Length_a_d
+4. Length_a_b - Length_a_d & -Length_a_b + Length_b_c & Length_a_c - Length_b_d [SSS(a,b,c,d,a,b)] => Angle_a_b_d - Angle_a_c_b
+5. Length_b_c - Length_c_d & Length_a_c - Length_b_d => Length_c_f - Length_d_e
+6. -Angle_a_d_b + Angle_c_a_d & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_c_b + Angle_c_b_d - pi/2 & Angle_a_e_f + Angle_c_a_e - pi/2 & Angle_a_d_c + Angle_b_a_d - pi => Angle_b_c_f - Angle_c_d_e
+7. Length_b_c - Length_c_d & Length_c_f - Length_d_e & Angle_b_c_f - Angle_c_d_e [AlphaGeometry34(b,c,f,c,d,e)] => Angle_b_f_c - Angle_c_e_d
+8. -Angle_a_d_b + Angle_c_a_d & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_c_b + Angle_c_b_d - pi/2 => -Angle_a_d_e + Angle_b_c_e
+9. -Length_a_d + Length_b_c & Length_c_e - Length_d_e & -Angle_a_d_e + Angle_b_c_e [AlphaGeometry34(b,c,e,a,d,e)] => Angle_a_e_d - Angle_b_e_c
+10. Length_a_e - Length_a_f & Length_c_e - Length_c_f [AlphaGeometry24(e,f,a,c)] => Angle_c_a_e - Angle_c_a_f
+11. -Angle_a_d_b + Angle_c_a_d & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_c_b + Angle_c_b_d - pi/2 & Angle_a_e_f + Angle_c_a_e - pi/2 => Angle_b_c_e - Angle_d_c_f
+12. Length_b_c - Length_c_d & Length_c_e - Length_c_f & Angle_b_c_e - Angle_d_c_f [AlphaGeometry34(b,c,e,d,c,f)] => Angle_b_e_c - Angle_c_f_d
+13. Length_a_b - Length_a_d & Length_b_c - Length_c_d [AlphaGeometry24(b,d,a,c)] => Angle_a_c_b - Angle_a_c_d
+14. Length_a_c - Length_b_d & -Length_b_c + Length_c_d & Length_a_d - Length_c_d [SSS(a,c,d,d,b,c)] => Angle_a_c_d - Angle_c_b_d
+15. Length_a_d - Length_c_d & -Length_a_d + Length_c_d [AlphaGeometry34(a,d,c,c,d,a)] => Angle_a_c_d - Angle_c_a_d
+16. -Angle_a_d_b + Angle_b_d_c & -Angle_a_d_b + Angle_c_a_d & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_c_b + Angle_c_b_d - pi/2 & Angle_a_b_d - Angle_a_c_b & Angle_b_f_c - Angle_c_e_d & Angle_a_e_d - Angle_b_e_c & Angle_c_a_e - Angle_c_a_f & -Angle_a_b_d + Angle_a_c_b & Angle_a_e_f + Angle_c_a_e - pi/2 & Angle_b_e_c - Angle_c_f_d & Angle_a_c_e - Angle_b_d_e & Angle_a_c_b - Angle_a_c_d & Angle_b_a_f - Angle_d_a_e & Angle_a_c_d - Angle_c_b_d & Angle_a_c_d - Angle_c_a_d => Angle_a_b_e - Angle_a_e_b
+17. -Angle_a_d_b + Angle_b_d_c & -Angle_a_d_b + Angle_c_a_d & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_c_b + Angle_c_b_d - pi/2 & Angle_a_b_d - Angle_a_c_b & Angle_b_f_c - Angle_c_e_d & Angle_a_e_d - Angle_b_e_c & Angle_c_a_e - Angle_c_a_f & -Angle_a_b_d + Angle_a_c_b & Angle_a_e_f + Angle_c_a_e - pi/2 & Angle_b_e_c - Angle_c_f_d & Angle_a_c_e - Angle_b_d_e & Angle_a_c_b - Angle_a_c_d => Angle_a_e_b - Angle_b_a_e
+18. Length_b_c - Length_c_d & Length_a_c - Length_b_d => Length_b_c/Length_c_d - Length_c_f/Length_c_e
+19. -Angle_a_d_b + Angle_c_a_d & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_c_b + Angle_c_b_d - pi/2 & Angle_a_e_f + Angle_c_a_e - pi/2 => Angle_b_c_f - Angle_d_c_e
+20. Length_b_c/Length_c_d - Length_c_f/Length_c_e & Angle_b_c_f - Angle_d_c_e [AlphaGeometry40(b,c,f,d,c,e)] => -Length_b_f/Length_c_f + Length_d_e/Length_c_e
+21.  => Angle_a_b_c - Angle_b_c_d
+22. -Angle_a_d_b + Angle_c_a_d & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_c_b + Angle_c_b_d - pi/2 => Angle_a_c_b - Angle_b_d_c
+23. Angle_a_b_c - Angle_b_c_d & Angle_a_c_b - Angle_b_d_c [AlphaGeometry3536(a,b,c,b,c,d)] => -Length_a_c/Length_b_d + Length_b_c/Length_c_d
+24. -Length_b_f/Length_c_f + Length_d_e/Length_c_e & -Length_a_c/Length_b_d + Length_b_c/Length_c_d => -Length_a_e + Length_b_e
+25. Angle_a_b_e - Angle_a_e_b & Angle_a_e_b - Angle_b_a_e & -Length_a_e + Length_b_e [AlphaGeometry37(a,b,e,b,e,a)] => Congruent3(a,b,e,b,e,a)

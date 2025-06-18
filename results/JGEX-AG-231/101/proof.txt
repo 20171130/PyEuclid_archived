@@ -1,0 +1,5 @@
+Solution:
+1. -Length_a_o + Length_d_o & -Length_a_f + Length_b_f => -Length_b_o + Length_d_o
+2. Midpoint(f,a,b) & -Length_a_o + Length_d_o & -Length_b_o + Length_d_o [AlphaGeometry18a(o,d,a,b,f)] => Angle_a_d_b - Angle_b_o_f
+3. Length_a_o - Length_b_o & Length_a_o - Length_c_o & Length_a_o - Length_d_o [AlphaGeometry2(o,a,b,c,d)] => Angle_b_a_d + Angle_b_c_d - pi
+4. Angle_a_d_b - Angle_b_o_f & Angle_b_a_d + Angle_b_c_d - pi [Angle2Perp2(f,e,d,c)] => Perpendicular(c,d,e,f)

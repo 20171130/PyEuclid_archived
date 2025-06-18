@@ -80,7 +80,13 @@ class InferenceRule:
 
     def __hash__(self):
         return hash(str(self))
-    
+
+
+def trivial_inference(item):
+    for source in getattr(item, "sources", []):
+        if type(source) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle):
+            return True
+    return False
 
 @register("basic")
 class DefinitionOfMidpoint(InferenceRule):

@@ -1,0 +1,5 @@
+Solution:
+1.  => Angle_a_d_p - Angle_d_c_p
+2.  => Angle_a_p_d - Angle_c_p_d
+3. Angle_a_d_p - Angle_d_c_p & Angle_a_p_d - Angle_c_p_d [AlphaGeometry3536(a,d,p,d,c,p)] => -Angle_c_d_p + Angle_d_a_p
+4. -Angle_c_d_p + Angle_d_a_p [AlphaGeometry5b(b,p,c,q)] => Concyclic(b,c,p,q)

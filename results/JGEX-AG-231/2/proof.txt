@@ -1,0 +1,2 @@
+Solution:
+1. Angle_b_o_m + Angle_b_o_n - pi & Angle_c_o_m + Angle_c_o_n - pi & Angle_a_m_n + Angle_b_m_n - pi => Angle_a_c_n + Angle_b_c_n - pi

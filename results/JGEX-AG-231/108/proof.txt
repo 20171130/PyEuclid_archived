@@ -1,0 +1,8 @@
+Solution:
+1. Length_a_f - Length_b_e & Length_b_f - Length_e_f & Length_a_b - Length_b_f [AlphaGeometry14(a,b,e)] => Angle_a_b_e - Angle_a_e_b
+2. Angle_a_b_e + Angle_a_e_b + Angle_b_a_e - pi & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_e_f_p + Angle_e_p_f + Angle_f_e_p - pi & Angle_a_b_e - Angle_a_e_b => Angle_a_b_p - Angle_a_f_e
+3. Parallel(a,b,e,f) & Length_a_f - Length_b_e [EqTrapezoid1(a,b,f,e)] => -Angle_a_b_e + Angle_b_a_f
+4. Angle_a_b_e + Angle_a_e_b + Angle_b_a_e - pi & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_e_f_p + Angle_e_p_f + Angle_f_e_p - pi & Angle_a_b_e - Angle_a_e_b & -Angle_a_b_e + Angle_b_a_f & Angle_b_c_e + Angle_b_e_c + Angle_c_b_e - pi => Angle_b_e_f - Angle_e_f_p
+5. Angle_a_b_e + Angle_a_e_b + Angle_b_a_e - pi & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_e_f_p + Angle_e_p_f + Angle_f_e_p - pi & Angle_a_b_e - Angle_a_e_b & -Angle_a_b_e + Angle_b_a_f & Angle_b_c_e + Angle_b_e_c + Angle_c_b_e - pi => Angle_b_f_e - Angle_e_p_f
+6. Angle_b_e_f - Angle_e_f_p & Angle_b_f_e - Angle_e_p_f [AlphaGeometry3536(b,e,f,e,f,p)] => Angle_e_b_f - Angle_f_e_p
+7. Angle_a_b_e + Angle_a_e_b + Angle_b_a_e - pi & -Angle_a_e_f + Angle_a_p_b & Angle_e_b_f - Angle_f_e_p => Angle_a_c_p - Angle_b_c_p

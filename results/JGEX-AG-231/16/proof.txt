@@ -1,0 +1,2 @@
+Solution:
+1. Angle_i_r_x + Angle_i_x_r + Angle_r_i_x - pi & Angle_i_o1_y + Angle_i_y_o1 + Angle_o1_i_y - pi & Angle_i_q_s + Angle_i_s_q + Angle_q_i_s - pi & Angle_i_q_y + Angle_i_y_q + Angle_q_i_y - pi & Angle_i_p_q + Angle_i_q_p + Angle_p_i_q - pi & Angle_o_p_r + Angle_o_r_p + Angle_p_o_r - pi => Angle_r_i_x + Angle_r_p_x - pi

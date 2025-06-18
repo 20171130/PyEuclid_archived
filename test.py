@@ -1,5 +1,6 @@
 import unittest
 import time
+import shutil
 
 import os
 from sympy import sympify
@@ -27,12 +28,14 @@ class TestBenchmarks(unittest.TestCase):
         for idx, text in enumerate(texts):
             if not idx%world_size == rank:
                 continue
+            os.makedirs(f'results/JGEX-AG-231/{idx+1}/', exist_ok=True)
             state = State()
             state.silent = True
             if world_size > 1:
                 state.silent = True
             try:
                 state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
+                shutil.copy(f"diagrams/JGEX-AG-231/{idx+1}.jpg", f"results/JGEX-AG-231/{idx+1}/diagram.jpg")
                 deductive_database = DeductiveDatabase(state)
                 algebraic_system = AlgebraicSystem(state)
                 proof_generator = ProofGenerator(state)
@@ -47,28 +50,23 @@ class TestBenchmarks(unittest.TestCase):
                     proof = None
                     with TT(60):
                         proof_generator.run()
-                        proof = proof_generator.format_proof()
-                #         max_cond_num = 0
-                #         acc_cond_num = 0
-                #         step = 0
-                #         for proof_step in proof:
-                #             if not isinstance(proof_step['condition'][0], ConstructionRule):
-                #                 step += 1
-                #                 def trivial_inference(item):
-                #                     for source in getattr(item, "sources", []):
-                #                         if type(source) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, PropertyOfTriangle):
-                #                             return True
-                #                 conditions = [item for item in proof_step['condition'] if not trivial_inference(item)]
-                #                 max_cond_num = max(max_cond_num, len(conditions))
-                #                 acc_cond_num += len(conditions)
+                        proof = proof_generator.get_proof()
+                        proof_str = proof_generator.get_proof_str()
+                        max_cond_num = 0
+                        acc_cond_num = 0
+                        for (conditions, theorem, conclusion) in proof:
+                            max_cond_num = max(max_cond_num, len(conditions))
+                            acc_cond_num += len(conditions)
                     
                     if proof is not None:
                         print(f'{idx} proof generation runs in {time.time()-t0}')
+                        with open(f'results/JGEX-AG-231/{idx+1}/proof.txt', 'w+') as f:
+                            f.write(proof_str)
                     else:
                         print(f'{idx} proof generation fails {time.time()-t0}')
-                #     print(f'Proof steps: ', step)
-                #     print(f'Max condition number: ', max_cond_num)
-                #     print(f'Average condition number: ', acc_cond_num / step)
+                    print(f'Proof steps: ', len(proof))
+                    print(f'Max condition number: ', max_cond_num)
+                    print(f'Average condition number: ', acc_cond_num / len(proof) if len(proof) > 0 else 0)
                     # if world_size == 1:
                     #     proof_generator.show_proof()
                 else:

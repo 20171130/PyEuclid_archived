@@ -1,0 +1,2 @@
+Solution:
+1. Midpoint(g,d,e) & Length_b_f - Length_d_f & Length_b_f - Length_e_f [AlphaGeometry18a(f,b,d,e,g)] => Perpendicular(d,e,f,g)
