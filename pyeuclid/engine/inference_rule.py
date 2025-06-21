@@ -81,13 +81,6 @@ class InferenceRule:
     def __hash__(self):
         return hash(str(self))
 
-
-def trivial_inference(item):
-    for source in getattr(item, "sources", []):
-        if type(source) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle):
-            return True
-    return False
-
 @register("basic")
 class DefinitionOfMidpoint(InferenceRule):
     """ Definition of Midpoint """
@@ -1440,79 +1433,39 @@ class AlphaGeometry17b(InferenceRule):
 
     def conclusion(self):
         return Perpendicular(self.o, self.a, self.a, self.x)
-
-
+    
+    
 @register("basic")
-class AlphaGeometry18a(InferenceRule):
+class InscribedAngle1(InferenceRule):
     """ inscribed angle and half central angles"""
-    def __init__(self, o: Point, a: Point, b: Point, c: Point, m: Point):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point):
         super().__init__()
         self.o = o
         self.a = a
         self.b = b
         self.c = c
-        self.m = m
 
     def condition(self):
-        return Midpoint(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), *Different(self.a, self.b, self.c, self.m, self.o), SameSide(self.a, self.o, self.b, self.c), Lt(self.b, self.c)
+        return Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), *Different(self.a, self.b, self.c, self.o), SameSide(self.a, self.o, self.b, self.c), Lt(self.b, self.c)
 
     def conclusion(self):
-        return Angle(self.b, self.a, self.c)-Angle(self.b, self.o, self.m), Angle(self.b, self.a, self.c)-Angle(self.c, self.o, self.m), Perpendicular(self.o, self.m, self.b, self.c), Congruent3(self.o, self.m, self.b, self.o, self.m, self.c)
-
+        return Angle(self.b, self.a, self.c) - Angle(self.b, self.o, self.c)/2
 
 @register("basic")
-class AlphaGeometry18b(InferenceRule):
+class InscribedAngle2(InferenceRule):
     """ inscribed angle and half central angles"""
-    def __init__(self, o: Point, a: Point, b: Point, c: Point, m: Point):
+    def __init__(self, o: Point, a: Point, b: Point, c: Point):
         super().__init__()
         self.o = o
         self.a = a
         self.b = b
         self.c = c
-        self.m = m
 
     def condition(self):
-        return Midpoint(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), *Different(self.a, self.b, self.c, self.m, self.o), OppositeSide(self.a, self.o, self.b, self.c), Lt(self.b, self.c)
+        return Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), *Different(self.a, self.b, self.c, self.o), OppositeSide(self.a, self.o, self.b, self.c), Lt(self.b, self.c)
 
     def conclusion(self):
-        return Angle(self.b, self.a, self.c) + Angle(self.b, self.o, self.m) - pi, Angle(self.b, self.a, self.c) + Angle(self.c, self.o, self.m) - pi, Perpendicular(self.o, self.m, self.b, self.c), Congruent3(self.o, self.m, self.b, self.o, self.m, self.c)
-
-
-@register("basic")
-class AlphaGeometry19a(InferenceRule):
-    """ inscribed angle and half central angles"""
-    def __init__(self, o: Point, a: Point, b: Point, c: Point, m: Point):
-        super().__init__()
-        self.o = o
-        self.a = a
-        self.b = b
-        self.c = c
-        self.m = m
-
-    def condition(self):
-        return Collinear(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.b, self.a, self.c)-Angle(self.b, self.o, self.m), *Different(self.o, self.a, self.b, self.c, self.m), SameSide(self.a, self.o, self.b, self.c), Between(self.m, self.b, self.c)
-
-    def conclusion(self):
-        return Midpoint(self.m, self.b, self.c), Angle(self.b, self.a, self.c)-Angle(self.c, self.o, self.m), Perpendicular(self.o, self.m, self.b, self.c), Congruent3(self.o, self.m, self.b, self.o, self.m, self.c)
-
-
-@register("basic")
-class AlphaGeometry19b(InferenceRule):
-    """ inscribed angle and half central angles"""
-    def __init__(self, o: Point, a: Point, b: Point, c: Point, m: Point):
-        super().__init__()
-        self.o = o
-        self.a = a
-        self.b = b
-        self.c = c
-        self.m = m
-
-    def condition(self):
-        return Collinear(self.m, self.b, self.c), Length(self.o, self.a) - Length(self.o, self.b), Length(self.o, self.a) - Length(self.o, self.c), Angle(self.b, self.o, self.m) + Angle(self.b, self.a, self.c) - pi, *Different(self.o, self.a, self.b, self.c, self.m), OppositeSide(self.a, self.o, self.b, self.c), Between(self.m, self.b, self.c)
-
-    def conclusion(self):
-        return Midpoint(self.m, self.b, self.c), Angle(self.c, self.o, self.m) + Angle(self.b, self.a, self.c) - pi, Perpendicular(self.o, self.m, self.b, self.c), Congruent3(self.o, self.m, self.b, self.o, self.m, self.c)
-
+        return Angle(self.b, self.a, self.c) + Angle(self.b, self.o, self.c)/2 - pi
 
 @register("basic")
 class AlphaGeometry20(InferenceRule):

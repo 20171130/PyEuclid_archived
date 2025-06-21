@@ -23,29 +23,27 @@ class ProofGenerator:
     def run(self, node=None, depth=None, root=True):
         if not node and self.state.goal:
             node = self.state.goal
-        
-        if root:
-            depth = self.state.current_depth
-
+            
         if isinstance(node, ConstructionRule):
-            self.visited.add(node)
             return
         
         if node in self.visited:
             return
+        self.visited.add(node)
+
+        if root:
+            depth = self.state.current_depth
         
         if depth is None:
             depth = node.depth
         
         if isinstance(node, InferenceRule):
-            self.visited.add(node)
             conds = [item for item in node.condition() if not trivial_condition(item) and not item == 0]
             self.proof_dict[node] = conds
             for cond in conds:
                 self.run(cond, depth=depth-1, root=False)
         
         elif isinstance(node, Relation):
-            self.visited.add(node)
             for tmp in self.state.relations:
                 if tmp == node:
                     if hasattr(tmp, "source"):
@@ -57,21 +55,22 @@ class ProofGenerator:
                 assert False, f"{node} is not proved"
         else:
             if isinstance(node, Traced):
-                sources = node.sources
-                if isinstance(sources[0], str):
-                    # backtrace linear systems
-                    equations = [item for item in self.state.equations if item.depth <= node.depth]
-                    if not node.symbol is None:
-                        expr = node.symbol - node.expr
-                    else:
-                        expr = node.expr
-                    conditions = self.find_conditions(equations, expr, sources[0])
-                    if not conditions:
-                        breakpoint()
-                        assert False
-                    sources = conditions
+                if type(node.sources[0]) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle):
+                    sources = []
                 else:
-                    self.visited.add(node)
+                    sources = node.sources
+                    if isinstance(sources[0], str):
+                        # backtrace linear systems
+                        equations = [item for item in self.state.equations if item.depth <= node.depth]
+                        if not node.symbol is None:
+                            expr = node.symbol - node.expr
+                        else:
+                            expr = node.expr
+                        conditions = self.find_conditions(equations, expr, sources[0])
+                        if not conditions:
+                            breakpoint()
+                            assert False
+                        sources = conditions
             else:
                 assert isinstance(node, sympy.core.expr.Expr)
                 sources = []
@@ -188,8 +187,7 @@ class ProofGenerator:
         
         for proof_step in proof_steps:
             if not isinstance(proof_step['condition'][0], ConstructionRule):
-                # res.append(([item for item in proof_step['condition'] if not trivial_condition(item)], proof_step['conclusion']))
-                res.append(([item for item in proof_step['condition'] if not (trivial_condition(item) or trivial_inference(item))], proof_step['theorem'], proof_step['conclusion']))
+                res.append(([item for item in proof_step['condition'] if not trivial_condition(item) ], proof_step['theorem'], proof_step['conclusion']))
         return res
 
     def traceback_l1(self, augmented_A, e, threshold=1e-6):
