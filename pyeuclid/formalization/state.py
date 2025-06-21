@@ -193,18 +193,21 @@ class State:
     def load_problem_from_text(self, text, diagram_path=None, resample=False):
         constructions_list = get_constructions_list_from_text(text)
         goal = get_goal_from_text(text)
+        satisfied_goal = None
         
         diagram = Diagram(constructions_list, diagram_path, resample=resample)
-        satisfied, satisfied_goal = diagram.numerical_check_goal(goal)
-        
-        for _ in range(MAX_DIAGRAM_ATTEMPTS):
-            if satisfied:
-                break
-            diagram = Diagram(constructions_list, diagram_path, resample=True)
-            satisfied, satisfied_goal = diagram.numerical_check_goal(goal)
 
-        if not satisfied:
-            raise Exception(f"Failed to satisfy goal after {MAX_DIAGRAM_ATTEMPTS} attempts.")
+        if goal:
+            satisfied, satisfied_goal = diagram.numerical_check_goal(goal)
+            
+            for _ in range(MAX_DIAGRAM_ATTEMPTS):
+                if satisfied:
+                    break
+                diagram = Diagram(constructions_list, diagram_path, resample=True)
+                satisfied, satisfied_goal = diagram.numerical_check_goal(goal)
+
+            if not satisfied:
+                raise Exception(f"Failed to satisfy goal after {MAX_DIAGRAM_ATTEMPTS} attempts.")
         
         self.diagram = diagram
         self.goal = satisfied_goal

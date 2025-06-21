@@ -1,6 +1,6 @@
 {
-  "problem": "e = construct_circumcenter(a,c,b), g,h,i,j = construct_centroid(d,c,f)",
-  "goal": "Length_b_c/Length_b_i - Length_c_d/Length_d_e",
+  "problem": "f = construct_circumcenter(e,d,c), g = construct_on_circum(c,a,f), h = construct_parallelogram(a,g,c)",
+  "goal": "Angle_a_b_f - Angle_b_a_f",
   "diagram": "/private/home/zhaoyuli/PyEuclid_archived/samples/1/diagram.jpg",
-  "proof": "Solution:\n1. Centroid(j,c,d,f) & Collinear(c,d,i) & Collinear(f,i,j) [PropertyOfCentroid(j,c,d,f,i)] => -0.5 + Length_i_j/Length_f_j\n2. -Length_a_e + Length_b_e & -Length_b_e + Length_c_e => Length_c_g/Length_f_g - Length_c_i/Length_d_i\n3. Collinear(c,f,g) & Collinear(c,d,i) & Length_c_g/Length_f_g - Length_c_i/Length_d_i [AlphaGeometry28(g,i,f,d,c)] => Parallel(d,f,g,i)\n4. Collinear(d,g,j) & Collinear(f,i,j) & Parallel(d,f,g,i) [AlphaGeometry8(d,f,g,i,j)] => -Length_d_g/Length_f_i + Length_d_j/Length_f_j\n5. -0.5 + Length_i_j/Length_f_j & -Length_d_g/Length_f_i + Length_d_j/Length_f_j & Length_d_h - Length_f_h => Length_b_c/Length_c_d - Length_c_i/Length_c_e\n6. Length_b_c/Length_c_d - Length_c_i/Length_c_e & Angle_b_c_i - Angle_d_c_e [AlphaGeometry40(b,c,i,d,c,e)] => Length_b_c/Length_b_i - Length_c_d/Length_d_e\n"
+  "proof": "Auxilirary Constructions:\ng = construct_on_circum(c,a,f)\nh = construct_parallelogram(a,g,c)\nSolution:\n1. -Length_c_f + Length_d_f & Length_a_g - Length_c_h => Length_a_g/Length_c_h - Length_a_h/Length_c_g\n2.  => Angle_g_a_h - Angle_g_c_h\n3. Length_a_g/Length_c_h - Length_a_h/Length_c_g & Angle_g_a_h - Angle_g_c_h [AlphaGeometry40(g,a,h,h,c,g)] => Length_a_g/Length_g_h - Length_c_h/Length_g_h\n4. Angle_a_c_f - Angle_a_g_f => Angle_a_d_f - Angle_b_e_f\n5. Length_a_g/Length_g_h - Length_c_h/Length_g_h & Length_a_d - Length_b_e => Length_a_f - Length_b_f\n6. Length_a_f - Length_b_f & -Length_a_f + Length_b_f [AlphaGeometry34(a,f,b,b,f,a)] => Angle_a_b_f - Angle_b_a_f\n"
 }

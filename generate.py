@@ -96,7 +96,7 @@ def generate():
             print(construction.index, construction)
     
     diagram.draw_diagram(save=True)
-    engine.search()
+    engine.run()
 
     i = 0
     def generate_data(goal):
@@ -147,8 +147,6 @@ def generate():
             "diagram": diagram_path,
             "proof": proof_str,
         }
-
-        print(proof_str)
 
         with open(f"{data_path}/data.json", "w") as f:
             json.dump(data, f, indent=2)

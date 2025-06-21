@@ -3,6 +3,8 @@ from __future__ import annotations
 import os
 import pickle
 import hashlib
+import random
+import matplotlib.patches as patches
 
 from matplotlib import pyplot as plt
 from itertools import product
@@ -20,6 +22,10 @@ def hash_constructions_list(constructions_list):
 
 class MaxAttemptsError(Exception):
     """Raised when the maximum number of allowed attempts is reached."""
+    pass
+
+class DistanceError(Exception):
+    """Raised when sampled points are too close or far away."""
     pass
 
 
@@ -45,7 +51,7 @@ class Diagram:
                             instance.save_path = save_path
                             instance.save_diagram()
                             return instance
-                except:
+                except :
                     pass
         
         instance = super().__new__(cls)
@@ -58,13 +64,15 @@ class Diagram:
         self.points = []
         self.segments = []
         self.circles = []
+        self.highlight_angles = []
+        self.highlight_segments = []
         
         self.name2point = {}
         self.point2name = {}
         
-        self.auxiliary_constructions = []
         self.construction2diagram = {}
         self.constructions_list = []
+        self.auxiliary_constructions = []
 
         self.min_tol = 0.2
         self.max_tol = 2
@@ -81,7 +89,8 @@ class Diagram:
         self.points.clear()
         self.segments.clear()
         self.circles.clear()
-        
+        self.highlight_segments.clear()
+        self.highlight_angles.clear()
         self.name2point.clear()
         self.point2name.clear()
         self.auxiliary_constructions.clear()
@@ -93,6 +102,8 @@ class Diagram:
             'points': self.points.copy(),
             'segments': self.segments.copy(),
             'circles': self.circles.copy(),
+            'highlight_segments': self.highlight_segments.copy(),
+            'highlight_angles': self.highlight_angles.copy(),
             'name2point': self.name2point.copy(),
             'point2name': self.point2name.copy(),
             'auxiliary_constructions': self.auxiliary_constructions.copy(),
@@ -105,6 +116,8 @@ class Diagram:
             self.points = self._saved['points']
             self.segments = self._saved['segments']
             self.circles = self._saved['circles']
+            self.highlight_segments = self._saved['highlight_segments']
+            self.highlight_angles = self._saved['highlight_angles']
             self.name2point = self._saved['name2point']
             self.point2name = self._saved['point2name']
             self.auxiliary_constructions = self._saved['auxiliary_constructions']
@@ -143,7 +156,7 @@ class Diagram:
                 self.draw_diagram()
                 self.save_to_cache()
                 return
-            except:
+            except DistanceError:
                 continue
         
         raise MaxAttemptsError()
@@ -178,11 +191,11 @@ class Diagram:
         
         if check_too_close(self.points, new_points, self.min_tol):
             self.min_tol = max(1e-2, self.min_tol - 0.01)
-            raise Exception()
+            raise DistanceError()
         
         if check_too_far(self.points, new_points, self.max_tol):
             self.max_tol = min(10, self.max_tol + 1)
-            raise Exception()
+            raise DistanceError()
             
     def numerical_check_goal(self, goal):
         if isinstance(goal, tuple):
@@ -895,18 +908,20 @@ class Diagram:
     
     def draw(self, new_points, constructions, auxiliary=False):
         for construction in constructions:
-            before_segments = len(self.segments)
-            before_circles = len(self.circles)
+            len_s = len(self.segments)
+            len_c = len(self.circles)
+            len_hs = len(self.highlight_segments)
+            len_ha = len(self.highlight_angles)
             func = getattr(self, 'draw_' + construction.__class__.__name__[10:])
             args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.inputs]
             func(*new_points, *args)
-            after_segments = len(self.segments)
-            after_circles = len(self.circles)
             construction.index = len(self.construction2diagram.keys())
             self.construction2diagram[construction] = (
                 new_points,
-                self.segments[before_segments:after_segments],
-                self.circles[before_circles:after_circles],
+                self.segments[len_s:],
+                self.circles[len_c:],
+                self.highlight_segments[len_hs:],
+                self.highlight_angles[len_ha:]
             )
             if auxiliary:
                 self.auxiliary_constructions.append(construction)
@@ -917,18 +932,21 @@ class Diagram:
         self.segments.append(Segment(a, b))
         self.segments.append(Segment(b, c))
         self.segments.append(Segment(b, x))
+        self.highlight_angles.append([[a, b, x], [x, b, c]])
     
     def draw_angle_bisector2(self, *args):
         x, a, b, c = args
         self.segments.append(Segment(a, b))
         self.segments.append(Segment(b, c))
         self.segments.append(Segment(b, x))
+        self.highlight_angles.append([[a, b, x], [x, b, c]])
     
     def draw_angle_mirror(self, *args):
         x, a, b, c = args
         self.segments.append(Segment(a, b))
         self.segments.append(Segment(b, c))
         self.segments.append(Segment(b, x))
+        self.highlight_angles.append([[a, b, c], [x, b, c]])
     
     def draw_circle(self, *args):
         x, a, b, c = args
@@ -950,6 +968,7 @@ class Diagram:
         self.segments.append(Segment(b, c))
         self.segments.append(Segment(c, d))
         self.segments.append(Segment(d, a))
+        self.highlight_segments.append([Segment(d, a), Segment(b, c)])
         
     def draw_eq_trapezoid(self, *args):
         a, b, c, d = args
@@ -979,6 +998,7 @@ class Diagram:
         self.segments.append(Segment(d, a))
         self.segments.append(Segment(b, d))
         self.segments.append(Segment(a, c))
+        self.highlight_segments.append([Segment(a, c), Segment(b, d)])
         
     def draw_eqdistance(self, *args):
         x, a, b, c = args
@@ -1000,6 +1020,7 @@ class Diagram:
         self.segments.append(Segment(x, b))
         self.segments.append(Segment(x, c))
         self.segments.append(Segment(b, c))
+        self.highlight_angles.append([[a, x, np.random.choice([b, c])]])
     
     def draw_free(self, *args):
         x = args
@@ -1146,6 +1167,7 @@ class Diagram:
         self.segments.append(Segment(d, c))
         self.segments.append(Segment(b, a))
         self.segments.append(Segment(a, x))
+        self.highlight_angles.append([[x, a, b], [c, d, e]])
     
     def draw_on_aline2(self, *args):
         x, a, b, c, d, e = args
@@ -1153,6 +1175,7 @@ class Diagram:
         self.segments.append(Segment(d, c))
         self.segments.append(Segment(b, a))
         self.segments.append(Segment(a, x))
+        self.highlight_angles.append([[x, a, b], [c, d, e]])
     
     def draw_on_bline(self, *args):
         x, a, b = args
@@ -1228,12 +1251,14 @@ class Diagram:
         self.segments.append(Segment(b, c))
         self.segments.append(Segment(c, d))
         self.segments.append(Segment(d, a))
+        self.highlight_angles.append([random.choice([[b, a, d], [a, d, c]])])
     
     def draw_r_triangle(self, *args):
         a, b, c = args
         self.segments.append(Segment(a, b))
         self.segments.append(Segment(b, c))
         self.segments.append(Segment(c, a))
+        self.highlight_angles.append([[b, a, c]])
         
     def draw_rectangle(self, *args):
         a, b, c, d = args
@@ -1251,6 +1276,7 @@ class Diagram:
         self.segments.append(Segment(a, b))
         self.segments.append(Segment(b, c))
         self.segments.append(Segment(c, a))
+        self.highlight_angles.append([[b, a, c]])
     
     def draw_s_angle(self, *args):
         x, a, b, alpha = args
@@ -1377,6 +1403,7 @@ class Diagram:
         x, a, b = args
         self.segments.append(Segment(x, a))
         self.segments.append(Segment(x, b))
+        self.highlight_angles.append([[a, x, b]])
         
     def draw_ieq_triangle(self, *args):
         a, b, c = args
@@ -1426,6 +1453,7 @@ class Diagram:
         
         self.segments.append(Segment(a, x))
         self.segments.append(Segment(x, b))
+        self.highlight_angles.append([[a, x, b], [e, d, f]])
     
     def draw_tangent(self, *args):
         x, y, a, o, b = args
@@ -1463,13 +1491,17 @@ class Diagram:
         segments = set()
         circles = set()
         required_points = set()
-
+        highlight_segments = []
+        highlight_angles = []
+        
         for construction in constructions:
-            new_points, new_segments, new_circles = self.construction2diagram[construction]
+            new_points, new_segments, new_circles, new_highlight_segments, new_highlight_angles = self.construction2diagram[construction]
             required_points.update(set(self.name2point[p.name] for p in construction.inputs if not isinstance(p, float)))
             points.update(new_points)
             segments.update(new_segments)
             circles.update(new_circles)
+            highlight_segments.extend(new_highlight_segments)
+            highlight_angles.extend(new_highlight_angles)
 
             for point in new_points:
                 self.ax.scatter(point.x, point.y, color='black', s=15)
@@ -1513,6 +1545,54 @@ class Diagram:
         xspan = xmax - xmin
         yspan = ymax - ymin
         span = max(xspan, yspan)
+        
+        for segments in new_highlight_segments:
+            for segment in segments:
+                p1, p2 = segment.p1, segment.p2
+                ang = ang_of(p1, p2)
+                leaned_ang = ang + np.pi / 2 + np.pi / 12
+                mid = Point((p1.x + p2.x) / 2, (p1.y + p2.y) / 2)
+                start = head_from(mid, leaned_ang + np.pi, span / 60)
+                end = head_from(mid, leaned_ang, span / 60)
+                self.ax.plot([start.x, end.x], [start.y, end.y], color='black', lw=1.2, alpha=0.8, ls='-')
+
+        for angles in highlight_angles:
+            if len(angles) == 1:
+                a, b, c = angles[0]
+                assert close_enough(calculate_angle(a, b, c), np.pi/2)
+                v1 = (a - b) / a.distance(b)
+                v2 = (c - b) / c.distance(b)
+                p1 = b + v1 * span / 30
+                p2 = p1 + v2 * span / 30
+                p3 = b + v2 * span / 30
+                self.ax.plot([p1.x, p2.x], [p1.y, p2.y], color='black', lw=1.2, alpha=0.8, ls='-')
+                self.ax.plot([p2.x, p3.x], [p2.y, p3.y], color='black', lw=1.2, alpha=0.8, ls='-')
+                segments.add(Segment(p1, p2))
+                segments.add(Segment(p2, p3))
+            else:
+                for angle in angles:
+                    a, b, c = angle
+                    angle_ba = ang_of(b, a) * 180 / np.pi
+                    angle_bc = ang_of(b, c) * 180 / np.pi
+                    
+                    diff = (angle_bc - angle_ba) % 360
+                    
+                    if diff <= 180:
+                        theta1 = angle_ba
+                        sweep = diff
+                    else:
+                        theta1 = angle_bc
+                        sweep = 360 - diff
+                    
+                    self.ax.add_patch(
+                        patches.Arc(
+                            (b.x, b.y), span / 10, span / 10,
+                            angle=0,
+                            theta1=theta1,
+                            theta2=theta1 + sweep,
+                            color='black', lw=1.2, alpha=0.8
+                        )
+                    )
 
         def annotation_position(p):
             r = span / 20
@@ -1552,7 +1632,7 @@ class Diagram:
             ymin = min(ymin, y_pos)
             
             self.ax.annotate(self.point2name[p].upper(), (x_pos, y_pos), color='black', ha='center', va='center', fontsize=12)
-            
+        
         self.ax.set_aspect('equal')
         self.ax.set_axis_off()
         

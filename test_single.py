@@ -18,7 +18,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; m = midpoint m b a; o = circle o a b c; n = on_line n o m, on_circle n o a ? eqangle c a c n c n c b")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c d = eqdia_quadrangle a b c d")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -26,7 +26,8 @@ def run_single_problem(args):
     # state.silent = True
     state.logger.setLevel(logging.INFO)
     if args.problem_string is not None:
-        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg', resample=True)
+        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg')
+        state.diagram.draw_diagram()
     else:
         namespace = {}
         with open(f'data/Geometry3K/{args.problem_id}/problem.py', "r") as file:

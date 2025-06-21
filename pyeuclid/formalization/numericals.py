@@ -430,7 +430,13 @@ class Segment(Line):
         self.coefficients = self.line.coefficients
         self.p1 = p1
         self.p2 = p2
-
+    
+    def __eq__(self, other: Segment):
+        return (self.p1 == other.p1 and self.p2 == other.p2) or \
+               (self.p1 == other.p2 and self.p2 == other.p1)
+    
+    def __hash__(self):
+        return hash(frozenset([self.p1, self.p2]))
 
 class Circle:
     """Numerical circle."""
