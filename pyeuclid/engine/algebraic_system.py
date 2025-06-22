@@ -170,8 +170,6 @@ class AlgebraicSystem:
         for eqs, source in (angle_linear, "angle_linear"),  (length_ratio, "length_ratio"):
             free, solved = self.elim(eqs, var_types)
             for key, value in solved.items():
-                value = Traced(value, depth=self.state.current_depth, sources=[source])
-                value.symbol = key
                 solved_vars[key] = value
         used = []
         progress = True
@@ -223,7 +221,6 @@ class AlgebraicSystem:
                 if not solution is None:
                     used.append(i)
                     progress = True
-                    solution = Traced(solution, sources=eqn.sources, depth=self.state.current_depth)
                     solution.symbol = symbol
                     solved_vars[symbol] = solution
                     for key, value in solved_vars.items():
@@ -240,19 +237,20 @@ class AlgebraicSystem:
                 progress = True
                 exact_exhausted = True
         self.state.solutions.append(solved_vars)
+        
         # extract equivalence relations and store in union find
         dic = {}
         eqns = []
         for key, value in solved_vars.items():
             if not "Angle" in str(key) and not "Length" in str(key):
                 continue
-            value = value.expr
             if value in dic:
                 eqns.append((dic[value], key))
             elif isinstance(value, sympy.core.symbol.Symbol) and ("Angle" in str(value) or "Length" in str(value)):
                 eqns.append((key, value))
             else:
                 dic[value] = key
+                
         for eqn in eqns:
             # Remove the assertion or handle the case when unionfind is None
             unionfind = None
@@ -265,6 +263,7 @@ class AlgebraicSystem:
                 unionfind.union(l, r)
         
     def compute_ratio_and_angle_sum(self):
+        
         dic = {}
         tmp = self.state.lengths.equivalence_classes()
         for x in tmp:
@@ -276,8 +275,19 @@ class AlgebraicSystem:
                     dic[expr].append(sympy.core.mul.Mul(
                         x, 1/y, evaluate=False))
         self.state.ratios = dic
+        
         dic = {}
         tmp = self.state.angles.equivalence_classes()
+        for component in tmp.values():
+            if len(component) == 1:
+                continue
+            rep = self.state.simplify_equation(component[0])
+            if len(rep.free_symbols)==0:
+                component += [rep]
+            for a in range(len(component)):
+                for b in range(a+1, len(component)):
+                    self.state.add_conditions(Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"]))
+            
         for x in tmp:
             for y in tmp:
                 expr = self.state.simplify_equation(x+y)
@@ -285,8 +295,18 @@ class AlgebraicSystem:
                     dic[expr] = [x+y]
                 else:
                     dic[expr].append(x+y)
+                if len(expr.free_symbols) == 0 and not expr == sympy.pi:
+                    component_x, component_y = tmp[x], tmp[y]
+                    for a in range(len(component_x)):
+                        for b in range(len(component_y)):
+                            self.state.add_conditions(Traced(component_x[a]+component_y[b]-expr, depth=self.state.current_depth, sources=["angle_linear"]))
         self.state.angle_sums = dic
 
     def run(self):
+        """
+        equation-|depth+0.5|→derived equation-|depth+0.5|→solution→inference→equation
+        """
+        self.state.current_depth += 0.5
         self.solve_equation()
         self.compute_ratio_and_angle_sum()
+        self.state.current_depth += 0.5

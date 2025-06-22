@@ -241,7 +241,7 @@ class State:
         expr = getattr(expr, "expr", expr)
         for symbol in expr.free_symbols:
             if symbol in solved_vars:
-                value = solved_vars[symbol].expr
+                value = solved_vars[symbol]
                 expr = expr.subs(symbol, value)
         return expr
     

@@ -41,7 +41,7 @@ class ProofGenerator:
             conds = [item for item in node.condition() if not trivial_condition(item) and not item == 0]
             self.proof_dict[node] = conds
             for cond in conds:
-                self.run(cond, depth=depth-1, root=False)
+                self.run(cond, depth=depth, root=False)
         
         elif isinstance(node, Relation):
             for tmp in self.state.relations:
@@ -61,7 +61,7 @@ class ProofGenerator:
                     sources = node.sources
                     if isinstance(sources[0], str):
                         # backtrace linear systems
-                        equations = [item for item in self.state.equations if item.depth <= node.depth]
+                        equations = [item for item in self.state.equations if item.depth < node.depth]
                         if not node.symbol is None:
                             expr = node.symbol - node.expr
                         else:
@@ -169,7 +169,8 @@ class ProofGenerator:
     def show_proof(self, node=None):
         res = self.get_proof_str(node)
         print(res)
-    
+        print(self.proof_dict)
+
     def get_proof_str(self, node=None):
         res = "Solution:\n"
         proof = self.get_proof(node)
