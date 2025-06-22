@@ -249,7 +249,7 @@ class ProofGenerator:
 
         obj_val = model.getObjVal()
 
-        indices = [i for i in range(m) if model.getVal(z[i]) > 0.5]
+        indices = [i for i in range(m) if model.getVal(z[i]) > 1e-12]
 
         assert round(obj_val) == len(indices)
         
@@ -316,9 +316,9 @@ class ProofGenerator:
             mat = self.vectorize([item.expr for item in equations], variables, source)
             eq = self.vectorize([conclusion], variables, source)
             raw_deps = self.traceback_l1(mat, eq)
-            mat = self.vectorize([item.expr for item in [equations[i] for i in raw_deps]], variables, source)
-            deps = self.traceback_l0(mat, eq)
-            return [equations[i] for i in deps]
+            sub_mat = mat[raw_deps]
+            sub_indices = self.traceback_l0(sub_mat, eq)
+            return [equations[raw_deps[i]] for i in sub_indices]
         
         if source == "angle_linear":
             equations = angle_linear
