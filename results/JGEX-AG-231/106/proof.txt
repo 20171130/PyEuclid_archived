@@ -1,4 +1,10 @@
 Solution:
-1.  [AlphaGeometry5a(b,p,c,o)] => Concyclic(b,c,o,p)
-2.  [AlphaGeometry5a(b,o,c,q)] => Concyclic(b,c,o,q)
-3. Concyclic(b,c,o,p) & Concyclic(b,c,o,q) [ConcyclicTransist(b,c,o,p,q)] => Concyclic(b,c,p,q)
+1. Length_a_o - Length_b_o & -Length_a_c1 + Length_b_c1 => Length_a_c1/Length_b_c1 - Length_a_o/Length_b_o
+2. Collinear(a,b,c1) & Length_a_c1/Length_b_c1 - Length_a_o/Length_b_o [AlphaGeometry12(o,a,b,c1)] => Angle_a_o_c1 - Angle_b_o_c1
+3. -Length_a_o + Length_c_o & -Length_b_o + Length_c_o [InscribedAngle1(o,c,a,b)] => Angle_a_c_b - Angle_a_o_b/2
+4. -Angle_a_c_b + Angle_b_c_p & -Angle_b_o_c1 + Angle_b_o_p & Angle_a_o_b - Angle_a_o_c1 - Angle_b_o_c1 & Angle_a_o_c1 - Angle_b_o_c1 & Angle_a_c_b - Angle_a_o_b/2 [AlphaGeometry5a(b,p,c,o)] => Concyclic(b,c,o,p)
+5. -Length_a_o + Length_c_o & -Length_a_b1 + Length_b1_c => Length_a_b1/Length_b1_c - Length_a_o/Length_c_o
+6. Collinear(a,b1,c) & Length_a_b1/Length_b1_c - Length_a_o/Length_c_o [AlphaGeometry12(o,a,c,b1)] => Angle_a_o_b1 - Angle_b1_o_c
+7. -Length_a_o + Length_b_o & Length_b_o - Length_c_o [InscribedAngle1(o,b,a,c)] => Angle_a_b_c - Angle_a_o_c/2
+8. Angle_a_o_c - Angle_a_o_q - Angle_c_o_q & Angle_a_o_b1 - Angle_b1_o_c & -Angle_a_o_b1 + Angle_a_o_q & Angle_a_b_c - Angle_a_o_c/2 & Angle_b1_o_c - Angle_c_o_q & -Angle_a_b_c + Angle_c_b_q [AlphaGeometry5a(c,q,b,o)] => Concyclic(b,c,o,q)
+9. Concyclic(b,c,o,p) & Concyclic(b,c,o,q) [ConcyclicTransist(b,c,o,p,q)] => Concyclic(b,c,p,q)

@@ -1,2 +1,9 @@
 Solution:
-1.  => -Angle_d_f_i + Angle_g_d_h
+1. Perpendicular(a,b,e,f) & Perpendicular(a,b,g,h) [AlphaGeometry1(e,f,a,b,g,h)] => Parallel(e,f,g,h)
+2. Collinear(b,e,g) & Collinear(b,f,h) & Parallel(e,f,g,h) [AlphaGeometry8(e,f,g,h,b)] => Length_b_e/Length_b_g - Length_b_f/Length_b_h
+3. Perpendicular(b,c,d,e) & Perpendicular(b,c,h,i) [AlphaGeometry1(d,e,b,c,h,i)] => Parallel(d,e,h,i)
+4. Collinear(b,d,h) & Collinear(b,e,i) & Parallel(d,e,h,i) [AlphaGeometry8(d,e,h,i,b)] => -Length_b_i/Length_b_e + Length_b_h/Length_b_d
+5. Length_b_e/Length_b_g - Length_b_f/Length_b_h & -Length_b_i/Length_b_e + Length_b_h/Length_b_d => Length_b_d/Length_b_f - Length_b_g/Length_b_i
+6. Angle_a_b_c - Angle_d_b_g & -Angle_a_b_c + Angle_f_b_i => Angle_d_b_g - Angle_f_b_i
+7. Length_b_d/Length_b_f - Length_b_g/Length_b_i & Angle_d_b_g - Angle_f_b_i [AlphaGeometry40(d,b,g,f,b,i)] => -Angle_b_d_g + Angle_b_f_i
+8. -Angle_b_d_g + Angle_b_f_i & Angle_b_d_g + Angle_g_d_h - pi & Angle_b_f_i + Angle_d_f_i - pi => -Angle_d_f_i + Angle_g_d_h

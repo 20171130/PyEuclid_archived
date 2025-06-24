@@ -1,2 +1,5 @@
 Solution:
-1. Angle_c_b_e + Angle_e_b_f - pi & Angle_b_d_e + Angle_b_e_d + Angle_d_b_e - pi => -Angle_a_c_f + Angle_b_a_f
+1. -Angle_d_a_f + Angle_e_a_f & -Angle_a_d_f + Angle_d_a_f => Angle_a_d_f - Angle_e_a_f
+2. Angle_b_a_d - Angle_b_a_e & Angle_b_a_d - Angle_c_a_d => -Angle_b_a_e + Angle_c_a_d
+3. Angle_a_c_b - Angle_a_c_f & -Angle_a_c_b + Angle_a_c_d => Angle_a_c_d - Angle_a_c_f
+4. Angle_a_d_f - Angle_e_a_f & -Angle_b_a_e + Angle_c_a_d & Angle_a_c_d - Angle_a_c_f & Angle_a_d_c + Angle_a_d_f - pi & -Angle_b_a_e - Angle_b_a_f + Angle_e_a_f & Angle_a_c_d + Angle_a_d_c + Angle_c_a_d - pi => -Angle_a_c_f + Angle_b_a_f

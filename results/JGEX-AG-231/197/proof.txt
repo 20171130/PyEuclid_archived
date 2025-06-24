@@ -1,5 +1,16 @@
 Solution:
-1. Angle_c_i_j + Angle_c_j_i + Angle_i_c_j - pi & Angle_b_o_i + Angle_i_o_l - pi & Angle_c_e_i + Angle_c_i_e + Angle_e_c_i - pi & Angle_a_e_o + Angle_j_e_o - pi => Angle_b_c_l - Angle_c_o_i
-2.  => Angle_b_l_c - Angle_c_i_o
-3. Angle_b_c_l - Angle_c_o_i & Angle_b_l_c - Angle_c_i_o [AlphaGeometry3536(b,c,l,c,o,i)] => Angle_c_b_l - Angle_i_c_o
-4. Angle_c_b_l - Angle_i_c_o [AlphaGeometry3b(i,j,a,l,i)] => Collinear(i,j,l)
+1. Perpendicular(a,e,a,o) & Parallel(a,i,a,o) [AlphaGeometry1b(a,o,a,e,a,i)] => Perpendicular(a,e,a,i)
+2. Perpendicular(a,e,a,i) & Perpendicular(a,e,c,j) [AlphaGeometry1(a,i,a,e,c,j)] => Parallel(a,i,c,j)
+3. Perpendicular(a,o,c,i) & Parallel(a,i,a,o) [AlphaGeometry1b(a,o,c,i,a,i)] => Angle_a_i_c - pi/2
+4. Angle_e_a_o + Angle_j_a_o - pi & Angle_e_a_o - pi/2 & -Angle_e_a_i + Angle_e_a_o & -Angle_i_a_j + Angle_j_a_o => Angle_e_a_i - Angle_i_a_j
+5. Angle_a_i_c - pi/2 & Angle_e_a_i + Angle_i_a_j - pi & Angle_e_a_i - Angle_i_a_j => Angle_a_i_c - Angle_i_a_j
+6. Parallel(a,i,c,j) & Angle_a_i_c - Angle_i_a_j [EqTrapezoid2(a,i,c,j)] => -Angle_a_i_j + Angle_c_a_i
+7. -Angle_c_a_i + Angle_c_a_o & -Angle_a_i_j + Angle_c_a_i => -Angle_a_i_j + Angle_c_a_o
+8. Perpendicular(a,o,c,i) & Parallel(a,o,i,o) [AlphaGeometry1b(a,o,c,i,i,o)] => Angle_c_i_o - pi/2
+9. Perpendicular(b,o,c,l) & Parallel(b,o,l,o) [AlphaGeometry1b(b,o,c,l,l,o)] => Angle_c_l_o - pi/2
+10. Angle_c_i_o - pi/2 & Angle_c_l_o - pi/2 [AlphaGeometry5b(c,o,i,l)] => Angle_c_i_l - Angle_c_o_l
+11. Angle_a_i_c - Angle_a_i_l - Angle_c_i_l & Angle_a_i_c - pi/2 => Angle_a_i_l + Angle_c_i_l - pi/2
+12. Angle_c_i_l - Angle_c_o_l & Angle_a_i_l + Angle_c_i_l - pi/2 => Angle_a_i_l + Angle_c_o_l - pi/2
+13. -Angle_b_a_o + Angle_c_a_o & -Angle_c_a_i + Angle_c_a_o => Angle_b_a_o - Angle_c_a_i
+14. Angle_b_a_o - Angle_c_a_i & -Angle_a_i_j + Angle_c_a_i => -Angle_a_i_j + Angle_b_a_o
+15. -Angle_a_i_j + Angle_c_a_o & Angle_b_c_o + Angle_b_o_c + Angle_c_b_o - pi & Angle_a_i_l + Angle_c_o_l - pi/2 & Angle_a_o_c - Angle_a_o_l - Angle_c_o_l & -Angle_a_b_o + Angle_c_b_o & Angle_a_o_b + Angle_a_o_l - pi & Angle_a_c_o - Angle_b_c_o & Angle_a_c_o + Angle_a_o_c + Angle_c_a_o - pi & Angle_a_b_o + Angle_a_o_b + Angle_b_a_o - pi & -Angle_a_i_j + Angle_b_a_o & Angle_b_o_c + Angle_c_o_l - pi [AlphaGeometry3b(i,j,a,l,i)] => Collinear(i,j,l)

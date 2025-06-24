@@ -1,2 +1,4 @@
 Solution:
-1. Collinear(b,c,u) & Angle_b_a_u - Angle_c_a_u [AlphaGeometry13(a,b,c,u)] => Length_a_t - Length_t_u
+1. Length_a_o - Length_b_o & Length_a_o - Length_c_o & Perpendicular(a,o,a,t) [AlphaGeometry16b(o,a,b,c,t)] => -Angle_a_c_b + Angle_b_a_t
+2. Angle_a_c_b - Angle_a_c_u & -Angle_a_c_b + Angle_b_a_t => Angle_a_c_u - Angle_b_a_t
+3. Angle_a_c_u - Angle_b_a_t & -Angle_b_a_t - Angle_b_a_u + Angle_t_a_u & Angle_a_c_u + Angle_a_u_c + Angle_c_a_u - pi & Angle_a_u_c + Angle_a_u_t - pi & Angle_b_a_u - Angle_c_a_u [AlphaGeometry15(t,a,u)] => Length_a_t - Length_t_u

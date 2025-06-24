@@ -1,3 +1,10 @@
 Solution:
-1. Angle_c_e_g + Angle_c_g_e + Angle_e_c_g - pi & Angle_c_d_g + Angle_c_g_d + Angle_d_c_g - pi => Angle_a_c_h - Angle_a_f_g
-2. Angle_a_c_h - Angle_a_f_g & Collinear(a,c,f) [AlphaGeometry3b(c,h,a,g,f)] => Parallel(c,h,f,g)
+1. -Length_a_d + Length_d_e & -Length_d_e + Length_d_h & -Length_a_d + Length_c_d => Length_c_d - Length_d_h
+2. -Length_a_d + Length_c_d & Length_c_d - Length_d_h [InscribedAngle1(d,c,a,h)] => Angle_a_c_h - Angle_a_d_h/2
+3. -Length_a_d + Length_d_e & Length_d_e - Length_d_h [InscribedAngle1(d,e,a,h)] => -Angle_a_d_h/2 + Angle_a_e_h
+4. Angle_a_c_h - Angle_a_d_h/2 & -Angle_a_d_h/2 + Angle_a_e_h & Angle_a_e_g - Angle_a_e_h => -Angle_a_c_h + Angle_a_e_g
+5. Perpendicular(a,b,e,g) & Parallel(a,b,a,g) [AlphaGeometry1b(a,b,e,g,a,g)] => Angle_a_g_e - pi/2
+6. Perpendicular(a,c,e,f) & Parallel(a,c,a,f) [AlphaGeometry1b(a,c,e,f,a,f)] => Angle_a_f_e - pi/2
+7. Angle_a_g_e - pi/2 & Angle_a_f_e - pi/2 [AlphaGeometry5b(a,e,f,g)] => Angle_a_e_g - Angle_a_f_g
+8. -Angle_a_c_h + Angle_a_e_g & Angle_a_e_g - Angle_a_f_g => Angle_a_c_h - Angle_a_f_g
+9. Angle_a_c_h - Angle_a_f_g & Collinear(a,c,f) [AlphaGeometry3b(c,h,a,g,f)] => Parallel(c,h,f,g)

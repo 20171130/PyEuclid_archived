@@ -1,5 +1,13 @@
 Solution:
-1. -Length_a_b + Length_a_c & -Length_a_b + Length_a_d [AlphaGeometry40(c,a,h,h,a,c)] => Length_a_c/Length_a_h - 1
-2. Angle_b_c_e + Angle_b_e_c + Angle_c_b_e - pi => Angle_d_h_g - Angle_g_e_h
-3. Angle_d_g_h - Angle_e_g_h & Angle_d_h_g - Angle_g_e_h [AlphaGeometry3536(d,g,h,h,g,e)] => Length_e_g/Length_g_h - Length_g_h/Length_d_g
-4. Length_a_c/Length_a_h - 1 & Length_e_g/Length_g_h - Length_g_h/Length_d_g => Length_f_g - Length_g_h
+1. -Length_a_b + Length_a_d & -Length_a_b + Length_a_h => -Length_a_d + Length_a_h
+2. -Length_a_b + Length_a_e & -Length_a_b + Length_a_h => -Length_a_e + Length_a_h
+3. -Length_a_d + Length_a_h & -Length_a_e + Length_a_h & Perpendicular(a,h,g,h) [AlphaGeometry16b(a,h,d,e,g)] => -Angle_d_e_h + Angle_d_h_g
+4. -Angle_d_e_h + Angle_d_h_g & Angle_d_e_h - Angle_g_e_h => Angle_d_h_g - Angle_g_e_h
+5. Angle_d_g_h - Angle_e_g_h & Angle_d_h_g - Angle_g_e_h [AlphaGeometry3536(d,g,h,h,g,e)] => Length_e_g/Length_g_h - Length_g_h/Length_d_g
+6. Length_a_b - Length_a_c & Length_a_b - Length_a_e [InscribedAngle1(a,b,c,e)] => -Angle_c_a_e/2 + Angle_c_b_e
+7. -Length_a_b + Length_a_d & -Length_a_b + Length_a_c => -Length_a_c + Length_a_d
+8. -Length_a_b + Length_a_d & -Length_a_b + Length_a_e => Length_a_d - Length_a_e
+9. -Length_a_c + Length_a_d & Length_a_d - Length_a_e [InscribedAngle1(a,d,c,e)] => -Angle_c_a_e/2 + Angle_c_d_e
+10. Angle_b_f_g + Angle_c_b_f - pi & Angle_c_b_e + Angle_c_b_f - pi & Angle_b_f_g - Angle_e_f_g & -Angle_c_a_e/2 + Angle_c_b_e & -Angle_c_a_e/2 + Angle_c_d_e & Angle_c_d_e + Angle_c_d_g - pi & Angle_c_d_g + Angle_f_d_g - pi => Angle_e_f_g - Angle_f_d_g
+11. Angle_e_f_g - Angle_f_d_g & -Angle_d_g_f + Angle_e_g_f [AlphaGeometry3536(e,f,g,f,d,g)] => -Length_d_g/Length_f_g + Length_f_g/Length_e_g
+12. Length_e_g/Length_g_h - Length_g_h/Length_d_g & -Length_d_g/Length_f_g + Length_f_g/Length_e_g => Length_f_g - Length_g_h

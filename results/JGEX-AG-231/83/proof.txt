@@ -1,9 +1,10 @@
 Solution:
-1.  => Angle_b_c_d - Angle_b_h_g
-2.  => Angle_b_d_c - Angle_b_g_h
-3. Angle_b_c_d - Angle_b_h_g & Angle_b_d_c - Angle_b_g_h [AlphaGeometry3536(b,c,d,b,h,g)] => Length_b_c/Length_b_h - Length_c_d/Length_g_h
-4.  => Angle_a_b_c - Angle_c_h_f
-5. Angle_a_b_c - Angle_c_h_f & Angle_a_c_b - Angle_f_c_h [AlphaGeometry3536(a,b,c,f,h,c)] => Length_a_b/Length_b_c - Length_f_h/Length_c_h
-6. Parallel(a,b,c,d) & Parallel(a,b,e,f) [ParaTrans(a,b,c,d,e,f)] => Parallel(c,d,e,f)
-7. Collinear(a,c,f) & Collinear(a,d,e) & Parallel(c,d,e,f) [AlphaGeometry8(c,d,f,e,a)] => -Length_a_d/Length_a_e + Length_c_d/Length_e_f
-8. Length_b_c/Length_b_h - Length_c_d/Length_g_h & Length_a_b/Length_b_c - Length_f_h/Length_c_h & -Length_a_d/Length_a_e + Length_c_d/Length_e_f => Length_e_f - Length_g_h
+1. Angle_a_f_e + Angle_b_a_f - pi & -Angle_a_f_e + Angle_c_f_h & Angle_b_a_c + Angle_b_a_f - pi => Angle_b_a_c - Angle_c_f_h
+2. Angle_b_a_c - Angle_c_f_h & Collinear(a,c,f) [AlphaGeometry3b(a,b,c,h,f)] => Parallel(a,b,f,h)
+3. Collinear(a,c,f) & Collinear(b,c,h) & Parallel(a,b,f,h) [AlphaGeometry8(a,b,f,h,c)] => Length_a_c/Length_b_c - Length_a_f/Length_b_h
+4. Parallel(a,b,c,d) & Parallel(a,b,e,f) [ParaTrans(a,b,c,d,e,f)] => Parallel(c,d,e,f)
+5. Collinear(a,c,f) & Collinear(a,d,e) & Parallel(c,d,e,f) [AlphaGeometry8(c,d,f,e,a)] => Length_e_f/Length_a_f - Length_c_d/Length_a_c
+6. Parallel(a,b,f,h) & Parallel(f,h,g,h) [ParaTrans(f,h,a,b,g,h)] => Parallel(a,b,g,h)
+7. Parallel(a,b,c,d) & Parallel(a,b,g,h) [ParaTrans(a,b,c,d,g,h)] => Parallel(c,d,g,h)
+8. Collinear(b,c,h) & Collinear(b,d,g) & Parallel(c,d,g,h) [AlphaGeometry8(c,d,h,g,b)] => Length_b_c/Length_b_h - Length_c_d/Length_g_h
+9. Length_a_c/Length_b_c - Length_a_f/Length_b_h & Length_e_f/Length_a_f - Length_c_d/Length_a_c & Length_b_c/Length_b_h - Length_c_d/Length_g_h => Length_e_f - Length_g_h

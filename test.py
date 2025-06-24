@@ -48,7 +48,7 @@ class TestBenchmarks(unittest.TestCase):
                     print(f"{idx} solved in {t} seconds")
                     t0 = time.time()
                     proof = None
-                    with TT(60):
+                    with TT(600):
                         proof_generator.run()
                         proof = proof_generator.get_proof()
                         proof_str = proof_generator.get_proof_str()
@@ -62,11 +62,11 @@ class TestBenchmarks(unittest.TestCase):
                         print(f'{idx} proof generation runs in {time.time()-t0}')
                         with open(f'results/JGEX-AG-231/{idx+1}/proof.txt', 'w+') as f:
                             f.write(proof_str)
+                        print(f'Proof steps: ', len(proof))
+                        print(f'Max condition number: ', max_cond_num)
+                        print(f'Average condition number: ', acc_cond_num / len(proof) if len(proof) > 0 else 0)
                     else:
                         print(f'{idx} proof generation fails {time.time()-t0}')
-                    print(f'Proof steps: ', len(proof))
-                    print(f'Max condition number: ', max_cond_num)
-                    print(f'Average condition number: ', acc_cond_num / len(proof) if len(proof) > 0 else 0)
                     # if world_size == 1:
                     #     proof_generator.show_proof()
                 else:

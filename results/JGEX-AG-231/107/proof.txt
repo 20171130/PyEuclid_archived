@@ -1,5 +1,15 @@
 Solution:
-1. Angle_b_l_x + Angle_c_l_x - pi & Angle_a_i_y + Angle_x_i_y - pi & Angle_a_l_y + Angle_a_y_l + Angle_l_a_y - pi & Angle_a_y_i + Angle_c_y_i - pi => Angle_a_b_x - Angle_a_i_y
-2. Angle_b_l_x + Angle_c_l_x - pi => Angle_a_x_b - Angle_a_y_i
-3. Angle_a_b_x - Angle_a_i_y & Angle_a_x_b - Angle_a_y_i [AlphaGeometry3536(a,b,x,a,i,y)] => Angle_b_a_x - Angle_i_a_y
-4. Angle_b_l_x + Angle_c_l_x - pi & Angle_b_a_x - Angle_i_a_y & Angle_a_i_y + Angle_x_i_y - pi [AlphaGeometry3b(l,x,a,y,l)] => Collinear(l,x,y)
+1. Perpendicular(a,i,b,x) & Parallel(a,i,i,x) [AlphaGeometry1b(a,i,b,x,i,x)] => Angle_b_x_i - pi/2
+2. Angle_a_b_i - Angle_c_b_i & Angle_c_b_i - Angle_i_b_l => Angle_a_b_i - Angle_i_b_l
+3. Perpendicular(b,c,i,l) & Parallel(b,c,b,l) [AlphaGeometry1b(b,c,i,l,b,l)] => Angle_b_l_i - pi/2
+4. Angle_b_l_i - pi/2 & Angle_b_x_i - pi/2 [AlphaGeometry5a(b,i,l,x)] => Angle_i_b_l + Angle_i_x_l - pi
+5. -Angle_b_x_i - Angle_b_x_l + Angle_i_x_l & Angle_b_x_i - pi/2 & Angle_a_b_i - Angle_i_b_l & Angle_i_b_l + Angle_i_x_l - pi => Angle_a_b_i + Angle_b_x_l - pi/2
+6. -Angle_b_a_i + Angle_c_a_i & -Angle_c_a_i + Angle_x_a_y => Angle_b_a_i - Angle_x_a_y
+7. Angle_b_l_i - pi/2 & Angle_b_x_i - pi/2 [AlphaGeometry5a(b,i,l,x)] => Angle_b_i_x + Angle_b_l_x - pi
+8. Angle_a_i_b + Angle_b_i_x - pi & Angle_b_i_x + Angle_b_l_x - pi => Angle_a_i_b - Angle_b_l_x
+9. Perpendicular(a,i,b,x) & Parallel(a,i,a,x) [AlphaGeometry1b(a,i,b,x,a,x)] => Angle_a_x_b - pi/2
+10. Perpendicular(a,c,i,y) & Parallel(a,c,a,y) [AlphaGeometry1b(a,c,i,y,a,y)] => Angle_a_y_i - pi/2
+11. Incenter(i,a,b,c) & Collinear(b,c,l) & Collinear(a,c,y) & Perpendicular(b,c,i,l) & Perpendicular(a,c,i,y) [PropertyOfIncenter2(i,b,c,a,l,y)] => Length_i_l - Length_i_y
+12. Length_i_l - Length_i_y & -Length_i_l + Length_i_y [AlphaGeometry34(l,i,y,y,i,l)] => -Angle_i_l_y + Angle_i_y_l
+13. Angle_b_l_i - pi/2 & Angle_a_y_i - pi/2 & -Angle_i_l_y + Angle_i_y_l & -Angle_b_l_i + Angle_b_l_y - Angle_i_l_y & -Angle_a_y_i + Angle_a_y_l - Angle_i_y_l => -Angle_a_y_l + Angle_b_l_y
+14. -Angle_a_l_b - Angle_a_l_x + Angle_b_l_x & Angle_a_b_i + Angle_a_i_b + Angle_b_a_i - pi & Angle_a_b_i + Angle_b_x_l - pi/2 & -Angle_l_a_x + Angle_l_a_y - Angle_x_a_y & Angle_b_a_i - Angle_x_a_y & Angle_a_i_b - Angle_b_l_x & Angle_a_x_b - pi/2 & Angle_a_l_y + Angle_a_y_l + Angle_l_a_y - pi & -Angle_a_x_b + Angle_a_x_l - Angle_b_x_l & -Angle_a_y_l + Angle_b_l_y & -Angle_a_l_b - Angle_a_l_y + Angle_b_l_y & Angle_a_l_x + Angle_a_x_l + Angle_l_a_x - pi [AlphaGeometry3b(l,x,a,y,l)] => Collinear(l,x,y)

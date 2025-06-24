@@ -1,4 +1,17 @@
 Solution:
-1. Angle_a_e_g + Angle_a_g_e + Angle_e_a_g - pi & Angle_b_d_f + Angle_b_f_d + Angle_d_b_f - pi => Angle_b_c_e - Angle_e_f_g
-2. Angle_a_e_g + Angle_a_g_e + Angle_e_a_g - pi & Angle_b_d_f + Angle_b_f_d + Angle_d_b_f - pi => Angle_b_e_c - Angle_f_e_g
-3. Angle_b_c_e - Angle_e_f_g & Angle_b_e_c - Angle_f_e_g [AlphaGeometry3536(b,c,e,g,f,e)] => Similar3(b,c,e,g,f,e)
+1. -Length_a_d + Length_c_d & -Length_a_d + Length_d_e => Length_c_d - Length_d_e
+2. -Length_b_d + Length_c_d & Length_c_d - Length_d_e [InscribedAngle1(d,c,b,e)] => Angle_b_c_e - Angle_b_d_e/2
+3. Length_a_d - Length_b_d & Length_a_d - Length_d_e [InscribedAngle2(d,a,b,e)] => Angle_b_a_e + Angle_b_d_e/2 - pi
+4. Angle_b_c_e - Angle_b_d_e/2 & Angle_b_a_e + Angle_b_d_e/2 - pi & Angle_b_a_e + Angle_e_a_g - pi => Angle_b_c_e - Angle_e_a_g
+5. Perpendicular(a,c,e,f) & Parallel(a,c,c,f) [AlphaGeometry1b(a,c,e,f,c,f)] => Angle_c_f_e - pi/2
+6. Perpendicular(a,b,e,g) & Parallel(a,b,a,g) [AlphaGeometry1b(a,b,e,g,a,g)] => Angle_a_g_e - pi/2
+7. Angle_c_f_e - pi/2 & Angle_a_g_e - pi/2 => -Angle_a_g_e + Angle_c_f_e
+8. -Angle_a_g_e + Angle_c_f_e & Angle_a_f_e + Angle_c_f_e - pi [AlphaGeometry5b(a,e,f,g)] => Angle_e_a_g - Angle_e_f_g
+9. Angle_b_c_e - Angle_e_a_g & Angle_e_a_g - Angle_e_f_g => Angle_b_c_e - Angle_e_f_g
+10. -Angle_a_g_e + Angle_c_f_e & Angle_a_f_e + Angle_c_f_e - pi [AlphaGeometry5b(a,e,f,g)] => Angle_f_a_g + Angle_f_e_g - pi
+11. Length_a_d - Length_b_d & Length_a_d - Length_c_d [InscribedAngle1(d,a,b,c)] => Angle_b_a_c - Angle_b_d_c/2
+12. -Length_a_d + Length_d_e & Length_a_d - Length_b_d => -Length_b_d + Length_d_e
+13. -Length_b_d + Length_d_e & -Length_c_d + Length_d_e [InscribedAngle1(d,e,b,c)] => -Angle_b_d_c/2 + Angle_b_e_c
+14. -Angle_b_a_c + Angle_b_a_f & Angle_b_a_c - Angle_b_d_c/2 & -Angle_b_d_c/2 + Angle_b_e_c => -Angle_b_a_f + Angle_b_e_c
+15. Angle_f_a_g + Angle_f_e_g - pi & Angle_b_a_f + Angle_f_a_g - pi & -Angle_b_a_f + Angle_b_e_c => Angle_b_e_c - Angle_f_e_g
+16. Angle_b_c_e - Angle_e_f_g & Angle_b_e_c - Angle_f_e_g [AlphaGeometry3536(b,c,e,g,f,e)] => Similar3(b,c,e,g,f,e)

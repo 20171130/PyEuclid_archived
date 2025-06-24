@@ -1,3 +1,3 @@
 Solution:
-1. Angle_a_d_e + Angle_c_d_e - pi & Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_a_e_b + Angle_a_e_c - pi => Angle_a_b_c - Angle_c_e_d
-2. Angle_a_b_c - Angle_c_e_d & Angle_a_c_b - Angle_d_c_e [AlphaGeometry3536(a,b,c,d,e,c)] => Length_a_e - Length_b_d
+1. Angle_a_c_b + Angle_b_c_d - pi & Angle_a_c_b + Angle_a_c_e - pi => Angle_a_c_e - Angle_b_c_d
+2. Length_a_c - Length_b_c & -Length_c_d + Length_c_e & Angle_a_c_e - Angle_b_c_d [AlphaGeometry34(a,c,e,b,c,d)] => Length_a_e - Length_b_d

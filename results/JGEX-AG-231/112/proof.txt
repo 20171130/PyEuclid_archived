@@ -1,2 +1,9 @@
 Solution:
-1. Angle_c_o_p + Angle_c_p_o + Angle_o_c_p - pi & Angle_d_a_o + Angle_e_a_o - pi & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_b_p_q + Angle_b_q_p + Angle_p_b_q - pi & Angle_d_a_o1 + Angle_e_a_o1 - pi & Angle_a_e_q + Angle_a_q_e + Angle_e_a_q - pi & Angle_c_d_o1 + Angle_c_o1_d + Angle_d_c_o1 - pi & Angle_a_b_c + Angle_a_b_e - pi & Angle_e_o1_o + Angle_e_o_o1 + Angle_o_e_o1 - pi & Angle_a_b_o + Angle_o_b_p - pi & Angle_c_b_o1 + Angle_e_b_o1 - pi [AlphaGeometry5a(a,d,p,q)] => Concyclic(a,d,p,q)
+1. -Length_c_o1 + Length_o1_q & -Length_c_o1 + Length_e_o1 => Length_e_o1 - Length_o1_q
+2. -Length_c_o1 + Length_e_o1 & Length_e_o1 - Length_o1_q [InscribedAngle1(o1,e,c,q)] => Angle_c_e_q - Angle_c_o1_q/2
+3. Length_c_o1 - Length_d_o1 & -Length_c_o1 + Length_o1_q => Length_d_o1 - Length_o1_q
+4. -Length_c_o1 + Length_d_o1 & Length_d_o1 - Length_o1_q [InscribedAngle1(o1,d,c,q)] => Angle_c_d_q - Angle_c_o1_q/2
+5. Length_a_o - Length_b_o & Length_a_o - Length_o_q [InscribedAngle1(o,a,b,q)] => Angle_b_a_q - Angle_b_o_q/2
+6. Length_a_o - Length_e_o & -Length_a_o + Length_o_q => Length_e_o - Length_o_q
+7. -Length_b_o + Length_e_o & Length_e_o - Length_o_q [InscribedAngle1(o,e,b,q)] => Angle_b_e_q - Angle_b_o_q/2
+8. Angle_b_a_q - Angle_p_a_q & Angle_c_e_q - Angle_c_o1_q/2 & Angle_b_e_q - Angle_c_e_q & Angle_c_d_q - Angle_p_d_q & Angle_c_d_q - Angle_c_o1_q/2 & Angle_b_a_q - Angle_b_o_q/2 & Angle_b_e_q - Angle_b_o_q/2 [AlphaGeometry5a(p,q,a,d)] => Concyclic(a,d,p,q)

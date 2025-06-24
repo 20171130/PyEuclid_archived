@@ -263,9 +263,18 @@ class AlgebraicSystem:
                 unionfind.union(l, r)
         
     def compute_ratio_and_angle_sum(self):
-        
         dic = {}
         tmp = self.state.lengths.equivalence_classes()
+        # for component in tmp.values():
+        #     if len(component) == 1:
+        #         continue
+        #     rep = self.state.simplify_equation(component[0])
+        #     if len(rep.free_symbols)==0:
+        #         component += [rep]
+        #     for a in range(len(component)):
+        #         for b in range(a+1, len(component)):
+        #             self.state.add_conditions(Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length"]))
+
         for x in tmp:
             for y in tmp:
                 expr = self.state.simplify_equation(x/y)
@@ -287,14 +296,18 @@ class AlgebraicSystem:
             for a in range(len(component)):
                 for b in range(a+1, len(component)):
                     self.state.add_conditions(Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"]))
-            
-        for x in tmp:
-            for y in tmp:
+        
+        angle_keys = list(tmp.keys())
+        for i in range(len(angle_keys)):
+            for j in range(i, len(angle_keys)):
+                x = angle_keys[i]
+                y = angle_keys[j]
                 expr = self.state.simplify_equation(x+y)
                 if not expr in dic:
                     dic[expr] = [x+y]
                 else:
                     dic[expr].append(x+y)
+                # TODO add pi and label redundant, remove const in component_x or component_y
                 if len(expr.free_symbols) == 0 and not expr == sympy.pi:
                     component_x, component_y = tmp[x], tmp[y]
                     for a in range(len(component_x)):

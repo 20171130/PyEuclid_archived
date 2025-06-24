@@ -1,6 +1,7 @@
 Solution:
-1.  => Angle_c_d_e - Angle_e_c_f
-2.  => Angle_c_e_d - Angle_c_e_f
-3. Angle_c_d_e - Angle_e_c_f & Angle_c_e_d - Angle_c_e_f [AlphaGeometry3536(c,d,e,f,c,e)] => Length_c_d/Length_c_f - Length_d_e/Length_c_e
-4. Angle_c_d_e - Angle_e_c_f & Angle_c_e_d - Angle_c_e_f [AlphaGeometry3536(c,d,e,f,c,e)] => Length_c_e/Length_e_f - Length_d_e/Length_c_e
-5. Length_c_d/Length_c_f - Length_d_e/Length_c_e & Length_c_e/Length_e_f - Length_d_e/Length_c_e => Length_a_e - Length_a_f
+1. Angle_c_e_d - pi/2 & Angle_a_c_d - Angle_d_c_f & Angle_a_c_d - pi/2 => Angle_c_e_d - Angle_d_c_f
+2. Angle_c_d_e - Angle_c_d_f & Angle_c_e_d - Angle_d_c_f [AlphaGeometry3536(c,d,e,f,d,c)] => Angle_c_f_d - Angle_d_c_e
+3. Midpoint(o,c,d) & Perpendicular(c,e,d,e) [AlphaGeometry20(c,e,d,o)] => -Length_d_o + Length_e_o
+4. Midpoint(o,c,d) & Perpendicular(c,e,d,e) [AlphaGeometry20(c,e,d,o)] => -Length_c_o + Length_e_o
+5. -Length_d_o + Length_e_o & -Length_c_o + Length_e_o & Perpendicular(a,e,e,o) [AlphaGeometry16a(o,e,d,c,a)] => Angle_a_e_d + Angle_d_c_e - pi
+6. -Angle_a_f_e + Angle_c_f_d & Angle_c_f_d - Angle_d_c_e & Angle_a_e_d + Angle_d_c_e - pi & Angle_a_e_d + Angle_a_e_f - pi [AlphaGeometry15(a,e,f)] => Length_a_e - Length_a_f

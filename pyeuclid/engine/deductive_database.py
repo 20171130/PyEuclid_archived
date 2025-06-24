@@ -10,11 +10,11 @@ from pyeuclid.engine.inference_rule import *
 from pyeuclid.formalization.utils import *
 
 class DeductiveDatabase():
-    def __init__(self, state, inner_theorems=inference_rule_sets["ex"], outer_theorems=inference_rule_sets["basic"]):
+    def __init__(self, state, inner_theorems=None, outer_theorems=None):
         self.state = state
         self.name = id(self)
-        self.inner_theorems = inner_theorems
-        self.outer_theorems = outer_theorems
+        self.inner_theorems = list(inference_rule_sets["ex"]) if inner_theorems is None else inner_theorems
+        self.outer_theorems = list(inference_rule_sets["basic"]) if outer_theorems is None else outer_theorems
         self.sqliteConnection = sqlite3.connect(f"cache/{self.name}.db")
         self.cursor = self.sqliteConnection.cursor()
         points = """ CREATE TABLE points (

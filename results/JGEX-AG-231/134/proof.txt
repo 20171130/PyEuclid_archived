@@ -1,6 +1,10 @@
 Solution:
-1. Perpendicular(a,c,b,d) & Parallel(b,d,b,f) [AlphaGeometry1b(b,d,a,c,b,f)] => Perpendicular(a,c,b,f)
-2. Collinear(a,g,h) & Length_a_g - Length_c_g & Length_a_g - Length_g_h [AlphaGeometry21(g,a,c,h)] => Perpendicular(a,c,c,h)
-3. Perpendicular(a,c,b,f) & Perpendicular(a,c,c,h) [AlphaGeometry1(b,f,a,c,c,h)] => Parallel(b,f,c,h)
-4. Collinear(b,c,i) & Collinear(f,h,i) & Parallel(b,f,c,h) [AlphaGeometry8(b,f,c,h,i)] => -Length_b_c/Length_f_h + Length_b_i/Length_f_i
-5. -Length_b_c/Length_f_h + Length_b_i/Length_f_i & -Length_b_g + Length_c_g => Length_f_i - Length_h_i
+1. Collinear(a,g,h) & Length_a_g - Length_b_g & Length_a_g - Length_g_h [AlphaGeometry21(g,a,b,h)] => Perpendicular(a,b,b,h)
+2. Perpendicular(a,b,c,e) & Parallel(c,e,c,f) [AlphaGeometry1b(c,e,a,b,c,f)] => Perpendicular(a,b,c,f)
+3. Perpendicular(a,b,b,h) & Perpendicular(a,b,c,f) [AlphaGeometry1(b,h,a,b,c,f)] => Parallel(b,h,c,f)
+4. Collinear(b,c,i) & Collinear(f,h,i) & Parallel(b,h,c,f) [AlphaGeometry8(b,h,c,f,i)] => -Length_b_c/Length_f_h + Length_b_i/Length_h_i
+5. Perpendicular(a,c,b,d) & Parallel(b,d,b,f) [AlphaGeometry1b(b,d,a,c,b,f)] => Perpendicular(a,c,b,f)
+6. Collinear(a,g,h) & Length_a_g - Length_c_g & Length_a_g - Length_g_h [AlphaGeometry21(g,a,c,h)] => Perpendicular(a,c,c,h)
+7. Perpendicular(a,c,b,f) & Perpendicular(a,c,c,h) [AlphaGeometry1(b,f,a,c,c,h)] => Parallel(b,f,c,h)
+8. Collinear(b,c,i) & Collinear(f,h,i) & Parallel(b,f,c,h) [AlphaGeometry8(b,f,c,h,i)] => -Length_b_c/Length_f_h + Length_b_i/Length_f_i
+9. -Length_b_c/Length_f_h + Length_b_i/Length_h_i & -Length_b_c/Length_f_h + Length_b_i/Length_f_i => Length_f_i - Length_h_i

@@ -1,2 +1,5 @@
 Solution:
-1. -Length_a_d/Length_b_d + Length_b_d/Length_a_d & Length_a_b/Length_b_d - Length_a_b/Length_a_d => Length_a_e - Length_b_e
+1. Length_a_c - Length_b_c & Length_a_d - Length_b_d [AlphaGeometry24(a,b,c,d)] => Angle_a_c_d - Angle_b_c_d
+2. Angle_a_c_d - Angle_a_c_e & Angle_a_c_d - Angle_b_c_d & -Angle_b_c_d + Angle_b_c_e => Angle_a_c_e - Angle_b_c_e
+3. Collinear(a,b,e) & Angle_a_c_e - Angle_b_c_e [AlphaGeometry13(c,a,b,e)] => -Length_a_c/Length_b_c + Length_a_e/Length_b_e
+4. -Length_a_c/Length_b_c + Length_a_e/Length_b_e & -Length_a_c/Length_b_c + Length_b_c/Length_a_c => Length_a_e - Length_b_e

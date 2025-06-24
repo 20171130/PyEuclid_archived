@@ -1,7 +1,16 @@
 Solution:
-1. -Length_a_o + Length_e_o & Length_b_o - Length_c_o => Length_c_o - Length_e_o
-2. Angle_a_g_f + Angle_c_g_f - pi => Angle_a_o_c - Angle_b_o_e
-3. Length_a_o - Length_b_o & Length_c_o - Length_e_o & Angle_a_o_c - Angle_b_o_e [AlphaGeometry34(a,o,c,b,o,e)] => Angle_a_c_o - Angle_b_e_o
-4. Length_b_o - Length_c_o & -Length_b_o + Length_c_o [AlphaGeometry34(b,o,c,c,o,b)] => Angle_b_c_o - Angle_c_b_o
-5. Angle_a_g_f + Angle_c_g_f - pi & Angle_a_c_o - Angle_b_e_o & Angle_b_c_o - Angle_c_b_o => Angle_b_a_o - Angle_b_f_g
-6. Angle_b_a_o - Angle_b_f_g & Collinear(a,b,f) [AlphaGeometry3b(a,o,b,g,f)] => Parallel(a,o,f,g)
+1. Perpendicular(a,c,e,g) & Parallel(a,c,c,g) [AlphaGeometry1b(a,c,e,g,c,g)] => Angle_c_g_e - pi/2
+2. Angle_c_g_e - Angle_c_g_f - Angle_e_g_f & Angle_c_g_e - pi/2 => Angle_c_g_f + Angle_e_g_f - pi/2
+3. -Length_a_o + Length_c_o & -Length_b_o + Length_c_o [InscribedAngle1(o,c,a,b)] => Angle_a_c_b - Angle_a_o_b/2
+4. Length_a_o - Length_b_o & Length_a_o - Length_e_o [InscribedAngle1(o,a,b,e)] => Angle_b_a_e - Angle_b_o_e/2
+5. Length_a_o - Length_b_o & -Length_a_o + Length_e_o [AlphaGeometry14(o,b,e)] => -Angle_b_e_o + Angle_e_b_o
+6. Length_a_o - Length_b_o & -Length_a_o + Length_e_o => Length_b_o - Length_e_o
+7. -Length_a_o + Length_b_o & Length_b_o - Length_e_o [InscribedAngle1(o,b,a,e)] => Angle_a_b_e - Angle_a_o_e/2
+8. -Angle_a_c_b + Angle_a_c_o - Angle_b_c_o & -Angle_a_b_e - Angle_a_b_o + Angle_e_b_o & Angle_a_c_b - Angle_a_o_b/2 & Angle_a_c_b + Angle_c_a_e - pi & -Angle_b_c_o + Angle_c_b_o & -Angle_b_a_c - Angle_b_a_e + Angle_c_a_e & -Angle_c_b_e - Angle_c_b_o + Angle_e_b_o & Angle_a_e_b - Angle_a_e_o - Angle_b_e_o & Angle_b_a_e - Angle_b_o_e/2 & -Angle_b_e_o + Angle_e_b_o & -Angle_a_b_o + Angle_b_a_o & -Angle_a_e_o + Angle_e_a_o & -Angle_a_c_o + Angle_c_a_o & Angle_b_a_e - Angle_e_a_f & Angle_b_a_c - Angle_b_a_o - Angle_c_a_o & Angle_a_e_b + Angle_c_b_e - pi & Angle_a_b_e - Angle_a_o_e/2 & Angle_c_a_e - Angle_c_a_o - Angle_e_a_o & Angle_a_o_b - Angle_a_o_e - Angle_b_o_e => Angle_c_a_o + Angle_e_a_f - pi/2
+9. Perpendicular(a,b,e,f) & Parallel(a,b,b,f) [AlphaGeometry1b(a,b,e,f,b,f)] => Angle_b_f_e - pi/2
+10. Perpendicular(a,b,e,f) & Parallel(a,b,a,f) [AlphaGeometry1b(a,b,e,f,a,f)] => Angle_a_f_e - pi/2
+11. Angle_b_f_e - pi/2 & Angle_a_f_e - pi/2 => Angle_a_f_e - Angle_b_f_e
+12. Perpendicular(a,c,e,g) & Parallel(a,c,a,g) [AlphaGeometry1b(a,c,e,g,a,g)] => Angle_a_g_e - pi/2
+13. Angle_a_f_e + Angle_b_f_e - pi & Angle_a_f_e - Angle_b_f_e & Angle_a_g_e - pi/2 [AlphaGeometry5b(a,e,f,g)] => Angle_e_a_f - Angle_e_g_f
+14. Angle_c_g_f + Angle_e_g_f - pi/2 & Angle_c_a_o + Angle_e_a_f - pi/2 & Angle_e_a_f - Angle_e_g_f => Angle_c_a_o - Angle_c_g_f
+15. Angle_c_a_o - Angle_c_g_f & Collinear(a,c,g) [AlphaGeometry3b(a,o,c,f,g)] => Parallel(a,o,f,g)

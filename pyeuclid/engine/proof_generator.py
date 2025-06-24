@@ -40,6 +40,7 @@ class ProofGenerator:
         if isinstance(node, InferenceRule):
             conds = [item for item in node.condition() if not trivial_condition(item) and not item == 0]
             self.proof_dict[node] = conds
+            print('node', node, type(node), 'sources', conds)
             for cond in conds:
                 self.run(cond, depth=depth, root=False)
         
@@ -49,6 +50,7 @@ class ProofGenerator:
                     if hasattr(tmp, "source"):
                         source = tmp.source
                         self.proof_dict[node] = [source]
+                        print('node', node, type(node), 'sources', source)
                         self.run(source, root=False)
                     break
             else:
@@ -71,6 +73,9 @@ class ProofGenerator:
                             breakpoint()
                             assert False
                         sources = conditions
+                    else:
+                        # TODO for length
+                        pass
             else:
                 assert isinstance(node, sympy.core.expr.Expr)
                 sources = []
@@ -88,6 +93,7 @@ class ProofGenerator:
                     assert False
                 sources = conditions
             self.proof_dict[node] = sources
+            print('node', node, type(node), 'sources', sources)
             for item in sources:
                 self.run(item, root=False)
         
@@ -131,14 +137,17 @@ class ProofGenerator:
             visited.add(node)
             conditions = self.proof_dict[node]
             theorem = None
-            while len(conditions) == 1 and conditions[0] in self.proof_dict: # collapse single-condition inferences
-                if isinstance(conditions[0], InferenceRule) and not type(conditions[0]) in inference_rule_sets["ex"]:
-                    theorem = conditions[0]
+            if len(conditions) == 1 and isinstance(conditions[0], InferenceRule):
+                theorem = conditions[0]
                 conditions = self.proof_dict[conditions[0]]
+            # if len(conditions) == 1 and conditions[0] in self.proof_dict: # collapse single-condition inferences
+            #     if isinstance(conditions[0], InferenceRule) and not type(conditions[0]) in inference_rule_sets["ex"]:
+            #         theorem = conditions[0]
+            #     conditions = self.proof_dict[conditions[0]]
             for condition in conditions:
                 if condition is not None:
                     search(condition)
-            if all([type(item) in (Collinear, Between, SameSide)for item in conditions]):
+            if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
                 return
             if type(node) in (Traced, sympy.core.add.Add):
                 for item in visited:
@@ -316,6 +325,7 @@ class ProofGenerator:
             mat = self.vectorize([item.expr for item in equations], variables, source)
             eq = self.vectorize([conclusion], variables, source)
             raw_deps = self.traceback_l1(mat, eq)
+            return [equations[i] for i in raw_deps]
             sub_mat = mat[raw_deps]
             sub_indices = self.traceback_l0(sub_mat, eq)
             return [equations[raw_deps[i]] for i in sub_indices]

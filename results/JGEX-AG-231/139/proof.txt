@@ -1,3 +1,19 @@
 Solution:
-1.  [AlphaGeometry5b(a,b,e,f)] => Angle_e_a_f + Angle_e_b_f - pi
-2. Angle_a_e_f + Angle_a_f_e + Angle_e_a_f - pi & Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi & Angle_e_a_f + Angle_e_b_f - pi & Angle_a_d_c + Angle_b_a_d - pi [Angle2Para(f,e,g,h)] => Parallel(e,f,g,h)
+1. Perpendicular(b,d,c,h) & Parallel(b,d,b,h) [AlphaGeometry1b(b,d,c,h,b,h)] => Angle_b_h_c - pi/2
+2. Perpendicular(a,c,d,g) & Parallel(a,c,c,g) [AlphaGeometry1b(a,c,d,g,c,g)] => Angle_c_g_d - pi/2
+3. Angle_b_h_c - pi/2 & -Angle_b_h_c + Angle_c_h_f & Angle_c_g_d - pi/2 => Angle_c_g_d - Angle_c_h_f
+4. Angle_c_g_d - Angle_c_h_f & Angle_c_h_d + Angle_c_h_f - pi [AlphaGeometry5b(c,d,g,h)] => Angle_d_c_h - Angle_d_g_h
+5. Length_a_b - Length_c_d & Length_a_d - Length_b_c [SSS(a,b,d,c,d,b)] => Angle_a_b_d - Angle_b_d_c
+6. Angle_a_b_d - Angle_a_b_f & Angle_b_d_c - Angle_c_d_h & Angle_a_b_d - Angle_b_d_c => Angle_a_b_f - Angle_c_d_h
+7. Perpendicular(a,f,b,d) & Parallel(b,d,b,f) [AlphaGeometry1b(b,d,a,f,b,f)] => Angle_a_f_b - pi/2
+8. Perpendicular(b,d,c,h) & Parallel(b,d,d,h) [AlphaGeometry1b(b,d,c,h,d,h)] => Angle_c_h_d - pi/2
+9. Angle_a_f_b - pi/2 & Angle_c_h_d - pi/2 => Angle_a_f_b - Angle_c_h_d
+10. Angle_a_b_f - Angle_c_d_h & Angle_a_f_b - Angle_c_h_d [AlphaGeometry3536(a,b,f,c,d,h)] => Angle_b_a_f - Angle_d_c_h
+11. Perpendicular(a,c,d,g) & Parallel(a,c,a,g) [AlphaGeometry1b(a,c,d,g,a,g)] => Angle_a_g_d - pi/2
+12. Perpendicular(a,f,b,d) & Parallel(b,d,d,f) [AlphaGeometry1b(b,d,a,f,d,f)] => Angle_a_f_d - pi/2
+13. Angle_a_g_d - pi/2 & Angle_a_f_d - pi/2 [AlphaGeometry5a(a,d,f,g)] => Angle_d_a_g - Angle_d_f_g
+14. Perpendicular(a,c,b,e) & Parallel(a,c,a,e) [AlphaGeometry1b(a,c,b,e,a,e)] => Angle_a_e_b - pi/2
+15. Angle_a_f_d - Angle_a_f_h & Angle_a_f_d - pi/2 & Angle_a_e_b - pi/2 => Angle_a_e_b - Angle_a_f_h
+16. Angle_a_e_b - Angle_a_f_h & Angle_a_f_b + Angle_a_f_h - pi [AlphaGeometry5b(a,b,e,f)] => Angle_b_a_e - Angle_b_f_e
+17. Angle_a_g_d - pi/2 & Angle_a_f_d - pi/2 [AlphaGeometry5a(a,d,f,g)] => Angle_d_a_f + Angle_d_g_f - pi
+18. Angle_d_c_h - Angle_d_g_h & Angle_d_a_f - Angle_d_a_g - Angle_f_a_g & Angle_b_a_f - Angle_d_c_h & -Angle_d_f_e - Angle_d_f_g + Angle_e_f_g & Angle_d_g_f - Angle_d_g_h - Angle_f_g_h & Angle_b_a_e + Angle_b_a_g - pi & Angle_b_f_e + Angle_d_f_e - pi & Angle_d_a_g - Angle_d_f_g & -Angle_b_a_f + Angle_b_a_g - Angle_f_a_g & Angle_b_a_e - Angle_b_f_e & Angle_d_a_f + Angle_d_g_f - pi [Angle2Para(f,e,g,h)] => Parallel(e,f,g,h)

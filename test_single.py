@@ -18,7 +18,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; d e = square a c d e; g f = square c b g f ? perp d b f a")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b = segment a b; c = on_bline c a b; d = on_line d a c; e = eqdistance e b a d, on_line e b c; f = on_line f a b, on_line f d e; g = on_line g b c, on_pline g d a b ? cong d f f e")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -75,13 +75,13 @@ def run_single_problem(args):
         # p7 = state.check_conditions(Concyclic(Point('b'),Point('q'),Point('p'),Point('c')))
         # print(state.goal)
         # print(state.complete())
+        # Length_b_e - Length_b_g
         # input()
         
     t = time.time() - t0
     result = state.complete()
     if result is not None:
         print(f"Solved in {t:.2f}s")
-        
         if args.show_proof:
             t0 = time.time()
             with TT(600):

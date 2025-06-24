@@ -1,7 +1,10 @@
 Solution:
-1. -Length_a_b + Length_a_e & -Length_a_c + Length_a_d => -Length_a_e + Length_a_f
-2. Angle_b_d_c + Angle_c_d_f - pi & Angle_b_d_e + Angle_b_e_d + Angle_d_b_e - pi & Angle_b_c_d + Angle_d_c_e - pi => -Angle_b_a_c + Angle_b_f_e
-3. Collinear(b,c,e) & -Length_a_b + Length_a_f & -Length_a_e + Length_a_f & -Angle_b_a_c + Angle_b_f_e [AlphaGeometry19a(a,f,b,e,c)] => Midpoint(c,b,e)
-4. Angle_b_d_c + Angle_c_d_f - pi & Angle_b_d_e + Angle_b_e_d + Angle_d_b_e - pi & Angle_b_c_d + Angle_d_c_e - pi => -Angle_b_a_d + Angle_b_e_f
-5. Collinear(b,d,f) & -Length_a_b + Length_a_e & Length_a_e - Length_a_f & -Angle_b_a_d + Angle_b_e_f [AlphaGeometry19a(a,e,b,f,d)] => Midpoint(d,b,f)
-6. Midpoint(c,b,e) & Midpoint(d,b,f) [AlphaGeometry7(b,e,f,c,d)] => Parallel(c,d,e,f)
+1. Angle_a_d_b + Angle_a_d_f - pi & Angle_a_d_b - pi/2 => Angle_a_d_b - Angle_a_d_f
+2. Angle_a_d_b + Angle_a_d_f - pi & Angle_a_d_b - Angle_a_d_f => Angle_a_d_f - pi/2
+3. Angle_a_d_b - pi/2 & Angle_a_d_f - pi/2 & Length_a_b - Length_a_f [RTSSA(a,d,b,a,d,f)] => -Angle_b_a_d + Angle_d_a_f
+4. -Length_a_b + Length_a_f & -Length_a_b + Length_a_e => Length_a_e - Length_a_f
+5. -Length_a_b + Length_a_e & Length_a_e - Length_a_f [InscribedAngle1(a,e,b,f)] => -Angle_b_a_f/2 + Angle_b_e_f
+6. Angle_a_c_b + Angle_a_c_e - pi & Angle_a_c_b - pi/2 => Angle_a_c_b - Angle_a_c_e
+7. Angle_a_c_b + Angle_a_c_e - pi & Angle_a_d_b + Angle_a_d_f - pi & Angle_a_d_b - Angle_a_d_f & Angle_a_c_b - Angle_a_c_e [AlphaGeometry5b(a,b,c,d)] => Angle_b_a_d - Angle_b_c_d
+8. -Angle_b_a_d + Angle_d_a_f & -Angle_b_a_f/2 + Angle_b_e_f & Angle_b_a_d - Angle_b_c_d & -Angle_b_a_d + Angle_b_a_f - Angle_d_a_f => Angle_b_c_d - Angle_b_e_f
+9. Angle_b_c_d - Angle_b_e_f & Collinear(b,c,e) [AlphaGeometry3b(c,d,b,f,e)] => Parallel(c,d,e,f)

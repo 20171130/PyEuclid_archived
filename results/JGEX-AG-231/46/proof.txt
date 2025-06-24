@@ -1,5 +1,5 @@
 Solution:
 1. Length_a1_b - Length_a1_c & Length_b_o - Length_c_o [AlphaGeometry24(b,c,a1,o)] => Perpendicular(a1,o,b,c)
-2. Length_b_o - Length_c_o & -Length_a_c1 + Length_b_c1 => Length_a_b1/Length_b1_c - Length_a_c1/Length_b_c1
+2. -Length_a_b1 + Length_b1_c & -Length_a_c1 + Length_b_c1 => Length_a_b1/Length_b1_c - Length_a_c1/Length_b_c1
 3. Collinear(a,b1,c) & Collinear(a,b,c1) & Length_a_b1/Length_b1_c - Length_a_c1/Length_b_c1 [AlphaGeometry28(b1,c1,c,b,a)] => Parallel(b,c,b1,c1)
 4. Perpendicular(a1,o,b,c) & Parallel(b,c,b1,c1) [AlphaGeometry1b(b,c,a1,o,b1,c1)] => Perpendicular(a1,o,b1,c1)

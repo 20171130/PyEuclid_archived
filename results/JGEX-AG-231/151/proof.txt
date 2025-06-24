@@ -1,4 +1,12 @@
 Solution:
-1.  => Angle_a_c_g - Angle_a_d_f
-2.  => -Angle_a_f_d + Angle_a_g_c
-3. Angle_a_c_g - Angle_a_d_f & -Angle_a_f_d + Angle_a_g_c [AlphaGeometry3536(a,c,g,a,d,f)] => Similar3(a,c,g,a,d,f)
+1. -Length_a_e + Length_b_e & Length_a_d - Length_b_d => -Length_a_d/Length_b_d + Length_a_e/Length_b_e
+2. Collinear(a,b,e) & -Length_a_d/Length_b_d + Length_a_e/Length_b_e [AlphaGeometry12(d,a,b,e)] => Angle_a_d_e - Angle_b_d_e
+3. -Length_a_d + Length_c_d & -Length_b_d + Length_c_d [InscribedAngle1(d,c,a,b)] => Angle_a_c_b - Angle_a_d_b/2
+4. Angle_a_d_e - Angle_b_d_e & Angle_a_d_b - Angle_a_d_e - Angle_b_d_e & Angle_a_c_b - Angle_a_d_b/2 & Angle_a_d_e + Angle_a_d_f - pi & Angle_a_c_b + Angle_a_c_g - pi => Angle_a_c_g - Angle_a_d_f
+5. Angle_a_d_e - Angle_b_d_e & Angle_b_d_e + Angle_b_d_f - pi & Angle_a_d_e + Angle_a_d_f - pi => Angle_a_d_f - Angle_b_d_f
+6. Length_a_d - Length_b_d & Angle_a_d_f - Angle_b_d_f [AlphaGeometry34(a,d,f,b,d,f)] => Angle_a_f_d - Angle_b_f_d
+7. Length_a_d/Length_b_d - 1 & Angle_a_d_f - Angle_b_d_f [AlphaGeometry40(a,d,f,b,d,f)] => -Length_d_f/Length_b_f + Length_d_f/Length_a_f
+8. Length_a_f/Length_f_g - Length_f_g/Length_a_f & -Length_d_f/Length_b_f + Length_d_f/Length_a_f => -Length_b_f + Length_f_g
+9. -Length_a_f + Length_f_g & -Length_b_f + Length_f_g [InscribedAngle1(f,g,a,b)] => -Angle_a_f_b/2 + Angle_a_g_b
+10. Angle_a_f_b - Angle_a_f_d - Angle_b_f_d & Angle_a_f_d - Angle_b_f_d & -Angle_a_f_b/2 + Angle_a_g_b & -Angle_a_g_b + Angle_a_g_c => -Angle_a_f_d + Angle_a_g_c
+11. Angle_a_c_g - Angle_a_d_f & -Angle_a_f_d + Angle_a_g_c [AlphaGeometry3536(a,c,g,a,d,f)] => Similar3(a,c,g,a,d,f)

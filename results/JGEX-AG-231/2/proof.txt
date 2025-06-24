@@ -1,2 +1,7 @@
 Solution:
-1. Angle_b_o_m + Angle_b_o_n - pi & Angle_c_o_m + Angle_c_o_n - pi & Angle_a_m_n + Angle_b_m_n - pi => Angle_a_c_n + Angle_b_c_n - pi
+1. -Length_a_o + Length_c_o & -Length_a_o + Length_n_o => Length_c_o - Length_n_o
+2. -Length_b_o + Length_c_o & Length_c_o - Length_n_o [InscribedAngle1(o,c,b,n)] => Angle_b_c_n - Angle_b_o_n/2
+3. -Length_a_m + Length_b_m & Length_a_o - Length_b_o => Length_a_m/Length_b_m - Length_a_o/Length_b_o
+4. Collinear(a,b,m) & Length_a_m/Length_b_m - Length_a_o/Length_b_o [AlphaGeometry12(o,a,b,m)] => Angle_a_o_m - Angle_b_o_m
+5. -Length_a_o + Length_c_o & Length_c_o - Length_n_o [InscribedAngle2(o,c,a,n)] => Angle_a_c_n + Angle_a_o_n/2 - pi
+6. Angle_b_c_n - Angle_b_o_n/2 & Angle_a_o_m - Angle_b_o_m & Angle_b_o_m + Angle_b_o_n - pi & Angle_a_c_n + Angle_a_o_n/2 - pi & Angle_a_o_m + Angle_a_o_n - pi => Angle_a_c_n + Angle_b_c_n - pi

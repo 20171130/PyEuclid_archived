@@ -1,5 +1,7 @@
 Solution:
-1. Length_b_d - Length_d_f & Length_a_d - Length_c_d => -Length_c_d + Length_d_f
-2. Length_b_d - Length_d_f & Length_a_d - Length_c_d => -Length_a_d + Length_d_f
-3. -Length_c_d + Length_d_f & -Length_a_d + Length_d_f & Perpendicular(d,f,f,g) [AlphaGeometry16a(d,f,c,a,g)] => Angle_c_a_f + Angle_c_f_g - pi
-4. Angle_c_a_f + Angle_c_f_g - pi & Angle_c_e_g + Angle_c_g_e + Angle_e_c_g - pi [Angle2Para(a,c,g,f)] => Parallel(a,c,f,g)
+1. Length_b_d - Length_c_d & Length_b_d - Length_d_f [InscribedAngle1(d,b,c,f)] => Angle_c_b_f - Angle_c_d_f/2
+2. -Length_a_d + Length_b_d & Length_b_d - Length_d_f => -Length_a_d + Length_d_f
+3. -Length_a_d + Length_d_f & -Length_b_d + Length_d_f & Perpendicular(d,f,f,g) [AlphaGeometry16b(d,f,a,b,g)] => -Angle_a_b_f + Angle_a_f_g
+4. Length_a_d - Length_c_d & Length_a_d - Length_d_f [InscribedAngle1(d,a,c,f)] => Angle_c_a_f - Angle_c_d_f/2
+5. Angle_a_b_e - Angle_c_b_e & Angle_a_b_e - Angle_a_b_f & Angle_d_f_g - pi/2 & Angle_c_b_f - Angle_c_d_f/2 & -Angle_a_b_f + Angle_a_f_g & Angle_c_a_f - Angle_c_d_f/2 & -Angle_a_f_d - Angle_a_f_g + Angle_d_f_g & -Angle_c_b_e + Angle_c_b_f [Angle2Perp3(a,c,d,f)] => Perpendicular(a,c,d,f)
+6. Perpendicular(a,c,d,f) & Perpendicular(d,f,f,g) [AlphaGeometry1(a,c,d,f,f,g)] => Parallel(a,c,f,g)

@@ -50,6 +50,7 @@ class Diagram:
                             instance = pickle.load(f)
                             instance.save_path = save_path
                             instance.save_diagram()
+                            print(f"Load existing diagram from {file_path}...")
                             return instance
                 except :
                     pass
@@ -131,6 +132,7 @@ class Diagram:
         if self.cache_folder is not None:
             file_name = f"{hash_constructions_list(self.constructions_list)}.pkl"
             file_path = os.path.join(self.cache_folder, file_name)
+            print(f'Save to {file_path}...')
             with open(file_path, 'wb') as f:
                 pickle.dump(self, f)
     
@@ -156,7 +158,7 @@ class Diagram:
                 self.draw_diagram()
                 self.save_to_cache()
                 return
-            except DistanceError:
+            except:
                 continue
         
         raise MaxAttemptsError()
@@ -861,6 +863,8 @@ class Diagram:
                 return new_points
             except:
                 continue
+        
+        raise Exception()
     
     def _reduce(self, objs, existing_points) -> list[Point]:
         essential_objs = [i for i in objs if not isinstance(i, HalfPlane)]
@@ -925,7 +929,8 @@ class Diagram:
             )
             if auxiliary:
                 self.auxiliary_constructions.append(construction)
-            self.constructions_list.append(constructions)
+        
+        self.constructions_list.append(constructions)
             
     def draw_angle_bisector(self, *args):
         x, a, b, c = args
@@ -1643,6 +1648,7 @@ class Diagram:
         self.ax.set_ylim(ymin - y_margin, ymax + y_margin)
         
         if save:
+            # print(f'Save diagram to {self.save_path}...')
             self.save_diagram()
         
         if show:

@@ -1,1 +1,6 @@
 Solution:
+1. Length_a_o - Length_m_o & Length_a_o - Length_b_o & Perpendicular(a,e,a,o) [AlphaGeometry16b(o,a,m,b,e)] => -Angle_a_b_m + Angle_e_a_m
+2. -Angle_a_b_m + Angle_e_a_m & -Angle_b_a_m + Angle_d_a_m & Angle_a_b_m - Angle_b_a_m => Angle_d_a_m - Angle_e_a_m
+3. -Length_a_o + Length_b_o & Length_b_o - Length_m_o [InscribedAngle1(o,b,a,m)] => Angle_a_b_m - Angle_a_o_m/2
+4. Angle_a_b_m - Angle_a_o_m/2 & -Angle_a_b_m + Angle_e_a_m & -Angle_a_m_e - Angle_a_m_o + Angle_e_m_o & Angle_e_a_o - pi/2 & -Angle_a_m_d + Angle_a_m_o & -Angle_a_m_o + Angle_m_a_o & -Angle_e_a_m + Angle_e_a_o - Angle_m_a_o & Angle_a_o_m + Angle_e_m_o - pi => Angle_a_m_d - Angle_a_m_e
+5. Angle_d_a_m - Angle_e_a_m & Angle_a_m_d - Angle_a_m_e [AlphaGeometry37(d,a,m,e,a,m)] => -Length_d_m + Length_e_m

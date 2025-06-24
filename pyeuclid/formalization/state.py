@@ -120,7 +120,8 @@ class State:
             elif "Length" in str(quantity):
                 unionfind = self.lengths
                 unionfind.add(quantity)
-        self.equations.add(equation)
+        if equation not in self.equations:
+            self.equations.add(equation)
     
     def categorize_variable(self):
         angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types)

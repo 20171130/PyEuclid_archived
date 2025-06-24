@@ -1,11 +1,12 @@
 from __future__ import annotations
+from collections import defaultdict
 from typing import Iterable
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.utils import *
 from sympy import Rational, pi, sin, cos
 
 
-inference_rule_sets = {}
+inference_rule_sets = defaultdict(list)
 
 
 class register():
@@ -46,6 +47,7 @@ def equal(*lst):
             result.append(lst[i]-lst[j])
     return result
 
+
 class InferenceRule:
     def __init__(self):
         pass
@@ -60,6 +62,9 @@ class InferenceRule:
         return False
 
     def __str__(self):
+        # if self.__class__ in inference_rule_sets["ex"]:
+        #     return ""
+        # class_name = "Shape" if self.__class__ in inference_rule_sets["shape"] else self.__class__.__name__
         class_name = self.__class__.__name__
         content = []
         for key, value in vars(self).items():
@@ -81,7 +86,8 @@ class InferenceRule:
     def __hash__(self):
         return hash(str(self))
 
-@register("basic")
+
+@register("ex")
 class DefinitionOfMidpoint(InferenceRule):
     """ Definition of Midpoint """
     def __init__(self, a: Point, b: Point, c: Point):
@@ -94,7 +100,8 @@ class DefinitionOfMidpoint(InferenceRule):
     def conclusion(self):
         return Midpoint(self.a, self.b, self.c)
 
-@register("basic")
+
+@register("ex")
 class DefinitionOfMidpoint1(InferenceRule):
     """ Definition of Midpoint """
     def __init__(self, a: Point, b: Point, c: Point):
@@ -108,7 +115,7 @@ class DefinitionOfMidpoint1(InferenceRule):
         return Midpoint(self.a, self.b, self.c)
 
 
-@register("basic")
+@register("ex")
 class PropertyOfMidpoint(InferenceRule):
     """ Property of Midpoint """
     def __init__(self, a: Point, b: Point, c: Point):
@@ -167,9 +174,9 @@ class PropertyOfSimilar(InferenceRule):
     def conclusion(self):
         return [
             *equal(Length(self.a, self.b) / Length(self.p, self.q), Length(self.b, self.c) / Length(self.q, self.r), Length(self.c, self.a) / Length(self.r, self.p)),
-            Length(self.a, self.b)/Length(self.b, self.c) - Length(self.p, self.q)/Length(self.q, self.r),
-            Length(self.a, self.b)/Length(self.c, self.a) - Length(self.p, self.q)/Length(self.r, self.p),
-            Length(self.b, self.c)/Length(self.c, self.a) - Length(self.q, self.r)/Length(self.r, self.p),
+            # Length(self.a, self.b)/Length(self.b, self.c) - Length(self.p, self.q)/Length(self.q, self.r),
+            # Length(self.a, self.b)/Length(self.c, self.a) - Length(self.p, self.q)/Length(self.r, self.p),
+            # Length(self.b, self.c)/Length(self.c, self.a) - Length(self.q, self.r)/Length(self.r, self.p),
             Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r),
             Angle(self.b, self.c, self.a) - Angle(self.q, self.r, self.p),
             Angle(self.c, self.a, self.b) - Angle(self.r, self.p, self.q),
@@ -344,7 +351,9 @@ class PropertyOfParallelogram(InferenceRule):
         self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
     
     def condition(self):
-        return Parallelogram(self.p1, self.p2, self.p3, self.p4)
+        return [
+            Parallelogram(self.p1, self.p2, self.p3, self.p4)
+        ]
     
     def conclusion(self):
         return [
@@ -359,6 +368,31 @@ class PropertyOfParallelogram(InferenceRule):
             Angle(self.p3, self.p4, self.p1) + Angle(self.p4, self.p1, self.p2) - pi,
             Angle(self.p4, self.p1, self.p2) - Angle(self.p2, self.p3, self.p4),
             Angle(self.p1, self.p2, self.p3) - Angle(self.p3, self.p4, self.p1),
+
+            Angle(self.p2, self.p1, self.p3) - Angle(self.p1, self.p3, self.p4),
+            Angle(self.p3, self.p1, self.p4) - Angle(self.p1, self.p3, self.p2),
+            Angle(self.p1, self.p2, self.p4) - Angle(self.p2, self.p4, self.p3),
+            Angle(self.p3, self.p2, self.p4) - Angle(self.p1, self.p4, self.p2),
+        ]
+
+@register("basic")
+class PropertyOfParallelogram1(InferenceRule):
+    """ Property of Parallelogram """
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, o: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4, self.o = p1, p2, p3, p4, o
+    
+    def condition(self):
+        return [
+            Parallelogram(self.p1, self.p2, self.p3, self.p4),
+            Collinear(self.o, self.p1, self.p3),
+            Collinear(self.o, self.p2, self.p4)
+        ]
+    
+    def conclusion(self):
+        return [
+            Length(self.o, self.p1) - Length(self.o, self.p3),
+            Length(self.o, self.p2) - Length(self.o, self.p4),
         ]
 
 
@@ -413,11 +447,15 @@ class PropertyOfRectangle(InferenceRule):
     def conclusion(self):
         return [
             Parallelogram(self.p1, self.p2, self.p3, self.p4),
+            Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p4, self.p2, self.p3),
+            Length(self.p1, self.p2) - Length(self.p3, self.p4),
+            Length(self.p1, self.p4) - Length(self.p2, self.p3),
             Length(self.p1, self.p3) - Length(self.p2, self.p4),
-            Angle(self.p4, self.p1, self.p2) - pi / 2,
-            Angle(self.p1, self.p2, self.p3) - pi / 2,
-            Angle(self.p2, self.p3, self.p4) - pi / 2,
-            Angle(self.p3, self.p4, self.p1) - pi / 2,
+            *equal(Angle(self.p4, self.p1, self.p2), Angle(self.p1, self.p2, self.p3), Angle(self.p2, self.p3, self.p4), Angle(self.p3, self.p4, self.p1), pi / 2)
+            *equal(Angle(self.p2, self.p1, self.p3), Angle(self.p1, self.p2, self.p4), Angle(self.p1, self.p3, self.p4), Angle(self.p2, self.p4, self.p3)),
+            *equal(Angle(self.p3, self.p1, self.p4), Angle(self.p1, self.p3, self.p2), Angle(self.p3, self.p2, self.p4), Angle(self.p1, self.p4, self.p2)),
         ]
 
 

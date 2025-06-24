@@ -1,4 +1,8 @@
 Solution:
-1. Perpendicular(a,b,o,q) & Parallel(m,o,o,q) [AlphaGeometry1b(o,q,a,b,m,o)] => Angle_a_m_o + Angle_b_a_m - pi/2
-2. Perpendicular(a,b,o,q) & Parallel(a,b,a,q) [AlphaGeometry1b(a,b,o,q,a,q)] => Angle_a_q_o - pi/2
-3. Angle_c_e_m + Angle_c_m_e + Angle_e_c_m - pi & Angle_a_m_o + Angle_b_a_m - pi/2 & Angle_a_q_o - pi/2 => Angle_a_d_e - Angle_a_e_d
+1. Perpendicular(a,b,o,q) & Parallel(m,o,o,q) [AlphaGeometry1b(o,q,a,b,m,o)] => Perpendicular(a,b,m,o)
+2. Perpendicular(a,b,m,o) & Parallel(a,b,a,d) [AlphaGeometry1b(a,b,m,o,a,d)] => Angle_a_d_m + Angle_d_m_o - pi/2
+3. Perpendicular(a,c,o,p) & Parallel(n,o,o,p) [AlphaGeometry1b(o,p,a,c,n,o)] => Perpendicular(a,c,n,o)
+4. Perpendicular(a,c,n,o) & Parallel(a,c,a,e) [AlphaGeometry1b(a,c,n,o,a,e)] => Angle_a_e_n + Angle_e_n_o - pi/2
+5. -Length_a_o + Length_m_o & -Length_a_o + Length_n_o [AlphaGeometry14(o,m,n)] => -Angle_m_n_o + Angle_n_m_o
+6. -Angle_m_n_o + Angle_n_m_o & -Angle_e_n_o + Angle_m_n_o & -Angle_d_m_o + Angle_n_m_o => -Angle_d_m_o + Angle_e_n_o
+7. -Angle_a_e_d + Angle_a_e_n & Angle_a_d_m + Angle_d_m_o - pi/2 & -Angle_a_d_e + Angle_a_d_m & Angle_a_e_n + Angle_e_n_o - pi/2 & -Angle_d_m_o + Angle_e_n_o => Angle_a_d_e - Angle_a_e_d

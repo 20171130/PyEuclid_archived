@@ -1,2 +1,11 @@
 Solution:
-1. Angle_a_r_s + Angle_a_s_r + Angle_r_a_s - pi => Angle_b_a_m - Angle_c_a_n
+1. -Length_b_o + Length_o_s & Length_b_o - Length_c_o => Length_c_o - Length_o_s
+2. -Length_b_o + Length_c_o & Length_c_o - Length_o_s [InscribedAngle1(o,c,b,s)] => Angle_b_c_s - Angle_b_o_s/2
+3. -Length_b_o + Length_o_r & -Length_b_o + Length_o_s => Length_o_r - Length_o_s
+4. -Length_b_o + Length_o_r & Length_o_r - Length_o_s [InscribedAngle1(o,r,b,s)] => -Angle_b_o_s/2 + Angle_b_r_s
+5. Angle_a_c_n - Angle_b_c_s & -Angle_a_r_m + Angle_b_r_s & Angle_b_c_s - Angle_b_o_s/2 & -Angle_b_o_s/2 + Angle_b_r_s => Angle_a_c_n - Angle_a_r_m
+6. Perpendicular(a,m,r,s) & Parallel(m,r,r,s) [AlphaGeometry1b(r,s,a,m,m,r)] => Angle_a_m_r - pi/2
+7. Perpendicular(a,n,b,c) & Parallel(b,c,c,n) [AlphaGeometry1b(b,c,a,n,c,n)] => Angle_a_n_c - pi/2
+8. Angle_a_m_r - pi/2 & Angle_a_n_c - pi/2 => -Angle_a_m_r + Angle_a_n_c
+9. Angle_a_c_n - Angle_a_r_m & -Angle_a_m_r + Angle_a_n_c [AlphaGeometry3536(a,c,n,a,r,m)] => Angle_c_a_n - Angle_m_a_r
+10. Angle_c_a_n - Angle_m_a_r & -Angle_b_a_m + Angle_m_a_r => Angle_b_a_m - Angle_c_a_n

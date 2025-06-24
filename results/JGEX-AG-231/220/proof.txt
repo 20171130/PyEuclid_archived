@@ -1,5 +1,6 @@
 Solution:
-1. Collinear(a,c,e) & Collinear(b,c,f) & Parallel(a,b,e,f) [AlphaGeometry8(a,b,e,f,c)] => Length_c_e/Length_a_c - Length_e_f/Length_a_b
-2. Collinear(a,c,e) & Collinear(b,c,f) & Parallel(a,b,e,f) [AlphaGeometry8(a,b,e,f,c)] => -Length_c_f/Length_b_c + Length_c_e/Length_a_c
-3. Collinear(a,b,d) & Collinear(a,c,e) & Parallel(b,c,d,e) [AlphaGeometry8(b,c,d,e,a)] => Length_a_b/Length_b_c - Length_a_d/Length_d_e
-4. Length_c_e/Length_a_c - Length_e_f/Length_a_b & -Length_c_f/Length_b_c + Length_c_e/Length_a_c & Length_a_b/Length_b_c - Length_a_d/Length_d_e => -Length_b_f + Length_c_e
+1. Collinear(a,b,d) & Angle_a_c_d - Angle_b_c_d [AlphaGeometry13(c,a,b,d)] => -Length_a_c/Length_b_c + Length_a_d/Length_b_d
+2. Collinear(a,b,d) & Collinear(a,c,e) & Parallel(b,c,d,e) [AlphaGeometry8(b,c,d,e,a)] => -Length_a_e/Length_a_c + Length_a_d/Length_a_b
+3. Collinear(a,b,d) & Collinear(a,c,e) & Parallel(b,c,d,e) [AlphaGeometry8(b,c,d,e,a)] => Length_a_b/Length_a_c - Length_b_d/Length_c_e
+4. Collinear(a,c,e) & Collinear(b,c,f) & Parallel(a,b,e,f) [AlphaGeometry8(a,b,e,f,c)] => Length_a_c/Length_b_c - Length_a_e/Length_b_f
+5. -Length_a_c/Length_b_c + Length_a_d/Length_b_d & -Length_a_e/Length_a_c + Length_a_d/Length_a_b & Length_a_b/Length_a_c - Length_b_d/Length_c_e & Length_a_c/Length_b_c - Length_a_e/Length_b_f => -Length_b_f + Length_c_e

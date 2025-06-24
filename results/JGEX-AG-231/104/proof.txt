@@ -1,2 +1,9 @@
 Solution:
-1. Angle_b_p_q + Angle_b_q_p + Angle_p_b_q - pi & Angle_b_a_m + Angle_c_a_n - pi [Angle2Perp3(a,n,p,q)] => Perpendicular(a,n,p,q)
+1. Perpendicular(a,c,m,p) & Parallel(a,c,a,p) [AlphaGeometry1b(a,c,m,p,a,p)] => Angle_a_p_m - pi/2
+2. Perpendicular(a,b,m,q) & Parallel(a,b,a,q) [AlphaGeometry1b(a,b,m,q,a,q)] => Angle_a_q_m - pi/2
+3. Perpendicular(a,b,m,q) & Parallel(a,b,b,q) [AlphaGeometry1b(a,b,m,q,b,q)] => Angle_b_q_m - pi/2
+4. Angle_a_q_m - pi/2 & Angle_b_q_m - pi/2 => -Angle_a_q_m + Angle_b_q_m
+5. Angle_a_p_m - pi/2 & Angle_a_q_m + Angle_b_q_m - pi & -Angle_a_q_m + Angle_b_q_m [AlphaGeometry5b(a,m,p,q)] => Angle_m_a_p - Angle_m_q_p
+6. Angle_a_q_m - pi/2 & Angle_a_q_m - Angle_a_q_p - Angle_m_q_p => Angle_a_q_p + Angle_m_q_p - pi/2
+7. Angle_b_a_m + Angle_c_a_n - pi & -Angle_b_a_m + Angle_b_a_p - Angle_m_a_p & -Angle_b_a_c + Angle_c_a_q & Angle_b_a_c + Angle_b_a_p - pi & Angle_c_a_n - Angle_c_a_q - Angle_n_a_q => -Angle_m_a_p + Angle_n_a_q
+8. Angle_m_a_p - Angle_m_q_p & Angle_a_q_p + Angle_m_q_p - pi/2 & -Angle_m_a_p + Angle_n_a_q [Angle2Perp3(a,n,p,q)] => Perpendicular(a,n,p,q)

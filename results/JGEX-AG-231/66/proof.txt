@@ -1,2 +1,7 @@
 Solution:
-1. Length_b_c - Length_b_f & -Length_b_c + Length_b_f [AlphaGeometry34(c,b,f,f,b,c)] => Length_d_e - Length_e_f
+1. -Length_a_b + Length_a_d & -Length_a_b + Length_a_e => Length_a_d - Length_a_e
+2. -Length_a_b + Length_a_d & Length_a_d - Length_a_e [InscribedAngle1(a,d,b,e)] => -Angle_b_a_e/2 + Angle_b_d_e
+3. -Length_b_c + Length_b_d & -Length_b_c + Length_b_f [AlphaGeometry14(b,d,f)] => Angle_b_d_f - Angle_b_f_d
+4. -Length_a_b + Length_a_e & -Length_a_b + Length_a_c => Length_a_c - Length_a_e
+5. -Length_a_b + Length_a_c & Length_a_c - Length_a_e [InscribedAngle1(a,c,b,e)] => -Angle_b_a_e/2 + Angle_b_c_e
+6. -Angle_b_f_c + Angle_b_f_d - Angle_c_f_d & -Angle_b_d_e + Angle_b_d_f - Angle_e_d_f & -Angle_b_a_e/2 + Angle_b_d_e & Angle_b_c_e - Angle_b_c_f & Angle_b_d_f - Angle_b_f_d & -Angle_b_a_e/2 + Angle_b_c_e & Angle_b_c_f - Angle_b_f_c & -Angle_c_f_d + Angle_d_f_e [AlphaGeometry15(e,d,f)] => Length_d_e - Length_e_f
