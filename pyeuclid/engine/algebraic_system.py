@@ -230,8 +230,9 @@ class AlgebraicSystem:
                                 breakpoint()
                                 assert False
                 else:
-                    if not self.state.silent:
-                        self.state.logger.debug(f"abondended complex equation {eqn, raw_eqn}")
+                    # if not self.state.silent:
+                    #     self.state.logger.debug(f"abondended complex equation {eqn, raw_eqn}")
+                    pass
             if not progress and try_complex and not exact_exhausted:
                 progress = True
                 exact_exhausted = True
@@ -289,7 +290,7 @@ class AlgebraicSystem:
             if len(component) == 1:
                 continue
             rep = self.state.simplify_equation(component[0])
-            if len(rep.free_symbols)==0:
+            if len(rep.free_symbols) == 0:
                 component = component + [rep]
             for a in range(len(component)):
                 for b in range(a+1, len(component)):

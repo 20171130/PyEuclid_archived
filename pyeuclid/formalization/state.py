@@ -121,7 +121,12 @@ class State:
                 unionfind = self.lengths
                 unionfind.add(quantity)
         
-        if equation not in self.equations:
+        # trival equations
+        if str(equation) == '0':
+            return
+        
+        negated = Traced(-equation.expr)
+        if equation not in self.equations and negated not in self.equations:
             self.equations.add(equation)
     
     def categorize_variable(self):

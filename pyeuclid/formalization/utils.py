@@ -166,6 +166,10 @@ class Traced():
         return other
     
     def __str__(self):
+        # if not self.symbol is None:
+        #     return str(sympy.simplify(self.symbol - self.expr))
+        # else:
+        #     return str(sympy.simplify(self.expr))
         if self.str_rep is None:
             if not self.symbol is None:
                 self.str_rep = str(sympy.simplify(self.symbol - self.expr))

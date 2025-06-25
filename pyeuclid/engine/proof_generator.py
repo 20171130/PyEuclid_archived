@@ -45,16 +45,25 @@ class ProofGenerator:
             }
             conds = [
                 eq for eq in self.state.equations
-                if eq.depth < node.depth and str(eq) in expr_conds
+                if eq.depth < node.depth and eq.str_rep in expr_conds
             ]
-            assert len(expr_conds) == len(conds)
+
+            if not len(expr_conds) == len(conds):
+                
+                for eq in self.state.equations:
+                    if eq.depth < node.depth:
+                        print(eq, eq.str_rep)
+                breakpoint()
 
             for cond in node.condition():
                 if not isinstance(cond, sympy.core.expr.Expr) and not trivial_condition(cond):
                     conds.append(cond)
-            
             self.proof_dict[node] = conds
-            print(1, 'node', node, type(node), 'depth', depth, 'sources', conds)
+
+            # conds = [item for item in node.condition() if not trivial_condition(item) and not item == 0]
+            # self.proof_dict[node] = conds
+            
+            # print(1, 'node', node, type(node), 'depth', depth, 'sources', conds)
             for cond in conds:
                 self.run(cond, depth=depth, root=False)
         elif isinstance(node, Relation):
@@ -63,7 +72,7 @@ class ProofGenerator:
                     if hasattr(tmp, "source"):
                         source = tmp.source
                         self.proof_dict[node] = [source]
-                        print(2, 'node', node, type(node), 'depth', depth, 'sources', source)
+                        # print(2, 'node', node, type(node), 'depth', depth, 'sources', source)
                         self.run(source, root=False)
                     break
             else:
@@ -105,7 +114,7 @@ class ProofGenerator:
                     assert False
                 sources = conditions
             self.proof_dict[node] = sources
-            print(3, 'node', node, type(node), 'depth', depth, 'sources', sources)
+            # print(3, 'node', node, type(node), 'depth', depth, 'sources', sources)
             for item in sources:
                 self.run(item, root=False)
         
@@ -143,7 +152,7 @@ class ProofGenerator:
         step_counter = 1
 
         def search(node):  # root-last traversal
-            print('searching', node)
+            # print('searching', node)
             nonlocal step_counter
             if node in visited or node not in self.proof_dict:
                 return
@@ -163,7 +172,7 @@ class ProofGenerator:
             
             # if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
             #     return
-            print('node', node, 'step_counter', step_counter, 'conditions', conditions)
+            # print('node', node, 'step_counter', step_counter, 'conditions', conditions)
             proof_steps[node] = (step_counter, conditions, theorem)
             step_counter += 1
 
@@ -186,7 +195,7 @@ class ProofGenerator:
     def show_proof(self, node=None):
         res = self.get_proof_str(node)
         print(res)
-        print(self.proof_dict)
+        # print(self.proof_dict)
 
     def get_proof_str(self, node=None):
         res = "Solution:\n"
