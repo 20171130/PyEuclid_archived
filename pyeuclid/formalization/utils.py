@@ -140,17 +140,19 @@ class Traced():
             sources = expr.sources
             depth = expr.depth
             expr = expr.expr
+        
         self.expr = expr
         self.symbol = None
         self.redundant = False
         self.sources = sources
+        self.str_rep = None
         self.depth = max([depth] + [getattr(item, "depth", 0) for item in self.sources])
         for key in ("free_symbols", "args"):
             setattr(self, key, getattr(self.expr, key))
     
     def subs(self, key, value):
         if isinstance(value, Traced):
-            if len(self.sources)>0 and isinstance(self.sources[0], Traced):
+            if len(self.sources) >0 and isinstance(self.sources[0], Traced):
                 sources = [item for item in self.sources] + [value]
             else:
                 sources = [self, value]
@@ -164,18 +166,18 @@ class Traced():
         return other
     
     def __str__(self):
-        if not self.symbol is None:
-            return str(self.symbol - self.expr)
-        return str(self.expr)
+        if self.str_rep is None:
+            if not self.symbol is None:
+                self.str_rep = str(sympy.simplify(self.symbol - self.expr))
+            else:
+                self.str_rep = str(sympy.simplify(self.expr))
+        return self.str_rep
     def __repr__(self):
         return str(self)
     def __eq__(self, other):
         return hash(self) == hash(other)
     def __hash__(self):
-        # rep = f"{self}@{self.depth}"
-        # rep += " ".join([str(hash(item)) for item in self.sources])
-        rep = str(self)
-        return hash(rep)
+        return hash(str(self))
 
         
 def infer_eq_types(eq, var_types):

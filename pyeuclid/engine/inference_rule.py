@@ -1084,7 +1084,7 @@ class AlphaGeometry1(InferenceRule):
         return Parallel(self.a, self.b, self.e, self.f)
 
 
-@register("basic")
+@register("ex")
 class CollinearTransist(InferenceRule):
     """ Collinearity transitivity """
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
@@ -2214,7 +2214,7 @@ class FlatAngle2Collinear(InferenceRule):
         return Collinear(self.a, self.b, self.c)
 
 
-@register("basic")
+@register("ex")
 class ParaTrans(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()
@@ -2226,7 +2226,7 @@ class ParaTrans(InferenceRule):
         self.f = f
 
     def condition(self):
-        return Parallel(self.a, self.b, self.c, self.d), Parallel(self.a, self.b, self.e, self.f), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.e, self.f), Lt(self.c, self.e), *Different(self.a, self.b, self.c), *Different(self.a, self.b, self.e)
+        return Parallel(self.a, self.b, self.c, self.d), Parallel(self.a, self.b, self.e, self.f), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.e, self.f), Lt(self.c, self.e)
 
     def degenerate(self):
         return self.a == self.c and self.b == self.d or self.a == self.e and self.b == self.f or self.e == self.c and self.f == self.d
@@ -2235,7 +2235,7 @@ class ParaTrans(InferenceRule):
         return Parallel(self.c, self.d, self.e, self.f)
 
 
-@register("basic")
+@register("ex")
 class CollinearParallel(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()

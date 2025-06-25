@@ -158,7 +158,6 @@ class AlgebraicSystem:
         exprs = {key: value for key, value in exprs.items()}
         return free_vars, exprs
 
-    
     def solve_equation(self):
         if len(self.state.solutions) > self.state.current_depth: # have solved for this depth
             return
@@ -265,15 +264,15 @@ class AlgebraicSystem:
     def compute_ratio_and_angle_sum(self):
         dic = {}
         tmp = self.state.lengths.equivalence_classes()
-        # for component in tmp.values():
-        #     if len(component) == 1:
-        #         continue
-        #     rep = self.state.simplify_equation(component[0])
-        #     if len(rep.free_symbols)==0:
-        #         component += [rep]
-        #     for a in range(len(component)):
-        #         for b in range(a+1, len(component)):
-        #             self.state.add_conditions(Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length"]))
+        for component in tmp.values():
+            if len(component) == 1:
+                continue
+            rep = self.state.simplify_equation(component[0])
+            if len(rep.free_symbols)==0:
+                component += [rep]
+            for a in range(len(component)):
+                for b in range(a+1, len(component)):
+                    self.state.add_conditions(Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"]))
 
         for x in tmp:
             for y in tmp:
@@ -283,8 +282,19 @@ class AlgebraicSystem:
                 else:
                     dic[expr].append(sympy.core.mul.Mul(
                         x, 1/y, evaluate=False))
+                
         self.state.ratios = dic
-        
+
+        for component in dic.values():
+            if len(component) == 1:
+                continue
+            rep = self.state.simplify_equation(component[0])
+            if len(rep.free_symbols)==0:
+                component = component + [rep]
+            for a in range(len(component)):
+                for b in range(a+1, len(component)):
+                    self.state.add_conditions(Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"]))
+
         dic = {}
         tmp = self.state.angles.equivalence_classes()
         for component in tmp.values():
@@ -292,7 +302,7 @@ class AlgebraicSystem:
                 continue
             rep = self.state.simplify_equation(component[0])
             if len(rep.free_symbols)==0:
-                component += [rep]
+                component = component + [rep]
             for a in range(len(component)):
                 for b in range(a+1, len(component)):
                     self.state.add_conditions(Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"]))

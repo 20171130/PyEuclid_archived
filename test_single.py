@@ -80,6 +80,8 @@ def run_single_problem(args):
         
     t = time.time() - t0
     result = state.complete()
+    for eq in state.equations:
+        print('eq', eq, 'sources', eq.sources, 'depth', eq.depth, eq.str_rep)
     if result is not None:
         print(f"Solved in {t:.2f}s")
         if args.show_proof:

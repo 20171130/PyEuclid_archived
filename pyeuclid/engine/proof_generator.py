@@ -38,28 +38,41 @@ class ProofGenerator:
             depth = node.depth
         
         if isinstance(node, InferenceRule):
-            conds = [item for item in node.condition() if not trivial_condition(item) and not item == 0]
+            expr_conds = {
+                str(sympy.simplify(cond)) 
+                for cond in node.condition() 
+                if isinstance(cond, sympy.core.expr.Expr)
+            }
+            conds = [
+                eq for eq in self.state.equations
+                if eq.depth < node.depth and str(eq) in expr_conds
+            ]
+            assert len(expr_conds) == len(conds)
+
+            for cond in node.condition():
+                if not isinstance(cond, sympy.core.expr.Expr) and not trivial_condition(cond):
+                    conds.append(cond)
+            
             self.proof_dict[node] = conds
-            print('node', node, type(node), 'sources', conds)
+            print(1, 'node', node, type(node), 'depth', depth, 'sources', conds)
             for cond in conds:
                 self.run(cond, depth=depth, root=False)
-        
         elif isinstance(node, Relation):
             for tmp in self.state.relations:
                 if tmp == node:
                     if hasattr(tmp, "source"):
                         source = tmp.source
                         self.proof_dict[node] = [source]
-                        print('node', node, type(node), 'sources', source)
+                        print(2, 'node', node, type(node), 'depth', depth, 'sources', source)
                         self.run(source, root=False)
                     break
             else:
                 assert False, f"{node} is not proved"
         else:
             if isinstance(node, Traced):
-                if type(node.sources[0]) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle):
-                    sources = []
-                else:
+                # if type(node.sources[0]) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2):
+                #     sources = []
+                # else:
                     sources = node.sources
                     if isinstance(sources[0], str):
                         # backtrace linear systems
@@ -74,13 +87,12 @@ class ProofGenerator:
                             assert False
                         sources = conditions
                     else:
-                        # TODO for length
+                        # inference rules derived
                         pass
             else:
                 assert isinstance(node, sympy.core.expr.Expr)
                 sources = []
-                depth = min(int(depth), len(self.state.solutions)-1)
-                equations = [item for item in self.state.equations if item.depth <= depth]
+                equations = [item for item in self.state.equations if item.depth < depth]
                 if "Angle" in str(node):
                     conditions = self.find_conditions(equations, node, "angle_linear")
                 else:
@@ -93,7 +105,7 @@ class ProofGenerator:
                     assert False
                 sources = conditions
             self.proof_dict[node] = sources
-            print('node', node, type(node), 'sources', sources)
+            print(3, 'node', node, type(node), 'depth', depth, 'sources', sources)
             for item in sources:
                 self.run(item, root=False)
         
@@ -131,8 +143,9 @@ class ProofGenerator:
         step_counter = 1
 
         def search(node):  # root-last traversal
+            print('searching', node)
             nonlocal step_counter
-            if node in visited or node not in self.proof_dict or self.proof_dict[node] is None:
+            if node in visited or node not in self.proof_dict:
                 return
             visited.add(node)
             conditions = self.proof_dict[node]
@@ -145,17 +158,12 @@ class ProofGenerator:
             #         theorem = conditions[0]
             #     conditions = self.proof_dict[conditions[0]]
             for condition in conditions:
-                if condition is not None:
-                    search(condition)
-            if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
-                return
-            if type(node) in (Traced, sympy.core.add.Add):
-                for item in visited:
-                    if not item is node and type(item) in (Traced, sympy.core.add.Add):
-                        if getattr(node, "expr", node) - getattr(item, "expr", item) == 0:
-                            return
-                        if getattr(node, "expr", node) + getattr(item, "expr", item) == 0:
-                            return
+                assert condition is not None
+                search(condition)
+            
+            # if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
+            #     return
+            print('node', node, 'step_counter', step_counter, 'conditions', conditions)
             proof_steps[node] = (step_counter, conditions, theorem)
             step_counter += 1
 
@@ -197,7 +205,7 @@ class ProofGenerator:
         
         for proof_step in proof_steps:
             if not isinstance(proof_step['condition'][0], ConstructionRule):
-                res.append(([item for item in proof_step['condition'] if not trivial_condition(item) ], proof_step['theorem'], proof_step['conclusion']))
+                res.append(([item for item in proof_step['condition'] if not trivial_condition(item)], proof_step['theorem'], proof_step['conclusion']))
         return res
 
     def traceback_l1(self, augmented_A, e, threshold=1e-6):

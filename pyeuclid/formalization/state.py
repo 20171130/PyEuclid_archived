@@ -120,6 +120,7 @@ class State:
             elif "Length" in str(quantity):
                 unionfind = self.lengths
                 unionfind.add(quantity)
+        
         if equation not in self.equations:
             self.equations.add(equation)
     
