@@ -1,9 +1,0 @@
-Solution:
-1. -Length_a_e + Length_c_e & Length_a_d - Length_b_d => Length_a_d/Length_b_d - Length_a_e/Length_c_e
-2. Collinear(a,b,d) & Collinear(a,c,e) & Length_a_d/Length_b_d - Length_a_e/Length_c_e [AlphaGeometry28(d,e,b,c,a)] => Angle_b_c_e + Angle_c_e_d - pi
-3. Angle_a_e_d + Angle_c_e_d - pi & Angle_b_c_e + Angle_c_e_d - pi & Angle_a_c_b - Angle_b_c_e & Angle_a_e_d - Angle_a_e_f => Angle_a_c_b - Angle_a_e_f
-4. Angle_a_c_b - Angle_a_e_f & Collinear(a,c,e) [AlphaGeometry3b(c,b,a,f,e)] => Angle_b_f_e + Angle_c_b_f - pi
-5. Angle_a_b_f - Angle_d_b_f & -Angle_a_b_f + Angle_c_b_f => -Angle_c_b_f + Angle_d_b_f
-6. Angle_b_f_e + Angle_c_b_f - pi & Angle_b_f_d + Angle_b_f_e - pi & -Angle_c_b_f + Angle_d_b_f [AlphaGeometry15(d,b,f)] => Length_b_d - Length_d_f
-7. Length_a_d - Length_b_d & Length_b_d - Length_d_f => Length_a_d - Length_d_f
-8. Collinear(a,b,d) & Length_a_d - Length_d_f & Length_a_d - Length_b_d [AlphaGeometry21(d,a,f,b)] => Perpendicular(a,f,b,f)

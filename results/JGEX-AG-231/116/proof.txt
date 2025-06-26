@@ -1,5 +1,0 @@
-Solution:
-1. Length_a_c - Length_b_c & Length_a_c - Length_c_d [InscribedAngle1(c,a,b,d)] => Angle_b_a_d - Angle_b_c_d/2
-2. Angle_b_a_d - Angle_b_c_d/2 & -Angle_b_a_d + Angle_b_a_e - Angle_d_a_e & Angle_b_a_d - Angle_d_a_e => Angle_b_a_e - Angle_b_c_d
-3. Angle_b_a_e - Angle_b_c_d & Collinear(a,b,c) [AlphaGeometry3b(a,e,b,d,c)] => Parallel(a,e,c,d)
-4. Perpendicular(c,d,d,e) & Parallel(a,e,c,d) [AlphaGeometry1b(c,d,d,e,a,e)] => Perpendicular(a,e,d,e)

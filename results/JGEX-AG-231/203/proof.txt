@@ -1,6 +1,0 @@
-Solution:
-1. Midpoint(e,a,c) & Midpoint(a,c,d) [AlphaGeometry7(c,a,d,e,a)] => Length_a_c/Length_c_d - Length_c_e/Length_a_c
-2. Length_a_c/Length_c_d - Length_c_e/Length_a_c & -Length_a_c/Length_b_c + Length_b_c/Length_a_c => Length_b_c/Length_c_e - Length_c_d/Length_b_c
-3. Length_b_c/Length_c_e - Length_c_d/Length_b_c & Angle_b_c_d - Angle_b_c_e [AlphaGeometry40(b,c,d,e,c,b)] => Length_b_c/Length_b_d - Length_c_e/Length_b_e
-4. Length_b_c/Length_c_e - Length_c_d/Length_b_c & Angle_b_c_d - Angle_b_c_e [AlphaGeometry40(b,c,d,e,c,b)] => -Length_b_d/Length_b_e + Length_c_d/Length_b_c
-5. Length_a_c - Length_c_d/2 & -Length_a_c/2 + Length_c_e & Length_b_c/Length_b_d - Length_c_e/Length_b_e & -Length_b_d/Length_b_e + Length_c_d/Length_b_c & -Length_b_d/2 + Length_b_f => Length_b_e - Length_b_f

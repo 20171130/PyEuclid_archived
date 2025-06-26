@@ -1,8 +1,0 @@
-Solution:
-1. -Length_a_g + Length_e_g & -Length_d_f + Length_e_f => Length_e_f/Length_d_f - Length_e_g/Length_a_g
-2. Collinear(d,e,f) & Collinear(a,e,g) & Length_e_f/Length_d_f - Length_e_g/Length_a_g [AlphaGeometry28(f,g,d,a,e)] => Parallel(a,d,f,g)
-3. Parallel(a,d,b,c) & Parallel(a,d,f,g) [ParaTrans(a,d,b,c,f,g)] => Parallel(b,c,f,g)
-4. Length_a_b - Length_c_d & Length_a_c - Length_b_d [SSS(a,b,c,d,c,b)] => -Angle_a_c_b + Angle_c_b_d
-5. Angle_c_b_d - Angle_c_b_f & -Angle_a_c_b + Angle_c_b_d & Angle_a_c_b - Angle_b_c_g => -Angle_b_c_g + Angle_c_b_f
-6. Parallel(b,c,f,g) & -Angle_b_c_g + Angle_c_b_f [EqTrapezoid3(b,c,f,g)] => Length_b_f - Length_c_g
-7. Parallel(b,c,f,g) & Length_b_f - Length_c_g [EqTrapezoid1(b,c,f,g)] => -Length_b_g + Length_c_f

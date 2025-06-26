@@ -1,7 +1,0 @@
-Solution:
-1. Angle_a_b_e - Angle_a_e_b & -Angle_a_b_e + Angle_a_e_b [AlphaGeometry3536(a,b,e,a,e,b)] => Length_a_b - Length_a_e
-2. Angle_a_c_d - Angle_a_d_c & -Angle_a_c_d + Angle_a_d_c [AlphaGeometry3536(a,c,d,a,d,c)] => Length_a_c - Length_a_d
-3. -Angle_a_b_e + Angle_a_e_b & Angle_a_b_e - Angle_b_a_e => Angle_a_e_b - Angle_b_a_e
-4. Angle_a_c_d - Angle_c_a_d & -Angle_a_c_d + Angle_a_d_c => Angle_a_d_c - Angle_c_a_d
-5. Angle_a_e_b - Angle_b_a_e & -Angle_a_c_d + Angle_c_a_d & Angle_b_a_c - Angle_b_a_e - Angle_c_a_e & -Angle_c_a_d - Angle_c_a_e + Angle_d_a_e & Angle_a_c_d + Angle_a_d_c + Angle_c_a_d - pi & Angle_a_b_e + Angle_a_e_b + Angle_b_a_e - pi & -Angle_a_b_e + Angle_b_a_e & Angle_a_d_c - Angle_c_a_d => Angle_b_a_c - Angle_d_a_e
-6. Length_a_b - Length_a_e & Length_a_c - Length_a_d & Angle_b_a_c - Angle_d_a_e [AlphaGeometry34(b,a,c,e,a,d)] => -Length_b_c + Length_d_e

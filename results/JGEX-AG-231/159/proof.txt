@@ -1,9 +1,0 @@
-Solution:
-1. Length_b_c - Length_c_d & Length_b_c - Length_c_f [InscribedAngle1(c,b,d,f)] => Angle_d_b_f - Angle_d_c_f/2
-2. -Length_b_c + Length_c_d & -Length_b_c + Length_c_f & -Length_c_d + Length_c_g => -Length_c_f + Length_c_g
-3. -Length_c_d + Length_c_g & -Length_c_f + Length_c_g [InscribedAngle1(c,g,d,f)] => -Angle_d_c_f/2 + Angle_d_g_f
-4. -Length_a_b + Length_a_e & -Length_a_b + Length_a_d => -Length_a_d + Length_a_e
-5. -Length_a_d + Length_a_e & -Length_a_b + Length_a_e & Perpendicular(a,e,e,h) [AlphaGeometry16b(a,e,d,b,h)] => -Angle_d_b_e + Angle_d_e_h
-6. Angle_d_b_f - Angle_d_c_f/2 & -Angle_d_b_e + Angle_d_b_f & Angle_d_g_f - Angle_e_g_f & Angle_d_e_h - Angle_g_e_h & -Angle_d_c_f/2 + Angle_d_g_f & -Angle_d_b_e + Angle_d_e_h & -Angle_a_e_g + Angle_a_e_h - Angle_g_e_h & Angle_a_e_h - pi/2 [Angle2Perp2(g,f,e,a)] => Perpendicular(a,e,f,g)
-7. Perpendicular(a,e,e,h) & Parallel(e,h,h,i) [AlphaGeometry1b(e,h,a,e,h,i)] => Perpendicular(a,e,h,i)
-8. Perpendicular(a,e,f,g) & Perpendicular(a,e,h,i) [AlphaGeometry1(f,g,a,e,h,i)] => Parallel(f,g,h,i)

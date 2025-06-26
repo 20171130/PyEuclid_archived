@@ -1,5 +1,0 @@
-Solution:
-1. Length_a_b1 - Length_b1_h & Length_a_c1 - Length_c1_h [AlphaGeometry24(a,h,b1,c1)] => Perpendicular(a,h,b1,c1)
-2. Length_a1_b - Length_a1_c & Length_b_o - Length_c_o [AlphaGeometry24(b,c,a1,o)] => Perpendicular(a1,o,b,c)
-3. Perpendicular(a,h,b,c) & Perpendicular(a1,o,b,c) [AlphaGeometry1(a,h,b,c,a1,o)] => Parallel(a,h,a1,o)
-4. Perpendicular(a,h,b1,c1) & Parallel(a,h,a1,o) [AlphaGeometry1b(a,h,b1,c1,a1,o)] => Perpendicular(a1,o,b1,c1)

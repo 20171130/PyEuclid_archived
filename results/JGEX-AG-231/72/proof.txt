@@ -1,5 +1,0 @@
-Solution:
-1. Collinear(c,d,e) & -Length_b_c + Length_c_d & Length_c_d - Length_c_e [AlphaGeometry21(c,d,b,e)] => Perpendicular(b,d,b,e)
-2. Perpendicular(b,d,b,e) & Parallel(b,e,b,f) [AlphaGeometry1b(b,e,b,d,b,f)] => Perpendicular(b,d,b,f)
-3. Length_a_b/Length_a_d - Length_a_d/Length_a_b & Length_a_b/Length_a_f - Length_a_f/Length_a_b => Length_a_d - Length_a_f
-4. Perpendicular(b,d,b,f) & -Length_a_b + Length_a_d & Length_a_d - Length_a_f [InversedThales2(a,d,b,f)] => Collinear(a,d,f)

@@ -1,3 +1,0 @@
-Solution:
-1. Angle_d_g_j + Angle_d_j_g + Angle_g_d_j - pi & Angle_d_e_h + Angle_d_h_e + Angle_e_d_h - pi & Angle_d_h_j + Angle_d_j_h + Angle_h_d_j - pi & -Angle_a_e_d + Angle_d_a_e & Angle_c_d_f + Angle_c_f_d + Angle_d_c_f - pi & Angle_b_d_h + Angle_b_h_d + Angle_d_b_h - pi & Angle_b_f_j + Angle_b_j_f + Angle_f_b_j - pi & Angle_f_h_g + Angle_g_h_j - pi & Angle_b_g_i + Angle_b_i_g + Angle_g_b_i - pi [Angle2Perp2(i,g,k,f)] => Perpendicular(f,k,g,i)
-2. Perpendicular(f,k,g,i) & Parallel(f,h,f,k) [AlphaGeometry1b(f,k,g,i,f,h)] => Perpendicular(f,h,g,i)

@@ -1,5 +1,0 @@
-Solution:
-1. Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_a_f_d + Angle_c_f_d - pi & Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_a_d_b - Angle_a_g_e
-2. Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_a_f_d + Angle_c_f_d - pi & Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_c_b_d - Angle_f_e_g
-3. Angle_c_b_d - Angle_f_e_g & Parallel(b,c,e,f) => Parallel(b,d,e,g)
-4. Angle_a_d_b - Angle_a_g_e & Parallel(b,d,e,g) [AlphaGeometry29(a,d,g)] => Collinear(a,d,g)

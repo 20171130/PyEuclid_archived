@@ -1,8 +1,0 @@
-Solution:
-1. -Angle_a_b_c + Angle_a_b_g & -Angle_a_b_c + Angle_b_a_c & -Angle_b_a_c + Angle_b_a_d => Angle_a_b_g - Angle_b_a_d
-2. Parallel(a,b,d,g) & Angle_a_b_g - Angle_b_a_d [EqTrapezoid2(a,b,g,d)] => -Length_a_d + Length_b_g
-3. -Length_a_d + Length_b_e & -Length_a_d + Length_b_g [DefinitionOfMidpoint(b,e,g)] => Length_b_e - Length_b_g
-4. Angle_b_g_d + Angle_c_g_d - pi & Angle_a_b_g + Angle_b_g_d - pi & -Angle_a_b_g + Angle_c_b_f => Angle_c_b_f - Angle_c_g_d
-5. Angle_c_b_f - Angle_c_g_d & Collinear(b,c,g) [AlphaGeometry3b(b,f,c,d,g)] => Parallel(b,f,d,g)
-6. Collinear(b,e,g) & Collinear(d,e,f) & Parallel(b,f,d,g) [AlphaGeometry8(b,f,g,d,e)] => Length_b_e/Length_e_f - Length_b_g/Length_d_f
-7. Length_b_e - Length_b_g & Length_b_e/Length_e_f - Length_b_g/Length_d_f => Length_d_f - Length_e_f

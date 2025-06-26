@@ -159,6 +159,52 @@ class PropertyOfCongruent(InferenceRule):
 
 
 @register("basic")
+class PropertyOfIsoscelesTriangle(InferenceRule):
+    """ Property of Isosceles Triangle """
+    def __init__(self, a: Point, b: Point, c: Point, d:Point):
+        super().__init__()
+        self.a, self.b, self.c, self.d = a, b, c, d
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Length(self.a, self.b) - Length(self.a, self.c),
+            Collinear(self.b, self.c, self.d),
+            Perpendicular(self.a, self.d, self.b, self.c),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            Midpoint(self.d, self.b, self.c),
+            Angle(self.b, self.a, self.d) - Angle(self.c, self.a, self.d)
+        ]
+
+
+@register("basic")
+class PropertyOfIsoscelesTriangle(InferenceRule):
+    """ Property of Isosceles Triangle """
+    def __init__(self, a: Point, b: Point, c: Point, d:Point):
+        super().__init__()
+        self.a, self.b, self.c, self.d = a, b, c, d
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Length(self.a, self.b) - Length(self.a, self.c),
+            Collinear(self.b, self.c, self.d),
+            Midpoint(self.d, self.b, self.c),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            Perpendicular(self.a, self.d, self.b, self.c),
+            Angle(self.b, self.a, self.d) - Angle(self.c, self.a, self.d)
+        ]
+
+
+@register("basic")
 class PropertyOfSimilar(InferenceRule):
     """ Property of Similar Triangles """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):

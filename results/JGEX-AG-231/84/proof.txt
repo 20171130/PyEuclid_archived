@@ -1,5 +1,0 @@
-Solution:
-1. -Angle_b_a_c + Angle_b_a_d & -Angle_a_b_c + Angle_b_a_c => Angle_a_b_c - Angle_b_a_d
-2. Length_a_c - Length_b_c & -Length_c_d + Length_c_e & Angle_a_c_e - Angle_b_c_d [AlphaGeometry34(a,c,e,b,c,d)] => Angle_c_a_e - Angle_c_b_d
-3. Angle_a_b_c - Angle_b_a_d & Angle_c_b_d - Angle_c_b_f & Angle_a_b_c - Angle_a_b_f - Angle_c_b_f & Angle_b_a_d - Angle_b_a_f - Angle_d_a_f & Angle_c_a_e - Angle_d_a_f & Angle_c_a_e - Angle_c_b_d [AlphaGeometry3536(a,b,f,b,a,f)] => Length_a_f - Length_b_f
-4. Length_a_c - Length_b_c & Length_a_f - Length_b_f [AlphaGeometry24(a,b,c,f)] => Angle_a_c_f - Angle_b_c_f

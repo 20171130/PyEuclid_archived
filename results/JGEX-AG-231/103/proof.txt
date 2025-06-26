@@ -1,6 +1,0 @@
-Solution:
-1. Length_b_o - Length_h_o & Length_b_o - Length_o_p [InscribedAngle1(o,b,h,p)] => Angle_h_b_p - Angle_h_o_p/2
-2. -Length_b_o + Length_c_o & Length_c_o - Length_h_o [InscribedAngle1(o,c,b,h)] => Angle_b_c_h - Angle_b_o_h/2
-3. -Length_b_o + Length_o_p & -Length_b_o + Length_h_o => Length_h_o - Length_o_p
-4. -Length_b_o + Length_h_o & Length_h_o - Length_o_p [InscribedAngle1(o,h,b,p)] => Angle_b_h_p - Angle_b_o_p/2
-5. Angle_b_o_h - Angle_b_o_p - Angle_h_o_p & Angle_h_b_p - Angle_h_o_p/2 & Angle_b_c_h - Angle_b_o_h/2 & Angle_b_h_p - Angle_b_o_p/2 & -Angle_a_b_h + Angle_a_b_p - Angle_h_b_p & Angle_c_h_p - pi/2 & Angle_a_b_c + Angle_b_c_h - pi/2 & -Angle_a_b_c + Angle_b_a_h - pi/2 & -Angle_b_h_c - Angle_b_h_p + Angle_c_h_p & Angle_a_b_h + Angle_b_h_c - pi/2 [Angle2Para(a,h,b,p)] => Parallel(a,h,b,p)

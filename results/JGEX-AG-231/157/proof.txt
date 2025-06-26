@@ -1,8 +1,0 @@
-Solution:
-1. -Angle_a_b_d + Angle_a_b_i & Angle_a_b_d - pi/2 & Angle_a_e_f - pi/2 & Angle_a_e_f + Angle_a_e_h - pi => -Angle_a_b_i + Angle_a_e_h
-2. Angle_a_e_h + Angle_a_e_i - pi & -Angle_a_b_i + Angle_a_e_h [AlphaGeometry5b(a,i,b,e)] => Angle_b_a_i - Angle_b_e_i
-3. Angle_a_e_f - pi/2 & Angle_a_c_d - pi/2 & Angle_a_c_d + Angle_a_c_h - pi & Angle_a_e_f + Angle_a_e_h - pi [AlphaGeometry5a(a,h,c,e)] => Angle_c_a_h - Angle_c_e_h
-4. Angle_c_e_f + Angle_c_e_h - pi & Angle_c_e_f - Angle_c_e_i & Angle_b_e_i + Angle_c_e_i - pi => -Angle_b_e_i + Angle_c_e_h
-5. Angle_b_a_i - Angle_b_e_i & Angle_c_a_h - Angle_c_e_h & -Angle_b_e_i + Angle_c_e_h => -Angle_b_a_i + Angle_c_a_h
-6. -Angle_a_b_d + Angle_a_b_i & Angle_a_b_d - pi/2 & Angle_a_c_d - pi/2 & Angle_a_c_d + Angle_a_c_h - pi => -Angle_a_b_i + Angle_a_c_h
-7. -Angle_b_a_i + Angle_c_a_h & -Angle_a_b_i + Angle_a_c_h & -Length_a_b + Length_a_c [AlphaGeometry37(h,a,c,i,a,b)] => -Length_b_i + Length_c_h

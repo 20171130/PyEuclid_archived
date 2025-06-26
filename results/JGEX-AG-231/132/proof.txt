@@ -1,8 +1,0 @@
-Solution:
-1. -Length_e_g + Length_f_g & -Length_b_g + Length_f_g & Perpendicular(f,g,f,h) [AlphaGeometry16a(g,f,e,b,h)] => Angle_e_b_f + Angle_e_f_h - pi
-2. Length_a_b - Length_a_d & Length_a_b - Length_a_e [InscribedAngle1(a,b,d,e)] => -Angle_d_a_e/2 + Angle_d_b_e
-3. -Length_a_b + Length_a_d & -Length_a_b + Length_a_c => Length_a_c - Length_a_d
-4. -Length_a_b + Length_a_e & -Length_a_b + Length_a_c => Length_a_c - Length_a_e
-5. Length_a_c - Length_a_d & Length_a_c - Length_a_e [InscribedAngle1(a,c,d,e)] => -Angle_d_a_e/2 + Angle_d_c_e
-6. Angle_e_b_f + Angle_e_f_h - pi & Angle_d_b_e + Angle_e_b_f - pi & -Angle_d_a_e/2 + Angle_d_b_e & -Angle_d_a_e/2 + Angle_d_c_e => Angle_d_c_e - Angle_e_f_h
-7. Angle_d_c_e - Angle_e_f_h & Collinear(c,e,f) [AlphaGeometry3b(c,d,e,h,f)] => Parallel(c,d,f,h)

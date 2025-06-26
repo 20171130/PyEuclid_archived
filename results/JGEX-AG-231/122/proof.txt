@@ -1,9 +1,0 @@
-Solution:
-1. Perpendicular(a,d,b,c) & Parallel(a,d,a,o) [AlphaGeometry1b(a,d,b,c,a,o)] => Angle_a_c_b + Angle_c_a_o - pi/2
-2. -Length_d_o + Length_e_o & Length_a_o - Length_d_o => -Length_a_o + Length_e_o
-3. -Length_d_o + Length_e_o & -Length_d_o + Length_f_o => Length_e_o - Length_f_o
-4. -Length_a_o + Length_e_o & Length_e_o - Length_f_o [InscribedAngle1(o,e,a,f)] => Angle_a_e_f - Angle_a_o_f/2
-5. -Length_d_o + Length_f_o & Length_a_o - Length_d_o => Length_a_o - Length_f_o
-6. Length_a_o - Length_d_o & Length_a_o - Length_f_o [InscribedAngle1(o,a,d,f)] => Angle_d_a_f - Angle_d_o_f/2
-7. Angle_a_e_f - Angle_a_o_f/2 & Angle_d_a_f - Angle_d_o_f/2 & Angle_a_o_f + Angle_d_o_f - pi & -Angle_c_a_o + Angle_d_a_f => Angle_a_e_f + Angle_c_a_o - pi/2
-8. -Angle_a_c_b + Angle_b_c_f & Angle_a_c_b + Angle_c_a_o - pi/2 & Angle_a_e_f + Angle_c_a_o - pi/2 & Angle_a_e_f + Angle_b_e_f - pi [AlphaGeometry5b(b,f,c,e)] => Concyclic(b,c,e,f)

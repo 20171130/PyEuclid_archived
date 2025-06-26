@@ -1,2 +1,0 @@
-Solution:
-1. Angle_d_e_h + Angle_d_h_e + Angle_e_d_h - pi [AlphaGeometry5a(g,h,i,p)] => Concyclic(g,h,i,p)

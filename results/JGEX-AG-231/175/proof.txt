@@ -1,3 +1,0 @@
-Solution:
-1. -Angle_b_a_i + Angle_c_a_i & -Angle_c_a_i + Angle_e_a_i => Angle_b_a_i - Angle_e_a_i
-2. -Angle_a_i_b - Angle_a_i_e + Angle_b_i_e & Angle_b_a_i - Angle_e_a_i & Angle_a_b_i + Angle_a_i_b + Angle_b_a_i - pi & Angle_a_b_i + Angle_b_i_e - pi [AlphaGeometry15(e,a,i)] => -Length_a_e + Length_e_i

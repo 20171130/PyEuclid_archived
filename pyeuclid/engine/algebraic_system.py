@@ -274,27 +274,43 @@ class AlgebraicSystem:
             for a in range(len(component)):
                 for b in range(a+1, len(component)):
                     self.state.add_conditions(Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"]))
+        
+        # for x in tmp:
+        #     for y in tmp:
+        #         expr = self.state.simplify_equation(x/y)
+        #         if not expr in dic:
+        #             dic[expr] = [sympy.core.mul.Mul(x, 1/y, evaluate=False)]
+        #         else:
+        #             dic[expr].append(sympy.core.mul.Mul(
+        #                 x, 1/y, evaluate=False))
 
+        expr2components = {}
         for x in tmp:
             for y in tmp:
                 expr = self.state.simplify_equation(x/y)
                 if not expr in dic:
                     dic[expr] = [sympy.core.mul.Mul(x, 1/y, evaluate=False)]
+                    expr2components[expr] = [(x, y)]
                 else:
                     dic[expr].append(sympy.core.mul.Mul(
                         x, 1/y, evaluate=False))
-                
-        self.state.ratios = dic
+                    expr2components[expr].append((x, y))
+        for expr, components in expr2components.items():
+            for i in range(len(components)):
+                for j in range(i+1, len(components)):
+                    x1, y1 = components[i]
+                    x2, y2 = components[j]
+                    for a in tmp[x1]:
+                        for b in tmp[y1]:
+                            for c in tmp[x2]:
+                                for d in tmp[y2]:
+                                    self.state.add_conditions(Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"]))
+                    if len(expr.free_symbols) == 0:
+                        for a in tmp[x1]:
+                            for b in tmp[y1]:
+                                self.state.add_conditions(Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"]))
 
-        for component in dic.values():
-            if len(component) == 1:
-                continue
-            rep = self.state.simplify_equation(component[0])
-            if len(rep.free_symbols) == 0:
-                component = component + [rep]
-            for a in range(len(component)):
-                for b in range(a+1, len(component)):
-                    self.state.add_conditions(Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"]))
+        self.state.ratios = dic
 
         dic = {}
         tmp = self.state.angles.equivalence_classes()

@@ -38,22 +38,15 @@ class ProofGenerator:
             depth = node.depth
         
         if isinstance(node, InferenceRule):
-            expr_conds = {
-                str(sympy.simplify(cond)) 
-                for cond in node.condition() 
-                if isinstance(cond, sympy.core.expr.Expr)
-            }
+            expr_conds = set()
+            for cond in node.condition():
+                if isinstance(cond, sympy.core.expr.Expr):
+                    expr_conds.add(str(sympy.simplify(cond)))
+                    expr_conds.add(str(sympy.simplify(-cond)))
             conds = [
                 eq for eq in self.state.equations
                 if eq.depth < node.depth and eq.str_rep in expr_conds
             ]
-
-            if not len(expr_conds) == len(conds):
-                
-                for eq in self.state.equations:
-                    if eq.depth < node.depth:
-                        print(eq, eq.str_rep)
-                breakpoint()
 
             for cond in node.condition():
                 if not isinstance(cond, sympy.core.expr.Expr) and not trivial_condition(cond):
@@ -79,9 +72,9 @@ class ProofGenerator:
                 assert False, f"{node} is not proved"
         else:
             if isinstance(node, Traced):
-                # if type(node.sources[0]) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2):
-                #     sources = []
-                # else:
+                if type(node.sources[0]) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2):
+                    sources = []
+                else:
                     sources = node.sources
                     if isinstance(sources[0], str):
                         # backtrace linear systems
@@ -170,8 +163,8 @@ class ProofGenerator:
                 assert condition is not None
                 search(condition)
             
-            # if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
-            #     return
+            if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
+                return
             # print('node', node, 'step_counter', step_counter, 'conditions', conditions)
             proof_steps[node] = (step_counter, conditions, theorem)
             step_counter += 1
@@ -193,9 +186,9 @@ class ProofGenerator:
         return proof
 
     def show_proof(self, node=None):
+        # print(self.proof_dict)
         res = self.get_proof_str(node)
         print(res)
-        # print(self.proof_dict)
 
     def get_proof_str(self, node=None):
         res = "Solution:\n"

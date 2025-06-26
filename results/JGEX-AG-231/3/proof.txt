@@ -1,4 +1,0 @@
-Solution:
-1. Length_b_o - Length_c_o & Length_b_q - Length_c_q [AlphaGeometry24(b,c,o,q)] => Perpendicular(b,c,o,q)
-2. Midpoint(j,m,o) & Midpoint(j,q,s) [AlphaGeometry26(m,o,q,s,j)] => Parallel(m,s,o,q)
-3. Perpendicular(b,c,o,q) & Parallel(m,s,o,q) [AlphaGeometry1b(o,q,b,c,m,s)] => Perpendicular(b,c,m,s)
