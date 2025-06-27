@@ -135,15 +135,16 @@ class UnionFind:
 
 
 class Traced():
-    def __init__(self, expr, depth=0, sources=[]):
+    def __init__(self, expr, depth=0, sources=[], redundant=False):
         if isinstance(expr, Traced):
             sources = expr.sources
             depth = expr.depth
             expr = expr.expr
+            redundant = redundant
         
         self.expr = expr
         self.symbol = None
-        self.redundant = False
+        self.redundant = redundant
         self.sources = sources
         self.str_rep = None
         self.depth = max([depth] + [getattr(item, "depth", 0) for item in self.sources])

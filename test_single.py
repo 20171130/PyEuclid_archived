@@ -18,7 +18,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; o = circle o a b c; h = midpoint h c b; d = on_line d o h, on_line d a b; e = on_tline e c c o, on_tline e a a o ? cyclic a o e d")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; d e = square a c d e; g f = square c b g f ? perp d b f a")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -38,7 +38,7 @@ def run_single_problem(args):
         diagrammatic_relations = namespace.get("diagrammatic_relations")
         state.load_problem(conditions=conditions, goal=goal)
         state.add_conditions(diagrammatic_relations)
-    deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['basic'])
+    deductive_database = DeductiveDatabase(state)
     algebraic_system = AlgebraicSystem(state)
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
@@ -80,8 +80,6 @@ def run_single_problem(args):
         
     t = time.time() - t0
     result = state.complete()
-    for eq in state.equations:
-        print('eq', eq, 'sources', eq.sources, 'depth', eq.depth, eq.str_rep)
     if result is not None:
         print(f"Solved in {t:.2f}s")
         if args.show_proof:
