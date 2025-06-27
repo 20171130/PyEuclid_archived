@@ -5,6 +5,7 @@ import sympy
 
 from pyscipopt import Model, quicksum
 from collections import defaultdict
+from stopit import ThreadingTimeout as TT
 
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.construction_rule import *
@@ -38,23 +39,8 @@ class ProofGenerator:
             depth = node.depth
         
         if isinstance(node, InferenceRule):
-            expr_conds = set()
-            for cond in node.condition():
-                if isinstance(cond, sympy.core.expr.Expr):
-                    expr_conds.add(str(sympy.simplify(cond)))
-                    expr_conds.add(str(sympy.simplify(-cond)))
-            conds = [
-                eq for eq in self.state.equations
-                if eq.depth < node.depth and eq.str_rep in expr_conds
-            ]
-
-            for cond in node.condition():
-                if not isinstance(cond, sympy.core.expr.Expr) and not trivial_condition(cond):
-                    conds.append(cond)
+            conds = [item for item in node.condition() if not trivial_condition(item) and not item == 0]
             self.proof_dict[node] = conds
-
-            # conds = [item for item in node.condition() if not trivial_condition(item) and not item == 0]
-            # self.proof_dict[node] = conds
             
             # print(1, 'node', node, type(node), 'depth', depth, 'sources', conds)
             for cond in conds:
@@ -113,6 +99,62 @@ class ProofGenerator:
         
         if root and self.verbose:
             self.show_proof()
+    
+
+    def format_proof(self, conclusion=None):
+        proof = []
+        proof_steps = {}
+        visited = set()
+        step_counter = 1
+
+        def search(node):  # root-last traversal
+            # print('searching', node)
+            nonlocal step_counter
+            if node in visited or node not in self.proof_dict:
+                return
+            visited.add(node)
+            conditions = self.proof_dict[node]
+            theorem = None
+            if len(conditions) == 1 and isinstance(conditions[0], InferenceRule):
+                theorem = conditions[0]
+                conditions = self.proof_dict[conditions[0]]
+                if type(theorem) in inference_rule_sets["ex"] or type(theorem) in inference_rule_sets["shape"]:
+                    return
+            # if len(conditions) == 1 and conditions[0] in self.proof_dict: # collapse single-condition inferences
+            #     if isinstance(conditions[0], InferenceRule) and not type(conditions[0]) in inference_rule_sets["ex"]:
+            #         theorem = conditions[0]
+            #     conditions = self.proof_dict[conditions[0]]
+            for condition in conditions:
+                assert condition is not None
+                search(condition)
+            
+            if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
+                return
+
+            # inference rule's condition can be founded in the equations
+            if isinstance(node, sympy.core.add.Add):
+                if len(conditions) == 1:
+                    return
+            # print('node', node, 'step_counter', step_counter, 'conditions', conditions)
+            proof_steps[node] = (step_counter, conditions, theorem)
+            step_counter += 1
+
+        if not conclusion and self.state.goal:
+            conclusion = self.state.goal
+
+        search(conclusion)
+        lst = [(key, value) for key, value in proof_steps.items()]
+        lst.sort(key=lambda x: x[1][0])
+        last = -1
+        for node, (step_number, conditions, theorem) in lst:
+            if step_number == last:
+                continue
+            last = step_number
+            dic = {"condition": conditions, "theorem": theorem, "conclusion": node}
+            proof.append(dic)
+        
+        return proof
+    
 
     def track_constructions(self, condition=None):
         if not condition and self.state.goal:
@@ -138,53 +180,7 @@ class ProofGenerator:
         
         collect(condition)
     
-    def format_proof(self, conclusion=None):
-        proof = []
-        proof_steps = {}
-        visited = set()
-        step_counter = 1
-
-        def search(node):  # root-last traversal
-            # print('searching', node)
-            nonlocal step_counter
-            if node in visited or node not in self.proof_dict:
-                return
-            visited.add(node)
-            conditions = self.proof_dict[node]
-            theorem = None
-            if len(conditions) == 1 and isinstance(conditions[0], InferenceRule):
-                theorem = conditions[0]
-                conditions = self.proof_dict[conditions[0]]
-            # if len(conditions) == 1 and conditions[0] in self.proof_dict: # collapse single-condition inferences
-            #     if isinstance(conditions[0], InferenceRule) and not type(conditions[0]) in inference_rule_sets["ex"]:
-            #         theorem = conditions[0]
-            #     conditions = self.proof_dict[conditions[0]]
-            for condition in conditions:
-                assert condition is not None
-                search(condition)
-            
-            if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
-                return
-            # print('node', node, 'step_counter', step_counter, 'conditions', conditions)
-            proof_steps[node] = (step_counter, conditions, theorem)
-            step_counter += 1
-
-        if not conclusion and self.state.goal:
-            conclusion = self.state.goal
-
-        search(conclusion)
-        lst = [(key, value) for key, value in proof_steps.items()]
-        lst.sort(key=lambda x: x[1][0])
-        last = -1
-        for node, (step_number, conditions, theorem) in lst:
-            if step_number == last:
-                continue
-            last = step_number
-            dic = {"condition": conditions, "theorem": theorem, "conclusion": node}
-            proof.append(dic)
-        
-        return proof
-
+    
     def show_proof(self, node=None):
         # print(self.proof_dict)
         res = self.get_proof_str(node)
@@ -334,11 +330,16 @@ class ProofGenerator:
             variables = {item: i for i, item in enumerate(list(variables))}
             mat = self.vectorize([item.expr for item in equations], variables, source)
             eq = self.vectorize([conclusion], variables, source)
-            raw_deps = self.traceback_l1(mat, eq)
-            return [equations[i] for i in raw_deps]
-            sub_mat = mat[raw_deps]
-            sub_indices = self.traceback_l0(sub_mat, eq)
-            return [equations[raw_deps[i]] for i in sub_indices]
+            deps = []
+            try:
+                with TT(1):
+                    deps = self.traceback_l0(mat, eq)
+            except:
+                pass
+            if not deps:
+                deps = self.traceback_l1(mat, eq)
+
+            return [equations[i] for i in deps]
         
         if source == "angle_linear":
             equations = angle_linear

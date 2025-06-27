@@ -40,14 +40,6 @@ class register():
         return cls
 
 
-def equal(*lst):
-    result = []
-    for i in range(len(lst)):
-        for j in range(i+1, len(lst)):
-            result.append(lst[i]-lst[j])
-    return result
-
-
 class InferenceRule:
     def __init__(self):
         pass
@@ -62,9 +54,6 @@ class InferenceRule:
         return False
 
     def __str__(self):
-        # if self.__class__ in inference_rule_sets["ex"]:
-        #     return ""
-        # class_name = "Shape" if self.__class__ in inference_rule_sets["shape"] else self.__class__.__name__
         class_name = self.__class__.__name__
         content = []
         for key, value in vars(self).items():
@@ -158,8 +147,50 @@ class PropertyOfCongruent(InferenceRule):
         ]
 
 
-@register("basic")
-class PropertyOfIsoscelesTriangle(InferenceRule):
+@register("shape")
+class DefinitionOfIsoscelesTriangle(InferenceRule):
+    """ Definition of Isosceles Triangle """
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Length(self.a, self.b) - Length(self.a, self.c),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            IsoscelesTriangle(self.a, self.b, self.c),
+            Angle(self.a, self.b, self.c) - Angle(self.a, self.c, self.b),
+        ]
+
+
+@register("shape")
+class DefinitionOfIsoscelesTriangle1(InferenceRule):
+    """ Definition of Isosceles Triangle """
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Angle(self.a, self.b, self.c) - Angle(self.a, self.c, self.b),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            IsoscelesTriangle(self.a, self.b, self.c),
+            Length(self.a, self.b) - Length(self.a, self.c),
+        ]
+
+
+@register("shape")
+class PropertyOfIsoscelesTriangle1(InferenceRule):
     """ Property of Isosceles Triangle """
     def __init__(self, a: Point, b: Point, c: Point, d:Point):
         super().__init__()
@@ -167,7 +198,7 @@ class PropertyOfIsoscelesTriangle(InferenceRule):
     
     def condition(self):
         return [
-            Triangle(self.a, self.b, self.c),
+            IsoscelesTriangle(self.a, self.b, self.c),
             Length(self.a, self.b) - Length(self.a, self.c),
             Collinear(self.b, self.c, self.d),
             Perpendicular(self.a, self.d, self.b, self.c),
@@ -181,8 +212,8 @@ class PropertyOfIsoscelesTriangle(InferenceRule):
         ]
 
 
-@register("basic")
-class PropertyOfIsoscelesTriangle(InferenceRule):
+@register("shape")
+class PropertyOfIsoscelesTriangle2(InferenceRule):
     """ Property of Isosceles Triangle """
     def __init__(self, a: Point, b: Point, c: Point, d:Point):
         super().__init__()
@@ -190,7 +221,7 @@ class PropertyOfIsoscelesTriangle(InferenceRule):
     
     def condition(self):
         return [
-            Triangle(self.a, self.b, self.c),
+            IsoscelesTriangle(self.a, self.b, self.c),
             Length(self.a, self.b) - Length(self.a, self.c),
             Collinear(self.b, self.c, self.d),
             Midpoint(self.d, self.b, self.c),
@@ -201,6 +232,110 @@ class PropertyOfIsoscelesTriangle(InferenceRule):
         return [
             Perpendicular(self.a, self.d, self.b, self.c),
             Angle(self.b, self.a, self.d) - Angle(self.c, self.a, self.d)
+        ]
+
+
+@register("shape")
+class DefinitionOfEquilateralTriangle1(InferenceRule):
+    """ Definition of Equilateral Triangle """
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Length(self.a, self.b) - Length(self.a, self.c),
+            Length(self.a, self.b) - Length(self.b, self.c),
+            Lt(self.a, self.b),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            EquilateralTriangle(self.a, self.b, self.c),
+        ]
+
+
+@register("shape")
+class DefinitionOfEquilateralTriangle2(InferenceRule):
+    """ Definition of Equilateral Triangle """
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Length(self.a, self.b) - Length(self.a, self.c),
+            Angle(self.b, self.a, self.c) - pi/3,
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            EquilateralTriangle(self.a, self.b, self.c),
+        ]
+
+
+@register("shape")
+class DefinitionOfEquilateralTriangle3(InferenceRule):
+    """ Definition of Equilateral Triangle """
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
+    
+    def condition(self):
+        return [
+            Triangle(self.a, self.b, self.c),
+            Length(self.a, self.b) - Length(self.a, self.c),
+            Angle(self.a, self.b, self.c) - pi/3,
+        ]
+    
+    def conclusion(self):
+        return [
+            EquilateralTriangle(self.a, self.b, self.c),
+        ]
+
+
+@register("shape")
+class DefinitionOfEquilateralTriangle4(InferenceRule):
+    """ Definition of Equilateral Triangle """
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
+    
+    def condition(self):
+        return [
+            Angle(self.b, self.a, self.c) - pi/3,
+            Angle(self.a, self.b, self.c) - pi/3,
+            Lt(self.a, self.b)
+        ]
+    
+    def conclusion(self):
+        return [
+            EquilateralTriangle(self.a, self.b, self.c),
+        ]
+
+
+@register("shape")
+class PropertyOfEquilateralTriangle(InferenceRule):
+    """ Property of Isosceles Triangle """
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a, self.b, self.c = a, b, c
+    
+    def condition(self):
+        return [
+            EquilateralTriangle(self.a, self.b, self.c),
+            Lt(self.a, self.b),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            *equal(Length(self.a, self.b), Length(self.b, self.c), Length(self.c, self.a)),
+            *equal(Angle(self.c, self.a, self.b), Angle(self.a, self.b, self.c), Angle(self.b, self.c, self.a), pi/3)
         ]
 
 
@@ -220,15 +355,15 @@ class PropertyOfSimilar(InferenceRule):
     def conclusion(self):
         return [
             *equal(Length(self.a, self.b) / Length(self.p, self.q), Length(self.b, self.c) / Length(self.q, self.r), Length(self.c, self.a) / Length(self.r, self.p)),
-            # Length(self.a, self.b)/Length(self.b, self.c) - Length(self.p, self.q)/Length(self.q, self.r),
-            # Length(self.a, self.b)/Length(self.c, self.a) - Length(self.p, self.q)/Length(self.r, self.p),
-            # Length(self.b, self.c)/Length(self.c, self.a) - Length(self.q, self.r)/Length(self.r, self.p),
+            Length(self.a, self.b)/Length(self.b, self.c) - Length(self.p, self.q)/Length(self.q, self.r),
+            Length(self.a, self.b)/Length(self.c, self.a) - Length(self.p, self.q)/Length(self.r, self.p),
+            Length(self.b, self.c)/Length(self.c, self.a) - Length(self.q, self.r)/Length(self.r, self.p),
             Angle(self.a, self.b, self.c) - Angle(self.p, self.q, self.r),
             Angle(self.b, self.c, self.a) - Angle(self.q, self.r, self.p),
             Angle(self.c, self.a, self.b) - Angle(self.r, self.p, self.q),
         ]
 
-@register("ex")
+@register("shape")
 class DefinitionOfTriangle(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()
@@ -241,7 +376,7 @@ class DefinitionOfTriangle(InferenceRule):
         return Triangle(self.a, self.b, self.c)
 
 
-@register("ex")
+@register("shape")
 class PropertyOfTriangle(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
         super().__init__()
@@ -257,7 +392,7 @@ class PropertyOfTriangle(InferenceRule):
         ]
 
 
-@register("ex")
+@register("shape")
 class DefinitionOfQuadrilateral(InferenceRule):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
@@ -281,7 +416,7 @@ class DefinitionOfQuadrilateral(InferenceRule):
         return Quadrilateral(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("ex")
+@register("shape")
 class PropertyOfQuadrilateral(InferenceRule):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
@@ -302,7 +437,7 @@ class PropertyOfQuadrilateral(InferenceRule):
         ]
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfParallelogram1(InferenceRule):
     """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -324,7 +459,7 @@ class DefinitionOfParallelogram1(InferenceRule):
         return Parallelogram(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfParallelogram2(InferenceRule):
     """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -345,7 +480,7 @@ class DefinitionOfParallelogram2(InferenceRule):
         return Parallelogram(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfParallelogram3(InferenceRule):
     """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -367,7 +502,7 @@ class DefinitionOfParallelogram3(InferenceRule):
         return Parallelogram(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfParallelogram4(InferenceRule):
     """ Definition of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -389,7 +524,7 @@ class DefinitionOfParallelogram4(InferenceRule):
         return Parallelogram(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class PropertyOfParallelogram(InferenceRule):
     """ Property of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -421,7 +556,7 @@ class PropertyOfParallelogram(InferenceRule):
             Angle(self.p3, self.p2, self.p4) - Angle(self.p1, self.p4, self.p2),
         ]
 
-@register("basic")
+@register("shape")
 class PropertyOfParallelogram1(InferenceRule):
     """ Property of Parallelogram """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, o: Point):
@@ -442,7 +577,7 @@ class PropertyOfParallelogram1(InferenceRule):
         ]
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfRectangle1(InferenceRule):
     """ Definition of Rectangle """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -459,7 +594,7 @@ class DefinitionOfRectangle1(InferenceRule):
         return Rectangle(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfRectangle2(InferenceRule):
     """ Definition of Rectangle """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -480,7 +615,7 @@ class DefinitionOfRectangle2(InferenceRule):
         return Rectangle(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class PropertyOfRectangle(InferenceRule):
     """ Property of Rectangle """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -499,13 +634,13 @@ class PropertyOfRectangle(InferenceRule):
             Length(self.p1, self.p2) - Length(self.p3, self.p4),
             Length(self.p1, self.p4) - Length(self.p2, self.p3),
             Length(self.p1, self.p3) - Length(self.p2, self.p4),
-            *equal(Angle(self.p4, self.p1, self.p2), Angle(self.p1, self.p2, self.p3), Angle(self.p2, self.p3, self.p4), Angle(self.p3, self.p4, self.p1), pi / 2)
+            *equal(Angle(self.p4, self.p1, self.p2), Angle(self.p1, self.p2, self.p3), Angle(self.p2, self.p3, self.p4), Angle(self.p3, self.p4, self.p1), pi / 2),
             *equal(Angle(self.p2, self.p1, self.p3), Angle(self.p1, self.p2, self.p4), Angle(self.p1, self.p3, self.p4), Angle(self.p2, self.p4, self.p3)),
             *equal(Angle(self.p3, self.p1, self.p4), Angle(self.p1, self.p3, self.p2), Angle(self.p3, self.p2, self.p4), Angle(self.p1, self.p4, self.p2)),
         ]
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfRhombus1(InferenceRule):
     """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -527,7 +662,7 @@ class DefinitionOfRhombus1(InferenceRule):
         return Rhombus(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfRhombus2(InferenceRule):
     """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -545,7 +680,7 @@ class DefinitionOfRhombus2(InferenceRule):
         return Rhombus(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfRhombus3(InferenceRule):
     """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -566,7 +701,7 @@ class DefinitionOfRhombus3(InferenceRule):
         return Rhombus(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfRhombus4(InferenceRule):
     """ Definition of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -584,7 +719,7 @@ class DefinitionOfRhombus4(InferenceRule):
         return Rhombus(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class PropertyOfRhombus(InferenceRule):
     """ Property of Rhombus """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -604,7 +739,7 @@ class PropertyOfRhombus(InferenceRule):
         ]
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfSquare1(InferenceRule):
     """ Definition of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -622,7 +757,7 @@ class DefinitionOfSquare1(InferenceRule):
         return Square(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfSquare2(InferenceRule):
     """ Definition of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -640,7 +775,7 @@ class DefinitionOfSquare2(InferenceRule):
         return Square(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfSquare3(InferenceRule):
     """ Definition of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -661,7 +796,7 @@ class DefinitionOfSquare3(InferenceRule):
         return Square(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class PropertyOfSquare(InferenceRule):
     """ Property of Square """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -678,7 +813,7 @@ class PropertyOfSquare(InferenceRule):
         ]
 
 
-@register("basic")
+@register("shape")
 class DefinitionOfTrapezoid(InferenceRule):
     """ Definition of Trapezoid """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -698,7 +833,7 @@ class DefinitionOfTrapezoid(InferenceRule):
         return Trapezoid(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class PropertyOfTrapezoid(InferenceRule):
     """ Definition of Trapezoid """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -719,7 +854,130 @@ class PropertyOfTrapezoid(InferenceRule):
         ]
 
 
-@register("basic")
+@register("shape")
+class DefinitionOfEquilateralTrapezoid(InferenceRule):
+    """ Definition of Trapezoid """
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Trapezoid(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
+            Angle(self.p4, self.p1, self.p2) - Angle(self.p1, self.p2, self.p3),
+            # Lt(self.p1, self.p2),
+            # Lt(self.p1, self.p3),
+            # Lt(self.p1, self.p4),
+        ]
+    
+    def conclusion(self):
+        return [
+            EquilateralTrapezoid(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p3) - Length(self.p2, self.p4), # diagonals
+            Length(self.p1, self.p4) - Length(self.p2, self.p3)
+        ]
+
+
+@register("shape")
+class DefinitionOfEquilateralTrapezoid1(InferenceRule):
+    """ Definition of Trapezoid """
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Trapezoid(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p3) - Length(self.p2, self.p4), # diagonals
+            Lt(self.p1, self.p2),
+            Lt(self.p1, self.p3),
+            Lt(self.p1, self.p4),
+        ]
+    
+    def conclusion(self):
+        return [
+            EquilateralTrapezoid(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p4) - Length(self.p2, self.p3),
+            Angle(self.p4, self.p1, self.p2) - Angle(self.p1, self.p2, self.p3),
+            Angle(self.p2, self.p3, self.p4) - Angle(self.p3, self.p4, self.p1),
+        ]
+
+
+# @register("basic")
+# class EqTrapezoid1(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
+
+#     def condition(self):
+#         return (
+#             Parallel(self.a, self.b, self.c, self.d),
+#             SameSide(self.a, self.d, self.b, self.c),
+#             Length(self.a, self.c) - Length(self.b, self.d),  # diagonals
+#             *Different(self.a, self.b, self.c, self.d),
+#             Lt(self.a, self.b),
+#             Lt(self.a, self.c),
+#             Lt(self.a, self.d)
+#         )
+
+#     def conclusion(self):
+#         return Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
+
+
+# @register("basic")
+# class EqTrapezoid2(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
+
+#     def condition(self):
+#         return (
+#             Parallel(self.a, self.b, self.c, self.d),
+#             SameSide(self.a, self.d, self.b, self.c),
+#             Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d),
+#             *Different(self.a, self.b, self.c, self.d),
+#             Lt(self.a, self.b),
+#             Lt(self.a, self.c),
+#             Lt(self.a, self.d)
+#         )
+
+#     def conclusion(self):
+#         return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
+
+
+# @register("basic")
+# class EqTrapezoid3(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
+
+#     def condition(self):
+#         return (
+#             Parallel(self.a, self.b, self.c, self.d),
+#             SameSide(self.a, self.d, self.b, self.c),
+#             Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d),
+#             *Different(self.a, self.b, self.c, self.d),
+#             Lt(self.a, self.b),
+#             Lt(self.a, self.c),
+#             Lt(self.a, self.d)
+#         )
+
+#     def conclusion(self):
+#         return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d)
+
+
+@register("shape")
 class DefinitionOfKite1(InferenceRule):
     """ Definition of Kite """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -737,7 +995,7 @@ class DefinitionOfKite1(InferenceRule):
         return Kite(self.p1, self.p2, self.p3, self.p4)
 
 
-@register("basic")
+@register("shape")
 class PropertyOfKite(InferenceRule):
     """ Property of Kite """
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
@@ -1949,79 +2207,6 @@ class AlphaGeometry43(InferenceRule):
 
     def conclusion(self):
         return Length(self.m, self.a)/Length(self.m, self.d)-Length(self.n, self.b)/Length(self.n, self.c)
-
-
-@register("basic")
-class EqTrapezoid1(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point, d: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-
-    def condition(self):
-        return (
-            Parallel(self.a, self.b, self.c, self.d),
-            SameSide(self.a, self.d, self.b, self.c),
-            Length(self.a, self.c) - Length(self.b, self.d),  # diagonals
-            *Different(self.a, self.b, self.c, self.d),
-            Lt(self.a, self.b),
-            Lt(self.a, self.c),
-            Lt(self.a, self.d)
-        )
-
-    def conclusion(self):
-        return Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
-
-
-@register("basic")
-class EqTrapezoid2(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point, d: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-
-    def condition(self):
-        return (
-            Parallel(self.a, self.b, self.c, self.d),
-            SameSide(self.a, self.d, self.b, self.c),
-            Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d),
-            *Different(self.a, self.b, self.c, self.d),
-            Lt(self.a, self.b),
-            Lt(self.a, self.c),
-            Lt(self.a, self.d)
-        )
-
-    def conclusion(self):
-        return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d)
-
-
-@register("basic")
-class EqTrapezoid3(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point, d: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-
-    def condition(self):
-        return (
-            Parallel(self.a, self.b, self.c, self.d),
-            SameSide(self.a, self.d, self.b, self.c),
-            Angle(self.b, self.a, self.c) - Angle(self.a, self.b, self.d),
-            *Different(self.a, self.b, self.c, self.d),
-            Lt(self.a, self.b),
-            Lt(self.a, self.c),
-            Lt(self.a, self.d)
-        )
-
-    def conclusion(self):
-        return Length(self.a, self.c) - Length(self.b, self.d), Length(self.b, self.c) - Length(self.a, self.d), Angle(self.a, self.b, self.c) - Angle(self.b, self.a, self.d)
-
     
 
 @register("ex")

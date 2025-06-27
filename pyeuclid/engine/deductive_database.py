@@ -13,7 +13,7 @@ class DeductiveDatabase():
     def __init__(self, state, inner_theorems=None, outer_theorems=None):
         self.state = state
         self.name = id(self)
-        self.inner_theorems = list(inference_rule_sets["ex"]) if inner_theorems is None else inner_theorems
+        self.inner_theorems = list(inference_rule_sets["ex"]) + list(inference_rule_sets["shape"]) if inner_theorems is None else inner_theorems
         self.outer_theorems = list(inference_rule_sets["basic"]) if outer_theorems is None else outer_theorems
         self.sqliteConnection = sqlite3.connect(f"cache/{self.name}.db")
         self.cursor = self.sqliteConnection.cursor()
@@ -370,10 +370,11 @@ class DeductiveDatabase():
             if self.state.complete() is not None:
                 return False
             inner_applicable = self.get_applicable_theorems(self.inner_theorems)
-            self.apply(inner_applicable)
             if len(inner_applicable) == 0:
                 break
+
             inner_closure = False
+            self.apply(inner_applicable)
             
         if self.state.complete() is not None:
             return False

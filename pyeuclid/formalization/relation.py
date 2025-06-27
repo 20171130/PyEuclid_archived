@@ -75,6 +75,14 @@ def Not(rel):
     return rel
 
 
+def equal(*lst):
+    result = []
+    for i in range(len(lst)):
+        for j in range(i+1, len(lst)):
+            result.append(lst[i]-lst[j])
+    return result
+
+
 class Lt(Relation):
     def __init__(self, v1: Point, v2: Point):
         """
@@ -374,6 +382,26 @@ class Triangle(Relation):
 
 
 @register
+class IsoscelesTriangle(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+
+    def permutations(self):
+        return itertools.permutations([self.p1, self.p2, self.p3])
+    
+
+@register
+class EquilateralTriangle(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3 = sort_points(p1, p2, p3)
+
+    def permutations(self):
+        return itertools.permutations([self.p1, self.p2, self.p3])
+
+
+@register
 class Quadrilateral(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
         super().__init__()
@@ -546,12 +574,21 @@ class Trapezoid(Relation):
         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
     
     def permutations(self):
-        return [
-            (self.p1, self.p2, self.p3, self.p4),
-            (self.p3, self.p4, self.p1, self.p2),
-            (self.p4, self.p3, self.p2, self.p1),
-            (self.p2, self.p1, self.p4, self.p3),
-        ]
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
+
+
+@register
+class EquilateralTrapezoid(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
+    
+    def permutations(self):
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
 
 
 @register
@@ -561,12 +598,9 @@ class Kite(Relation):
         self.p1, self.p2, self.p3, self.p4 = sort_cyclic_points(p1, p2, p3, p4)
     
     def permutations(self):
-        return [
-            (self.p1, self.p2, self.p3, self.p4),
-            (self.p1, self.p4, self.p3, self.p2),
-            (self.p3, self.p2, self.p1, self.p4),
-            (self.p3, self.p4, self.p1, self.p2),
-        ]
+        forward_permutations = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
+        reverse_permutations = [tuple(reversed(perm)) for perm in forward_permutations]
+        return forward_permutations + reverse_permutations
 
 
 @register

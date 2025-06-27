@@ -151,11 +151,7 @@ class construct_ieq_triangle(ConstructionRule):
     def conclusions(self):
         a, b, c = self.outputs
         return [
-            Triangle(a, b, c),
-            Length(a, b) - Length(b, c),
-            Length(b, c) - Length(c, a),
-            Angle(b, a, c) - Angle(a, c, b),
-            Angle(a, c, b) - Angle(c, b, a),
+            EquilateralTriangle(a, b, c),
         ]
 
 
@@ -205,7 +201,7 @@ class construct_eq_trapezoid(ConstructionRule):
     def conclusions(self):
         a, b, c, d = self.outputs
         return [
-            Trapezoid(a, b, c, d),
+            EquilateralTrapezoid(a, b, c, d),
             Parallel(a, b, c, d),
             Length(a, d) - Length(b, c),
             Angle(d, a, b) - Angle(a, b, c),
@@ -242,7 +238,7 @@ class construct_iso_triangle(ConstructionRule):
     def conclusions(self):
         a, b, c = self.outputs
         return [
-            Triangle(a, b, c),
+            IsoscelesTriangle(a, b, c),
             Length(a, b) - Length(a, c),
             Angle(a, b, c) - Angle(b, c, a),
         ]
@@ -260,10 +256,10 @@ class construct_risos(ConstructionRule):
     def conclusions(self):
         a, b, c = self.outputs
         return [
-            Triangle(a, b, c),
+            IsoscelesTriangle(a, b, c),
             Angle(a, b, c) - Angle(b, c, a),
-            Perpendicular(a, b, a, c),
             Length(a, b) - Length(a, c),
+            Perpendicular(a, b, a, c),
         ]
 
 
@@ -296,15 +292,15 @@ class construct_isquare(ConstructionRule):
         a, b, c, d = self.outputs
         return [
             Square(a, b, c, d),
-            Perpendicular(a, b, b, c),
-            Length(a, b) - Length(b, c),
-            Parallel(a, b, c, d),
-            Parallel(a, d, b, c),
-            Perpendicular(a, d, d, c),
-            Length(b, c) - Length(c, d),
-            Length(c, d) - Length(d, a),
-            Perpendicular(a, c, b, d),
-            Length(a, c) - Length(b, d),
+            # Perpendicular(a, b, b, c),
+            # Length(a, b) - Length(b, c),
+            # Parallel(a, b, c, d),
+            # Parallel(a, d, b, c),
+            # Perpendicular(a, d, d, c),
+            # Length(b, c) - Length(c, d),
+            # Length(c, d) - Length(d, a),
+            # Perpendicular(a, c, b, d),
+            # Length(a, c) - Length(b, d),
         ]
 
 
@@ -321,13 +317,13 @@ class construct_rectangle(ConstructionRule):
         a, b, c, d = self.outputs
         return [
             Rectangle(a, b, c, d),
-            Perpendicular(a, b, b, c),
-            Parallel(a, b, c, d),
-            Parallel(a, d, b, c),
-            Perpendicular(a, b, a, d),
-            Length(a, b) - Length(c, d),
-            Length(a, d) - Length(b, c),
-            Length(a, c) - Length(b, d),
+            # Perpendicular(a, b, b, c),
+            # Parallel(a, b, c, d),
+            # Parallel(a, d, b, c),
+            # Perpendicular(a, b, a, d),
+            # Length(a, b) - Length(c, d),
+            # Length(a, d) - Length(b, c),
+            # Length(a, c) - Length(b, d),
         ]
     
 
@@ -383,8 +379,8 @@ class construct_angle_bisector(ConstructionRule):
         x, = self.outputs
         return [
             Angle(a, b, x) - Angle(x, b, c),
-            # Angle(c, b, a) - 2 * Angle(a, b, x),
-            # Angle(c, b, a) - 2 * Angle(x, b, c),
+            Angle(c, b, a) - 2 * Angle(a, b, x),
+            Angle(c, b, a) - 2 * Angle(x, b, c),
         ]
 
 
@@ -406,8 +402,8 @@ class construct_angle_bisector2(ConstructionRule):
         x, = self.outputs
         return [
             Angle(a, b, x) - Angle(x, b, c),
-            # Angle(c, b, a) - 2 * Angle(a, b, x),
-            # Angle(c, b, a) - 2 * Angle(x, b, c),
+            Angle(c, b, a) - 2 * Angle(a, b, x),
+            Angle(c, b, a) - 2 * Angle(x, b, c),
         ]
 
 
@@ -429,8 +425,8 @@ class construct_angle_mirror(ConstructionRule):
         x, = self.outputs
         return [
             Angle(a, b, c) - Angle(c, b, x),
-            # Angle(x, b, a) - 2 * Angle(a, b, c),
-            # Angle(x, b, a) - 2 * Angle(c, b, x),
+            Angle(x, b, a) - 2 * Angle(a, b, c),
+            Angle(x, b, a) - 2 * Angle(c, b, x),
         ]
 
 
@@ -451,9 +447,7 @@ class construct_circle(ConstructionRule):
         a, b, c = self.inputs
         x, = self.outputs
         return [
-            Length(x, a) - Length(x, b),
-            Length(x, b) - Length(x, c),
-            Length(x, c) - Length(x, a),
+            *equal(Length(x, a), Length(x, b), Length(x, c))
         ]
 
 
@@ -474,15 +468,8 @@ class construct_circumcenter(ConstructionRule):
         a, b, c = self.inputs
         x, = self.outputs
         return [
-            Length(x, a) - Length(x, b),
-            Length(x, b) - Length(x, c),
-            Length(x, c) - Length(x, a),
+            *equal(Length(x, a), Length(x, b), Length(x, c))
         ]
-
-
-
-
-
 
 
 @register("deterministic")
@@ -502,10 +489,11 @@ class construct_eq_triangle(ConstructionRule):
         b, c = self.inputs
         x, = self.outputs
         return [
-            Length(x, b) - Length(b, c),
-            Length(b, c) - Length(c, x),
-            Angle(x, b, c) - Angle(b, c, x),
-            Angle(c, x, b) - Angle(x, b, c),
+            EquilateralTriangle(x, b, c)
+            # Length(x, b) - Length(b, c),
+            # Length(b, c) - Length(c, x),
+            # Angle(x, b, c) - Angle(b, c, x),
+            # Angle(c, x, b) - Angle(x, b, c),
         ]
 
 
@@ -905,9 +893,6 @@ class construct_intersection_tt(ConstructionRule):
         ]
 
 
-
-
-
 @register("nondeterministic")
 class construct_lc_tangent(ConstructionRule):
     def __init__(self, a: Point, o: Point):
@@ -944,6 +929,7 @@ class construct_midpoint(ConstructionRule):
         a, b = self.inputs
         x, = self.outputs
         return [
+            Midpoint(x, a, b),
             Collinear(x, a, b),
             Length(x, a) - Length(x, b),
         ]
@@ -1203,9 +1189,6 @@ class construct_parallelogram(ConstructionRule):
         ]
 
 
-
-
-
 @register("deterministic")
 class construct_psquare(ConstructionRule):
     def __init__(self, a: Point, b: Point):
@@ -1226,10 +1209,6 @@ class construct_psquare(ConstructionRule):
             Length(x, a) - Length(a, b),
             Perpendicular(x, a, a, b),
         ]
-
-
-
-
 
 
 @register("deterministic")
@@ -1255,9 +1234,6 @@ class construct_reflect(ConstructionRule):
         ]
 
 
-
-
-
 @register("nondeterministic")
 class construct_s_angle(ConstructionRule):
     def __init__(self, a: Point, b: Point, alpha: float):
@@ -1275,9 +1251,6 @@ class construct_s_angle(ConstructionRule):
         a, b, alpha = self.inputs
         x, = self.outputs
         return [Angle(a, b, x) - sympy.simplify(sympy.Rational(abs(alpha), 180) * pi)]
-
-
-
 
 
 @register("deterministic")
@@ -1319,15 +1292,16 @@ class construct_square(ConstructionRule):
         a, b = self.inputs
         x, y = self.outputs
         return [
-            Perpendicular(a, b, b, x),
-            Length(a, b) - Length(b, x),
-            Parallel(a, b, x, y),
-            Parallel(a, y, b, x),
-            Perpendicular(a, y, y, x),
-            Length(b, x) - Length(x, y),
-            Length(x, y) - Length(y, a),
-            Perpendicular(a, x, b, y),
-            Length(a, x) - Length(b, y),
+            Square(a, b, x, y),
+            # Perpendicular(a, b, b, x),
+            # Length(a, b) - Length(b, x),
+            # Parallel(a, b, x, y),
+            # Parallel(a, y, b, x),
+            # Perpendicular(a, y, y, x),
+            # Length(b, x) - Length(x, y),
+            # Length(x, y) - Length(y, a),
+            # Perpendicular(a, x, b, y),
+            # Length(a, x) - Length(b, y),
         ]
 
 
@@ -1479,8 +1453,6 @@ class construct_on_dia(ConstructionRule):
         a, b = self.inputs
         x, = self.outputs
         return [Perpendicular(x, a, x, b)]
-
-
 
 
 @register("nondeterministic")
@@ -1642,6 +1614,7 @@ class construct_connect(ConstructionRule):
     def conditions(self):
         a, b = self.inputs
         return [Different2(a, b)]
+
 
 @register("diagrammatic")
 class construct_sameside(ConstructionRule):

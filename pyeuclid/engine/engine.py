@@ -29,6 +29,11 @@ class Engine:
                 break
             
             self.algebraic_system.run()
+            # print(self.state.angles.equivalence_classes())
+            # for eq in self.state.equations:
+            #     if eq.sources == ['angle_linear']:
+            #         print(eq, eq.depth)
+            # input()
     
     def step(self, conditions, conclusions=[], depth=1):
         """
