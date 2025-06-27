@@ -20,15 +20,19 @@ class Engine:
     def search(self, depth=9999):
         self.algebraic_system.run()
         while self.state.current_depth < depth:
+            n_eqns = len(self.state.equations)
             if self.state.complete() is not None:
                 break
                         
-            closure = self.deductive_database.run()
+            self.deductive_database.run()
             
-            if self.state.complete() is not None or closure:
+            if self.state.complete() is not None:
                 break
             
             self.algebraic_system.run()
+
+            if n_eqns == len(self.state.equations):
+                break
     
     def step(self, conditions, conclusions=[], depth=1):
         """
@@ -70,7 +74,6 @@ class Engine:
             self.state.relations = relations_bak
             self.state.equations = equations_bak
             self.state.add_conditions(new_relations + new_equations)
-            self.state.solutions = self.state.solutions[:-1]
             self.algebraic_system.solve_equation()
         
         except Exception as e:
