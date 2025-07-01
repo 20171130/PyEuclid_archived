@@ -164,8 +164,7 @@ class AlgebraicSystem:
         angle_linear, length_linear, length_ratio, others = classify_equations(self.state.equations, var_types)
         for eqs, source in (angle_linear, "angle_linear"),  (length_ratio, "length_ratio"):
             free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
-            for key, value in solved.items():
-                solved_vars[key] = value
+            solved_vars.update(solved)
         free, solved = self.elim(length_linear, var_types)
         self.state.current_depth += 1
         for l1, v1 in solved.items():

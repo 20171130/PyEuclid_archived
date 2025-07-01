@@ -147,6 +147,7 @@ class Traced():
         self.redundant = redundant
         self.sources = sources
         self.str_rep = None
+        self.kinds = []
         self.rank = 0 # priority in the same depth
         self.depth = max([depth] + [getattr(item, "depth", 0) for item in self.sources])
         for key in ("free_symbols", "args"):
@@ -197,50 +198,73 @@ def infer_eq_types(eq, var_types):
             eq_types.add(var_types[symbol])
     return eq_types
     
+from sympy.core import Add, Mul, Pow, Symbol
+
+def is_linear(expr):
+    expr = sympy.simplify(expr)
+    for term in Add.make_args(expr):
+        for factor in Mul.make_args(term):
+            if isinstance(factor, Pow):
+                base, exp = factor.args
+                if exp != 1:
+                    return False
+            elif isinstance(factor, Symbol):
+                pass
+            elif factor.free_symbols:
+                return False
+    return True
+    
     
 def classify_equations(equations: List[Traced], var_types):
     angle_linear, length_linear, length_ratio, others = [], [], [], []
-    cnst = r"(\d+|\d+\.\d*|pi)"
-    cnst = f"{cnst}(\\*{cnst})*(/{cnst})*"
-    length = r"(length\w+\d*|variable\w+\d*)"
-    angle = r"(angle\w+\d*|variable\w+\d*)"
-    length_mono = f"({cnst}\\*)?{length}(/{cnst})?"
-    angle_mono = f"({cnst}\\*)?{angle}(/{cnst})?"
-    length_mono = f"({length_mono}|{cnst})"
-    angle_mono = f"({angle_mono}|{cnst})"
-    length_ratio_pattern = re.compile(
-        f"^-?{length_mono}([\\*/]{length_mono})* [+-] {length_mono}([\\*/]{length_mono})*$")
-    length_linear_pattern = re.compile(
-        f"^-?{length_mono}( [+-] {length_mono})+$")
-    angle_linear_pattern = re.compile(
-        f"^-?{angle_mono}( [+-] {angle_mono})+$")
-    for i, eq in enumerate(equations):
-        tmp = str(eq.expr.expand()).lower()
-        eq_types = infer_eq_types(eq, var_types)
-        if length_ratio_pattern.match(tmp):
-            # length ratio has higher priority than length linear
-            # eqratio, length eq const, eqlength, linear equations involving length and variables
-            if "Length" in eq_types:
-                length_ratio.append(eq)
-                if length_linear_pattern.match(tmp) or len(eq.free_symbols) <= 3:
-                    length_linear.append(eq)
-            elif "Angle" in eq_types: # such as Variable_angle_2 - piVariable_x/90
-                angle_linear.append(eq)
+    for eqn in equations:
+        if not eqn.kinds:
+            kinds = []
+            expr = eqn.expr
+            assert isinstance(expr, sympy.core.add.Add)
+            var_type = set()
+            for symbol in expr.free_symbols:
+                if "Angle" in str(symbol):
+                    var_type.add("Angle")
+                elif "Length" in str(symbol):
+                    var_type.add("Length")
+                else:
+                    if symbol in var_types:
+                        var_type.add(var_types[symbol])
+            if not len(var_type) == 1:
+                kinds = ["others"]
             else:
-                others.append(eq)
-        elif angle_linear_pattern.match(tmp) or length_linear_pattern.match(tmp):
-            # eqangle, angle eq const, angle sum
-            if len(eq_types) > 1:
-                breakpoint()
-                assert False
-            if len(eq_types) == 0:
-                others.append(eq)
-            elif eq_types.pop() == "Angle":
-                angle_linear.append(eq)
-            else:
-                length_linear.append(eq)
-        else:
-            others.append(eq)
+                if "Angle" in var_type:
+                    if is_linear(expr):
+                        kinds = ["angle_linear"]
+                    else:
+                        kinds = ["others"]
+                else:
+                    if is_linear(expr):
+                        kinds.append("length_linear")
+                    if len(expr.args) == 2:
+                        lhs, rhs = expr.args
+                        rhs = - rhs
+                        expr = []
+                        for factor in Mul.make_args(lhs/rhs):
+                            if isinstance(factor, Pow):
+                                expr.append(factor.args[0]*factor.args[1])
+                            elif isinstance(factor, Symbol):
+                                expr.append(factor)
+                        if is_linear(Add(*expr)):
+                            kinds.append("length_ratio")
+                    if len(kinds) == 0:
+                        kinds.append("others")
+            eqn.kinds = kinds
+        if "angle_linear" in eqn.kinds:
+            angle_linear.append(eqn)
+        if "length_linear" in eqn.kinds:
+            length_linear.append(eqn)
+        if "length_ratio" in eqn.kinds:
+            length_ratio.append(eqn)
+        if "others" in eqn.kinds:
+            others.append(eqn)
+        
     return angle_linear, length_linear, length_ratio, others
 
 def is_float(s):
