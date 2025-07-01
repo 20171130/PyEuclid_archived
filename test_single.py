@@ -18,7 +18,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; d e = square a c d e; g f = square c b g f ? perp d b f a")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b = segment a b; c = on_tline c b a b; d = on_circle d a b; f = midpoint f c b; g = on_line g d f, on_circle g a b; h = intersection_lc h c a g; e = on_line e c d, on_circle e a b ? para b c h e")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -46,23 +46,37 @@ def run_single_problem(args):
     engine.run()
     # while True:
     #     engine.search(depth=1)
-        # 001. CE = CA [03] & CH = CA [08] & CG = CF [07] & CF = CA [04] ⇒  G,F,E,H are concyclic [10]
-        # 002. G,F,E,H are concyclic [10] ⇒  ∠GFE = ∠GHE [11]
-        # 003. CE = CA [03] & CF = CA [04] ⇒  C is the circumcenter of \Delta AEF [12]
-        # 004. D,A,B are collinear [00] & AC ⟂ AB [02] ⇒  CA ⟂ AD [13]
-        # 005. C is the circumcenter of \Delta AEF [12] & CA ⟂ AD [13] ⇒  ∠DAE = ∠AFE [14]
-        # 006. D,E,F are collinear [05] & D,A,B are collinear [00] & ∠DAE = ∠AFE [14] ⇒  ∠AFD = ∠DAE [15]
-        # 007. D,A,B are collinear [00] & D,E,F are collinear [05] ⇒  ∠ADF = ∠ADE [16]
-        # 008. ∠AFD = ∠DAE [15] & ∠ADF = ∠ADE [16] (Similar Triangles)⇒  DA:DF = DE:DA [17]
-        # 009. DE:DA = DA:DF [17] & DB = DA [01] ⇒  DE:DB = DB:DF [18]
-        # 010. D,E,F are collinear [05] & D,A,B are collinear [00] ⇒  ∠FDB = ∠EDB [19]
-        # 011. DE:DB = DB:DF [18] & ∠FDB = ∠EDB [19] (Similar Triangles)⇒  ∠DFB = ∠EBD [20]
-        # 012. D,A,B are collinear [00] & B,G,F are collinear [06] & ∠GFE = ∠GHE [11] & D,E,F are collinear [05] & E,H,B are collinear [09] & ∠DFB = ∠EBD [20] ⇒  ∠(DA-FG) = ∠HGF [21]
-        # 013. ∠(DA-FG) = ∠HGF [21] ⇒  DA ∥ GH [22]
-        # 014. DA ∥ GH [22] & D,A,B are collinear [00] ⇒  AB ∥ GH
-        # p1 = state.check_conditions(Concyclic(Point('g'),Point('f'),Point('e'),Point('h')))
-        # p2 = state.check_conditions(Angle(Point('g'),Point('f'),Point('e'))-Angle(Point('g'),Point('h'),Point('e')))
-        # p3 = state.check_conditions(Circumcenter(Point('c'),Point('a'),Point('e'),Point('f')))
+
+        # print(state.angles.equivalence_classes())
+        # Solution:
+        # 1. Square(a,c,d,e) [PropertyOfSquare(a,c,d,e)] => Rhombus(a,c,d,e)
+        # 2. Rhombus(a,c,d,e) [PropertyOfRhombus(a,c,d,e)] => Length_a_c - Length_c_d
+        # 3. Square(b,c,f,g) [PropertyOfSquare(b,c,f,g)] => Rhombus(b,c,f,g)
+        # 4. Rhombus(b,c,f,g) [PropertyOfRhombus(b,c,f,g)] => Length_b_c - Length_c_f
+        # 5. Square(b,c,f,g) [PropertyOfSquare(b,c,f,g)] => Rectangle(b,c,f,g)
+        # 6. Rectangle(b,c,f,g) [PropertyOfRectangle(b,c,f,g)] => Angle_b_c_f - pi/2
+        # 7. Square(a,c,d,e) [PropertyOfSquare(a,c,d,e)] => Rectangle(a,c,d,e)
+        # 8. Rectangle(a,c,d,e) [PropertyOfRectangle(a,c,d,e)] => Angle_a_c_d - pi/2
+        # 9. -Angle_a_c_b - Angle_a_c_d + Angle_b_c_d & Angle_b_c_f - pi/2 & -Angle_a_c_b + Angle_a_c_f - Angle_b_c_f & Angle_a_c_d - pi/2 => -Angle_a_c_f + Angle_b_c_d
+        # 10. Length_a_c - Length_c_d & -Length_b_c + Length_c_f & Angle_a_c_f - Angle_b_c_d [AlphaGeometry34(a,c,f,d,c,b)] => Congruent3(a,c,f,d,c,b)
+        # 11. Congruent3(a,c,f,d,c,b) [PropertyOfCongruent(a,c,f,d,c,b)] => -Angle_b_d_c + Angle_c_a_f
+        # 12. Rectangle(a,c,d,e) [PropertyOfRectangle(a,c,d,e)] => -Angle_a_c_e + Angle_c_a_d
+        # 13. Rhombus(a,c,d,e) [PropertyOfRhombus(a,c,d,e)] => Perpendicular(a,d,c,e)
+        # 14. Perpendicular(a,d,c,e) [Perp2Angle3(a,d,c,e)] => Angle_a_c_e + Angle_c_a_d - pi/2
+        # 15. -Angle_a_c_e + Angle_c_a_d & Angle_a_c_e + Angle_c_a_d - pi/2 => Angle_c_a_d - pi/4
+        # 16. Perpendicular(a,d,c,e) [Perp2Angle3(a,d,c,e)] => Angle_a_d_c + Angle_d_c_e - pi/2
+        # 17. Rectangle(a,c,d,e) [PropertyOfRectangle(a,c,d,e)] => Angle_a_d_c - Angle_d_c_e
+        # 18. Angle_a_d_c + Angle_d_c_e - pi/2 & -Angle_a_d_b + Angle_a_d_c - Angle_b_d_c & Angle_a_d_c - Angle_d_c_e => Angle_a_d_b + Angle_b_d_c - pi/4
+        # 19. -Angle_c_a_d - Angle_c_a_f + Angle_d_a_f & -Angle_b_d_c + Angle_c_a_f & Angle_c_a_d - pi/4 & Angle_a_d_b + Angle_b_d_c - pi/4 => Angle_a_d_b + Angle_d_a_f - pi/2
+        # 20. Angle_a_d_b + Angle_d_a_f - pi/2 [Angle2Perp3(a,f,b,d)] => Perpendicular(a,f,b,d)
+
+    # p1 = state.check_conditions(Angle(Point('a'),Point('c'),Point('f'))-Angle(Point('d'),Point('c'),Point('b')))
+    # p2 = state.check_conditions(Congruent3(Point('a'),Point('c'),Point('f'),Point('d'),Point('c'),Point('b')))
+    # p3 = state.check_conditions(Angle(Point('a'),Point('d'),Point('b'))+Angle(Point('b'),Point('d'),Point('c'))-pi/4)
+    # p4 = state.check_conditions(Angle(Point('a'),Point('d'),Point('b'))+Angle(Point('d'),Point('a'),Point('f'))-pi/2)
+    # p5 = state.check_conditions(Angle(Point('c'),Point('a'),Point('d'))-pi/4)
+    # p6 = state.check_conditions(Angle(Point('b'),Point('d'),Point('c'))-Angle(Point('c'),Point('a'),Point('f')))
+    # print(state.angles.equivalence_classes())
         # p4 = state.check_conditions(Perpendicular(Point('c'),Point('a'),Point('a'),Point('d')))
         # p5 = state.check_conditions(Angle(Point('d'),Point('a'),Point('e'))+Angle(Point('a'),Point('f'),Point('e'))-pi)
         # p6 = state.check_conditions(Angle(Point('a'),Point('f'),Point('d'))-Angle(Point('d'),Point('a'),Point('e')))
@@ -75,7 +89,7 @@ def run_single_problem(args):
         # p7 = state.check_conditions(Concyclic(Point('b'),Point('q'),Point('p'),Point('c')))
         # print(state.goal)
         # print(state.complete())
-        # Length_b_e - Length_b_g
+    # print(p1,p2,p3,p4,p5,p6)
         # input()
         
     t = time.time() - t0

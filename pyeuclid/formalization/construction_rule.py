@@ -402,8 +402,8 @@ class construct_angle_bisector2(ConstructionRule):
         x, = self.outputs
         return [
             Angle(a, b, x) - Angle(x, b, c),
-            Angle(c, b, a) - 2 * Angle(a, b, x),
-            Angle(c, b, a) - 2 * Angle(x, b, c),
+            Angle(c, b, a) + 2 * Angle(a, b, x) - 2 * pi,
+            Angle(c, b, a) + 2 * Angle(x, b, c) - 2 * pi,
         ]
 
 

@@ -23,7 +23,7 @@ class ProofGenerator:
     
     def run(self, node=None, depth=None, root=True):
         if not node and self.state.goal:
-            node = self.state.goal - self.state.complete()
+            node = self.state.goal
 
         if isinstance(node, ConstructionRule):
             return
@@ -70,6 +70,12 @@ class ProofGenerator:
                         else:
                             expr = node.expr
                         conditions = self.find_conditions(equations, expr, sources[0])
+                        
+                        if len(conditions) > 4:
+                            node.rank = 1
+                            equations = equations + [item for item in self.state.equations if item.depth == node.depth and item.rank == 0]
+                            conditions = self.find_conditions(equations, expr, sources[0])
+
                         if not conditions:
                             breakpoint()
                             assert False
@@ -88,6 +94,18 @@ class ProofGenerator:
                         conditions = self.find_conditions(equations, node, tmp)
                         if conditions:
                             break
+                if len(conditions) > 4:
+                    for item in self.state.equations:
+                        if item.depth == depth and (str(sympy.simplify(node)) == str(item) or str(sympy.simplify(-node)) == str(item)):
+                            item.rank = 1
+                    equations = equations + [item for item in self.state.equations if item.depth == depth and item.rank == 0]
+                    if "Angle" in str(node):
+                        conditions = self.find_conditions(equations, node, "angle_linear")
+                    else:
+                        for tmp in ("length_ratio", "length_linear"):
+                            conditions = self.find_conditions(equations, node, tmp)
+                            if conditions:
+                                break
                 if not conditions:
                     breakpoint()
                     assert False
@@ -107,51 +125,92 @@ class ProofGenerator:
         visited = set()
         step_counter = 1
 
-        def search(node):  # root-last traversal
-            # print('searching', node)
+        if not conclusion and self.state.goal:
+            conclusion = self.state.goal
+
+        def format(node):
             nonlocal step_counter
+            shape_dependency = {
+                Trapezoid: [PropertyOfParallelogram, PropertyOfRhombus, PropertyOfRectangle, PropertyOfSquare],
+                Kite: [PropertyOfRhombus, PropertyOfSquare],
+                Parallelogram: [PropertyOfRhombus, PropertyOfRectangle, PropertyOfSquare],
+                Rhombus: [PropertyOfSquare],
+                Rectangle: [PropertyOfSquare],
+            }
+
+            def trace_fundamental_shape(node):
+                theorem = None
+                while (
+                    isinstance(node, tuple(shape_dependency.keys())) and
+                    (conditions := self.proof_dict[node]) and
+                    len(conditions) == 1 and
+                    isinstance(conditions[0], InferenceRule) and
+                    isinstance(conditions[0], tuple(shape_dependency[type(node)]))
+                ):
+                    theorem = conditions[0]
+                    node = theorem.condition()[0]
+                return node, theorem
+
             if node in visited or node not in self.proof_dict:
                 return
+            
             visited.add(node)
             conditions = self.proof_dict[node]
             theorem = None
+
+            # Handle inference rules
             if len(conditions) == 1 and isinstance(conditions[0], InferenceRule):
                 theorem = conditions[0]
                 conditions = self.proof_dict[conditions[0]]
-                if type(theorem) in inference_rule_sets["ex"] or type(theorem) in inference_rule_sets["shape"]:
-                    return
-            # if len(conditions) == 1 and conditions[0] in self.proof_dict: # collapse single-condition inferences
-            #     if isinstance(conditions[0], InferenceRule) and not type(conditions[0]) in inference_rule_sets["ex"]:
-            #         theorem = conditions[0]
-            #     conditions = self.proof_dict[conditions[0]]
-            for condition in conditions:
-                assert condition is not None
-                search(condition)
             
+            # Skip trivial conditions
+            if type(theorem) in inference_rule_sets["ex"]:
+                return
+            
+            # Trace fundamental shape
+            if len(conditions) == 1 and type(conditions[0]) in shape_dependency:
+                condition, theorem = trace_fundamental_shape(conditions[0])
+                conditions = [condition]
+            
+            for condition in conditions:
+                format(condition)
+            
+            # Skip if all conditions are basic geometric relations
             if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
                 return
-
-            # inference rule's condition can be founded in the equations
-            if isinstance(node, sympy.core.add.Add):
-                if len(conditions) == 1:
-                    return
+            
+            # Skip single-condition expressions (intermediate steps)
+            if isinstance(node, sympy.core.add.Add) and len(conditions) == 1:
+                return
+            
             # print('node', node, 'step_counter', step_counter, 'conditions', conditions)
             proof_steps[node] = (step_counter, conditions, theorem)
             step_counter += 1
 
-        if not conclusion and self.state.goal:
-            conclusion = self.state.goal
+        format(conclusion)
 
-        search(conclusion)
-        lst = [(key, value) for key, value in proof_steps.items()]
-        lst.sort(key=lambda x: x[1][0])
-        last = -1
-        for node, (step_number, conditions, theorem) in lst:
-            if step_number == last:
-                continue
-            last = step_number
-            dic = {"condition": conditions, "theorem": theorem, "conclusion": node}
-            proof.append(dic)
+        merged_steps = {}
+        for node, (step_number, conditions, theorem) in proof_steps.items():
+            key = tuple(sorted([str(c) for c in conditions]))
+            if key not in merged_steps:
+                merged_steps[key] = {
+                    'step_number': step_number,
+                    'conditions': conditions,
+                    'theorem': theorem,
+                    'conclusions': []
+                }
+            merged_steps[key]['conclusions'].append(node)
+            merged_steps[key]['step_number'] = min(merged_steps[key]['step_number'], step_number)
+
+        # Convert grouped steps back to proof format
+        sorted_steps = sorted(merged_steps.values(), key=lambda x: x['step_number'])
+        
+        for step in sorted_steps:
+            proof.append({
+                'conditions': step['conditions'],
+                'theorem': step['theorem'],
+                'conclusions': step['conclusions']
+            })
         
         return proof
     
@@ -180,30 +239,32 @@ class ProofGenerator:
         
         collect(condition)
     
-    
     def show_proof(self, node=None):
-        # print(self.proof_dict)
         res = self.get_proof_str(node)
         print(res)
 
     def get_proof_str(self, node=None):
         res = "Solution:\n"
         proof = self.get_proof(node)
-        for step, (condition, theorem, conclusion) in enumerate(proof):
+        for step, (conditions, theorem, conclusions) in enumerate(proof):
             theorem_str = ' [' + str(theorem) + ']' if theorem else ''
-            res += f'{step+1}. ' + ' & '.join([str(item) for item in condition]) + theorem_str + ' => ' + str(conclusion) + '\n'
+            res += f'{step+1}. ' + ' & '.join([str(item) for item in conditions]) + theorem_str + ' => ' + ' & '.join([str(item) for item in conclusions]) + '\n'
         return res
     
     def get_proof(self, node=None):
         res = []
         if not node and self.state.goal:
-            node = self.state.goal - self.state.complete()
+            node = self.state.goal
         
         proof_steps = self.format_proof(node)
-        
+
         for proof_step in proof_steps:
-            if not isinstance(proof_step['condition'][0], ConstructionRule):
-                res.append(([item for item in proof_step['condition'] if not trivial_condition(item)], proof_step['theorem'], proof_step['conclusion']))
+            if not isinstance(proof_step['conditions'][0], ConstructionRule):
+                res.append((
+                    [item for item in proof_step['conditions'] if not trivial_condition(item)], 
+                    proof_step['theorem'], 
+                    proof_step['conclusions']
+                ))
         return res
 
     def traceback_l1(self, augmented_A, e, threshold=1e-6):

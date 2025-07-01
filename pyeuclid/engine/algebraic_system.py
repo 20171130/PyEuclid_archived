@@ -178,7 +178,6 @@ class AlgebraicSystem:
 
         # prioritize on equations that contain only one variable to solve for exact values
         # then try to solve equations that are not much too complicated
-
         for i, eqn in enumerate(others):
             if eqn.redundant:
                 continue
@@ -189,8 +188,11 @@ class AlgebraicSystem:
                     eqn = eqn.subs(symbol, solved_vars[symbol])
             symbols = eqn.free_symbols
             expr = self.process_equation(eqn.expr)
+
+            print(others)
+            input()
   
-            angle_linear, length_linear, length_ratio, others = classify_equations([expr])
+            angle_linear, length_linear, length_ratio, others = classify_equations([expr], var_types)
             if others:
                 continue
             sources = [raw_eqn]
@@ -252,7 +254,7 @@ class AlgebraicSystem:
         for x in tmp:
             for y in tmp:
                 expr = self.state.simplify_equation(x/y)
-                if len(expr.free_symbols) == 0:
+                if len(expr.free_symbols) == 0 and expr != 1:
                     for a in tmp[x]:
                         for b in tmp[y]:
                             eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"])
@@ -261,11 +263,13 @@ class AlgebraicSystem:
                 else:
                     if not expr in dic:
                         dic[expr] = [sympy.core.mul.Mul(x, 1/y, evaluate=False)]
-                        expr2components[expr] = [(x, y)]
+                        if len(expr.free_symbols) > 0:
+                            expr2components[expr] = [(x, y)]
                     else:
                         dic[expr].append(sympy.core.mul.Mul(
                             x, 1/y, evaluate=False))
-                        expr2components[expr].append((x, y))
+                        if len(expr.free_symbols) > 0:
+                            expr2components[expr].append((x, y))
                     
         for expr, components in expr2components.items():
             for i in range(len(components)):
@@ -300,16 +304,18 @@ class AlgebraicSystem:
         
         angle_keys = list(tmp.keys())
         for i in range(len(angle_keys)):
-            for j in range(i+1, len(angle_keys)):
-                x = angle_keys[i]
+            x = angle_keys[i]
+            x_expr = self.state.simplify_equation(x)
+            for j in range(i, len(angle_keys)):
                 y = angle_keys[j]
+                y_expr = self.state.simplify_equation(y)
                 expr = self.state.simplify_equation(x+y)
                 if not expr in dic:
                     dic[expr] = [x+y]
                 else:
                     dic[expr].append(x+y)
                 # TODO add pi and label redundant, remove const in component_x or component_y
-                if len(expr.free_symbols) == 0 and not expr == sympy.pi:
+                if len(expr.free_symbols) == 0 and len(x_expr.free_symbols) > 0 and len(y_expr.free_symbols) > 0: # and not expr == sympy.pi:
                     component_x, component_y = tmp[x], tmp[y]
                     for a in range(len(component_x)):
                         for b in range(len(component_y)):

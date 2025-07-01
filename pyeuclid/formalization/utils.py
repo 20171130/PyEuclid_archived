@@ -147,6 +147,7 @@ class Traced():
         self.redundant = redundant
         self.sources = sources
         self.str_rep = None
+        self.rank = 0 # priority in the same depth
         self.depth = max([depth] + [getattr(item, "depth", 0) for item in self.sources])
         for key in ("free_symbols", "args"):
             setattr(self, key, getattr(self.expr, key))

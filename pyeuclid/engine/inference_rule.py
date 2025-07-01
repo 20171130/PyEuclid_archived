@@ -539,6 +539,7 @@ class PropertyOfParallelogram(InferenceRule):
     def conclusion(self):
         return [
             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Trapezoid(self.p1, self.p2, self.p3, self.p4),
             Parallel(self.p1, self.p2, self.p3, self.p4),
             Parallel(self.p1, self.p4, self.p2, self.p3),
             Length(self.p1, self.p2) - Length(self.p3, self.p4),
@@ -627,8 +628,9 @@ class PropertyOfRectangle(InferenceRule):
     
     def conclusion(self):
         return [
-            Parallelogram(self.p1, self.p2, self.p3, self.p4),
             Quadrilateral(self.p1, self.p2, self.p3, self.p4),
+            Trapezoid(self.p1, self.p2, self.p3, self.p4),
+            Parallelogram(self.p1, self.p2, self.p3, self.p4),
             Parallel(self.p1, self.p2, self.p3, self.p4),
             Parallel(self.p1, self.p4, self.p2, self.p3),
             Length(self.p1, self.p2) - Length(self.p3, self.p4),
@@ -731,6 +733,8 @@ class PropertyOfRhombus(InferenceRule):
     
     def conclusion(self):
         return [
+            Trapezoid(self.p1, self.p2, self.p3, self.p4),
+            Kite(self.p1, self.p2, self.p3, self.p4),
             Parallelogram(self.p1, self.p2, self.p3, self.p4),
             *equal(Length(self.p1, self.p2), Length(self.p2, self.p3), Length(self.p3, self.p4), Length(self.p4, self.p1)),
             Perpendicular(self.p1, self.p3, self.p2, self.p4),
@@ -808,8 +812,11 @@ class PropertyOfSquare(InferenceRule):
     
     def conclusion(self):
         return [
-            Rectangle(self.p1, self.p2, self.p3, self.p4),
+            Trapezoid(self.p1, self.p2, self.p3, self.p4),
+            Kite(self.p1, self.p2, self.p3, self.p4),
             Rhombus(self.p1, self.p2, self.p3, self.p4),
+            Parallelogram(self.p1, self.p2, self.p3, self.p4),
+            Rectangle(self.p1, self.p2, self.p3, self.p4),
         ]
 
 

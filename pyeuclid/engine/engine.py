@@ -10,17 +10,16 @@ class Engine:
         self.algebraic_system = algebraic_system
     
     def run(self):
-        self.deductive_database.inner_theorems.remove(PropertyOfTriangle)
-        self.search()
-        if self.state.complete() is not None:
-            return
-        self.deductive_database.inner_theorems.append(PropertyOfTriangle)
+        # self.deductive_database.inner_theorems.remove(PropertyOfTriangle)
+        # self.search()
+        # if self.state.complete() is not None:
+        #     return
+        # self.deductive_database.inner_theorems.append(PropertyOfTriangle)
         self.search()
         
     def search(self, depth=9999):
         self.algebraic_system.run()
         while self.state.current_depth < depth:
-            n_eqns = len(self.state.equations)
             if self.state.complete() is not None:
                 break
                         
@@ -31,9 +30,6 @@ class Engine:
             
             self.algebraic_system.run()
 
-            if n_eqns == len(self.state.equations):
-                break
-    
     def step(self, conditions, conclusions=[], depth=1):
         """
         Only considers a subset of points and conditions
