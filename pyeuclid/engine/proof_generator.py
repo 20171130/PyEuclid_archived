@@ -39,11 +39,41 @@ class ProofGenerator:
             depth = node.depth
         
         if isinstance(node, InferenceRule):
-            conds = [item for item in node.condition() if not trivial_condition(item) and not item == 0]
-            self.proof_dict[node] = conds
+            # relation_map = {
+            #     Trapezoid: [Square, Rectangle, Rhombus, Parallelogram],
+            #     Parallelogram: [Square, Rectangle, Rhombus],
+            #     Kite: [Square, Rhombus],
+            #     EquilateralTrapezoid: [Square, Rectangle],
+            #     Rhombus: [Square],
+            #     Rectangle: [Square],
+            #     IsoscelesTriangle: [EquilateralTriangle]
+            # }
+            #     if type(condition) in relation_map:
+            #         points = condition.get_points()
+            #         depth = self.state.condition2depth[condition]
+            #         for relation in relation_map[type(condition)]:
+            #             shape = relation(*points)
+            #             if shape in self.state.relations and self.state.condition2depth[shape] <= depth:
+            #                 condition = shape
+            #                 break
+            conditions = [item for item in node.condition() if not trivial_condition(item)]
+            rewrited_conditions = []
+            for condition in conditions:
+                if isinstance(condition, Parallel):
+                    points = condition.get_points()
+                    if len(set(points)) == 3 and Collinear(*set(points)) in self.state.relations and self.state.condition2depth[Collinear(*set(points))] < depth:
+                        condition = Collinear(*set(points))
+                    else:
+                        a, b, c, d = points
+                        if Collinear(a,b,c) in self.state.relations and self.state.condition2depth[Collinear(a,b,c)] < depth:
+                            assert (Collinear(a,b,d) in self.state.relations and self.state.condition2depth[Collinear(a,b,d)] < depth)
+                            condition = Collinear(a,b,c)
+                            rewrited_conditions.append(Collinear(a,b,d))
+                rewrited_conditions.append(condition)
+            self.proof_dict[node] = rewrited_conditions
             
             # print(1, 'node', node, type(node), 'depth', depth, 'sources', conds)
-            for cond in conds:
+            for cond in rewrited_conditions:
                 self.run(cond, depth=depth, root=False)
         elif isinstance(node, Relation):
             for tmp in self.state.relations:
@@ -150,7 +180,7 @@ class ProofGenerator:
                     theorem = conditions[0]
                     node = theorem.condition()[0]
                 return node, theorem
-
+            
             if node in visited or node not in self.proof_dict:
                 return
             
@@ -164,9 +194,9 @@ class ProofGenerator:
                 conditions = self.proof_dict[conditions[0]]
             
             # Skip trivial conditions
-            if type(theorem) in inference_rule_sets["ex"]:
-                return
-            
+            # if type(theorem) in inference_rule_sets["ex"]:
+            #     return
+
             # Trace fundamental shape
             if len(conditions) == 1 and type(conditions[0]) in shape_dependency:
                 condition, theorem = trace_fundamental_shape(conditions[0])

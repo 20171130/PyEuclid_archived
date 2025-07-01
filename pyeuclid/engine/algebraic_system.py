@@ -189,8 +189,6 @@ class AlgebraicSystem:
             symbols = eqn.free_symbols
             expr = self.process_equation(eqn.expr)
 
-            print(others)
-            input()
   
             angle_linear, length_linear, length_ratio, others = classify_equations([expr], var_types)
             if others:

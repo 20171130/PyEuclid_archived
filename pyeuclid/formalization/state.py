@@ -81,16 +81,16 @@ class State:
                         assert self.diagram.numerical_check(item)
                 self.add_equation(item)
             
-            self.depth2conditions[self.current_depth].append(item)
-            self.condition2depth[item] = self.current_depth
- 
     def add_relation(self, relation):
         if relation in self.relations:
             return
         points = relation.get_points()
         for p in points:
             self.add_point(p)
-        self.relations.add(relation)
+        if relation not in self.relations:
+            self.relations.add(relation)
+            self.depth2conditions[self.current_depth].append(relation)
+            self.condition2depth[relation] = self.current_depth
         
     def add_point(self, *ps):
         for p in ps:
@@ -128,6 +128,8 @@ class State:
         negated = Traced(-equation.expr)
         if equation not in self.equations and negated not in self.equations:
             self.equations.add(equation)
+            self.depth2conditions[self.current_depth].append(equation)
+            self.condition2depth[equation] = self.current_depth
     
     def categorize_variable(self):
         angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types)

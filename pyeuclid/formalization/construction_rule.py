@@ -1182,10 +1182,11 @@ class construct_parallelogram(ConstructionRule):
         a, b, c = self.inputs
         x, = self.outputs
         return [
-            Parallel(a, b, c, x),
-            Parallel(a, x, b, c),
-            Length(a, b) - Length(c, x),
-            Length(a, x) - Length(b, c),
+            Parallelogram(a, b, c, x)
+            # Parallel(a, b, c, x),
+            # Parallel(a, x, b, c),
+            # Length(a, b) - Length(c, x),
+            # Length(a, x) - Length(b, c),
         ]
 
 
