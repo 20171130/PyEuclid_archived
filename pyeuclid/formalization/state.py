@@ -127,7 +127,7 @@ class State:
         
         negated = Traced(-equation.expr)
         if equation not in self.equations and negated not in self.equations:
-            equation.categories = classify_equation(equation, self.var_types)
+            # equation.categories = classify_equation(equation, self.var_types)
             self.equations.add(equation)
             self.depth2conditions[self.current_depth].append(equation)
             self.condition2depth[equation] = self.current_depth

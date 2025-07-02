@@ -133,6 +133,10 @@ class ProofGenerator:
                         if not conditions:
                             breakpoint()
                             assert False
+                        
+                        self.cache_conditions[str(sympy.simplify(node.expr))] = conditions
+                        self.cache_source[str(sympy.simplify(node.expr))] = sources[0]
+
                         sources = conditions
                     else:
                         # inference rules derived
@@ -179,10 +183,14 @@ class ProofGenerator:
                     
                     equations = equations + additional_equations
                     conditions = self.find_conditions(equations, node, source)
-
+                
                 if not conditions:
                     breakpoint()
                     assert False
+
+                self.cache_conditions[str(sympy.simplify(node))] = conditions
+                self.cache_source[str(sympy.simplify(node))] = source
+
                 sources = conditions
             self.proof_dict[node] = sources
             # print(3, 'node', node, type(node), 'depth', depth, 'sources', sources)
@@ -368,11 +376,6 @@ class ProofGenerator:
                 if coef != 0:
                     expr.append(coef * deltas[j])
             model.addCons(quicksum(expr) == e[i])
-        
-        # for i in range(n + 1):
-        #     model.addCons(
-        #         quicksum(augmented_A[j, i] * (x_pos[j] - x_neg[j]) for j in range(m)) == e[i]
-        #     )
               
         model.optimize()
         
@@ -473,11 +476,11 @@ class ProofGenerator:
         return np.concat([A, b], axis=1)
 
     def find_conditions(self, equations: list[Traced], conclusion, source):
-        angle_linear = [eq for eq in equations if 'angle_linear' in eq.categories]
-        length_linear = [eq for eq in equations if 'length_linear' in eq.categories]
-        length_ratio = [eq for eq in equations if 'length_ratio' in eq.categories]
-        others = [eq for eq in equations if 'others' in eq.categories]
-        # angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
+        # angle_linear = [eq for eq in equations if 'angle_linear' in eq.categories]
+        # length_linear = [eq for eq in equations if 'length_linear' in eq.categories]
+        # length_ratio = [eq for eq in equations if 'length_ratio' in eq.categories]
+        # others = [eq for eq in equations if 'others' in eq.categories]
+        angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
         """Given sympified equations and conclusions, return a list of necessary conditions"""
         def try_find(equations, conclusion):
             variables = set()
