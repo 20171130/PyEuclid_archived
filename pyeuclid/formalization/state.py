@@ -127,11 +127,12 @@ class State:
         
         negated = Traced(-equation.expr)
         if equation not in self.equations and negated not in self.equations:
+            equation.categories = classify_equation(equation, self.var_types)
             self.equations.add(equation)
             self.depth2conditions[self.current_depth].append(equation)
             self.condition2depth[equation] = self.current_depth
     
-    def categorize_variable(self):
+    def categorize_variable(self): 
         angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types)
         for eq in self.equations:
             if "Variable" not in str(eq):
@@ -243,8 +244,9 @@ class State:
                 return solution
             return None
     
-    def simplify_equation(self, expr):
-        solved_vars = self.solutions
+    def simplify_equation(self, expr, solved_vars=None):
+        if solved_vars is None:
+            solved_vars = self.solutions
         expr = getattr(expr, "expr", expr)
         for symbol in expr.free_symbols:
             if symbol in solved_vars:

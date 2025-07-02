@@ -18,6 +18,8 @@ class ProofGenerator:
         self.state = state
         self.visited = set()
         self.proof_dict = {}
+        self.cache_conditions = {}
+        self.cache_source = {}
         self.source_constructions = defaultdict(list)
         self.verbose = verbose
     
@@ -72,7 +74,7 @@ class ProofGenerator:
                 rewrited_conditions.append(condition)
             self.proof_dict[node] = rewrited_conditions
             
-            # print(1, 'node', node, type(node), 'depth', depth, 'sources', conds)
+            # print(1, 'node', node, type(node), 'depth', depth, 'sources', rewrited_conditions)
             for cond in rewrited_conditions:
                 self.run(cond, depth=depth, root=False)
         elif isinstance(node, Relation):
@@ -99,13 +101,35 @@ class ProofGenerator:
                             expr = node.symbol - node.expr
                         else:
                             expr = node.expr
-                        conditions = self.find_conditions(equations, expr, sources[0])
                         
-                        if len(conditions) > 4:
-                            node.rank = 1
-                            equations = equations + [item for item in self.state.equations if item.depth == node.depth and item.rank == 0]
+                        if str(sympy.simplify(expr)) in self.cache_conditions:
+                            conditions = self.cache_conditions[str(sympy.simplify(expr))]
+                        elif str(sympy.simplify(-expr)) in self.cache_conditions:
+                            conditions = self.cache_conditions[str(sympy.simplify(-expr))]
+                        else:
                             conditions = self.find_conditions(equations, expr, sources[0])
+                        
+                        discards = []
+                        while len(conditions) > 6:
+                            additional_equations = []
+                            candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == node.depth and item not in equations and item not in discards]
 
+                            for intermediate_condition in candidate_intermediate_conditions:
+                                cond = self.find_conditions(equations, intermediate_condition.expr, sources[0])
+                                if cond:
+                                    self.cache_conditions[str(sympy.simplify(intermediate_condition.expr))] = cond
+                                    self.cache_source[str(sympy.simplify(intermediate_condition.expr))] = sources[0]
+                                    if len(cond) <= 6:
+                                        additional_equations.append(intermediate_condition)
+                                else:
+                                    discards.append(intermediate_condition)
+                            
+                            if len(additional_equations) == 0:
+                                break
+                            
+                            equations = equations+additional_equations
+                            conditions = self.find_conditions(equations, expr, sources[0])
+                            
                         if not conditions:
                             breakpoint()
                             assert False
@@ -115,27 +139,47 @@ class ProofGenerator:
                         pass
             else:
                 assert isinstance(node, sympy.core.expr.Expr)
-                sources = []
+                source = None
                 equations = [item for item in self.state.equations if item.depth < depth]
-                if "Angle" in str(node):
-                    conditions = self.find_conditions(equations, node, "angle_linear")
+
+                if str(sympy.simplify(node)) in self.cache_conditions:
+                    conditions = self.cache_conditions[str(sympy.simplify(node))]
+                    source = self.cache_source[str(sympy.simplify(node))]
+                elif str(sympy.simplify(-node)) in self.cache_conditions:
+                    conditions = self.cache_conditions[str(sympy.simplify(-node))]
+                    source = self.cache_source[str(sympy.simplify(-node))]
                 else:
-                    for tmp in ("length_ratio", "length_linear"):
-                        conditions = self.find_conditions(equations, node, tmp)
-                        if conditions:
-                            break
-                if len(conditions) > 4:
-                    for item in self.state.equations:
-                        if item.depth == depth and (str(sympy.simplify(node)) == str(item) or str(sympy.simplify(-node)) == str(item)):
-                            item.rank = 1
-                    equations = equations + [item for item in self.state.equations if item.depth == depth and item.rank == 0]
                     if "Angle" in str(node):
-                        conditions = self.find_conditions(equations, node, "angle_linear")
+                        source = "angle_linear"
+                        conditions = self.find_conditions(equations, node, source)
                     else:
                         for tmp in ("length_ratio", "length_linear"):
                             conditions = self.find_conditions(equations, node, tmp)
                             if conditions:
+                                source = tmp
                                 break
+                
+                discards = []
+                while len(conditions) > 6:
+                    additional_equations = []
+                    candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == depth and item not in equations and item not in discards]
+
+                    for intermediate_condition in candidate_intermediate_conditions:
+                        cond = self.find_conditions(equations, intermediate_condition.expr, source)
+                        if cond:
+                            self.cache_conditions[str(sympy.simplify(intermediate_condition.expr))] = cond
+                            self.cache_source[str(sympy.simplify(intermediate_condition.expr))] = source
+                            if len(cond) <= 6:
+                                additional_equations.append(intermediate_condition)
+                        else:
+                            discards.append(intermediate_condition)
+                    
+                    if len(additional_equations) == 0:
+                        break
+                    
+                    equations = equations + additional_equations
+                    conditions = self.find_conditions(equations, node, source)
+
                 if not conditions:
                     breakpoint()
                     assert False
@@ -316,16 +360,28 @@ class ProofGenerator:
             sense="minimize"
         )
 
+        deltas = [x_pos[j] - x_neg[j] for j in range(m)]
         for i in range(n + 1):
-            model.addCons(
-                quicksum(augmented_A[j, i] * (x_pos[j] - x_neg[j]) for j in range(m)) == e[i]
-            )
-
+            expr = []
+            for j in range(m):
+                coef = augmented_A[j, i]
+                if coef != 0:
+                    expr.append(coef * deltas[j])
+            model.addCons(quicksum(expr) == e[i])
+        
+        # for i in range(n + 1):
+        #     model.addCons(
+        #         quicksum(augmented_A[j, i] * (x_pos[j] - x_neg[j]) for j in range(m)) == e[i]
+        #     )
+              
         model.optimize()
-        x_values = [model.getVal(x_pos[i]) - model.getVal(x_neg[i]) for i in range(m)]
-        indices = [i for i, val in enumerate(x_values) if abs(val) > threshold]
-
-        return indices
+        
+        try:
+            x_values = [model.getVal(x_pos[i]) - model.getVal(x_neg[i]) for i in range(m)]
+            indices = [i for i, val in enumerate(x_values) if abs(val) > threshold]
+            return indices
+        except:
+            return None
 
     def traceback_l0(self, augmented_A, e) -> list[str]:
         m, n = augmented_A.shape
@@ -344,7 +400,12 @@ class ProofGenerator:
         model.setObjective(quicksum(z[i] for i in range(m)), sense="minimize")
 
         for i in range(n + 1):
-            model.addCons(quicksum(augmented_A[j, i] * x[j] for j in range(m)) == e[i])
+            expr = []
+            for j in range(m):
+                coef = augmented_A[j, i]
+                if coef != 0:
+                    expr.append(coef * x[j])
+            model.addCons(quicksum(expr) == e[i])
 
         M = 10
         for i in range(m):
@@ -353,13 +414,13 @@ class ProofGenerator:
 
         model.optimize()
 
-        obj_val = model.getObjVal()
-
-        indices = [i for i in range(m) if model.getVal(z[i]) > 1e-12]
-
-        assert round(obj_val) == len(indices)
-        
-        return indices
+        try:
+            obj_val = model.getObjVal()
+            indices = [i for i in range(m) if model.getVal(z[i]) > 1e-12]
+            assert round(obj_val) == len(indices)
+            return indices
+        except:
+            return None
 
     def vectorize(self, equations, variables, source):
         A = np.zeros(shape=(len(equations), len(variables)), dtype=np.float64)
@@ -412,7 +473,11 @@ class ProofGenerator:
         return np.concat([A, b], axis=1)
 
     def find_conditions(self, equations: list[Traced], conclusion, source):
-        angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
+        angle_linear = [eq for eq in equations if 'angle_linear' in eq.categories]
+        length_linear = [eq for eq in equations if 'length_linear' in eq.categories]
+        length_ratio = [eq for eq in equations if 'length_ratio' in eq.categories]
+        others = [eq for eq in equations if 'others' in eq.categories]
+        # angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
         """Given sympified equations and conclusions, return a list of necessary conditions"""
         def try_find(equations, conclusion):
             variables = set()
@@ -420,17 +485,24 @@ class ProofGenerator:
                 variables = variables.union(eqn.free_symbols)
             variables = {item: i for i, item in enumerate(list(variables))}
             mat = self.vectorize([item.expr for item in equations], variables, source)
-            eq = self.vectorize([conclusion], variables, source)
-            deps = []
             try:
-                with TT(1):
-                    deps = self.traceback_l0(mat, eq)
+                eq = self.vectorize([conclusion], variables, source)
             except:
-                pass
-            if not deps:
-                deps = self.traceback_l1(mat, eq)
-
-            return [equations[i] for i in deps]
+                return None
+            deps = None
+            # try:
+            #     with TT(1):
+            #         deps = self.traceback_l0(mat, eq)
+            # except:
+            #     pass
+            
+            # if not deps:
+            deps = self.traceback_l1(mat, eq)
+            
+            if deps:
+                return [equations[i] for i in deps]
+            else:
+                return None
         
         if source == "angle_linear":
             equations = angle_linear

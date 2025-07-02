@@ -135,18 +135,20 @@ class UnionFind:
 
 
 class Traced():
-    def __init__(self, expr, depth=0, sources=[], redundant=False):
+    def __init__(self, expr, depth=0, sources=[], categories=[], redundant=False):
         if isinstance(expr, Traced):
             sources = expr.sources
             depth = expr.depth
+            categories = expr.categories
             expr = expr.expr
             redundant = redundant
-        
+            
         self.expr = expr
         self.symbol = None
         self.redundant = redundant
         self.sources = sources
         self.str_rep = None
+        self.categories = categories
         self.rank = 0 # priority in the same depth
         self.depth = max([depth] + [getattr(item, "depth", 0) for item in self.sources])
         for key in ("free_symbols", "args"):
@@ -168,10 +170,6 @@ class Traced():
         return other
     
     def __str__(self):
-        # if not self.symbol is None:
-        #     return str(sympy.simplify(self.symbol - self.expr))
-        # else:
-        #     return str(sympy.simplify(self.expr))
         if self.str_rep is None:
             if not self.symbol is None:
                 self.str_rep = str(sympy.simplify(self.symbol - self.expr))
@@ -242,6 +240,53 @@ def classify_equations(equations: List[Traced], var_types):
         else:
             others.append(eq)
     return angle_linear, length_linear, length_ratio, others
+
+
+def classify_equation(eq, var_types):
+    categories = []
+    cnst = r"(\d+|\d+\.\d*|pi)"
+    cnst = f"{cnst}(\\*{cnst})*(/{cnst})*"
+    length = r"(length\w+\d*|variable\w+\d*)"
+    angle = r"(angle\w+\d*|variable\w+\d*)"
+    length_mono = f"({cnst}\\*)?{length}(/{cnst})?"
+    angle_mono = f"({cnst}\\*)?{angle}(/{cnst})?"
+    length_mono = f"({length_mono}|{cnst})"
+    angle_mono = f"({angle_mono}|{cnst})"
+    length_ratio_pattern = re.compile(
+        f"^-?{length_mono}([\\*/]{length_mono})* [+-] {length_mono}([\\*/]{length_mono})*$")
+    length_linear_pattern = re.compile(
+        f"^-?{length_mono}( [+-] {length_mono})+$")
+    angle_linear_pattern = re.compile(
+        f"^-?{angle_mono}( [+-] {angle_mono})+$")
+
+    tmp = str(eq.expr.expand()).lower()
+    eq_types = infer_eq_types(eq, var_types)
+    if length_ratio_pattern.match(tmp):
+        # length ratio has higher priority than length linear
+        # eqratio, length eq const, eqlength, linear equations involving length and variables
+        if "Length" in eq_types:
+            categories.append("length_ratio")
+            if length_linear_pattern.match(tmp) or len(eq.free_symbols) <= 3:
+                categories.append("length_linear")
+        elif "Angle" in eq_types: # such as Variable_angle_2 - piVariable_x/90
+            categories.append("angle_linear")
+        else:
+            categories.append("others")
+    elif angle_linear_pattern.match(tmp) or length_linear_pattern.match(tmp):
+        # eqangle, angle eq const, angle sum
+        if len(eq_types) > 1:
+            breakpoint()
+            assert False
+        if len(eq_types) == 0:
+            categories.append("others")
+        elif eq_types.pop() == "Angle":
+            categories.append("angle_linear")
+        else:
+            categories.append("length_linear")
+    else:
+        categories.append("others")
+    
+    return categories
 
 def is_float(s):
     try:
