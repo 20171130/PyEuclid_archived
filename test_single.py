@@ -18,7 +18,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b = segment a b; c = on_dia c a b, on_bline c a b; d = midpoint d a c; e = foot e c b d; f = on_line f c e, on_line f a b ? eqangle d c d b d f d a")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; d = circumcenter d a b c; e = on_circle e d a; f = on_line f a b, on_line f c e; h = on_line h b c, angle_bisector h a f c; g = on_line g a e, on_line g b c; i = on_line i a b, angle_bisector i a g b; j = on_line j f h, on_line j g i; k = on_line k a e, on_line k f h ? perp g i f h")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -47,35 +47,32 @@ def run_single_problem(args):
     # while True:
     #     engine.search(depth=1)
 
-        # print(state.angles.equivalence_classes())
-        # Solution:
-        # 1. Square(a,c,d,e) [PropertyOfSquare(a,c,d,e)] => Rhombus(a,c,d,e)
-        # 2. Rhombus(a,c,d,e) [PropertyOfRhombus(a,c,d,e)] => Length_a_c - Length_c_d
-        # 3. Square(b,c,f,g) [PropertyOfSquare(b,c,f,g)] => Rhombus(b,c,f,g)
-        # 4. Rhombus(b,c,f,g) [PropertyOfRhombus(b,c,f,g)] => Length_b_c - Length_c_f
-        # 5. Square(b,c,f,g) [PropertyOfSquare(b,c,f,g)] => Rectangle(b,c,f,g)
-        # 6. Rectangle(b,c,f,g) [PropertyOfRectangle(b,c,f,g)] => Angle_b_c_f - pi/2
-        # 7. Square(a,c,d,e) [PropertyOfSquare(a,c,d,e)] => Rectangle(a,c,d,e)
-        # 8. Rectangle(a,c,d,e) [PropertyOfRectangle(a,c,d,e)] => Angle_a_c_d - pi/2
-        # 9. -Angle_a_c_b - Angle_a_c_d + Angle_b_c_d & Angle_b_c_f - pi/2 & -Angle_a_c_b + Angle_a_c_f - Angle_b_c_f & Angle_a_c_d - pi/2 => -Angle_a_c_f + Angle_b_c_d
-        # 10. Length_a_c - Length_c_d & -Length_b_c + Length_c_f & Angle_a_c_f - Angle_b_c_d [AlphaGeometry34(a,c,f,d,c,b)] => Congruent3(a,c,f,d,c,b)
-        # 11. Congruent3(a,c,f,d,c,b) [PropertyOfCongruent(a,c,f,d,c,b)] => -Angle_b_d_c + Angle_c_a_f
-        # 12. Rectangle(a,c,d,e) [PropertyOfRectangle(a,c,d,e)] => -Angle_a_c_e + Angle_c_a_d
-        # 13. Rhombus(a,c,d,e) [PropertyOfRhombus(a,c,d,e)] => Perpendicular(a,d,c,e)
-        # 14. Perpendicular(a,d,c,e) [Perp2Angle3(a,d,c,e)] => Angle_a_c_e + Angle_c_a_d - pi/2
-        # 15. -Angle_a_c_e + Angle_c_a_d & Angle_a_c_e + Angle_c_a_d - pi/2 => Angle_c_a_d - pi/4
-        # 16. Perpendicular(a,d,c,e) [Perp2Angle3(a,d,c,e)] => Angle_a_d_c + Angle_d_c_e - pi/2
-        # 17. Rectangle(a,c,d,e) [PropertyOfRectangle(a,c,d,e)] => Angle_a_d_c - Angle_d_c_e
-        # 18. Angle_a_d_c + Angle_d_c_e - pi/2 & -Angle_a_d_b + Angle_a_d_c - Angle_b_d_c & Angle_a_d_c - Angle_d_c_e => Angle_a_d_b + Angle_b_d_c - pi/4
-        # 19. -Angle_c_a_d - Angle_c_a_f + Angle_d_a_f & -Angle_b_d_c + Angle_c_a_f & Angle_c_a_d - pi/4 & Angle_a_d_b + Angle_b_d_c - pi/4 => Angle_a_d_b + Angle_d_a_f - pi/2
-        # 20. Angle_a_d_b + Angle_d_a_f - pi/2 [Angle2Perp3(a,f,b,d)] => Perpendicular(a,f,b,d)
+    # 001. DA = DB [03] ⇒  ∠DBA = ∠BAD [07]
+    # 002. DB = DC [04] ⇒  ∠DBC = ∠BCD [08]
+    # 003. DB = DC [04] & DA = DB [03] ⇒  DA = DC [09]
+    # 004. DA = DC [09] ⇒  ∠DAC = ∠ACD [10]
+    # 005. GE = GF [05] & GA = GE [06] ⇒  GA = GF [11]
+    # 006. GA = GF [11] ⇒  ∠GAF = ∠AFG [12]
+    # 007. ∠GAF = ∠AFG [12] & C,A,F are collinear [01] ⇒  ∠GAC = ∠(AC-FG) [13]
+    # 008. GA = GE [06] ⇒  ∠GAE = ∠AEG [14]
+    # 009. ∠GAE = ∠AEG [14] & B,E,A are collinear [00] ⇒  ∠GAB = ∠(AB-EG) [15]
+    # 010. GE = GF [05] ⇒  ∠GFE = ∠FEG [16]
+    # 011. ∠GFE = ∠FEG [16] & EF ∥ BC [02] ⇒  ∠(FG-BC) = ∠(BC-EG) [17]
+    # 012. ∠DBA = ∠BAD [07] & ∠DBC = ∠BCD [08] & ∠DAC = ∠ACD [10] & ∠GAC = ∠(AC-FG) [13] & ∠GAB = ∠(AB-EG) [15] & ∠(FG-BC) = ∠(BC-EG) [17] (Angle chase)⇒  AD ∥ AG [18]
+    # 013. AD ∥ AG [18] ⇒  G,A,D are collinear
 
-    # p1 = state.check_conditions(Angle(Point('a'),Point('c'),Point('f'))-Angle(Point('d'),Point('c'),Point('b')))
-    # p2 = state.check_conditions(Congruent3(Point('a'),Point('c'),Point('f'),Point('d'),Point('c'),Point('b')))
-    # p3 = state.check_conditions(Angle(Point('a'),Point('d'),Point('b'))+Angle(Point('b'),Point('d'),Point('c'))-pi/4)
-    # p4 = state.check_conditions(Angle(Point('a'),Point('d'),Point('b'))+Angle(Point('d'),Point('a'),Point('f'))-pi/2)
-    # p5 = state.check_conditions(Angle(Point('c'),Point('a'),Point('d'))-pi/4)
-    # p6 = state.check_conditions(Angle(Point('b'),Point('d'),Point('c'))-Angle(Point('c'),Point('a'),Point('f')))
+    # 1. Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_a_f_d + Angle_c_f_d - pi & Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_a_d_b - Angle_a_g_e
+    # 2. Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_a_f_d + Angle_c_f_d - pi & Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_c_b_d - Angle_f_e_g
+    # 3. Angle_c_b_d - Angle_f_e_g & Parallel(b,c,e,f) => Parallel(b,d,e,g)
+    # 4. Angle_a_d_b - Angle_a_g_e & Parallel(b,d,e,g) [AlphaGeometry29(a,d,g)] => Collinear(a,d,g)
+
+
+    # p1 = state.check_conditions(Angle(Point('a'),Point('d'),Point('b'))-Angle(Point('a'),Point('g'),Point('e')))
+    # p2 = state.check_conditions(Angle(Point('c'),Point('b'),Point('d'))-Angle(Point('f'),Point('e'),Point('g')))
+    # p3 = state.check_conditions(Parallel(Point('b'),Point('d'),Point('e'),Point('g')))
+    # print(p1, p2, p3)
+    # for cond in AlphaGeometry3a(Point('a'),Point('d'),Point('b'), Point('a'),Point('g'),Point('e')).condition():
+    #     print(cond, state.check_conditions(cond))
     # print(state.angles.equivalence_classes())
         # p4 = state.check_conditions(Perpendicular(Point('c'),Point('a'),Point('a'),Point('d')))
         # p5 = state.check_conditions(Angle(Point('d'),Point('a'),Point('e'))+Angle(Point('a'),Point('f'),Point('e'))-pi)
@@ -98,14 +95,9 @@ def run_single_problem(args):
         print(f"Solved in {t:.2f}s")
         if args.show_proof:
             t0 = time.time()
-            with TT(600):
-                proof_generator.run()
-                # proof = proof_generator.format_proof()
-                # max_cond_num = 0
-                # acc_cond_num = 0
-                # step = 0
-                proof_generator.show_proof()
-                print(f"Proof generated in {time.time()-t0:.2f}s")
+            proof_generator.run()
+            proof_generator.show_proof()
+            print(f"Proof generated in {time.time()-t0:.2f}s")
             
             # print(f'proof genratation runs in {time.time()-t0}')
             # print(f'Proof steps: ', step)

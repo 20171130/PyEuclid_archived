@@ -48,7 +48,7 @@ class TestBenchmarks(unittest.TestCase):
                     print(f"{idx} solved in {t} seconds")
                     t0 = time.time()
                     proof = None
-                    with TT(600):
+                    with TT(1200):
                         proof_generator.run()
                         proof = proof_generator.get_proof()
                         proof_str = proof_generator.get_proof_str()

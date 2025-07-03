@@ -19,6 +19,7 @@ class State:
         self.points = set()
         self.relations = set()
         self.equations = set()
+        self.equation_strs = set()
         self.lengths = UnionFind()
         self.angles = UnionFind()
         self.var_types = {}
@@ -125,10 +126,11 @@ class State:
         if str(equation) == '0':
             return
         
-        negated = Traced(-equation.expr)
-        if equation not in self.equations and negated not in self.equations:
-            # equation.categories = classify_equation(equation, self.var_types)
+        str_rep = str(equation)
+        negated_str_rep = equation.negated_str_rep
+        if str_rep not in self.equation_strs and negated_str_rep not in self.equation_strs:
             self.equations.add(equation)
+            self.equation_strs.add(str_rep)
             self.depth2conditions[self.current_depth].append(equation)
             self.condition2depth[equation] = self.current_depth
     

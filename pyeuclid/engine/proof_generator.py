@@ -102,10 +102,10 @@ class ProofGenerator:
                         else:
                             expr = node.expr
                         
-                        if str(sympy.simplify(expr)) in self.cache_conditions:
-                            conditions = self.cache_conditions[str(sympy.simplify(expr))]
-                        elif str(sympy.simplify(-expr)) in self.cache_conditions:
-                            conditions = self.cache_conditions[str(sympy.simplify(-expr))]
+                        if node.str_rep in self.cache_conditions:
+                            conditions = self.cache_conditions[node.str_rep]
+                        elif node.negated_str_rep in self.cache_conditions:
+                            conditions = self.cache_conditions[node.negated_str_rep]
                         else:
                             conditions = self.find_conditions(equations, expr, sources[0])
                         
@@ -115,11 +115,23 @@ class ProofGenerator:
                             candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == node.depth and item not in equations and item not in discards]
 
                             for intermediate_condition in candidate_intermediate_conditions:
-                                cond = self.find_conditions(equations, intermediate_condition.expr, sources[0])
+                                if intermediate_condition.str_rep in self.cache_conditions:
+                                    if self.cache_source[intermediate_condition.str_rep] == sources[0]:
+                                        cond = self.cache_conditions[intermediate_condition.str_rep]
+                                    else:
+                                        cond = None
+                                elif intermediate_condition.negated_str_rep in self.cache_conditions:
+                                    if self.cache_source[intermediate_condition.negated_str_rep] == sources[0]:
+                                        cond = self.cache_conditions[intermediate_condition.negated_str_rep]
+                                    else:
+                                        cond = None
+                                else:
+                                    cond = self.find_conditions(equations, intermediate_condition.expr, sources[0])
+                                
                                 if cond:
-                                    self.cache_conditions[str(sympy.simplify(intermediate_condition.expr))] = cond
-                                    self.cache_source[str(sympy.simplify(intermediate_condition.expr))] = sources[0]
                                     if len(cond) <= 6:
+                                        self.cache_conditions[intermediate_condition.str_rep] = cond
+                                        self.cache_source[intermediate_condition.str_rep] = sources[0]
                                         additional_equations.append(intermediate_condition)
                                 else:
                                     discards.append(intermediate_condition)
@@ -134,24 +146,27 @@ class ProofGenerator:
                             breakpoint()
                             assert False
                         
-                        self.cache_conditions[str(sympy.simplify(node.expr))] = conditions
-                        self.cache_source[str(sympy.simplify(node.expr))] = sources[0]
+                        self.cache_conditions[node.str_rep] = conditions
+                        self.cache_source[node.str_rep] = sources[0]
 
                         sources = conditions
                     else:
-                        # inference rules derived
+                        # inference rules derived traced
                         pass
             else:
                 assert isinstance(node, sympy.core.expr.Expr)
                 source = None
                 equations = [item for item in self.state.equations if item.depth < depth]
 
-                if str(sympy.simplify(node)) in self.cache_conditions:
-                    conditions = self.cache_conditions[str(sympy.simplify(node))]
-                    source = self.cache_source[str(sympy.simplify(node))]
-                elif str(sympy.simplify(-node)) in self.cache_conditions:
-                    conditions = self.cache_conditions[str(sympy.simplify(-node))]
-                    source = self.cache_source[str(sympy.simplify(-node))]
+                str_rep = str(sympy.simplify(node))
+                negated_str_rep = str(sympy.simplify(-node))
+
+                if str_rep in self.cache_conditions:
+                    conditions = self.cache_conditions[str_rep]
+                    source = self.cache_source[str_rep]
+                elif negated_str_rep in self.cache_conditions:
+                    conditions = self.cache_conditions[negated_str_rep]
+                    source = self.cache_source[negated_str_rep]
                 else:
                     if "Angle" in str(node):
                         source = "angle_linear"
@@ -169,11 +184,23 @@ class ProofGenerator:
                     candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == depth and item not in equations and item not in discards]
 
                     for intermediate_condition in candidate_intermediate_conditions:
-                        cond = self.find_conditions(equations, intermediate_condition.expr, source)
+                        if intermediate_condition.str_rep in self.cache_conditions:
+                            if self.cache_source[intermediate_condition.str_rep] == source:
+                                cond = self.cache_conditions[intermediate_condition.str_rep]
+                            else:
+                                cond = None
+                        elif intermediate_condition.negated_str_rep in self.cache_conditions:
+                            if self.cache_source[intermediate_condition.negated_str_rep] == source:
+                                cond = self.cache_conditions[intermediate_condition.negated_str_rep]
+                            else:
+                                cond = None
+                        else:
+                            cond = self.find_conditions(equations, intermediate_condition.expr, source)
+                        
                         if cond:
-                            self.cache_conditions[str(sympy.simplify(intermediate_condition.expr))] = cond
-                            self.cache_source[str(sympy.simplify(intermediate_condition.expr))] = source
                             if len(cond) <= 6:
+                                self.cache_conditions[intermediate_condition.str_rep] = cond
+                                self.cache_source[intermediate_condition.str_rep] = source
                                 additional_equations.append(intermediate_condition)
                         else:
                             discards.append(intermediate_condition)
@@ -188,9 +215,8 @@ class ProofGenerator:
                     breakpoint()
                     assert False
 
-                self.cache_conditions[str(sympy.simplify(node))] = conditions
-                self.cache_source[str(sympy.simplify(node))] = source
-
+                self.cache_conditions[str_rep] = conditions
+                self.cache_source[str_rep] = source
                 sources = conditions
             self.proof_dict[node] = sources
             # print(3, 'node', node, type(node), 'depth', depth, 'sources', sources)

@@ -147,6 +147,7 @@ class Traced():
         self.redundant = redundant
         self.sources = sources
         self.str_rep = None
+        self.negated_str_rep = None
         self.kinds = []
         self.rank = 0 # priority in the same depth
         self.depth = max([depth] + [getattr(item, "depth", 0) for item in self.sources])
@@ -172,13 +173,18 @@ class Traced():
         if self.str_rep is None:
             if not self.symbol is None:
                 self.str_rep = str(sympy.simplify(self.symbol - self.expr))
+                self.negated_str_rep = str(sympy.simplify(-self.symbol + self.expr))
             else:
                 self.str_rep = str(sympy.simplify(self.expr))
+                self.negated_str_rep = str(sympy.simplify(-self.expr))
         return self.str_rep
+    
     def __repr__(self):
         return str(self)
+    
     def __eq__(self, other):
         return hash(self) == hash(other)
+    
     def __hash__(self):
         return hash(str(self))
 

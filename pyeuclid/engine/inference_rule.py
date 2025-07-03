@@ -1397,6 +1397,25 @@ class AlphaGeometry2(InferenceRule):
 
 
 @register("ex")
+class AlphaGeometry3(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f), Parallel(self.b, self.c, self.e, self.f), SameSide(self.a, self.e, self.b, self.c), SameSide(self.d, self.b, self.e, self.f), OppositeSide(self.b, self.e, self.f, self.c)
+
+    def conclusion(self):
+        return Parallel(self.b, self.a, self.d, self.e)
+
+
+@register("ex")
 class AlphaGeometry3a(InferenceRule):
     """ Parallel From Corresponding Angles """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
@@ -1409,7 +1428,7 @@ class AlphaGeometry3a(InferenceRule):
         self.f = f
 
     def condition(self):
-        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f), Parallel(self.b, self.c, self.e, self.f), SameSide(self.a, self.e, self.b, self.c), OppositeSide(self.d, self.b, self.e, self.f), SameSide(self.f, self.c, self.b, self.e)
+        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f), Parallel(self.b, self.c, self.e, self.f), SameSide(self.a, self.e, self.b, self.c), OppositeSide(self.d, self.b, self.e, self.f), SameSide(self.b, self.e, self.f, self.c)
 
     def conclusion(self):
         return Parallel(self.b, self.a, self.d, self.e)

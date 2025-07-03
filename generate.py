@@ -30,7 +30,7 @@ def generate():
     points = 0
     
     
-    while depth < 5 and attempt < 20 and points < 10:
+    while depth < 4 and attempt < 10 and points < 6:
         constructions = []
         multiconstructions = False
         
