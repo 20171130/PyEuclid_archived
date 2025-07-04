@@ -1397,7 +1397,7 @@ class AlphaGeometry2(InferenceRule):
 
 
 @register("ex")
-class AlphaGeometry3a(InferenceRule):
+class AlphaGeometry3a1(InferenceRule):
     """ Parallel From Corresponding Angles """
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()
@@ -1409,28 +1409,169 @@ class AlphaGeometry3a(InferenceRule):
         self.f = f
 
     def condition(self):
-        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f), Parallel(self.b, self.c, self.e, self.f), SameSide(self.a, self.e, self.b, self.c), OppositeSide(self.d, self.b, self.e, self.f), SameSide(self.f, self.c, self.b, self.e)
+        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f), Parallel(self.b, self.c, self.e, self.f), SameSide(self.a, self.e, self.b, self.c), OppositeSide(self.d, self.b, self.e, self.f), SameSide(self.f, self.c, self.b, self.e), Lt(self.b, self.e)
 
     def conclusion(self):
         return Parallel(self.b, self.a, self.d, self.e)
-
-
-@register("basic")
-class AlphaGeometry3b(InferenceRule):
+    
+@register("ex")
+class AlphaGeometry3a2(InferenceRule):
     """ Parallel From Corresponding Angles """
-    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         super().__init__()
         self.a = a
         self.b = b
         self.c = c
         self.d = d
         self.e = e
+        self.f = f
 
     def condition(self):
-        return Angle(self.b, self.a, self.c) - Angle(self.d, self.e, self.c), Collinear(self.a, self.c, self.e), SameSide(self.b, self.d, self.a, self.c), Not(Between(self.c, self.a, self.e))
+        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f), Parallel(self.b, self.c, self.e, self.f), SameSide(self.a, self.e, self.b, self.c), SameSide(self.d, self.b, self.e, self.f), OppositeSide(self.f, self.c, self.b, self.e), Lt(self.b, self.e)
 
     def conclusion(self):
-        return Parallel(self.a, self.b, self.d, self.e)
+        return Parallel(self.b, self.a, self.d, self.e)
+    
+@register("ex")
+class AlphaGeometry3a3(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f), Parallel(self.b, self.c, self.e, self.f), OppositeSide(self.a, self.e, self.b, self.c), OppositeSide(self.d, self.b, self.e, self.f), OppositeSide(self.f, self.c, self.b, self.e), Lt(self.b, self.e)
+
+    def conclusion(self):
+        return Parallel(self.b, self.a, self.d, self.e)
+    
+@register("ex")
+class AlphaGeometry3a4(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.f), Parallel(self.b, self.c, self.e, self.f), OppositeSide(self.a, self.e, self.b, self.c), SameSide(self.d, self.b, self.e, self.f), SameSide(self.f, self.c, self.b, self.e), Lt(self.b, self.e)
+
+    def conclusion(self):
+        return Parallel(self.b, self.a, self.d, self.e)
+    
+@register("ex")
+class AlphaGeometry3a5(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) + Angle(self.d, self.e, self.f)-pi, Parallel(self.b, self.c, self.e, self.f), SameSide(self.a, self.e, self.b, self.c), SameSide(self.d, self.b, self.e, self.f), SameSide(self.f, self.c, self.b, self.e), Lt(self.b, self.e)
+
+    def conclusion(self):
+        return Parallel(self.b, self.a, self.d, self.e)
+    
+@register("ex")
+class AlphaGeometry3a6(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) + Angle(self.d, self.e, self.f)-pi, Parallel(self.b, self.c, self.e, self.f), SameSide(self.a, self.e, self.b, self.c), OppositeSide(self.d, self.b, self.e, self.f), OppositeSide(self.f, self.c, self.b, self.e), Lt(self.b, self.e)
+
+    def conclusion(self):
+        return Parallel(self.b, self.a, self.d, self.e)
+    
+@register("ex")
+class AlphaGeometry3a7(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) + Angle(self.d, self.e, self.f)-pi, Parallel(self.b, self.c, self.e, self.f), OppositeSide(self.a, self.e, self.b, self.c), SameSide(self.d, self.b, self.e, self.f), OppositeSide(self.f, self.c, self.b, self.e), Lt(self.b, self.e)
+
+    def conclusion(self):
+        return Parallel(self.b, self.a, self.d, self.e)
+    
+@register("ex")
+class AlphaGeometry3a8(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) + Angle(self.d, self.e, self.f)-pi, Parallel(self.b, self.c, self.e, self.f), OppositeSide(self.a, self.e, self.b, self.c), OppositeSide(self.d, self.b, self.e, self.f), SameSide(self.f, self.c, self.b, self.e), Lt(self.b, self.e)
+
+    def conclusion(self):
+        return Parallel(self.b, self.a, self.d, self.e)
+    
+    
+@register("ex")
+class AlphaGeometry3b1(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return Angle(self.a, self.b, self.d) + Angle(self.c, self.d, self.b) - pi, SameSide(self.a, self.c, self.b, self.d), Lt(self.b, self.d)
+
+    def conclusion(self):
+        return Parallel(self.a, self.b, self.c, self.d)
+    
+@register("ex")
+class AlphaGeometry3b1(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return Angle(self.a, self.b, self.d) - Angle(self.c, self.d, self.b), OppositeSide(self.a, self.c, self.b, self.d), Lt(self.b, self.d)
+
+    def conclusion(self):
+        return Parallel(self.a, self.b, self.c, self.d)
 
 
 @register("basic")
