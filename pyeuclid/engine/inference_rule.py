@@ -1539,10 +1539,46 @@ class AlphaGeometry3a8(InferenceRule):
 
     def conclusion(self):
         return Parallel(self.b, self.a, self.d, self.e)
-    
-    
+
+
 @register("ex")
 class AlphaGeometry3b1(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) - Angle(self.d, self.e, self.c), Collinear(self.b, self.e, self.c), SameSide(self.a, self.d, self.b, self.c), Not(Between(self.c, self.b, self.e)), Lt(self.b, self.e)
+
+    def conclusion(self):
+        return Parallel(self.a, self.b, self.d, self.e)
+
+
+@register("ex")
+class AlphaGeometry3b2(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) + Angle(self.d, self.e, self.c) - pi, Collinear(self.b, self.e, self.c), OppositeSide(self.a, self.d, self.b, self.c), Not(Between(self.c, self.b, self.e)), Lt(self.b, self.e)
+
+    def conclusion(self):
+        return Parallel(self.a, self.b, self.d, self.e)
+
+
+@register("ex")
+class AlphaGeometry3c1(InferenceRule):
     """ Parallel From Corresponding Angles """
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
@@ -1558,7 +1594,7 @@ class AlphaGeometry3b1(InferenceRule):
         return Parallel(self.a, self.b, self.c, self.d)
     
 @register("ex")
-class AlphaGeometry3b2(InferenceRule):
+class AlphaGeometry3c2(InferenceRule):
     """ Parallel From Corresponding Angles """
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
@@ -1572,6 +1608,40 @@ class AlphaGeometry3b2(InferenceRule):
 
     def conclusion(self):
         return Parallel(self.a, self.b, self.c, self.d)
+
+
+@register("ex")
+class AlphaGeometry3d1(InferenceRule):
+    """ Parallel From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) + Angle(self.d, self.d, self.c) - pi, OppositeSide(self.a, self.d, self.b, self.c), Lt(self.a, self.d)
+
+    def conclusion(self):
+        return Collinear(self.a, self.d, self.b)
+
+
+@register("ex")
+class AlphaGeometry3d2(InferenceRule):
+    """ Collinear From Corresponding Angles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return Angle(self.a, self.b, self.c) - Angle(self.d, self.b, self.c), SameSide(self.a, self.d, self.b, self.c), Lt(self.a, self.d)
+
+    def conclusion(self):
+        return Collinear(self.a, self.d, self.b)
 
 
 @register("basic")
