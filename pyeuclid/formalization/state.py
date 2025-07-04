@@ -19,6 +19,7 @@ class State:
         self.points = set()
         self.relations = set()
         self.equations = set()
+        self.equation_strs = set()
         self.lengths = UnionFind()
         self.angles = UnionFind()
         self.var_types = {}
@@ -125,13 +126,15 @@ class State:
         if str(equation) == '0':
             return
         
-        negated = Traced(-equation.expr)
-        if equation not in self.equations and negated not in self.equations:
+        str_rep = str(equation)
+        negated_str_rep = equation.negated_str_rep
+        if str_rep not in self.equation_strs and negated_str_rep not in self.equation_strs:
             self.equations.add(equation)
+            self.equation_strs.add(str_rep)
             self.depth2conditions[self.current_depth].append(equation)
             self.condition2depth[equation] = self.current_depth
     
-    def categorize_variable(self):
+    def categorize_variable(self): 
         angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types)
         for eq in self.equations:
             if "Variable" not in str(eq):
@@ -243,8 +246,9 @@ class State:
                 return solution
             return None
     
-    def simplify_equation(self, expr):
-        solved_vars = self.solutions
+    def simplify_equation(self, expr, solved_vars=None):
+        if solved_vars is None:
+            solved_vars = self.solutions
         expr = getattr(expr, "expr", expr)
         for symbol in expr.free_symbols:
             if symbol in solved_vars:

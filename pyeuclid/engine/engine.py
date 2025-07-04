@@ -23,9 +23,9 @@ class Engine:
             if self.state.complete() is not None:
                 break
                         
-            self.deductive_database.run()
+            closure = self.deductive_database.run()
             
-            if self.state.complete() is not None:
+            if self.state.complete() is not None or closure:
                 break
             
             self.algebraic_system.run()

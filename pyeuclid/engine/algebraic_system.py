@@ -161,6 +161,10 @@ class AlgebraicSystem:
     def solve_equation(self):
         var_types = self.state.var_types
         solved_vars = {}
+        # angle_linear = [eq for eq in self.state.equations if 'angle_linear' in eq.categories]
+        # length_linear = [eq for eq in self.state.equations if 'length_linear' in eq.categories]
+        # length_ratio = [eq for eq in self.state.equations if 'length_ratio' in eq.categories]
+        # others = [eq for eq in self.state.equations if 'others' in eq.categories]
         angle_linear, length_linear, length_ratio, others = classify_equations(self.state.equations, var_types)
         for eqs, source in (angle_linear, "angle_linear"),  (length_ratio, "length_ratio"):
             free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
@@ -188,7 +192,6 @@ class AlgebraicSystem:
             symbols = eqn.free_symbols
             expr = self.process_equation(eqn.expr)
 
-  
             angle_linear, length_linear, length_ratio, others = classify_equations([expr], var_types)
             if others:
                 continue
@@ -311,7 +314,6 @@ class AlgebraicSystem:
                     dic[expr] = [x+y]
                 else:
                     dic[expr].append(x+y)
-                # TODO add pi and label redundant, remove const in component_x or component_y
                 if len(expr.free_symbols) == 0 and len(x_expr.free_symbols) > 0 and len(y_expr.free_symbols) > 0: # and not expr == sympy.pi:
                     component_x, component_y = tmp[x], tmp[y]
                     for a in range(len(component_x)):
