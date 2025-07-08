@@ -24,15 +24,11 @@ class ProofGenerator:
         self.verbose = verbose
     
     def run(self, node=None, depth=None, root=True):
+        if isinstance(node, ConstructionRule):
+            return [node]
+        
         if not node and self.state.goal:
             node = self.state.goal
-
-        if isinstance(node, ConstructionRule):
-            return
-        
-        if node in self.visited:
-            return
-        self.visited.add(node)
 
         if root:
             depth = self.state.current_depth
@@ -40,123 +36,133 @@ class ProofGenerator:
         if depth is None:
             depth = node.depth
         
-        if isinstance(node, InferenceRule):
-            # relation_map = {
-            #     Trapezoid: [Square, Rectangle, Rhombus, Parallelogram],
-            #     Parallelogram: [Square, Rectangle, Rhombus],
-            #     Kite: [Square, Rhombus],
-            #     EquilateralTrapezoid: [Square, Rectangle],
-            #     Rhombus: [Square],
-            #     Rectangle: [Square],
-            #     IsoscelesTriangle: [EquilateralTriangle]
-            # }
-            #     if type(condition) in relation_map:
-            #         points = condition.get_points()
-            #         depth = self.state.condition2depth[condition]
-            #         for relation in relation_map[type(condition)]:
-            #             shape = relation(*points)
-            #             if shape in self.state.relations and self.state.condition2depth[shape] <= depth:
-            #                 condition = shape
-            #                 break
-            conditions = [item for item in node.condition() if not trivial_condition(item)]
-            rewrited_conditions = []
-            for condition in conditions:
-                if isinstance(condition, Parallel):
-                    points = condition.get_points()
-                    if len(set(points)) == 3 and Collinear(*set(points)) in self.state.relations and self.state.condition2depth[Collinear(*set(points))] < depth:
-                        condition = Collinear(*set(points))
-                    else:
-                        a, b, c, d = points
-                        if Collinear(a,b,c) in self.state.relations and self.state.condition2depth[Collinear(a,b,c)] < depth:
-                            assert (Collinear(a,b,d) in self.state.relations and self.state.condition2depth[Collinear(a,b,d)] < depth)
-                            condition = Collinear(a,b,c)
-                            rewrited_conditions.append(Collinear(a,b,d))
-                rewrited_conditions.append(condition)
-            self.proof_dict[node] = rewrited_conditions
+        if isinstance(node, (InferenceRule, Relation)):
+            if node in self.visited:
+                return self.source_constructions[node]
+            else:
+                self.visited.add(node)
+        else:
+            assert isinstance(node, (Traced, sympy.core.expr.Expr))
+            if isinstance(node, sympy.core.expr.Expr):
+                expr_str_rep = str(sympy.simplify(node))
+                for item in self.state.equations:
+                    if item.depth < depth:
+                        if expr_str_rep == item.str_rep or expr_str_rep == item.negated_str_rep:
+                            node = item
+                            break
             
-            # print(1, 'node', node, type(node), 'depth', depth, 'sources', rewrited_conditions)
-            for cond in rewrited_conditions:
-                self.run(cond, depth=depth, root=False)
+            if isinstance(node, Traced):
+                if node.str_rep in self.visited:
+                    return self.source_constructions[node.str_rep]
+                else:
+                    self.visited.add(node.str_rep)
+            else:
+                if expr_str_rep in self.visited:
+                    return self.source_constructions[expr_str_rep]
+                else:
+                    negated_expr_str_rep = str(sympy.simplify(-node))
+                    self.visited.add(expr_str_rep)
+                    self.visited.add(negated_expr_str_rep)
+        
+        constructions = set()
+        
+        if isinstance(node, InferenceRule):
+            conditions = [item for item in node.condition() if not trivial_condition(item)]
+            self.proof_dict[node] = conditions
+            for cond in conditions:
+                cond_constructions = self.run(cond, depth=depth, root=False)
+                constructions.update(cond_constructions)
+            self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
+            return self.source_constructions[node]
+
         elif isinstance(node, Relation):
             for tmp in self.state.relations:
                 if tmp == node:
                     if hasattr(tmp, "source"):
                         source = tmp.source
                         self.proof_dict[node] = [source]
-                        # print(2, 'node', node, type(node), 'depth', depth, 'sources', source)
-                        self.run(source, root=False)
-                    break
+                        cond_constructions = self.run(source, root=False)
+                        constructions.update(cond_constructions)
+                        self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
+                        return self.source_constructions[node]
+                    else:
+                        return []
             else:
                 assert False, f"{node} is not proved"
         else:
             if isinstance(node, Traced):
-                if not node.sources or type(node.sources[0]) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2):
-                    sources = []
-                else:
-                    sources = node.sources
-                    if isinstance(sources[0], str):
-                        # backtrace linear systems
-                        equations = [item for item in self.state.equations if item.depth < node.depth]
-                        if not node.symbol is None:
-                            expr = node.symbol - node.expr
-                        else:
-                            expr = node.expr
-                        
-                        if node.str_rep in self.cache_conditions:
-                            conditions = self.cache_conditions[node.str_rep]
-                        elif node.negated_str_rep in self.cache_conditions:
-                            conditions = self.cache_conditions[node.negated_str_rep]
-                        else:
-                            conditions = self.find_conditions(equations, expr, sources[0])
-                        
-                        discards = []
-                        while len(conditions) > 6:
-                            additional_equations = []
-                            candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == node.depth and item not in equations and item not in discards]
-
-                            for intermediate_condition in candidate_intermediate_conditions:
-                                if intermediate_condition.str_rep in self.cache_conditions:
-                                    if self.cache_source[intermediate_condition.str_rep] == sources[0]:
-                                        cond = self.cache_conditions[intermediate_condition.str_rep]
-                                    else:
-                                        cond = None
-                                elif intermediate_condition.negated_str_rep in self.cache_conditions:
-                                    if self.cache_source[intermediate_condition.negated_str_rep] == sources[0]:
-                                        cond = self.cache_conditions[intermediate_condition.negated_str_rep]
-                                    else:
-                                        cond = None
-                                else:
-                                    cond = self.find_conditions(equations, intermediate_condition.expr, sources[0])
-                                
-                                if cond:
-                                    if len(cond) <= 6:
-                                        self.cache_conditions[intermediate_condition.str_rep] = cond
-                                        self.cache_source[intermediate_condition.str_rep] = sources[0]
-                                        additional_equations.append(intermediate_condition)
-                                else:
-                                    discards.append(intermediate_condition)
-                            
-                            if len(additional_equations) == 0:
-                                break
-                            
-                            equations = equations+additional_equations
-                            conditions = self.find_conditions(equations, expr, sources[0])
-                            
-                        if not conditions:
-                            breakpoint()
-                            assert False
-                        
-                        self.cache_conditions[node.str_rep] = conditions
-                        self.cache_source[node.str_rep] = sources[0]
-
-                        sources = conditions
+                # if not node.sources or type(node.sources[0]) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2):
+                #     sources = []
+                # else:
+                sources = node.sources
+                if isinstance(sources[0], str):
+                    # backtrace linear systems
+                    equations = [item for item in self.state.equations if item.depth < node.depth and not item.trivial]
+                    if not node.symbol is None:
+                        expr = node.symbol - node.expr
                     else:
-                        # inference rules derived traced
-                        pass
+                        expr = node.expr
+                    
+                    if node.str_rep in self.cache_conditions:
+                        conditions = self.cache_conditions[node.str_rep]
+                    elif node.negated_str_rep in self.cache_conditions:
+                        conditions = self.cache_conditions[node.negated_str_rep]
+                    else:
+                        conditions = self.find_conditions(equations, expr, sources[0])
+                    
+                    discards = []
+                    while len(conditions) > 6:
+                        additional_equations = []
+                        candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == node.depth and not item.trivial and item not in equations and item not in discards]
+
+                        for intermediate_condition in candidate_intermediate_conditions:
+                            if intermediate_condition.str_rep in self.cache_conditions:
+                                if self.cache_source[intermediate_condition.str_rep] == sources[0]:
+                                    cond = self.cache_conditions[intermediate_condition.str_rep]
+                                else:
+                                    cond = None
+                            elif intermediate_condition.negated_str_rep in self.cache_conditions:
+                                if self.cache_source[intermediate_condition.negated_str_rep] == sources[0]:
+                                    cond = self.cache_conditions[intermediate_condition.negated_str_rep]
+                                else:
+                                    cond = None
+                            else:
+                                cond = self.find_conditions(equations, intermediate_condition.expr, sources[0])
+                            
+                            if cond:
+                                if len(cond) <= 6:
+                                    self.cache_conditions[intermediate_condition.str_rep] = cond
+                                    self.cache_source[intermediate_condition.str_rep] = sources[0]
+                                    additional_equations.append(intermediate_condition)
+                            else:
+                                discards.append(intermediate_condition)
+                        
+                        if len(additional_equations) == 0:
+                            break
+                        
+                        equations = equations+additional_equations
+                        conditions = self.find_conditions(equations, expr, sources[0])
+                        
+                    if not conditions:
+                        breakpoint()
+                        assert False
+                    
+                    self.cache_conditions[node.str_rep] = conditions
+                    self.cache_source[node.str_rep] = sources[0]
+                    sources = conditions
+                else:
+                    # inference rules derived traced
+                    pass
+                self.proof_dict[node.str_rep] = sources
+                for item in sources:
+                    cond_constructions = self.run(item, root=False)
+                    constructions.update(cond_constructions)
+                self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
+                return self.source_constructions[node]
             else:
                 assert isinstance(node, sympy.core.expr.Expr)
                 source = None
-                equations = [item for item in self.state.equations if item.depth < depth]
+                equations = [item for item in self.state.equations if item.depth < depth and not item.trivial]
 
                 str_rep = str(sympy.simplify(node))
                 negated_str_rep = str(sympy.simplify(-node))
@@ -177,11 +183,10 @@ class ProofGenerator:
                             if conditions:
                                 source = tmp
                                 break
-                
                 discards = []
                 while len(conditions) > 6:
                     additional_equations = []
-                    candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == depth and item not in equations and item not in discards]
+                    candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == depth and not item.trivial and item not in equations and item not in discards]
 
                     for intermediate_condition in candidate_intermediate_conditions:
                         if intermediate_condition.str_rep in self.cache_conditions:
@@ -218,14 +223,15 @@ class ProofGenerator:
                 self.cache_conditions[str_rep] = conditions
                 self.cache_source[str_rep] = source
                 sources = conditions
-            self.proof_dict[node] = sources
-            # print(3, 'node', node, type(node), 'depth', depth, 'sources', sources)
-            for item in sources:
-                self.run(item, root=False)
+                self.proof_dict[str_rep] = sources
+            
+                for item in sources:
+                    cond_constructions = self.run(item, root=False)
+                    constructions.update(cond_constructions)
+                
+                self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
+                return self.source_constructions[node]
         
-        if root and self.verbose:
-            self.show_proof()
-    
 
     def format_proof(self, conclusion=None):
         proof = []
@@ -259,11 +265,37 @@ class ProofGenerator:
                     node = theorem.condition()[0]
                 return node, theorem
             
-            if node in visited or node not in self.proof_dict:
-                return
+            if isinstance(node, Traced):
+                if node.str_rep in visited:
+                    return
+                else:
+                    visited.add(node.str_rep)
+                    node = node.str_rep
             
-            visited.add(node)
+            elif isinstance(node, sympy.core.expr.Expr):
+                expr_str_rep = str(sympy.simplify(node))
+                if expr_str_rep in self.proof_dict:
+                    if expr_str_rep in visited:
+                        return
+                    else:
+                        visited.add(expr_str_rep)
+                        node = expr_str_rep
+                else:
+                    negated_expr_str_rep = str(sympy.simplify(-node))
+                    assert negated_expr_str_rep in self.proof_dict
+                    if negated_expr_str_rep in visited:
+                        return
+                    else:
+                        visited.add(negated_expr_str_rep)
+                        node = negated_expr_str_rep
+
+            else:
+                if node in visited or node not in self.proof_dict: # diagrammatic relations
+                    return
+                visited.add(node)
+            
             conditions = self.proof_dict[node]
+            
             theorem = None
 
             # Handle inference rules
@@ -272,8 +304,8 @@ class ProofGenerator:
                 conditions = self.proof_dict[conditions[0]]
             
             # Skip trivial conditions
-            # if type(theorem) in inference_rule_sets["ex"]:
-            #     return
+            if type(theorem) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2):
+                return
 
             # Trace fundamental shape
             if len(conditions) == 1 and type(conditions[0]) in shape_dependency:
@@ -285,10 +317,6 @@ class ProofGenerator:
             
             # Skip if all conditions are basic geometric relations
             if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
-                return
-            
-            # Skip single-condition expressions (intermediate steps)
-            if isinstance(node, sympy.core.add.Add) and len(conditions) == 1:
                 return
             
             # print('node', node, 'step_counter', step_counter, 'conditions', conditions)
@@ -321,8 +349,8 @@ class ProofGenerator:
             })
         
         return proof
-    
 
+    # TODO EQUATION STR
     def track_constructions(self, condition=None):
         if not condition and self.state.goal:
             condition = self.state.goal
@@ -334,12 +362,13 @@ class ProofGenerator:
             if isinstance(node, ConstructionRule):
                 return [node]
 
+            constructions = set()
+
             if node in self.proof_dict:
-                constructions = set()
-                for child in self.proof_dict[node]:
-                    child_constructions = collect(child)
-                    constructions.update(child_constructions)
-                
+                for parent in self.proof_dict[node]:
+                    parent_constructions = collect(parent)
+                    constructions.update(parent_constructions)
+            
                 self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
                 return self.source_constructions[node]
             
@@ -367,12 +396,12 @@ class ProofGenerator:
         proof_steps = self.format_proof(node)
 
         for proof_step in proof_steps:
-            if not isinstance(proof_step['conditions'][0], ConstructionRule):
-                res.append((
-                    [item for item in proof_step['conditions'] if not trivial_condition(item)], 
-                    proof_step['theorem'], 
-                    proof_step['conclusions']
-                ))
+            # if not isinstance(proof_step['conditions'][0], ConstructionRule):
+            res.append((
+                [item for item in proof_step['conditions'] if not trivial_condition(item)], 
+                proof_step['theorem'], 
+                proof_step['conclusions']
+            ))
         return res
 
     def traceback_l1(self, augmented_A, e, threshold=1e-6):
@@ -543,12 +572,12 @@ class ProofGenerator:
         return try_find(equations, conclusion)
     
     def find_end_nodes(self):
-        nodes_with_dependents = set()
+        parent_nodes = set()
         for sources in self.proof_dict.values():
             if sources:
-                nodes_with_dependents.update(sources)
+                parent_nodes.update(sources)
 
         all_nodes = set(self.proof_dict.keys())
-        end_nodes = all_nodes - nodes_with_dependents
+        end_nodes = all_nodes - parent_nodes
         
         return list(end_nodes)

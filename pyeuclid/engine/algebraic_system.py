@@ -161,16 +161,12 @@ class AlgebraicSystem:
     def solve_equation(self):
         var_types = self.state.var_types
         solved_vars = {}
-        # angle_linear = [eq for eq in self.state.equations if 'angle_linear' in eq.categories]
-        # length_linear = [eq for eq in self.state.equations if 'length_linear' in eq.categories]
-        # length_ratio = [eq for eq in self.state.equations if 'length_ratio' in eq.categories]
-        # others = [eq for eq in self.state.equations if 'others' in eq.categories]
         angle_linear, length_linear, length_ratio, others = classify_equations(self.state.equations, var_types)
         for eqs, source in (angle_linear, "angle_linear"),  (length_ratio, "length_ratio"):
             free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
             solved_vars.update(solved)
         free, solved = self.elim(length_linear, var_types)
-        self.state.current_depth += 1
+        self.state.current_depth += 0.001
         for l1, v1 in solved.items():
             if len(v1.free_symbols) == 0:
                 self.state.add_conditions(Traced(l1-v1, depth=self.state.current_depth, sources=["length_linear"]))
@@ -235,7 +231,7 @@ class AlgebraicSystem:
                 unionfind.union(l, r)
         
     def compute_ratio_and_angle_sum(self):
-        self.state.current_depth += 1
+        self.state.current_depth += 0.001
         dic = {}
         tmp = self.state.lengths.equivalence_classes()
         for component in tmp.values():
@@ -243,7 +239,7 @@ class AlgebraicSystem:
                 continue
             rep = self.state.simplify_equation(component[0])
             if len(rep.free_symbols)==0:
-                component += [rep]
+                component = component + [rep]
             for a in range(len(component)):
                 for b in range(a+1, len(component)):
                     eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"])
@@ -254,12 +250,21 @@ class AlgebraicSystem:
         for x in tmp:
             for y in tmp:
                 expr = self.state.simplify_equation(x/y)
-                if len(expr.free_symbols) == 0 and expr != 1:
-                    for a in tmp[x]:
-                        for b in tmp[y]:
-                            eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"])
-                            eqn.redundant = True
-                            self.state.add_conditions(eqn)
+                if len(expr.free_symbols) == 0:
+                    if expr != 1:
+                        for a in tmp[x]:
+                            for b in tmp[y]:
+                                eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"])
+                                eqn.redundant = True
+                                self.state.add_conditions(eqn)
+                    else:
+                        # x == y
+                        for a in tmp[x]:
+                            for b in tmp[y]:
+                                eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"])
+                                eqn.redundant = True
+                                eqn.trivial = True
+                                self.state.add_conditions(eqn)
                 else:
                     if not expr in dic:
                         dic[expr] = [sympy.core.mul.Mul(x, 1/y, evaluate=False)]
@@ -276,14 +281,14 @@ class AlgebraicSystem:
                 for j in range(i+1, len(components)):
                     x1, y1 = components[i]
                     x2, y2 = components[j]
-                    if x1 == x2 or y1 == y2:
-                        continue
                     for a in tmp[x1]:
                         for b in tmp[y1]:
                             for c in tmp[x2]:
                                 for d in tmp[y2]:
                                     eqn = Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"])
                                     eqn.redundant = True
+                                    if x1 == x2 or y1 == y2:
+                                        eqn.trivial = True
                                     self.state.add_conditions(eqn)
 
         self.state.ratios = dic
@@ -314,7 +319,7 @@ class AlgebraicSystem:
                     dic[expr] = [x+y]
                 else:
                     dic[expr].append(x+y)
-                if len(expr.free_symbols) == 0 and len(x_expr.free_symbols) > 0 and len(y_expr.free_symbols) > 0: # and not expr == sympy.pi:
+                if len(expr.free_symbols) == 0 and len(x_expr.free_symbols) > 0 and len(y_expr.free_symbols) > 0:
                     component_x, component_y = tmp[x], tmp[y]
                     for a in range(len(component_x)):
                         for b in range(len(component_y)):

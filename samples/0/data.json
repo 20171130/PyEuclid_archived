@@ -1,6 +1,0 @@
-{
-  "problem": "a,b,c = construct_r_triangle(), d,e = construct_trisegment(a,b)",
-  "goal": "Perpendicular(a,c,d,e)",
-  "diagram": "/private/home/zhaoyuli/PyEuclid_archived/samples/0/diagram.jpg",
-  "proof": "Solution:\n1. Perpendicular(a,b,a,c) & Parallel(a,b,a,d) [AlphaGeometry1b(a,b,a,c,a,d)] => Perpendicular(a,c,a,d)\n2. Perpendicular(a,c,a,d) & Parallel(a,d,d,e) [AlphaGeometry1b(a,d,a,c,d,e)] => Perpendicular(a,c,d,e)\n"
-}

@@ -25,9 +25,12 @@ class State:
         self.var_types = {}
         self.ratios = {}
         self.angle_sums = {}
+
         self.point2constructions = defaultdict(list)
         self.depth2conditions = defaultdict(list)
         self.condition2depth = defaultdict(int)
+        self.dd_conclusions = set()
+        self.dd_equation_strs = set()
         
         self.current_depth = 0
         self.solutions = {}
@@ -66,7 +69,7 @@ class State:
             handler.setFormatter(formatter)
             self.logger.addHandler(handler)
         
-    def add_conditions(self, relations):
+    def add_conditions(self, relations, from_dd=False):
         if not isinstance(relations, Iterable):
             relations = [relations]
         for item in relations:
@@ -80,11 +83,12 @@ class State:
                         assert self.diagram.numerical_check(item.expr)
                     else:
                         assert self.diagram.numerical_check(item)
-                self.add_equation(item)
+                self.add_equation(item, from_dd)
             
     def add_relation(self, relation):
         if relation in self.relations:
             return
+        
         points = relation.get_points()
         for p in points:
             self.add_point(p)
@@ -106,7 +110,7 @@ class State:
                         self.angles.add(Angle(p, point1, point))
                 self.points.add(p)
 
-    def add_equation(self, equation):
+    def add_equation(self, equation, from_dd=False):
         # allow redundant equations for neat proofs
         equation = Traced(equation, depth=self.current_depth)
         points_list, quantities = get_points_and_symbols(equation)
@@ -128,11 +132,17 @@ class State:
         
         str_rep = str(equation)
         negated_str_rep = equation.negated_str_rep
+
         if str_rep not in self.equation_strs and negated_str_rep not in self.equation_strs:
             self.equations.add(equation)
             self.equation_strs.add(str_rep)
             self.depth2conditions[self.current_depth].append(equation)
-            self.condition2depth[equation] = self.current_depth
+            self.condition2depth[equation.str_rep] = self.current_depth
+        
+        if from_dd:
+            for equation in self.equations:
+                if str_rep == equation.str_rep or negated_str_rep == equation.str_rep:
+                    self.dd_conclusions.add(equation)                
     
     def categorize_variable(self): 
         angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types)
@@ -167,15 +177,7 @@ class State:
                 
             relations = construction.conclusions()
 
-            for relation in relations:
-                # if isinstance(relation, tuple):
-                #     if self.diagram.numerical_check(relation[0]):
-                #         assert not self.diagram.numerical_check(relation[1])
-                #         relation = relation[0]
-                #     else:
-                #         assert self.diagram.numerical_check(relation[1])
-                #         relation = relation[1]
-                
+            for relation in relations:                
                 if isinstance(relation, sympy.core.expr.Expr):
                     relation = Traced(relation)
                     relation.sources = [construction]

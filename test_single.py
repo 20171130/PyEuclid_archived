@@ -17,8 +17,9 @@ from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
+# A,B,C = construct_r_triangle(), D = construct_intersection_cc(B,C,A), E = construct_incenter(B,D,A)
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; o = circle o a b c; d = on_circle d o a; q = midpoint q c b; s = midpoint s a d; j = midpoint j s q; m = mirror m o j; i = on_line i a d, on_line i b c ? perp s m b c")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = r_triangle a b c; d = intersection_cc d b c a; e = incenter e b d a ? eqratio d e a e c e a c")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -96,6 +97,8 @@ def run_single_problem(args):
         if args.show_proof:
             t0 = time.time()
             proof_generator.run()
+            print(state.goal)
+            print(proof_generator.proof_dict)
             proof_generator.show_proof()
             print(f"Proof generated in {time.time()-t0:.2f}s")
             

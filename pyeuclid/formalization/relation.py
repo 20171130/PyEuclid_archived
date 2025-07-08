@@ -663,6 +663,8 @@ def trivial_condition(node):
         return True
     if type(node) == Collinear and ((node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1) or node.negated):
         return True
+    if node == 0: # Angle_a_b_c - Angle_c_b_a
+        return True
     return False
 
 

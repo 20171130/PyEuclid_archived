@@ -1,6 +1,0 @@
-{
-  "problem": "f = construct_circumcenter(e,d,c), g = construct_on_circum(c,a,f), h = construct_parallelogram(a,g,c)",
-  "goal": "Angle_a_b_f - Angle_b_a_f",
-  "diagram": "/private/home/zhaoyuli/PyEuclid_archived/samples/1/diagram.jpg",
-  "proof": "Auxilirary Constructions:\ng = construct_on_circum(c,a,f)\nh = construct_parallelogram(a,g,c)\nSolution:\n1. -Length_c_f + Length_d_f & Length_a_g - Length_c_h => Length_a_g/Length_c_h - Length_a_h/Length_c_g\n2.  => Angle_g_a_h - Angle_g_c_h\n3. Length_a_g/Length_c_h - Length_a_h/Length_c_g & Angle_g_a_h - Angle_g_c_h [AlphaGeometry40(g,a,h,h,c,g)] => Length_a_g/Length_g_h - Length_c_h/Length_g_h\n4. Angle_a_c_f - Angle_a_g_f => Angle_a_d_f - Angle_b_e_f\n5. Length_a_g/Length_g_h - Length_c_h/Length_g_h & Length_a_d - Length_b_e => Length_a_f - Length_b_f\n6. Length_a_f - Length_b_f & -Length_a_f + Length_b_f [AlphaGeometry34(a,f,b,b,f,a)] => Angle_a_b_f - Angle_b_a_f\n"
-}
