@@ -19,7 +19,7 @@ from pyeuclid.engine.engine import Engine
 parser = argparse.ArgumentParser()
 # A,B,C = construct_r_triangle(), D = construct_intersection_cc(B,C,A), E = construct_incenter(B,D,A)
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = r_triangle a b c; d = intersection_cc d b c a; e = incenter e b d a ? eqratio d e a e c e a c")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c d = trapezoid a b c d; e = midpoint e c a; f = midpoint f d b; g = on_line g e f, on_line g a d ? midp g a d")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -45,6 +45,8 @@ def run_single_problem(args):
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
     engine.run()
+    for eq in state.equations:
+        print(eq, eq.trivial)
     # while True:
     #     engine.search(depth=1)
 

@@ -97,7 +97,7 @@ class ProofGenerator:
                 sources = node.sources
                 if isinstance(sources[0], str):
                     # backtrace linear systems
-                    equations = [item for item in self.state.equations if item.depth < node.depth and not item.trivial]
+                    equations = [item for item in self.state.equations if item.depth < node.depth]
                     if not node.symbol is None:
                         expr = node.symbol - node.expr
                     else:
@@ -113,7 +113,7 @@ class ProofGenerator:
                     discards = []
                     while len(conditions) > 6:
                         additional_equations = []
-                        candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == node.depth and not item.trivial and item not in equations and item not in discards]
+                        candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == node.depth and item not in equations and item not in discards]
 
                         for intermediate_condition in candidate_intermediate_conditions:
                             if intermediate_condition.str_rep in self.cache_conditions:
@@ -162,7 +162,7 @@ class ProofGenerator:
             else:
                 assert isinstance(node, sympy.core.expr.Expr)
                 source = None
-                equations = [item for item in self.state.equations if item.depth < depth and not item.trivial]
+                equations = [item for item in self.state.equations if item.depth < depth]
 
                 str_rep = str(sympy.simplify(node))
                 negated_str_rep = str(sympy.simplify(-node))
@@ -186,7 +186,7 @@ class ProofGenerator:
                 discards = []
                 while len(conditions) > 6:
                     additional_equations = []
-                    candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == depth and not item.trivial and item not in equations and item not in discards]
+                    candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == depth and item not in equations and item not in discards]
 
                     for intermediate_condition in candidate_intermediate_conditions:
                         if intermediate_condition.str_rep in self.cache_conditions:
@@ -396,12 +396,12 @@ class ProofGenerator:
         proof_steps = self.format_proof(node)
 
         for proof_step in proof_steps:
-            # if not isinstance(proof_step['conditions'][0], ConstructionRule):
-            res.append((
-                [item for item in proof_step['conditions'] if not trivial_condition(item)], 
-                proof_step['theorem'], 
-                proof_step['conclusions']
-            ))
+            if not isinstance(proof_step['conditions'][0], ConstructionRule):
+                res.append((
+                    [item for item in proof_step['conditions'] if not trivial_condition(item)], 
+                    proof_step['theorem'], 
+                    proof_step['conclusions']
+                ))
         return res
 
     def traceback_l1(self, augmented_A, e, threshold=1e-6):
