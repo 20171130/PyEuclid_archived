@@ -40,21 +40,21 @@ def generate_single_problem(rank, output_dir, problem_id):
     diagram = Diagram(cache_folder=None, save_path=diagram_path)
     state.diagram = diagram
 
-    depth = 0
+    step = 0
     attempt = 0
     points = 0
 
     print(f"Rank {rank}: Starting problem {problem_id}")
 
-    max_depth = random.uniform(6, 10)
+    max_steps = random.uniform(6, 10)
     max_attempt = random.uniform(50, 100)
     max_points = random.uniform(8, 12)
 
-    while depth < max_depth and attempt < max_attempt and points < max_points:
+    while step < max_steps and attempt < max_attempt and points < max_points:
         constructions = []
         multiconstructions = False
 
-        if depth == 0:
+        if step == 0:
             candidate_set = construction_rule_sets["independent"]
             candidate_set.remove(construct_free)
             candidate_set = [construct_r_triangle]
@@ -109,7 +109,7 @@ def generate_single_problem(rank, output_dir, problem_id):
             continue
 
         state.add_constructions(constructions)
-        depth += 1
+        step += 1
         points += len(outputs)
 
         for construction in constructions:

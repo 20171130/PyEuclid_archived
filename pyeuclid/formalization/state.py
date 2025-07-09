@@ -31,7 +31,8 @@ class State:
         self.condition2depth = defaultdict(int)
         self.dd_conclusions = set()
         self.dd_equation_strs = set()
-        
+
+        self.construction_num = 0
         self.current_depth = 0
         self.solutions = {}
         self.solvers = {}
@@ -171,6 +172,8 @@ class State:
     
     def add_constructions(self, constructions):
         for construction in constructions:
+            construction.index = self.construction_num
+            self.construction_num += 1
             for p in construction.outputs:
                 self.add_point(p)
                 self.point2constructions[p].append(construction)

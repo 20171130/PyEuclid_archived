@@ -919,7 +919,6 @@ class Diagram:
             func = getattr(self, 'draw_' + construction.__class__.__name__[10:])
             args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.inputs]
             func(*new_points, *args)
-            construction.index = len(self.construction2diagram.keys())
             self.construction2diagram[construction] = (
                 new_points,
                 self.segments[len_s:],
