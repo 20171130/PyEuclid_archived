@@ -241,7 +241,7 @@ class DeductiveDatabase():
                     cnst = abs(cnst)
                     hit = False
                     for component_id, rep in enumerate(self.state.ratios):
-                        if self.state.check_conditions(cnst - rep):
+                        if rep == cnst:
                             hit = True
                             break
                     if not hit:
@@ -256,7 +256,7 @@ class DeductiveDatabase():
                     cnst = abs(cnst)
                     hit = False
                     for component_id, rep in enumerate(self.state.angles.equivalence_classes()):
-                        if self.state.check_conditions(cnst - rep):
+                        if rep == cnst:
                             hit = True
                             break
                     if not hit:
@@ -269,7 +269,7 @@ class DeductiveDatabase():
                     cnst = abs(cnst)
                     hit = False
                     for component_id, rep in enumerate(self.state.angle_sums):
-                        if self.state.check_conditions(cnst-rep):
+                        if rep == cnst:
                             hit = True
                             break
                     if not hit:

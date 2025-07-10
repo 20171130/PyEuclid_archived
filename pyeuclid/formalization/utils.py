@@ -140,7 +140,9 @@ class Traced():
             sources = expr.sources
             depth = expr.depth
             expr = expr.expr
-            
+        terms = expr.as_ordered_terms()
+        if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
+            expr = expr/terms[0].args[0]
         self.expr = expr
         self.symbol = None
         self.redundant = False
@@ -186,7 +188,7 @@ class Traced():
         return hash(self) == hash(other)
     
     def __hash__(self):
-        return hash(str(self))
+        return hash(self.expr)
 
         
 def infer_eq_types(eq, var_types):
@@ -203,7 +205,6 @@ def infer_eq_types(eq, var_types):
 from sympy.core import Add, Mul, Pow, Symbol
 
 def is_linear(expr):
-    expr = sympy.simplify(expr)
     for term in Add.make_args(expr):
         for factor in Mul.make_args(term):
             if isinstance(factor, Pow):

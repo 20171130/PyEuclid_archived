@@ -113,35 +113,33 @@ class State:
     def add_equation(self, equation, from_dd=False):
         # allow redundant equations for neat proofs
         equation = Traced(equation, depth=self.current_depth)
-        points_list, quantities = get_points_and_symbols(equation)
-        points = [p for points in points_list for p in points]
-        for p in points:
-            self.add_point(p)
+        if equation in self.equations:
+            return
+            
+        quantities = equation.free_symbols
         unionfind = None
         for quantity in quantities:
-            if "Angle" in str(quantity):
+            s = str(quantity)
+            if "Angle" in s:
                 unionfind = self.angles
                 unionfind.add(quantity)
-            elif "Length" in str(quantity):
+            elif "Length" in s:
                 unionfind = self.lengths
                 unionfind.add(quantity)
-        
-        # trival equations
-        if str(equation) == '0':
+            points = s.split("_")[1:]
+            for p in points:
+                self.add_point(p)
+
+        if equation == 0:
             return
         
-        str_rep = str(equation)
-        negated_str_rep = equation.negated_str_rep
-
-        if str_rep not in self.equation_strs and negated_str_rep not in self.equation_strs:
-            self.equations.add(equation)
-            self.equation_strs.add(str_rep)
-            self.depth2conditions[self.current_depth].append(equation)
-            self.condition2depth[equation.str_rep] = self.current_depth
+        self.equations.add(equation)
+        self.depth2conditions[self.current_depth].append(equation)
+        self.condition2depth[equation.str_rep] = self.current_depth
         
         if from_dd:
-            for equation in self.equations:
-                if str_rep == equation.str_rep or negated_str_rep == equation.str_rep:
+            for other in self.equations:
+                if other == equation:
                     self.dd_conclusions.add(equation)                
     
     def categorize_variable(self): 
