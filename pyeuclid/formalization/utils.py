@@ -140,7 +140,6 @@ class Traced():
             sources = expr.sources
             depth = expr.depth
             expr = expr.expr
-            trivial = trivial
             redundant = redundant
             
         self.expr = expr

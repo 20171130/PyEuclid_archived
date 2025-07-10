@@ -45,8 +45,6 @@ def run_single_problem(args):
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
     engine.run()
-    for eq in state.equations:
-        print(eq, eq.trivial)
     # while True:
     #     engine.search(depth=1)
 
@@ -99,8 +97,6 @@ def run_single_problem(args):
         if args.show_proof:
             t0 = time.time()
             proof_generator.run()
-            print(state.goal)
-            print(proof_generator.proof_dict)
             proof_generator.show_proof()
             print(f"Proof generated in {time.time()-t0:.2f}s")
             
