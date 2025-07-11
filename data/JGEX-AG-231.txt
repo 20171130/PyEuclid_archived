@@ -205,7 +205,7 @@ a b c = triangle a b c; h = orthocenter h a b c; o = circumcenter o a b c; c1 = 
 examples/complete2/011/complete_003_6_GDD_FULL_21-40_34.gex
 a b c = triangle a b c; h = orthocenter h a b c; o = circle o h b c; p = on_tline p h c h, on_circle p o b ? para a h b p
 examples/complete2/011/complete_004_6_GDD_FULL_81-109_99.gex
-a b c = triangle a b c; m = free m; n = on_aline2 n a c b a m; q = foot q m a b; p = foot p m a c ? perp a n p q
+a b c = triangle a b c; m = free m; n = on_aline n a c b a m; q = foot q m a b; p = foot p m a c ? perp a n p q
 examples/complete2/011/complete_003_6_GDD_FULL_21-40_35.gex
 a b c = triangle a b c; d = foot d c a b; e = foot e b a c; o = circle o a b c; k = on_circle k o c, on_line k c d; h = on_line h c d, on_line h b e ? cong a k a h
 examples/complete2/011/complete_003_6_GDD_FULL_21-40_31.gex

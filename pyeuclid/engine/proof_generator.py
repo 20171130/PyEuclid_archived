@@ -1,11 +1,9 @@
 import math
-import gurobipy as gp
 import numpy as np
 import sympy
 
 from pyscipopt import Model, quicksum
 from collections import defaultdict
-from stopit import ThreadingTimeout as TT
 
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.construction_rule import *
@@ -44,25 +42,26 @@ class ProofGenerator:
         else:
             assert isinstance(node, (Traced, sympy.core.expr.Expr))
             if isinstance(node, sympy.core.expr.Expr):
-                expr_str_rep = str(sympy.simplify(node))
+                terms = node.as_ordered_terms()
+                if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
+                    node = node/terms[0].args[0]
+                
                 for item in self.state.equations:
                     if item.depth < depth:
-                        if expr_str_rep == item.str_rep or expr_str_rep == item.negated_str_rep:
+                        if item.expr == node:
                             node = item
                             break
             
             if isinstance(node, Traced):
-                if node.str_rep in self.visited:
-                    return self.source_constructions[node.str_rep]
+                if node.expr in self.visited:
+                    return self.source_constructions[node.expr]
                 else:
-                    self.visited.add(node.str_rep)
+                    self.visited.add(node.expr)
             else:
-                if expr_str_rep in self.visited:
-                    return self.source_constructions[expr_str_rep]
+                if node in self.visited:
+                    return self.source_constructions[node]
                 else:
-                    negated_expr_str_rep = str(sympy.simplify(-node))
-                    self.visited.add(expr_str_rep)
-                    self.visited.add(negated_expr_str_rep)
+                    self.visited.add(node)
         
         constructions = set()
         
@@ -95,18 +94,13 @@ class ProofGenerator:
                 #     sources = []
                 # else:
                 sources = node.sources
+                expr = node.expr
+
                 if isinstance(sources[0], str):
                     # backtrace linear systems
                     equations = [item for item in self.state.equations if item.depth < node.depth]
-                    if not node.symbol is None:
-                        expr = node.symbol - node.expr
-                    else:
-                        expr = node.expr
-                    
-                    if node.str_rep in self.cache_conditions:
-                        conditions = self.cache_conditions[node.str_rep]
-                    elif node.negated_str_rep in self.cache_conditions:
-                        conditions = self.cache_conditions[node.negated_str_rep]
+                    if expr in self.cache_conditions:
+                        conditions = self.cache_conditions[expr]
                     else:
                         conditions = self.find_conditions(equations, expr, sources[0])
                     
@@ -116,14 +110,9 @@ class ProofGenerator:
                         candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == node.depth and item not in equations and item not in discards]
 
                         for intermediate_condition in candidate_intermediate_conditions:
-                            if intermediate_condition.str_rep in self.cache_conditions:
-                                if self.cache_source[intermediate_condition.str_rep] == sources[0]:
-                                    cond = self.cache_conditions[intermediate_condition.str_rep]
-                                else:
-                                    cond = None
-                            elif intermediate_condition.negated_str_rep in self.cache_conditions:
-                                if self.cache_source[intermediate_condition.negated_str_rep] == sources[0]:
-                                    cond = self.cache_conditions[intermediate_condition.negated_str_rep]
+                            if intermediate_condition.expr in self.cache_conditions:
+                                if self.cache_source[intermediate_condition.expr] == sources[0]:
+                                    cond = self.cache_conditions[intermediate_condition.expr]
                                 else:
                                     cond = None
                             else:
@@ -131,8 +120,8 @@ class ProofGenerator:
                             
                             if cond:
                                 if len(cond) <= 6:
-                                    self.cache_conditions[intermediate_condition.str_rep] = cond
-                                    self.cache_source[intermediate_condition.str_rep] = sources[0]
+                                    self.cache_conditions[intermediate_condition.expr] = cond
+                                    self.cache_source[intermediate_condition.expr] = sources[0]
                                     additional_equations.append(intermediate_condition)
                             else:
                                 discards.append(intermediate_condition)
@@ -147,32 +136,26 @@ class ProofGenerator:
                         breakpoint()
                         assert False
                     
-                    self.cache_conditions[node.str_rep] = conditions
-                    self.cache_source[node.str_rep] = sources[0]
+                    self.cache_conditions[expr] = conditions
+                    self.cache_source[expr] = sources[0]
                     sources = conditions
                 else:
                     # inference rules derived traced
                     pass
-                self.proof_dict[node.str_rep] = sources
+                self.proof_dict[expr] = sources
                 for item in sources:
                     cond_constructions = self.run(item, root=False)
                     constructions.update(cond_constructions)
-                self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
-                return self.source_constructions[node]
+                self.source_constructions[expr] = sorted(constructions, key=lambda c: c.index)
+                return self.source_constructions[expr]
             else:
                 assert isinstance(node, sympy.core.expr.Expr)
                 source = None
                 equations = [item for item in self.state.equations if item.depth < depth]
 
-                str_rep = str(sympy.simplify(node))
-                negated_str_rep = str(sympy.simplify(-node))
-
-                if str_rep in self.cache_conditions:
-                    conditions = self.cache_conditions[str_rep]
-                    source = self.cache_source[str_rep]
-                elif negated_str_rep in self.cache_conditions:
-                    conditions = self.cache_conditions[negated_str_rep]
-                    source = self.cache_source[negated_str_rep]
+                if node in self.cache_conditions:
+                    conditions = self.cache_conditions[node]
+                    source = self.cache_source[node]
                 else:
                     if "Angle" in str(node):
                         source = "angle_linear"
@@ -189,14 +172,9 @@ class ProofGenerator:
                     candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == depth and item not in equations and item not in discards]
 
                     for intermediate_condition in candidate_intermediate_conditions:
-                        if intermediate_condition.str_rep in self.cache_conditions:
-                            if self.cache_source[intermediate_condition.str_rep] == source:
-                                cond = self.cache_conditions[intermediate_condition.str_rep]
-                            else:
-                                cond = None
-                        elif intermediate_condition.negated_str_rep in self.cache_conditions:
-                            if self.cache_source[intermediate_condition.negated_str_rep] == source:
-                                cond = self.cache_conditions[intermediate_condition.negated_str_rep]
+                        if intermediate_condition.expr in self.cache_conditions:
+                            if self.cache_source[intermediate_condition.expr] == source:
+                                cond = self.cache_conditions[intermediate_condition.expr]
                             else:
                                 cond = None
                         else:
@@ -204,8 +182,8 @@ class ProofGenerator:
                         
                         if cond:
                             if len(cond) <= 6:
-                                self.cache_conditions[intermediate_condition.str_rep] = cond
-                                self.cache_source[intermediate_condition.str_rep] = source
+                                self.cache_conditions[intermediate_condition.expr] = cond
+                                self.cache_source[intermediate_condition.expr] = source
                                 additional_equations.append(intermediate_condition)
                         else:
                             discards.append(intermediate_condition)
@@ -220,10 +198,10 @@ class ProofGenerator:
                     breakpoint()
                     assert False
 
-                self.cache_conditions[str_rep] = conditions
-                self.cache_source[str_rep] = source
+                self.cache_conditions[node] = conditions
+                self.cache_source[node] = source
                 sources = conditions
-                self.proof_dict[str_rep] = sources
+                self.proof_dict[node] = sources
             
                 for item in sources:
                     cond_constructions = self.run(item, root=False)
@@ -266,29 +244,20 @@ class ProofGenerator:
                 return node, theorem
             
             if isinstance(node, Traced):
-                if node.str_rep in visited:
+                if node.expr in visited:
                     return
                 else:
-                    visited.add(node.str_rep)
-                    node = node.str_rep
+                    visited.add(node.expr)
+                    node = node.expr
             
             elif isinstance(node, sympy.core.expr.Expr):
-                expr_str_rep = str(sympy.simplify(node))
-                if expr_str_rep in self.proof_dict:
-                    if expr_str_rep in visited:
-                        return
-                    else:
-                        visited.add(expr_str_rep)
-                        node = expr_str_rep
+                terms = node.as_ordered_terms()
+                if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
+                    node = node/terms[0].args[0]
+                if node in visited:
+                    return
                 else:
-                    negated_expr_str_rep = str(sympy.simplify(-node))
-                    assert negated_expr_str_rep in self.proof_dict
-                    if negated_expr_str_rep in visited:
-                        return
-                    else:
-                        visited.add(negated_expr_str_rep)
-                        node = negated_expr_str_rep
-
+                    visited.add(node)
             else:
                 if node in visited or node not in self.proof_dict: # diagrammatic relations
                     return
@@ -304,8 +273,8 @@ class ProofGenerator:
                 conditions = self.proof_dict[conditions[0]]
             
             # Skip trivial conditions
-            if type(theorem) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2):
-                return
+            # if type(theorem) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2):
+            #     return
 
             # Trace fundamental shape
             if len(conditions) == 1 and type(conditions[0]) in shape_dependency:
@@ -316,8 +285,8 @@ class ProofGenerator:
                 format(condition)
             
             # Skip if all conditions are basic geometric relations
-            if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
-                return
+            # if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
+            #     return
             
             # print('node', node, 'step_counter', step_counter, 'conditions', conditions)
             proof_steps[node] = (step_counter, conditions, theorem)
@@ -350,7 +319,6 @@ class ProofGenerator:
         
         return proof
 
-    # TODO EQUATION STR
     def track_constructions(self, condition=None):
         if not condition and self.state.goal:
             condition = self.state.goal
@@ -385,6 +353,7 @@ class ProofGenerator:
         proof = self.get_proof(node)
         for step, (conditions, theorem, conclusions) in enumerate(proof):
             theorem_str = ' [' + str(theorem) + ']' if theorem else ''
+            # theorem_str = ''
             res += f'{step+1}. ' + ' & '.join([str(item) for item in conditions]) + theorem_str + ' => ' + ' & '.join([str(item) for item in conclusions]) + '\n'
         return res
     
@@ -396,7 +365,7 @@ class ProofGenerator:
         proof_steps = self.format_proof(node)
 
         for proof_step in proof_steps:
-            if not isinstance(proof_step['conditions'][0], ConstructionRule):
+            if proof_step['conditions'] and not isinstance(proof_step['conditions'][0], ConstructionRule):
                 res.append((
                     [item for item in proof_step['conditions'] if not trivial_condition(item)], 
                     proof_step['theorem'], 
@@ -531,10 +500,6 @@ class ProofGenerator:
         return np.concat([A, b], axis=1)
 
     def find_conditions(self, equations: list[Traced], conclusion, source):
-        # angle_linear = [eq for eq in equations if 'angle_linear' in eq.categories]
-        # length_linear = [eq for eq in equations if 'length_linear' in eq.categories]
-        # length_ratio = [eq for eq in equations if 'length_ratio' in eq.categories]
-        # others = [eq for eq in equations if 'others' in eq.categories]
         angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
         """Given sympified equations and conclusions, return a list of necessary conditions"""
         def try_find(equations, conclusion):
@@ -547,16 +512,7 @@ class ProofGenerator:
                 eq = self.vectorize([conclusion], variables, source)
             except:
                 return None
-            deps = None
-            # try:
-            #     with TT(1):
-            #         deps = self.traceback_l0(mat, eq)
-            # except:
-            #     pass
-            
-            # if not deps:
             deps = self.traceback_l1(mat, eq)
-            
             if deps:
                 return [equations[i] for i in deps]
             else:

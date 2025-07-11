@@ -2481,7 +2481,23 @@ class Angle2Perp3(InferenceRule):  # segments cross
         self.d = d
 
     def condition(self):
-        return OppositeSide(self.a, self.b, self.c, self.d), OppositeSide(self.c, self.d, self.a, self.b), Lt(self.a, self.d), Angle(self.b, self.a, self.d) + Angle(self.c, self.d, self.a) - pi/2
+        return OppositeSide(self.a, self.b, self.c, self.d), OppositeSide(self.c, self.d, self.a, self.b), Angle(self.b, self.a, self.d) + Angle(self.c, self.d, self.a) - pi/2, Lt(self.a, self.d)
+
+    def conclusion(self):
+        return Perpendicular(self.a, self.b, self.c, self.d)
+
+
+@register("ex")
+class Angle2Perp4(InferenceRule):  # segments cross
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return SameSide(self.a, self.b, self.c, self.d), SameSide(self.c, self.d, self.a, self.b), SameSide(self.a, self.d, self.b, self.c), Angle(self.b, self.a, self.d) + Angle(self.c, self.d, self.a) - pi/2, Lt(self.a, self.d)
 
     def conclusion(self):
         return Perpendicular(self.a, self.b, self.c, self.d)
