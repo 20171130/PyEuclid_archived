@@ -97,8 +97,6 @@ def run_single_problem(args):
         if args.show_proof:
             t0 = time.time()
             proof_generator.run()
-            print(state.goal)
-            print(proof_generator.proof_dict)
             proof_generator.show_proof()
             print(f"Proof generated in {time.time()-t0:.2f}s")
             

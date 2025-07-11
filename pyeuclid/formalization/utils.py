@@ -135,21 +135,19 @@ class UnionFind:
 
 
 class Traced():
-    def __init__(self, expr, depth=0, sources=[]):
+    def __init__(self, expr, depth=0, sources=[], redundant=False):
         if isinstance(expr, Traced):
             sources = expr.sources
             depth = expr.depth
             expr = expr.expr
+            redundant = redundant
+            
         terms = expr.as_ordered_terms()
         if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
             expr = expr/terms[0].args[0]
         self.expr = expr
-        self.symbol = None
-        self.redundant = False
-        self.trivial = False
+        self.redundant = redundant
         self.sources = sources
-        self.str_rep = None
-        self.negated_str_rep = None
         self.kinds = []
         self.rank = 0 # priority in the same depth
         self.depth = max([depth] + [getattr(item, "depth", 0) for item in self.sources])
@@ -168,18 +166,10 @@ class Traced():
             sources = self.sources
         expr = self.expr.subs(key, value)
         other = Traced(expr, sources=sources)
-        other.symbol = self.symbol
         return other
     
     def __str__(self):
-        if self.str_rep is None:
-            if not self.symbol is None:
-                self.str_rep = str(sympy.simplify(self.symbol - self.expr))
-                self.negated_str_rep = str(sympy.simplify(-self.symbol + self.expr))
-            else:
-                self.str_rep = str(sympy.simplify(self.expr))
-                self.negated_str_rep = str(sympy.simplify(-self.expr))
-        return self.str_rep
+        return str(self.expr)
     
     def __repr__(self):
         return str(self)

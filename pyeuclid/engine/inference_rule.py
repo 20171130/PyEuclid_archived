@@ -882,8 +882,8 @@ class DefinitionOfEquilateralTrapezoid(InferenceRule):
     def conclusion(self):
         return [
             EquilateralTrapezoid(self.p1, self.p2, self.p3, self.p4),
-            Length(self.p1, self.p3) - Length(self.p2, self.p4), # diagonals
-            Length(self.p1, self.p4) - Length(self.p2, self.p3)
+            # Length(self.p1, self.p3) - Length(self.p2, self.p4), # diagonals
+            # Length(self.p1, self.p4) - Length(self.p2, self.p3)
         ]
 
 
@@ -899,15 +899,37 @@ class DefinitionOfEquilateralTrapezoid1(InferenceRule):
             Trapezoid(self.p1, self.p2, self.p3, self.p4),
             Parallel(self.p1, self.p2, self.p3, self.p4),
             Length(self.p1, self.p3) - Length(self.p2, self.p4), # diagonals
-            Lt(self.p1, self.p2),
-            Lt(self.p1, self.p3),
-            Lt(self.p1, self.p4),
+            # Lt(self.p1, self.p2),
+            # Lt(self.p1, self.p3),
+            # Lt(self.p1, self.p4),
         ]
     
     def conclusion(self):
         return [
             EquilateralTrapezoid(self.p1, self.p2, self.p3, self.p4),
+            # Length(self.p1, self.p4) - Length(self.p2, self.p3),
+            # Angle(self.p4, self.p1, self.p2) - Angle(self.p1, self.p2, self.p3),
+            # Angle(self.p2, self.p3, self.p4) - Angle(self.p3, self.p4, self.p1),
+        ]
+
+
+@register("shape")
+class PropertyOfEquilateralTrapezoid(InferenceRule):
+    """ Property of EquilateralTrapezoid """
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            EquilateralTrapezoid(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
+        ]
+    
+    def conclusion(self):
+        return [
             Length(self.p1, self.p4) - Length(self.p2, self.p3),
+            Length(self.p1, self.p3) - Length(self.p2, self.p4), # diagonals
             Angle(self.p4, self.p1, self.p2) - Angle(self.p1, self.p2, self.p3),
             Angle(self.p2, self.p3, self.p4) - Angle(self.p3, self.p4, self.p1),
         ]

@@ -242,8 +242,7 @@ class AlgebraicSystem:
                 component = component + [rep]
             for a in range(len(component)):
                 for b in range(a+1, len(component)):
-                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"])
-                    eqn.redundant = True
+                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"], redundant=True)
                     self.state.add_conditions(eqn)
 
         expr2components = {}
@@ -254,41 +253,30 @@ class AlgebraicSystem:
                     if expr != 1:
                         for a in tmp[x]:
                             for b in tmp[y]:
-                                eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"])
-                                eqn.redundant = True
+                                eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"], redundant=True)
                                 self.state.add_conditions(eqn)
-                    else:
-                        # x == y
-                        for a in tmp[x]:
-                            for b in tmp[y]:
-                                eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"])
-                                eqn.redundant = True
-                                eqn.trivial = True
-                                self.state.add_conditions(eqn)
+                if not expr in dic:
+                    dic[expr] = [sympy.core.mul.Mul(x, 1/y, evaluate=False)]
+                    if len(expr.free_symbols) > 0:
+                        expr2components[expr] = [(x, y)]
                 else:
-                    if not expr in dic:
-                        dic[expr] = [sympy.core.mul.Mul(x, 1/y, evaluate=False)]
-                        if len(expr.free_symbols) > 0:
-                            expr2components[expr] = [(x, y)]
-                    else:
-                        dic[expr].append(sympy.core.mul.Mul(
-                            x, 1/y, evaluate=False))
-                        if len(expr.free_symbols) > 0:
-                            expr2components[expr].append((x, y))
+                    dic[expr].append(sympy.core.mul.Mul(
+                        x, 1/y, evaluate=False))
+                    if len(expr.free_symbols) > 0:
+                        expr2components[expr].append((x, y))
                     
         for expr, components in expr2components.items():
             for i in range(len(components)):
                 for j in range(i+1, len(components)):
                     x1, y1 = components[i]
                     x2, y2 = components[j]
+                    if x1 == x2 or y1 == y2:
+                        continue
                     for a in tmp[x1]:
                         for b in tmp[y1]:
                             for c in tmp[x2]:
                                 for d in tmp[y2]:
-                                    eqn = Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"])
-                                    eqn.redundant = True
-                                    if x1 == x2 or y1 == y2:
-                                        eqn.trivial = True
+                                    eqn = Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"], redundant=True)
                                     self.state.add_conditions(eqn)
 
         self.state.ratios = dic
@@ -303,8 +291,7 @@ class AlgebraicSystem:
                 component = component + [rep]
             for a in range(len(component)):
                 for b in range(a+1, len(component)):
-                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"])
-                    eqn.redundant = True
+                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"], redundant=True)
                     self.state.add_conditions(eqn)
         
         angle_keys = list(tmp.keys())
@@ -323,8 +310,7 @@ class AlgebraicSystem:
                     component_x, component_y = tmp[x], tmp[y]
                     for a in range(len(component_x)):
                         for b in range(len(component_y)):
-                            eqn = Traced(component_x[a]+component_y[b]-expr, depth=self.state.current_depth, sources=["angle_linear"])
-                            eqn.redundant = True
+                            eqn = Traced(component_x[a]+component_y[b]-expr, depth=self.state.current_depth, sources=["angle_linear"], redundant=True)
                             self.state.add_conditions(eqn)
         self.state.angle_sums = dic
 
