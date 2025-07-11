@@ -105,9 +105,8 @@ def generate():
     dd_derived = list(state.dd_conclusions) + list(state.relations)
     for relation in dd_derived:
         proof_generator.run(relation)
-
         if isinstance(relation, Traced):
-            key = relation.str_rep
+            key = relation.expr
         else:
             assert isinstance(relation, Relation)
             key = relation

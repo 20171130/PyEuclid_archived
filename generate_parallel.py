@@ -46,7 +46,7 @@ def generate_single_problem(rank, output_dir, problem_id):
 
     print(f"Rank {rank}: Starting problem {problem_id}")
 
-    max_steps = random.uniform(6, 10)
+    max_steps = random.uniform(4, 8)
     max_attempt = random.uniform(50, 100)
     max_points = random.uniform(8, 12)
 
@@ -55,18 +55,17 @@ def generate_single_problem(rank, output_dir, problem_id):
         multiconstructions = False
 
         if step == 0:
-            candidate_set = construction_rule_sets["independent"]
+            candidate_set = list(construction_rule_sets["independent"])
             candidate_set.remove(construct_free)
-            candidate_set = [construct_r_triangle]
         else:
             rand = random.random()
             if rand < 0.02:
                 candidate_set = [construct_free]
             elif rand < 0.31:
-                candidate_set = [rule for rule in construction_rule_sets['deterministic'] if rule.num_inputs <= len(state.points)]
+                candidate_set = [rule for rule in list(construction_rule_sets['deterministic']) if rule.num_inputs <= len(state.points)]
             else:
                 multiconstructions = True
-                candidate_set = [rule for rule in construction_rule_sets['nondeterministic'] if rule.num_inputs <= len(state.points)]
+                candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) if rule.num_inputs <= len(state.points)]
 
         picked = random.choice(candidate_set)
         all_points = list(state.points.copy())
@@ -85,7 +84,7 @@ def generate_single_problem(rank, output_dir, problem_id):
         constructions.append(construction)
 
         if multiconstructions:
-            candidate_set = [rule for rule in construction_rule_sets['nondeterministic'] if rule.num_inputs <= len(state.points) and rule.num_outputs == picked.num_outputs and rule != picked]
+            candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) if rule.num_inputs <= len(state.points) and rule.num_outputs == picked.num_outputs and rule != picked]
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
             num_points = len(all_points)
@@ -133,7 +132,7 @@ def generate_single_problem(rank, output_dir, problem_id):
         proof_generator.run(relation)
 
         if isinstance(relation, Traced):
-            key = relation.str_rep
+            key = relation.expr
         else:
             key = relation
 

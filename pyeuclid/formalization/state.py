@@ -19,7 +19,6 @@ class State:
         self.points = set()
         self.relations = set()
         self.equations = set()
-        self.equation_strs = set()
         self.lengths = UnionFind()
         self.angles = UnionFind()
         self.var_types = {}
@@ -136,7 +135,7 @@ class State:
         
         self.equations.add(equation)
         self.depth2conditions[self.current_depth].append(equation)
-        self.condition2depth[str(equation)] = self.current_depth
+        self.condition2depth[equation.expr] = self.current_depth
         
         if from_dd:
             for other in self.equations:

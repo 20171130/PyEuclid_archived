@@ -19,7 +19,7 @@ from pyeuclid.engine.engine import Engine
 parser = argparse.ArgumentParser()
 # A,B,C = construct_r_triangle(), D = construct_intersection_cc(B,C,A), E = construct_incenter(B,D,A)
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = r_triangle a b c; d = intersection_cc d b c a; e = incenter e b d a ? eqratio d e a e c e a c")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; m = free m; n = on_aline n a c b a m; q = foot q m a b; p = foot p m a c ? perp a n p q")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -44,31 +44,50 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
+    # state.goal = Angle(Point('q'),Point('a'),Point('n'))+Angle(Point('a'),Point('q'),Point('p'))-pi/2
     engine.run()
+    # for cond in Angle2Perp3(Point('a'),Point('n'),Point('p'),Point('q')).condition():
+    #     print(cond, state.check_conditions(cond))
     # while True:
     #     engine.search(depth=1)
+    
+        # 1. Collinear(c,d,e) [CollinearParallel(c,d,e)] => Parallel(c,d,d,e) & Angle_c_d_g + Angle_e_d_g - pi & Parallel(c,d,c,e)
+        # 2. Perpendicular(a,b,c,d) & Parallel(c,d,d,e) [AlphaGeometry1b(c,d,a,b,d,e)] => Perpendicular(a,b,d,e)
+        # 3. Collinear(a,b,d) [CollinearParallel(a,b,d)] => Parallel(a,b,a,d) & Angle_b_a_e + Angle_d_a_e - pi & Parallel(a,b,b,d)
+        # 4. Perpendicular(a,b,d,e) & Parallel(a,b,a,d) [AlphaGeometry1b(a,b,d,e,a,d)] => Perpendicular(a,d,d,e)
+        # 5. Midpoint(f,a,e) & Perpendicular(a,d,d,e) [AlphaGeometry20(a,d,e,f)] => Length_d_f - Length_e_f & Length_a_f - Length_d_f
+        # 6. Perpendicular(a,e,b,c) [Perp2Angle2(e,a,b,c)] => Angle_a_b_c - Angle_b_a_e + pi/2
+        # 7. Perpendicular(a,b,c,d) & Parallel(c,d,c,e) [AlphaGeometry1b(c,d,a,b,c,e)] => Perpendicular(a,b,c,e)
+        # 8. Perpendicular(a,b,c,e) [Perp2Angle2(b,a,c,e)] => Angle_a_b_c + Angle_b_c_e - pi/2
+        # 9. Collinear(c,d,e) & Collinear(b,c,g) [DiagramAngle4a(c,b,e,g,d)] => Angle_b_c_e - Angle_d_c_g
+        # 10. Angle_b_a_e + Angle_d_a_e - pi & Angle_a_b_c - Angle_b_a_e + pi/2 & Angle_a_b_c + Angle_b_c_e - pi/2 & Angle_b_c_e - Angle_d_c_g => Angle_d_a_e - Angle_d_c_g
+        # 11. Perpendicular(a,b,c,d) & Parallel(a,b,b,d) [AlphaGeometry1b(a,b,c,d,b,d)] => Perpendicular(b,d,c,d)
+        # 12. Midpoint(g,b,c) & Perpendicular(b,d,c,d) [AlphaGeometry20(b,d,c,g)] => Length_c_g - Length_d_g
+        # 13. Length_c_g - Length_d_g [DefinitionOfIsoscelesTriangle(g,c,d)] => Angle_c_d_g - Angle_d_c_g
+        # 14. Angle_c_d_g + Angle_e_d_g - pi & Angle_d_a_e - Angle_d_c_g & Angle_c_d_g - Angle_d_c_g => Angle_d_a_e + Angle_e_d_g - pi
+        # 15. Length_d_f - Length_e_f & -Length_a_f + Length_d_f & Angle_d_a_e + Angle_e_d_g - pi [AlphaGeometry17a(f,d,e,a,g)] => Perpendicular(d,f,d,g)
 
-    # 001. DA = DB [03] ⇒  ∠DBA = ∠BAD [07]
-    # 002. DB = DC [04] ⇒  ∠DBC = ∠BCD [08]
-    # 003. DB = DC [04] & DA = DB [03] ⇒  DA = DC [09]
-    # 004. DA = DC [09] ⇒  ∠DAC = ∠ACD [10]
-    # 005. GE = GF [05] & GA = GE [06] ⇒  GA = GF [11]
-    # 006. GA = GF [11] ⇒  ∠GAF = ∠AFG [12]
-    # 007. ∠GAF = ∠AFG [12] & C,A,F are collinear [01] ⇒  ∠GAC = ∠(AC-FG) [13]
-    # 008. GA = GE [06] ⇒  ∠GAE = ∠AEG [14]
-    # 009. ∠GAE = ∠AEG [14] & B,E,A are collinear [00] ⇒  ∠GAB = ∠(AB-EG) [15]
-    # 010. GE = GF [05] ⇒  ∠GFE = ∠FEG [16]
-    # 011. ∠GFE = ∠FEG [16] & EF ∥ BC [02] ⇒  ∠(FG-BC) = ∠(BC-EG) [17]
-    # 012. ∠DBA = ∠BAD [07] & ∠DBC = ∠BCD [08] & ∠DAC = ∠ACD [10] & ∠GAC = ∠(AC-FG) [13] & ∠GAB = ∠(AB-EG) [15] & ∠(FG-BC) = ∠(BC-EG) [17] (Angle chase)⇒  AD ∥ AG [18]
-    # 013. AD ∥ AG [18] ⇒  G,A,D are collinear
+        # 1. Perpendicular(a,e,b,c) & Parallel(b,c,b,g) [AlphaGeometry1b(b,c,a,e,b,g)] => Perpendicular(a,e,b,g)
+        # 2. Perpendicular(a,e,b,g) [Perp2Angle2(e,a,b,g)] => -Angle_a_b_g + Angle_b_a_e - pi/2
+        # 3. Perpendicular(a,b,c,d) & Parallel(c,d,c,e) [AlphaGeometry1b(c,d,a,b,c,e)] => Perpendicular(a,b,c,e)
+        # 4. Perpendicular(a,b,c,e) [Perp2Angle2(b,a,c,e)] => -Angle_a_e_c + Angle_b_a_e - pi/2
+        # 5. -Angle_a_b_g + Angle_b_a_e - pi/2 & -Angle_a_e_c + Angle_b_a_e - pi/2 & -Angle_a_e_c + Angle_d_e_f & -Angle_a_b_g + Angle_d_b_g => -Angle_d_b_g + Angle_d_e_f
+        # 6. Perpendicular(a,b,c,d) & Parallel(c,d,d,e) [AlphaGeometry1b(c,d,a,b,d,e)] => Perpendicular(a,b,d,e)
+        # 7. Perpendicular(a,b,d,e) & Parallel(a,b,a,d) [AlphaGeometry1b(a,b,d,e,a,d)] => Perpendicular(a,d,d,e)
+        # 8. Midpoint(f,a,e) & Perpendicular(a,d,d,e) [AlphaGeometry20(a,d,e,f)] => Length_d_f - Length_e_f
+        # 9. Length_d_f - Length_e_f [DefinitionOfIsoscelesTriangle(f,d,e)] => -Angle_d_e_f + Angle_e_d_f
+        # 10. Perpendicular(a,b,c,d) & Parallel(a,b,b,d) [AlphaGeometry1b(a,b,c,d,b,d)] => Perpendicular(b,d,c,d)
+        # 11. Midpoint(g,b,c) & Perpendicular(b,d,c,d) [AlphaGeometry20(b,d,c,g)] => Length_b_g - Length_d_g
+        # 12. Length_b_g - Length_d_g [DefinitionOfIsoscelesTriangle(g,b,d)] => -Angle_b_d_g + Angle_d_b_g
+        # 13. -Angle_b_d_e - Angle_b_d_g + Angle_e_d_g & -Angle_d_b_g + Angle_d_e_f & -Angle_d_e_f + Angle_e_d_f & -Angle_b_d_g + Angle_d_b_g & -Angle_e_d_f + Angle_e_d_g - Angle_f_d_g => Angle_b_d_e - Angle_f_d_g
+        # 14. Perpendicular(b,d,c,d) [Perp2Angle(b,d,c)] => Angle_b_d_c - pi/2
+        # 15. Perpendicular(a,b,d,e) & Parallel(a,b,b,d) [AlphaGeometry1b(a,b,d,e,b,d)] => Perpendicular(b,d,d,e)
+        # 16. Perpendicular(b,d,d,e) [Perp2Angle(b,d,e)] => Angle_b_d_e - pi/2
+        # 17. Angle_b_d_c - pi/2 & Angle_b_d_e - pi/2 => Angle_b_d_c - Angle_b_d_e
+        # 18. -Angle_b_d_e - Angle_b_d_g + Angle_e_d_g & -Angle_d_b_g + Angle_d_e_f & -Angle_d_e_f + Angle_e_d_f & Angle_b_d_c - Angle_b_d_e & -Angle_b_d_g + Angle_d_b_g & -Angle_e_d_f + Angle_e_d_g - Angle_f_d_g => Angle_b_d_c - Angle_f_d_g
+        # 19. Angle_b_d_c + Angle_b_d_e - pi & Angle_b_d_e - Angle_f_d_g & Angle_b_d_c - Angle_f_d_g => Angle_f_d_g - pi/2
+        # 20. Angle_f_d_g - pi/2 [Angle2Perp(f,d,g)] => Perpendicular(d,f,d,g)
 
-    # 1. Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_a_f_d + Angle_c_f_d - pi & Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_a_d_b - Angle_a_g_e
-    # 2. Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_a_f_d + Angle_c_f_d - pi & Angle_d_e_g + Angle_d_g_e + Angle_e_d_g - pi => Angle_c_b_d - Angle_f_e_g
-    # 3. Angle_c_b_d - Angle_f_e_g & Parallel(b,c,e,f) => Parallel(b,d,e,g)
-    # 4. Angle_a_d_b - Angle_a_g_e & Parallel(b,d,e,g) [AlphaGeometry29(a,d,g)] => Collinear(a,d,g)
-
-
-    # p1 = state.check_conditions(Angle(Point('a'),Point('d'),Point('b'))-Angle(Point('a'),Point('g'),Point('e')))
     # p2 = state.check_conditions(Angle(Point('c'),Point('b'),Point('d'))-Angle(Point('f'),Point('e'),Point('g')))
     # p3 = state.check_conditions(Parallel(Point('b'),Point('d'),Point('e'),Point('g')))
     # print(p1, p2, p3)
@@ -97,6 +116,7 @@ def run_single_problem(args):
         if args.show_proof:
             t0 = time.time()
             proof_generator.run()
+            print(proof_generator.proof_dict)
             proof_generator.show_proof()
             print(f"Proof generated in {time.time()-t0:.2f}s")
             
