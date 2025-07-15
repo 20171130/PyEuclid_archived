@@ -348,7 +348,7 @@ class PropertyOfSimilar(InferenceRule):
         self.a, self.b, self.c, self.p, self.q, self.r = a, b, c, p, q, r
     
     def condition(self):
-        return Similar(self.a, self.b, self.c, self.p, self.q, self.r), Lt(self.a, self.b), Lt(self.b, self.c), Leq(self.a, self.p)
+        return Similar(self.a, self.b, self.c, self.p, self.q, self.r), Lt(self.a, self.b), Lt(self.b, self.c), Leq(self.a, self.p), Not(Congruent(self.a, self.b, self.c, self.p, self.q, self.r))
     
     def degenerate(self):
         return self.a == self.p and self.b == self.q and self.c == self.r
@@ -2488,7 +2488,7 @@ class Angle2Perp3(InferenceRule):  # segments cross
 
 
 @register("ex")
-class Angle2Perp4(InferenceRule):  # segments cross
+class Angle2Perp4(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         super().__init__()
         self.a = a

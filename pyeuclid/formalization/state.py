@@ -29,7 +29,6 @@ class State:
         self.depth2conditions = defaultdict(list)
         self.condition2depth = defaultdict(int)
         self.dd_conclusions = set()
-        self.dd_equation_strs = set()
 
         self.construction_num = 0
         self.current_depth = 0
@@ -76,7 +75,7 @@ class State:
             if isinstance(item, Relation):
                 if self.diagram is not None:
                     assert self.diagram.numerical_check(item)
-                self.add_relation(item)
+                self.add_relation(item, from_dd)
             else:
                 if self.diagram is not None:
                     if isinstance(item, Traced):
@@ -85,17 +84,20 @@ class State:
                         assert self.diagram.numerical_check(item)
                 self.add_equation(item, from_dd)
             
-    def add_relation(self, relation):
+    def add_relation(self, relation, from_dd=False):
         if relation in self.relations:
             return
         
         points = relation.get_points()
         for p in points:
             self.add_point(p)
-        if relation not in self.relations:
-            self.relations.add(relation)
-            self.depth2conditions[self.current_depth].append(relation)
-            self.condition2depth[relation] = self.current_depth
+        
+        self.relations.add(relation)
+        self.depth2conditions[self.current_depth].append(relation)
+        self.condition2depth[relation] = self.current_depth
+
+        if from_dd:
+            self.dd_conclusions.add(relation)
         
     def add_point(self, *ps):
         for p in ps:
@@ -113,9 +115,16 @@ class State:
     def add_equation(self, equation, from_dd=False):
         # allow redundant equations for neat proofs
         equation = Traced(equation, depth=self.current_depth)
-        if equation in self.equations:
+        if equation == 0:
             return
-            
+        if equation in self.equations:
+            if from_dd:
+                for other in self.equations:
+                    if other == equation:
+                        self.dd_conclusions.add(other)
+                        break
+            return
+        
         quantities = equation.free_symbols
         unionfind = None
         for quantity in quantities:
@@ -129,18 +138,14 @@ class State:
             points = s.split("_")[1:]
             for p in points:
                 self.add_point(p)
-
-        if equation == 0:
-            return
         
         self.equations.add(equation)
         self.depth2conditions[self.current_depth].append(equation)
         self.condition2depth[equation.expr] = self.current_depth
-        
+
         if from_dd:
-            for other in self.equations:
-                if other == equation:
-                    self.dd_conclusions.add(equation)                
+            self.dd_conclusions.add(equation)
+
     
     def categorize_variable(self): 
         angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types)
@@ -248,13 +253,11 @@ class State:
                 return solution
             return None
     
-    def simplify_equation(self, expr, solved_vars=None):
-        if solved_vars is None:
-            solved_vars = self.solutions
+    def simplify_equation(self, expr):
         expr = getattr(expr, "expr", expr)
         for symbol in expr.free_symbols:
-            if symbol in solved_vars:
-                value = solved_vars[symbol]
+            if symbol in self.solutions:
+                value = self.solutions[symbol]
                 expr = expr.subs(symbol, value)
         return expr
     
@@ -280,11 +283,15 @@ class State:
                         return False
                     if item.p1 == item.p2 or item.p2 == item.p3 or item.p3 == item.p1:
                         return False
+            elif isinstance(item, Collinear):
+                if item.negated and (item.p1 == item.p2 or item.p2 == item.p3 or item.p3 == item.p1):
+                    return False
+                if not item in self.relations:
+                    return False
             elif isinstance(item, Relation):
-                if isinstance(item, Collinear) and (item.p1 == item.p2 or item.p2 == item.p3 or item.p3 == item.p1):
-                    if item.negated:
-                        return False
-                elif not item in self.relations:
+                if item.negated and item in self.relations: # only positive relation in the relations
+                    return False
+                elif not item.negated and not item in self.relations:
                     return False
             else:
                 conditional_equations.append(self.simplify_equation(item))

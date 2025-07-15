@@ -17,9 +17,8 @@ from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
-# A,B,C = construct_r_triangle(), D = construct_intersection_cc(B,C,A), E = construct_incenter(B,D,A)
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; m = free m; n = on_aline n a c b a m; q = foot q m a b; p = foot p m a c ? perp a n p q")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b = segment a b; d = midpoint d b a; c = on_tline c a a b; e = on_circle e c a; f = on_line f d e, on_circle f c a; g = on_circle g c f, on_line g f b; h = on_line h b e, on_circle h c a ? para a b g h")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -42,12 +41,10 @@ def run_single_problem(args):
     deductive_database = DeductiveDatabase(state)
     algebraic_system = AlgebraicSystem(state)
     proof_generator = ProofGenerator(state)
+    proof_generator.max_equation_length_perstep = 20
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
-    # state.goal = Angle(Point('q'),Point('a'),Point('n'))+Angle(Point('a'),Point('q'),Point('p'))-pi/2
     engine.run()
-    # for cond in Angle2Perp3(Point('a'),Point('n'),Point('p'),Point('q')).condition():
-    #     print(cond, state.check_conditions(cond))
     # while True:
     #     engine.search(depth=1)
     
@@ -116,7 +113,6 @@ def run_single_problem(args):
         if args.show_proof:
             t0 = time.time()
             proof_generator.run()
-            print(proof_generator.proof_dict)
             proof_generator.show_proof()
             print(f"Proof generated in {time.time()-t0:.2f}s")
             

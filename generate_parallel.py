@@ -31,7 +31,7 @@ def generate_single_problem(rank, output_dir, problem_id):
     np.random.seed(42 + rank * 1000 + problem_id)
 
     state = State()
-    state.silent = True
+    # state.silent = True
     deductive_database = DeductiveDatabase(state)
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
@@ -216,37 +216,37 @@ def generate_until_timeout(rank, output_dir, timeout_handler, max_timeout_second
     else:
         local_timeout = None
 
-    try:
-        while not timeout_handler.timeout_occurred:
-            if local_timeout and time.time() > local_timeout:
-                print(f"Rank {rank}: Local timeout reached")
-                break
+    # try:
+    #     while not timeout_handler.timeout_occurred:
+    #         if local_timeout and time.time() > local_timeout:
+    #             print(f"Rank {rank}: Local timeout reached")
+    #             break
 
-            if max_problem_id and problem_id >= max_problem_id:
-                print(f"Rank {rank}: Max problem ID {max_problem_id} reached")
-                break
+    #         if max_problem_id and problem_id >= max_problem_id:
+    #             print(f"Rank {rank}: Max problem ID {max_problem_id} reached")
+    #             break
 
-            try:
-                result = generate_single_problem(rank, output_dir, problem_id)
-                total_samples += result["samples_generated"]
-                total_samples_with_auxiliary += result["samples_with_auxiliary"]
-                problem_id += 1
-            except Exception as e:
-                print(f"Rank {rank}: Error in problem {problem_id}: {e}")
-                problem_id += 1
-                continue
-    except Exception as e:
-        print(f"Rank {rank}: Fatal error in generation loop: {e}")
-        raise
+    #         try:
+    result = generate_single_problem(rank, output_dir, problem_id)
+    total_samples += result["samples_generated"]
+    total_samples_with_auxiliary += result["samples_with_auxiliary"]
+    problem_id += 1
+    #         except Exception as e:
+    #             print(f"Rank {rank}: Error in problem {problem_id}: {e}")
+    #             problem_id += 1
+    #             continue
+    # except Exception as e:
+    #     print(f"Rank {rank}: Fatal error in generation loop: {e}")
+    #     raise
 
-    duration = time.time() - start_time
-    return {
-        "total_samples": total_samples,
-        "total_problems": problem_id,
-        "samples_with_auxiliary": total_samples_with_auxiliary,
-        "termination_reason": "completed",
-        "duration": duration
-    }
+    # duration = time.time() - start_time
+    # return {
+    #     "total_samples": total_samples,
+    #     "total_problems": problem_id,
+    #     "samples_with_auxiliary": total_samples_with_auxiliary,
+    #     "termination_reason": "completed",
+    #     "duration": duration
+    # }
 
 def main():
     rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
@@ -255,8 +255,8 @@ def main():
     max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "0"))
 
     timeout_handler = TimeoutHandler()
-    signal.signal(signal.SIGTERM, timeout_handler.timeout_handler)
-    signal.signal(signal.SIGINT, timeout_handler.timeout_handler)
+    # signal.signal(signal.SIGTERM, timeout_handler.timeout_handler)
+    # signal.signal(signal.SIGINT, timeout_handler.timeout_handler)
 
     base_output_dir = os.environ.get('OUTPUT_DIR', 'samples')
     os.makedirs(base_output_dir, exist_ok=True)

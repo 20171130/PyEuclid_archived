@@ -36,7 +36,6 @@ def generate():
         if depth == 0:
             candidate_set = construction_rule_sets["independent"]
             candidate_set.remove(construct_free)
-            candidate_set = [construct_r_triangle]
         else:
             rand = random.random()
             if rand < 0.02:

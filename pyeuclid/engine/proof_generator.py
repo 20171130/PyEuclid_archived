@@ -12,14 +12,14 @@ from pyeuclid.engine.inference_rule import *
 
 
 class ProofGenerator:
-    def __init__(self, state, verbose=False):
+    def __init__(self, state):
         self.state = state
         self.visited = set()
         self.proof_dict = {}
         self.cache_conditions = {}
         self.cache_source = {}
         self.source_constructions = defaultdict(list)
-        self.verbose = verbose
+        self.max_equation_length_perstep = 6
     
     def run(self, node=None, depth=None, root=True):
         if isinstance(node, ConstructionRule):
@@ -105,7 +105,7 @@ class ProofGenerator:
                         conditions = self.find_conditions(equations, expr, sources[0])
                     
                     discards = []
-                    while len(conditions) > 6:
+                    while len(conditions) > self.max_equation_length_perstep:
                         additional_equations = []
                         candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == node.depth and item not in equations and item not in discards]
 
@@ -119,7 +119,7 @@ class ProofGenerator:
                                 cond = self.find_conditions(equations, intermediate_condition.expr, sources[0])
                             
                             if cond:
-                                if len(cond) <= 6:
+                                if len(cond) <= self.max_equation_length_perstep:
                                     self.cache_conditions[intermediate_condition.expr] = cond
                                     self.cache_source[intermediate_condition.expr] = sources[0]
                                     additional_equations.append(intermediate_condition)
@@ -167,7 +167,7 @@ class ProofGenerator:
                                 source = tmp
                                 break
                 discards = []
-                while len(conditions) > 6:
+                while len(conditions) > self.max_equation_length_perstep:
                     additional_equations = []
                     candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == depth and item not in equations and item not in discards]
 
@@ -181,7 +181,7 @@ class ProofGenerator:
                             cond = self.find_conditions(equations, intermediate_condition.expr, source)
                         
                         if cond:
-                            if len(cond) <= 6:
+                            if len(cond) <= self.max_equation_length_perstep:
                                 self.cache_conditions[intermediate_condition.expr] = cond
                                 self.cache_source[intermediate_condition.expr] = source
                                 additional_equations.append(intermediate_condition)

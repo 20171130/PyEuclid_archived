@@ -137,10 +137,10 @@ class UnionFind:
 class Traced():
     def __init__(self, expr, depth=0, sources=[], redundant=False):
         if isinstance(expr, Traced):
-            sources = expr.sources
             depth = expr.depth
+            sources = expr.sources
+            redundant = expr.redundant
             expr = expr.expr
-            redundant = redundant
             
         terms = expr.as_ordered_terms()
         if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
@@ -155,7 +155,7 @@ class Traced():
     
     def subs(self, key, value):
         if isinstance(value, Traced):
-            if len(self.sources) >0 and isinstance(self.sources[0], Traced):
+            if len(self.sources) > 0 and isinstance(self.sources[0], Traced):
                 sources = [item for item in self.sources] + [value]
             else:
                 sources = [self, value]
