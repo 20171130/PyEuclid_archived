@@ -50,7 +50,7 @@ class Diagram:
                             instance = pickle.load(f)
                             instance.save_path = save_path
                             instance.save_diagram()
-                            print(f"Load existing diagram from {file_path}...")
+                            # print(f"Load existing diagram from {file_path}...")
                             return instance
                 except :
                     pass
@@ -132,7 +132,7 @@ class Diagram:
         if self.cache_folder is not None:
             file_name = f"{hash_constructions_list(self.constructions_list)}.pkl"
             file_path = os.path.join(self.cache_folder, file_name)
-            print(f'Save to {file_path}...')
+            # print(f'Save to {file_path}...')
             with open(file_path, 'wb') as f:
                 pickle.dump(self, f)
     

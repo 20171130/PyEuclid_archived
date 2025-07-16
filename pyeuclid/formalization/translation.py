@@ -66,7 +66,6 @@ def get_constructions_from_goal(goal):
         else:
             return []
     else:
-
         # classify angles - angles, angles + angles - const, angles - const, angles / angles - const,
         # lengths - lenghs, lengths + lengths - const, lengths - const, lengths / lengths - const, length/length - length/length 
         res = []

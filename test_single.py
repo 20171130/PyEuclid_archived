@@ -43,8 +43,11 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     proof_generator.max_equation_length_perstep = 20
     engine = Engine(state, deductive_database, algebraic_system)
+    # Length_b_d/Length_d_f - Length_d_e/Length_b_d
+    state.goal = Length(Point('b'),Point('d'))/Length(Point('d'),Point('f')) - Length(Point('d'),Point('e'))/Length(Point('b'),Point('d'))
     t0 = time.time()
     engine.run()
+    breakpoint()
     # while True:
     #     engine.search(depth=1)
     

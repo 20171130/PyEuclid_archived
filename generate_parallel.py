@@ -11,6 +11,7 @@ from pyeuclid.formalization.state import State
 from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.translation import get_constructions_from_goal
 from pyeuclid.engine.deductive_database import DeductiveDatabase
+from pyeuclid.engine.inference_rule import InferenceRule
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
@@ -124,11 +125,11 @@ def generate_single_problem(rank, output_dir, problem_id):
     i = 0
     samples_with_auxiliary = 0
     proof_generator = ProofGenerator(state)
-    dd_derived = list(state.dd_conclusions) + list(state.relations)
+    conclusions = list(state.relations) + [eq for eq in state.equations if eq.sources and isinstance(eq.sources[0], InferenceRule)]
 
-    print(f"Rank {rank}: Problem {problem_id} - Processing {len(dd_derived)} relations")
+    print(f"Rank {rank}: Problem {problem_id} - Processing {len(conclusions)} relations")
 
-    for relation in dd_derived:
+    for relation in conclusions:
         proof_generator.run(relation)
 
         if isinstance(relation, Traced):

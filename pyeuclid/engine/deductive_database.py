@@ -358,7 +358,7 @@ class DeductiveDatabase():
                 conclusion.depth = self.state.current_depth
                 item.depth = self.state.current_depth
                 conclusions.append(conclusion)
-            self.state.add_conditions(conclusions, from_dd=True)
+            self.state.add_conditions(conclusions)
         if cnt > 3:
             if not self.state.silent:
                 self.state.logger.info(f"...and {cnt - 3} more.")
@@ -370,21 +370,23 @@ class DeductiveDatabase():
             if self.state.complete() is not None:
                 return False
             inner_applicable = self.get_applicable_theorems(self.inner_theorems)
-            self.state.current_depth += 0.001
             if len(inner_applicable) == 0:
                 break
 
             inner_closure = False
+            self.state.current_depth += 0.001
             self.apply(inner_applicable)
             
         if self.state.complete() is not None:
             return False
         
         applicable_theorems = self.get_applicable_theorems(self.outer_theorems)
-        self.state.current_depth += 0.001
-        self.apply(applicable_theorems)
-        
+
         if len(applicable_theorems) == 0 and inner_closure:
             if not self.state.silent:
                 self.state.logger.debug("Found Closure")
             return True
+
+        self.state.current_depth += 0.001
+        self.apply(applicable_theorems)
+        

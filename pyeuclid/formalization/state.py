@@ -28,7 +28,6 @@ class State:
         self.point2constructions = defaultdict(list)
         self.depth2conditions = defaultdict(list)
         self.condition2depth = defaultdict(int)
-        self.dd_conclusions = set()
 
         self.construction_num = 0
         self.current_depth = 0
@@ -68,23 +67,23 @@ class State:
             handler.setFormatter(formatter)
             self.logger.addHandler(handler)
         
-    def add_conditions(self, relations, from_dd=False):
+    def add_conditions(self, relations):
         if not isinstance(relations, Iterable):
             relations = [relations]
         for item in relations:
             if isinstance(item, Relation):
                 if self.diagram is not None:
                     assert self.diagram.numerical_check(item)
-                self.add_relation(item, from_dd)
+                self.add_relation(item)
             else:
                 if self.diagram is not None:
                     if isinstance(item, Traced):
                         assert self.diagram.numerical_check(item.expr)
                     else:
                         assert self.diagram.numerical_check(item)
-                self.add_equation(item, from_dd)
+                self.add_equation(item)
             
-    def add_relation(self, relation, from_dd=False):
+    def add_relation(self, relation):
         if relation in self.relations:
             return
         
@@ -95,9 +94,6 @@ class State:
         self.relations.add(relation)
         self.depth2conditions[self.current_depth].append(relation)
         self.condition2depth[relation] = self.current_depth
-
-        if from_dd:
-            self.dd_conclusions.add(relation)
         
     def add_point(self, *ps):
         for p in ps:
@@ -112,17 +108,10 @@ class State:
                         self.angles.add(Angle(p, point1, point))
                 self.points.add(p)
 
-    def add_equation(self, equation, from_dd=False):
+    def add_equation(self, equation):
         # allow redundant equations for neat proofs
         equation = Traced(equation, depth=self.current_depth)
-        if equation == 0:
-            return
-        if equation in self.equations:
-            if from_dd:
-                for other in self.equations:
-                    if other == equation:
-                        self.dd_conclusions.add(other)
-                        break
+        if equation == 0 or equation in self.equations:
             return
         
         quantities = equation.free_symbols
@@ -142,9 +131,6 @@ class State:
         self.equations.add(equation)
         self.depth2conditions[self.current_depth].append(equation)
         self.condition2depth[equation.expr] = self.current_depth
-
-        if from_dd:
-            self.dd_conclusions.add(equation)
 
     
     def categorize_variable(self): 
@@ -236,6 +222,8 @@ class State:
         
         for constructions in constructions_list:
             self.add_constructions(constructions)
+        
+        return constructions_list
  
     def complete(self):
         if not self.goal:

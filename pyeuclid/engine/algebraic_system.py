@@ -242,7 +242,7 @@ class AlgebraicSystem:
                 component = component + [rep]
             for a in range(len(component)):
                 for b in range(a+1, len(component)):
-                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"])
+                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"], redundant=True)
                     self.state.add_conditions(eqn)
 
         expr2components = {}
@@ -252,7 +252,7 @@ class AlgebraicSystem:
                 if len(expr.free_symbols) == 0 and expr != 1:
                     for a in tmp[x]:
                         for b in tmp[y]:
-                            eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"])
+                            eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"], redundant=True)
                             self.state.add_conditions(eqn)
 
                 if not expr in dic:
@@ -274,7 +274,7 @@ class AlgebraicSystem:
                         for b in tmp[y1]:
                             for c in tmp[x2]:
                                 for d in tmp[y2]:
-                                    eqn = Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"])
+                                    eqn = Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"], redundant=True)
                                     self.state.add_conditions(eqn)
 
         self.state.ratios = dic

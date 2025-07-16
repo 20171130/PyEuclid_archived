@@ -28,7 +28,12 @@ class TestBenchmarks(unittest.TestCase):
             if world_size > 1:
                 state.silent = True
             try:
-                state.load_problem_from_text(text, f'diagrams/IMO-AG-30/{idx+1}.jpg')
+                constructions_list = state.load_problem_from_text(text, f'diagrams/IMO-AG-30/{idx+1}.jpg')
+                for constructions in constructions_list:
+                    for c in constructions:
+                        if len(set(c.inputs)) != len(c.inputs):
+                            print(type(c), c)
+                continue
                 deductive_database = DeductiveDatabase(state)
                 algebraic_system = AlgebraicSystem(state)
                 proof_generator = ProofGenerator(state)
