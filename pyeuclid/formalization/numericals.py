@@ -709,6 +709,9 @@ def calculate_length(a, b):
     return a.distance(b)
 
 def check_collinear(points):
+    if len(set(points)) < 3:
+        return True
+    points = list(set(points))
     a, b = points[:2]
     l = Line(a, b)
     for p in points[2:]:

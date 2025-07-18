@@ -277,7 +277,7 @@ class State:
                 if not item in self.relations:
                     return False
             elif isinstance(item, Relation):
-                if item.negated and item in self.relations: # only positive relation in the relations
+                if item.negated and Not(item) in self.relations:
                     return False
                 elif not item.negated and not item in self.relations:
                     return False

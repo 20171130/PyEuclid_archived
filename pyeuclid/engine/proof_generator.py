@@ -526,14 +526,3 @@ class ProofGenerator:
             assert source == "length_ratio"
             equations = length_ratio
         return try_find(equations, conclusion)
-    
-    def find_end_nodes(self):
-        parent_nodes = set()
-        for sources in self.proof_dict.values():
-            if sources:
-                parent_nodes.update(sources)
-
-        all_nodes = set(self.proof_dict.keys())
-        end_nodes = all_nodes - parent_nodes
-        
-        return list(end_nodes)

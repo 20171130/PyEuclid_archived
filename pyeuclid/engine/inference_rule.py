@@ -1784,7 +1784,7 @@ class AlphaGeometry7(InferenceRule):
         self.f = f
 
     def condition(self):
-        return Midpoint(self.e, self.a, self.b), Midpoint(self.f, self.a, self.c), *Different(self.b, self.c), *Different(self.e, self.f), Lt(self.b, self.c)
+        return Midpoint(self.e, self.a, self.b), Midpoint(self.f, self.a, self.c), Not(Collinear(self.a, self.b, self.c)), *Different(self.b, self.c), *Different(self.e, self.f), Lt(self.b, self.c)
 
     def conclusion(self):
         return Parallel(self.e, self.f, self.b, self.c), Similar(self.a, self.e, self.f, self.a, self.b, self.c)
