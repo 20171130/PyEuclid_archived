@@ -91,7 +91,7 @@ class AlgebraicSystem:
             return solutions.pop()
         return None
 
-    def elim(self, equations, var_types):        
+    def elim(self, equations, var_types, remove_redundant=True):        
         free_vars = []
         raw_equations = equations
         equations = [item.expr for item in equations]
@@ -105,7 +105,8 @@ class AlgebraicSystem:
         for i, eqn in enumerate(equations):
             eqn = self.process_equation(eqn, check=True)
             if eqn == 0:
-                raw_equations[i].redundant = True
+                if remove_redundant:
+                    raw_equations[i].redundant = True
                 continue
             symbols = list(eqn.free_symbols)
             symbols.sort(key=lambda x: str(x))
@@ -131,7 +132,8 @@ class AlgebraicSystem:
                 exprs[var] = expr
             elif check_equalities(expr-exprs[var]):  # redundant equation
                 equations[i] = sympy.sympify(0)
-                raw_equations[i].redundant = True
+                if remove_redundant:
+                    raw_equations[i].redundant = True
                 continue
             else:
                 breakpoint()  # contradiction
@@ -165,7 +167,7 @@ class AlgebraicSystem:
         for eqs, source in (angle_linear, "angle_linear"),  (length_ratio, "length_ratio"):
             free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
             solved_vars.update(solved)
-        free, solved = self.elim(length_linear, var_types)
+        free, solved = self.elim(length_linear, var_types, remove_redundant=False)
         self.state.current_depth += 0.001
         for l1, v1 in solved.items():
             if len(v1.free_symbols) == 0:
@@ -289,7 +291,7 @@ class AlgebraicSystem:
                 component = component + [rep]
             for a in range(len(component)):
                 for b in range(a+1, len(component)):
-                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"])
+                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"], redundant=True)
                     self.state.add_conditions(eqn)
         
         angle_keys = list(tmp.keys())
@@ -308,7 +310,7 @@ class AlgebraicSystem:
                     component_x, component_y = tmp[x], tmp[y]
                     for a in range(len(component_x)):
                         for b in range(len(component_y)):
-                            eqn = Traced(component_x[a]+component_y[b]-expr, depth=self.state.current_depth, sources=["angle_linear"])
+                            eqn = Traced(component_x[a]+component_y[b]-expr, depth=self.state.current_depth, sources=["angle_linear"], redundant=True)
                             self.state.add_conditions(eqn)
         self.state.angle_sums = dic
 
