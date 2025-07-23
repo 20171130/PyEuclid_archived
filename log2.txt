@@ -1,1412 +1,1378 @@
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/20cf1236d8ad633bf71ffd96e0859c2c.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/5e8f1652a3486f39f04f11d9edd99cb4.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1a1eb9f967f6e160b950339e6a82d35b.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a54608cadceb965a82371ac7eebd6a4b.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4009d129e96c4cb337145f1d23fc5b88.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/805267215df0d7d63df613d6112ac906.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/638ff883ee89db240e0f27e4fa9b791d.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/82d5e8fa9facf1a8772537e0026a6041.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/550b703d6e7946d78968f538d9d5aa5d.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/ed10352cef0484162e9e766ddd70e289.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/11f65703814f2cf223d594388e340cf3.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/bf5acef135ebc86397b18335ea75b9ed.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/42a5629ff96d7f141daf03cfcede28d4.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/bc882d7a931074805de1a97973a3e97a.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/0c7f56473276934e199af1e496b34641.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/11b1c492a50b8d5c197ae617dfa5fa52.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/008f3762aa41796edbfdd0cc70e3dc71.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/f0e33720fc2cc68aea0c2b92453c8119.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/26a064299dd2bc766902fd25cb671b25.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1dd25640fc4a056ba103d51dce1814ab.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8302484d115232178be7c67519ae397b.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4275f07e30d992d34bbc4d7f565b53a0.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/28ce59149171644e94ba4d2a2474c19b.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/ed80f20af623385358981b22ad278f46.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/fcb7a2487ec7eaa5f75f87032772aaf7.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/5653bbc5837d93554eedebc701feeab7.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/e4379a0bf35b8328c2d4bb8b057afc90.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/73b65795627eca9c37b498a3f348998e.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/f8ddf6d41e1e82bfc9c41e26ce433550.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8a3ee98516e0fac949590797db42e68a.pkl...
-22 unsolved in 2.4945688247680664 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/2843304f7328581fc7edd893a8ff3cba.pkl...
-13 solved in 2.916289806365967 seconds
-13 proof generation runs in 0.12390828132629395
+22 unsolved in 2.626946210861206 seconds
+13 solved in 2.8551130294799805 seconds
+13 proof generation runs in 0.1368412971496582
 Proof steps:  5
 Max condition number:  3
 Average condition number:  2.2
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a231010996334860bf03194993e5bd8c.pkl...
-1 solved in 3.7290563583374023 seconds
-1 proof generation runs in 0.06927299499511719
-Proof steps:  7
+1 solved in 3.554945230484009 seconds
+1 proof generation runs in 0.08310365676879883
+Proof steps:  9
 Max condition number:  5
-Average condition number:  2.4285714285714284
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/944f3857047eab2aec77c67d7f9f12d0.pkl...
-24 solved in 5.800930500030518 seconds
-24 proof generation runs in 0.09634733200073242
-Proof steps:  7
-Max condition number:  6
-Average condition number:  2.4285714285714284
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/842991dfff6b9c303c40c8adb094e0dd.pkl...
-28 solved in 6.054361343383789 seconds
-28 proof generation runs in 0.024255990982055664
+Average condition number:  2.2222222222222223
+28 solved in 5.875491142272949 seconds
+28 proof generation runs in 0.023193359375
 Proof steps:  9
 Max condition number:  4
 Average condition number:  1.8888888888888888
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/d51beba787ef24cd6a217fdb3f7309ee.pkl...
-19 solved in 6.924137115478516 seconds
-19 proof generation runs in 0.07821488380432129
+24 solved in 6.3981218338012695 seconds
+19 solved in 6.902223110198975 seconds
+10 solved in 6.889897584915161 seconds
+19 proof generation runs in 0.10089635848999023
 Proof steps:  9
 Max condition number:  5
 Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1bb2e1215edc4e68b2869317a84574c9.pkl...
-52 solved in 4.2627294063568115 seconds
-20 solved in 7.046926259994507 seconds
-52 proof generation runs in 0.0965580940246582
-Proof steps:  12
-Max condition number:  4
-Average condition number:  2.0
-20 proof generation runs in 0.13016843795776367
+52 solved in 4.15857195854187 seconds
+52 proof generation runs in 0.12314319610595703
 Proof steps:  13
 Max condition number:  4
-Average condition number:  1.8461538461538463
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8dca095dfb88e95f5f7229f4b89a6862.pkl...
-10 solved in 7.19572377204895 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/45000a65dd812e034bb972abef7c2ef4.pkl...
-18 solved in 7.650767803192139 seconds
-18 proof generation runs in 0.9627127647399902
-Proof steps:  20
+Average condition number:  2.0
+20 solved in 7.17473840713501 seconds
+20 proof generation runs in 0.17675113677978516
+Proof steps:  13
+Max condition number:  4
+Average condition number:  1.9230769230769231
+18 solved in 7.8786516189575195 seconds
+18 proof generation runs in 0.185441255569458
+Proof steps:  17
 Max condition number:  6
-Average condition number:  2.25
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/955fb71c55fb49a3f4abf796fee8cf77.pkl...
-21 unsolved in 9.309999942779541 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/04212a148511864597cbca33bbcf916d.pkl...
-27 solved in 9.853177070617676 seconds
-27 proof generation runs in 0.13170385360717773
+Average condition number:  2.0
+21 unsolved in 9.772475957870483 seconds
+27 solved in 9.88430905342102 seconds
+27 proof generation runs in 0.15785813331604004
 Proof steps:  16
 Max condition number:  3
 Average condition number:  1.8125
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/6c76ddab1277335e42e9ab2b66e2dae9.pkl...
-43 solved in 6.629422426223755 seconds
-43 proof generation runs in 0.10874605178833008
-Proof steps:  14
+43 solved in 6.834763526916504 seconds
+43 proof generation runs in 0.10371947288513184
+Proof steps:  15
 Max condition number:  4
-Average condition number:  1.9285714285714286
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/c8e2588c0b9abd41ce827ec0649d3ed9.pkl...
-50 solved in 2.7767739295959473 seconds
-50 proof generation runs in 0.05012679100036621
-Proof steps:  6
-Max condition number:  6
-Average condition number:  2.1666666666666665
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/5d3644f289b6416627148045a804a8b8.pkl...
-48 solved in 2.033352851867676 seconds
-48 proof generation runs in 0.03920245170593262
+Average condition number:  1.8
+48 solved in 2.19655442237854 seconds
+50 solved in 2.7760612964630127 seconds
+48 proof generation runs in 0.049126386642456055
 Proof steps:  10
 Max condition number:  5
 Average condition number:  2.1
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a4bc8cc2010ca30594a450fd4d2dbe2f.pkl...
-0 solved in 11.510010480880737 seconds
-0 proof generation runs in 0.14846420288085938
+50 proof generation runs in 0.06404948234558105
+Proof steps:  6
+Max condition number:  6
+Average condition number:  2.1666666666666665
+0 solved in 11.626189470291138 seconds
+23 solved in 11.63690733909607 seconds
+16 solved in 11.664424896240234 seconds
+23 proof generation runs in 0.1437385082244873
+Proof steps:  25
+Max condition number:  4
+Average condition number:  1.72
+0 proof generation runs in 0.19834423065185547
 Proof steps:  15
 Max condition number:  6
 Average condition number:  2.2
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/de2b4ca2c6b9444b7bb18e63a9a45d8d.pkl...
-16 solved in 11.991619110107422 seconds
-5 solved in 12.233298063278198 seconds
-54 solved in 5.896266937255859 seconds
-5 proof generation runs in 0.14371633529663086
+5 solved in 13.611032485961914 seconds
+31 solved in 9.464279174804688 seconds
+5 proof generation runs in 0.177520751953125
 Proof steps:  15
 Max condition number:  6
 Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1800b9dac39727ab13193efcfc82113c.pkl...
-23 solved in 12.773309230804443 seconds
-23 proof generation runs in 0.04957437515258789
+58 solved in 8.131619930267334 seconds
+29 solved in 15.093237400054932 seconds
+29 proof generation runs in 0.1506671905517578
 Proof steps:  24
-Max condition number:  2
-Average condition number:  1.6666666666666667
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/7834f41585e3d881c0a8f8630cec3716.pkl...
-31 solved in 9.63195252418518 seconds
-58 solved in 7.822937250137329 seconds
-58 proof generation runs in 0.19895696640014648
-Proof steps:  10
-Max condition number:  6
-Average condition number:  2.9
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/fbbd4f68ceea662744274a2c17ff41ac.pkl...
-57 solved in 4.636003732681274 seconds
-57 proof generation runs in 0.06968808174133301
-Proof steps:  8
-Max condition number:  6
-Average condition number:  2.25
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/7532564909c4ada54d6b7f066e65fbd4.pkl...
-51 solved in 5.523657560348511 seconds
-51 proof generation runs in 0.1218726634979248
-Proof steps:  14
-Max condition number:  6
-Average condition number:  1.7142857142857142
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/b9a02ebe53f1267246fad187f466fdf9.pkl...
-12 solved in 15.689928531646729 seconds
-12 proof generation runs in 0.15435171127319336
+Max condition number:  4
+Average condition number:  1.7083333333333333
+57 solved in 4.76445746421814 seconds
+24 proof generation runs in 8.936980247497559
+Proof steps:  9
+Max condition number:  5
+Average condition number:  2.4444444444444446
+12 solved in 15.920844316482544 seconds
+58 proof generation runs in 1.5094358921051025
+Proof steps:  13
+Max condition number:  5
+Average condition number:  2.6153846153846154
+51 solved in 5.7866456508636475 seconds
+12 proof generation runs in 0.19952845573425293
 Proof steps:  12
 Max condition number:  6
 Average condition number:  2.0833333333333335
-29 solved in 16.00854229927063 seconds
-7 solved in 15.874587535858154 seconds
-29 proof generation runs in 0.049257516860961914
-Proof steps:  18
-Max condition number:  2
-Average condition number:  1.6111111111111112
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/adc530369ca4743befb8d7c026a5f02e.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1c3d566d98a5cedcf15a719df95f2d15.pkl...
-54 proof generation runs in 4.710839033126831
-Proof steps:  20
+51 proof generation runs in 0.19515323638916016
+Proof steps:  17
 Max condition number:  6
-Average condition number:  1.9
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/6f8d1054ec25ff6024704b12af5133a9.pkl...
-49 solved in 9.860748767852783 seconds
-49 proof generation runs in 0.009362459182739258
+Average condition number:  1.7058823529411764
+25 solved in 17.27618932723999 seconds
+25 proof generation runs in 0.389202356338501
+Proof steps:  10
+Max condition number:  6
+Average condition number:  2.3
+57 proof generation runs in 2.243436098098755
+Proof steps:  10
+Max condition number:  5
+Average condition number:  2.1
+49 solved in 10.005435943603516 seconds
+49 proof generation runs in 0.010056018829345703
 Proof steps:  8
 Max condition number:  3
 Average condition number:  1.875
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/6e7e9be1b6a7afbcc863a4a8290e709f.pkl...
-80 solved in 6.286662578582764 seconds
-25 solved in 17.970261096954346 seconds
-25 proof generation runs in 0.2503163814544678
-Proof steps:  9
-Max condition number:  6
-Average condition number:  2.4444444444444446
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/34cf3b4a8def57e38d6a4a81e462125a.pkl...
-73 solved in 7.83793830871582 seconds
-59 solved in 2.78775691986084 seconds
-73 proof generation runs in 0.9797167778015137
+7 solved in 17.962021589279175 seconds
+80 solved in 6.600151777267456 seconds
+59 solved in 2.900956869125366 seconds
+53 solved in 6.331915616989136 seconds
+73 solved in 7.948256015777588 seconds
+73 proof generation runs in 1.3714406490325928
 Proof steps:  23
 Max condition number:  6
-Average condition number:  1.9130434782608696
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/0f529421efbb98a68fd645b7d5486d69.pkl...
-53 solved in 7.084489822387695 seconds
-53 proof generation runs in 0.12863731384277344
-Proof steps:  13
-Max condition number:  4
-Average condition number:  1.8461538461538463
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4fab0e8c37ea9c5bad84c3e306f1c539.pkl...
-10 proof generation runs in 14.170714378356934
+Average condition number:  2.0434782608695654
+53 proof generation runs in 1.8084666728973389
 Proof steps:  15
-Max condition number:  6
-Average condition number:  2.533333333333333
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/6c42b2aeb4a9f4b8ea479ba7ab1a02de.pkl...
-59 proof generation runs in 2.117532730102539
+Max condition number:  5
+Average condition number:  2.1333333333333333
+59 proof generation runs in 2.866225242614746
+26 solved in 21.519686698913574 seconds
 Proof steps:  7
 Max condition number:  6
-Average condition number:  2.5714285714285716
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8e9d1c3258a41958e7c7900d148d64ed.pkl...
-30 solved in 10.22672414779663 seconds
-30 proof generation runs in 0.1882634162902832
+Average condition number:  2.4285714285714284
+54 solved in 5.783023118972778 seconds
+30 solved in 10.086203575134277 seconds
+30 proof generation runs in 0.2494199275970459
 Proof steps:  17
 Max condition number:  5
 Average condition number:  1.7647058823529411
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/805b2c478e0a00d04583f532fbb154df.pkl...
-42 solved in 7.275475978851318 seconds
-26 solved in 24.55694079399109 seconds
-87 solved in 8.974554777145386 seconds
-87 proof generation runs in 0.0560758113861084
-Proof steps:  17
-Max condition number:  6
-Average condition number:  2.5294117647058822
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/fc45dfde2e408838ce2abe2b00bd1def.pkl...
-26 proof generation runs in 0.5202369689941406
-Proof steps:  26
-Max condition number:  6
-Average condition number:  1.8461538461538463
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/c948f99b0765f41f2f13fcfb5b52685d.pkl...
-82 solved in 17.48431634902954 seconds
-82 proof generation runs in 0.06589150428771973
+42 solved in 7.000843524932861 seconds
+15 solved in 24.80423355102539 seconds
+82 solved in 17.583519458770752 seconds
+55 solved in 7.354513883590698 seconds
+82 proof generation runs in 0.06001853942871094
 Proof steps:  21
 Max condition number:  6
 Average condition number:  2.380952380952381
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/82b3265a2c91f71380738679f810be2d.pkl...
-60 solved in 2.7552525997161865 seconds
-60 proof generation runs in 0.009607553482055664
-Proof steps:  3
-Max condition number:  4
-Average condition number:  2.3333333333333335
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4e31ddc6a89b0cbfeb65376ec7f298f5.pkl...
-55 solved in 7.513100862503052 seconds
-55 proof generation runs in 0.07183575630187988
+55 proof generation runs in 0.09567379951477051
 Proof steps:  7
 Max condition number:  5
 Average condition number:  2.4285714285714284
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4b50fae4cb4376cf028c38c74581b531.pkl...
-31 proof generation runs in 12.418320894241333
-Proof steps:  12
+60 solved in 2.654858350753784 seconds
+60 proof generation runs in 0.010599851608276367
+Proof steps:  3
+Max condition number:  4
+Average condition number:  2.3333333333333335
+10 proof generation runs in 19.42814612388611
+Proof steps:  14
 Max condition number:  6
-Average condition number:  2.1666666666666665
-117 solved in 1.0888655185699463 seconds
-117 proof generation runs in 0.0019948482513427734
+Average condition number:  2.0
+3 solved in 26.45862603187561 seconds
+87 solved in 9.108367919921875 seconds
+87 proof generation runs in 0.058747053146362305
+Proof steps:  17
+Max condition number:  6
+Average condition number:  2.5294117647058822
+54 proof generation runs in 6.345541000366211
+Proof steps:  15
+Max condition number:  6
+Average condition number:  1.9333333333333333
+117 solved in 1.1205534934997559 seconds
+117 proof generation runs in 0.001970052719116211
 Proof steps:  2
 Max condition number:  3
 Average condition number:  2.5
-16 proof generation runs in 14.35827922821045
-Proof steps:  15
+35 solved in 14.733655452728271 seconds
+35 proof generation runs in 0.236250638961792
+Proof steps:  9
+Max condition number:  4
+Average condition number:  2.0
+112 solved in 3.4998667240142822 seconds
+112 proof generation runs in 0.08033156394958496
+Proof steps:  11
+Max condition number:  3
+Average condition number:  1.4545454545454546
+83 solved in 8.596354484558105 seconds
+8 solved in 31.68592357635498 seconds
+83 proof generation runs in 2.05049467086792
+Proof steps:  21
 Max condition number:  6
-Average condition number:  2.066666666666667
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a1f4f93099d23b2f34f40a2c74a9983a.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/07ba87046b86a6f5fb843cbbe97cfd6c.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8f9de77ea2bbe07a18f061402f23514b.pkl...
-15 solved in 26.498921632766724 seconds
-40 solved in 5.605139255523682 seconds
-40 proof generation runs in 0.02594590187072754
+Average condition number:  2.2857142857142856
+40 solved in 5.185906648635864 seconds
+40 proof generation runs in 0.013629913330078125
 Proof steps:  6
 Max condition number:  4
 Average condition number:  2.5
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/2897eef33798cbc3faef483ec0362eed.pkl...
-35 solved in 14.830018281936646 seconds
-35 proof generation runs in 0.18650245666503906
-Proof steps:  9
-Max condition number:  4
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/d53f9c7a78fafbb22fedd2e5b1e60540.pkl...
-80 proof generation runs in 10.744728565216064
-Proof steps:  10
-Max condition number:  6
-Average condition number:  2.2
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/f239651e2c40f9aab25f8948c2efe892.pkl...
-7 proof generation runs in 13.1745126247406
+8 proof generation runs in 0.846489429473877
+Proof steps:  16
+Max condition number:  5
+Average condition number:  1.6875
+31 proof generation runs in 19.109724283218384
 Proof steps:  12
 Max condition number:  6
-Average condition number:  2.25
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/ea0ee70f996599f2bdc3f9a49e4c0a47.pkl...
-56 solved in 3.7522847652435303 seconds
-8 solved in 29.59268045425415 seconds
-112 solved in 3.5804085731506348 seconds
-112 proof generation runs in 0.08525443077087402
-Proof steps:  15
-Max condition number:  5
-Average condition number:  1.7333333333333334
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a2fe54d2cc9e2bfd5f07bd52cebdbb8d.pkl...
-70 solved in 1.7909541130065918 seconds
-70 proof generation runs in 0.008817434310913086
-Proof steps:  9
-Max condition number:  4
-Average condition number:  2.0
-83 solved in 8.848196268081665 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8effdbd1107cbc30c81d01beee64032a.pkl...
-8 proof generation runs in 0.6265575885772705
-Proof steps:  15
-Max condition number:  5
-Average condition number:  1.6666666666666667
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/bb8b998b45b670943097d10e2b873719.pkl...
-38 solved in 0.5787765979766846 seconds
-38 proof generation runs in 0.012843132019042969
+Average condition number:  2.1666666666666665
+16 proof generation runs in 21.194058418273926
+Proof steps:  16
+Max condition number:  6
+Average condition number:  2.125
+38 solved in 0.5888063907623291 seconds
+38 proof generation runs in 0.014728069305419922
 Proof steps:  5
 Max condition number:  4
 Average condition number:  1.8
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a17d3de19db8e78dea3dada03d2738f0.pkl...
-83 proof generation runs in 1.3754596710205078
-Proof steps:  23
-Max condition number:  6
-Average condition number:  2.1739130434782608
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/20a8eeea273f6d99da23281b6acbfe5e.pkl...
-3 solved in 31.796801567077637 seconds
-56 proof generation runs in 2.529668092727661
+103 solved in 13.273425102233887 seconds
+70 solved in 1.7231669425964355 seconds
+70 proof generation runs in 0.010089635848999023
 Proof steps:  9
+Max condition number:  4
+Average condition number:  2.0
+113 solved in 3.1235013008117676 seconds
+113 proof generation runs in 0.2503178119659424
+Proof steps:  6
 Max condition number:  6
-Average condition number:  2.6666666666666665
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/6b650f97cad722010764736ca7704356.pkl...
-84 solved in 15.490141868591309 seconds
-84 proof generation runs in 0.0136260986328125
-Proof steps:  7
-Max condition number:  2
-Average condition number:  1.8571428571428572
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1119b860ca34b229edc310ee75ac8fab.pkl...
-65 solved in 5.411525011062622 seconds
-65 proof generation runs in 0.07579541206359863
+Average condition number:  2.5
+88 solved in 19.07011580467224 seconds
+88 proof generation runs in 0.028881311416625977
+Proof steps:  10
+Max condition number:  4
+Average condition number:  2.0
+103 proof generation runs in 1.8521604537963867
+Proof steps:  14
+Max condition number:  4
+Average condition number:  1.7142857142857142
+65 solved in 6.038026809692383 seconds
+65 proof generation runs in 0.08451437950134277
 Proof steps:  9
 Max condition number:  6
 Average condition number:  2.2222222222222223
-61 solved in 7.275578498840332 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/165d14bed6265ddb1e52a97ff009f893.pkl...
-88 solved in 19.14647340774536 seconds
-88 proof generation runs in 0.02754950523376465
-Proof steps:  10
+7 proof generation runs in 18.892963409423828
+Proof steps:  13
 Max condition number:  4
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/0d7aca1aa5dd2abcbcea65b78b8271e3.pkl...
-103 solved in 14.581149578094482 seconds
-61 proof generation runs in 0.7549335956573486
-Proof steps:  10
-Max condition number:  4
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/3cddfa47473dbfd86608993dc6392438.pkl...
-110 solved in 6.50693941116333 seconds
-110 proof generation runs in 0.17542386054992676
-Proof steps:  21
-Max condition number:  5
-Average condition number:  1.7619047619047619
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/e499e3cfe46e4461dc2420a9ad31b56b.pkl...
-113 solved in 3.5712058544158936 seconds
-113 proof generation runs in 0.19342660903930664
-Proof steps:  6
-Max condition number:  6
-Average condition number:  2.5
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/0f2093388ad7d4bcbc421f718c695caf.pkl...
-103 proof generation runs in 1.318880319595337
-Proof steps:  14
-Max condition number:  5
-Average condition number:  1.7142857142857142
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a083aa0e926f16736ef7c6b3e7d35849.pkl...
-79 solved in 19.364388942718506 seconds
-118 solved in 2.762611150741577 seconds
-118 proof generation runs in 0.041100502014160156
+Average condition number:  2.1538461538461537
+79 solved in 18.937833547592163 seconds
+118 solved in 2.8348610401153564 seconds
+118 proof generation runs in 0.04351544380187988
 Proof steps:  9
 Max condition number:  3
 Average condition number:  2.3333333333333335
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/419ee5f23bd75456d26b587c15346623.pkl...
-114 solved in 4.6704652309417725 seconds
-68 solved in 7.358678579330444 seconds
-68 proof generation runs in 0.15010833740234375
-Proof steps:  15
+61 solved in 7.096704483032227 seconds
+90 solved in 14.154040098190308 seconds
+61 proof generation runs in 1.073291301727295
+Proof steps:  10
 Max condition number:  5
-Average condition number:  1.8
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/5c6fbcc80e8e64c38ae7278dfeafb435.pkl...
-95 solved in 5.3223888874053955 seconds
-95 proof generation runs in 0.07816600799560547
+Average condition number:  2.2
+68 solved in 7.3288116455078125 seconds
+68 proof generation runs in 0.19431114196777344
+Proof steps:  15
+Max condition number:  6
+Average condition number:  1.8666666666666667
+95 solved in 5.509047985076904 seconds
+95 proof generation runs in 0.11010384559631348
 Proof steps:  5
 Max condition number:  3
 Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/c094cd723510b9d71011032dd3f4344f.pkl...
-90 solved in 14.659663438796997 seconds
-114 proof generation runs in 3.1252074241638184
-Proof steps:  17
-Max condition number:  5
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8512cffd226157c31ad1ac5eb6a4cf65.pkl...
-89 solved in 20.753628253936768 seconds
-89 proof generation runs in 0.08778548240661621
+89 solved in 20.85928511619568 seconds
+89 proof generation runs in 0.09038305282592773
 Proof steps:  24
 Max condition number:  3
 Average condition number:  1.8333333333333333
-100 solved in 12.254812955856323 seconds
-147 solved in 16.006192922592163 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/7279e054995a89584aa92ff388deb471.pkl...
-100 proof generation runs in 0.4023935794830322
-Proof steps:  17
-Max condition number:  5
-Average condition number:  1.8823529411764706
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/6f2ae629d767383df6429afc83ae8d76.pkl...
-42 proof generation runs in 20.196272373199463
-Proof steps:  17
-Max condition number:  6
-Average condition number:  2.176470588235294
-148 solved in 5.56657338142395 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8f9c73ba87f6c7ab98fc33dc1c3a0147.pkl...
-148 proof generation runs in 0.1477038860321045
+84 solved in 14.937878847122192 seconds
+84 proof generation runs in 0.017045259475708008
 Proof steps:  7
-Max condition number:  6
-Average condition number:  2.142857142857143
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1372d867a968b8fec698bd8c560b3c92.pkl...
-78 solved in 33.293951749801636 seconds
-78 proof generation runs in 0.09413838386535645
-Proof steps:  23
-Max condition number:  4
-Average condition number:  1.7826086956521738
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/553d1a981fea0c0d48370aaab8988963.pkl...
-15 proof generation runs in 19.81655526161194
-Proof steps:  15
-Max condition number:  5
-Average condition number:  2.2
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/59fbff2f3c7046515ac423f198091e46.pkl...
-72 solved in 2.7730906009674072 seconds
-72 proof generation runs in 0.05599403381347656
-Proof steps:  7
-Max condition number:  5
-Average condition number:  2.142857142857143
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/45a0a3cc1ed6beb3a8d4456bf24357c1.pkl...
-6 solved in 47.609790563583374 seconds
-37 solved in 18.115095615386963 seconds
-37 proof generation runs in 0.41290879249572754
-Proof steps:  36
-Max condition number:  3
-Average condition number:  1.6666666666666667
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a1dc70b16118bfc0f0e13dfe06defe71.pkl...
-108 solved in 3.282731533050537 seconds
-108 proof generation runs in 0.012309074401855469
-Proof steps:  3
-Max condition number:  3
-Average condition number:  2.3333333333333335
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/b25d64dcb1a98b277dad8af2a65b6aa2.pkl...
-178 solved in 4.6347033977508545 seconds
-178 proof generation runs in 0.056494712829589844
-Proof steps:  11
-Max condition number:  5
-Average condition number:  1.7272727272727273
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/04633bc2500ac70c67b8d456dd4e7446.pkl...
-91 solved in 14.103101253509521 seconds
-142 solved in 19.35886859893799 seconds
-91 proof generation runs in 0.3708324432373047
-Proof steps:  23
-Max condition number:  6
-Average condition number:  2.0434782608695654
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a1b8a3b700937b7a781068cde3a830c2.pkl...
-98 solved in 10.649728536605835 seconds
-98 proof generation runs in 0.2074418067932129
-Proof steps:  7
-Max condition number:  6
-Average condition number:  2.2857142857142856
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/57401431c85931d0130b94c3772ea25e.pkl...
-46 solved in 23.97506809234619 seconds
-102 solved in 3.1384775638580322 seconds
-102 proof generation runs in 0.062337636947631836
-Proof steps:  8
-Max condition number:  4
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/ff624206a53964b9beff98c1faf52a02.pkl...
-119 solved in 8.459625720977783 seconds
-208 unsolved in 2.544320583343506 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 54.677s
-
-OK
-85 solved in 25.9361789226532 seconds
-90 proof generation runs in 11.643225193023682
-Proof steps:  22
-Max condition number:  5
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/6e68a32c42a0d756f7dd01746aca657c.pkl...
-85 proof generation runs in 0.2727181911468506
-Proof steps:  23
-Max condition number:  5
-Average condition number:  2.0434782608695654
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a192c158678128f144b4c08128be67fd.pkl...
-119 proof generation runs in 1.4159746170043945
-Proof steps:  26
-Max condition number:  6
-Average condition number:  2.076923076923077
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/b99f76a658926fd47934dbc69f4cc9cb.pkl...
-45 solved in 7.034578084945679 seconds
-45 proof generation runs in 0.008021116256713867
-Proof steps:  4
-Max condition number:  4
-Average condition number:  2.25
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/2145731e9ba04dd32025e38b9549d7ff.pkl...
-17 solved in 54.53134775161743 seconds
-115 solved in 1.3474977016448975 seconds
-115 proof generation runs in 0.03937864303588867
-Proof steps:  6
-Max condition number:  6
-Average condition number:  2.5
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/69d765e4f8a6f9dd00d36312226d096c.pkl...
-125 solved in 14.325146198272705 seconds
-17 proof generation runs in 0.5821921825408936
-Proof steps:  12
-Max condition number:  3
-Average condition number:  1.5
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/241a609bd5b345102859178edcd7e0ce.pkl...
-67 solved in 7.536045074462891 seconds
-2 solved in 56.368266105651855 seconds
-2 proof generation runs in 0.02709341049194336
-Proof steps:  5
-Max condition number:  4
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/2d525532c5efcb44eadc1cafbeb487f7.pkl...
-47 solved in 1.3222110271453857 seconds
-47 proof generation runs in 0.009716033935546875
-Proof steps:  7
-Max condition number:  4
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/41c400db9f416981db90878dd9815dff.pkl...
-9 solved in 57.47033500671387 seconds
-9 proof generation runs in 0.027744293212890625
-Proof steps:  12
-Max condition number:  3
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/0913b9ab20ef31c9b0d37435d1c51bcf.pkl...
-46 proof generation runs in 6.766256093978882
-Proof steps:  14
-Max condition number:  6
-Average condition number:  1.7857142857142858
-121 solved in 7.253248453140259 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/3e73d5b624374f9f212482cdc65161f3.pkl...
-86 solved in 25.599512100219727 seconds
-86 proof generation runs in 0.06432223320007324
-Proof steps:  17
-Max condition number:  4
-Average condition number:  2.176470588235294
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/56fcb02f992777cb884d21721ff6cab5.pkl...
-67 proof generation runs in 2.6241114139556885
-Proof steps:  26
-Max condition number:  6
-Average condition number:  2.1153846153846154
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/71a815db1b0e7c20ee19ae27786b98f2.pkl...
-75 solved in 4.500385046005249 seconds
-75 proof generation runs in 0.05158734321594238
-Proof steps:  8
-Max condition number:  3
-Average condition number:  1.5
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/ce27fb01164cead659490d65a6db9ed5.pkl...
-140 solved in 24.430819988250732 seconds
-39 solved in 3.682162046432495 seconds
-39 proof generation runs in 0.014025688171386719
-Proof steps:  9
-Max condition number:  3
-Average condition number:  1.8888888888888888
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/289be8ded3330529f8c5e5889621f1d1.pkl...
-143 solved in 25.980974674224854 seconds
-143 proof generation runs in 0.5775022506713867
-Proof steps:  16
-Max condition number:  3
-Average condition number:  1.6875
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/dedd475bfcda7e6121cfb755ba4f8cd0.pkl...
-116 solved in 4.561618089675903 seconds
-116 proof generation runs in 0.06275558471679688
-Proof steps:  13
 Max condition number:  2
-Average condition number:  1.5384615384615385
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/7f36f9092c01be832fb4dbaaa5152c65.pkl...
-145 solved in 9.525442600250244 seconds
-145 proof generation runs in 0.021021127700805664
-Proof steps:  10
-Max condition number:  4
-Average condition number:  1.8
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/780c477958ef8349414afa4988ff2263.pkl...
-144 solved in 23.13253402709961 seconds
-144 proof generation runs in 0.042287349700927734
-Proof steps:  16
-Max condition number:  4
-Average condition number:  1.75
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8344ec121d264753662a11506ce04ea8.pkl...
-173 unsolved in 2.5990607738494873 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/dd8b558c9d35adb7dabc9f90192f68e9.pkl...
-120 solved in 13.628568172454834 seconds
-69 solved in 5.021569013595581 seconds
-120 proof generation runs in 0.3725459575653076
-Proof steps:  30
-Max condition number:  4
-Average condition number:  1.6
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/770b568dcd0dc9824b2e08b07beab188.pkl...
-174 solved in 1.7613294124603271 seconds
-174 proof generation runs in 0.022389650344848633
-Proof steps:  4
-Max condition number:  5
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/ca0a6f64047d87bb72364fd9d1552b7f.pkl...
-32 solved in 10.923349142074585 seconds
-147 proof generation runs in 25.68493103981018
-Proof steps:  30
-Max condition number:  4
-Average condition number:  1.9
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/2aee63bdbf31ff6cff8b02df722affe3.pkl...
-175 unsolved in 3.257220506668091 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a033adc8ee4c4bf4482c99d3c7e5053f.pkl...
-121 proof generation runs in 11.258437156677246
-Proof steps:  13
-Max condition number:  6
-Average condition number:  1.8461538461538463
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/26f27cc4007a94ac6c703126d03bf33b.pkl...
-76 solved in 10.74915885925293 seconds
-149 solved in 15.23221206665039 seconds
-76 proof generation runs in 0.17806673049926758
-Proof steps:  19
-Max condition number:  6
-Average condition number:  2.3157894736842106
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/b3507ce8a1218ae8ac4f65785ae3c54c.pkl...
-138 solved in 22.577733039855957 seconds
-204 solved in 4.039377689361572 seconds
-14 solved in 72.73859858512878 seconds
-138 proof generation runs in 0.6974356174468994
-Proof steps:  32
-Max condition number:  6
-Average condition number:  1.6875
-77 solved in 15.327719449996948 seconds
-77 proof generation runs in 0.025602102279663086
-Proof steps:  14
-Max condition number:  3
 Average condition number:  1.8571428571428572
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/7e7da928f82c319e6c586ddcff1305ae.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/d7a21c270997a3910b0c90fcc8213873.pkl...
-149 proof generation runs in 3.8748018741607666
-Proof steps:  28
-Max condition number:  6
-Average condition number:  1.9642857142857142
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/f519a3f80d1530873f288cef5d82a99e.pkl...
-204 proof generation runs in 1.0779519081115723
-Proof steps:  9
-Max condition number:  6
-Average condition number:  2.2222222222222223
-.
-----------------------------------------------------------------------
-Ran 1 test in 75.700s
-
-OK
-69 proof generation runs in 6.437394618988037
-Proof steps:  25
-Max condition number:  6
-Average condition number:  2.2
-97 solved in 14.203736066818237 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/ed45eeb1412eae66ebce10d4e913427c.pkl...
-14 proof generation runs in 1.0368573665618896
-Proof steps:  28
-Max condition number:  6
-Average condition number:  1.6785714285714286
-97 proof generation runs in 0.1243596076965332
-Proof steps:  9
-Max condition number:  8
-Average condition number:  3.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/2558f5d4796564e85ea0de4dff51a508.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/d8e42b98a657070d352e6f65388d4bf3.pkl...
-32 proof generation runs in 8.841279029846191
-Proof steps:  14
+147 solved in 15.107876300811768 seconds
+148 solved in 5.8218371868133545 seconds
+148 proof generation runs in 0.11672592163085938
+Proof steps:  7
 Max condition number:  6
 Average condition number:  2.142857142857143
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/292b4e707ca2097ee808a677898be12f.pkl...
-133 solved in 40.707629680633545 seconds
-205 unsolved in 9.02176308631897 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 80.732s
-
-OK
-105 solved in 19.506967306137085 seconds
-105 proof generation runs in 0.2674875259399414
-Proof steps:  18
-Max condition number:  6
-Average condition number:  2.111111111111111
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/7ed65740541581b0de7f0a9df5ba6a2f.pkl...
-79 proof generation runs in 42.79649901390076
-Proof steps:  24
-Max condition number:  6
-Average condition number:  1.9166666666666667
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4def6db0236924f305f1be7f869f6a49.pkl...
-150 solved in 12.41325306892395 seconds
-150 proof generation runs in 0.16808319091796875
-Proof steps:  15
-Max condition number:  5
-Average condition number:  2.2
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/d6ee161e23126794f2e22e71ae11d5e3.pkl...
-99 solved in 6.673545837402344 seconds
-99 proof generation runs in 0.014119625091552734
-Proof steps:  4
-Max condition number:  3
-Average condition number:  2.75
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/7945e9adaf01ce65f08c45528ebba7e5.pkl...
-62 solved in 5.8613810539245605 seconds
-168 solved in 10.014467477798462 seconds
-168 proof generation runs in 0.06584310531616211
-Proof steps:  10
-Max condition number:  3
-Average condition number:  1.7
-107 solved in 10.093296527862549 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/29f45f7abd2bd7f2a2f3f6e7944a9bec.pkl...
-107 proof generation runs in 0.2237412929534912
-Proof steps:  15
-Max condition number:  3
-Average condition number:  1.6666666666666667
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8b385fc1abfdb352ead264a2e4fae7b8.pkl...
-203 solved in 18.01992440223694 seconds
-140 proof generation runs in 24.532363414764404
-Proof steps:  19
-Max condition number:  6
-Average condition number:  1.8421052631578947
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/63bf71707e427b3b3793a9ae239eb2e5.pkl...
-203 proof generation runs in 0.4599184989929199
-Proof steps:  31
-Max condition number:  4
-Average condition number:  1.7419354838709677
-.
-----------------------------------------------------------------------
-Ran 1 test in 87.416s
-
-OK
-62 proof generation runs in 2.510209321975708
+100 solved in 11.533256769180298 seconds
+78 solved in 36.62205982208252 seconds
+78 proof generation runs in 0.0809783935546875
 Proof steps:  22
-Max condition number:  6
-Average condition number:  2.3636363636363638
-81 solved in 69.78318238258362 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/dde4ffc8906697ef9ece57d53c85a90b.pkl...
-81 proof generation runs in 0.12820029258728027
-Proof steps:  23
-Max condition number:  3
-Average condition number:  1.6521739130434783
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8518eb072d509cf99d931ea7fee13fb8.pkl...
-146 solved in 22.264231204986572 seconds
-146 proof generation runs in 0.18649005889892578
-Proof steps:  17
-Max condition number:  6
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/ccb1e511fc5f47729f251f7e5fcc93d0.pkl...
-127 solved in 14.680300235748291 seconds
-127 proof generation runs in 0.18019747734069824
-Proof steps:  9
 Max condition number:  4
-Average condition number:  2.2222222222222223
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/addcf6915556ffe169aeb365ca04c0e6.pkl...
-176 unsolved in 3.051708936691284 seconds
-106 solved in 20.130053997039795 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/86819dc9bf2d9d860fd41bace6bf5d0b.pkl...
-130 solved in 46.0035617351532 seconds
-11 solved in 90.24887537956238 seconds
-11 proof generation runs in 0.07002520561218262
-Proof steps:  12
-Max condition number:  2
-Average condition number:  1.5833333333333333
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/b8c6a00106c81f9ff61a1853336d461d.pkl...
-130 proof generation runs in 0.4716677665710449
-Proof steps:  21
-Max condition number:  5
-Average condition number:  1.8571428571428572
-44 solved in 16.125467538833618 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/895f3b7589192ccb377abadc31677132.pkl...
-106 proof generation runs in 3.6055502891540527
-Proof steps:  28
-Max condition number:  5
-Average condition number:  1.7142857142857142
-177 solved in 24.415494918823242 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/d7359a98f004895a60acf9621fd25b8b.pkl...
-109 solved in 13.35731816291809 seconds
-198 solved in 10.135900497436523 seconds
-198 proof generation runs in 0.08620333671569824
-Proof steps:  6
-Max condition number:  6
-Average condition number:  2.3333333333333335
-129 solved in 12.835992574691772 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/6d0062b8fb520e9c3abff082ac02680f.pkl...
-109 proof generation runs in 0.3973405361175537
-Proof steps:  18
-Max condition number:  6
-Average condition number:  2.1666666666666665
-129 proof generation runs in 0.16313743591308594
-Proof steps:  5
-Max condition number:  4
-Average condition number:  2.6
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/544cf84ee9e79ee26b8ed818de8f6eeb.pkl...
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/d3e374d7622e18113e6a0b06447487b4.pkl...
-92 solved in 9.569679021835327 seconds
-92 proof generation runs in 0.0430910587310791
-Proof steps:  13
-Max condition number:  4
-Average condition number:  2.076923076923077
-179 solved in 22.26072359085083 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/ffb262da6279b51bc9d5e943bc15cd73.pkl...
-151 solved in 26.549062252044678 seconds
-151 proof generation runs in 0.11339592933654785
-Proof steps:  11
-Max condition number:  4
-Average condition number:  2.090909090909091
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/770764ad44cdbb8308931db9ea0f0e2c.pkl...
-122 solved in 0.04918241500854492 seconds
-122 proof generation runs in 0.0007233619689941406
-Proof steps:  0
-Max condition number:  0
-Average condition number:  0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/95be87cbb5fa7c4836707107a3198927.pkl...
-170 solved in 11.142508029937744 seconds
-41 solved in 7.040759325027466 seconds
-41 proof generation runs in 0.08635187149047852
-Proof steps:  9
-Max condition number:  3
-Average condition number:  1.8888888888888888
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/f423356a9afa99371100872acfbb37d7.pkl...
-206 unsolved in 7.8172447681427 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 100.643s
-
-OK
-181 solved in 2.2847397327423096 seconds
-181 proof generation runs in 0.568587064743042
-Proof steps:  9
-Max condition number:  6
-Average condition number:  1.8888888888888888
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/c8623b11599dc5ad4503926d74896a00.pkl...
-228 solved in 6.717402219772339 seconds
-228 proof generation runs in 0.08809757232666016
-Proof steps:  11
-Max condition number:  5
-Average condition number:  2.0
-.
-----------------------------------------------------------------------
-Ran 1 test in 104.011s
-
-OK
-125 proof generation runs in 46.76750040054321
-Proof steps:  17
-Max condition number:  6
-Average condition number:  2.0588235294117645
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1b35a7edc075311eb6dd1d214474c7f8.pkl...
-71 solved in 3.4724133014678955 seconds
-160 unsolved in 12.542494773864746 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/0e12630cc1e5b8d86a490a6ca5dda407.pkl...
-152 solved in 6.9991841316223145 seconds
-152 proof generation runs in 0.14705681800842285
-Proof steps:  12
-Max condition number:  5
-Average condition number:  2.1666666666666665
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/63c6c854f8097f57de51853562eab8c1.pkl...
-71 proof generation runs in 6.488494157791138
-Proof steps:  12
-Max condition number:  6
-Average condition number:  2.0833333333333335
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1a46602f29c84a131d8c4c2d4e0ef743.pkl...
-111 solved in 22.809185028076172 seconds
-211 unsolved in 9.505048751831055 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 112.113s
-
-OK
-179 proof generation runs in 15.945334196090698
-Proof steps:  20
-Max condition number:  5
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/038d7b51b9e70e3adeaee28c28e04acd.pkl...
-101 solved in 5.482479810714722 seconds
-101 proof generation runs in 0.022467851638793945
-Proof steps:  6
-Max condition number:  3
-Average condition number:  2.3333333333333335
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/9d4078f9ad9b68ab651060803ea32c4e.pkl...
-142 proof generation runs in 66.12525725364685
+Average condition number:  1.9545454545454546
+6 solved in 48.60397243499756 seconds
+114 solved in 4.624147891998291 seconds
+142 solved in 19.44399094581604 seconds
+85 solved in 25.158692121505737 seconds
+178 solved in 4.920527458190918 seconds
+178 proof generation runs in 0.0738983154296875
 Proof steps:  11
 Max condition number:  6
 Average condition number:  1.8181818181818181
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1d85a7e47ab4fe9d9a8eaddda8e52fee.pkl...
-209 solved in 5.365183353424072 seconds
-135 solved in 38.18052577972412 seconds
-170 proof generation runs in 21.72653317451477
-Proof steps:  13
-Max condition number:  5
-Average condition number:  2.4615384615384617
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/bb98311aed9bd1d98aaf641e39762151.pkl...
-209 proof generation runs in 0.7579836845397949
-Proof steps:  18
-Max condition number:  10
-Average condition number:  2.111111111111111
-.
-----------------------------------------------------------------------
-Ran 1 test in 120.985s
-
-OK
-135 proof generation runs in 0.6091306209564209
-Proof steps:  22
-Max condition number:  3
-Average condition number:  1.5454545454545454
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/fafe8da6acaba739ea7f7b1ea3f62123.pkl...
-137 solved in 34.91053104400635 seconds
-137 proof generation runs in 0.8711044788360596
-Proof steps:  34
-Max condition number:  8
-Average condition number:  2.0588235294117645
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/afc1adcaf884ba86ccd5dca7ac8c2522.pkl...
-180 unsolved in 39.62910795211792 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/5daeeaffd817e9c5b670ac38af8229f6.pkl...
-128 solved in 70.04723000526428 seconds
-132 solved in 71.68652772903442 seconds
-167 unsolved in 4.109654188156128 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/055bacf570e4fa4a60c2d5ae799ea362.pkl...
-172 unsolved in 8.968899726867676 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/0079f0abf31bf3c2a12d3d35b32cf04b.pkl...
-139 solved in 31.584991216659546 seconds
-44 proof generation runs in 39.464070081710815
-Proof steps:  12
-Max condition number:  6
-Average condition number:  2.1666666666666665
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/c8df0503c7c8b8318143ca621ce67bff.pkl...
-155 solved in 28.25688123703003 seconds
-155 proof generation runs in 0.03838205337524414
-Proof steps:  13
-Max condition number:  3
-Average condition number:  1.8461538461538463
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4c7ea7070c23304dbd37b8ec0acea7d0.pkl...
-131 solved in 15.857188701629639 seconds
-131 proof generation runs in 0.1752021312713623
-Proof steps:  8
+85 proof generation runs in 0.2986929416656494
+Proof steps:  19
 Max condition number:  4
-Average condition number:  2.25
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/d2a41266da10f21ab907fe9bb55d10ac.pkl...
-202 solved in 5.893446922302246 seconds
-202 proof generation runs in 0.08209753036499023
-Proof steps:  12
-Max condition number:  3
-Average condition number:  1.6666666666666667
-.
-----------------------------------------------------------------------
-Ran 1 test in 134.068s
-
-OK
-165 solved in 14.41868543624878 seconds
-200 solved in 14.957768440246582 seconds
-74 solved in 5.8946568965911865 seconds
-74 proof generation runs in 0.07374763488769531
-Proof steps:  8
+Average condition number:  1.9473684210526316
+26 proof generation runs in 30.33503293991089
+Proof steps:  34
 Max condition number:  6
-Average condition number:  2.25
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/3d47363cc787439a20a930dcb4e1e19f.pkl...
-111 proof generation runs in 27.895146369934082
+Average condition number:  2.1470588235294117
+108 solved in 3.1055803298950195 seconds
+108 proof generation runs in 0.01331186294555664
+Proof steps:  3
+Max condition number:  3
+Average condition number:  2.3333333333333335
+119 solved in 8.664918184280396 seconds
+15 proof generation runs in 27.923420667648315
 Proof steps:  15
 Max condition number:  5
 Average condition number:  2.2
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/9c0697ab3ed49da5661775ced8ec5a6e.pkl...
-210 solved in 16.2923321723938 seconds
-185 solved in 6.733875513076782 seconds
-182 unsolved in 35.48765826225281 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/430c7bfaaa0c10b271d25fd76969e273.pkl...
-210 proof generation runs in 6.803816795349121
+2 solved in 53.14299941062927 seconds
+2 proof generation runs in 0.02789139747619629
+Proof steps:  5
+Max condition number:  4
+Average condition number:  2.0
+114 proof generation runs in 4.587287664413452
+Proof steps:  18
+Max condition number:  5
+Average condition number:  2.0
+115 solved in 1.3239004611968994 seconds
+115 proof generation runs in 0.04526066780090332
+Proof steps:  6
+Max condition number:  6
+Average condition number:  2.5
+42 proof generation runs in 30.081440925598145
+Proof steps:  15
+Max condition number:  5
+Average condition number:  2.1333333333333333
+98 solved in 11.344478607177734 seconds
+98 proof generation runs in 0.152968168258667
+Proof steps:  7
+Max condition number:  6
+Average condition number:  2.2857142857142856
+208 unsolved in 2.4001593589782715 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 56.750s
+
+OK
+37 solved in 17.022563695907593 seconds
+119 proof generation runs in 2.1511449813842773
+Proof steps:  24
+Max condition number:  6
+Average condition number:  2.1666666666666665
+37 proof generation runs in 0.234971284866333
+Proof steps:  27
+Max condition number:  3
+Average condition number:  1.6666666666666667
+56 solved in 3.4168455600738525 seconds
+91 solved in 14.818065881729126 seconds
+125 solved in 13.676656246185303 seconds
+9 solved in 56.98923206329346 seconds
+9 proof generation runs in 0.03436708450317383
+Proof steps:  12
+Max condition number:  3
+Average condition number:  2.0
+91 proof generation runs in 0.34758996963500977
+Proof steps:  16
+Max condition number:  5
+Average condition number:  2.1875
+17 solved in 57.320070028305054 seconds
+72 solved in 2.9203474521636963 seconds
+72 proof generation runs in 0.06596994400024414
+Proof steps:  7
+Max condition number:  5
+Average condition number:  2.142857142857143
+90 proof generation runs in 17.09754967689514
+Proof steps:  22
+Max condition number:  6
+Average condition number:  2.0
+46 solved in 24.74993658065796 seconds
+17 proof generation runs in 1.1856768131256104
+Proof steps:  14
+Max condition number:  4
+Average condition number:  1.7142857142857142
+46 proof generation runs in 0.7771170139312744
+Proof steps:  19
+Max condition number:  5
+Average condition number:  1.894736842105263
+56 proof generation runs in 3.4857962131500244
+Proof steps:  9
+Max condition number:  6
+Average condition number:  2.6666666666666665
+47 solved in 1.3549396991729736 seconds
+47 proof generation runs in 0.009098052978515625
+Proof steps:  7
+Max condition number:  4
+Average condition number:  2.0
+45 solved in 7.181551694869995 seconds
+45 proof generation runs in 0.005008220672607422
+39 solved in 3.0594840049743652 seconds
+Proof steps:  4
+Max condition number:  4
+Average condition number:  2.25
+100 proof generation runs in 14.346598386764526
+Proof steps:  16
+Max condition number:  6
+Average condition number:  1.9375
+102 solved in 3.156181573867798 seconds
+102 proof generation runs in 0.07411408424377441
+Proof steps:  8
+Max condition number:  4
+Average condition number:  2.0
+143 solved in 25.317716121673584 seconds
+143 proof generation runs in 0.8428523540496826
+Proof steps:  16
+Max condition number:  3
+Average condition number:  1.6875
+67 solved in 7.713519811630249 seconds
+39 proof generation runs in 2.65942645072937
+Proof steps:  14
+Max condition number:  6
+Average condition number:  2.2857142857142856
+145 solved in 9.602958917617798 seconds
+145 proof generation runs in 0.017537832260131836
+Proof steps:  10
+Max condition number:  4
+Average condition number:  1.8
+121 solved in 7.220827341079712 seconds
+32 solved in 11.250702142715454 seconds
+173 unsolved in 2.3840975761413574 seconds
+75 solved in 4.581771373748779 seconds
+75 proof generation runs in 0.06442904472351074
+Proof steps:  8
+Max condition number:  3
+Average condition number:  1.5
+175 unsolved in 3.0646731853485107 seconds
+67 proof generation runs in 5.857715368270874
+Proof steps:  26
+Max condition number:  6
+Average condition number:  2.076923076923077
+69 solved in 5.186488151550293 seconds
+76 solved in 10.403252124786377 seconds
+149 solved in 15.0544593334198 seconds
+76 proof generation runs in 0.32663917541503906
+Proof steps:  19
+Max condition number:  6
+Average condition number:  2.3157894736842106
+120 solved in 14.053889513015747 seconds
+120 proof generation runs in 0.5317330360412598
+Proof steps:  30
+Max condition number:  4
+Average condition number:  1.6
+14 solved in 75.53352451324463 seconds
+149 proof generation runs in 5.7453837394714355
+Proof steps:  28
+Max condition number:  6
+Average condition number:  1.7857142857142858
+144 solved in 22.326316595077515 seconds
+106 solved in 5.426743745803833 seconds
+144 proof generation runs in 0.046834707260131836
+Proof steps:  16
+Max condition number:  4
+Average condition number:  1.75
+14 proof generation runs in 1.062225341796875
+Proof steps:  28
+Max condition number:  6
+Average condition number:  1.6785714285714286
+106 proof generation runs in 0.18492984771728516
+Proof steps:  3
+Max condition number:  4
+Average condition number:  2.0
+138 solved in 24.260783672332764 seconds
+77 solved in 16.005200386047363 seconds
+77 proof generation runs in 0.03194785118103027
+Proof steps:  14
+Max condition number:  3
+Average condition number:  1.8571428571428572
+205 unsolved in 9.512215375900269 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 79.977s
+
+OK
+138 proof generation runs in 1.071310043334961
+Proof steps:  35
+Max condition number:  6
+Average condition number:  1.6857142857142857
+32 proof generation runs in 12.975351333618164
+Proof steps:  16
+Max condition number:  6
+Average condition number:  2.0625
+69 proof generation runs in 9.305457830429077
+Proof steps:  26
+Max condition number:  6
+Average condition number:  2.1538461538461537
+174 solved in 1.6201558113098145 seconds
+174 proof generation runs in 0.025578975677490234
+Proof steps:  4
+Max condition number:  5
+Average condition number:  2.0
+133 solved in 42.17861461639404 seconds
+80 proof generation runs in 62.547422885894775
+Proof steps:  21
+Max condition number:  11
+Average condition number:  2.5238095238095237
+121 proof generation runs in 17.51473093032837
+Proof steps:  13
+Max condition number:  6
+Average condition number:  1.8461538461538463
+97 solved in 14.05409574508667 seconds
+204 solved in 4.258865833282471 seconds
+97 proof generation runs in 0.21544480323791504
+Proof steps:  9
+Max condition number:  8
+Average condition number:  3.0
+86 solved in 23.861095905303955 seconds
+86 proof generation runs in 0.05954408645629883
+Proof steps:  17
+Max condition number:  4
+Average condition number:  2.176470588235294
+203 solved in 18.007395267486572 seconds
+62 solved in 5.975926637649536 seconds
+204 proof generation runs in 1.3711462020874023
+Proof steps:  9
+Max condition number:  6
+Average condition number:  2.3333333333333335
+.
+----------------------------------------------------------------------
+Ran 1 test in 87.358s
+
+OK
+150 solved in 11.714277982711792 seconds
+150 proof generation runs in 0.22479462623596191
+Proof steps:  16
+Max condition number:  6
+Average condition number:  2.375
+105 solved in 19.1465106010437 seconds
+99 solved in 6.836408853530884 seconds
+99 proof generation runs in 0.012918472290039062
+Proof steps:  4
+Max condition number:  3
+Average condition number:  2.75
+105 proof generation runs in 0.36313605308532715
+Proof steps:  18
+Max condition number:  6
+Average condition number:  2.0555555555555554
+107 solved in 9.335297584533691 seconds
+107 proof generation runs in 0.29576945304870605
+Proof steps:  15
+Max condition number:  3
+Average condition number:  1.6666666666666667
+110 solved in 6.2651050090789795 seconds
+110 proof generation runs in 0.1913282871246338
+Proof steps:  18
+Max condition number:  5
+Average condition number:  1.6666666666666667
+168 solved in 9.705897331237793 seconds
+168 proof generation runs in 0.07539701461791992
+Proof steps:  10
+Max condition number:  3
+Average condition number:  1.7
+116 solved in 4.320909023284912 seconds
+62 proof generation runs in 4.075087547302246
+Proof steps:  24
+Max condition number:  5
+Average condition number:  2.2083333333333335
+116 proof generation runs in 0.06576895713806152
+Proof steps:  13
+Max condition number:  2
+Average condition number:  1.5384615384615385
+81 solved in 72.14663195610046 seconds
+81 proof generation runs in 0.10679388046264648
+Proof steps:  22
+Max condition number:  3
+Average condition number:  1.6818181818181819
+44 solved in 14.241998195648193 seconds
+79 proof generation runs in 61.35974192619324
+Proof steps:  25
+Max condition number:  6
+Average condition number:  2.16
+92 solved in 9.677332639694214 seconds
+92 proof generation runs in 0.04412221908569336
+Proof steps:  13
+Max condition number:  4
+Average condition number:  2.076923076923077
+198 solved in 10.164732933044434 seconds
+127 solved in 14.855997085571289 seconds
+127 proof generation runs in 0.23714900016784668
+Proof steps:  9
+Max condition number:  4
+Average condition number:  2.2222222222222223
+122 solved in 0.050588130950927734 seconds
+122 proof generation runs in 0.0007469654083251953
+Proof steps:  0
+Max condition number:  0
+Average condition number:  0
+129 solved in 13.450745582580566 seconds
+129 proof generation runs in 0.20930886268615723
+Proof steps:  5
+Max condition number:  5
+Average condition number:  2.8
+179 solved in 24.49751591682434 seconds
+130 solved in 41.51508331298828 seconds
+130 proof generation runs in 0.41188764572143555
+Proof steps:  18
+Max condition number:  5
+Average condition number:  1.8333333333333333
+203 proof generation runs in 19.888357877731323
+Proof steps:  36
+Max condition number:  5
+Average condition number:  1.7777777777777777
+.
+----------------------------------------------------------------------
+Ran 1 test in 106.391s
+
+OK
+198 proof generation runs in 5.877210855484009
+Proof steps:  7
+Max condition number:  6
+Average condition number:  2.2857142857142856
+11 solved in 105.87226462364197 seconds
+11 proof generation runs in 0.048630714416503906
+Proof steps:  12
+Max condition number:  2
+Average condition number:  1.5833333333333333
+152 solved in 6.229792594909668 seconds
+152 proof generation runs in 0.17577767372131348
+Proof steps:  12
+Max condition number:  5
+Average condition number:  2.1666666666666665
+151 solved in 25.951310873031616 seconds
+151 proof generation runs in 0.07072162628173828
+Proof steps:  11
+Max condition number:  4
+Average condition number:  2.090909090909091
+147 proof generation runs in 64.95991945266724
+Proof steps:  35
+Max condition number:  5
+Average condition number:  1.9714285714285715
+146 solved in 21.443017959594727 seconds
+146 proof generation runs in 0.2287287712097168
+Proof steps:  17
+Max condition number:  6
+Average condition number:  2.0
+140 solved in 23.34854221343994 seconds
+228 solved in 6.586649179458618 seconds
+181 solved in 2.3928163051605225 seconds
+228 proof generation runs in 0.10659098625183105
+Proof steps:  11
+Max condition number:  5
+Average condition number:  2.0
+.
+----------------------------------------------------------------------
+Ran 1 test in 114.765s
+
+OK
+109 solved in 13.481571435928345 seconds
+41 solved in 6.245409727096558 seconds
+109 proof generation runs in 0.3690016269683838
+Proof steps:  16
+Max condition number:  6
+Average condition number:  2.125
+41 proof generation runs in 0.1792130470275879
+Proof steps:  9
+Max condition number:  4
+Average condition number:  2.0
+181 proof generation runs in 0.9010012149810791
+Proof steps:  9
+Max condition number:  6
+Average condition number:  1.8888888888888888
+176 unsolved in 3.0129661560058594 seconds
+111 solved in 25.331881284713745 seconds
+160 unsolved in 12.16759467124939 seconds
+71 solved in 3.3496463298797607 seconds
+128 solved in 65.28587651252747 seconds
+211 unsolved in 9.349807739257812 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 125.526s
+
+OK
+137 solved in 35.02901554107666 seconds
+179 proof generation runs in 22.18716788291931
+Proof steps:  20
+Max condition number:  5
+Average condition number:  2.0
+206 unsolved in 8.307354927062988 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 126.101s
+
+OK
+137 proof generation runs in 1.0284347534179688
+Proof steps:  33
+Max condition number:  8
+Average condition number:  2.090909090909091
+180 unsolved in 39.166760206222534 seconds
+71 proof generation runs in 10.112199306488037
+Proof steps:  12
+Max condition number:  6
+Average condition number:  2.0833333333333335
+135 solved in 40.47349715232849 seconds
+135 proof generation runs in 0.962120532989502
+Proof steps:  25
+Max condition number:  4
+Average condition number:  1.64
+209 solved in 5.194180488586426 seconds
+167 unsolved in 4.444851398468018 seconds
+136 solved in 53.58403778076172 seconds
+209 proof generation runs in 1.9169056415557861
+Proof steps:  23
+Max condition number:  9
+Average condition number:  2.4782608695652173
+.
+----------------------------------------------------------------------
+Ran 1 test in 133.625s
+
+OK
+136 proof generation runs in 0.610877275466919
+Proof steps:  23
+Max condition number:  6
+Average condition number:  1.9565217391304348
+101 solved in 5.497359037399292 seconds
+101 proof generation runs in 0.01949167251586914
+Proof steps:  6
+Max condition number:  3
+Average condition number:  2.3333333333333335
+132 solved in 72.86434721946716 seconds
+177 solved in 25.730517864227295 seconds
+210 solved in 15.679146528244019 seconds
+142 proof generation runs in 92.58297491073608
+Proof steps:  11
+Max condition number:  5
+Average condition number:  1.7272727272727273
+182 unsolved in 35.991124629974365 seconds
+165 solved in 14.576858758926392 seconds
+139 solved in 30.81392788887024 seconds
+139 proof generation runs in 0.6465084552764893
+Proof steps:  24
+Max condition number:  6
+Average condition number:  2.0833333333333335
+44 proof generation runs in 54.460543394088745
+Proof steps:  10
+Max condition number:  6
+Average condition number:  2.4
+140 proof generation runs in 35.644880056381226
+Proof steps:  13
+Max condition number:  6
+Average condition number:  1.8461538461538463
+166 unsolved in 15.968488454818726 seconds
+131 solved in 14.797619581222534 seconds
+131 proof generation runs in 0.2222273349761963
+Proof steps:  8
+Max condition number:  4
+Average condition number:  2.25
+125 proof generation runs in 92.93550658226013
+Proof steps:  9
+Max condition number:  6
+Average condition number:  2.888888888888889
+212 solved in 6.832937002182007 seconds
+212 proof generation runs in 0.1477186679840088
+Proof steps:  20
+Max condition number:  4
+Average condition number:  1.7
+.
+----------------------------------------------------------------------
+Ran 1 test in 153.489s
+
+OK
+172 unsolved in 9.056137800216675 seconds
+74 solved in 5.5732409954071045 seconds
+74 proof generation runs in 0.08875608444213867
+Proof steps:  8
+Max condition number:  6
+Average condition number:  2.25
+210 proof generation runs in 10.718868494033813
 Proof steps:  20
 Max condition number:  6
 Average condition number:  1.85
 .
 ----------------------------------------------------------------------
-Ran 1 test in 146.762s
+Ran 1 test in 154.895s
 
 OK
-185 proof generation runs in 7.148622751235962
-Proof steps:  17
-Max condition number:  5
-Average condition number:  2.1176470588235294
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/7fdd45aa65ce797f3416e9aa6e44aa7b.pkl...
-136 solved in 51.81843900680542 seconds
-136 proof generation runs in 0.49561548233032227
-Proof steps:  23
+111 proof generation runs in 39.88006234169006
+Proof steps:  14
 Max condition number:  6
-Average condition number:  1.9565217391304348
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/b795788d43cbdd29dfe38b25d1f9993d.pkl...
-165 proof generation runs in 13.491374015808105
+Average condition number:  2.4285714285714284
+202 solved in 5.426599979400635 seconds
+202 proof generation runs in 0.07201385498046875
+Proof steps:  12
+Max condition number:  3
+Average condition number:  1.6666666666666667
+.
+----------------------------------------------------------------------
+Ran 1 test in 160.452s
+
+OK
+170 solved in 10.572200775146484 seconds
+196 solved in 13.581462860107422 seconds
+165 proof generation runs in 20.015991926193237
 Proof steps:  12
 Max condition number:  5
 Average condition number:  1.9166666666666667
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/74f2bddb0499eaf24a2a304abb111f3f.pkl...
-212 solved in 6.7491185665130615 seconds
-212 proof generation runs in 0.163360595703125
-Proof steps:  20
+169 solved in 27.261943101882935 seconds
+155 solved in 28.982927083969116 seconds
+155 proof generation runs in 0.039215087890625
+Proof steps:  13
+Max condition number:  3
+Average condition number:  1.8461538461538463
+141 solved in 24.520202159881592 seconds
+104 solved in 30.719972133636475 seconds
+161 solved in 36.55362796783447 seconds
+185 solved in 6.414460182189941 seconds
+185 proof generation runs in 0.09816479682922363
+Proof steps:  3
 Max condition number:  4
-Average condition number:  1.8
-.
-----------------------------------------------------------------------
-Ran 1 test in 150.212s
-
-OK
-200 proof generation runs in 14.037328481674194
-Proof steps:  14
-Max condition number:  6
-Average condition number:  1.8571428571428572
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/47775e11437e43dd2606e048285e43aa.pkl...
-177 proof generation runs in 60.05732750892639
-Proof steps:  10
-Max condition number:  4
-Average condition number:  2.2
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/f27a97b462018129cc8b157efdb8057f.pkl...
-3 proof generation runs in 125.34637069702148
+Average condition number:  2.0
+161 proof generation runs in 0.5945069789886475
 Proof steps:  19
 Max condition number:  6
-Average condition number:  2.263157894736842
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/632a3f80f96f3cc1cbf601c99fbb08dc.pkl...
-139 proof generation runs in 30.95566153526306
-Proof steps:  25
+Average condition number:  2.1052631578947367
+170 proof generation runs in 29.56334924697876
+Proof steps:  15
+Max condition number:  5
+Average condition number:  2.6
+190 solved in 70.99976849555969 seconds
+196 proof generation runs in 31.694077014923096
+Proof steps:  14
 Max condition number:  6
-Average condition number:  2.16
-215 unsolved in 11.814530849456787 seconds
+Average condition number:  2.2142857142857144
+215 unsolved in 12.303915023803711 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 160.114s
+Ran 1 test in 202.340s
 
 OK
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/d2d77a8ae741de69fbd87b14a2e1d3db.pkl...
-207 solved in 5.089132070541382 seconds
-207 proof generation runs in 0.09594583511352539
+3 proof generation runs in 175.94913291931152
+Proof steps:  19
+Max condition number:  6
+Average condition number:  2.1578947368421053
+195 solved in 38.60031723976135 seconds
+200 solved in 14.807837963104248 seconds
+33 solved in 5.748478651046753 seconds
+133 proof generation runs in 130.35392141342163
+Proof steps:  22
+Max condition number:  6
+Average condition number:  2.409090909090909
+4 solved in 209.66981053352356 seconds
+33 proof generation runs in 6.496215105056763
+Proof steps:  14
+Max condition number:  5
+Average condition number:  2.2142857142857144
+177 proof generation runs in 80.67816758155823
+Proof steps:  10
+Max condition number:  5
+Average condition number:  2.2
+128 proof generation runs in 98.12414383888245
+Proof steps:  24
+Max condition number:  6
+Average condition number:  2.0833333333333335
+63 solved in 3.6046855449676514 seconds
+63 proof generation runs in 0.0031232833862304688
+Proof steps:  6
+Max condition number:  2
+Average condition number:  1.5
+207 solved in 4.99318265914917 seconds
+207 proof generation runs in 0.05398154258728027
 Proof steps:  13
 Max condition number:  4
 Average condition number:  1.9230769230769231
 .
 ----------------------------------------------------------------------
-Ran 1 test in 161.737s
+Ran 1 test in 224.734s
 
 OK
-141 solved in 24.06015372276306 seconds
-166 unsolved in 15.734658479690552 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/eff9c364d1ac736b363d8dc531894fae.pkl...
-33 solved in 5.954638719558716 seconds
-104 solved in 28.671881437301636 seconds
-133 proof generation runs in 88.83759951591492
-Proof steps:  21
-Max condition number:  6
-Average condition number:  2.2857142857142856
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/e735c8040f43beae13e20b019843029a.pkl...
-33 proof generation runs in 4.099217891693115
+163 unsolved in 12.53225326538086 seconds
+200 proof generation runs in 20.467890739440918
 Proof steps:  14
-Max condition number:  5
-Average condition number:  2.2142857142857144
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/de577e487f0c314575d73528a5b639a6.pkl...
-161 solved in 37.054757833480835 seconds
-161 proof generation runs in 0.46794772148132324
-Proof steps:  20
-Max condition number:  4
-Average condition number:  1.95
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/45d71b13c91ecaed193f0160e8a4386b.pkl...
-63 solved in 3.456230640411377 seconds
-63 proof generation runs in 0.0029692649841308594
-Proof steps:  6
-Max condition number:  2
-Average condition number:  1.5
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/7fa3de92519255ff1c61f1c1760bc300.pkl...
-190 solved in 73.00561118125916 seconds
-93 solved in 5.769509553909302 seconds
-163 unsolved in 11.902902364730835 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/15e37f90b6aee963005a2f4e05b408a4.pkl...
-193 solved in 4.413970708847046 seconds
-193 proof generation runs in 0.03451800346374512
-Proof steps:  7
-Max condition number:  3
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/39184116052769fb6df94e573c65ae04.pkl...
-169 solved in 26.09505581855774 seconds
-195 solved in 39.83170127868652 seconds
-93 proof generation runs in 10.22768759727478
-Proof steps:  11
 Max condition number:  6
-Average condition number:  2.272727272727273
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/e8f929d6e8e7cc0d1627f047be2214d4.pkl...
-196 solved in 28.502471208572388 seconds
-4 solved in 192.55291318893433 seconds
-4 proof generation runs in 3.938877820968628
+Average condition number:  1.8571428571428572
+93 solved in 5.942681550979614 seconds
+169 proof generation runs in 53.497600078582764
 Proof steps:  30
-Max condition number:  5
-Average condition number:  1.6666666666666667
-223 solved in 12.240562200546265 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/204fd1064714f833095d3520b2e50c9d.pkl...
-223 proof generation runs in 0.2614316940307617
+Max condition number:  6
+Average condition number:  2.2666666666666666
+193 solved in 4.309406280517578 seconds
+193 proof generation runs in 0.027460575103759766
+Proof steps:  6
+Max condition number:  3
+Average condition number:  2.1666666666666665
+157 solved in 137.16034173965454 seconds
+223 solved in 12.14623498916626 seconds
+223 proof generation runs in 0.2110884189605713
 Proof steps:  19
 Max condition number:  3
 Average condition number:  2.1052631578947367
 .
 ----------------------------------------------------------------------
-Ran 1 test in 199.148s
+Ran 1 test in 242.823s
 
 OK
-34 solved in 9.28748083114624 seconds
-104 proof generation runs in 41.3544762134552
+191 solved in 52.669609785079956 seconds
+93 proof generation runs in 15.025089502334595
+Proof steps:  11
+Max condition number:  6
+Average condition number:  2.272727272727273
+191 proof generation runs in 0.8583121299743652
+Proof steps:  34
+Max condition number:  6
+Average condition number:  1.8529411764705883
+158 solved in 25.834842443466187 seconds
+221 solved in 3.7094597816467285 seconds
+221 proof generation runs in 0.013846397399902344
+104 proof generation runs in 61.97986602783203
+Proof steps:  4
+Max condition number:  3
+Average condition number:  2.5
 Proof steps:  22
 Max condition number:  6
 Average condition number:  1.9545454545454546
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/d8ec15eb3e8a5a4a9b95b28952657b15.pkl...
-141 proof generation runs in 46.274601459503174
-Proof steps:  36
+.
+----------------------------------------------------------------------
+Ran 1 test in 248.131s
+
+OK
+197 unsolved in 116.28647589683533 seconds
+195 proof generation runs in 48.122605085372925
+Proof steps:  16
 Max condition number:  6
-Average condition number:  2.388888888888889
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/2a91c12f9c876fbb046b235e242f69a0.pkl...
-123 solved in 26.69227910041809 seconds
-171 solved in 8.090009927749634 seconds
-191 solved in 46.92720699310303 seconds
-169 proof generation runs in 33.733723640441895
-Proof steps:  26
-Max condition number:  6
-Average condition number:  2.3461538461538463
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4adc5d778b8df78a4d04c3c19e04a552.pkl...
-196 proof generation runs in 28.15508460998535
-Proof steps:  36
-Max condition number:  9
-Average condition number:  2.0277777777777777
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/cf6daf3198dfa8d759fd104f3ba1c122.pkl...
-128 proof generation runs in 101.51405930519104
-Proof steps:  32
-Max condition number:  6
-Average condition number:  2.28125
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/6156249e7e35b117871f4365497a22bb.pkl...
-157 solved in 135.97592663764954 seconds
-171 proof generation runs in 12.460948705673218
-Proof steps:  60
-Max condition number:  6
-Average condition number:  2.7666666666666666
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/18dd1828fadcbba8179fc108b1332bde.pkl...
-34 proof generation runs in 23.90013599395752
-Proof steps:  24
-Max condition number:  6
-Average condition number:  2.0416666666666665
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/c886267595d9739936023fcf635d0c0c.pkl...
-197 unsolved in 111.10125231742859 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1df9a9f05f9308d1df039e4853d55364.pkl...
-195 proof generation runs in 49.91051411628723
-Proof steps:  23
-Max condition number:  6
-Average condition number:  2.0869565217391304
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/089acc2f73daf6f427891cef69a7c38b.pkl...
-225 solved in 0.022305727005004883 seconds
-225 proof generation runs in 0.0006847381591796875
+Average condition number:  2.1875
+141 proof generation runs in 70.71665740013123
+Proof steps:  21
+Max condition number:  5
+Average condition number:  1.8571428571428572
+225 solved in 0.02241039276123047 seconds
+225 proof generation runs in 0.0006740093231201172
 Proof steps:  0
 Max condition number:  0
 Average condition number:  0
 .
 ----------------------------------------------------------------------
-Ran 1 test in 240.860s
+Ran 1 test in 253.969s
 
 OK
-64 solved in 8.367988348007202 seconds
-64 proof generation runs in 0.12072086334228516
-Proof steps:  14
-Max condition number:  3
-Average condition number:  1.7857142857142858
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/aae5d9718cbff4307ff76433e1430adb.pkl...
-227 solved in 5.837715148925781 seconds
-227 proof generation runs in 2.7018492221832275
+227 solved in 6.001912355422974 seconds
+227 proof generation runs in 4.040202856063843
 Proof steps:  14
 Max condition number:  5
 Average condition number:  2.2142857142857144
 .
 ----------------------------------------------------------------------
-Ran 1 test in 248.685s
+Ran 1 test in 259.723s
 
 OK
-134 solved in 40.2573938369751 seconds
-134 proof generation runs in 1.9791712760925293
-Proof steps:  42
+171 solved in 7.142016172409058 seconds
+199 solved in 42.584723711013794 seconds
+199 proof generation runs in 0.5616097450256348
+Proof steps:  15
 Max condition number:  4
-Average condition number:  1.5952380952380953
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/40966643b8d423e5ccb9c06c503db9c2.pkl...
-158 solved in 26.794785499572754 seconds
-94 solved in 14.164062023162842 seconds
-199 solved in 39.09424543380737 seconds
-199 proof generation runs in 0.44661402702331543
-Proof steps:  17
-Max condition number:  4
-Average condition number:  1.8235294117647058
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/170f779fb16ccad4cdf9e4b3aa533b82.pkl...
-94 proof generation runs in 4.421020984649658
-Proof steps:  24
-Max condition number:  6
-Average condition number:  1.9583333333333333
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4f343a7a7b1c297047f9e4af2e6f42c3.pkl...
-164 unsolved in 12.065296411514282 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/5d03513e69c6de3b77a12b7f2664318d.pkl...
-229 unsolved in 4.236588001251221 seconds
+Average condition number:  1.9333333333333333
+123 solved in 29.031708240509033 seconds
+229 unsolved in 4.252092361450195 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 265.588s
+Ran 1 test in 277.712s
 
 OK
-124 solved in 13.308289051055908 seconds
-190 proof generation runs in 94.98929834365845
-Proof steps:  32
+171 proof generation runs in 16.855984449386597
+Proof steps:  44
 Max condition number:  6
-Average condition number:  1.875
-201 solved in 42.48146295547485 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/e5605501bf16e0873bb2c993ba25f171.pkl...
-124 proof generation runs in 0.1952345371246338
-Proof steps:  11
+Average condition number:  2.7045454545454546
+134 solved in 40.90583109855652 seconds
+134 proof generation runs in 2.5881223678588867
+Proof steps:  46
+Max condition number:  4
+Average condition number:  1.6304347826086956
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f0a931af600>
+Traceback (most recent call last):
+  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+164 unsolved in 11.800277948379517 seconds
+190 proof generation runs in 120.78077912330627
+Proof steps:  34
 Max condition number:  5
-Average condition number:  2.1818181818181817
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/111f88f18afef067b680ac18668dfa3f.pkl...
-220 solved in 3.177800416946411 seconds
-220 proof generation runs in 0.039577484130859375
+Average condition number:  1.911764705882353
+220 solved in 2.774608612060547 seconds
+220 proof generation runs in 0.050736427307128906
 Proof steps:  3
 Max condition number:  6
 Average condition number:  3.0
 .
 ----------------------------------------------------------------------
-Ran 1 test in 278.860s
+Ran 1 test in 315.243s
 
 OK
-123 proof generation runs in 61.91070055961609
-Proof steps:  32
+201 solved in 48.475421667099 seconds
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_b_f_i
+Warning: Could not parse term Angle_e_f_g
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_c_b_e
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_b_e_d
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_d_e_f
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_c_f_e
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_d_b_e
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_b_f_h
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_a_g_f
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_e_f_i
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_b_f_c
+Warning: Could not parse term Angle_a_f_b
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_a_e_b
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_a_g_f
+Warning: Could not parse term Angle_b_f_i
+Warning: Could not parse term Angle_c_b_f
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_b_f_h
+Warning: Could not parse term Angle_a_e_f
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_c_b_e
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_e_f_i
+Warning: Could not parse term Angle_a_b_e
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_b_f_g
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_b_f
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_d_b_e
+Warning: Could not parse term Angle_a_b_f
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_a_b_e
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_d_b_f
+Warning: Could not parse term Angle_b_e_h
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_d_b_f
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_f_b_g
+Warning: Could not parse term Angle_a_b_e
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_e_b_g
+Warning: Could not parse term Angle_a_e_f
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_c_b_f
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_f_b
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_c_b_e
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_d_b_f
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_b_f_h
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_e_f_g
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_f_e_h
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_e_f_i
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_e_f_g
+Warning: Could not parse term Angle_b_e_d
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_e_f_h
+Warning: Could not parse term Angle_b_f_i
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_d_b_f
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_f_e_h
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_e_f_h
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_e_f_i
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_c_b_f
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_e_f_h
+Warning: Could not parse term Angle_a_b_e
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_c_f_e
+Warning: Could not parse term Angle_b_f_g
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_b_f_g
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_a_f_b
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_d_b_e
+Warning: Could not parse term Angle_g_a_h
+194 solved in 38.53340530395508 seconds
+Warning: Could not parse term Angle_a_e_f
+Warning: Could not parse term Angle_f_a_g
+194 proof generation runs in 0.56679368019104
+Proof steps:  19
 Max condition number:  6
-Average condition number:  1.90625
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/a33ab15330741621f9ef8c84267fa8a3.pkl...
-191 proof generation runs in 77.12076115608215
-Proof steps:  33
-Max condition number:  6
-Average condition number:  1.878787878787879
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/30aa5fc26011534d2bf6262506c0ad1e.pkl...
-221 solved in 3.4305760860443115 seconds
-221 proof generation runs in 0.01348257064819336
-Proof steps:  4
-Max condition number:  3
-Average condition number:  2.5
+Average condition number:  2.1052631578947367
+Warning: Could not parse term Angle_a_b_f
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_b_e_d
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_b_f_c
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_f_e_h
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_e_b_g
+Warning: Could not parse term Angle_b_e_h
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_a_f_b
+Warning: Could not parse term Angle_a_g_f
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_f_b_g
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_c_b_f
+Warning: Could not parse term Angle_f_e_h
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_c_b_e
+Warning: Could not parse term Angle_a_b_e
+Warning: Could not parse term Angle_a_g_f
+Warning: Could not parse term Angle_e_f_g
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_b_f
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_b_f_i
+Warning: Could not parse term Angle_e_b_g
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_f_b_g
+224 unsolved in 4.8441596031188965 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 301.008s
+Ran 1 test in 356.283s
 
 OK
-194 solved in 37.6130268573761 seconds
-194 proof generation runs in 0.5943894386291504
-Proof steps:  20
-Max condition number:  4
-Average condition number:  1.95
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/1537ac22d735d27d382c8949e47a0707.pkl...
-224 unsolved in 4.717315673828125 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 309.538s
-
-OK
-154 solved in 40.99848508834839 seconds
-154 proof generation runs in 0.02446722984313965
-Proof steps:  9
-Max condition number:  3
-Average condition number:  2.0
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/b3fe24c2d84e97a8ac82df4057f7fe60.pkl...
-153 solved in 47.77627635002136 seconds
-153 proof generation runs in 0.025002479553222656
-Proof steps:  7
-Max condition number:  3
-Average condition number:  2.4285714285714284
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/5d5e551ffecd81c08b3d7ea206267654.pkl...
-158 proof generation runs in 91.10284423828125
+Warning: Could not parse term Angle_d_b_e
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_a_f_b
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_c_f_e
+Warning: Could not parse term Angle_b_e_h
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_b_e_d
+Warning: Could not parse term Angle_c_a_g
+123 proof generation runs in 85.27118444442749
+Proof steps:  36
+Max condition number:  6
+Average condition number:  1.8888888888888888
+Warning: Could not parse term Angle_b_f_i
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_a_g_f
+Warning: Could not parse term Angle_e_f_i
+Warning: Could not parse term Angle_e_b_g
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_b_f_c
+Warning: Could not parse term Angle_a_e_f
+Warning: Could not parse term Angle_b_a_g
+158 proof generation runs in 122.37182474136353
 Proof steps:  18
 Max condition number:  6
 Average condition number:  2.2777777777777777
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/3ae85ae748fe49196d707bb15c8379c9.pkl...
-230 unsolved in 193.00950455665588 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 344.814s
-
-OK
-188 solved in 8.84683895111084 seconds
-188 proof generation runs in 0.1280810832977295
+188 solved in 9.431058168411255 seconds
+188 proof generation runs in 0.18076324462890625
 Proof steps:  12
 Max condition number:  4
 Average condition number:  1.75
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/ff3ccf6cfbb68fd8af7eb9c06eadc115.pkl...
-201 proof generation runs in 85.65081071853638
-Proof steps:  52
+153 solved in 47.55644941329956 seconds
+153 proof generation runs in 0.03628897666931152
+Proof steps:  7
+Max condition number:  3
+Average condition number:  2.4285714285714284
+201 proof generation runs in 140.35887789726257
+Proof steps:  60
 Max condition number:  6
-Average condition number:  1.9230769230769231
+Average condition number:  1.8833333333333333
 .
 ----------------------------------------------------------------------
-Ran 1 test in 360.748s
+Ran 1 test in 467.692s
 
 OK
-183 unsolved in 64.44266438484192 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4a5772e5dc5ca7ce0683260d966e266c.pkl...
-213 solved in 4.258812427520752 seconds
-213 proof generation runs in 0.04385685920715332
-Proof steps:  6
-Max condition number:  6
-Average condition number:  2.3333333333333335
+183 unsolved in 62.09788680076599 seconds
+230 unsolved in 244.13274145126343 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 398.814s
+Ran 1 test in 472.066s
 
 OK
-184 solved in 81.213534116745 seconds
-218 solved in 135.52990746498108 seconds
-6 proof generation runs in 453.1400260925293
+213 solved in 4.066534519195557 seconds
+213 proof generation runs in 1.210775375366211
+Proof steps:  7
+Max condition number:  6
+Average condition number:  2.2857142857142856
+.
+----------------------------------------------------------------------
+Ran 1 test in 475.951s
+
+OK
+218 solved in 138.02469062805176 seconds
+6 proof generation runs in 619.7229282855988
 Proof steps:  19
 Max condition number:  6
 Average condition number:  1.631578947368421
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/6f45216288bc22d7f75181aeb64ee5c0.pkl...
-36 solved in 2.392944574356079 seconds
-36 proof generation runs in 0.040215492248535156
+36 solved in 2.39015531539917 seconds
+36 proof generation runs in 0.04580807685852051
 Proof steps:  8
 Max condition number:  3
 Average condition number:  2.125
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/80b76aa677a1c89a0b71880b463e0e38.pkl...
-66 solved in 6.194104909896851 seconds
-66 proof generation runs in 0.8459179401397705
-Proof steps:  10
-Max condition number:  5
-Average condition number:  2.3
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/736fa69f3794a310e4e4f5dc691188f3.pkl...
-96 solved in 8.463595390319824 seconds
-96 proof generation runs in 11.17136812210083
+66 solved in 6.149812459945679 seconds
+66 proof generation runs in 1.16628098487854
 Proof steps:  11
+Max condition number:  5
+Average condition number:  2.272727272727273
+226 solved in 486.4814078807831 seconds
+96 solved in 8.694139242172241 seconds
+96 proof generation runs in 17.60739493370056
+Proof steps:  16
 Max condition number:  6
-Average condition number:  1.8181818181818181
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/824a2717fd5e5acf95ecdb4d3a74d572.pkl...
-126 solved in 70.74518418312073 seconds
-157 proof generation runs in 446.3828535079956
+Average condition number:  1.8125
+126 solved in 70.92285680770874 seconds
+157 proof generation runs in 658.2395865917206
 Proof steps:  17
 Max condition number:  6
 Average condition number:  2.235294117647059
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/9b1c69ddbe32efde75a80e6a865cc538.pkl...
-187 solved in 5.873389482498169 seconds
-187 proof generation runs in 6.0595786571502686
-Proof steps:  17
-Max condition number:  5
-Average condition number:  2.1176470588235294
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4281ac46a353f7a532f1c18105fb4524.pkl...
-217 solved in 12.431726932525635 seconds
-217 proof generation runs in 6.512217044830322
+187 solved in 5.880193471908569 seconds
+187 proof generation runs in 0.08218026161193848
+Proof steps:  3
+Max condition number:  4
+Average condition number:  2.0
+217 solved in 14.788892269134521 seconds
+217 proof generation runs in 9.532875537872314
 Proof steps:  20
 Max condition number:  6
 Average condition number:  1.85
 .
 ----------------------------------------------------------------------
-Ran 1 test in 707.122s
+Ran 1 test in 929.883s
 
 OK
-126 proof generation runs in 657.2829067707062
-Proof steps:  31
-Max condition number:  8
-Average condition number:  1.935483870967742
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/e7a65f4e9ca0993b4f18b1d72d01e14b.pkl...
-132 proof generation fails 1200.006115913391
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/038e0272cbbcbf395de8ca80879077e2.pkl...
-156 solved in 63.77332639694214 seconds
-156 proof generation runs in 1.1709041595458984
-Proof steps:  24
+4 proof generation runs in 947.2138516902924
+Proof steps:  54
+Max condition number:  6
+Average condition number:  2.0185185185185186
+34 solved in 8.572551965713501 seconds
+34 proof generation runs in 29.423556566238403
+Proof steps:  30
+Max condition number:  6
+Average condition number:  2.0
+64 solved in 7.347260236740112 seconds
+64 proof generation runs in 0.13220000267028809
+Proof steps:  14
 Max condition number:  3
-Average condition number:  1.5416666666666667
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/4e5494168c9a0fb561c94ea3074df0b7.pkl...
-186 unsolved in 17.354997634887695 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/b038f8c83ad433040439175a6c5f8103.pkl...
-162 solved in 26.746201753616333 seconds
-162 proof generation runs in 0.048809051513671875
+Average condition number:  1.7857142857142858
+94 solved in 13.489098072052002 seconds
+94 proof generation runs in 5.341287851333618
+Proof steps:  24
+Max condition number:  6
+Average condition number:  2.0
+124 solved in 12.337162017822266 seconds
+124 proof generation runs in 0.20897293090820312
+Proof steps:  11
+Max condition number:  5
+Average condition number:  2.1818181818181817
+154 solved in 38.2270667552948 seconds
+154 proof generation runs in 0.019730329513549805
+Proof steps:  9
+Max condition number:  3
+Average condition number:  2.0
+132 proof generation fails 1200.0060286521912
+159 unsolved in 1239.082827091217 seconds
+184 solved in 79.84433007240295 seconds
+162 solved in 26.364877462387085 seconds
+162 proof generation runs in 0.0444796085357666
 Proof steps:  12
 Max condition number:  3
 Average condition number:  1.9166666666666667
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/2b0b35da3b7329a2e09866329d80741c.pkl...
-159 unsolved in 1248.5485970973969 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/bb0dd4fa08d5f32f55023be551fc9e39.pkl...
-184 proof generation runs in 968.2566776275635
-Proof steps:  28
+189 solved in 14.911709308624268 seconds
+189 proof generation runs in 13.770566463470459
+Proof steps:  21
 Max condition number:  6
-Average condition number:  2.3214285714285716
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8b95e8526734aee8ef519b4f44c5474d.pkl...
-214 solved in 5.841177463531494 seconds
-214 proof generation runs in 0.06955122947692871
-Proof steps:  10
-Max condition number:  3
-Average condition number:  1.8
-.
-----------------------------------------------------------------------
-Ran 1 test in 1374.144s
-
-OK
-189 solved in 14.89152193069458 seconds
-189 proof generation runs in 8.436889410018921
-Proof steps:  26
-Max condition number:  6
-Average condition number:  2.1538461538461537
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/8d289020a531ad5bea8959055a692a9e.pkl...
-219 solved in 4.307425260543823 seconds
-219 proof generation runs in 0.052382707595825195
+Average condition number:  2.1904761904761907
+219 solved in 4.196581602096558 seconds
+219 proof generation runs in 0.06520509719848633
 Proof steps:  11
 Max condition number:  6
 Average condition number:  1.8181818181818181
 .
 ----------------------------------------------------------------------
-Ran 1 test in 1392.751s
+Ran 1 test in 1394.397s
 
 OK
-216 solved in 49.47157001495361 seconds
-226 unsolved in 1200.0731415748596 seconds
+192 unsolved in 152.09520053863525 seconds
+222 solved in 5.805830478668213 seconds
+222 proof generation runs in 0.734095573425293
+Proof steps:  9
+Max condition number:  6
+Average condition number:  2.2222222222222223
 .
 ----------------------------------------------------------------------
-Ran 1 test in 1424.992s
+Ran 1 test in 1524.938s
 
 OK
-216 proof generation runs in 54.76959443092346
-Proof steps:  12
-Max condition number:  14
-Average condition number:  2.9166666666666665
+126 proof generation runs in 875.3015315532684
+Proof steps:  31
+Max condition number:  7
+Average condition number:  1.935483870967742
+218 proof generation fails 1200.005702495575
 .
 ----------------------------------------------------------------------
-Ran 1 test in 1452.146s
+Ran 1 test in 1719.646s
 
 OK
-192 unsolved in 126.6777355670929 seconds
-Load existing diagram from /private/home/zhaoyuli/PyEuclid_archived/cache/16377810af8c76b9f0ba673b0e7f7759.pkl...
-222 unsolved in 4.822283506393433 seconds
+156 solved in 64.81568193435669 seconds
+156 proof generation runs in 1.5225584506988525
+Proof steps:  23
+Max condition number:  4
+Average condition number:  1.6521739130434783
+186 unsolved in 15.678347826004028 seconds
+216 solved in 42.05327391624451 seconds
+216 proof generation runs in 92.69056415557861
+Proof steps:  18
+Max condition number:  24
+Average condition number:  3.5
 .
 ----------------------------------------------------------------------
-Ran 1 test in 1486.531s
+Ran 1 test in 1875.104s
+
+OK
+226 proof generation fails 1200.010461807251
+.
+----------------------------------------------------------------------
+Ran 1 test in 1885.411s
+
+OK
+184 proof generation runs in 1083.7376325130463
+Proof steps:  28
+Max condition number:  6
+Average condition number:  2.2857142857142856
+214 solved in 5.28729510307312 seconds
+214 proof generation runs in 0.07809758186340332
+Proof steps:  10
+Max condition number:  3
+Average condition number:  1.8
+.
+----------------------------------------------------------------------
+Ran 1 test in 2448.889s
 
 OK

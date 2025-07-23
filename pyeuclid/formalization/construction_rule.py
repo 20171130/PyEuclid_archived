@@ -52,7 +52,7 @@ class register:
         return cls
 
 
-@register("independent")
+@register("deterministic")
 class construct_free(ConstructionRule):
     def __init__(self):
         self.inputs = []
@@ -1273,6 +1273,8 @@ class construct_shift(ConstructionRule):
         return [
             Length(x, b) - Length(c, d),
             Length(x, c) - Length(b, d),
+            Parallel(x, b, c, d),
+            Parallel(x, c, b, d)
         ]
 
 
@@ -1364,7 +1366,7 @@ class construct_e5128(ConstructionRule):
         ]
 
 
-@register("deterministic")
+@register("AG")
 class construct_3peq(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]

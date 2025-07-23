@@ -25,7 +25,6 @@ class State:
         self.ratios = {}
         self.angle_sums = {}
 
-        self.point2constructions = defaultdict(list)
         self.depth2conditions = defaultdict(list)
         self.condition2depth = defaultdict(int)
 
@@ -162,9 +161,12 @@ class State:
         for construction in constructions:
             construction.index = self.construction_num
             self.construction_num += 1
+            for p in construction.inputs:
+                if isinstance(p, Point):
+                    self.add_point(p)
+            
             for p in construction.outputs:
                 self.add_point(p)
-                self.point2constructions[p].append(construction)
                 
             relations = construction.conclusions()
 

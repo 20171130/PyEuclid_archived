@@ -1097,6 +1097,7 @@ class DefinitionOfCentroid2(InferenceRule):
             Triangle(self.a, self.b, self.c),
             Midpoint(self.p, self.a, self.b),
             Collinear(self.c, self.o, self.p),
+            Between(self.o, self.c, self.p),
             Length(self.o, self.p)/Length(self.o, self.c) - Rational(1,2)
         ]
     
@@ -2584,6 +2585,24 @@ class DiagramAngle2(InferenceRule):
     def conclusion(self):
         return Angle(self.b, self.a, self.c) - Angle(self.d, self.a, self.c) - Angle(self.d, self.a, self.b)
 
+
+@register("ex")
+# systemE Diagram-angle transfer 2, Angle addition, stronger than basic10
+class DiagramAngle3(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return Between(self.a, self.b, self.c), Not(Collinear(self.d, self.b, self.c)), Lt(self.b, self.c)
+
+    def conclusion(self):
+        return Angle(self.b, self.a, self.c) - Angle(self.d, self.a, self.c) - Angle(self.d, self.a, self.b)
+
+
 @register("ex")
 class FlatAngle(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
@@ -2642,7 +2661,7 @@ class ParaTrans(InferenceRule):
         self.f = f
 
     def condition(self):
-        return Parallel(self.a, self.b, self.c, self.d), Parallel(self.a, self.b, self.e, self.f), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.e, self.f), Lt(self.c, self.e)
+        return Parallel(self.a, self.b, self.c, self.d), Parallel(self.a, self.b, self.e, self.f), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.e, self.f), Leq(self.c, self.e)
 
     def degenerate(self):
         return self.a == self.c and self.b == self.d or self.a == self.e and self.b == self.f or self.e == self.c and self.f == self.d

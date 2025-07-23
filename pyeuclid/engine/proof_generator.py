@@ -104,33 +104,37 @@ class ProofGenerator:
                     else:
                         conditions = self.find_conditions(equations, expr, sources[0])
                     
-                    discards = []
-                    while len(conditions) > self.max_equation_length_perstep:
-                        additional_equations = []
-                        candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == node.depth and item not in equations and item not in discards]
+                    if not conditions:
+                        breakpoint()
+                    
+                    if self.max_equation_length_perstep:
+                        discards = []
+                        while len(conditions) > self.max_equation_length_perstep:
+                            additional_equations = []
+                            candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == node.depth and item not in equations and item not in discards]
 
-                        for intermediate_condition in candidate_intermediate_conditions:
-                            if intermediate_condition.expr in self.cache_conditions:
-                                if self.cache_source[intermediate_condition.expr] == sources[0]:
-                                    cond = self.cache_conditions[intermediate_condition.expr]
+                            for intermediate_condition in candidate_intermediate_conditions:
+                                if intermediate_condition.expr in self.cache_conditions:
+                                    if self.cache_source[intermediate_condition.expr] == sources[0]:
+                                        cond = self.cache_conditions[intermediate_condition.expr]
+                                    else:
+                                        cond = None
                                 else:
-                                    cond = None
-                            else:
-                                cond = self.find_conditions(equations, intermediate_condition.expr, sources[0])
+                                    cond = self.find_conditions(equations, intermediate_condition.expr, sources[0])
+                                
+                                if cond:
+                                    if len(cond) <= self.max_equation_length_perstep:
+                                        self.cache_conditions[intermediate_condition.expr] = cond
+                                        self.cache_source[intermediate_condition.expr] = sources[0]
+                                        additional_equations.append(intermediate_condition)
+                                else:
+                                    discards.append(intermediate_condition)
                             
-                            if cond:
-                                if len(cond) <= self.max_equation_length_perstep:
-                                    self.cache_conditions[intermediate_condition.expr] = cond
-                                    self.cache_source[intermediate_condition.expr] = sources[0]
-                                    additional_equations.append(intermediate_condition)
-                            else:
-                                discards.append(intermediate_condition)
-                        
-                        if len(additional_equations) == 0:
-                            break
-                        
-                        equations = equations+additional_equations
-                        conditions = self.find_conditions(equations, expr, sources[0])
+                            if len(additional_equations) == 0:
+                                break
+                            
+                            equations = equations+additional_equations
+                            conditions = self.find_conditions(equations, expr, sources[0])
                         
                     if not conditions:
                         breakpoint()
@@ -166,33 +170,34 @@ class ProofGenerator:
                             if conditions:
                                 source = tmp
                                 break
-                discards = []
-                while len(conditions) > self.max_equation_length_perstep:
-                    additional_equations = []
-                    candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == depth and item not in equations and item not in discards]
+                if self.max_equation_length_perstep:
+                    discards = []
+                    while len(conditions) > self.max_equation_length_perstep:
+                        additional_equations = []
+                        candidate_intermediate_conditions = [item for item in self.state.equations if item.depth == depth and item not in equations and item not in discards]
 
-                    for intermediate_condition in candidate_intermediate_conditions:
-                        if intermediate_condition.expr in self.cache_conditions:
-                            if self.cache_source[intermediate_condition.expr] == source:
-                                cond = self.cache_conditions[intermediate_condition.expr]
+                        for intermediate_condition in candidate_intermediate_conditions:
+                            if intermediate_condition.expr in self.cache_conditions:
+                                if self.cache_source[intermediate_condition.expr] == source:
+                                    cond = self.cache_conditions[intermediate_condition.expr]
+                                else:
+                                    cond = None
                             else:
-                                cond = None
-                        else:
-                            cond = self.find_conditions(equations, intermediate_condition.expr, source)
+                                cond = self.find_conditions(equations, intermediate_condition.expr, source)
+                            
+                            if cond:
+                                if len(cond) <= self.max_equation_length_perstep:
+                                    self.cache_conditions[intermediate_condition.expr] = cond
+                                    self.cache_source[intermediate_condition.expr] = source
+                                    additional_equations.append(intermediate_condition)
+                            else:
+                                discards.append(intermediate_condition)
                         
-                        if cond:
-                            if len(cond) <= self.max_equation_length_perstep:
-                                self.cache_conditions[intermediate_condition.expr] = cond
-                                self.cache_source[intermediate_condition.expr] = source
-                                additional_equations.append(intermediate_condition)
-                        else:
-                            discards.append(intermediate_condition)
-                    
-                    if len(additional_equations) == 0:
-                        break
-                    
-                    equations = equations + additional_equations
-                    conditions = self.find_conditions(equations, node, source)
+                        if len(additional_equations) == 0:
+                            break
+                        
+                        equations = equations + additional_equations
+                        conditions = self.find_conditions(equations, node, source)
                 
                 if not conditions:
                     breakpoint()
@@ -249,7 +254,6 @@ class ProofGenerator:
                 else:
                     visited.add(node.expr)
                     node = node.expr
-            
             elif isinstance(node, sympy.core.expr.Expr):
                 terms = node.as_ordered_terms()
                 if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
@@ -318,31 +322,6 @@ class ProofGenerator:
             })
         
         return proof
-
-    def track_constructions(self, condition=None):
-        if not condition and self.state.goal:
-            condition = self.state.goal
-            
-        def collect(node):
-            if node in self.source_constructions:
-                return self.source_constructions[node]
-
-            if isinstance(node, ConstructionRule):
-                return [node]
-
-            constructions = set()
-
-            if node in self.proof_dict:
-                for parent in self.proof_dict[node]:
-                    parent_constructions = collect(parent)
-                    constructions.update(parent_constructions)
-            
-                self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
-                return self.source_constructions[node]
-            
-            return []
-        
-        collect(condition)
     
     def show_proof(self, node=None):
         res = self.get_proof_str(node)
@@ -403,11 +382,11 @@ class ProofGenerator:
               
         model.optimize()
         
-        try:
+        if model.getStatus() == "optimal":
             x_values = [model.getVal(x_pos[i]) - model.getVal(x_neg[i]) for i in range(m)]
             indices = [i for i, val in enumerate(x_values) if abs(val) > threshold]
             return indices
-        except:
+        else:
             return None
 
     def traceback_l0(self, augmented_A, e) -> list[str]:
@@ -455,48 +434,123 @@ class ProofGenerator:
         if source in ("angle_linear", "length_linear"):
             for i, eqn in enumerate(equations):
                 eqn = sympy.expand(eqn)
-                assert isinstance(eqn, sympy.core.add.Add) or isinstance(eqn, sympy.core.symbol.Symbol)
-
-                for add_arg in eqn.args:
-                    if len(add_arg.args) == 0:
-                        mul_args = [add_arg]
-                    else:
-                        assert isinstance(add_arg, sympy.core.mul.Mul)
-                        mul_args = add_arg.args
-                    factors = [item for item in mul_args if len(
-                        item.free_symbols) == 0]
-                    factor = sympy.core.mul.Mul(*factors)
-                    symbols = [item for item in mul_args if len(
-                        item.free_symbols) > 0]
-                    if len(symbols) == 0:
-                        b[i, 0] = factor.evalf()
-                    else:
-                        A[i, variables[symbols[0]]] = factor.evalf()
-        else:
-            assert source == "length_ratio"  # length=const or eqlength or eqlength ratio or lengthratio=const
-            for i, eqn in enumerate(equations):
-                if isinstance(eqn, sympy.core.add.Add):
-                    if len(eqn.args) > 2:
-                        breakpoint()
-                        assert False
-                    add_args = eqn.args
+                if isinstance(eqn, sympy.Add):
+                    terms = eqn.args
                 else:
-                    add_args = [eqn]
-                for j, add_arg in enumerate(add_args):
-                    if len(add_arg.args) > 0:
-                        mul_args = add_arg.args
+                    terms = [eqn]
+
+                for term in terms:
+                    mul_args = sympy.Mul.make_args(term)
+                    constants = [f for f in mul_args if not f.free_symbols]
+                    symbols = [f for f in mul_args if f.free_symbols]
+
+                    coeff = sympy.Mul(*constants)
+
+                    if len(symbols) == 0:
+                        b[i, 0] += coeff
                     else:
-                        mul_args = [add_arg]
-                    for mul_arg in mul_args:
-                        factor = (-1)**(j)
-                        if isinstance(mul_arg, sympy.core.power.Pow):
-                            factor *= mul_arg.args[1]
-                            mul_arg = mul_arg.args[0]
-                        if len(mul_arg.free_symbols) == 0:
-                            b[i, 0] += factor * math.log(abs(mul_arg))
+                        assert len(symbols) == 1, f"Nonlinear term: {term}"
+                        var = symbols[0]
+                        assert var in variables
+                        A[i, variables[var]] += coeff
+        else:
+            assert source == "length_ratio"  # length=const or eqlength or eqlength ratio or lengthratio=const      
+            for i, eqn in enumerate(equations):
+                if isinstance(eqn, sympy.Add):
+                    terms = eqn.args
+                else:
+                    terms = [eqn]
+                
+                for term in terms:
+                    # Extract sign from the term
+                    if isinstance(term, sympy.Mul) and len(term.args) > 0 and term.args[0].is_number and term.args[0] < 0:
+                        sign = -1
+                        # Remove the negative sign for processing
+                        if len(term.args) == 1:
+                            term = -term.args[0]  # Just a negative number
                         else:
-                            symbol = list(mul_arg.free_symbols)[0]
-                            A[i, variables[symbol]] += factor
+                            # Multiply by -1 to make positive, then we'll apply sign later
+                            term = sympy.Mul(*[-term.args[0]] + list(term.args[1:]))
+                    elif term.is_number and term < 0:
+                        sign = -1
+                        term = -term
+                    else:
+                        sign = 1
+                    
+                    # Now process the positive term and apply sign at the end
+                    numerator_vars = {}
+                    denominator_vars = {}
+                    constant_num = 1
+                    constant_den = 1
+                    
+                    if isinstance(term, sympy.Mul):
+                        for factor in term.args:
+                            if factor.is_number:
+                                constant_num *= float(factor)
+                            elif factor.is_symbol and factor in variables:
+                                numerator_vars[factor] = numerator_vars.get(factor, 0) + 1
+                            elif isinstance(factor, sympy.Pow):
+                                base, exp = factor.args
+                                exp_val = float(exp)
+                                if base.is_symbol and base in variables:
+                                    if exp_val > 0:
+                                        numerator_vars[base] = numerator_vars.get(base, 0) + exp_val
+                                    else:
+                                        denominator_vars[base] = denominator_vars.get(base, 0) + abs(exp_val)
+                                elif base.is_number:
+                                    if exp_val > 0:
+                                        constant_num *= float(base) ** exp_val
+                                    else:
+                                        constant_den *= float(base) ** abs(exp_val)
+                            elif isinstance(factor, (sympy.core.numbers.Rational, sympy.core.numbers.Float)):
+                                constant_num *= float(factor)
+                            else:
+                                try:
+                                    val = float(factor)
+                                    constant_num *= val
+                                except:
+                                    pass
+                                    
+                    elif isinstance(term, sympy.Pow):
+                        base, exp = term.args
+                        exp_val = float(exp)
+                        if base.is_symbol and base in variables:
+                            if exp_val > 0:
+                                numerator_vars[base] = exp_val
+                            else:
+                                denominator_vars[base] = abs(exp_val)
+                        elif base.is_number:
+                            if exp_val > 0:
+                                constant_num = float(base) ** exp_val
+                            else:
+                                constant_den = float(base) ** abs(exp_val)
+                                
+                    elif term.is_symbol and term in variables:
+                        numerator_vars[term] = 1
+                        
+                    elif term.is_number or isinstance(term, (sympy.core.numbers.Rational, sympy.core.numbers.Float)):
+                        constant_num = float(term)
+                        
+                    else:
+                        try:
+                            constant_num = float(term)
+                        except:
+                            print(f"Warning: Could not parse term {term}")
+                    
+                    # Apply to matrix with correct sign
+                    # Numerator variables contribute positively
+                    for var, power in numerator_vars.items():
+                        A[i, variables[var]] += sign * power
+                    
+                    # Denominator variables contribute negatively  
+                    for var, power in denominator_vars.items():
+                        A[i, variables[var]] -= sign * power
+                    
+                    # Handle constants
+                    if constant_num != 1 or constant_den != 1:
+                        const_contribution = constant_num / constant_den
+                        if const_contribution > 0:
+                            b[i, 0] += sign * math.log(const_contribution)
         return np.concat([A, b], axis=1)
 
     def find_conditions(self, equations: list[Traced], conclusion, source):

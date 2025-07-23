@@ -14,7 +14,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b = segment a b; c = on_bline c a b; e = midpoint e a c; d = on_circle d a c, on_line d a c; f = midpoint f b d ? cong b e b f")   
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a c d = triangle a c d; b = on_pline b c d a, on_pline b a d c; e = on_line e a c; f = shift f c a e ? para d e f b")   
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -39,6 +39,7 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     proof_generator.max_equation_length_perstep = 20
     engine = Engine(state, deductive_database, algebraic_system)
+    # state.goal = Angle(Point('d'),Point('c'),Point('e')) - Angle(Point('d'),Point('c'),Point('b')) - Angle(Point('b'),Point('c'),Point('e'))
     t0 = time.time()
     engine.run()
     t = time.time() - t0
@@ -52,7 +53,6 @@ def run_single_problem(args):
             print(f"Proof generated in {time.time()-t0:.2f}s")
     else:
         print(f"Not solved in {t:.2f}s")
-        breakpoint()
 
 if __name__ == '__main__':
     args = parser.parse_args()
