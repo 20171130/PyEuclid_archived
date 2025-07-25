@@ -1,0 +1,11 @@
+Solution:
+1. Perpendicular(a,c,b,h) [Perp2Angle2(c,a,b,h)] => Angle_a_h_b - Angle_c_a_h + pi/2
+2. Perpendicular(a,h,b,c) [Perp2Angle2(h,a,b,c)] => Angle_a_h_b + Angle_c_b_h - pi/2
+3. Length_c_o1 - Length_h_o1 & -Length_c_o2 + Length_h_o2 [DefinitionOfKite1(c,o1,h,o2)] => Kite(c,o1,h,o2)
+4. Kite(c,o1,h,o2) & Length_c_o1 - Length_h_o1 & -Length_c_o2 + Length_h_o2 [PropertyOfKite(c,o1,h,o2)] => Angle_c_o2_o1 - Angle_h_o2_o1 & Angle_c_o1_o2 - Angle_h_o1_o2
+5. Length_a_o2 - Length_c_o2 & Length_a_o2 - Length_h_o2 [InscribedAngle2(o2,a,c,h)] => Angle_c_a_h + Angle_c_o2_h/2 - pi
+6. Angle_a_h_b - Angle_c_a_h + pi/2 & Angle_c_o2_h - Angle_c_o2_o1 - Angle_h_o2_o1 & Angle_a_h_b + Angle_c_b_h - pi/2 & Angle_c_o2_o1 - Angle_h_o2_o1 & Angle_c_a_h + Angle_c_o2_h/2 - pi => Angle_c_b_h - Angle_h_o2_o1
+7. Length_b_o1 - Length_c_o1 & Length_b_o1 - Length_h_o1 [InscribedAngle1(o1,b,c,h)] => Angle_c_b_h - Angle_c_o1_h/2
+8. Angle_c_o1_o2 - Angle_h_o1_o2 & Angle_c_b_h - Angle_c_o1_h/2 & Angle_c_o1_h - Angle_c_o1_o2 - Angle_h_o1_o2 => Angle_c_b_h - Angle_h_o1_o2
+9. Angle_c_b_h - Angle_h_o2_o1 & Angle_c_b_h - Angle_h_o1_o2 => Angle_h_o1_o2 - Angle_h_o2_o1
+10. Angle_h_o1_o2 - Angle_h_o2_o1 [DefinitionOfIsoscelesTriangle1(h,o1,o2)] => Length_h_o1 - Length_h_o2

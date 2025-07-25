@@ -1,0 +1,15 @@
+Solution:
+1. Collinear(a,c,p) [CollinearParallel(a,c,p)] => Parallel(a,c,a,p) & Angle_c_a_n + Angle_n_a_p - pi
+2. Perpendicular(a,c,m,p) & Parallel(a,c,a,p) [AlphaGeometry1b(a,c,m,p,a,p)] => Perpendicular(a,p,m,p)
+3. Perpendicular(a,p,m,p) [Perp2Angle(a,p,m)] => Angle_a_p_m - pi/2
+4. Angle_a_m_p + Angle_a_p_m + Angle_m_a_p - pi & Angle_a_p_m - pi/2 => Angle_a_m_p + Angle_m_a_p - pi/2
+5. Collinear(a,b,q) [FlatAngle2(b,a,q,m)] => Angle_b_a_m + Angle_m_a_q - pi & Parallel(a,b,a,q)
+6. Angle_n_a_p + Angle_n_a_q - Angle_p_a_q & Angle_c_a_n + Angle_n_a_p - pi & Angle_m_a_p + Angle_m_a_q - Angle_p_a_q & Angle_b_a_m + Angle_m_a_q - pi & Angle_b_a_m - Angle_c_a_n => Angle_m_a_p - Angle_n_a_q
+7. Angle_a_m_p + Angle_m_a_p - pi/2 & Angle_m_a_p - Angle_n_a_q => Angle_a_m_p + Angle_n_a_q - pi/2
+8. Perpendicular(a,b,m,q) & Parallel(a,b,a,q) [AlphaGeometry1b(a,b,m,q,a,q)] => Perpendicular(a,q,m,q)
+9. Perpendicular(a,q,m,q) [Perp2Angle(a,q,m)] => Angle_a_q_m - pi/2
+10. Angle_a_q_m - pi/2 & Angle_a_p_m - pi/2 => Angle_a_p_m + Angle_a_q_m - pi
+11. Angle_a_p_m + Angle_a_q_m - pi [AlphaGeometry5b(a,m,p,q)] => Concyclic(a,m,p,q)
+12. Concyclic(a,m,p,q) [AlphaGeometry4a(a,p,m,q)] => Angle_a_m_p - Angle_a_q_p
+13. Angle_a_m_p + Angle_n_a_q - pi/2 & Angle_a_m_p - Angle_a_q_p => Angle_a_q_p + Angle_n_a_q - pi/2
+14. Angle_a_q_p + Angle_n_a_q - pi/2 [Angle2Perp3(a,n,p,q)] => Perpendicular(a,n,p,q)

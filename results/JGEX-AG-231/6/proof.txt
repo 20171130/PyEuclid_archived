@@ -1,0 +1,16 @@
+Solution:
+1. -Length_b_o + Length_c_o & -Length_c1_o + Length_c_o [InscribedAngle1(o,c,b,c1)] => Angle_b_c_c1 - Angle_b_o_c1/2
+2. -Length_a1_o + Length_a_o & Length_a_o - Length_b_o [InscribedAngle1(o,a,a1,b)] => Angle_a1_a_b - Angle_a1_o_b/2
+3. Collinear(a,a1,h) [CollinearParallel(a,a1,h)] => Parallel(a,a1,a,h)
+4. Perpendicular(a,h,b,c) & Parallel(a,a1,a,h) [AlphaGeometry1b(a,h,b,c,a,a1)] => Perpendicular(a,a1,b,c)
+5. Perpendicular(a,a1,b,c) [Perp2Angle3(a,a1,b,c)] => Angle_a1_a_b + Angle_a_b_c - pi/2
+6. Length_a1_o - Length_a_o & Length_a_o - Length_b_o => Length_a1_o - Length_b_o
+7. Length_a1_o - Length_a_o & Length_c1_o - Length_c_o & Length_a_o - Length_c_o => Length_a1_o - Length_c1_o
+8. Length_a1_o - Length_b_o & Length_a1_o - Length_c1_o [InscribedAngle1(o,a1,b,c1)] => Angle_b_a1_c1 - Angle_b_o_c1/2
+9. Length_b_o - Length_c_o & Length_c1_o - Length_c_o => Length_b_o - Length_c1_o
+10. -Length_a1_o + Length_c1_o & -Length_b_o + Length_c1_o [InscribedAngle1(o,c1,a1,b)] => Angle_a1_c1_b - Angle_a1_o_b/2
+11. Collinear(c,c1,h) [CollinearParallel(c,c1,h)] => Parallel(c,c1,c,h)
+12. Perpendicular(a,b,c,h) & Parallel(c,c1,c,h) [AlphaGeometry1b(c,h,a,b,c,c1)] => Perpendicular(a,b,c,c1)
+13. Perpendicular(a,b,c,c1) [Perp2Angle3(a,b,c,c1)] => Angle_a_b_c + Angle_b_c_c1 - pi/2
+14. Angle_b_c_c1 - Angle_b_o_c1/2 & Angle_a1_a_b - Angle_a1_o_b/2 & Angle_a1_a_b + Angle_a_b_c - pi/2 & Angle_b_a1_c1 - Angle_b_o_c1/2 & Angle_a1_c1_b - Angle_a1_o_b/2 & Angle_a_b_c + Angle_b_c_c1 - pi/2 => Angle_a1_c1_b - Angle_b_a1_c1
+15. -Angle_a1_c1_b + Angle_b_a1_c1 [DefinitionOfIsoscelesTriangle1(b,a1,c1)] => Length_a1_b - Length_b_c1

@@ -1,0 +1,14 @@
+Solution:
+1. Collinear(a,b,f) [CollinearParallel(a,b,f)] => Parallel(a,b,b,f)
+2. Parallelogram(a,b,c,d) => Parallel(a,b,c,d) & Parallel(a,d,b,c)
+3. Collinear(c,d,h) [CollinearParallel(c,d,h)] => Parallel(c,d,d,h)
+4. Parallel(a,b,c,d) & Parallel(c,d,d,h) [ParaTrans(c,d,a,b,d,h)] => Parallel(a,b,d,h)
+5. Parallel(a,b,b,f) & Parallel(a,b,d,h) [ParaTrans(a,b,b,f,d,h)] => Parallel(b,f,d,h)
+6. Collinear(b,d,e) & Collinear(e,f,h) & Parallel(b,f,d,h) [AlphaGeometry8(b,f,d,h,e)] => Length_b_d/Length_f_h - Length_b_e/Length_e_f
+7. Collinear(b,c,g) [CollinearParallel(b,c,g)] => Parallel(b,c,b,g)
+8. Parallel(a,d,b,c) & Parallel(b,c,b,g) [ParaTrans(b,c,a,d,b,g)] => Parallel(a,d,b,g)
+9. Collinear(a,d,i) [CollinearParallel(a,d,i)] => Parallel(a,d,d,i)
+10. Parallel(a,d,b,g) & Parallel(a,d,d,i) [ParaTrans(a,d,b,g,d,i)] => Parallel(b,g,d,i)
+11. Collinear(b,d,e) & Collinear(e,g,i) & Parallel(b,g,d,i) [AlphaGeometry8(b,g,d,i,e)] => Length_b_d/Length_g_i - Length_b_e/Length_e_g
+12. Length_b_d/Length_f_h - Length_b_e/Length_e_f & Length_b_d/Length_g_i - Length_b_e/Length_e_g => Length_e_f/Length_f_h - Length_e_g/Length_g_i
+13. Collinear(e,f,h) & Collinear(e,g,i) & Length_e_f/Length_f_h - Length_e_g/Length_g_i [AlphaGeometry28(f,g,h,i,e)] => Parallel(f,g,h,i)

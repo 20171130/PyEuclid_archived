@@ -1,0 +1,14 @@
+Solution:
+1. Midpoint(o,c,d) & Perpendicular(c,e,d,e) [AlphaGeometry20(c,e,d,o)] => Length_c_o - Length_e_o & Length_d_o - Length_e_o
+2. -Length_c_o + Length_e_o & -Length_d_o + Length_e_o & Perpendicular(a,e,e,o) [AlphaGeometry16b(o,e,c,d,a)] => Angle_a_e_c - Angle_c_d_e
+3. Collinear(d,e,f) [CollinearParallel(d,e,f)] => Parallel(d,e,e,f) & Angle_c_d_e - Angle_c_d_f
+4. Perpendicular(c,e,d,e) & Parallel(d,e,e,f) [AlphaGeometry1b(d,e,c,e,e,f)] => Perpendicular(c,e,e,f)
+5. Perpendicular(c,e,e,f) [Perp2Angle(c,e,f)] => Angle_c_e_f - pi/2
+6. Angle_a_e_c + Angle_a_e_f - Angle_c_e_f & Angle_c_e_f - pi/2 => Angle_a_e_c + Angle_a_e_f - pi/2
+7. Collinear(a,c,f) [CollinearParallel(a,c,f)] => Parallel(a,c,c,f)
+8. Perpendicular(a,c,c,d) & Parallel(a,c,c,f) [AlphaGeometry1b(a,c,c,d,c,f)] => Perpendicular(c,d,c,f)
+9. Perpendicular(c,d,c,f) [Perp2Angle(d,c,f)] => Angle_d_c_f - pi/2
+10. Collinear(d,e,f) & Collinear(a,c,f) [DiagramAngle4a(f,a,e,c,d)] => Angle_a_f_e - Angle_c_f_d
+11. Angle_c_d_e - Angle_c_d_f & Angle_d_c_f - pi/2 & Angle_c_d_f + Angle_c_f_d + Angle_d_c_f - pi & Angle_a_f_e - Angle_c_f_d => Angle_a_f_e + Angle_c_d_e - pi/2
+12. Angle_a_e_c - Angle_c_d_e & Angle_a_e_c + Angle_a_e_f - pi/2 & Angle_a_f_e + Angle_c_d_e - pi/2 => Angle_a_e_f - Angle_a_f_e
+13. Angle_a_e_f - Angle_a_f_e [DefinitionOfIsoscelesTriangle1(a,e,f)] => Length_a_e - Length_a_f

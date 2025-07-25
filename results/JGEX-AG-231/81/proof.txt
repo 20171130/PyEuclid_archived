@@ -1,0 +1,27 @@
+Solution:
+1. Length_a_c - Length_a_d & Length_a_c - Length_a_f => Length_a_d - Length_a_f
+2. Length_a_d - Length_a_f [DefinitionOfIsoscelesTriangle(a,d,f)] => Angle_a_d_f - Angle_a_f_d
+3. Collinear(c,e,f) [FlatAngle2(e,c,f,a)] => Angle_a_c_e + Angle_a_c_f - pi & Angle_a_f_c - Angle_a_f_e
+4. Length_b_e - Length_b_g & Length_b_c - Length_b_e => Length_b_c - Length_b_g
+5. Length_b_c - Length_b_e & Length_b_c - Length_b_g & Perpendicular(a,c,b,c) [AlphaGeometry16a(b,c,e,g,a)] => Angle_a_c_e + Angle_c_g_e - pi
+6. Length_a_c - Length_a_f [DefinitionOfIsoscelesTriangle(a,c,f)] => Angle_a_c_f - Angle_a_f_c
+7. Angle_a_c_e + Angle_a_c_f - pi & Angle_a_f_c - Angle_a_f_e & Angle_a_c_e + Angle_c_g_e - pi & Angle_a_c_f - Angle_a_f_c => Angle_a_f_e - Angle_c_g_e
+8. Length_b_c - Length_b_e [DefinitionOfIsoscelesTriangle(b,c,e)] => Angle_b_c_e - Angle_b_e_c
+9. Collinear(c,e,f) & Collinear(b,e,g) [DiagramAngle4a(e,b,c,g,f)] => Angle_b_e_c - Angle_f_e_g
+10. -Length_b_c + Length_b_g & -Length_b_e + Length_b_g [InscribedAngle1(b,g,c,e)] => Angle_c_b_e - 2*Angle_c_g_e
+11. Angle_b_c_e + Angle_b_e_c + Angle_c_b_e - pi & Angle_b_c_e - Angle_b_e_c & Angle_b_e_c - Angle_f_e_g & Angle_c_b_e - 2*Angle_c_g_e => Angle_c_g_e + Angle_f_e_g - pi/2
+12. Angle_a_f_e - Angle_c_g_e & Angle_c_g_e + Angle_f_e_g - pi/2 => Angle_a_f_e + Angle_f_e_g - pi/2
+13. Length_b_c - Length_b_d & Length_b_c - Length_b_e => Length_b_d - Length_b_e
+14. -Length_b_d + Length_b_e & Length_b_e - Length_b_g [InscribedAngle1(b,e,d,g)] => Angle_d_b_g - 2*Angle_d_e_g
+15. Length_a_c - Length_a_d & -Length_b_c + Length_b_d [DefinitionOfKite1(c,a,d,b)] => Kite(a,c,b,d)
+16. Kite(a,c,b,d) & Length_a_c - Length_a_d & -Length_b_c + Length_b_d [PropertyOfKite(c,a,d,b)] => Angle_a_c_b - Angle_a_d_b
+17. Length_b_e - Length_b_g & Length_b_d - Length_b_e => Length_b_d - Length_b_g
+18. Length_b_d - Length_b_g [DefinitionOfIsoscelesTriangle(b,d,g)] => Angle_b_d_g - Angle_b_g_d
+19. Perpendicular(a,c,b,c) [Perp2Angle(a,c,b)] => Angle_a_c_b - pi/2
+20. Angle_d_b_g - 2*Angle_d_e_g & Angle_a_c_b - Angle_a_d_b & Angle_b_d_g - Angle_b_g_d & Angle_a_c_b - pi/2 & Angle_b_d_g + Angle_b_g_d + Angle_d_b_g - pi & Angle_a_d_b - Angle_a_d_g - Angle_b_d_g => Angle_a_d_g - Angle_d_e_g
+21. Collinear(b,e,g) [FlatAngle2(e,b,g,d)] => Angle_d_b_e + Angle_d_b_g - pi
+22. -Length_b_d + Length_b_g & -Length_b_e + Length_b_g [InscribedAngle1(b,g,d,e)] => Angle_d_b_e - 2*Angle_d_g_e
+23. Angle_d_b_g - 2*Angle_d_e_g & Angle_d_b_e + Angle_d_b_g - pi & Angle_d_b_e - 2*Angle_d_g_e => Angle_d_e_g + Angle_d_g_e - pi/2
+24. Angle_a_d_g - Angle_d_e_g & Angle_d_e_g + Angle_d_g_e - pi/2 => Angle_a_d_g + Angle_d_g_e - pi/2
+25. Angle_a_d_g + Angle_a_g_d + Angle_d_a_g - pi & Angle_a_f_e - Angle_a_f_g - Angle_e_f_g & Angle_e_f_g + Angle_e_g_f + Angle_f_e_g - pi & Angle_a_d_f + Angle_a_f_d + Angle_d_a_f - pi & Angle_a_f_g + Angle_a_g_f + Angle_f_a_g - pi & Angle_d_a_f - Angle_d_a_g - Angle_f_a_g & Angle_a_d_f - Angle_a_f_d & Angle_d_g_e - Angle_d_g_f + Angle_e_g_f & Angle_a_g_d + Angle_a_g_f - Angle_d_g_f & Angle_a_f_e + Angle_f_e_g - pi/2 & Angle_a_d_g + Angle_d_g_e - pi/2 => Angle_a_f_d - Angle_a_f_g
+26. Angle_a_f_d - Angle_a_f_g [AlphaGeometry3d2(d,f,a,g)] => Collinear(d,f,g)

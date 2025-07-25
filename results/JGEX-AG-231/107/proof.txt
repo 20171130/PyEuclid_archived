@@ -1,0 +1,4 @@
+Solution:
+1. Collinear(b,c,l) [FlatAngle2(b,l,c,x)] => Angle_b_l_x + Angle_c_l_x - pi & Angle_b_l_y + Angle_c_l_y - pi
+2. Angle_b_l_x + Angle_b_l_y - Angle_x_l_y & Angle_c_l_x + Angle_c_l_y - Angle_x_l_y & Angle_b_l_x + Angle_c_l_x - pi & Angle_b_l_y + Angle_c_l_y - pi => Angle_x_l_y - pi
+3. Angle_x_l_y - pi [FlatAngle2Collinear(x,l,y)] => Collinear(l,x,y)

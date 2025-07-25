@@ -1,0 +1,22 @@
+Solution:
+1. Collinear(b,c,f) [DiagramAngle4b(c,b,d,f)] => Angle_b_c_d - Angle_d_c_f & Angle_a_b_c - Angle_a_b_f & Parallel(b,c,b,f) & Parallel(b,c,c,f) & Angle_b_f_d + Angle_c_f_d - pi
+2. Collinear(c,d,g) [CollinearParallel(c,d,g)] => Parallel(c,d,c,g)
+3. Perpendicular(a,b,c,g) & Parallel(c,d,c,g) [AlphaGeometry1b(c,g,a,b,c,d)] => Perpendicular(a,b,c,d)
+4. Perpendicular(a,b,c,d) [Perp2Angle3(a,b,c,d)] => Angle_a_b_c + Angle_b_c_d - pi/2
+5. Angle_b_c_d - Angle_d_c_f & Angle_a_b_c - Angle_a_b_f & Angle_a_b_c + Angle_b_c_d - pi/2 => Angle_a_b_f + Angle_d_c_f - pi/2
+6. Collinear(a,c,e) [CollinearParallel(a,c,e)] => Parallel(a,c,c,e) & Parallel(a,c,a,e)
+7. Perpendicular(a,c,d,e) & Parallel(a,c,c,e) [AlphaGeometry1b(a,c,d,e,c,e)] => Perpendicular(c,e,d,e)
+8. Perpendicular(c,e,d,e) [Perp2Angle(c,e,d)] => Angle_c_e_d - pi/2
+9. Perpendicular(b,c,d,f) & Parallel(b,c,b,f) [AlphaGeometry1b(b,c,d,f,b,f)] => Perpendicular(b,f,d,f)
+10. Perpendicular(b,f,d,f) [Perp2Angle(b,f,d)] => Angle_b_f_d - pi/2
+11. Perpendicular(b,c,d,f) & Parallel(b,c,c,f) [AlphaGeometry1b(b,c,d,f,c,f)] => Perpendicular(c,f,d,f)
+12. Perpendicular(c,f,d,f) [Perp2Angle(c,f,d)] => Angle_c_f_d - pi/2
+13. Angle_b_f_d - pi/2 & Angle_c_f_d - pi/2 => Angle_b_f_d - Angle_c_f_d
+14. Angle_c_e_d - pi/2 & Angle_b_f_d - Angle_c_f_d & Angle_b_f_d + Angle_c_f_d - pi => Angle_c_e_d + Angle_c_f_d - pi
+15. Angle_c_e_d + Angle_c_f_d - pi [AlphaGeometry5b(c,d,e,f)] => Concyclic(c,d,e,f)
+16. Concyclic(c,d,e,f) [AlphaGeometry4a(d,f,c,e)] => Angle_d_c_f - Angle_d_e_f
+17. Perpendicular(a,c,d,e) & Parallel(a,c,a,e) [AlphaGeometry1b(a,c,d,e,a,e)] => Perpendicular(a,e,d,e)
+18. Perpendicular(a,e,d,e) [Perp2Angle(a,e,d)] => Angle_a_e_d - pi/2
+19. Angle_a_e_d - Angle_a_e_f - Angle_d_e_f & Angle_a_e_d - pi/2 => Angle_a_e_f + Angle_d_e_f - pi/2
+20. Angle_a_b_f + Angle_d_c_f - pi/2 & Angle_d_c_f - Angle_d_e_f & Angle_a_e_f + Angle_d_e_f - pi/2 => Angle_a_b_f - Angle_a_e_f
+21. Angle_a_b_f - Angle_a_e_f [AlphaGeometry5a(a,f,b,e)] => Concyclic(a,b,e,f)

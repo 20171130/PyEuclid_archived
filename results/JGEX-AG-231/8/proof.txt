@@ -1,0 +1,12 @@
+Solution:
+1. Collinear(a,c,e) [DiagramAngle4b(e,a,f,c)] => Angle_a_e_f - Angle_c_e_f & Angle_a_c_d - Angle_d_c_e
+2. -Length_a_p + Length_b_p & Length_b_p - Length_f_p [InscribedAngle1(p,b,a,f)] => Angle_a_b_f - Angle_a_p_f/2
+3. Length_b_o - Length_d_o & Length_b_o - Length_c_o => Length_c_o - Length_d_o
+4. -Length_a_o + Length_c_o & Length_c_o - Length_d_o [InscribedAngle1(o,c,a,d)] => Angle_a_c_d - Angle_a_o_d/2
+5. Length_a_p - Length_e_p & Length_a_p - Length_f_p => Length_e_p - Length_f_p
+6. -Length_a_p + Length_e_p & Length_e_p - Length_f_p [InscribedAngle1(p,e,a,f)] => Angle_a_e_f - Angle_a_p_f/2
+7. Collinear(b,d,f) [FlatAngle2(d,b,f,a)] => Angle_a_b_d + Angle_a_b_f - pi
+8. -Length_a_o + Length_b_o & Length_b_o - Length_d_o [InscribedAngle2(o,b,a,d)] => Angle_a_b_d + Angle_a_o_d/2 - pi
+9. Angle_a_b_f - Angle_a_p_f/2 & Angle_a_c_d - Angle_a_o_d/2 & Angle_a_e_f - Angle_a_p_f/2 & Angle_a_c_d - Angle_d_c_e & Angle_a_b_d + Angle_a_b_f - pi & Angle_a_b_d + Angle_a_o_d/2 - pi => Angle_a_e_f - Angle_d_c_e
+10. Angle_a_e_f - Angle_c_e_f & Angle_c_d_e + Angle_c_e_d + Angle_d_c_e - pi & Angle_c_e_d + Angle_c_e_f - Angle_d_e_f & Angle_a_e_f - Angle_d_c_e => Angle_c_d_e + Angle_d_e_f - pi
+11. Angle_c_d_e + Angle_d_e_f - pi [AlphaGeometry3c1(c,d,f,e)] => Parallel(c,d,e,f)

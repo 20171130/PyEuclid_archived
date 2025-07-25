@@ -1,0 +1,15 @@
+Solution:
+1. Collinear(b,l,o) [CollinearParallel(b,l,o)] => Parallel(b,o,l,o)
+2. Perpendicular(b,o,c,l) & Parallel(b,o,l,o) [AlphaGeometry1b(b,o,c,l,l,o)] => Perpendicular(c,l,l,o)
+3. Perpendicular(c,l,l,o) [Perp2Angle(c,l,o)] => Angle_c_l_o - pi/2
+4. Angle_c_l_o - pi/2 & Angle_c_l_i - Angle_c_l_o + Angle_i_l_o => Angle_c_l_i + Angle_i_l_o - pi/2
+5. Perpendicular(a,e,a,o) & Perpendicular(a,e,c,j) [AlphaGeometry1(a,o,a,e,c,j)] => Parallel(a,o,c,j)
+6. Parallel(a,o,c,j) [Para2Angle(c,j,o,a)] => Angle_a_o_c + Angle_j_c_o - pi
+7. Angle_a_o_c + Angle_j_c_o - pi & Angle_c_l_o - pi/2 & Angle_c_l_o + Angle_c_o_l + Angle_l_c_o - pi & Angle_j_c_l - Angle_j_c_o + Angle_l_c_o & Angle_a_o_c - Angle_a_o_l - Angle_c_o_l => Angle_a_o_l + Angle_j_c_l - pi/2
+8. Collinear(a,i,o) [CollinearParallel(a,i,o)] => Parallel(a,o,i,o) & Angle_a_o_j + Angle_i_o_j - pi
+9. Parallel(a,o,c,j) & Parallel(a,o,i,o) [ParaTrans(a,o,c,j,i,o)] => Parallel(c,j,i,o)
+10. Parallel(c,j,i,o) [Para2Angle(j,c,o,i)] => Angle_c_j_o + Angle_i_o_j - pi
+11. Angle_c_j_o + Angle_i_o_j - pi & Angle_a_o_j + Angle_i_o_j - pi => Angle_a_o_j - Angle_c_j_o
+12. Angle_a_o_j - Angle_a_o_l + Angle_j_o_l & Angle_c_j_l - Angle_c_j_o + Angle_l_j_o & Angle_j_l_o + Angle_j_o_l + Angle_l_j_o - pi & Angle_c_j_l + Angle_c_l_j + Angle_j_c_l - pi & Angle_a_o_l + Angle_j_c_l - pi/2 & Angle_a_o_j - Angle_c_j_o => Angle_c_l_j + Angle_j_l_o - 3*pi/2
+13. Angle_c_l_i + Angle_c_l_j - Angle_i_l_j & Angle_i_l_j - Angle_i_l_o - Angle_j_l_o & Angle_c_l_i + Angle_i_l_o - pi/2 & Angle_c_l_j + Angle_j_l_o - 3*pi/2 => Angle_i_l_j - pi
+14. Angle_i_l_j - pi [FlatAngle2Collinear(i,l,j)] => Collinear(i,j,l)

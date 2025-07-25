@@ -1,0 +1,20 @@
+Solution:
+1. Collinear(b,c,f) & Collinear(a,c,e) [DiagramAngle4a(c,a,b,e,f)] => Angle_a_c_b - Angle_e_c_f
+2. Collinear(a,c,e) [DiagramAngle4b(a,c,b,e)] => Angle_b_a_c - Angle_b_a_e & Angle_a_e_f + Angle_c_e_f - pi
+3. Perpendicular(a,b,b,c) [Perp2Angle(a,b,c)] => Angle_a_b_c - pi/2
+4. Angle_a_c_b - Angle_e_c_f & Angle_b_a_c - Angle_b_a_e & Angle_a_b_c - pi/2 & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi => Angle_b_a_e + Angle_e_c_f - pi/2
+5. Length_a_d - Length_b_d & Length_b_d - Length_d_e => Length_a_d - Length_d_e
+6. Length_a_d - Length_b_d & Length_a_d - Length_d_e [InscribedAngle1(d,a,b,e)] => Angle_b_a_e - Angle_b_d_e/2
+7. -Length_a_d + Length_d_e & -Length_b_d + Length_d_e & Perpendicular(d,e,e,f) [AlphaGeometry16a(d,e,a,b,f)] => Angle_a_b_e + Angle_a_e_f - pi & Angle_b_a_e - Angle_b_e_f
+8. Collinear(a,b,d) [FlatAngle2(a,d,b,e)] => Angle_a_d_e + Angle_b_d_e - pi & Parallel(a,b,b,d)
+9. -Length_a_d + Length_b_d & Length_b_d - Length_d_e [InscribedAngle1(d,b,a,e)] => Angle_a_b_e - Angle_a_d_e/2
+10. Angle_b_a_e - Angle_b_d_e/2 & Angle_a_b_e + Angle_a_e_f - pi & Angle_a_d_e + Angle_b_d_e - pi & Angle_a_b_e - Angle_a_d_e/2 & Angle_a_e_f + Angle_c_e_f - pi => Angle_b_a_e + Angle_c_e_f - pi/2
+11. Angle_b_a_e + Angle_e_c_f - pi/2 & Angle_b_a_e + Angle_c_e_f - pi/2 => Angle_c_e_f - Angle_e_c_f
+12. -Angle_c_e_f + Angle_e_c_f [DefinitionOfIsoscelesTriangle1(f,c,e)] => Length_c_f - Length_e_f
+13. Collinear(b,c,f) [CollinearParallel(b,c,f)] => Parallel(b,c,b,f)
+14. Perpendicular(a,b,b,c) & Parallel(b,c,b,f) [AlphaGeometry1b(b,c,a,b,b,f)] => Perpendicular(a,b,b,f)
+15. Perpendicular(a,b,b,f) & Parallel(a,b,b,d) [AlphaGeometry1b(a,b,b,f,b,d)] => Perpendicular(b,d,b,f)
+16. Length_b_d - Length_d_e & -Length_a_d + Length_b_d & Perpendicular(b,d,b,f) [AlphaGeometry16b(d,b,e,a,f)] => Angle_b_a_e - Angle_e_b_f
+17. Angle_b_a_e - Angle_e_b_f & Angle_b_a_e - Angle_b_e_f => Angle_b_e_f - Angle_e_b_f
+18. -Angle_b_e_f + Angle_e_b_f [DefinitionOfIsoscelesTriangle1(f,b,e)] => Length_b_f - Length_e_f
+19. Length_c_f - Length_e_f & Length_b_f - Length_e_f => Length_b_f - Length_c_f

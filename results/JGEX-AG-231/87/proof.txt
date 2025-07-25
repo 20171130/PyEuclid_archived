@@ -1,0 +1,18 @@
+Solution:
+1. Midpoint(f,b,c) & Midpoint(e,c,d) [AlphaGeometry7(c,b,d,f,e)] => Parallel(b,d,e,f)
+2. Midpoint(g,a,b) & Midpoint(h,a,d) [AlphaGeometry7(a,b,d,g,h)] => Parallel(b,d,g,h)
+3. Parallel(b,d,e,f) & Parallel(b,d,g,h) [ParaTrans(b,d,e,f,g,h)] => Parallel(e,f,g,h)
+4. Midpoint(h,a,d) & Midpoint(e,c,d) [AlphaGeometry7(d,a,c,h,e)] => Parallel(a,c,e,h)
+5. Midpoint(g,a,b) & Midpoint(f,b,c) [AlphaGeometry7(b,a,c,g,f)] => Parallel(a,c,f,g)
+6. Parallel(a,c,e,h) & Parallel(a,c,f,g) [ParaTrans(a,c,e,h,f,g)] => Parallel(e,h,f,g)
+7. Parallel(e,f,g,h) & Parallel(e,h,f,g) [DefinitionOfParallelogram1(e,f,g,h)] => Parallelogram(e,f,g,h)
+8. Perpendicular(a,b,a,d) & Perpendicular(a,b,b,c) [AlphaGeometry1(a,d,a,b,b,c)] => Parallel(a,d,b,c)
+9. Length_c_e - Length_d_e & Length_a_g - Length_b_g => Length_a_g/Length_b_g - Length_d_e/Length_c_e
+10. Collinear(a,b,g) & Parallel(a,d,b,c) & Collinear(c,d,e) & Length_a_g/Length_b_g - Length_d_e/Length_c_e [AlphaGeometry42(a,d,c,b,g,e)] => Parallel(a,d,e,g)
+11. Perpendicular(a,b,a,d) & Parallel(a,d,e,g) [AlphaGeometry1b(a,d,a,b,e,g)] => Perpendicular(a,b,e,g)
+12. Perpendicular(a,b,b,c) & Perpendicular(b,c,c,d) [AlphaGeometry1(a,b,b,c,c,d)] => Parallel(a,b,c,d)
+13. Length_a_h - Length_d_h & Length_b_f - Length_c_f => Length_a_h/Length_d_h - Length_b_f/Length_c_f
+14. Collinear(a,d,h) & Parallel(a,b,c,d) & Collinear(b,c,f) & Length_a_h/Length_d_h - Length_b_f/Length_c_f [AlphaGeometry42(a,b,c,d,h,f)] => Parallel(a,b,f,h)
+15. Perpendicular(a,b,e,g) & Parallel(a,b,f,h) [AlphaGeometry1b(a,b,e,g,f,h)] => Perpendicular(e,g,f,h)
+16. Parallelogram(e,f,g,h) & Perpendicular(e,g,f,h) [DefinitionOfRhombus3(e,f,g,h)] => Rhombus(e,f,g,h)
+17. Rhombus(e,f,g,h) => Length_e_h - Length_g_h

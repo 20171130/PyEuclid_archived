@@ -1,0 +1,11 @@
+Solution:
+1. Collinear(d,e,f) [DiagramAngle4b(d,e,b,f)] => Angle_b_d_e - Angle_b_d_f & Angle_b_e_d - Angle_b_e_f & Angle_c_d_e - Angle_c_d_f
+2. Collinear(b,c,d) [CollinearParallel(b,c,d)] => Parallel(b,c,b,d)
+3. Perpendicular(a,b,b,c) & Parallel(b,c,b,d) [AlphaGeometry1b(b,c,a,b,b,d)] => Perpendicular(a,b,b,d)
+4. Length_a_b - Length_a_f & Length_a_b - Length_a_e & Perpendicular(a,b,b,d) [AlphaGeometry16b(a,b,f,e,d)] => Angle_b_e_f - Angle_d_b_f
+5. Angle_b_e_d - Angle_b_e_f & Angle_b_e_f - Angle_d_b_f => Angle_b_e_d - Angle_d_b_f
+6. Angle_b_d_e - Angle_b_d_f & Angle_b_e_d - Angle_d_b_f [AlphaGeometry3536(b,d,e,f,d,b)] => Similar3(b,d,e,f,d,b)
+7. Similar3(b,d,e,f,d,b) [PropertyOfSimilar(b,d,e,f,d,b)] => Length_b_d/Length_d_e - Length_d_f/Length_b_d
+8. Length_b_d - Length_c_d & Length_b_d/Length_d_e - Length_d_f/Length_b_d => Length_c_d/Length_d_f - Length_d_e/Length_c_d
+9. Length_c_d/Length_d_f - Length_d_e/Length_c_d & Angle_c_d_e - Angle_c_d_f [AlphaGeometry40(c,d,e,f,d,c)] => Similar3(c,d,e,f,d,c)
+10. Similar3(c,d,e,f,d,c) [PropertyOfSimilar(c,d,e,f,d,c)] => Angle_c_f_d - Angle_d_c_e

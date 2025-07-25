@@ -1,0 +1,7 @@
+Solution:
+1. Length_a_b - Length_a_e & Length_a_b - Length_a_f & Perpendicular(a,b,b,d) [AlphaGeometry16a(a,b,e,f,d)] => Angle_b_f_e + Angle_d_b_e - pi
+2. Collinear(d,e,f) & Collinear(d,e,g) [CollinearTransist(d,e,f,g)] => Collinear(e,f,g) & Collinear(d,f,g)
+3. Collinear(e,f,g) [DiagramAngle4b(f,e,b,g)] => Angle_b_f_e - Angle_b_f_g
+4. Collinear(d,f,g) [DiagramAngle4b(g,d,b,f)] => Angle_b_g_d - Angle_b_g_f
+5. Angle_b_f_e + Angle_d_b_e - pi & Angle_b_f_e - Angle_b_f_g & Angle_b_f_g + Angle_b_g_f + Angle_f_b_g - pi & Angle_b_g_d - Angle_b_g_f & Angle_e_b_g - Angle_f_b_g & Angle_d_b_e - Angle_d_b_g - Angle_e_b_g => Angle_b_g_d - Angle_d_b_g
+6. -Angle_b_g_d + Angle_d_b_g [DefinitionOfIsoscelesTriangle1(d,b,g)] => Length_b_d - Length_d_g

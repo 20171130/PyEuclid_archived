@@ -1,0 +1,8 @@
+Solution:
+1. Parallel(a,c,d,f) [Para2Angle(c,a,f,d)] => Angle_a_c_f + Angle_c_f_d - pi
+2. Angle_c_d_f + Angle_c_f_d + Angle_d_c_f - pi & Angle_a_c_b - 2*Angle_b_c_d & Angle_a_c_d - Angle_a_c_f + Angle_d_c_f & Angle_a_c_b - 2*Angle_a_c_d & Angle_a_c_f + Angle_c_f_d - pi => Angle_b_c_d - Angle_c_d_f
+3. Collinear(a,b,d) [DiagramAngle4b(b,a,c,d)] => Angle_a_b_c - Angle_c_b_d
+4. -Length_a_e + Length_c_e & -Length_b_e + Length_c_e & Perpendicular(c,e,c,f) [AlphaGeometry16a(e,c,a,b,f)] => Angle_a_b_c + Angle_a_c_f - pi
+5. Angle_a_c_b - 2*Angle_b_c_d & Angle_a_b_c - Angle_c_b_d & Angle_a_c_d - Angle_a_c_f + Angle_d_c_f & Angle_a_c_b - 2*Angle_a_c_d & Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_a_b_c + Angle_a_c_f - pi => Angle_b_d_c - Angle_d_c_f
+6. Angle_b_c_d - Angle_c_d_f & Angle_b_d_c - Angle_d_c_f [AlphaGeometry37(b,c,d,f,d,c)] => Congruent3(b,c,d,f,d,c)
+7. Congruent3(b,c,d,f,d,c) [PropertyOfCongruent(b,c,d,f,d,c)] => Length_b_d - Length_c_f

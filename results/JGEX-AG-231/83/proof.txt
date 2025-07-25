@@ -1,0 +1,15 @@
+Solution:
+1. Collinear(e,f,h) [CollinearParallel(e,f,h)] => Parallel(e,f,f,h)
+2. Parallel(a,b,e,f) & Parallel(e,f,f,h) [ParaTrans(e,f,a,b,f,h)] => Parallel(a,b,f,h)
+3. Collinear(a,c,f) & Collinear(b,c,h) & Parallel(a,b,f,h) [AlphaGeometry8(a,b,f,h,c)] => Length_a_c/Length_b_c - Length_a_f/Length_b_h
+4. Parallel(a,b,c,d) & Parallel(a,b,e,f) [ParaTrans(a,b,c,d,e,f)] => Parallel(c,d,e,f)
+5. Collinear(a,c,f) & Collinear(a,d,e) & Parallel(c,d,e,f) [AlphaGeometry8(c,d,f,e,a)] => Similar3(a,c,d,a,f,e)
+6. Similar3(a,c,d,a,f,e) [PropertyOfSimilar(a,e,f,a,d,c)] => Length_e_f/Length_c_d - Length_a_f/Length_a_c
+7. Collinear(e,f,g) [CollinearParallel(e,f,g)] => Parallel(e,f,e,g)
+8. Parallel(c,d,e,f) & Parallel(e,f,e,g) [ParaTrans(e,f,c,d,e,g)] => Parallel(c,d,e,g)
+9. Collinear(e,f,g) & Collinear(e,f,h) [CollinearTransist(e,f,g,h)] => Collinear(e,g,h)
+10. Collinear(e,g,h) [CollinearParallel(e,g,h)] => Parallel(e,g,g,h)
+11. Parallel(c,d,e,g) & Parallel(e,g,g,h) [ParaTrans(e,g,c,d,g,h)] => Parallel(c,d,g,h)
+12. Collinear(b,c,h) & Collinear(b,d,g) & Parallel(c,d,g,h) [AlphaGeometry8(c,d,h,g,b)] => Similar3(b,c,d,b,h,g)
+13. Similar3(b,c,d,b,h,g) [PropertyOfSimilar(b,g,h,b,d,c)] => Length_g_h/Length_c_d - Length_b_h/Length_b_c
+14. Length_a_c/Length_b_c - Length_a_f/Length_b_h & Length_e_f/Length_c_d - Length_a_f/Length_a_c & Length_g_h/Length_c_d - Length_b_h/Length_b_c => Length_e_f - Length_g_h

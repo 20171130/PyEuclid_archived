@@ -1,0 +1,20 @@
+Solution:
+1. Collinear(d,m,n) & Collinear(e,m,n) [CollinearTransist(m,n,d,e)] => Collinear(d,e,m) & Collinear(d,e,n)
+2. Collinear(d,e,m) [DiagramAngle4b(d,e,a,m)] => Angle_a_d_e - Angle_a_d_m
+3. Length_a_o - Length_m_o & Length_a_o - Length_n_o => Length_m_o - Length_n_o
+4. Length_m_o - Length_n_o [DefinitionOfIsoscelesTriangle(o,m,n)] => Angle_m_n_o - Angle_n_m_o
+5. Collinear(e,m,n) [DiagramAngle4b(n,e,o,m)] => Angle_e_n_o - Angle_m_n_o
+6. Collinear(d,e,n) [DiagramAngle4b(e,d,a,n)] => Angle_a_e_d - Angle_a_e_n
+7. Collinear(n,o,p) [CollinearParallel(n,o,p)] => Parallel(n,o,o,p)
+8. Perpendicular(a,c,o,p) & Parallel(n,o,o,p) [AlphaGeometry1b(o,p,a,c,n,o)] => Perpendicular(a,c,n,o)
+9. Collinear(a,c,e) [CollinearParallel(a,c,e)] => Parallel(a,c,a,e)
+10. Perpendicular(a,c,n,o) & Parallel(a,c,a,e) [AlphaGeometry1b(a,c,n,o,a,e)] => Perpendicular(a,e,n,o)
+11. Perpendicular(a,e,n,o) [Perp2Angle2(n,o,a,e)] => Angle_a_e_n + Angle_e_n_o - pi/2
+12. Collinear(m,o,q) [CollinearParallel(m,o,q)] => Parallel(m,o,o,q)
+13. Perpendicular(a,b,o,q) & Parallel(m,o,o,q) [AlphaGeometry1b(o,q,a,b,m,o)] => Perpendicular(a,b,m,o)
+14. Collinear(a,b,d) [CollinearParallel(a,b,d)] => Parallel(a,b,a,d)
+15. Perpendicular(a,b,m,o) & Parallel(a,b,a,d) [AlphaGeometry1b(a,b,m,o,a,d)] => Perpendicular(a,d,m,o)
+16. Perpendicular(a,d,m,o) [Perp2Angle2(m,o,a,d)] => Angle_a_d_m + Angle_d_m_o - pi/2
+17. Collinear(d,m,n) [DiagramAngle4b(m,d,o,n)] => Angle_d_m_o - Angle_n_m_o
+18. Angle_m_n_o - Angle_n_m_o & Angle_e_n_o - Angle_m_n_o & Angle_a_e_d - Angle_a_e_n & Angle_a_e_n + Angle_e_n_o - pi/2 & Angle_a_d_m + Angle_d_m_o - pi/2 & Angle_d_m_o - Angle_n_m_o => Angle_a_d_m - Angle_a_e_d
+19. Angle_a_d_e - Angle_a_d_m & Angle_a_d_m - Angle_a_e_d => Angle_a_d_e - Angle_a_e_d

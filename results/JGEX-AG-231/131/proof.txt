@@ -1,0 +1,19 @@
+Solution:
+1. Collinear(a,b,h) [CollinearParallel(a,b,h)] => Parallel(a,b,b,h)
+2. Midpoint(f,a,c) & Midpoint(e,b,c) [AlphaGeometry7(c,a,b,f,e)] => Parallel(a,b,e,f)
+3. Parallel(a,b,b,h) & Parallel(a,b,e,f) [ParaTrans(a,b,b,h,e,f)] => Parallel(b,h,e,f)
+4. Parallel(b,h,e,f) [Para2Angle(e,f,h,b)] => Angle_b_h_e + Angle_f_e_h - pi
+5. Collinear(e,h,i) [DiagramAngle4b(h,e,b,i)] => Angle_b_h_e - Angle_b_h_i
+6. Collinear(a,c,f) & Collinear(a,c,i) [CollinearTransist(a,c,f,i)] => Collinear(c,f,i)
+7. Collinear(c,f,i) & Collinear(b,c,e) [DiagramAngle4a(c,b,i,e,f)] => Angle_b_c_i - Angle_e_c_f
+8. Length_e_g - Length_f_g & -Length_d_g + Length_e_g & Perpendicular(e,g,e,h) [AlphaGeometry16a(g,e,f,d,h)] => Angle_e_d_f + Angle_f_e_h - pi
+9. Collinear(b,c,e) [CollinearParallel(b,c,e)] => Parallel(b,c,c,e)
+10. Midpoint(d,a,b) & Midpoint(f,a,c) [AlphaGeometry7(a,b,c,d,f)] => Parallel(b,c,d,f)
+11. Parallel(b,c,c,e) & Parallel(b,c,d,f) [ParaTrans(b,c,c,e,d,f)] => Parallel(c,e,d,f)
+12. Collinear(a,c,f) [CollinearParallel(a,c,f)] => Parallel(a,c,c,f)
+13. Midpoint(d,a,b) & Midpoint(e,b,c) [AlphaGeometry7(b,a,c,d,e)] => Parallel(a,c,d,e)
+14. Parallel(a,c,c,f) & Parallel(a,c,d,e) [ParaTrans(a,c,c,f,d,e)] => Parallel(c,f,d,e)
+15. Parallel(c,e,d,f) & Parallel(c,f,d,e) [DefinitionOfParallelogram1(c,e,d,f)] => Parallelogram(c,e,d,f)
+16. Parallelogram(c,e,d,f) => Angle_e_c_f - Angle_e_d_f
+17. Angle_b_h_e + Angle_f_e_h - pi & Angle_b_h_e - Angle_b_h_i & Angle_b_c_i - Angle_e_c_f & Angle_e_d_f + Angle_f_e_h - pi & Angle_e_c_f - Angle_e_d_f => Angle_b_c_i - Angle_b_h_i
+18. Angle_b_c_i - Angle_b_h_i [AlphaGeometry5a(b,i,c,h)] => Concyclic(b,c,h,i)

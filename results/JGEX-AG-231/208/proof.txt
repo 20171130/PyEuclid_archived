@@ -1,0 +1,10 @@
+Solution:
+1. Parallel(a,b,c,d) [DefinitionOfTrapezoid(a,b,d,c)] => Trapezoid(a,b,d,c)
+2. Trapezoid(a,b,d,c) & Parallel(a,b,c,d) & Length_a_d - Length_b_c [DefinitionOfEquilateralTrapezoid1(a,b,d,c)] => EquilateralTrapezoid(a,b,d,c)
+3. EquilateralTrapezoid(a,b,d,c) & Parallel(a,b,c,d) [PropertyOfEquilateralTrapezoid(a,b,d,c)] => Length_a_c - Length_b_d & Angle_a_c_d - Angle_b_d_c
+4. Collinear(c,d,e) [DiagramAngle4b(c,d,a,e)] => Angle_a_c_d - Angle_a_c_e & Angle_b_d_c - Angle_b_d_e
+5. Angle_a_c_d - Angle_a_c_e & Angle_a_c_d - Angle_b_d_c & Angle_b_d_c - Angle_b_d_e => Angle_a_c_e - Angle_b_d_e
+6. Length_a_c - Length_b_d & Length_c_e - Length_d_e & Angle_a_c_e - Angle_b_d_e [AlphaGeometry34(a,c,e,b,d,e)] => Congruent3(a,c,e,b,d,e)
+7. Congruent3(a,c,e,b,d,e) [PropertyOfCongruent(a,c,e,b,d,e)] => Length_a_e - Length_b_e
+8. Length_a_e - Length_b_e [DefinitionOfIsoscelesTriangle(e,a,b)] => IsoscelesTriangle(a,b,e)
+9. IsoscelesTriangle(a,b,e) & Length_a_e - Length_b_e & Collinear(a,b,f) & Midpoint(f,a,b) [PropertyOfIsoscelesTriangle2(e,a,b,f)] => Perpendicular(a,b,e,f)

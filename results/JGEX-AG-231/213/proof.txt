@@ -1,0 +1,17 @@
+Solution:
+1. Midpoint(e,a,c) [PropertyOfMidpoint(e,a,c)] => Length_a_c - 2*Length_c_e
+2. Length_a_c - Length_b_c & Length_a_c - 2*Length_c_e => -1/2 + Length_c_e/Length_b_c
+3. Length_a_c - Length_a_d [DefinitionOfMidpoint(a,c,d)] => Midpoint(a,c,d)
+4. Midpoint(a,c,d) [PropertyOfMidpoint(a,c,d)] => Length_a_c - Length_c_d/2
+5. Length_a_c - Length_b_c & Length_a_c - Length_c_d/2 => Length_b_c/Length_c_d - 1/2
+6. -1/2 + Length_c_e/Length_b_c & Length_b_c/Length_c_d - 1/2 => Length_b_c/Length_c_e - Length_c_d/Length_b_c
+7. Collinear(a,c,d) & Collinear(a,c,e) [CollinearTransist(a,c,d,e)] => Collinear(c,d,e)
+8. Collinear(c,d,e) [DiagramAngle4b(c,d,b,e)] => Angle_b_c_d - Angle_b_c_e
+9. Length_b_c/Length_c_e - Length_c_d/Length_b_c & Angle_b_c_d - Angle_b_c_e [AlphaGeometry40(b,c,d,e,c,b)] => Similar3(b,c,d,e,c,b)
+10. Similar3(b,c,d,e,c,b) [PropertyOfSimilar(b,c,d,e,c,b)] => Length_b_c/Length_b_e - Length_c_d/Length_b_d & Length_b_c/Length_c_e - Length_b_d/Length_b_e
+11. Length_b_e - Length_e_f [DefinitionOfMidpoint(e,b,f)] => Midpoint(e,b,f)
+12. Midpoint(e,b,f) [PropertyOfMidpoint(e,b,f)] => Length_b_e - Length_b_f/2
+13. Length_b_e - Length_b_f/2 & Length_a_c - Length_c_d/2 => Length_a_c/Length_b_e - Length_c_d/Length_b_f
+14. Length_b_e - Length_b_f/2 & Length_a_c - 2*Length_c_e => Length_a_c/Length_b_f - Length_c_e/Length_b_e
+15. Length_b_c/Length_b_e - Length_c_d/Length_b_d & Length_a_c/Length_b_e - Length_c_d/Length_b_f & Length_b_c/Length_c_e - Length_b_d/Length_b_e & Length_a_c/Length_b_f - Length_c_e/Length_b_e => Length_b_d/Length_b_f - 1.0
+16. Length_b_d/Length_b_f - 1.0 => Length_b_d - Length_b_f

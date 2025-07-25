@@ -1,0 +1,21 @@
+Solution:
+1. Parallel(b,c,f,g) [Para2Angle(c,b,g,f)] => Angle_b_c_g + Angle_c_g_f - pi
+2. Collinear(c,d,f) [DiagramAngle4b(c,d,g,f)] => Angle_d_c_g - Angle_f_c_g & Angle_c_f_g + Angle_d_f_g - pi
+3. Angle_c_f_g + Angle_c_g_f + Angle_f_c_g - pi & Angle_b_c_g + Angle_c_g_f - pi & Angle_d_c_g - Angle_f_c_g & Angle_c_f_g + Angle_d_f_g - pi & Angle_b_c_d - Angle_b_c_g + Angle_d_c_g => Angle_b_c_d + Angle_d_f_g - pi
+4. Collinear(b,e,f) [DiagramAngle4b(e,b,g,f)] => Angle_b_e_g - Angle_f_e_g
+5. Length_a_b - Length_a_c & Length_a_b - Length_a_d => Length_a_c - Length_a_d
+6. -Length_a_b + Length_a_c & Length_a_c - Length_a_d [InscribedAngle1(a,c,b,d)] => Angle_b_a_d - 2*Angle_b_c_d
+7. Length_a_b - Length_a_e & Length_a_b - Length_a_d => Length_a_d - Length_a_e
+8. -Length_a_b + Length_a_e & -Length_a_d + Length_a_e [InscribedAngle1(a,e,b,d)] => Angle_b_a_d - 2*Angle_b_e_d
+9. Collinear(d,e,g) [FlatAngle2(d,e,g,b)] => Angle_b_e_d + Angle_b_e_g - pi & Angle_d_g_f - Angle_e_g_f & Angle_d_g_h - Angle_e_g_h & Angle_d_e_h + Angle_g_e_h - pi
+10. Angle_b_e_g - Angle_f_e_g & Angle_b_a_d - 2*Angle_b_c_d & Angle_b_a_d - 2*Angle_b_e_d & Angle_b_e_d + Angle_b_e_g - pi => Angle_b_c_d + Angle_f_e_g - pi
+11. Angle_b_c_d + Angle_d_f_g - pi & Angle_b_c_d + Angle_f_e_g - pi => Angle_d_f_g - Angle_f_e_g
+12. Angle_d_f_g - Angle_f_e_g & Angle_d_g_f - Angle_e_g_f [AlphaGeometry3536(d,f,g,f,e,g)] => Similar3(d,f,g,f,e,g)
+13. Similar3(d,f,g,f,e,g) [PropertyOfSimilar(d,f,g,f,e,g)] => Length_e_g/Length_f_g - Length_f_g/Length_d_g
+14. Length_a_b - Length_a_h & Length_a_b - Length_a_d => Length_a_d - Length_a_h
+15. Length_a_b - Length_a_e & Length_a_b - Length_a_h => Length_a_e - Length_a_h
+16. -Length_a_d + Length_a_h & -Length_a_e + Length_a_h & Perpendicular(a,h,g,h) [AlphaGeometry16a(a,h,d,e,g)] => Angle_d_e_h + Angle_d_h_g - pi
+17. Angle_d_e_h + Angle_g_e_h - pi & Angle_d_e_h + Angle_d_h_g - pi => Angle_d_h_g - Angle_g_e_h
+18. Angle_d_g_h - Angle_e_g_h & Angle_d_h_g - Angle_g_e_h [AlphaGeometry3536(d,g,h,h,g,e)] => Similar3(d,g,h,h,g,e)
+19. Similar3(d,g,h,h,g,e) [PropertyOfSimilar(e,g,h,h,g,d)] => Length_e_g/Length_g_h - Length_g_h/Length_d_g
+20. Length_e_g/Length_f_g - Length_f_g/Length_d_g & Length_e_g/Length_g_h - Length_g_h/Length_d_g => Length_f_g - Length_g_h

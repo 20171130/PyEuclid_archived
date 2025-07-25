@@ -1,0 +1,21 @@
+Solution:
+1. EquilateralTriangle(a,b,c) [PropertyOfEquilateralTriangle(a,b,c)] => Length_a_b - Length_b_c & Angle_a_b_c - Angle_a_c_b & Angle_a_b_c - Angle_b_a_c & Angle_a_c_b - Angle_b_a_c & Length_a_c - Length_b_c
+2. Collinear(b,c,e) & -Length_a_b + Length_b_c & Length_b_c - Length_b_e [AlphaGeometry21(b,c,a,e)] => Perpendicular(a,c,a,e)
+3. Length_b_e - Length_d_e [DefinitionOfMidpoint(e,b,d)] => Midpoint(e,b,d)
+4. Collinear(a,b,f) [CollinearParallel(a,b,f)] => Parallel(a,b,b,f) & Angle_a_b_e + Angle_e_b_f - pi & Angle_a_f_c - Angle_b_f_c & Angle_b_a_c - Angle_c_a_f
+5. Perpendicular(a,b,d,f) & Parallel(a,b,b,f) [AlphaGeometry1b(a,b,d,f,b,f)] => Perpendicular(b,f,d,f)
+6. Midpoint(e,b,d) & Perpendicular(b,f,d,f) [AlphaGeometry20(b,f,d,e)] => Length_b_e - Length_e_f
+7. Collinear(b,c,e) [FlatAngle2(c,b,e,a)] => Angle_a_b_c + Angle_a_b_e - pi
+8. Angle_a_b_e + Angle_e_b_f - pi & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_b_c - Angle_a_c_b & Angle_a_b_c + Angle_a_b_e - pi & Angle_a_b_c - Angle_b_a_c => Angle_e_b_f - pi/3
+9. Length_b_e - Length_e_f & Angle_e_b_f - pi/3 [DefinitionOfEquilateralTriangle3(e,b,f)] => EquilateralTriangle(b,e,f)
+10. EquilateralTriangle(b,e,f) [PropertyOfEquilateralTriangle(b,e,f)] => Angle_b_e_f - Angle_b_f_e
+11. Length_b_e - Length_e_f [DefinitionOfIsoscelesTriangle(e,b,f)] => Angle_b_f_e - Angle_e_b_f
+12. Angle_a_c_b - Angle_b_a_c & Angle_a_c_f + Angle_a_f_c + Angle_c_a_f - pi & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_b_c - Angle_b_a_c & Angle_b_a_c - Angle_c_a_f => Angle_a_c_f + Angle_a_f_c - 2*pi/3
+13. Angle_a_f_c - Angle_b_f_c & Angle_a_c_f + Angle_a_f_c - 2*pi/3 => Angle_a_c_f + Angle_b_f_c - 2*pi/3
+14. Angle_b_e_f - Angle_b_f_e & Angle_b_f_e - Angle_e_b_f & Angle_a_c_f + Angle_b_f_c - 2*pi/3 & Angle_b_e_f + Angle_b_f_e + Angle_e_b_f - pi & Angle_b_f_c + Angle_b_f_e - Angle_c_f_e => Angle_a_c_f + Angle_c_f_e - pi
+15. Angle_a_c_f + Angle_c_f_e - pi [AlphaGeometry3c1(a,c,e,f)] => Parallel(a,c,e,f)
+16. Length_a_c - Length_b_c & Length_b_c - Length_b_e => Length_a_c - Length_b_e
+17. Length_b_e - Length_e_f & Length_a_c - Length_b_e => Length_a_c - Length_e_f
+18. Parallel(a,c,e,f) & Length_a_c - Length_e_f [DefinitionOfParallelogram2(a,c,f,e)] => Parallelogram(a,c,f,e)
+19. Parallelogram(a,c,f,e) => Parallel(a,e,c,f)
+20. Perpendicular(a,c,a,e) & Parallel(a,e,c,f) [AlphaGeometry1b(a,e,a,c,c,f)] => Perpendicular(a,c,c,f)

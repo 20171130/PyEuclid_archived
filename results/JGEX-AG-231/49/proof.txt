@@ -1,0 +1,11 @@
+Solution:
+1. Collinear(b,c,e) & Collinear(a,c,d) [DiagramAngle4a(c,a,b,d,e)] => Angle_a_c_b - Angle_d_c_e
+2. Length_c_d - Length_c_e [DefinitionOfIsoscelesTriangle(c,d,e)] => Angle_c_d_e - Angle_c_e_d
+3. Angle_c_d_e + Angle_c_e_d + Angle_d_c_e - pi & Angle_a_b_c - Angle_b_a_c & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_c_b - Angle_d_c_e & Angle_c_d_e - Angle_c_e_d => Angle_a_b_c - Angle_c_e_d
+4. Angle_a_b_c - Angle_c_e_d & Collinear(b,c,e) [AlphaGeometry3b1(a,b,c,d,e)] => Parallel(a,b,d,e)
+5. Parallel(a,b,d,e) [DefinitionOfTrapezoid(a,b,e,d)] => Trapezoid(a,b,e,d)
+6. Collinear(b,c,e) [DiagramAngle4b(b,c,a,e)] => Angle_a_b_c - Angle_a_b_e
+7. Collinear(a,c,d) [DiagramAngle4b(a,c,b,d)] => Angle_b_a_c - Angle_b_a_d
+8. Angle_a_b_c - Angle_b_a_c & Angle_a_b_c - Angle_a_b_e & Angle_b_a_c - Angle_b_a_d => Angle_a_b_e - Angle_b_a_d
+9. Trapezoid(a,b,e,d) & Parallel(a,b,d,e) & -Angle_a_b_e + Angle_b_a_d [DefinitionOfEquilateralTrapezoid(a,b,e,d)] => EquilateralTrapezoid(a,b,e,d)
+10. EquilateralTrapezoid(a,b,e,d) & Parallel(a,b,d,e) [PropertyOfEquilateralTrapezoid(a,b,e,d)] => Length_a_e - Length_b_d

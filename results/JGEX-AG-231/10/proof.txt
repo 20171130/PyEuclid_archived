@@ -1,0 +1,13 @@
+Solution:
+1. Midpoint(p,a,b) & Midpoint(q,b,c) [AlphaGeometry7(b,a,c,p,q)] => Parallel(a,c,p,q)
+2. Midpoint(s,a,d) & Midpoint(r,c,d) [AlphaGeometry7(d,a,c,s,r)] => Parallel(a,c,r,s)
+3. Parallel(a,c,p,q) & Parallel(a,c,r,s) [ParaTrans(a,c,p,q,r,s)] => Parallel(p,q,r,s)
+4. Midpoint(p,a,b) & Midpoint(s,a,d) [AlphaGeometry7(a,b,d,p,s)] => Parallel(b,d,p,s)
+5. Midpoint(q,b,c) & Midpoint(r,c,d) [AlphaGeometry7(c,b,d,q,r)] => Parallel(b,d,q,r)
+6. Parallel(b,d,p,s) & Parallel(b,d,q,r) [ParaTrans(b,d,p,s,q,r)] => Parallel(p,s,q,r)
+7. Parallel(p,q,r,s) & Parallel(p,s,q,r) [DefinitionOfParallelogram1(p,q,r,s)] => Parallelogram(p,q,r,s)
+8. Parallelogram(p,q,r,s) & Collinear(o,p,r) & Collinear(o,q,s) [PropertyOfParallelogram1(p,q,r,s,o)] => Length_o_p - Length_o_r
+9. Length_o_p - Length_o_r [DefinitionOfMidpoint(o,p,r)] => Midpoint(o,p,r)
+10. Perpendicular(a,c,b,d) & Parallel(b,d,p,s) [AlphaGeometry1b(b,d,a,c,p,s)] => Perpendicular(a,c,p,s)
+11. Perpendicular(a,c,p,s) & Parallel(a,c,r,s) [AlphaGeometry1b(a,c,p,s,r,s)] => Perpendicular(p,s,r,s)
+12. Midpoint(o,p,r) & Perpendicular(p,s,r,s) [AlphaGeometry20(p,s,r,o)] => Length_o_r - Length_o_s

@@ -1,0 +1,18 @@
+Solution:
+1. Collinear(a,b,e) [CollinearParallel(a,b,e)] => Parallel(a,b,a,e)
+2. Midpoint(g,a,c) & Midpoint(f,b,c) [AlphaGeometry7(c,a,b,g,f)] => Parallel(a,b,f,g)
+3. Parallel(a,b,a,e) & Parallel(a,b,f,g) [ParaTrans(a,b,a,e,f,g)] => Parallel(a,e,f,g)
+4. Collinear(a,c,g) [CollinearParallel(a,c,g)] => Parallel(a,c,a,g)
+5. Midpoint(e,a,b) & Midpoint(f,b,c) [AlphaGeometry7(b,a,c,e,f)] => Parallel(a,c,e,f)
+6. Parallel(a,c,a,g) & Parallel(a,c,e,f) [ParaTrans(a,c,a,g,e,f)] => Parallel(a,g,e,f)
+7. Parallel(a,e,f,g) & Parallel(a,g,e,f) [DefinitionOfParallelogram1(a,e,f,g)] => Parallelogram(a,e,f,g)
+8. Parallelogram(a,e,f,g) => Angle_a_e_g - Angle_e_g_f & Angle_a_g_e - Angle_f_e_g
+9. Collinear(b,c,d) [CollinearParallel(b,c,d)] => Parallel(b,c,b,d) & Parallel(b,c,c,d)
+10. Perpendicular(a,d,b,c) & Parallel(b,c,b,d) [AlphaGeometry1b(b,c,a,d,b,d)] => Perpendicular(a,d,b,d)
+11. Midpoint(e,a,b) & Perpendicular(a,d,b,d) [AlphaGeometry20(a,d,b,e)] => Length_a_e - Length_d_e
+12. Perpendicular(a,d,b,c) & Parallel(b,c,c,d) [AlphaGeometry1b(b,c,a,d,c,d)] => Perpendicular(a,d,c,d)
+13. Midpoint(g,a,c) & Perpendicular(a,d,c,d) [AlphaGeometry20(a,d,c,g)] => Length_a_g - Length_d_g
+14. Length_a_e - Length_d_e & -Length_a_g + Length_d_g [DefinitionOfKite1(a,e,d,g)] => Kite(a,e,d,g)
+15. Kite(a,e,d,g) & Length_a_e - Length_d_e & -Length_a_g + Length_d_g [PropertyOfKite(a,e,d,g)] => Angle_a_e_g - Angle_d_e_g & Angle_a_g_e - Angle_d_g_e
+16. Angle_d_g_e - Angle_d_g_f - Angle_e_g_f & Angle_a_e_g - Angle_e_g_f & Angle_a_e_g - Angle_d_e_g & Angle_a_g_e - Angle_f_e_g & Angle_a_g_e - Angle_d_g_e & Angle_d_e_f + Angle_d_e_g - Angle_f_e_g => Angle_d_e_f - Angle_d_g_f
+17. Angle_d_e_f - Angle_d_g_f [AlphaGeometry5a(d,f,e,g)] => Concyclic(d,e,f,g)

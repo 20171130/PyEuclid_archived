@@ -1,0 +1,4 @@
+Solution:
+1. Collinear(a,c,f) [FlatAngle2(c,a,f,g)] => Angle_c_a_g + Angle_f_a_g - pi & Angle_c_a_d + Angle_d_a_f - pi
+2. Angle_d_a_f - Angle_d_a_g + Angle_f_a_g & Angle_c_a_d + Angle_c_a_g - Angle_d_a_g & Angle_c_a_g + Angle_f_a_g - pi & Angle_c_a_d + Angle_d_a_f - pi => Angle_d_a_g - pi
+3. Angle_d_a_g - pi [FlatAngle2Collinear(d,a,g)] => Collinear(a,d,g)

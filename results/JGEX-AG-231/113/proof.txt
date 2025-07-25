@@ -1,0 +1,12 @@
+Solution:
+1. Perpendicular(a,b,b,d) [Perp2Angle(a,b,d)] => Angle_a_b_d - pi/2
+2. Perpendicular(a,c,c,d) [Perp2Angle(a,c,d)] => Angle_a_c_d - pi/2
+3. Angle_a_b_d - pi/2 & Angle_a_c_d - pi/2 => Angle_a_b_d - Angle_a_c_d
+4. Angle_a_b_d - Angle_a_c_d [AlphaGeometry5a(a,d,b,c)] => Concyclic(a,b,c,d)
+5. Perpendicular(a,e,d,e) [Perp2Angle(a,e,d)] => Angle_a_e_d - pi/2
+6. Angle_a_e_d - pi/2 & Angle_a_b_d - pi/2 => Angle_a_b_d + Angle_a_e_d - pi
+7. Angle_a_b_d + Angle_a_e_d - pi [AlphaGeometry5b(a,d,b,e)] => Concyclic(a,b,d,e)
+8. Concyclic(a,b,c,d) & Concyclic(a,b,d,e) [ConcyclicTransist(a,b,d,c,e)] => Concyclic(a,b,c,e)
+9. Concyclic(a,b,c,e) [AlphaGeometry4b(a,c,b,e)] => Angle_a_b_c + Angle_a_e_c - pi & Angle_a_b_e - Angle_a_c_e
+10. Length_a_c - Length_a_e [DefinitionOfIsoscelesTriangle(a,c,e)] => Angle_a_c_e - Angle_a_e_c
+11. Angle_a_b_c + Angle_a_e_c - pi & Angle_a_b_e - Angle_a_c_e & Angle_a_c_e - Angle_a_e_c => Angle_a_b_c + Angle_a_b_e - pi

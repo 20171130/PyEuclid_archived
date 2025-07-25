@@ -1,0 +1,16 @@
+Solution:
+1. Collinear(a,b,d) [DiagramAngle4b(d,a,o,b)] => Angle_a_d_o - Angle_b_d_o & Angle_a_b_c - Angle_c_b_d
+2. Length_a_o - Length_c_o [DefinitionOfIsoscelesTriangle(o,a,c)] => Angle_a_c_o - Angle_c_a_o
+3. -Length_a_o + Length_b_o & Length_b_o - Length_c_o [InscribedAngle1(o,b,a,c)] => Angle_a_b_c - Angle_a_o_c/2
+4. Length_b_o - Length_c_o [DefinitionOfIsoscelesTriangle(o,b,c)] => IsoscelesTriangle(b,c,o)
+5. IsoscelesTriangle(b,c,o) & Length_b_o - Length_c_o & Collinear(b,c,h) & Midpoint(h,b,c) [PropertyOfIsoscelesTriangle2(o,b,c,h)] => Perpendicular(b,c,h,o)
+6. Collinear(d,h,o) [CollinearParallel(d,h,o)] => Parallel(d,o,h,o)
+7. Perpendicular(b,c,h,o) & Parallel(d,o,h,o) [AlphaGeometry1b(h,o,b,c,d,o)] => Perpendicular(b,c,d,o)
+8. Perpendicular(b,c,d,o) [Perp2Angle3(b,c,d,o)] => Angle_b_d_o + Angle_c_b_d - pi/2
+9. Angle_a_d_o - Angle_b_d_o & Angle_a_c_o - Angle_c_a_o & Angle_a_b_c - Angle_c_b_d & Angle_a_b_c - Angle_a_o_c/2 & Angle_b_d_o + Angle_c_b_d - pi/2 & Angle_a_c_o + Angle_a_o_c + Angle_c_a_o - pi => Angle_a_c_o - Angle_a_d_o
+10. Angle_a_c_o - Angle_a_d_o [AlphaGeometry5a(a,o,c,d)] => Concyclic(a,c,d,o)
+11. Length_a_o - Length_c_o & Length_a_o - Length_b_o & Perpendicular(a,e,a,o) [AlphaGeometry16b(o,a,c,b,e)] => Angle_a_b_c - Angle_c_a_e
+12. -Length_a_o + Length_c_o & -Length_b_o + Length_c_o & Perpendicular(c,e,c,o) [AlphaGeometry16b(o,c,a,b,e)] => Angle_a_b_c - Angle_a_c_e
+13. Angle_a_b_c - Angle_a_o_c/2 & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_a_b_c - Angle_c_a_e & Angle_a_b_c - Angle_a_c_e => Angle_a_e_c + Angle_a_o_c - pi
+14. Angle_a_e_c + Angle_a_o_c - pi [AlphaGeometry5b(a,c,e,o)] => Concyclic(a,c,e,o)
+15. Concyclic(a,c,d,o) & Concyclic(a,c,e,o) [ConcyclicTransist(a,c,o,d,e)] => Concyclic(a,d,e,o)

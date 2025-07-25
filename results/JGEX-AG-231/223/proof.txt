@@ -1,0 +1,11 @@
+Solution:
+1. Parallel(a,b,c,d) & Parallel(a,d,b,c) [DefinitionOfParallelogram1(a,b,c,d)] => Parallelogram(a,b,c,d)
+2. Parallelogram(a,b,c,d) => Length_a_d - Length_b_c & Angle_a_c_b - Angle_c_a_d
+3. Collinear(a,c,e) [DiagramAngle4b(a,c,d,e)] => Angle_c_a_d - Angle_d_a_e & Parallel(a,c,c,e)
+4. Parallel(a,c,c,e) & Parallel(a,f,c,e) [ParaTrans(c,e,a,c,a,f)] => Parallel(a,c,a,f)
+5. Parallel(a,c,a,f) [AlphaGeometry29(a,c,f)] => Collinear(a,c,f)
+6. Collinear(a,c,f) [DiagramAngle4b(c,a,b,f)] => Angle_a_c_b - Angle_b_c_f
+7. Angle_c_a_d - Angle_d_a_e & Angle_a_c_b - Angle_c_a_d & Angle_a_c_b - Angle_b_c_f => Angle_b_c_f - Angle_d_a_e
+8. Length_a_d - Length_b_c & Length_a_e - Length_c_f & -Angle_b_c_f + Angle_d_a_e [AlphaGeometry34(d,a,e,b,c,f)] => Congruent3(a,d,e,c,b,f)
+9. Congruent3(a,d,e,c,b,f) [PropertyOfCongruent(a,d,e,c,b,f)] => Angle_a_d_e - Angle_c_b_f
+10. -Angle_a_d_e + Angle_c_b_f & Parallel(a,d,b,c) [AlphaGeometry3a2(f,b,c,e,d,a)] => Parallel(b,f,d,e)

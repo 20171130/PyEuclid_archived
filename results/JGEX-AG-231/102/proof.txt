@@ -1,0 +1,7 @@
+Solution:
+1. Length_a_b1 - Length_b1_h & -Length_a_c1 + Length_c1_h [DefinitionOfKite1(a,b1,h,c1)] => Kite(a,b1,h,c1)
+2. Kite(a,b1,h,c1) & Length_a_b1 - Length_b1_h & -Length_a_c1 + Length_c1_h [PropertyOfKite(a,b1,h,c1)] => Perpendicular(a,h,b1,c1)
+3. Length_a1_b - Length_a1_c & -Length_b_o + Length_c_o [DefinitionOfKite1(b,a1,c,o)] => Kite(a1,b,o,c)
+4. Kite(a1,b,o,c) & Length_a1_b - Length_a1_c & -Length_b_o + Length_c_o [PropertyOfKite(b,a1,c,o)] => Perpendicular(a1,o,b,c)
+5. Perpendicular(a,h,b,c) & Perpendicular(a1,o,b,c) [AlphaGeometry1(a,h,b,c,a1,o)] => Parallel(a,h,a1,o)
+6. Perpendicular(a,h,b1,c1) & Parallel(a,h,a1,o) [AlphaGeometry1b(a,h,b1,c1,a1,o)] => Perpendicular(a1,o,b1,c1)

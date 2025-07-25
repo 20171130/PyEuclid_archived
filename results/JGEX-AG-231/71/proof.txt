@@ -1,0 +1,10 @@
+Solution:
+1. Length_a_b - Length_a_e [DefinitionOfIsoscelesTriangle(a,b,e)] => IsoscelesTriangle(a,b,e)
+2. Collinear(b,c,e) [CollinearParallel(b,c,e)] => Parallel(b,c,b,e)
+3. Perpendicular(a,c,b,c) & Parallel(b,c,b,e) [AlphaGeometry1b(b,c,a,c,b,e)] => Perpendicular(a,c,b,e)
+4. IsoscelesTriangle(a,b,e) & Length_a_b - Length_a_e & Collinear(b,c,e) & Perpendicular(a,c,b,e) [PropertyOfIsoscelesTriangle1(a,b,e,c)] => Midpoint(c,b,e)
+5. Length_a_b - Length_a_f [DefinitionOfIsoscelesTriangle(a,b,f)] => IsoscelesTriangle(a,b,f)
+6. Collinear(b,d,f) [CollinearParallel(b,d,f)] => Parallel(b,d,b,f)
+7. Perpendicular(a,d,b,d) & Parallel(b,d,b,f) [AlphaGeometry1b(b,d,a,d,b,f)] => Perpendicular(a,d,b,f)
+8. IsoscelesTriangle(a,b,f) & Length_a_b - Length_a_f & Collinear(b,d,f) & Perpendicular(a,d,b,f) [PropertyOfIsoscelesTriangle1(a,b,f,d)] => Midpoint(d,b,f)
+9. Midpoint(c,b,e) & Midpoint(d,b,f) [AlphaGeometry7(b,e,f,c,d)] => Parallel(c,d,e,f)

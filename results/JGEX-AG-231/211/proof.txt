@@ -1,0 +1,19 @@
+Solution:
+1. Collinear(a,b,c) [DiagramAngle4b(c,a,g,b)] => Angle_a_c_g - Angle_b_c_g & Parallel(a,b,b,c) & Angle_a_c_f - Angle_b_c_f & Angle_a_b_f + Angle_c_b_f - pi
+2. Perpendicular(a,b,b,g) & Parallel(a,b,b,c) [AlphaGeometry1b(a,b,b,g,b,c)] => Perpendicular(b,c,b,g)
+3. Perpendicular(b,c,b,g) [Perp2Angle(c,b,g)] => Angle_c_b_g - pi/2
+4. Collinear(a,c,e) [DiagramAngle4b(a,c,g,e)] => Angle_c_a_g - Angle_e_a_g & Angle_a_c_g - Angle_e_c_g
+5. Length_a_e - Length_e_g [DefinitionOfIsoscelesTriangle(e,a,g)] => Angle_a_g_e - Angle_e_a_g
+6. Length_a_e - Length_e_g & Length_a_e - Length_c_e => Length_c_e - Length_e_g
+7. Length_c_e - Length_e_g [DefinitionOfIsoscelesTriangle(e,c,g)] => Angle_c_g_e - Angle_e_c_g
+8. Angle_a_c_g + Angle_a_g_c + Angle_c_a_g - pi & Angle_a_g_c - Angle_a_g_e - Angle_c_g_e & Angle_c_a_g - Angle_e_a_g & Angle_a_c_g - Angle_e_c_g & Angle_a_g_e - Angle_e_a_g & Angle_c_g_e - Angle_e_c_g => Angle_a_g_c - pi/2
+9. Angle_c_b_g - pi/2 & Angle_a_g_c - pi/2 => Angle_a_g_c - Angle_c_b_g
+10. Angle_a_c_g - Angle_b_c_g & Angle_a_g_c - Angle_c_b_g [AlphaGeometry3536(a,c,g,g,c,b)] => Similar3(a,c,g,g,c,b)
+11. Similar3(a,c,g,g,c,b) [PropertyOfSimilar(b,c,g,g,c,a)] => Length_b_c/Length_c_g - Length_c_g/Length_a_c
+12. Length_a_d - Length_d_f & Length_a_d - Length_b_d => Length_b_d - Length_d_f
+13. -Length_a_d + Length_d_f & -Length_b_d + Length_d_f & Perpendicular(c,f,d,f) [AlphaGeometry16a(d,f,a,b,c)] => Angle_a_b_f + Angle_a_f_c - pi
+14. Angle_a_b_f + Angle_a_f_c - pi & Angle_a_b_f + Angle_c_b_f - pi => Angle_a_f_c - Angle_c_b_f
+15. Angle_a_c_f - Angle_b_c_f & Angle_a_f_c - Angle_c_b_f [AlphaGeometry3536(a,c,f,f,c,b)] => Similar3(a,c,f,f,c,b)
+16. Similar3(a,c,f,f,c,b) [PropertyOfSimilar(a,c,f,f,c,b)] => Length_a_c/Length_c_f - Length_c_f/Length_b_c
+17. Length_b_c/Length_c_g - Length_c_g/Length_a_c & Length_a_c/Length_c_f - Length_c_f/Length_b_c => Length_c_f - Length_c_g
+18. Length_c_f - Length_c_g [DefinitionOfIsoscelesTriangle(c,f,g)] => Angle_c_f_g - Angle_c_g_f

@@ -1,0 +1,11 @@
+Solution:
+1. EquilateralTriangle(a,b,d) [PropertyOfEquilateralTriangle(a,b,d)] => Length_a_d - Length_b_d & Angle_a_d_b - pi/3
+2. EquilateralTriangle(a,c,e) [PropertyOfEquilateralTriangle(a,c,e)] => Length_a_e - Length_c_e & Angle_a_c_e - Angle_a_e_c & Angle_a_e_c - Angle_c_a_e
+3. Parallelogram(c,e,d,f) => Length_c_e - Length_d_f & Angle_c_e_d + Angle_e_d_f - pi & Length_c_f - Length_d_e
+4. Length_a_e - Length_c_e & Length_c_e - Length_d_f => Length_a_e - Length_d_f
+5. Angle_a_d_b - pi/3 & Angle_a_d_b - Angle_a_d_e - Angle_b_d_e => Angle_a_d_e + Angle_b_d_e - pi/3
+6. Angle_a_c_e - Angle_a_e_c & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_a_e_c + Angle_a_e_d - Angle_c_e_d & Angle_c_e_d + Angle_e_d_f - pi & Angle_a_e_c - Angle_c_a_e => Angle_a_e_d + Angle_e_d_f - 2*pi/3
+7. Angle_a_d_e + Angle_a_e_d + Angle_d_a_e - pi & Angle_b_d_e - Angle_b_d_f + Angle_e_d_f & Angle_a_d_e + Angle_b_d_e - pi/3 & Angle_a_e_d + Angle_e_d_f - 2*pi/3 => Angle_b_d_f - Angle_d_a_e
+8. Length_a_d - Length_b_d & Length_a_e - Length_d_f & -Angle_b_d_f + Angle_d_a_e [AlphaGeometry34(d,a,e,b,d,f)] => Congruent3(a,d,e,d,b,f)
+9. Congruent3(a,d,e,d,b,f) [PropertyOfCongruent(a,d,e,d,b,f)] => Length_b_f - Length_d_e
+10. Length_b_f - Length_d_e & Length_c_f - Length_d_e => Length_b_f - Length_c_f

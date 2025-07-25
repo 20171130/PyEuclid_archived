@@ -1,0 +1,20 @@
+Solution:
+1. Collinear(a,b,c) [CollinearParallel(a,b,c)] => Parallel(a,b,a,c) & Parallel(a,b,b,c)
+2. Perpendicular(a,b,a,e) & Parallel(a,b,a,c) [AlphaGeometry1b(a,b,a,e,a,c)] => Perpendicular(a,c,a,e)
+3. Length_a_c - Length_c_d & Length_a_c - Length_b_c & Perpendicular(a,c,a,e) [AlphaGeometry16b(c,a,d,b,e)] => Angle_a_b_d - Angle_d_a_e
+4. Length_a_c - Length_b_c & Length_a_c - Length_c_d => Length_b_c - Length_c_d
+5. -Length_a_c + Length_c_d & -Length_b_c + Length_c_d & Perpendicular(c,d,d,e) [AlphaGeometry16b(c,d,a,b,e)] => Angle_a_b_d - Angle_a_d_e
+6. Angle_a_b_d - Angle_d_a_e & Angle_a_b_d - Angle_a_d_e => Angle_a_d_e - Angle_d_a_e
+7. -Angle_a_d_e + Angle_d_a_e [DefinitionOfIsoscelesTriangle1(e,a,d)] => Length_a_e - Length_d_e
+8. Perpendicular(a,b,b,f) & Parallel(a,b,b,c) [AlphaGeometry1b(a,b,b,f,b,c)] => Perpendicular(b,c,b,f)
+9. Length_b_c - Length_c_d & -Length_a_c + Length_b_c & Perpendicular(b,c,b,f) [AlphaGeometry16b(c,b,d,a,f)] => Angle_b_a_d - Angle_d_b_f
+10. Collinear(d,e,f) [CollinearParallel(d,e,f)] => Parallel(d,e,d,f)
+11. Perpendicular(c,d,d,e) & Parallel(d,e,d,f) [AlphaGeometry1b(d,e,c,d,d,f)] => Perpendicular(c,d,d,f)
+12. -Length_b_c + Length_c_d & -Length_a_c + Length_c_d & Perpendicular(c,d,d,f) [AlphaGeometry16b(c,d,b,a,f)] => Angle_b_a_d - Angle_b_d_f
+13. Angle_b_a_d - Angle_d_b_f & Angle_b_a_d - Angle_b_d_f => Angle_b_d_f - Angle_d_b_f
+14. -Angle_b_d_f + Angle_d_b_f [DefinitionOfIsoscelesTriangle1(f,b,d)] => Length_b_f - Length_d_f
+15. Perpendicular(a,b,a,e) & Perpendicular(a,b,b,f) [AlphaGeometry1(a,e,a,b,b,f)] => Parallel(a,e,b,f)
+16. Collinear(a,f,g) & Collinear(b,e,g) & Parallel(a,e,b,f) [AlphaGeometry8(a,e,f,b,g)] => Similar3(a,e,g,f,b,g)
+17. Similar3(a,e,g,f,b,g) [PropertyOfSimilar(a,e,g,f,b,g)] => Length_a_e/Length_a_g - Length_b_f/Length_f_g
+18. Length_a_e - Length_d_e & Length_b_f - Length_d_f & Length_a_e/Length_a_g - Length_b_f/Length_f_g => Length_d_f/Length_d_e - Length_f_g/Length_a_g
+19. Collinear(d,e,f) & Collinear(a,f,g) & Length_d_f/Length_d_e - Length_f_g/Length_a_g [AlphaGeometry28(d,g,e,a,f)] => Parallel(a,e,d,g)

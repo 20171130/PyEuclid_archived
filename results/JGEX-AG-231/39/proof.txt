@@ -1,0 +1,6 @@
+Solution:
+1. Collinear(a,b,d) [CollinearParallel(a,b,d)] => Parallel(a,b,a,d)
+2. Perpendicular(a,b,c,d) & Parallel(a,b,a,d) [AlphaGeometry1b(a,b,c,d,a,d)] => Perpendicular(a,d,c,d)
+3. Perpendicular(a,d,c,d) [Perp2Angle(a,d,c)] => Angle_a_d_c - pi/2
+4. Perpendicular(a,c,b,c) [Perp2Angle(a,c,b)] => Angle_a_c_b - pi/2
+5. Angle_a_c_d + Angle_a_d_c + Angle_c_a_d - pi & Angle_a_d_c - pi/2 & Angle_a_c_b - Angle_a_c_d - Angle_b_c_d & Angle_a_c_b - pi/2 => Angle_b_c_d - Angle_c_a_d

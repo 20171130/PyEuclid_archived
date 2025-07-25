@@ -1,0 +1,42 @@
+Solution:
+1. -Length_a_b + Length_a_c & -Length_a_b + Length_a_d => Length_a_c - Length_a_d
+2. -Length_a_b + Length_a_c & Length_a_c - Length_a_d [InscribedAngle1(a,c,b,d)] => -Angle_b_a_d/2 + Angle_b_c_d
+3. -Length_a_b + Length_a_e & -Length_a_b + Length_a_d => -Length_a_d + Length_a_e
+4. -Length_a_b + Length_a_e & -Length_a_d + Length_a_e [InscribedAngle1(a,e,b,d)] => -Angle_b_a_d/2 + Angle_b_e_d
+5. -Angle_b_e_d + Angle_f_e_g & -Angle_b_c_d + Angle_f_c_g & -Angle_b_a_d/2 + Angle_b_c_d & -Angle_b_a_d/2 + Angle_b_e_d => -Angle_f_c_g + Angle_f_e_g
+6. Angle_b_g_i + Angle_e_g_i - pi & Angle_b_g_c - 2*Angle_c_g_i & Angle_b_g_c - 2*Angle_b_g_i => Angle_c_g_i + Angle_e_g_i - pi
+7. Angle_c_g_f - Angle_c_g_i - Angle_f_g_i & Angle_f_g_i + Angle_f_i_g + Angle_g_f_i - pi & Angle_e_f_i + Angle_e_i_f + Angle_f_e_i - pi & Angle_f_h_i + Angle_f_i_h + Angle_h_f_i - pi & Angle_e_g_i + Angle_e_i_g + Angle_g_e_i - pi & -Angle_g_f_h - Angle_g_f_i + Angle_h_f_i & -Angle_d_f_h + Angle_d_f_i - Angle_h_f_i & Angle_b_f_d - 2*Angle_d_f_h & -Angle_b_f_g + Angle_c_f_g & Angle_e_i_f - Angle_e_i_g - Angle_f_i_g & -Angle_b_f_g + Angle_b_f_h - Angle_g_f_h & -Angle_d_f_i + Angle_e_f_i & Angle_b_f_d - 2*Angle_b_f_h & -Angle_f_e_g + Angle_f_e_i - Angle_g_e_i & Angle_c_f_g + Angle_c_g_f + Angle_f_c_g - pi & -Angle_f_i_g + Angle_f_i_h - Angle_g_i_h & -Angle_f_c_g + Angle_f_e_g & Angle_c_g_i + Angle_e_g_i - pi => Angle_f_h_i + Angle_g_i_h - pi/2
+8. Angle_f_h_i + Angle_g_i_h - pi/2 [Angle2Perp2(i,g,h,f)] => Perpendicular(f,h,g,i)
+
+
+ * From theorem premises:
+A B C D E F G H I : Points
+AC = AB [00]
+AD = AB [01]
+AE = AB [02]
+B,F,C are collinear [03]
+D,E,F are collinear [04]
+G,B,E are collinear [05]
+G,D,C are collinear [06]
+∠DFH = ∠HFB [07]
+∠CGI = ∠IGB [08]
+
+ * Auxiliary Constructions:
+J K L : Points
+H,F,J are collinear [09]
+G,I,J are collinear [10]
+K,D,E are collinear [11]
+G,K,I are collinear [12]
+B,L,C are collinear [13]
+G,I,L are collinear [14]
+
+ * Proof steps:
+001. B,L,C are collinear [13] & B,F,C are collinear [03] & H,F,J are collinear [09] & K,D,E are collinear [11] & D,E,F are collinear [04] & ∠DFH = ∠HFB [07] ⇒  ∠LFJ = ∠JFK [15]
+002. G,I,L are collinear [14] & G,B,E are collinear [05] & G,D,C are collinear [06] & G,K,I are collinear [12] & ∠CGI = ∠IGB [08] ⇒  ∠LGB = ∠DGK [16]
+003. AD = AB [01] & AE = AB [02] & AC = AB [00] ⇒  B,D,E,C are concyclic [17]
+004. B,D,E,C are concyclic [17] ⇒  ∠CBE = ∠CDE [18]
+005. B,L,C are collinear [13] & G,B,E are collinear [05] & G,D,C are collinear [06] & K,D,E are collinear [11] & ∠CBE = ∠CDE [18] ⇒  ∠LBG = ∠GDK [19]
+006. ∠LGB = ∠DGK [16] & ∠LBG = ∠GDK [19] (Similar Triangles)⇒  ∠GLB = ∠DKG [20]
+007. G,I,L are collinear [14] & G,I,J are collinear [10] & B,L,C are collinear [13] & B,F,C are collinear [03] & K,D,E are collinear [11] & D,E,F are collinear [04] & G,K,I are collinear [12] & ∠GLB = ∠DKG [20] ⇒  ∠JLF = ∠FKJ [21]
+008. ∠LFJ = ∠JFK [15] & ∠JLF = ∠FKJ [21] (Similar Triangles)⇒  ∠FJL = ∠KJF [22]
+009. ∠FJL = ∠KJF [22] & H,F,J are collinear [09] & G,I,L are collinear [14] & G,I,J are collinear [10] & G,K,I are collinear [12] ⇒  GI ⟂ FH
