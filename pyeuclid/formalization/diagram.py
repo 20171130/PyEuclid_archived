@@ -188,7 +188,7 @@ class Diagram:
         return new_points
     
     def check_distance(self, new_points):
-        if not self.points:
+        if not self.points or len(self.points) < 2:
             return
         
         if check_too_close(self.points, new_points, self.min_tol):

@@ -766,6 +766,10 @@ def check_perpendicular(points):
     cd = Line(c, d)
     return ab.is_perp(cd)
 
+def check_different2(points):
+    a, b = points
+    return a != b
+
 def check_congruent3(points: list[Point]) -> bool:
   a, b, c, x, y, z = points
   ab = a.distance(b)

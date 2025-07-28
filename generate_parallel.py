@@ -111,6 +111,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     max_steps = random.uniform(4, 8) # 4 - 8
     max_attempt = random.uniform(50, 100)
     max_points = random.uniform(8, 12) # 8 - 12
+    constructions_list = []
+    index = 0
 
     # Construction phase with timeout checks
     while (step < max_steps and attempt < max_attempt and points < max_points 
@@ -211,21 +213,36 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
                 continue
 
             construction = random.choice(valid_constructions)
+            
             outputs = [Point(chr(ord('A') + num_points + i)) for i in range(picked.num_outputs)]
             construction.construct(*outputs)
             constructions.append(construction)
 
         # if attempt == 0:
-        #     picked = construct_trapezoid()
-        #     picked.construct(Point('A'),Point('B'),Point('C'),Point('D'))
+        #     picked = construct_iso_triangle()
+        #     picked.construct(Point('A'),Point('B'),Point('C'))
         #     constructions = [picked]
         # elif attempt == 1:
-        #     picked = construct_angle_mirror(Point('D'),Point('B'),Point('A'))
-        #     picked.construct(Point('F'))
+        #     picked = construct_free()
+        #     picked.construct(Point('D'))
         #     constructions = [picked]
         # elif attempt == 2:
-        #     picked = construct_on_aline2(Point('F'),Point('A'),Point('D'),Point('C'),Point('B'))
-        #     picked.construct(Point('G'))
+        #     picked = construct_eq_triangle(Point('A'),Point('D'))
+        #     picked.construct(Point('E'))
+        #     constructions = [picked]
+        # elif attempt == 3:
+        #     picked = construct_angle_mirror(Point('B'),Point('A'),Point('D'))
+        #     picked.construct(Point('F'))
+        #     picked1 = construct_on_bline(Point('D'),Point('A'))
+        #     picked1.construct(Point('F'))
+        #     constructions = [picked, picked1]
+        # elif attempt == 4:
+        #     picked = construct_trisegment(Point('A'),Point('D'))
+        #     picked.construct(Point('G'), Point('H'))
+        #     constructions = [picked]
+        # elif attempt == 5:
+        #     picked = construct_on_tline(Point('E'),Point('D'),Point('C'))
+        #     picked.construct(Point('I'))
         #     constructions = [picked]
         # else:
         #     break
@@ -236,6 +253,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         except Exception as e:
             continue
 
+        constructions_list.append(constructions)
+        for construction in constructions:
+            construction.index = index
+            index += 1
         state.add_constructions(constructions)
         step += 1
         points += len(outputs)
@@ -246,6 +267,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         #     print(construction, end=' ')
         # print()
     
+    with open(os.path.join(problem_output_dir, f'constructions_list.json'), 'w') as f:
+        f.write(', '.join([str(construction) for constructions in constructions_list for construction in constructions])) 
 
     if timeout_handler.check_timeout():
         return {"samples_generated": 0, "samples_with_auxiliary": 0, "timeout": True}
@@ -289,10 +312,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         
         try:
             proof_generator.run(relation)
+            proof = proof_generator.get_proof(relation)
         except Exception as e:
             continue
         
-        if state.condition2depth[key] <= 2 or len(proof_generator.source_constructions[key]) <= 2:
+        if len(proof) <= 10 or len(proof_generator.source_constructions[key]) <= 2:
             continue
 
         if isinstance(relation, Relation):
@@ -363,10 +387,12 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         elif len(basic_points) == 4:
             c = construct_quadrangle()
             c.construct(*basic_points)
+            c.index = 0
             added_constructions.append(c)
         elif len(basic_points) == 5:
             c = construct_pentagon()
             c.construct(*basic_points)
+            c.index = 0
             added_constructions.append(c)
 
         auxiliary_constructions = [c for c in constructions if c not in required]
@@ -397,12 +423,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             auxiliary_constructions = [c for c in auxiliary_constructions if c not in deleted]
             new_proof_generator = ProofGenerator(new_state)
             new_proof_generator.run()
-            if new_state.condition2depth[key] <= 2 or len(new_proof_generator.source_constructions[key]) <= 2:
-                continue
             proof = new_proof_generator.get_proof()
+            if len(proof) <= 10 or len(new_proof_generator.source_constructions[key]) <= 2:
+                continue
             proof_str = new_proof_generator.get_proof_str()
         else:
-            proof = proof_generator.get_proof(relation)
             proof_str = proof_generator.get_proof_str(relation)
         
         for (conditions, _, _) in proof:
@@ -436,6 +461,76 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         diagram.draw_diagram(constructions=required_constructions+auxiliary_constructions+goal_constructions, save=True)
         diagram.restore()
 
+        # verify the data by construct a new diagram and generate the proof
+        # new_constructions_list = []
+        # for construction in sorted(added_constructions+required_constructions, key=lambda c: c.index):
+        #     if not new_constructions_list:
+        #         new_constructions_list.append([construction])
+        #     elif all(p1 == p2 for p1, p2 in zip(new_constructions_list[-1][0].outputs,construction.outputs)):
+        #         new_constructions_list[-1].append(construction)
+        #     else:
+        #         new_constructions_list.append([construction])
+        
+        # new_diagram_sample_path = os.path.join(sample_dir, 'new_diagram.jpg')
+        # try:
+        #     new_diagram = Diagram(constructions_list=new_constructions_list, cache_folder=None, save_path=new_diagram_sample_path)
+        #     new_diagram.draw_diagram(save=True)
+        # except:
+        #     continue
+
+        # new_state = State()
+        # new_state.silent = True
+        # new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+        # new_state.diagram = new_diagram
+        # for new_constructions in new_constructions_list:
+        #     new_state.add_constructions(new_constructions)
+        # new_deductive_database = DeductiveDatabase(new_state)
+        # new_algebraic_system = AlgebraicSystem(new_state)
+        # new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+        # new_engine.run()
+
+        # if not has_auxiliary and new_state.complete() is None:
+        #     continue
+        # if has_auxiliary and new_state.complete() is not None:
+        #     continue
+
+        # if has_auxiliary:
+        #     new_auxiliary_constructions_list = []
+        #     for construction in sorted(auxiliary_constructions, key=lambda c: c.index):
+        #         if not new_auxiliary_constructions_list:
+        #             new_auxiliary_constructions_list.append([construction])
+        #         elif all(p1 == p2 for p1, p2 in zip(new_auxiliary_constructions_list[-1][0].outputs,construction.outputs)):
+        #             new_auxiliary_constructions_list[-1].append(construction)
+        #         else:
+        #             new_auxiliary_constructions_list.append([construction])
+            
+        #     try:
+        #         for new_auxiliary_constructions in new_auxiliary_constructions_list:
+        #             new_diagram.add_constructions(new_auxiliary_constructions)
+        #     except:
+        #         continue
+
+        #     new_state = State()
+        #     new_state.silent = True
+        #     new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+        #     new_state.diagram = new_diagram
+        #     all_constructions_list = new_constructions_list + itgnfretkbudrthvjinghfuhulfftclilfhhdlbjblcddkgdhvikevdfhvlnkbid
+        #     for new_constructions in all_constructions_list:
+        #         new_state.add_constructions(new_constructions)
+        #     new_deductive_database = DeductiveDatabase(new_state)
+        #     new_algebraic_system = AlgebraicSystem(new_state)
+        #     new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+        #     new_engine.run()
+        #     if new_state.complete() is None:
+        #         continue
+
+        # new_proof_generator = ProofGenerator(new_state)
+        # try:
+        #     new_proof_generator.run()
+        #     new_proof_str = new_proof_generator.get_proof_str()
+        # except:
+        #     continue
+
         data = {
             "problem": ', '.join([str(construction) for construction in sorted(added_constructions + required_constructions, key=lambda c: c.index)]),
             "goal": str(relation),
@@ -450,16 +545,32 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
         with open(os.path.join(sample_dir, "data.json"), "w") as f:
             json.dump(data, f, indent=2)
+
+        # new_data = {
+        #     "problem": ', '.join([str(construction) for construction in sorted(added_constructions + required_constructions, key=lambda c: c.index)]),
+        #     "goal": str(relation),
+        #     "diagram": new_diagram_sample_path,
+        #     "proof": new_proof_str,
+        #     "rank": rank,
+        #     "problem_id": problem_id,
+        #     "sample_id": i,
+        #     "has_auxiliary_constructions": has_auxiliary,
+        #     "num_auxiliary_constructions": len(auxiliary_constructions)
+        # }
+
+        # with open(os.path.join(sample_dir, "new_data.json"), "w") as f:
+        #     json.dump(new_data, f, indent=2)
         
         conclusions2dir[relation] = sample_dir
         i += 1
     
     for relation, sample_dir in conclusions2dir.items():
-        with open(os.path.join(sample_dir, "data.json"), "r") as f:
-            data = json.load(f)
-        data["sub_conclusion"] = True if relation in sub_conclusions else False
-        with open(os.path.join(sample_dir, "data.json"), "w") as f:
-            json.dump(data, f, indent=2)
+        if os.path.exists(os.path.join(sample_dir, "data.json")):
+            with open(os.path.join(sample_dir, "data.json"), "r") as f:
+                data = json.load(f)
+            data["sub_conclusion"] = True if relation in sub_conclusions else False
+            with open(os.path.join(sample_dir, "data.json"), "w") as f:
+                json.dump(data, f, indent=2)
 
     print(f"Rank {rank}: Problem {problem_id} - Generated {i} samples ({samples_with_auxiliary} with auxiliary)")
     return {
@@ -494,29 +605,29 @@ def generate_until_timeout(rank: int, output_dir: str, timeout_handler: TimeoutH
                 print(f"Rank {rank}: Max problem ID {max_problem_id} reached")
                 break
 
-            try:
-                result = generate_single_problem(rank, output_dir, problem_id, timeout_handler)
-                
-                if result.get("timeout"):
-                    problems_with_timeouts += 1
-                    print(f"Rank {rank}: Problem {problem_id} timed out")
-                    break
-                    
-                if result.get("error"):
-                    problems_with_errors += 1
-                    
-                total_samples += result["samples_generated"]
-                total_samples_with_auxiliary += result["samples_with_auxiliary"]
-                problem_id += 1
-            except KeyboardInterrupt:
-                print(f"Rank {rank}: Keyboard interrupt received")
-                timeout_handler.timeout_occurred = True
+            # try:
+            result = generate_single_problem(rank, output_dir, problem_id, timeout_handler)
+            
+            if result.get("timeout"):
+                problems_with_timeouts += 1
+                print(f"Rank {rank}: Problem {problem_id} timed out")
                 break
-            except Exception as e:
-                print(f"Rank {rank}: Error in problem {problem_id}: {e}")
+                
+            if result.get("error"):
                 problems_with_errors += 1
-                problem_id += 1
-                continue
+                
+            total_samples += result["samples_generated"]
+            total_samples_with_auxiliary += result["samples_with_auxiliary"]
+            problem_id += 1
+            # except KeyboardInterrupt:
+            #     print(f"Rank {rank}: Keyboard interrupt received")
+            #     timeout_handler.timeout_occurred = True
+            #     break
+            # except Exception as e:
+            #     print(f"Rank {rank}: Error in problem {problem_id}: {e}")
+            #     problems_with_errors += 1
+            #     problem_id += 1
+            #     continue
                 
     except Exception as e:
         print(f"Rank {rank}: Fatal error in generation loop: {e}")
@@ -553,7 +664,7 @@ def generate_until_timeout(rank: int, output_dir: str, timeout_handler: TimeoutH
 def main():
     rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
     timeout_seconds = int(os.environ.get("TIMEOUT_SECONDS", "3600"))
-    max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "10"))
+    max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "0"))
     base_output_dir = os.environ.get('OUTPUT_DIR', 'new_samples')
     
     os.makedirs(base_output_dir, exist_ok=True)

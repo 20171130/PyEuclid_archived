@@ -177,6 +177,5 @@ cache/
 cache1/
 diagrams/
 *.out
-results/
-samples/
+samples*/
 logs/

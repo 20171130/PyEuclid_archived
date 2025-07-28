@@ -8,7 +8,7 @@
 #SBATCH --mem=2G                                # Memory per task
 
 # Set environment variables for use in generate_parallel.py
-export OUTPUT_DIR=samples
+export OUTPUT_DIR=samples3
 export TIMEOUT_SECONDS=36000                   # Per-task timeout in seconds
 export MAX_PROBLEM_ID=0                        # Number of problems to generate per task
 

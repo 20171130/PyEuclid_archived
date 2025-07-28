@@ -425,8 +425,6 @@ class construct_angle_mirror(ConstructionRule):
         x, = self.outputs
         return [
             Angle(a, b, c) - Angle(c, b, x),
-            Angle(x, b, a) - 2 * Angle(a, b, c),
-            Angle(x, b, a) - 2 * Angle(c, b, x),
         ]
 
 
@@ -835,6 +833,7 @@ class construct_intersection_lt(ConstructionRule):
         return [
             Not(Collinear(a, b, c)),
             Not(Perpendicular(a, b, d, e)),
+            *Different(a, b, d, e),
         ]
 
     def conclusions(self):
@@ -990,7 +989,7 @@ class construct_on_aline(ConstructionRule):
 
     def conditions(self):
         a, b, c, d, e = self.inputs
-        return [Not(Collinear(c, d, e))]
+        return [Not(Collinear(c, d, e)), *Different(c, d, e), *Different(a, b)]
 
     def conclusions(self):
         a, b, c, d, e = self.inputs
@@ -1011,7 +1010,7 @@ class construct_on_aline2(ConstructionRule):
 
     def conditions(self):
         a, b, c, d, e = self.inputs
-        return [Not(Collinear(c, d, e))]
+        return [Not(Collinear(c, d, e)), *Different(c, d, e), *Different(a, b)]
 
     def conclusions(self):
         a, b, c, d, e = self.inputs
@@ -1265,7 +1264,7 @@ class construct_shift(ConstructionRule):
 
     def conditions(self):
         b, c, d = self.inputs
-        return [Different2(d, b)]
+        return [*Different(b, c, d)]
 
     def conclusions(self):
         b, c, d = self.inputs
@@ -1489,9 +1488,7 @@ class construct_cc_tangent0(ConstructionRule):
     def conditions(self):
         o, a, w, b = self.inputs
         return [
-            Different2(o, a),
-            Different2(w, b),
-            Different2(o, w),
+            *Different(o, a, w, b),
         ]
 
     def conclusions(self):
@@ -1517,9 +1514,7 @@ class construct_cc_tangent(ConstructionRule):
     def conditions(self):
         o, a, w, b = self.inputs
         return [
-            Different2(o, a),
-            Different2(w, b),
-            Different2(o, w),
+            *Different(o, a, w, b),
         ]
 
     def conclusions(self):
@@ -1551,8 +1546,6 @@ class construct_eqangle3(ConstructionRule):
         return [
             Not(Collinear(d, e, f)),
             Different2(a, b),
-            Different2(d, e),
-            Different2(e, f),
         ]
 
     def conclusions(self):
@@ -1573,9 +1566,7 @@ class construct_tangent(ConstructionRule):
     def conditions(self):
         a, o, b = self.inputs
         return [
-            Different2(o, a),
-            Different2(o, b),
-            Different2(a, b),
+            *Different(a, o, b),
         ]
 
     def conclusions(self):
