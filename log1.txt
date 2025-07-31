@@ -1,401 +1,1378 @@
-22 unsolved in 2.948124885559082 seconds
-13 solved in 3.137993574142456 seconds
-1 solved in 2.0279788970947266 seconds
-28 solved in 5.509100675582886 seconds
-24 solved in 5.315650463104248 seconds
-20 solved in 5.829239845275879 seconds
-16 solved in 6.035918951034546 seconds
-10 solved in 4.534850835800171 seconds
-18 solved in 6.5616135597229 seconds
-19 solved in 6.686668872833252 seconds
-52 solved in 3.3339438438415527 seconds
-50 solved in 1.9604549407958984 seconds
-43 solved in 5.037292242050171 seconds
-27 solved in 9.375263690948486 seconds
-5 solved in 8.114591836929321 seconds
-48 solved in 2.96897554397583 seconds
-15 solved in 10.607218742370605 seconds
-7 solved in 8.85597562789917 seconds
-31 solved in 6.4758360385894775 seconds
-0 solved in 9.430935144424438 seconds
-12 solved in 11.464279413223267 seconds
-54 solved in 5.771788597106934 seconds
-21 unsolved in 11.776125192642212 seconds
-40 solved in 6.73960542678833 seconds
-57 solved in 5.034883737564087 seconds
-80 solved in 6.31646203994751 seconds
-3 solved in 13.468546867370605 seconds
-45 solved in 4.305742025375366 seconds
-73 solved in 6.520215272903442 seconds
-51 solved in 4.826516628265381 seconds
-42 solved in 5.114216566085815 seconds
-26 solved in 17.266469717025757 seconds
-6 solved in 15.963584184646606 seconds
-49 solved in 11.342593908309937 seconds
-23 solved in 19.242036819458008 seconds
-75 solved in 3.045807123184204 seconds
-33 solved in 3.357717514038086 seconds
-58 solved in 14.262756824493408 seconds
-70 solved in 5.336507558822632 seconds
-30 solved in 7.838029623031616 seconds
-72 solved in 2.5313618183135986 seconds
-56 solved in 2.8557791709899902 seconds
-29 solved in 21.63455605506897 seconds
-61 solved in 10.25851321220398 seconds
-110 solved in 6.192417144775391 seconds
-84 solved in 9.86912751197815 seconds
-60 solved in 2.1515285968780518 seconds
-63 solved in 2.609163522720337 seconds
-36 solved in 4.685129165649414 seconds
-102 solved in 2.6856729984283447 seconds
-59 solved in 1.9909381866455078 seconds
-53 solved in 5.573522090911865 seconds
-2 solved in 23.596829175949097 seconds
-35 solved in 15.708019256591797 seconds
-46 solved in 19.56434655189514 seconds
-114 solved in 3.75251841545105 seconds
-82 solved in 19.224931955337524 seconds
-87 solved in 11.230277061462402 seconds
-8 solved in 25.162444829940796 seconds
-38 solved in 0.4830048084259033 seconds
-93 solved in 5.0977723598480225 seconds
-25 solved in 28.330352544784546 seconds
-103 solved in 12.243023157119751 seconds
-37 solved in 17.34508776664734 seconds
-100 solved in 9.714558124542236 seconds
-117 solved in 2.989778995513916 seconds
-112 solved in 3.6588871479034424 seconds
-17 solved in 31.129719734191895 seconds
-79 solved in 12.1401948928833 seconds
-65 solved in 5.313802242279053 seconds
-83 solved in 6.858243703842163 seconds
-47 solved in 1.7783610820770264 seconds
-105 solved in 14.349722146987915 seconds
-68 solved in 5.9144556522369385 seconds
-66 solved in 11.419301986694336 seconds
-91 solved in 13.161223888397217 seconds
-32 solved in 9.329501152038574 seconds
-95 solved in 2.9920597076416016 seconds
-55 solved in 7.143015623092651 seconds
-67 solved in 6.762206315994263 seconds
-90 solved in 14.249439716339111 seconds
-113 solved in 5.2702929973602295 seconds
-76 solved in 12.203573942184448 seconds
-62 solved in 4.269089221954346 seconds
-88 solved in 21.01584482192993 seconds
-121 solved in 5.758211374282837 seconds
-96 solved in 6.1636061668396 seconds
-142 solved in 11.583512544631958 seconds
-147 solved in 13.241403341293335 seconds
-98 solved in 9.223084688186646 seconds
-78 solved in 33.95583486557007 seconds
-109 solved in 13.04148268699646 seconds
-118 solved in 3.2426719665527344 seconds
-140 solved in 25.012951135635376 seconds
-108 solved in 2.645050525665283 seconds
-120 solved in 10.067872524261475 seconds
-148 solved in 3.0891528129577637 seconds
-89 solved in 25.321973085403442 seconds
-86 solved in 30.173394441604614 seconds
-125 solved in 15.860075950622559 seconds
-106 solved in 12.916255235671997 seconds
-172 unsolved in 9.123974084854126 seconds
-97 solved in 16.073173761367798 seconds
-178 solved in 3.6037821769714355 seconds
-14 solved in 54.298476219177246 seconds
-123 solved in 25.782644748687744 seconds
-170 solved in 7.094912052154541 seconds
-9 solved in 53.42832612991333 seconds
-116 solved in 4.0583624839782715 seconds
-208 unsolved in 2.6576476097106934 seconds
+22 unsolved in 2.626946210861206 seconds
+13 solved in 2.8551130294799805 seconds
+13 proof generation runs in 0.1368412971496582
+Proof steps:  5
+Max condition number:  3
+Average condition number:  2.2
+1 solved in 3.554945230484009 seconds
+1 proof generation runs in 0.08310365676879883
+Proof steps:  9
+Max condition number:  5
+Average condition number:  2.2222222222222223
+28 solved in 5.875491142272949 seconds
+28 proof generation runs in 0.023193359375
+Proof steps:  9
+Max condition number:  4
+Average condition number:  1.8888888888888888
+24 solved in 6.3981218338012695 seconds
+19 solved in 6.902223110198975 seconds
+10 solved in 6.889897584915161 seconds
+19 proof generation runs in 0.10089635848999023
+Proof steps:  9
+Max condition number:  5
+Average condition number:  2.0
+52 solved in 4.15857195854187 seconds
+52 proof generation runs in 0.12314319610595703
+Proof steps:  13
+Max condition number:  4
+Average condition number:  2.0
+20 solved in 7.17473840713501 seconds
+20 proof generation runs in 0.17675113677978516
+Proof steps:  13
+Max condition number:  4
+Average condition number:  1.9230769230769231
+18 solved in 7.8786516189575195 seconds
+18 proof generation runs in 0.185441255569458
+Proof steps:  17
+Max condition number:  6
+Average condition number:  2.0
+21 unsolved in 9.772475957870483 seconds
+27 solved in 9.88430905342102 seconds
+27 proof generation runs in 0.15785813331604004
+Proof steps:  16
+Max condition number:  3
+Average condition number:  1.8125
+43 solved in 6.834763526916504 seconds
+43 proof generation runs in 0.10371947288513184
+Proof steps:  15
+Max condition number:  4
+Average condition number:  1.8
+48 solved in 2.19655442237854 seconds
+50 solved in 2.7760612964630127 seconds
+48 proof generation runs in 0.049126386642456055
+Proof steps:  10
+Max condition number:  5
+Average condition number:  2.1
+50 proof generation runs in 0.06404948234558105
+Proof steps:  6
+Max condition number:  6
+Average condition number:  2.1666666666666665
+0 solved in 11.626189470291138 seconds
+23 solved in 11.63690733909607 seconds
+16 solved in 11.664424896240234 seconds
+23 proof generation runs in 0.1437385082244873
+Proof steps:  25
+Max condition number:  4
+Average condition number:  1.72
+0 proof generation runs in 0.19834423065185547
+Proof steps:  15
+Max condition number:  6
+Average condition number:  2.2
+5 solved in 13.611032485961914 seconds
+31 solved in 9.464279174804688 seconds
+5 proof generation runs in 0.177520751953125
+Proof steps:  15
+Max condition number:  6
+Average condition number:  2.0
+58 solved in 8.131619930267334 seconds
+29 solved in 15.093237400054932 seconds
+29 proof generation runs in 0.1506671905517578
+Proof steps:  24
+Max condition number:  4
+Average condition number:  1.7083333333333333
+57 solved in 4.76445746421814 seconds
+24 proof generation runs in 8.936980247497559
+Proof steps:  9
+Max condition number:  5
+Average condition number:  2.4444444444444446
+12 solved in 15.920844316482544 seconds
+58 proof generation runs in 1.5094358921051025
+Proof steps:  13
+Max condition number:  5
+Average condition number:  2.6153846153846154
+51 solved in 5.7866456508636475 seconds
+12 proof generation runs in 0.19952845573425293
+Proof steps:  12
+Max condition number:  6
+Average condition number:  2.0833333333333335
+51 proof generation runs in 0.19515323638916016
+Proof steps:  17
+Max condition number:  6
+Average condition number:  1.7058823529411764
+25 solved in 17.27618932723999 seconds
+25 proof generation runs in 0.389202356338501
+Proof steps:  10
+Max condition number:  6
+Average condition number:  2.3
+57 proof generation runs in 2.243436098098755
+Proof steps:  10
+Max condition number:  5
+Average condition number:  2.1
+49 solved in 10.005435943603516 seconds
+49 proof generation runs in 0.010056018829345703
+Proof steps:  8
+Max condition number:  3
+Average condition number:  1.875
+7 solved in 17.962021589279175 seconds
+80 solved in 6.600151777267456 seconds
+59 solved in 2.900956869125366 seconds
+53 solved in 6.331915616989136 seconds
+73 solved in 7.948256015777588 seconds
+73 proof generation runs in 1.3714406490325928
+Proof steps:  23
+Max condition number:  6
+Average condition number:  2.0434782608695654
+53 proof generation runs in 1.8084666728973389
+Proof steps:  15
+Max condition number:  5
+Average condition number:  2.1333333333333333
+59 proof generation runs in 2.866225242614746
+26 solved in 21.519686698913574 seconds
+Proof steps:  7
+Max condition number:  6
+Average condition number:  2.4285714285714284
+54 solved in 5.783023118972778 seconds
+30 solved in 10.086203575134277 seconds
+30 proof generation runs in 0.2494199275970459
+Proof steps:  17
+Max condition number:  5
+Average condition number:  1.7647058823529411
+42 solved in 7.000843524932861 seconds
+15 solved in 24.80423355102539 seconds
+82 solved in 17.583519458770752 seconds
+55 solved in 7.354513883590698 seconds
+82 proof generation runs in 0.06001853942871094
+Proof steps:  21
+Max condition number:  6
+Average condition number:  2.380952380952381
+55 proof generation runs in 0.09567379951477051
+Proof steps:  7
+Max condition number:  5
+Average condition number:  2.4285714285714284
+60 solved in 2.654858350753784 seconds
+60 proof generation runs in 0.010599851608276367
+Proof steps:  3
+Max condition number:  4
+Average condition number:  2.3333333333333335
+10 proof generation runs in 19.42814612388611
+Proof steps:  14
+Max condition number:  6
+Average condition number:  2.0
+3 solved in 26.45862603187561 seconds
+87 solved in 9.108367919921875 seconds
+87 proof generation runs in 0.058747053146362305
+Proof steps:  17
+Max condition number:  6
+Average condition number:  2.5294117647058822
+54 proof generation runs in 6.345541000366211
+Proof steps:  15
+Max condition number:  6
+Average condition number:  1.9333333333333333
+117 solved in 1.1205534934997559 seconds
+117 proof generation runs in 0.001970052719116211
+Proof steps:  2
+Max condition number:  3
+Average condition number:  2.5
+35 solved in 14.733655452728271 seconds
+35 proof generation runs in 0.236250638961792
+Proof steps:  9
+Max condition number:  4
+Average condition number:  2.0
+112 solved in 3.4998667240142822 seconds
+112 proof generation runs in 0.08033156394958496
+Proof steps:  11
+Max condition number:  3
+Average condition number:  1.4545454545454546
+83 solved in 8.596354484558105 seconds
+8 solved in 31.68592357635498 seconds
+83 proof generation runs in 2.05049467086792
+Proof steps:  21
+Max condition number:  6
+Average condition number:  2.2857142857142856
+40 solved in 5.185906648635864 seconds
+40 proof generation runs in 0.013629913330078125
+Proof steps:  6
+Max condition number:  4
+Average condition number:  2.5
+8 proof generation runs in 0.846489429473877
+Proof steps:  16
+Max condition number:  5
+Average condition number:  1.6875
+31 proof generation runs in 19.109724283218384
+Proof steps:  12
+Max condition number:  6
+Average condition number:  2.1666666666666665
+16 proof generation runs in 21.194058418273926
+Proof steps:  16
+Max condition number:  6
+Average condition number:  2.125
+38 solved in 0.5888063907623291 seconds
+38 proof generation runs in 0.014728069305419922
+Proof steps:  5
+Max condition number:  4
+Average condition number:  1.8
+103 solved in 13.273425102233887 seconds
+70 solved in 1.7231669425964355 seconds
+70 proof generation runs in 0.010089635848999023
+Proof steps:  9
+Max condition number:  4
+Average condition number:  2.0
+113 solved in 3.1235013008117676 seconds
+113 proof generation runs in 0.2503178119659424
+Proof steps:  6
+Max condition number:  6
+Average condition number:  2.5
+88 solved in 19.07011580467224 seconds
+88 proof generation runs in 0.028881311416625977
+Proof steps:  10
+Max condition number:  4
+Average condition number:  2.0
+103 proof generation runs in 1.8521604537963867
+Proof steps:  14
+Max condition number:  4
+Average condition number:  1.7142857142857142
+65 solved in 6.038026809692383 seconds
+65 proof generation runs in 0.08451437950134277
+Proof steps:  9
+Max condition number:  6
+Average condition number:  2.2222222222222223
+7 proof generation runs in 18.892963409423828
+Proof steps:  13
+Max condition number:  4
+Average condition number:  2.1538461538461537
+79 solved in 18.937833547592163 seconds
+118 solved in 2.8348610401153564 seconds
+118 proof generation runs in 0.04351544380187988
+Proof steps:  9
+Max condition number:  3
+Average condition number:  2.3333333333333335
+61 solved in 7.096704483032227 seconds
+90 solved in 14.154040098190308 seconds
+61 proof generation runs in 1.073291301727295
+Proof steps:  10
+Max condition number:  5
+Average condition number:  2.2
+68 solved in 7.3288116455078125 seconds
+68 proof generation runs in 0.19431114196777344
+Proof steps:  15
+Max condition number:  6
+Average condition number:  1.8666666666666667
+95 solved in 5.509047985076904 seconds
+95 proof generation runs in 0.11010384559631348
+Proof steps:  5
+Max condition number:  3
+Average condition number:  2.0
+89 solved in 20.85928511619568 seconds
+89 proof generation runs in 0.09038305282592773
+Proof steps:  24
+Max condition number:  3
+Average condition number:  1.8333333333333333
+84 solved in 14.937878847122192 seconds
+84 proof generation runs in 0.017045259475708008
+Proof steps:  7
+Max condition number:  2
+Average condition number:  1.8571428571428572
+147 solved in 15.107876300811768 seconds
+148 solved in 5.8218371868133545 seconds
+148 proof generation runs in 0.11672592163085938
+Proof steps:  7
+Max condition number:  6
+Average condition number:  2.142857142857143
+100 solved in 11.533256769180298 seconds
+78 solved in 36.62205982208252 seconds
+78 proof generation runs in 0.0809783935546875
+Proof steps:  22
+Max condition number:  4
+Average condition number:  1.9545454545454546
+6 solved in 48.60397243499756 seconds
+114 solved in 4.624147891998291 seconds
+142 solved in 19.44399094581604 seconds
+85 solved in 25.158692121505737 seconds
+178 solved in 4.920527458190918 seconds
+178 proof generation runs in 0.0738983154296875
+Proof steps:  11
+Max condition number:  6
+Average condition number:  1.8181818181818181
+85 proof generation runs in 0.2986929416656494
+Proof steps:  19
+Max condition number:  4
+Average condition number:  1.9473684210526316
+26 proof generation runs in 30.33503293991089
+Proof steps:  34
+Max condition number:  6
+Average condition number:  2.1470588235294117
+108 solved in 3.1055803298950195 seconds
+108 proof generation runs in 0.01331186294555664
+Proof steps:  3
+Max condition number:  3
+Average condition number:  2.3333333333333335
+119 solved in 8.664918184280396 seconds
+15 proof generation runs in 27.923420667648315
+Proof steps:  15
+Max condition number:  5
+Average condition number:  2.2
+2 solved in 53.14299941062927 seconds
+2 proof generation runs in 0.02789139747619629
+Proof steps:  5
+Max condition number:  4
+Average condition number:  2.0
+114 proof generation runs in 4.587287664413452
+Proof steps:  18
+Max condition number:  5
+Average condition number:  2.0
+115 solved in 1.3239004611968994 seconds
+115 proof generation runs in 0.04526066780090332
+Proof steps:  6
+Max condition number:  6
+Average condition number:  2.5
+42 proof generation runs in 30.081440925598145
+Proof steps:  15
+Max condition number:  5
+Average condition number:  2.1333333333333333
+98 solved in 11.344478607177734 seconds
+98 proof generation runs in 0.152968168258667
+Proof steps:  7
+Max condition number:  6
+Average condition number:  2.2857142857142856
+208 unsolved in 2.4001593589782715 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 57.672s
+Ran 1 test in 56.750s
 
 OK
-119 solved in 6.564653396606445 seconds
-92 solved in 15.83357286453247 seconds
-122 solved in 0.013747453689575195 seconds
-133 solved in 28.184134483337402 seconds
-202 solved in 5.15349555015564 seconds
+37 solved in 17.022563695907593 seconds
+119 proof generation runs in 2.1511449813842773
+Proof steps:  24
+Max condition number:  6
+Average condition number:  2.1666666666666665
+37 proof generation runs in 0.234971284866333
+Proof steps:  27
+Max condition number:  3
+Average condition number:  1.6666666666666667
+56 solved in 3.4168455600738525 seconds
+91 solved in 14.818065881729126 seconds
+125 solved in 13.676656246185303 seconds
+9 solved in 56.98923206329346 seconds
+9 proof generation runs in 0.03436708450317383
+Proof steps:  12
+Max condition number:  3
+Average condition number:  2.0
+91 proof generation runs in 0.34758996963500977
+Proof steps:  16
+Max condition number:  5
+Average condition number:  2.1875
+17 solved in 57.320070028305054 seconds
+72 solved in 2.9203474521636963 seconds
+72 proof generation runs in 0.06596994400024414
+Proof steps:  7
+Max condition number:  5
+Average condition number:  2.142857142857143
+90 proof generation runs in 17.09754967689514
+Proof steps:  22
+Max condition number:  6
+Average condition number:  2.0
+46 solved in 24.74993658065796 seconds
+17 proof generation runs in 1.1856768131256104
+Proof steps:  14
+Max condition number:  4
+Average condition number:  1.7142857142857142
+46 proof generation runs in 0.7771170139312744
+Proof steps:  19
+Max condition number:  5
+Average condition number:  1.894736842105263
+56 proof generation runs in 3.4857962131500244
+Proof steps:  9
+Max condition number:  6
+Average condition number:  2.6666666666666665
+47 solved in 1.3549396991729736 seconds
+47 proof generation runs in 0.009098052978515625
+Proof steps:  7
+Max condition number:  4
+Average condition number:  2.0
+45 solved in 7.181551694869995 seconds
+45 proof generation runs in 0.005008220672607422
+39 solved in 3.0594840049743652 seconds
+Proof steps:  4
+Max condition number:  4
+Average condition number:  2.25
+100 proof generation runs in 14.346598386764526
+Proof steps:  16
+Max condition number:  6
+Average condition number:  1.9375
+102 solved in 3.156181573867798 seconds
+102 proof generation runs in 0.07411408424377441
+Proof steps:  8
+Max condition number:  4
+Average condition number:  2.0
+143 solved in 25.317716121673584 seconds
+143 proof generation runs in 0.8428523540496826
+Proof steps:  16
+Max condition number:  3
+Average condition number:  1.6875
+67 solved in 7.713519811630249 seconds
+39 proof generation runs in 2.65942645072937
+Proof steps:  14
+Max condition number:  6
+Average condition number:  2.2857142857142856
+145 solved in 9.602958917617798 seconds
+145 proof generation runs in 0.017537832260131836
+Proof steps:  10
+Max condition number:  4
+Average condition number:  1.8
+121 solved in 7.220827341079712 seconds
+32 solved in 11.250702142715454 seconds
+173 unsolved in 2.3840975761413574 seconds
+75 solved in 4.581771373748779 seconds
+75 proof generation runs in 0.06442904472351074
+Proof steps:  8
+Max condition number:  3
+Average condition number:  1.5
+175 unsolved in 3.0646731853485107 seconds
+67 proof generation runs in 5.857715368270874
+Proof steps:  26
+Max condition number:  6
+Average condition number:  2.076923076923077
+69 solved in 5.186488151550293 seconds
+76 solved in 10.403252124786377 seconds
+149 solved in 15.0544593334198 seconds
+76 proof generation runs in 0.32663917541503906
+Proof steps:  19
+Max condition number:  6
+Average condition number:  2.3157894736842106
+120 solved in 14.053889513015747 seconds
+120 proof generation runs in 0.5317330360412598
+Proof steps:  30
+Max condition number:  4
+Average condition number:  1.6
+14 solved in 75.53352451324463 seconds
+149 proof generation runs in 5.7453837394714355
+Proof steps:  28
+Max condition number:  6
+Average condition number:  1.7857142857142858
+144 solved in 22.326316595077515 seconds
+106 solved in 5.426743745803833 seconds
+144 proof generation runs in 0.046834707260131836
+Proof steps:  16
+Max condition number:  4
+Average condition number:  1.75
+14 proof generation runs in 1.062225341796875
+Proof steps:  28
+Max condition number:  6
+Average condition number:  1.6785714285714286
+106 proof generation runs in 0.18492984771728516
+Proof steps:  3
+Max condition number:  4
+Average condition number:  2.0
+138 solved in 24.260783672332764 seconds
+77 solved in 16.005200386047363 seconds
+77 proof generation runs in 0.03194785118103027
+Proof steps:  14
+Max condition number:  3
+Average condition number:  1.8571428571428572
+205 unsolved in 9.512215375900269 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 59.695s
+Ran 1 test in 79.977s
 
 OK
-11 solved in 58.61324191093445 seconds
-39 solved in 5.463642358779907 seconds
-127 solved in 9.11473298072815 seconds
-44 solved in 7.613470077514648 seconds
-152 solved in 5.170927286148071 seconds
-144 solved in 36.30868697166443 seconds
-143 solved in 24.572983741760254 seconds
-77 solved in 29.60965323448181 seconds
-150 solved in 16.233272314071655 seconds
-174 solved in 1.7129724025726318 seconds
-177 solved in 21.37268352508545 seconds
-69 solved in 4.787165641784668 seconds
-173 unsolved in 3.4258651733398438 seconds
-135 solved in 33.04936861991882 seconds
-74 solved in 5.2282280921936035 seconds
-138 solved in 20.84993886947632 seconds
-149 solved in 12.16749358177185 seconds
-204 solved in 3.5339231491088867 seconds
+138 proof generation runs in 1.071310043334961
+Proof steps:  35
+Max condition number:  6
+Average condition number:  1.6857142857142857
+32 proof generation runs in 12.975351333618164
+Proof steps:  16
+Max condition number:  6
+Average condition number:  2.0625
+69 proof generation runs in 9.305457830429077
+Proof steps:  26
+Max condition number:  6
+Average condition number:  2.1538461538461537
+174 solved in 1.6201558113098145 seconds
+174 proof generation runs in 0.025578975677490234
+Proof steps:  4
+Max condition number:  5
+Average condition number:  2.0
+133 solved in 42.17861461639404 seconds
+80 proof generation runs in 62.547422885894775
+Proof steps:  21
+Max condition number:  11
+Average condition number:  2.5238095238095237
+121 proof generation runs in 17.51473093032837
+Proof steps:  13
+Max condition number:  6
+Average condition number:  1.8461538461538463
+97 solved in 14.05409574508667 seconds
+204 solved in 4.258865833282471 seconds
+97 proof generation runs in 0.21544480323791504
+Proof steps:  9
+Max condition number:  8
+Average condition number:  3.0
+86 solved in 23.861095905303955 seconds
+86 proof generation runs in 0.05954408645629883
+Proof steps:  17
+Max condition number:  4
+Average condition number:  2.176470588235294
+203 solved in 18.007395267486572 seconds
+62 solved in 5.975926637649536 seconds
+204 proof generation runs in 1.3711462020874023
+Proof steps:  9
+Max condition number:  6
+Average condition number:  2.3333333333333335
 .
 ----------------------------------------------------------------------
-Ran 1 test in 71.074s
+Ran 1 test in 87.358s
 
 OK
-41 solved in 9.189790964126587 seconds
-151 solved in 28.66259479522705 seconds
-207 unsolved in 5.338109970092773 seconds
+150 solved in 11.714277982711792 seconds
+150 proof generation runs in 0.22479462623596191
+Proof steps:  16
+Max condition number:  6
+Average condition number:  2.375
+105 solved in 19.1465106010437 seconds
+99 solved in 6.836408853530884 seconds
+99 proof generation runs in 0.012918472290039062
+Proof steps:  4
+Max condition number:  3
+Average condition number:  2.75
+105 proof generation runs in 0.36313605308532715
+Proof steps:  18
+Max condition number:  6
+Average condition number:  2.0555555555555554
+107 solved in 9.335297584533691 seconds
+107 proof generation runs in 0.29576945304870605
+Proof steps:  15
+Max condition number:  3
+Average condition number:  1.6666666666666667
+110 solved in 6.2651050090789795 seconds
+110 proof generation runs in 0.1913282871246338
+Proof steps:  18
+Max condition number:  5
+Average condition number:  1.6666666666666667
+168 solved in 9.705897331237793 seconds
+168 proof generation runs in 0.07539701461791992
+Proof steps:  10
+Max condition number:  3
+Average condition number:  1.7
+116 solved in 4.320909023284912 seconds
+62 proof generation runs in 4.075087547302246
+Proof steps:  24
+Max condition number:  5
+Average condition number:  2.2083333333333335
+116 proof generation runs in 0.06576895713806152
+Proof steps:  13
+Max condition number:  2
+Average condition number:  1.5384615384615385
+81 solved in 72.14663195610046 seconds
+81 proof generation runs in 0.10679388046264648
+Proof steps:  22
+Max condition number:  3
+Average condition number:  1.6818181818181819
+44 solved in 14.241998195648193 seconds
+79 proof generation runs in 61.35974192619324
+Proof steps:  25
+Max condition number:  6
+Average condition number:  2.16
+92 solved in 9.677332639694214 seconds
+92 proof generation runs in 0.04412221908569336
+Proof steps:  13
+Max condition number:  4
+Average condition number:  2.076923076923077
+198 solved in 10.164732933044434 seconds
+127 solved in 14.855997085571289 seconds
+127 proof generation runs in 0.23714900016784668
+Proof steps:  9
+Max condition number:  4
+Average condition number:  2.2222222222222223
+122 solved in 0.050588130950927734 seconds
+122 proof generation runs in 0.0007469654083251953
+Proof steps:  0
+Max condition number:  0
+Average condition number:  0
+129 solved in 13.450745582580566 seconds
+129 proof generation runs in 0.20930886268615723
+Proof steps:  5
+Max condition number:  5
+Average condition number:  2.8
+179 solved in 24.49751591682434 seconds
+130 solved in 41.51508331298828 seconds
+130 proof generation runs in 0.41188764572143555
+Proof steps:  18
+Max condition number:  5
+Average condition number:  1.8333333333333333
+203 proof generation runs in 19.888357877731323
+Proof steps:  36
+Max condition number:  5
+Average condition number:  1.7777777777777777
 .
 ----------------------------------------------------------------------
-Ran 1 test in 73.206s
+Ran 1 test in 106.391s
 
 OK
-200 solved in 16.100629568099976 seconds
-163 unsolved in 13.979511737823486 seconds
-181 solved in 1.650420904159546 seconds
-99 solved in 7.273720026016235 seconds
-85 solved in 37.870217084884644 seconds
-115 solved in 1.1433484554290771 seconds
-139 solved in 31.2054226398468 seconds
-193 solved in 4.485953330993652 seconds
-71 solved in 6.149294137954712 seconds
-168 solved in 9.37595796585083 seconds
-130 solved in 49.52853322029114 seconds
-107 solved in 15.87073826789856 seconds
-165 solved in 12.791082382202148 seconds
-129 solved in 6.23844051361084 seconds
-126 solved in 40.503047466278076 seconds
-155 solved in 32.1836256980896 seconds
-146 solved in 28.297704458236694 seconds
-211 unsolved in 11.271197319030762 seconds
+198 proof generation runs in 5.877210855484009
+Proof steps:  7
+Max condition number:  6
+Average condition number:  2.2857142857142856
+11 solved in 105.87226462364197 seconds
+11 proof generation runs in 0.048630714416503906
+Proof steps:  12
+Max condition number:  2
+Average condition number:  1.5833333333333333
+152 solved in 6.229792594909668 seconds
+152 proof generation runs in 0.17577767372131348
+Proof steps:  12
+Max condition number:  5
+Average condition number:  2.1666666666666665
+151 solved in 25.951310873031616 seconds
+151 proof generation runs in 0.07072162628173828
+Proof steps:  11
+Max condition number:  4
+Average condition number:  2.090909090909091
+147 proof generation runs in 64.95991945266724
+Proof steps:  35
+Max condition number:  5
+Average condition number:  1.9714285714285715
+146 solved in 21.443017959594727 seconds
+146 proof generation runs in 0.2287287712097168
+Proof steps:  17
+Max condition number:  6
+Average condition number:  2.0
+140 solved in 23.34854221343994 seconds
+228 solved in 6.586649179458618 seconds
+181 solved in 2.3928163051605225 seconds
+228 proof generation runs in 0.10659098625183105
+Proof steps:  11
+Max condition number:  5
+Average condition number:  2.0
 .
 ----------------------------------------------------------------------
-Ran 1 test in 84.150s
+Ran 1 test in 114.765s
 
 OK
-203 solved in 18.354920864105225 seconds
+109 solved in 13.481571435928345 seconds
+41 solved in 6.245409727096558 seconds
+109 proof generation runs in 0.3690016269683838
+Proof steps:  16
+Max condition number:  6
+Average condition number:  2.125
+41 proof generation runs in 0.1792130470275879
+Proof steps:  9
+Max condition number:  4
+Average condition number:  2.0
+181 proof generation runs in 0.9010012149810791
+Proof steps:  9
+Max condition number:  6
+Average condition number:  1.8888888888888888
+176 unsolved in 3.0129661560058594 seconds
+111 solved in 25.331881284713745 seconds
+160 unsolved in 12.16759467124939 seconds
+71 solved in 3.3496463298797607 seconds
+128 solved in 65.28587651252747 seconds
+211 unsolved in 9.349807739257812 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 87.648s
+Ran 1 test in 125.526s
 
 OK
-132 solved in 63.32611799240112 seconds
-145 solved in 10.663691759109497 seconds
-101 solved in 9.897370338439941 seconds
-198 solved in 8.151212215423584 seconds
-176 unsolved in 2.8985586166381836 seconds
-223 solved in 13.019709587097168 seconds
+137 solved in 35.02901554107666 seconds
+179 proof generation runs in 22.18716788291931
+Proof steps:  20
+Max condition number:  5
+Average condition number:  2.0
+206 unsolved in 8.307354927062988 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 92.021s
+Ran 1 test in 126.101s
 
 OK
-104 solved in 22.2355318069458 seconds
-153 solved in 36.8003044128418 seconds
-175 unsolved in 3.9648630619049072 seconds
-185 solved in 7.059746265411377 seconds
-136 solved in 39.68773412704468 seconds
-160 unsolved in 12.621699094772339 seconds
-179 solved in 23.38530969619751 seconds
-228 solved in 6.018726348876953 seconds
+137 proof generation runs in 1.0284347534179688
+Proof steps:  33
+Max condition number:  8
+Average condition number:  2.090909090909091
+180 unsolved in 39.166760206222534 seconds
+71 proof generation runs in 10.112199306488037
+Proof steps:  12
+Max condition number:  6
+Average condition number:  2.0833333333333335
+135 solved in 40.47349715232849 seconds
+135 proof generation runs in 0.962120532989502
+Proof steps:  25
+Max condition number:  4
+Average condition number:  1.64
+209 solved in 5.194180488586426 seconds
+167 unsolved in 4.444851398468018 seconds
+136 solved in 53.58403778076172 seconds
+209 proof generation runs in 1.9169056415557861
+Proof steps:  23
+Max condition number:  9
+Average condition number:  2.4782608695652173
 .
 ----------------------------------------------------------------------
-Ran 1 test in 95.871s
+Ran 1 test in 133.625s
 
 OK
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f1036456de0>
+136 proof generation runs in 0.610877275466919
+Proof steps:  23
+Max condition number:  6
+Average condition number:  1.9565217391304348
+101 solved in 5.497359037399292 seconds
+101 proof generation runs in 0.01949167251586914
+Proof steps:  6
+Max condition number:  3
+Average condition number:  2.3333333333333335
+132 solved in 72.86434721946716 seconds
+177 solved in 25.730517864227295 seconds
+210 solved in 15.679146528244019 seconds
+142 proof generation runs in 92.58297491073608
+Proof steps:  11
+Max condition number:  5
+Average condition number:  1.7272727272727273
+182 unsolved in 35.991124629974365 seconds
+165 solved in 14.576858758926392 seconds
+139 solved in 30.81392788887024 seconds
+139 proof generation runs in 0.6465084552764893
+Proof steps:  24
+Max condition number:  6
+Average condition number:  2.0833333333333335
+44 proof generation runs in 54.460543394088745
+Proof steps:  10
+Max condition number:  6
+Average condition number:  2.4
+140 proof generation runs in 35.644880056381226
+Proof steps:  13
+Max condition number:  6
+Average condition number:  1.8461538461538463
+166 unsolved in 15.968488454818726 seconds
+131 solved in 14.797619581222534 seconds
+131 proof generation runs in 0.2222273349761963
+Proof steps:  8
+Max condition number:  4
+Average condition number:  2.25
+125 proof generation runs in 92.93550658226013
+Proof steps:  9
+Max condition number:  6
+Average condition number:  2.888888888888889
+212 solved in 6.832937002182007 seconds
+212 proof generation runs in 0.1477186679840088
+Proof steps:  20
+Max condition number:  4
+Average condition number:  1.7
+.
+----------------------------------------------------------------------
+Ran 1 test in 153.489s
+
+OK
+172 unsolved in 9.056137800216675 seconds
+74 solved in 5.5732409954071045 seconds
+74 proof generation runs in 0.08875608444213867
+Proof steps:  8
+Max condition number:  6
+Average condition number:  2.25
+210 proof generation runs in 10.718868494033813
+Proof steps:  20
+Max condition number:  6
+Average condition number:  1.85
+.
+----------------------------------------------------------------------
+Ran 1 test in 154.895s
+
+OK
+111 proof generation runs in 39.88006234169006
+Proof steps:  14
+Max condition number:  6
+Average condition number:  2.4285714285714284
+202 solved in 5.426599979400635 seconds
+202 proof generation runs in 0.07201385498046875
+Proof steps:  12
+Max condition number:  3
+Average condition number:  1.6666666666666667
+.
+----------------------------------------------------------------------
+Ran 1 test in 160.452s
+
+OK
+170 solved in 10.572200775146484 seconds
+196 solved in 13.581462860107422 seconds
+165 proof generation runs in 20.015991926193237
+Proof steps:  12
+Max condition number:  5
+Average condition number:  1.9166666666666667
+169 solved in 27.261943101882935 seconds
+155 solved in 28.982927083969116 seconds
+155 proof generation runs in 0.039215087890625
+Proof steps:  13
+Max condition number:  3
+Average condition number:  1.8461538461538463
+141 solved in 24.520202159881592 seconds
+104 solved in 30.719972133636475 seconds
+161 solved in 36.55362796783447 seconds
+185 solved in 6.414460182189941 seconds
+185 proof generation runs in 0.09816479682922363
+Proof steps:  3
+Max condition number:  4
+Average condition number:  2.0
+161 proof generation runs in 0.5945069789886475
+Proof steps:  19
+Max condition number:  6
+Average condition number:  2.1052631578947367
+170 proof generation runs in 29.56334924697876
+Proof steps:  15
+Max condition number:  5
+Average condition number:  2.6
+190 solved in 70.99976849555969 seconds
+196 proof generation runs in 31.694077014923096
+Proof steps:  14
+Max condition number:  6
+Average condition number:  2.2142857142857144
+215 unsolved in 12.303915023803711 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 202.340s
+
+OK
+3 proof generation runs in 175.94913291931152
+Proof steps:  19
+Max condition number:  6
+Average condition number:  2.1578947368421053
+195 solved in 38.60031723976135 seconds
+200 solved in 14.807837963104248 seconds
+33 solved in 5.748478651046753 seconds
+133 proof generation runs in 130.35392141342163
+Proof steps:  22
+Max condition number:  6
+Average condition number:  2.409090909090909
+4 solved in 209.66981053352356 seconds
+33 proof generation runs in 6.496215105056763
+Proof steps:  14
+Max condition number:  5
+Average condition number:  2.2142857142857144
+177 proof generation runs in 80.67816758155823
+Proof steps:  10
+Max condition number:  5
+Average condition number:  2.2
+128 proof generation runs in 98.12414383888245
+Proof steps:  24
+Max condition number:  6
+Average condition number:  2.0833333333333335
+63 solved in 3.6046855449676514 seconds
+63 proof generation runs in 0.0031232833862304688
+Proof steps:  6
+Max condition number:  2
+Average condition number:  1.5
+207 solved in 4.99318265914917 seconds
+207 proof generation runs in 0.05398154258728027
+Proof steps:  13
+Max condition number:  4
+Average condition number:  1.9230769230769231
+.
+----------------------------------------------------------------------
+Ran 1 test in 224.734s
+
+OK
+163 unsolved in 12.53225326538086 seconds
+200 proof generation runs in 20.467890739440918
+Proof steps:  14
+Max condition number:  6
+Average condition number:  1.8571428571428572
+93 solved in 5.942681550979614 seconds
+169 proof generation runs in 53.497600078582764
+Proof steps:  30
+Max condition number:  6
+Average condition number:  2.2666666666666666
+193 solved in 4.309406280517578 seconds
+193 proof generation runs in 0.027460575103759766
+Proof steps:  6
+Max condition number:  3
+Average condition number:  2.1666666666666665
+157 solved in 137.16034173965454 seconds
+223 solved in 12.14623498916626 seconds
+223 proof generation runs in 0.2110884189605713
+Proof steps:  19
+Max condition number:  3
+Average condition number:  2.1052631578947367
+.
+----------------------------------------------------------------------
+Ran 1 test in 242.823s
+
+OK
+191 solved in 52.669609785079956 seconds
+93 proof generation runs in 15.025089502334595
+Proof steps:  11
+Max condition number:  6
+Average condition number:  2.272727272727273
+191 proof generation runs in 0.8583121299743652
+Proof steps:  34
+Max condition number:  6
+Average condition number:  1.8529411764705883
+158 solved in 25.834842443466187 seconds
+221 solved in 3.7094597816467285 seconds
+221 proof generation runs in 0.013846397399902344
+104 proof generation runs in 61.97986602783203
+Proof steps:  4
+Max condition number:  3
+Average condition number:  2.5
+Proof steps:  22
+Max condition number:  6
+Average condition number:  1.9545454545454546
+.
+----------------------------------------------------------------------
+Ran 1 test in 248.131s
+
+OK
+197 unsolved in 116.28647589683533 seconds
+195 proof generation runs in 48.122605085372925
+Proof steps:  16
+Max condition number:  6
+Average condition number:  2.1875
+141 proof generation runs in 70.71665740013123
+Proof steps:  21
+Max condition number:  5
+Average condition number:  1.8571428571428572
+225 solved in 0.02241039276123047 seconds
+225 proof generation runs in 0.0006740093231201172
+Proof steps:  0
+Max condition number:  0
+Average condition number:  0
+.
+----------------------------------------------------------------------
+Ran 1 test in 253.969s
+
+OK
+227 solved in 6.001912355422974 seconds
+227 proof generation runs in 4.040202856063843
+Proof steps:  14
+Max condition number:  5
+Average condition number:  2.2142857142857144
+.
+----------------------------------------------------------------------
+Ran 1 test in 259.723s
+
+OK
+171 solved in 7.142016172409058 seconds
+199 solved in 42.584723711013794 seconds
+199 proof generation runs in 0.5616097450256348
+Proof steps:  15
+Max condition number:  4
+Average condition number:  1.9333333333333333
+123 solved in 29.031708240509033 seconds
+229 unsolved in 4.252092361450195 seconds
+.
+----------------------------------------------------------------------
+Ran 1 test in 277.712s
+
+OK
+171 proof generation runs in 16.855984449386597
+Proof steps:  44
+Max condition number:  6
+Average condition number:  2.7045454545454546
+134 solved in 40.90583109855652 seconds
+134 proof generation runs in 2.5881223678588867
+Proof steps:  46
+Max condition number:  4
+Average condition number:  1.6304347826086956
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f0a931af600>
 Traceback (most recent call last):
   File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
     def _remove(item, selfref=ref(self)):
 
-stopit.utils.TimeoutException: 
-169 solved in 19.808717966079712 seconds
-131 solved in 9.30460524559021 seconds
-206 unsolved in 8.86051607131958 seconds
+  File "/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+164 unsolved in 11.800277948379517 seconds
+190 proof generation runs in 120.78077912330627
+Proof steps:  34
+Max condition number:  5
+Average condition number:  1.911764705882353
+220 solved in 2.774608612060547 seconds
+220 proof generation runs in 0.050736427307128906
+Proof steps:  3
+Max condition number:  6
+Average condition number:  3.0
 .
 ----------------------------------------------------------------------
-Ran 1 test in 99.205s
+Ran 1 test in 315.243s
 
 OK
-81 solved in 80.86693263053894 seconds
-209 solved in 5.1131134033203125 seconds
+201 solved in 48.475421667099 seconds
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_b_f_i
+Warning: Could not parse term Angle_e_f_g
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_c_b_e
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_b_e_d
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_d_e_f
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_c_f_e
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_d_b_e
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_b_f_h
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_a_g_f
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_e_f_i
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_b_f_c
+Warning: Could not parse term Angle_a_f_b
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_a_e_b
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_a_g_f
+Warning: Could not parse term Angle_b_f_i
+Warning: Could not parse term Angle_c_b_f
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_b_f_h
+Warning: Could not parse term Angle_a_e_f
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_c_b_e
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_e_f_i
+Warning: Could not parse term Angle_a_b_e
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_b_f_g
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_b_f
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_d_b_e
+Warning: Could not parse term Angle_a_b_f
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_a_b_e
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_d_b_f
+Warning: Could not parse term Angle_b_e_h
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_d_b_f
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_f_b_g
+Warning: Could not parse term Angle_a_b_e
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_e_b_g
+Warning: Could not parse term Angle_a_e_f
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_c_b_f
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_f_b
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_c_b_e
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_d_b_f
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_b_f_h
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_e_f_g
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_f_e_h
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_e_f_i
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_e_f_g
+Warning: Could not parse term Angle_b_e_d
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_e_f_h
+Warning: Could not parse term Angle_b_f_i
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_d_b_f
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_f_e_h
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_e_f_h
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_e_f_i
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_c_b_f
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_e_f_h
+Warning: Could not parse term Angle_a_b_e
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_c_f_e
+Warning: Could not parse term Angle_b_f_g
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_b_f_g
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_a_f_b
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_d_b_e
+Warning: Could not parse term Angle_g_a_h
+194 solved in 38.53340530395508 seconds
+Warning: Could not parse term Angle_a_e_f
+Warning: Could not parse term Angle_f_a_g
+194 proof generation runs in 0.56679368019104
+Proof steps:  19
+Max condition number:  6
+Average condition number:  2.1052631578947367
+Warning: Could not parse term Angle_a_b_f
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_b_e_d
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_a_g_c
+Warning: Could not parse term Angle_b_f_c
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_f_e_h
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_e_b_g
+Warning: Could not parse term Angle_b_e_h
+Warning: Could not parse term Angle_c_a_g
+Warning: Could not parse term Angle_a_f_b
+Warning: Could not parse term Angle_a_g_f
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_d_a_g
+Warning: Could not parse term Angle_f_b_g
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_c_b_f
+Warning: Could not parse term Angle_f_e_h
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_c_b_e
+Warning: Could not parse term Angle_a_b_e
+Warning: Could not parse term Angle_a_g_f
+Warning: Could not parse term Angle_e_f_g
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_b_f
+Warning: Could not parse term Angle_a_g_b
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_b_f_i
+Warning: Could not parse term Angle_e_b_g
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_b_a_g
+Warning: Could not parse term Angle_f_b_g
+224 unsolved in 4.8441596031188965 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 100.480s
+Ran 1 test in 356.283s
 
 OK
-182 unsolved in 37.27746844291687 seconds
-180 unsolved in 37.94286131858826 seconds
-215 unsolved in 10.987272262573242 seconds
+Warning: Could not parse term Angle_d_b_e
+Warning: Could not parse term Angle_f_a_g
+Warning: Could not parse term Angle_a_f_e
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_a_f_b
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_c_f_e
+Warning: Could not parse term Angle_b_e_h
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_b_e_d
+Warning: Could not parse term Angle_c_a_g
+123 proof generation runs in 85.27118444442749
+Proof steps:  36
+Max condition number:  6
+Average condition number:  1.8888888888888888
+Warning: Could not parse term Angle_b_f_i
+Warning: Could not parse term Angle_e_a_g
+Warning: Could not parse term Angle_a_g_f
+Warning: Could not parse term Angle_e_f_i
+Warning: Could not parse term Angle_e_b_g
+Warning: Could not parse term Angle_g_a_h
+Warning: Could not parse term Angle_a_g_d
+Warning: Could not parse term Angle_b_f_c
+Warning: Could not parse term Angle_a_e_f
+Warning: Could not parse term Angle_b_a_g
+158 proof generation runs in 122.37182474136353
+Proof steps:  18
+Max condition number:  6
+Average condition number:  2.2777777777777777
+188 solved in 9.431058168411255 seconds
+188 proof generation runs in 0.18076324462890625
+Proof steps:  12
+Max condition number:  4
+Average condition number:  1.75
+153 solved in 47.55644941329956 seconds
+153 proof generation runs in 0.03628897666931152
+Proof steps:  7
+Max condition number:  3
+Average condition number:  2.4285714285714284
+201 proof generation runs in 140.35887789726257
+Proof steps:  60
+Max condition number:  6
+Average condition number:  1.8833333333333333
 .
 ----------------------------------------------------------------------
-Ran 1 test in 103.339s
+Ran 1 test in 467.692s
 
 OK
-205 unsolved in 11.875448226928711 seconds
+183 unsolved in 62.09788680076599 seconds
+230 unsolved in 244.13274145126343 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 105.919s
+Ran 1 test in 472.066s
 
 OK
-166 unsolved in 11.19279670715332 seconds
-212 solved in 5.5076093673706055 seconds
+213 solved in 4.066534519195557 seconds
+213 proof generation runs in 1.210775375366211
+Proof steps:  7
+Max condition number:  6
+Average condition number:  2.2857142857142856
 .
 ----------------------------------------------------------------------
-Ran 1 test in 105.873s
+Ran 1 test in 475.951s
 
 OK
-137 solved in 30.640185356140137 seconds
-195 solved in 32.43429946899414 seconds
-225 solved in 0.011873245239257812 seconds
+218 solved in 138.02469062805176 seconds
+6 proof generation runs in 619.7229282855988
+Proof steps:  19
+Max condition number:  6
+Average condition number:  1.631578947368421
+36 solved in 2.39015531539917 seconds
+36 proof generation runs in 0.04580807685852051
+Proof steps:  8
+Max condition number:  3
+Average condition number:  2.125
+66 solved in 6.149812459945679 seconds
+66 proof generation runs in 1.16628098487854
+Proof steps:  11
+Max condition number:  5
+Average condition number:  2.272727272727273
+226 solved in 486.4814078807831 seconds
+96 solved in 8.694139242172241 seconds
+96 proof generation runs in 17.60739493370056
+Proof steps:  16
+Max condition number:  6
+Average condition number:  1.8125
+126 solved in 70.92285680770874 seconds
+157 proof generation runs in 658.2395865917206
+Proof steps:  17
+Max condition number:  6
+Average condition number:  2.235294117647059
+187 solved in 5.880193471908569 seconds
+187 proof generation runs in 0.08218026161193848
+Proof steps:  3
+Max condition number:  4
+Average condition number:  2.0
+217 solved in 14.788892269134521 seconds
+217 proof generation runs in 9.532875537872314
+Proof steps:  20
+Max condition number:  6
+Average condition number:  1.85
 .
 ----------------------------------------------------------------------
-Ran 1 test in 116.151s
+Ran 1 test in 929.883s
 
 OK
-167 unsolved in 3.503864288330078 seconds
-210 solved in 12.222403764724731 seconds
+4 proof generation runs in 947.2138516902924
+Proof steps:  54
+Max condition number:  6
+Average condition number:  2.0185185185185186
+34 solved in 8.572551965713501 seconds
+34 proof generation runs in 29.423556566238403
+Proof steps:  30
+Max condition number:  6
+Average condition number:  2.0
+64 solved in 7.347260236740112 seconds
+64 proof generation runs in 0.13220000267028809
+Proof steps:  14
+Max condition number:  3
+Average condition number:  1.7857142857142858
+94 solved in 13.489098072052002 seconds
+94 proof generation runs in 5.341287851333618
+Proof steps:  24
+Max condition number:  6
+Average condition number:  2.0
+124 solved in 12.337162017822266 seconds
+124 proof generation runs in 0.20897293090820312
+Proof steps:  11
+Max condition number:  5
+Average condition number:  2.1818181818181817
+154 solved in 38.2270667552948 seconds
+154 proof generation runs in 0.019730329513549805
+Proof steps:  9
+Max condition number:  3
+Average condition number:  2.0
+132 proof generation fails 1200.0060286521912
+159 unsolved in 1239.082827091217 seconds
+184 solved in 79.84433007240295 seconds
+162 solved in 26.364877462387085 seconds
+162 proof generation runs in 0.0444796085357666
+Proof steps:  12
+Max condition number:  3
+Average condition number:  1.9166666666666667
+189 solved in 14.911709308624268 seconds
+189 proof generation runs in 13.770566463470459
+Proof steps:  21
+Max condition number:  6
+Average condition number:  2.1904761904761907
+219 solved in 4.196581602096558 seconds
+219 proof generation runs in 0.06520509719848633
+Proof steps:  11
+Max condition number:  6
+Average condition number:  1.8181818181818181
 .
 ----------------------------------------------------------------------
-Ran 1 test in 115.114s
+Ran 1 test in 1394.397s
 
 OK
-111 solved in 22.73938798904419 seconds
-134 solved in 31.341320753097534 seconds
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fe643d8ede0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-162 solved in 41.100807189941406 seconds
-161 solved in 35.27962350845337 seconds
-199 solved in 39.08640646934509 seconds
-164 unsolved in 13.305069923400879 seconds
-196 solved in 33.42567753791809 seconds
-156 solved in 57.17356991767883 seconds
-229 unsolved in 3.282597541809082 seconds
+192 unsolved in 152.09520053863525 seconds
+222 solved in 5.805830478668213 seconds
+222 proof generation runs in 0.734095573425293
+Proof steps:  9
+Max condition number:  6
+Average condition number:  2.2222222222222223
 .
 ----------------------------------------------------------------------
-Ran 1 test in 142.216s
+Ran 1 test in 1524.938s
 
 OK
-128 solved in 100.53754425048828 seconds
-141 solved in 24.40574288368225 seconds
-190 solved in 57.90784788131714 seconds
-183 unsolved in 59.63155817985535 seconds
-220 solved in 1.69254732131958 seconds
+126 proof generation runs in 875.3015315532684
+Proof steps:  31
+Max condition number:  7
+Average condition number:  1.935483870967742
+218 proof generation fails 1200.005702495575
 .
 ----------------------------------------------------------------------
-Ran 1 test in 153.282s
+Ran 1 test in 1719.646s
 
 OK
-213 solved in 3.829803705215454 seconds
+156 solved in 64.81568193435669 seconds
+156 proof generation runs in 1.5225584506988525
+Proof steps:  23
+Max condition number:  4
+Average condition number:  1.6521739130434783
+186 unsolved in 15.678347826004028 seconds
+216 solved in 42.05327391624451 seconds
+216 proof generation runs in 92.69056415557861
+Proof steps:  18
+Max condition number:  24
+Average condition number:  3.5
 .
 ----------------------------------------------------------------------
-Ran 1 test in 155.888s
+Ran 1 test in 1875.104s
 
 OK
-186 unsolved in 16.568770170211792 seconds
-158 solved in 13.439574480056763 seconds
-171 solved in 14.37199354171753 seconds
-188 solved in 7.000492811203003 seconds
-191 solved in 36.58024001121521 seconds
-194 solved in 34.95109510421753 seconds
-221 solved in 2.8823888301849365 seconds
+226 proof generation fails 1200.010461807251
 .
 ----------------------------------------------------------------------
-Ran 1 test in 173.426s
+Ran 1 test in 1885.411s
 
 OK
-224 unsolved in 5.11789345741272 seconds
+184 proof generation runs in 1083.7376325130463
+Proof steps:  28
+Max condition number:  6
+Average condition number:  2.2857142857142856
+214 solved in 5.28729510307312 seconds
+214 proof generation runs in 0.07809758186340332
+Proof steps:  10
+Max condition number:  3
+Average condition number:  1.8
 .
 ----------------------------------------------------------------------
-Ran 1 test in 179.623s
-
-OK
-4 solved in 177.53777265548706 seconds
-216 solved in 24.554108381271362 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 182.290s
-
-OK
-34 solved in 6.327659368515015 seconds
-64 solved in 6.765141725540161 seconds
-94 solved in 13.627910375595093 seconds
-197 unsolved in 96.95838284492493 seconds
-227 solved in 3.108116388320923 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 218.287s
-
-OK
-124 solved in 8.554683923721313 seconds
-201 solved in 55.31492304801941 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 219.268s
-
-OK
-218 solved in 65.19007635116577 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 232.594s
-
-OK
-230 unsolved in 161.98502445220947 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 236.232s
-
-OK
-157 solved in 179.17571711540222 seconds
-/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/formalization/diagram.py:31: UserWarning: This figure was saved with matplotlib version 3.9.1 and loaded with 3.9.4 so may not function correctly.
-  instance = pickle.load(f)
-187 solved in 7.125919818878174 seconds
-154 solved in 40.546812295913696 seconds
-217 solved in 13.240263938903809 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 262.987s
-
-OK
-192 unsolved in 146.62209630012512 seconds
-222 unsolved in 6.447384834289551 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 285.021s
-
-OK
-184 solved in 35.02585005760193 seconds
-214 solved in 6.6551125049591064 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 300.379s
-
-OK
-Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f2f4f642de0>
-Traceback (most recent call last):
-  File "/private/home/zhaoyuli/anaconda3/envs/pyeuclid/lib/python3.11/_weakrefset.py", line 39, in _remove
-    def _remove(item, selfref=ref(self)):
-
-stopit.utils.TimeoutException: 
-159 unsolved in 600.0100042819977 seconds
-189 solved in 15.668510437011719 seconds
-219 solved in 3.732008695602417 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 704.879s
-
-OK
-226 unsolved in 600.0203325748444 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 741.602s
+Ran 1 test in 2448.889s
 
 OK

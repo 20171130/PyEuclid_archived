@@ -92,7 +92,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     np.random.seed(42 + rank * 1000 + problem_id)
 
     state = State()
-    # state.silent = True
+    state.silent = True
     deductive_database = DeductiveDatabase(state)
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
@@ -108,7 +108,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
     # print(f"Rank {rank}: Starting problem {problem_id}")
 
-    max_steps = random.uniform(4, 8) # 4 - 8
+    max_steps = random.uniform(4, 10) # 4 - 8
     max_attempt = random.uniform(50, 100)
     max_points = random.uniform(8, 12) # 8 - 12
     constructions_list = []
@@ -281,11 +281,14 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
     i = 0
     samples_with_auxiliary = 0
+    sub_conclusions = set()
+    conclusions2dir = {}
+
     proof_generator = ProofGenerator(state)
     # filter conclusions
     conclusions = list([relation for relation in state.relations if not trivial_condition(relation) and hasattr(relation, "source")]) + [eq for eq in state.equations 
                         if eq.sources and isinstance(eq.sources[0], InferenceRule) and not isinstance(eq.sources[0], (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2))]
-    filtered = []
+    filtered_conclusions = []
     for relation in conclusions:
         if isinstance(relation, Similar3):
             points = relation.get_points()
@@ -297,12 +300,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
                 continue
             elif diagram.numerical_check(Collinear(*points[:3])):
                 continue
-        filtered.append(relation)
+        filtered_conclusions.append(relation)
     
-    sub_conclusions = set()
-    conclusions2dir = {}
-
-    for relation in filtered:
+    for relation in filtered_conclusions:
         if timeout_handler.check_timeout():
             break
         if isinstance(relation, Traced):
@@ -310,56 +310,96 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         else:
             key = relation
         
-        try:
-            proof_generator.run(relation)
-            proof = proof_generator.get_proof(relation)
-        except Exception as e:
-            continue
-        
-        if len(proof) <= 10 or len(proof_generator.source_constructions[key]) <= 2:
-            continue
+        if state.condition2depth[key] <= 2:
+            continue 
 
         if isinstance(relation, Relation):
             points = relation.get_points()
         else:
             points_list = get_points_and_symbols(relation)[0]
             points = [p for points in points_list for p in points]
-
-        constructions = proof_generator.source_constructions[key]
-
+        
+        sufficient_constructions = []
         target_points = set(points)
-        output_to_constructions = defaultdict(list)
-        for c in constructions:
-            for out in c.outputs:
-                output_to_constructions[out].append(c)
-
-        required = set()
         seen_points = set()
-
-        def mark_required(point):
+        def mark_sufficient(point):
             if point in seen_points:
                 return
             seen_points.add(point)
-
-            for c in output_to_constructions[point]:
-                if c not in required:
-                    required.add(c)
+            for c in point2constructions[point]:
+                if c not in sufficient_constructions:
+                    sufficient_constructions.append(c)
                     for inp in c.inputs:
-                        mark_required(inp)
-        
+                        mark_sufficient(inp)
         for point in target_points:
-            mark_required(point)
+            mark_sufficient(point)
+        sufficient_constructions = sorted(sufficient_constructions, key=lambda c: c.index)
+        
+        new_state = State()
+        new_state.silent = True
+        new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+        new_state.diagram = diagram
+        new_state.add_constructions(sufficient_constructions)
+        new_deductive_database = DeductiveDatabase(new_state)
+        new_algebraic_system = AlgebraicSystem(new_state)
+        new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+        new_engine.run()
+        
+        if new_state.complete() is not None:
+            auxiliary_constructions = []
+            new_proof_generator = ProofGenerator(new_state)
+            new_proof_generator.run()
+            new_proof = new_proof_generator.get_proof()
+            new_proof_str = new_proof_generator.get_proof_str()
+        else:
+            proof_generator.run(relation)
+            auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
+            
+            new_constructions = sorted(list(sufficient_constructions+auxiliary_constructions), key=lambda c: c.index)
+            new_state = None
+            for auxiliary_construction in auxiliary_constructions:
+                new_constructions.remove(auxiliary_construction)
+                new_state = State()
+                new_state.silent = True
+                new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+                new_state.diagram = diagram
+                new_state.add_constructions(new_constructions)
+                new_deductive_database = DeductiveDatabase(new_state)
+                new_algebraic_system = AlgebraicSystem(new_state)
+                new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+                new_engine.run()
+                if new_state.complete() is not None:
+                    auxiliary_constructions.remove(auxiliary_construction)
+            
+            new_state = State()
+            new_state.silent = True
+            new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+            new_state.diagram = diagram
+            new_state.add_constructions(sorted(sufficient_constructions+auxiliary_constructions, key=lambda c: c.index))
+            new_deductive_database = DeductiveDatabase(new_state)
+            new_algebraic_system = AlgebraicSystem(new_state)
+            new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+            new_engine.run()
+            assert new_state.complete() is not None
+            new_proof_generator = ProofGenerator(new_state)
+            new_proof_generator.run()
+            new_proof = new_proof_generator.get_proof()
+            new_proof_str = new_proof_generator.get_proof_str()
+        
+        necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
+        
+        if len(necessary_constructions) <= 2:
+            continue
         
         input_points = set()
         output_points = set()
-        required_constructions = [c for c in constructions if c in required]
-        for required_construction in required_constructions:
-            input_points.update([p for p in required_construction.inputs if isinstance(p, Point)])
-            output_points.update([p for p in required_construction.outputs])
+        for necessary_construction in necessary_constructions:
+            input_points.update([p for p in necessary_construction.inputs if isinstance(p, Point)])
+            output_points.update([p for p in necessary_construction.outputs])
         
         added_constructions = []
         basic_points = []
-        for p in input_points:
+        for p in sorted(list(input_points), key=lambda p:p.name):
             if p not in output_points:
                 if len(point2constructions[p]) == 1 and type(point2constructions[p][0]) in list(construction_rule_sets["independent"]):
                     basic_points.append(p)
@@ -395,42 +435,135 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             c.index = 0
             added_constructions.append(c)
 
-        auxiliary_constructions = [c for c in constructions if c not in required]
+    # for relation in filtered:
+    #     if timeout_handler.check_timeout():
+    #         break
+    #     if isinstance(relation, Traced):
+    #         key = relation.expr
+    #     else:
+    #         key = relation
         
-        # ensure auxiliary constructions are necessary
-        deleted = []
-        if auxiliary_constructions:
-            new_constructions = list(constructions)
-            new_state = None
-            for auxiliary_construction in auxiliary_constructions:
-                new_constructions.remove(auxiliary_construction)
-                new_state = State()
-                new_state.silent = True
-                new_state.goal = relation.expr if isinstance(relation, Traced) else relation
-                new_state.diagram = diagram
-                new_state.add_constructions(new_constructions)
-                new_deductive_database = DeductiveDatabase(new_state)
-                new_algebraic_system = AlgebraicSystem(new_state)
-                new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-                new_engine.run()
-                if new_state.complete() is not None:
-                    deleted.append(auxiliary_construction)
-                else:
-                    new_constructions.append(auxiliary_construction)
+    #     try:
+    #         proof_generator.run(relation)
+    #         proof = proof_generator.get_proof(relation)
+    #     except Exception as e:
+    #         continue
         
-        if deleted:
-            # change auxiliary constructions and proof_str
-            auxiliary_constructions = [c for c in auxiliary_constructions if c not in deleted]
-            new_proof_generator = ProofGenerator(new_state)
-            new_proof_generator.run()
-            proof = new_proof_generator.get_proof()
-            if len(proof) <= 10 or len(new_proof_generator.source_constructions[key]) <= 2:
-                continue
-            proof_str = new_proof_generator.get_proof_str()
-        else:
-            proof_str = proof_generator.get_proof_str(relation)
+    #     if len(proof) <= 10 or len(proof_generator.source_constructions[key]) <= 2:
+    #         continue
+
+    #     if isinstance(relation, Relation):
+    #         points = relation.get_points()
+    #     else:
+    #         points_list = get_points_and_symbols(relation)[0]
+    #         points = [p for points in points_list for p in points]
+
+    #     constructions = proof_generator.source_constructions[key]
+
+    #     target_points = set(points)
+    #     output_to_constructions = defaultdict(list)
+    #     for c in constructions:
+    #         for out in c.outputs:
+    #             output_to_constructions[out].append(c)
+
+    #     required = set()
+    #     seen_points = set()
+
+    #     def mark_required(point):
+    #         if point in seen_points:
+    #             return
+    #         seen_points.add(point)
+
+    #         for c in output_to_constructions[point]:
+    #             if c not in required:
+    #                 required.add(c)
+    #                 for inp in c.inputs:
+    #                     mark_required(inp)
         
-        for (conditions, _, _) in proof:
+    #     for point in target_points:
+    #         mark_required(point)
+        
+        # input_points = set()
+        # output_points = set()
+        # required_constructions = [c for c in constructions if c in required]
+        # for required_construction in required_constructions:
+        #     input_points.update([p for p in required_construction.inputs if isinstance(p, Point)])
+        #     output_points.update([p for p in required_construction.outputs])
+        
+        # added_constructions = []
+        # basic_points = []
+        # for p in input_points:
+        #     if p not in output_points:
+        #         if len(point2constructions[p]) == 1 and type(point2constructions[p][0]) in list(construction_rule_sets["independent"]):
+        #             basic_points.append(p)
+        #         else:
+        #             c = construct_free()
+        #             c.construct(p)
+        #             c.index = point2constructions[p][0].index
+        #             added_constructions.append(c)
+        
+        # if len(basic_points) == 1:
+        #     c = construct_free()
+        #     c.construct(*basic_points)
+        #     c.index = 0
+        #     added_constructions.append(c)
+        # elif len(basic_points) == 2:
+        #     c = construct_segment()
+        #     c.construct(*basic_points)
+        #     c.index = 0
+        #     added_constructions.append(c)
+        # elif len(basic_points) == 3:
+        #     c = construct_triangle()
+        #     c.construct(*basic_points)
+        #     c.index = 0
+        #     added_constructions.append(c)
+        # elif len(basic_points) == 4:
+        #     c = construct_quadrangle()
+        #     c.construct(*basic_points)
+        #     c.index = 0
+        #     added_constructions.append(c)
+        # elif len(basic_points) == 5:
+        #     c = construct_pentagon()
+        #     c.construct(*basic_points)
+        #     c.index = 0
+        #     added_constructions.append(c)
+
+    #     auxiliary_constructions = [c for c in constructions if c not in required]
+        
+    #     # ensure auxiliary constructions are necessary
+    #     deleted = []
+    #     if auxiliary_constructions:
+    #         new_constructions = list(constructions)
+    #         new_state = None
+    #         for auxiliary_construction in auxiliary_constructions:
+    #             new_constructions.remove(auxiliary_construction)
+    #             new_state = State()
+    #             new_state.silent = True
+    #             new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+    #             new_state.diagram = diagram
+    #             new_state.add_constructions(new_constructions)
+    #             new_deductive_database = DeductiveDatabase(new_state)
+    #             new_algebraic_system = AlgebraicSystem(new_state)
+    #             new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+    #             new_engine.run()
+    #             if new_state.complete() is not None:
+    #                 deleted.append(auxiliary_construction)
+    #             else:
+    #                 new_constructions.append(auxiliary_construction)
+        
+    #     if deleted:
+    #         # change auxiliary constructions and proof_str
+    #         auxiliary_constructions = [c for c in auxiliary_constructions if c not in deleted]
+    #         new_proof_generator = ProofGenerator(new_state)
+    #         new_proof_generator.run()
+    #         proof = new_proof_generator.get_proof()
+    #         if len(proof) <= 10 or len(new_proof_generator.source_constructions[key]) <= 2:
+    #             continue
+    #         proof_str = new_proof_generator.get_proof_str()
+    #     else:
+    #         proof_str = proof_generator.get_proof_str(relation)
+        
+        for (conditions, _, _) in new_proof:
             for cond in conditions:
                 if isinstance(cond, sympy.core.expr.Expr):
                     cond = Traced(cond)
@@ -439,11 +572,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             
         has_auxiliary = len(auxiliary_constructions) > 0
         if has_auxiliary:
-            auxiliary_constructions = sorted(auxiliary_constructions, key=lambda c: c.index)
             aux_proof = 'Auxilirary Constructions:\n'
             for construction in auxiliary_constructions:
                 aux_proof = aux_proof + str(construction) + '\n'
-            proof_str = aux_proof + proof_str
+            new_proof_str = aux_proof + new_proof_str
             samples_with_auxiliary += 1
 
         diagram.save()
@@ -458,84 +590,19 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
         goal_constructions = get_constructions_from_goal(relation)
         diagram.draw([], goal_constructions)
-        diagram.draw_diagram(constructions=required_constructions+auxiliary_constructions+goal_constructions, save=True)
+        diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True)
         diagram.restore()
 
-        # verify the data by construct a new diagram and generate the proof
-        # new_constructions_list = []
-        # for construction in sorted(added_constructions+required_constructions, key=lambda c: c.index):
-        #     if not new_constructions_list:
-        #         new_constructions_list.append([construction])
-        #     elif all(p1 == p2 for p1, p2 in zip(new_constructions_list[-1][0].outputs,construction.outputs)):
-        #         new_constructions_list[-1].append(construction)
-        #     else:
-        #         new_constructions_list.append([construction])
-        
-        # new_diagram_sample_path = os.path.join(sample_dir, 'new_diagram.jpg')
-        # try:
-        #     new_diagram = Diagram(constructions_list=new_constructions_list, cache_folder=None, save_path=new_diagram_sample_path)
-        #     new_diagram.draw_diagram(save=True)
-        # except:
-        #     continue
-
-        # new_state = State()
-        # new_state.silent = True
-        # new_state.goal = relation.expr if isinstance(relation, Traced) else relation
-        # new_state.diagram = new_diagram
-        # for new_constructions in new_constructions_list:
-        #     new_state.add_constructions(new_constructions)
-        # new_deductive_database = DeductiveDatabase(new_state)
-        # new_algebraic_system = AlgebraicSystem(new_state)
-        # new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-        # new_engine.run()
-
-        # if not has_auxiliary and new_state.complete() is None:
-        #     continue
-        # if has_auxiliary and new_state.complete() is not None:
-        #     continue
-
-        # if has_auxiliary:
-        #     new_auxiliary_constructions_list = []
-        #     for construction in sorted(auxiliary_constructions, key=lambda c: c.index):
-        #         if not new_auxiliary_constructions_list:
-        #             new_auxiliary_constructions_list.append([construction])
-        #         elif all(p1 == p2 for p1, p2 in zip(new_auxiliary_constructions_list[-1][0].outputs,construction.outputs)):
-        #             new_auxiliary_constructions_list[-1].append(construction)
-        #         else:
-        #             new_auxiliary_constructions_list.append([construction])
-            
-        #     try:
-        #         for new_auxiliary_constructions in new_auxiliary_constructions_list:
-        #             new_diagram.add_constructions(new_auxiliary_constructions)
-        #     except:
-        #         continue
-
-        #     new_state = State()
-        #     new_state.silent = True
-        #     new_state.goal = relation.expr if isinstance(relation, Traced) else relation
-        #     new_state.diagram = new_diagram
-        #     all_constructions_list = new_constructions_list + itgnfretkbudrthvjinghfuhulfftclilfhhdlbjblcddkgdhvikevdfhvlnkbid
-        #     for new_constructions in all_constructions_list:
-        #         new_state.add_constructions(new_constructions)
-        #     new_deductive_database = DeductiveDatabase(new_state)
-        #     new_algebraic_system = AlgebraicSystem(new_state)
-        #     new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-        #     new_engine.run()
-        #     if new_state.complete() is None:
-        #         continue
-
-        # new_proof_generator = ProofGenerator(new_state)
-        # try:
-        #     new_proof_generator.run()
-        #     new_proof_str = new_proof_generator.get_proof_str()
-        # except:
-        #     continue
+        problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
 
         data = {
-            "problem": ', '.join([str(construction) for construction in sorted(added_constructions + required_constructions, key=lambda c: c.index)]),
+            "problem": ', '.join([str(construction) for construction in problem_constructions]),
+            "neccessary_constructions": ', '.join([str(construction) for construction in necessary_constructions]),
+            "unused_constructions": ', '.join([str(construction) for construction in sufficient_constructions if construction not in necessary_constructions]),
+            "auxiliary_constructions": ', '.join([str(construction) for construction in auxiliary_constructions]),
             "goal": str(relation),
             "diagram": diagram_sample_path,
-            "proof": proof_str,
+            "proof": new_proof_str,
             "rank": rank,
             "problem_id": problem_id,
             "sample_id": i,
@@ -545,21 +612,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
         with open(os.path.join(sample_dir, "data.json"), "w") as f:
             json.dump(data, f, indent=2)
-
-        # new_data = {
-        #     "problem": ', '.join([str(construction) for construction in sorted(added_constructions + required_constructions, key=lambda c: c.index)]),
-        #     "goal": str(relation),
-        #     "diagram": new_diagram_sample_path,
-        #     "proof": new_proof_str,
-        #     "rank": rank,
-        #     "problem_id": problem_id,
-        #     "sample_id": i,
-        #     "has_auxiliary_constructions": has_auxiliary,
-        #     "num_auxiliary_constructions": len(auxiliary_constructions)
-        # }
-
-        # with open(os.path.join(sample_dir, "new_data.json"), "w") as f:
-        #     json.dump(new_data, f, indent=2)
         
         conclusions2dir[relation] = sample_dir
         i += 1
@@ -605,29 +657,29 @@ def generate_until_timeout(rank: int, output_dir: str, timeout_handler: TimeoutH
                 print(f"Rank {rank}: Max problem ID {max_problem_id} reached")
                 break
 
-            # try:
-            result = generate_single_problem(rank, output_dir, problem_id, timeout_handler)
-            
-            if result.get("timeout"):
-                problems_with_timeouts += 1
-                print(f"Rank {rank}: Problem {problem_id} timed out")
+            try:
+                result = generate_single_problem(rank, output_dir, problem_id, timeout_handler)
+                
+                if result.get("timeout"):
+                    problems_with_timeouts += 1
+                    print(f"Rank {rank}: Problem {problem_id} timed out")
+                    break
+                    
+                if result.get("error"):
+                    problems_with_errors += 1
+                    
+                total_samples += result["samples_generated"]
+                total_samples_with_auxiliary += result["samples_with_auxiliary"]
+                problem_id += 1
+            except KeyboardInterrupt:
+                print(f"Rank {rank}: Keyboard interrupt received")
+                timeout_handler.timeout_occurred = True
                 break
-                
-            if result.get("error"):
+            except Exception as e:
+                print(f"Rank {rank}: Error in problem {problem_id}: {e}")
                 problems_with_errors += 1
-                
-            total_samples += result["samples_generated"]
-            total_samples_with_auxiliary += result["samples_with_auxiliary"]
-            problem_id += 1
-            # except KeyboardInterrupt:
-            #     print(f"Rank {rank}: Keyboard interrupt received")
-            #     timeout_handler.timeout_occurred = True
-            #     break
-            # except Exception as e:
-            #     print(f"Rank {rank}: Error in problem {problem_id}: {e}")
-            #     problems_with_errors += 1
-            #     problem_id += 1
-            #     continue
+                problem_id += 1
+                continue
                 
     except Exception as e:
         print(f"Rank {rank}: Fatal error in generation loop: {e}")

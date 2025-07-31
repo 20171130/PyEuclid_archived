@@ -28,6 +28,10 @@ class DistanceError(Exception):
     """Raised when sampled points are too close or far away."""
     pass
 
+class SamplingError(Exception):
+    """Raised when cannot construct the desired points."""
+    pass
+
 
 class NumericalCheckingError(Exception):
     """Raised when numerical checking fails."""
@@ -138,18 +142,22 @@ class Diagram:
     
     def add_constructions(self, constructions, auxiliary=False):
         self.save()
-        for _ in range(MAX_DIAGRAM_ATTEMPTS):
+        attempts = iter(range(MAX_DIAGRAM_ATTEMPTS)) if MAX_DIAGRAM_ATTEMPTS is not None else iter(int, 1)
+        for _ in attempts:
             try:
                 new_points = self.construct(constructions)
                 self.draw(new_points, constructions, auxiliary)
                 return
-            except:
+            except (NumericalCheckingError, SamplingError, DistanceError):
                 self.restore()
+            except Exception:
+                raise                
         
         raise MaxAttemptsError()
             
     def construct_diagram(self, constructions_list):
-        for _ in range(MAX_DIAGRAM_ATTEMPTS):
+        attempts = iter(range(MAX_DIAGRAM_ATTEMPTS)) if MAX_DIAGRAM_ATTEMPTS is not None else iter(int, 1)
+        for _ in attempts:
             try:
                 self.clear()
                 for constructions in constructions_list:
@@ -158,8 +166,10 @@ class Diagram:
                 self.draw_diagram()
                 self.save_to_cache()
                 return
-            except:
+            except (NumericalCheckingError, SamplingError, DistanceError):
                 continue
+            except Exception:
+                raise
         
         raise MaxAttemptsError()
             
@@ -393,7 +403,7 @@ class Diagram:
     def sketch_excenter(self, *args) -> Point:
         a, b, c = args
         l1 = self.sketch_angle_bisector(b, a, c)
-        l2 = self.sketch_angle_bisector(a, b, c).perpendicular_line(b)
+        l2 = self.sketch_angle_bisector(a, b, c).line.perpendicular_line(b)
         return intersect(l1, l2)
     
     def sketch_excenter2(self, *args) -> list[Point]:
@@ -828,7 +838,7 @@ class Diagram:
         ang_ax = ang_of(a, b) + ang_between(e, d, f)
         x = head_from(a, ang_ax, length=de / ef * ab)
         o = self.sketch_circle(a, b, x)
-        return Circle(o, o.distance(a)), HalfPlane(o, a, b, opposingsides=calculate_angle(e,d,f)>pi/2)
+        return [Circle(o, o.distance(a)), HalfPlane(o, a, b, opposingsides=calculate_angle(e,d,f)>pi/2)]
     
     def sketch_tangent(self, *args) -> list[Point]:
         a, o, b = args
@@ -852,7 +862,6 @@ class Diagram:
         choices = []
         for obj in objs:
             if isinstance(obj, tuple):
-                assert isinstance(obj[0], Ray)
                 choices.append(obj)
             else:
                 choices.append((obj,))
@@ -863,8 +872,7 @@ class Diagram:
                 return new_points
             except:
                 continue
-        
-        raise Exception()
+        raise SamplingError()
     
     def _reduce(self, objs, existing_points) -> list[Point]:
         essential_objs = [i for i in objs if not isinstance(i, HalfPlane)]
@@ -883,7 +891,7 @@ class Diagram:
             result = intersect(a, b)
             if isinstance(result, Point):
                 if halfplane_objs and not all(i.contains(result) for i in halfplane_objs):
-                    raise Exception()
+                    raise SamplingError()
                 return [result]
             
             a, b = result
@@ -896,13 +904,13 @@ class Diagram:
                 elif b_correct_side and not a_correct_side:
                     return [b]
                 elif not a_correct_side and not b_correct_side:
-                    raise Exception()
+                    raise SamplingError()
                         
             a_close = any([a.close(x) for x in existing_points])
             b_close = any([b.close(x) for x in existing_points])
             
             if a_close and b_close:
-                raise Exception()
+                raise SamplingError()
             elif a_close and not b_close:
                 return [b]
             elif b_close and not a_close:

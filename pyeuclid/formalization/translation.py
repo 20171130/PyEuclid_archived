@@ -66,6 +66,15 @@ def get_constructions_from_goal(goal):
         elif isinstance(goal, Congruent3):
             a, b, c, d, e, f = goal.get_points()
             return [construct_connect(a, b), construct_connect(b, c), construct_connect(c, a), construct_connect(d, e), construct_connect(e, f), construct_connect(f, d)]
+        elif isinstance(goal, (IsoscelesTriangle, EquilateralTriangle)):
+            a, b, c = goal.get_points()
+            return [construct_connect(a, b), construct_connect(b, c), construct_connect(c, a)]
+        elif isinstance(goal, (Parallelogram, Square, Rectangle, Rhombus, Trapezoid, EquilateralTrapezoid, Kite)):
+            a, b, c, d = goal.get_points()
+            return [construct_connect(a, b), construct_connect(b, c), construct_connect(c, d), construct_connect(d, a)]
+        elif isinstance(goal, (Incenter, Centroid, Orthocenter, Circumcenter, Excenter)):
+            o, a, b, c = goal.get_points()
+            return [construct_connect(a, b), construct_connect(b, c), construct_connect(c, a)]
         else:
             return []
     else:

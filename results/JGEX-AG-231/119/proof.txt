@@ -1,10 +1,10 @@
 Solution:
-1. Length_a_c - Length_a_e & Length_a_b - Length_a_c => Length_a_b - Length_a_e
-2. Length_a_b - Length_a_c & Length_a_b - Length_a_e & Perpendicular(a,b,b,d) [AlphaGeometry16b(a,b,c,e,d)] => Angle_b_e_c - Angle_c_b_d
-3. -Length_a_b + Length_a_c & Length_a_c - Length_a_e & Perpendicular(a,c,c,d) [AlphaGeometry16b(a,c,b,e,d)] => Angle_b_c_d - Angle_b_e_c
-4. Angle_b_e_c - Angle_c_b_d & Angle_b_c_d - Angle_b_e_c => Angle_b_c_d - Angle_c_b_d
-5. -Angle_b_c_d + Angle_c_b_d [DefinitionOfIsoscelesTriangle1(d,b,c)] => Length_b_d - Length_c_d
-6. Length_a_b - Length_a_c & -Length_b_d + Length_c_d [DefinitionOfKite1(b,a,c,d)] => Kite(a,b,d,c)
-7. Kite(a,b,d,c) & Length_a_b - Length_a_c & -Length_b_d + Length_c_d [PropertyOfKite(b,a,c,d)] => Perpendicular(a,d,b,c)
-8. Collinear(a,c,e) & -Length_a_b + Length_a_c & Length_a_c - Length_a_e [AlphaGeometry21(a,c,b,e)] => Perpendicular(b,c,b,e)
-9. Perpendicular(a,d,b,c) & Perpendicular(b,c,b,e) [AlphaGeometry1(a,d,b,c,b,e)] => Parallel(a,d,b,e)
+1. -Length_a_b + Length_a_c & Length_a_c - Length_a_e & Perpendicular(a,c,c,d) => Angle_b_c_d - Angle_b_e_c
+2. Length_a_c - Length_a_e & Length_a_b - Length_a_c => Length_a_b - Length_a_e
+3. Length_a_b - Length_a_c & Length_a_b - Length_a_e & Perpendicular(a,b,b,d) => Angle_b_e_c - Angle_c_b_d
+4. Angle_b_c_d - Angle_b_e_c & Angle_b_e_c - Angle_c_b_d => Angle_b_c_d - Angle_c_b_d
+5. -Angle_b_c_d + Angle_c_b_d => Length_b_d - Length_c_d
+6. Length_a_b - Length_a_c & -Length_b_d + Length_c_d => Kite(a,b,d,c)
+7. Kite(a,b,d,c) & Length_a_b - Length_a_c & -Length_b_d + Length_c_d => Perpendicular(a,d,b,c)
+8. Collinear(a,c,e) & -Length_a_b + Length_a_c & Length_a_c - Length_a_e => Perpendicular(b,c,b,e)
+9. Perpendicular(a,d,b,c) & Perpendicular(b,c,b,e) => Parallel(a,d,b,e)

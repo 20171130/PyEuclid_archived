@@ -1,5 +1,6 @@
 import unittest
 import time
+import shutil
 
 import os
 from sympy import sympify
@@ -7,7 +8,7 @@ from sympy import sympify
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.translation import parse_texts_from_file
-from pyeuclid.formalization.utils import Timeout
+from pyeuclid.formalization.utils import Timeout, MAX_DIAGRAM_ATTEMPTS
 from pyeuclid.engine.inference_rule import inference_rule_sets
 from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
@@ -17,6 +18,7 @@ import traceback
 
 class TestBenchmarks(unittest.TestCase):
     def test_jgex_ag_231(self):
+        MAX_DIAGRAM_ATTEMPTS = None
         rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
         world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
         texts = parse_texts_from_file('data/IMO-AG-30.txt')
@@ -29,26 +31,29 @@ class TestBenchmarks(unittest.TestCase):
                 state.silent = True
             try:
                 constructions_list = state.load_problem_from_text(text, f'diagrams/IMO-AG-30/{idx+1}.jpg')
-                for constructions in constructions_list:
-                    for c in constructions:
-                        if len(set(c.inputs)) != len(c.inputs):
-                            print(type(c), c)
-                continue
+                os.makedirs(f'results/IMO-AG-30/{idx+1}/', exist_ok=True)
+                shutil.copy(f"diagrams/IMO-AG-30/{idx+1}.jpg", f"results/IMO-AG-30/{idx+1}/diagram.jpg")
                 deductive_database = DeductiveDatabase(state)
                 algebraic_system = AlgebraicSystem(state)
                 proof_generator = ProofGenerator(state)
+                proof_generator.max_equation_length_perstep = None
                 engine = Engine(state, deductive_database, algebraic_system)
-                t = time.time()
-                with Timeout(3600):
+                t0 = time.time()
+                t1 = None
+                with Timeout(5400):
                     engine.search()
-                t = time.time() - t
-                if state.complete() is not None:
-                    print(f"{idx} solved in {t} seconds")
-                    proof_generator.run()
-                    # if world_size == 1:
-                    #     proof_generator.show_proof()
-                else:
-                    print(f"{idx} unsolved in {t} seconds")
+                    t1 = time.time()
+                    if state.complete() is not None:
+                        print(f"{idx} solved in {t1-t0} seconds")
+                        proof_generator.run()
+                        proof_str = proof_generator.get_proof_str()
+                        print(f'{idx} proof generation runs in {time.time()-t1}')
+                        with open(f'results/IMO-AG-30/{idx+1}/new_proof.txt', 'w+') as f:
+                            f.write(proof_str)
+                    else:
+                        print(f"{idx} unsolved in {t1-t0} seconds")
+                if t1 is None:
+                    print(f"{idx} unsolved in 5400 seconds")
             except BaseException as e:
                 if isinstance(e, KeyboardInterrupt):
                     exit()

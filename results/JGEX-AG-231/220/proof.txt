@@ -1,12 +1,12 @@
 Solution:
-1. Parallel(b,c,d,e) [Para2Angle(c,b,e,d)] => Angle_b_c_e + Angle_c_e_d - pi
-2. Collinear(a,c,e) [DiagramAngle4b(c,a,d,e)] => Angle_a_c_d - Angle_d_c_e
-3. Angle_b_c_d - Angle_b_c_e + Angle_d_c_e & Angle_b_c_e + Angle_c_e_d - pi & Angle_a_c_d - Angle_b_c_d & Angle_c_d_e + Angle_c_e_d + Angle_d_c_e - pi & Angle_a_c_d - Angle_d_c_e => Angle_c_d_e - Angle_d_c_e
-4. -Angle_c_d_e + Angle_d_c_e [DefinitionOfIsoscelesTriangle1(e,c,d)] => Length_c_e - Length_d_e
-5. Collinear(a,b,d) [CollinearParallel(a,b,d)] => Parallel(a,b,b,d)
-6. Parallel(a,b,b,d) & Parallel(a,b,e,f) [ParaTrans(a,b,b,d,e,f)] => Parallel(b,d,e,f)
-7. Collinear(b,c,f) [CollinearParallel(b,c,f)] => Parallel(b,c,b,f)
-8. Parallel(b,c,b,f) & Parallel(b,c,d,e) [ParaTrans(b,c,b,f,d,e)] => Parallel(b,f,d,e)
-9. Parallel(b,d,e,f) & Parallel(b,f,d,e) [DefinitionOfParallelogram1(b,d,e,f)] => Parallelogram(b,d,e,f)
+1. Parallel(b,c,d,e) => Angle_b_d_e + Angle_c_b_d - pi
+2. Collinear(a,c,e) => Angle_a_c_d - Angle_d_c_e
+3. Angle_b_d_c - Angle_b_d_e + Angle_c_d_e & Angle_b_d_e + Angle_c_b_d - pi & Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_a_c_d - Angle_d_c_e & Angle_a_c_d - Angle_b_c_d => Angle_c_d_e - Angle_d_c_e
+4. -Angle_c_d_e + Angle_d_c_e => Length_c_e - Length_d_e
+5. Collinear(a,b,d) => Parallel(a,b,b,d)
+6. Parallel(a,b,b,d) & Parallel(a,b,e,f) => Parallel(b,d,e,f)
+7. Collinear(b,c,f) => Parallel(b,c,b,f)
+8. Parallel(b,c,b,f) & Parallel(b,c,d,e) => Parallel(b,f,d,e)
+9. Parallel(b,d,e,f) & Parallel(b,f,d,e) => Parallelogram(b,d,e,f)
 10. Parallelogram(b,d,e,f) => Length_b_f - Length_d_e
 11. Length_c_e - Length_d_e & Length_b_f - Length_d_e => Length_b_f - Length_c_e

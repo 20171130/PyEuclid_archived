@@ -1,13 +1,13 @@
 Solution:
-1. Collinear(b,i,ib) [CollinearParallel(b,i,ib)] => Parallel(b,i,b,ib) & Angle_i_b_o - Angle_ib_b_o
-2. Perpendicular(b,i,b,ic) & Parallel(b,i,b,ib) [AlphaGeometry1b(b,i,b,ic,b,ib)] => Perpendicular(b,ib,b,ic)
-3. Midpoint(a,ib,ic) & Perpendicular(b,ib,b,ic) [AlphaGeometry20(ib,b,ic,a)] => Length_a_b - Length_a_ib & Length_a_b - Length_a_ic
-4. Collinear(c,i,ic) [CollinearParallel(c,i,ic)] => Parallel(c,i,c,ic)
-5. Perpendicular(c,i,c,ib) & Parallel(c,i,c,ic) [AlphaGeometry1b(c,i,c,ib,c,ic)] => Perpendicular(c,ib,c,ic)
-6. Midpoint(a,ib,ic) & Perpendicular(c,ib,c,ic) [AlphaGeometry20(ib,c,ic,a)] => Length_a_c - Length_a_ic
+1. Collinear(b,i,ib) => Parallel(b,i,b,ib) & Angle_i_b_o - Angle_ib_b_o
+2. Perpendicular(b,i,b,ic) & Parallel(b,i,b,ib) => Perpendicular(b,ib,b,ic)
+3. Midpoint(a,ib,ic) & Perpendicular(b,ib,b,ic) => Length_a_b - Length_a_ib & Length_a_b - Length_a_ic
+4. Collinear(c,i,ic) => Parallel(c,i,c,ic)
+5. Perpendicular(c,i,c,ib) & Parallel(c,i,c,ic) => Perpendicular(c,ib,c,ic)
+6. Midpoint(a,ib,ic) & Perpendicular(c,ib,c,ic) => Length_a_c - Length_a_ic
 7. Length_a_c - Length_a_ic & Length_a_b - Length_a_ic => Length_a_b - Length_a_c
-8. Length_b_o - Length_i_o [DefinitionOfIsoscelesTriangle(o,b,i)] => Angle_b_i_o - Angle_i_b_o
-9. Perpendicular(c,i,c,ib) [Perp2Angle(i,c,ib)] => Angle_i_c_ib - pi/2
-10. -Length_b_o + Length_c_o & Length_c_o - Length_i_o [InscribedAngle1(o,c,b,i)] => Angle_b_c_i - Angle_b_o_i/2
-11. Angle_b_i_o + Angle_b_o_i + Angle_i_b_o - pi & Angle_b_i_o - Angle_i_b_o & Angle_i_c_ib - pi/2 & Angle_b_c_i - Angle_b_o_i/2 & Angle_i_b_o - Angle_ib_b_o & Angle_b_c_i - Angle_b_c_ib + Angle_i_c_ib => Angle_b_c_ib + Angle_ib_b_o - pi
-12. Length_a_b - Length_a_ib & Length_a_b - Length_a_c & Angle_b_c_ib + Angle_ib_b_o - pi [AlphaGeometry17a(a,b,ib,c,o)] => Perpendicular(a,b,b,o)
+8. Length_b_o - Length_i_o => Angle_b_i_o - Angle_i_b_o
+9. -Length_b_o + Length_c_o & Length_c_o - Length_i_o => Angle_b_c_i - Angle_b_o_i/2
+10. Perpendicular(c,i,c,ib) => Angle_i_c_ib - pi/2
+11. Angle_b_i_o - Angle_i_b_o & Angle_b_c_i - Angle_b_o_i/2 & Angle_b_c_i - Angle_b_c_ib + Angle_i_c_ib & Angle_b_i_o + Angle_b_o_i + Angle_i_b_o - pi & Angle_i_b_o - Angle_ib_b_o & Angle_i_c_ib - pi/2 => Angle_b_c_ib + Angle_ib_b_o - pi
+12. Length_a_b - Length_a_ib & Length_a_b - Length_a_c & Angle_b_c_ib + Angle_ib_b_o - pi => Perpendicular(a,b,b,o)

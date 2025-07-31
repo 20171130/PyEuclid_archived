@@ -14,16 +14,17 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-# A,B,C,D = construct_isquare(), E = construct_eqdistance(C,D,A), E = construct_on_circle(B,C), F = construct_midpoint(A,B), G = construct_psquare(C,E), H = construct_intersection_lc(C,G,B), I = construct_on_aline(G,H,B,D,A), I = construct_on_circle(G,H)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c d = isquare a b c d; e = eqdistance e c d a, on_circle e b c; f = midpoint f a b; g = psquare g c e ? contri a f g b f g")
+# A,B = construct_segment(), C,D = construct_trisegment(A,B), E = construct_on_opline(D,A), E = construct_on_bline(B,D), F = construct_mirror(D,B)
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b = segment a b; c d = trisegment c d a b; e = on_opline e d a, on_bline e b d; f = mirror f d b ? midp e c f")
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
+    MAX_DIAGRAM_ATTEMPTS = 10000
     state = State()
     # state.silent = True
     state.logger.setLevel(logging.INFO)
     if args.problem_string is not None:
-        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg', resample=True)
+        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg')
         state.diagram.draw_diagram()
     else:
         namespace = {}
@@ -40,11 +41,15 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     proof_generator.max_equation_length_perstep = 20
     engine = Engine(state, deductive_database, algebraic_system)
-    # state.goal = Angle(Point('d'),Point('c'),Point('e')) - Angle(Point('d'),Point('c'),Point('b')) - Angle(Point('b'),Point('c'),Point('e'))
+    state.goal = Length(Point('f'),Point('e')) - Length(Point('f'),Point('b')) - Length(Point('e'),Point('b'))
+    # state.goal = Between(Point('b'),Point('f'),Point('e'))
+    # state.goal = Collinear(Point('e'),Point('b'),Point('f'))
     t0 = time.time()
     engine.run()
     t = time.time() - t0
     result = state.complete()
+    breakpoint()
+    print(state.simplify_equation(state.goal))
     if result is not None:
         print(f"Solved in {t:.2f}s")
         if args.show_proof:

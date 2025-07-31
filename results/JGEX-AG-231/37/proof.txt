@@ -1,9 +1,9 @@
 Solution:
-1. Parallel(b,c,d,e) [DefinitionOfTrapezoid(b,c,e,d)] => Trapezoid(b,c,e,d) & Angle_b_d_e + Angle_c_b_d - pi
+1. Parallel(b,c,d,e) => Trapezoid(b,c,e,d) & Angle_b_d_e + Angle_c_b_d - pi
 2. Length_a_b - Length_a_e & Length_a_b - Length_a_d => Length_a_d - Length_a_e
-3. -Length_a_b + Length_a_d & Length_a_d - Length_a_e [InscribedAngle2(a,d,b,e)] => Angle_b_a_e + 2*Angle_b_d_e - 2*pi
+3. -Length_a_b + Length_a_d & Length_a_d - Length_a_e => Angle_b_a_e + 2*Angle_b_d_e - 2*pi
 4. Length_a_b - Length_a_e & Length_a_b - Length_a_c => Length_a_c - Length_a_e
-5. -Length_a_b + Length_a_c & Length_a_c - Length_a_e [InscribedAngle1(a,c,b,e)] => Angle_b_a_e - 2*Angle_b_c_e
+5. -Length_a_b + Length_a_c & Length_a_c - Length_a_e => Angle_b_a_e - 2*Angle_b_c_e
 6. Angle_b_a_e + 2*Angle_b_d_e - 2*pi & Angle_b_d_e + Angle_c_b_d - pi & Angle_b_a_e - 2*Angle_b_c_e => Angle_b_c_e - Angle_c_b_d
-7. Trapezoid(b,c,e,d) & Parallel(b,c,d,e) & -Angle_b_c_e + Angle_c_b_d [DefinitionOfEquilateralTrapezoid(b,c,e,d)] => EquilateralTrapezoid(b,c,e,d)
-8. EquilateralTrapezoid(b,c,e,d) & Parallel(b,c,d,e) [PropertyOfEquilateralTrapezoid(b,c,e,d)] => Length_b_e - Length_c_d
+7. Trapezoid(b,c,e,d) & Parallel(b,c,d,e) & -Angle_b_c_e + Angle_c_b_d => EquilateralTrapezoid(b,c,e,d)
+8. EquilateralTrapezoid(b,c,e,d) & Parallel(b,c,d,e) => Length_b_e - Length_c_d

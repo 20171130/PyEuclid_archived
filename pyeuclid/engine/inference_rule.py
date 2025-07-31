@@ -2597,7 +2597,7 @@ class DiagramAngle3(InferenceRule):
         self.d = d
 
     def condition(self):
-        return Between(self.a, self.b, self.c), Not(Collinear(self.d, self.b, self.c)), Lt(self.b, self.c)
+        return Collinear(self.a, self.b, self.c), Between(self.a, self.b, self.c), Not(Collinear(self.d, self.b, self.c)), Lt(self.b, self.c)
 
     def conclusion(self):
         return Angle(self.b, self.a, self.c) - Angle(self.d, self.a, self.c) - Angle(self.d, self.a, self.b)

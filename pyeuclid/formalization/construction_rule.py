@@ -999,7 +999,7 @@ class construct_on_aline(ConstructionRule):
         ]
 
 
-@register("nondeterministic")
+@register("AG")
 class construct_on_aline2(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
         self.inputs = [a, b, c, d, e]

@@ -1,11 +1,11 @@
 Solution:
-1. Collinear(a,b,e) [CollinearParallel(a,b,e)] => Parallel(a,b,b,e)
-2. Perpendicular(a,b,c,e) & Parallel(a,b,b,e) [AlphaGeometry1b(a,b,c,e,b,e)] => Perpendicular(b,e,c,e)
-3. Midpoint(f,b,c) & Perpendicular(b,e,c,e) [AlphaGeometry20(b,e,c,f)] => Length_b_f - Length_e_f
-4. Collinear(a,c,d) [CollinearParallel(a,c,d)] => Parallel(a,c,c,d)
-5. Perpendicular(a,c,b,d) & Parallel(a,c,c,d) [AlphaGeometry1b(a,c,b,d,c,d)] => Perpendicular(b,d,c,d)
-6. Midpoint(f,b,c) & Perpendicular(b,d,c,d) [AlphaGeometry20(b,d,c,f)] => Length_b_f - Length_d_f
+1. Collinear(a,b,e) => Parallel(a,b,b,e)
+2. Perpendicular(a,b,c,e) & Parallel(a,b,b,e) => Perpendicular(b,e,c,e)
+3. Midpoint(f,b,c) & Perpendicular(b,e,c,e) => Length_b_f - Length_e_f
+4. Collinear(a,c,d) => Parallel(a,c,c,d)
+5. Perpendicular(a,c,b,d) & Parallel(a,c,c,d) => Perpendicular(b,d,c,d)
+6. Midpoint(f,b,c) & Perpendicular(b,d,c,d) => Length_b_f - Length_d_f
 7. Length_b_f - Length_e_f & Length_b_f - Length_d_f => Length_d_f - Length_e_f
-8. Length_d_f - Length_e_f [DefinitionOfIsoscelesTriangle(f,d,e)] => IsoscelesTriangle(d,e,f)
-9. IsoscelesTriangle(d,e,f) & Length_d_f - Length_e_f & Collinear(d,e,g) & Perpendicular(d,e,f,g) [PropertyOfIsoscelesTriangle1(f,d,e,g)] => Midpoint(g,d,e)
-10. Midpoint(g,d,e) [PropertyOfMidpoint(g,d,e)] => Length_d_g - Length_e_g
+8. Length_d_f - Length_e_f => IsoscelesTriangle(d,e,f)
+9. IsoscelesTriangle(d,e,f) & Length_d_f - Length_e_f & Collinear(d,e,g) & Perpendicular(d,e,f,g) => Midpoint(g,d,e)
+10. Midpoint(g,d,e) => Length_d_g - Length_e_g

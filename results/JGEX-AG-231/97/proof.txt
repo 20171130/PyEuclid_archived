@@ -1,14 +1,14 @@
 Solution:
-1. Collinear(a,e,f) [DiagramAngle4b(e,a,c,f)] => Angle_a_e_c - Angle_c_e_f & Angle_a_f_c + Angle_c_f_e - pi
-2. Collinear(a,e,f) & Collinear(a,b,g) [DiagramAngle4a(a,b,e,g,f)] => Angle_b_a_e - Angle_f_a_g
-3. Collinear(c,d,f) [CollinearParallel(c,d,f)] => Parallel(c,d,c,f)
-4. Perpendicular(a,b,c,d) & Parallel(c,d,c,f) [AlphaGeometry1b(c,d,a,b,c,f)] => Perpendicular(a,b,c,f)
-5. Collinear(a,b,g) [CollinearParallel(a,b,g)] => Parallel(a,b,a,g)
-6. Perpendicular(a,b,c,f) & Parallel(a,b,a,g) [AlphaGeometry1b(a,b,c,f,a,g)] => Perpendicular(a,g,c,f)
-7. Perpendicular(a,g,c,f) [Perp2Angle2(c,f,a,g)] => Angle_a_f_c - Angle_f_a_g - pi/2
-8. Collinear(b,c,e) [CollinearParallel(b,c,e)] => Parallel(b,c,c,e)
-9. Perpendicular(a,c,b,c) & Parallel(b,c,c,e) [AlphaGeometry1b(b,c,a,c,c,e)] => Perpendicular(a,c,c,e)
-10. Perpendicular(a,c,c,e) [Perp2Angle(a,c,e)] => Angle_a_c_e - pi/2
-11. Angle_b_a_e - Angle_c_a_e & Angle_b_a_e - Angle_f_a_g & Angle_a_f_c + Angle_c_f_e - pi & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_a_f_c - Angle_f_a_g - pi/2 & Angle_a_c_e - pi/2 => Angle_a_e_c - Angle_c_f_e
-12. Angle_a_e_c - Angle_c_e_f & Angle_a_e_c - Angle_c_f_e => Angle_c_e_f - Angle_c_f_e
-13. Angle_c_e_f - Angle_c_f_e [DefinitionOfIsoscelesTriangle1(c,e,f)] => Length_c_e - Length_c_f
+1. Collinear(a,e,f) => Angle_a_f_c + Angle_c_f_e - pi & Angle_a_e_c - Angle_c_e_f
+2. Collinear(c,d,f) => Parallel(c,d,c,f)
+3. Perpendicular(a,b,c,d) & Parallel(c,d,c,f) => Perpendicular(a,b,c,f)
+4. Collinear(a,b,g) => Parallel(a,b,a,g)
+5. Perpendicular(a,b,c,f) & Parallel(a,b,a,g) => Perpendicular(a,g,c,f)
+6. Perpendicular(a,g,c,f) => Angle_a_f_c - Angle_f_a_g - pi/2
+7. Collinear(a,e,f) & Collinear(a,b,g) => Angle_b_a_e - Angle_f_a_g
+8. Collinear(b,c,e) => Parallel(b,c,c,e)
+9. Perpendicular(a,c,b,c) & Parallel(b,c,c,e) => Perpendicular(a,c,c,e)
+10. Perpendicular(a,c,c,e) => Angle_a_c_e - pi/2
+11. Angle_a_f_c - Angle_f_a_g - pi/2 & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_a_e_c - Angle_c_e_f & Angle_b_a_e - Angle_f_a_g & Angle_b_a_e - Angle_c_a_e & Angle_a_c_e - pi/2 => Angle_a_f_c + Angle_c_e_f - pi
+12. Angle_a_f_c + Angle_c_f_e - pi & Angle_a_f_c + Angle_c_e_f - pi => Angle_c_e_f - Angle_c_f_e
+13. Angle_c_e_f - Angle_c_f_e => Length_c_e - Length_c_f

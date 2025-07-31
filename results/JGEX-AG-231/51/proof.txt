@@ -1,7 +1,7 @@
 Solution:
-1. Collinear(a,b,c) [DiagramAngle4b(a,b,d,c)] => Angle_b_a_d - Angle_c_a_d
-2. Perpendicular(a,f,d,e) & Perpendicular(c,d,d,e) [AlphaGeometry1(a,f,d,e,c,d)] => Parallel(a,f,c,d)
-3. Parallel(a,f,c,d) [Para2Angle(d,c,f,a)] => Angle_a_f_d + Angle_c_d_f - pi
-4. Length_a_c - Length_c_d [DefinitionOfIsoscelesTriangle(c,a,d)] => Angle_a_d_c - Angle_c_a_d
-5. Angle_a_f_d + Angle_c_d_f - pi & Angle_a_d_c - Angle_c_a_d & Angle_a_d_f + Angle_a_f_d + Angle_d_a_f - pi & Angle_a_d_c + Angle_a_d_f - Angle_c_d_f => Angle_c_a_d - Angle_d_a_f
-6. Angle_b_a_d - Angle_c_a_d & Angle_c_a_d - Angle_d_a_f => Angle_b_a_d - Angle_d_a_f
+1. Perpendicular(a,f,d,e) & Perpendicular(c,d,d,e) => Parallel(a,f,c,d)
+2. Parallel(a,f,c,d) => Angle_a_c_d + Angle_c_a_f - pi
+3. Length_a_c - Length_b_c & Length_a_c - Length_c_d => Angle_b_a_d - Angle_b_c_d/2
+4. Collinear(a,b,c) => Angle_a_c_d + Angle_b_c_d - pi
+5. Length_a_c - Length_c_d => Angle_a_d_c - Angle_c_a_d
+6. Angle_a_c_d + Angle_c_a_f - pi & Angle_c_a_d - Angle_c_a_f + Angle_d_a_f & Angle_b_a_d - Angle_b_c_d/2 & Angle_a_c_d + Angle_a_d_c + Angle_c_a_d - pi & Angle_a_c_d + Angle_b_c_d - pi & Angle_a_d_c - Angle_c_a_d => Angle_b_a_d - Angle_d_a_f

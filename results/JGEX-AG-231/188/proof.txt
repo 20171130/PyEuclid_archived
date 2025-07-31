@@ -1,4 +1,18 @@
 Solution:
-1. Collinear(a,c,f) [FlatAngle2(c,a,f,g)] => Angle_c_a_g + Angle_f_a_g - pi & Angle_c_a_d + Angle_d_a_f - pi
-2. Angle_d_a_f - Angle_d_a_g + Angle_f_a_g & Angle_c_a_g + Angle_f_a_g - pi & Angle_c_a_d + Angle_d_a_f - pi & Angle_c_a_d + Angle_c_a_g - Angle_d_a_g => Angle_d_a_g - pi
-3. Angle_d_a_g - pi [FlatAngle2Collinear(d,a,g)] => Collinear(a,d,g)
+1. -Length_a_d + Length_c_d & -Length_b_d + Length_c_d => Angle_a_c_b - Angle_a_d_b/2
+2. -Length_a_g + Length_f_g & -Length_e_g + Length_f_g => Angle_a_f_e - Angle_a_g_e/2
+3. Parallel(b,c,e,f) => Angle_b_c_e + Angle_c_e_f - pi
+4. Collinear(a,c,f) => Angle_a_f_e - Angle_c_f_e & Angle_a_c_e - Angle_e_c_f & Angle_c_a_e + Angle_e_a_f - pi
+5. Angle_b_c_e + Angle_c_e_f - pi & Angle_a_f_e - Angle_c_f_e & Angle_a_c_e - Angle_e_c_f & Angle_c_e_f + Angle_c_f_e + Angle_e_c_f - pi & Angle_a_c_b + Angle_a_c_e - Angle_b_c_e => Angle_a_c_b - Angle_a_f_e
+6. Angle_a_c_b - Angle_a_d_b/2 & Angle_a_f_e - Angle_a_g_e/2 & Angle_a_c_b - Angle_a_f_e => Angle_a_d_b - Angle_a_g_e
+7. Length_b_d - Length_c_d => Angle_b_c_d - Angle_c_b_d
+8. Collinear(a,b,e) => Angle_b_a_c + Angle_c_a_e - pi
+9. Length_a_d - Length_b_d & Length_a_d - Length_c_d => Angle_b_a_c + Angle_b_d_c/2 - pi
+10. Angle_b_c_d - Angle_c_b_d & Angle_b_a_c + Angle_c_a_e - pi & Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi & Angle_b_a_c + Angle_b_d_c/2 - pi => Angle_c_a_e + Angle_c_b_d - pi/2
+11. Length_e_g - Length_f_g => Angle_e_f_g - Angle_f_e_g
+12. Length_a_g - Length_e_g & Length_a_g - Length_f_g => Angle_e_a_f + Angle_e_g_f/2 - pi
+13. Angle_e_f_g - Angle_f_e_g & Angle_e_a_f + Angle_e_g_f/2 - pi & Angle_c_a_e + Angle_e_a_f - pi & Angle_e_f_g + Angle_e_g_f + Angle_f_e_g - pi => Angle_c_a_e + Angle_f_e_g - pi/2
+14. Angle_c_a_e + Angle_c_b_d - pi/2 & Angle_c_a_e + Angle_f_e_g - pi/2 => Angle_c_b_d - Angle_f_e_g
+15. Angle_c_b_d - Angle_f_e_g & Parallel(b,c,e,f) => Parallel(b,d,e,g)
+16. Angle_a_d_b - Angle_a_g_e & Parallel(b,d,e,g) => Parallel(a,d,a,g)
+17. Parallel(a,d,a,g) => Collinear(a,d,g)

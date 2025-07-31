@@ -1,12 +1,12 @@
 Solution:
-1. Collinear(b,c,d) & Collinear(b,c,x) [CollinearTransist(b,c,d,x)] => Collinear(c,d,x)
-2. Collinear(a,d,g) [CollinearParallel(a,d,g)] => Parallel(a,d,d,g)
-3. Collinear(b,c,e) & Length_b_e - Length_e_f & Length_b_e - Length_c_e [AlphaGeometry21(e,b,f,c)] => Perpendicular(b,f,c,f)
-4. Collinear(a,b,f) [CollinearParallel(a,b,f)] => Parallel(a,b,b,f)
-5. Perpendicular(b,f,c,f) & Parallel(a,b,b,f) [AlphaGeometry1b(b,f,c,f,a,b)] => Perpendicular(a,b,c,f)
-6. IsoscelesTriangle(a,b,c) & Length_a_c - Length_b_c & Collinear(a,b,f) & Perpendicular(a,b,c,f) [PropertyOfIsoscelesTriangle1(c,a,b,f)] => Midpoint(f,a,b)
-7. Length_b_x - Length_d_x [DefinitionOfMidpoint(x,b,d)] => Midpoint(x,b,d)
-8. Midpoint(f,a,b) & Midpoint(x,b,d) [AlphaGeometry7(b,a,d,f,x)] => Parallel(a,d,f,x)
-9. Parallel(a,d,d,g) & Parallel(a,d,f,x) [ParaTrans(a,d,d,g,f,x)] => Parallel(d,g,f,x)
-10. Collinear(c,d,x) & Collinear(c,f,g) & Parallel(d,g,f,x) [AlphaGeometry8(d,g,x,f,c)] => Length_c_d/Length_c_g - Length_d_x/Length_f_g
+1. Collinear(b,c,d) & Collinear(b,c,x) => Collinear(c,d,x)
+2. Collinear(a,d,g) => Parallel(a,d,d,g)
+3. Collinear(b,c,e) & Length_b_e - Length_e_f & Length_b_e - Length_c_e => Perpendicular(b,f,c,f)
+4. Collinear(a,b,f) => Parallel(a,b,b,f)
+5. Perpendicular(b,f,c,f) & Parallel(a,b,b,f) => Perpendicular(a,b,c,f)
+6. IsoscelesTriangle(a,b,c) & Length_a_c - Length_b_c & Collinear(a,b,f) & Perpendicular(a,b,c,f) => Midpoint(f,a,b)
+7. Length_b_x - Length_d_x => Midpoint(x,b,d)
+8. Midpoint(f,a,b) & Midpoint(x,b,d) => Parallel(a,d,f,x)
+9. Parallel(a,d,d,g) & Parallel(a,d,f,x) => Parallel(d,g,f,x)
+10. Collinear(c,d,x) & Collinear(c,f,g) & Parallel(d,g,f,x) => Length_c_d/Length_c_g - Length_d_x/Length_f_g
 11. Length_c_d/Length_c_g - Length_d_x/Length_f_g & Length_c_d - Length_d_x => Length_c_g - Length_f_g

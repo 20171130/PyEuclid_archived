@@ -1,9 +1,9 @@
 Solution:
-1. Collinear(a,b,e) [CollinearParallel(a,b,e)] => Parallel(a,b,a,e)
-2. Midpoint(f,a,c) & Midpoint(d,b,c) [AlphaGeometry7(c,a,b,f,d)] => Parallel(a,b,d,f)
-3. Parallel(a,b,a,e) & Parallel(a,b,d,f) [ParaTrans(a,b,a,e,d,f)] => Parallel(a,e,d,f)
-4. Collinear(a,c,f) [CollinearParallel(a,c,f)] => Parallel(a,c,a,f)
-5. Midpoint(e,a,b) & Midpoint(d,b,c) [AlphaGeometry7(b,a,c,e,d)] => Parallel(a,c,d,e)
-6. Parallel(a,c,a,f) & Parallel(a,c,d,e) [ParaTrans(a,c,a,f,d,e)] => Parallel(a,f,d,e)
-7. Parallel(a,e,d,f) & Parallel(a,f,d,e) [DefinitionOfParallelogram1(a,e,d,f)] => Parallelogram(a,e,d,f)
-8. Parallelogram(a,e,d,f) & Collinear(a,d,g) & Collinear(e,f,g) [PropertyOfParallelogram1(a,e,d,f,g)] => Length_e_g - Length_f_g
+1. Collinear(a,b,e) => Parallel(a,b,a,e)
+2. Midpoint(f,a,c) & Midpoint(d,b,c) => Parallel(a,b,d,f)
+3. Parallel(a,b,a,e) & Parallel(a,b,d,f) => Parallel(a,e,d,f)
+4. Collinear(a,c,f) => Parallel(a,c,a,f)
+5. Midpoint(e,a,b) & Midpoint(d,b,c) => Parallel(a,c,d,e)
+6. Parallel(a,c,a,f) & Parallel(a,c,d,e) => Parallel(a,f,d,e)
+7. Parallel(a,e,d,f) & Parallel(a,f,d,e) => Parallelogram(a,e,d,f)
+8. Parallelogram(a,e,d,f) & Collinear(a,d,g) & Collinear(e,f,g) => Length_e_g - Length_f_g

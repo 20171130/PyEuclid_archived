@@ -1,4 +1,4 @@
 Solution:
-1. Collinear(a,d,e) & Collinear(b,c,f) & Parallel(a,b,e,f) & Parallel(a,b,c,d) [AlphaGeometry43(a,b,c,d,e,f)] => Length_a_e/Length_d_e - Length_b_f/Length_c_f
+1. Collinear(a,d,e) & Collinear(b,c,f) & Parallel(a,b,e,f) & Parallel(a,b,c,d) => Length_a_e/Length_d_e - Length_b_f/Length_c_f
 2. Length_a_e/Length_d_e - Length_b_f/Length_c_f & Length_a_e - Length_d_e => Length_b_f - Length_c_f
-3. Length_b_f - Length_c_f [DefinitionOfMidpoint(f,b,c)] => Midpoint(f,b,c)
+3. Length_b_f - Length_c_f => Midpoint(f,b,c)

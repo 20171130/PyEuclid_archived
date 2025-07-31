@@ -1,0 +1,6 @@
+Solution:
+1. Length_a1_o1 - Length_c1_o1 & Length_a1_o1 - Length_o1_x => Angle_c1_a1_x - Angle_c1_o1_x/2 & Length_c1_o1 - Length_o1_x
+2. -Length_a1_o1 + Length_c1_o1 & Length_c1_o1 - Length_o1_x => Angle_a1_c1_x - Angle_a1_o1_x/2
+3. -Length_a1_o1 + Length_o1_x & -Length_c1_o1 + Length_o1_x => Angle_a1_o1_c1 - 2*Angle_a1_x_c1
+4. Angle_a1_c1_o1 - Angle_a1_c1_x + Angle_o1_c1_x & Angle_c1_a1_x - Angle_c1_o1_x/2 & Angle_c1_a1_o1 - Angle_c1_a1_x + Angle_o1_a1_x & Angle_a1_o1_x + Angle_a1_x_o1 + Angle_o1_a1_x - pi & Angle_a1_o1_o + Angle_a1_o1_x - Angle_o_o1_x & Angle_c1_o1_o + Angle_c1_o1_x - Angle_o_o1_x & Angle_a1_c1_x - Angle_a1_o1_x/2 & Angle_a1_o1_c1 - 2*Angle_a1_x_c1 & Angle_c1_o1_x + Angle_c1_x_o1 + Angle_o1_c1_x - pi & Angle_a1_o1_c1 - Angle_a1_o1_o - Angle_c1_o1_o & Angle_a1_c1_o1 + Angle_a1_o1_c1 + Angle_c1_a1_o1 - pi & Angle_a1_x_c1 - Angle_a1_x_o1 - Angle_c1_x_o1 => Angle_o_o1_x - pi
+5. Angle_o_o1_x - pi => Collinear(o,o1,x)

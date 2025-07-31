@@ -332,7 +332,7 @@ class ProofGenerator:
         proof = self.get_proof(node)
         for step, (conditions, theorem, conclusions) in enumerate(proof):
             theorem_str = ' [' + str(theorem) + ']' if theorem else ''
-            # theorem_str = ''
+            theorem_str = ''
             res += f'{step+1}. ' + ' & '.join([str(item) for item in conditions]) + theorem_str + ' => ' + ' & '.join([str(item) for item in conclusions]) + '\n'
         return res
     

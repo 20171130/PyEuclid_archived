@@ -1,7 +1,8 @@
 Solution:
-1. Collinear(b,c,t) & Collinear(b,c,u) [CollinearTransist(b,c,t,u)] => Collinear(c,t,u)
-2. Collinear(c,t,u) [FlatAngle2(c,u,t,a)] => Angle_a_u_c + Angle_a_u_t - pi
-3. Length_a_o - Length_b_o & Length_a_o - Length_c_o & Perpendicular(a,o,a,t) [AlphaGeometry16b(o,a,b,c,t)] => Angle_a_c_b - Angle_b_a_t
-4. Collinear(b,c,u) [DiagramAngle4b(c,b,a,u)] => Angle_a_c_b - Angle_a_c_u
-5. Angle_a_c_u + Angle_a_u_c + Angle_c_a_u - pi & Angle_a_u_c + Angle_a_u_t - pi & Angle_a_c_b - Angle_b_a_t & Angle_b_a_u - Angle_c_a_u & Angle_b_a_t + Angle_b_a_u - Angle_t_a_u & Angle_a_c_b - Angle_a_c_u => Angle_a_u_t - Angle_t_a_u
-6. -Angle_a_u_t + Angle_t_a_u [DefinitionOfIsoscelesTriangle1(t,a,u)] => Length_a_t - Length_t_u
+1. Collinear(b,c,t) & Collinear(b,c,u) => Collinear(c,t,u)
+2. Collinear(c,t,u) => Angle_a_u_c + Angle_a_u_t - pi
+3. Collinear(b,c,u) => Angle_a_c_b - Angle_a_c_u
+4. Length_a_o - Length_b_o & Length_a_o - Length_c_o & Perpendicular(a,o,a,t) => Angle_a_c_b - Angle_b_a_t
+5. Angle_b_a_c - 2*Angle_c_a_u & Angle_a_c_u + Angle_a_u_c + Angle_c_a_u - pi & Angle_b_a_c - 2*Angle_b_a_u & Angle_b_a_t + Angle_b_a_u - Angle_t_a_u & Angle_a_c_b - Angle_a_c_u & Angle_a_c_b - Angle_b_a_t => Angle_a_u_c + Angle_t_a_u - pi
+6. Angle_a_u_c + Angle_a_u_t - pi & Angle_a_u_c + Angle_t_a_u - pi => Angle_a_u_t - Angle_t_a_u
+7. -Angle_a_u_t + Angle_t_a_u => Length_a_t - Length_t_u

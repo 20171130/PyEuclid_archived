@@ -1,0 +1,3 @@
+Solution:
+1. Angle_k_b_m + Angle_k_b_o1 - Angle_m_b_o1 & Angle_b_o1_k - Angle_b_o1_m + Angle_k_o1_m & Angle_k_m_o1 + Angle_k_o1_m + Angle_m_k_o1 - pi & Angle_b_k_m + Angle_b_m_k + Angle_k_b_m - pi & Angle_b_k_o1 + Angle_b_o1_k + Angle_k_b_o1 - pi & Angle_b_k_m - Angle_b_k_o2 - Angle_m_k_o2 & Angle_b_m_o1 + Angle_b_o1_m + Angle_m_b_o1 - pi & Angle_b_m_k - Angle_b_m_o1 + Angle_k_m_o1 & Angle_b_k_o1 + Angle_b_k_o2 - Angle_o1_k_o2 & Angle_m_k_o1 + Angle_m_k_o2 - Angle_o1_k_o2 => Angle_o1_k_o2 - pi
+2. Angle_o1_k_o2 - pi => Collinear(k,o1,o2)

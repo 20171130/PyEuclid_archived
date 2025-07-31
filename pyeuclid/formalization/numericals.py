@@ -5,7 +5,7 @@ from typing import Any, Optional, Union
 import numpy as np
 from numpy.random import uniform as unif
 
-ATOM = 1e-6
+ATOM = 1e-8
 
 
 class Point:
@@ -43,7 +43,7 @@ class Point:
     def __str__(self) -> str:
         return "P({},{})".format(self.x, self.y)
     
-    def close(self, point: Point, tol: float = 1e-6) -> bool:
+    def close(self, point: Point, tol: float = 1e-8) -> bool:
         return abs(self.x - point.x) < tol and abs(self.y - point.y) < tol
 
     def distance(self, p) -> float:
@@ -677,7 +677,7 @@ def random_rfss(*points: list[Point]) -> list[Point]:
     return points
 
 
-def close_enough(a: float, b: float, tol: float = 1e-6) -> bool:
+def close_enough(a: float, b: float, tol: float = 1e-8) -> bool:
     return abs(a - b) < tol
 
 
@@ -690,19 +690,20 @@ def check_too_far(points: list[Point], new_points, tol: float = 2) -> bool:
     max_dist = max([p.distance(q) for p in points for q in points if q != p])
     return any(all(p.distance(q) > max_dist * tol for q in points) for p in new_points)
 
-
 def calculate_angle(a, b, c):
-    ab = Point(a.x - b.x, a.y - b.y)
-    bc = Point(c.x - b.x, c.y - b.y)
+    ab_x, ab_y = a.x - b.x, a.y - b.y
+    bc_x, bc_y = c.x - b.x, c.y - b.y
+    
+    mag_ab_sq = ab_x * ab_x + ab_y * ab_y
+    mag_bc_sq = bc_x * bc_x + bc_y * bc_y
+    
+    mag_ab = math.sqrt(mag_ab_sq)
+    mag_bc = math.sqrt(mag_bc_sq)
+    
+    dot_product = ab_x * bc_x + ab_y * bc_y
+    cross_product = ab_x * bc_y - ab_y * bc_x
 
-    dot_product = ab.x * bc.x + ab.y * bc.y
-    magnitude_ab = math.sqrt(ab.x ** 2 + ab.y ** 2)
-    magnitude_bc = math.sqrt(bc.x ** 2 + bc.y ** 2)
-
-    cos_angle = dot_product / (magnitude_ab * magnitude_bc)
-    cos_angle = max(min(cos_angle, 1), -1)
-
-    angle = math.acos(cos_angle)
+    angle = math.atan2(abs(cross_product), dot_product)
     return angle
 
 def calculate_length(a, b):
@@ -778,7 +779,7 @@ def check_congruent3(points: list[Point]) -> bool:
   xy = x.distance(y)
   yz = y.distance(z)
   zx = z.distance(x)
-  tol = 1e-9
+  tol = 1e-8
   return (
       close_enough(ab, xy, tol)
       and close_enough(bc, yz, tol)
@@ -794,7 +795,7 @@ def check_similiar3(points: list[Point]) -> bool:
   xy = x.distance(y)
   yz = y.distance(z)
   zx = z.distance(x)
-  tol = 1e-9
+  tol = 1e-8
   return close_enough(ab * yz, bc * xy, tol) and close_enough(
       bc * zx, ca * yz, tol
   )
