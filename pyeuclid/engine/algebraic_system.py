@@ -173,9 +173,10 @@ class AlgebraicSystem:
             if len(v1.free_symbols) == 0:
                 self.state.add_conditions(Traced(l1-v1, depth=self.state.current_depth, sources=["length_linear"]))
                 continue
-            for l2, v2 in solved.items():
-                if v1 == v2:
-                    self.state.add_conditions(Traced(l1-l2, depth=self.state.current_depth, sources=["length_linear"]))
+            else:
+                for l2, v2 in solved.items():
+                    if len((v2/v1).free_symbols) == 0:
+                        self.state.add_conditions(Traced(l1*(v2/v1)-l2, depth=self.state.current_depth, sources=["length_linear"]))
 
         # prioritize on equations that contain only one variable to solve for exact values
         # then try to solve equations that are not much too complicated
