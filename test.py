@@ -36,11 +36,6 @@ class TestBenchmarks(unittest.TestCase):
                 state.silent = True
             try:
                 constructions_list = state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
-                # for constructions in constructions_list:
-                #     for c in constructions:
-                #         if len(set(c.inputs)) != len(c.inputs):
-                #             print(type(c), c)
-                # continue
                 shutil.copy(f"diagrams/JGEX-AG-231/{idx+1}.jpg", f"results/JGEX-AG-231/{idx+1}/diagram.jpg")
                 deductive_database = DeductiveDatabase(state)
                 algebraic_system = AlgebraicSystem(state)

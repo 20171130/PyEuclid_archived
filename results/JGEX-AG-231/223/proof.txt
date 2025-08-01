@@ -1,11 +1,11 @@
 Solution:
 1. Parallel(a,b,c,d) & Parallel(a,d,b,c) => Parallelogram(a,b,c,d)
 2. Parallelogram(a,b,c,d) => Length_a_d - Length_b_c & Angle_a_c_b - Angle_c_a_d
-3. Collinear(a,c,e) => Parallel(a,c,c,e) & Angle_c_a_d - Angle_d_a_e
+3. Collinear(a,c,e) => Angle_c_a_d - Angle_d_a_e & Parallel(a,c,c,e)
 4. Parallel(a,c,c,e) & Parallel(a,f,c,e) => Parallel(a,c,a,f)
 5. Parallel(a,c,a,f) => Collinear(a,c,f)
 6. Collinear(a,c,f) => Angle_a_c_b - Angle_b_c_f
-7. Angle_a_c_b - Angle_b_c_f & Angle_c_a_d - Angle_d_a_e & Angle_a_c_b - Angle_c_a_d => Angle_b_c_f - Angle_d_a_e
+7. Angle_c_a_d - Angle_d_a_e & Angle_a_c_b - Angle_c_a_d & Angle_a_c_b - Angle_b_c_f => Angle_b_c_f - Angle_d_a_e
 8. Length_a_d - Length_b_c & Length_a_e - Length_c_f & -Angle_b_c_f + Angle_d_a_e => Congruent3(a,d,e,c,b,f)
 9. Congruent3(a,d,e,c,b,f) => Angle_a_d_e - Angle_c_b_f
 10. -Angle_a_d_e + Angle_c_b_f & Parallel(a,d,b,c) => Parallel(b,f,d,e)

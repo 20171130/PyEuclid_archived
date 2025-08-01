@@ -7,7 +7,7 @@ Solution:
 6. Parallel(a,c,a,d) & Parallel(a,c,f,g) => Parallel(a,d,f,g)
 7. Parallel(a,d,f,g) & Parallel(a,f,d,g) => Parallelogram(a,d,g,f)
 8. Parallelogram(a,d,g,f) => Length_a_d - Length_f_g
-9. Length_a_d - Length_f_g & Length_a_d - Length_c_d => Length_c_d - Length_f_g
+9. Length_a_d - Length_c_d & Length_a_d - Length_f_g => Length_c_d - Length_f_g
 10. Parallel(c,d,f,g) & Length_c_d - Length_f_g => Parallelogram(c,d,f,g)
 11. Parallelogram(c,d,f,g) => Parallel(c,g,d,f)
 12. Parallel(b,e,d,f) & Parallel(c,g,d,f) => Parallel(b,e,c,g)

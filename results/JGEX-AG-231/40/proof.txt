@@ -1,9 +1,5 @@
 Solution:
-1. Length_a_b - Length_a_d & -Length_b_c + Length_c_d => Kite(a,b,c,d)
-2. Kite(a,b,c,d) & Length_a_b - Length_a_d & -Length_b_c + Length_c_d => Perpendicular(a,c,b,d)
-3. Collinear(a,d,e) & -Length_a_b + Length_a_d & Length_a_d - Length_a_e => Perpendicular(b,d,b,e)
-4. Perpendicular(a,c,b,d) & Perpendicular(b,d,b,e) => Parallel(a,c,b,e)
-5. Collinear(c,d,f) & -Length_b_c + Length_c_d & Length_c_d - Length_c_f => Perpendicular(b,d,b,f)
-6. Perpendicular(a,c,b,d) & Perpendicular(b,d,b,f) => Parallel(a,c,b,f)
-7. Parallel(a,c,b,e) & Parallel(a,c,b,f) => Parallel(b,e,b,f)
-8. Parallel(b,e,b,f) => Collinear(b,e,f)
+1. Collinear(a,d,e) & -Length_a_b + Length_a_d & Length_a_d - Length_a_e => Perpendicular(b,d,b,e)
+2. Collinear(c,d,f) & -Length_b_c + Length_c_d & Length_c_d - Length_c_f => Perpendicular(b,d,b,f)
+3. Perpendicular(b,d,b,e) & Perpendicular(b,d,b,f) => Parallel(b,e,b,f)
+4. Parallel(b,e,b,f) => Collinear(b,e,f)

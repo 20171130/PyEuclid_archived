@@ -1,7 +1,7 @@
 Solution:
 1. Length_c_d - Length_c_e => Angle_c_d_e - Angle_c_e_d
 2. Collinear(b,c,e) & Collinear(a,c,d) => Angle_a_c_b - Angle_d_c_e
-3. Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_c_d_e - Angle_c_e_d & Angle_c_d_e + Angle_c_e_d + Angle_d_c_e - pi & Angle_a_b_c - Angle_b_a_c & Angle_a_c_b - Angle_d_c_e => Angle_a_b_c - Angle_c_e_d
+3. Angle_c_d_e - Angle_c_e_d & Angle_a_b_c - Angle_b_a_c & Angle_c_d_e + Angle_c_e_d + Angle_d_c_e - pi & Angle_a_c_b - Angle_d_c_e & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi => Angle_a_b_c - Angle_c_e_d
 4. Angle_a_b_c - Angle_c_e_d & Collinear(b,c,e) => Parallel(a,b,d,e)
 5. Parallel(a,b,d,e) => Trapezoid(a,b,e,d)
 6. Collinear(b,c,e) => Angle_a_b_c - Angle_a_b_e

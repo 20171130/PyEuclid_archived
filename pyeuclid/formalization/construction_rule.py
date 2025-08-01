@@ -1407,8 +1407,8 @@ class construct_trisect(ConstructionRule):
         a, b, c = self.inputs
         x, y = self.outputs
         return [
-            Angle(a, b, x) - Angle(x, b, y),
-            Angle(x, b, y) - Angle(y, b, c),
+            *equal(Angle(a, b, x), Angle(x, b, y), Angle(y, b, c)),
+            *equal(Angle(a, b, c), 3 * Angle(a, b, x), 3 * Angle(x, b, y), 3 * Angle(y, b, c)),
             Collinear(x, a, c),
             Collinear(y, a, c),
         ]
@@ -1431,10 +1431,10 @@ class construct_trisegment(ConstructionRule):
         a, b = self.inputs
         x, y = self.outputs
         return [
-            Length(a, x) - Length(x, y),
-            Length(x, y) - Length(y, b),
             Collinear(x, a, b),
             Collinear(y, a, b),
+            *equal(Length(a, x), Length(x, y), Length(y, b)),
+            *equal(Length(a, b), 3 * Length(a, x), 3 * Length(x, y), 3 * Length(y, b)),
         ]
 
 

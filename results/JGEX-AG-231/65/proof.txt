@@ -4,7 +4,7 @@ Solution:
 3. Collinear(a,c,d) => Parallel(a,c,c,d)
 4. Perpendicular(a,c,c,f) & Parallel(a,c,c,d) => Perpendicular(c,d,c,f)
 5. Perpendicular(c,d,c,f) => Angle_d_c_f - pi/2
-6. Length_a_d - Length_c_d & Length_c_d - Length_d_e => Length_a_d - Length_d_e
+6. Length_c_d - Length_d_e & Length_a_d - Length_c_d => Length_a_d - Length_d_e
 7. Collinear(a,c,d) & Length_a_d - Length_d_e & Length_a_d - Length_c_d => Perpendicular(a,e,c,e)
 8. Collinear(a,b,e) => Parallel(a,e,b,e)
 9. Perpendicular(a,e,c,e) & Parallel(a,e,b,e) => Perpendicular(b,e,c,e)

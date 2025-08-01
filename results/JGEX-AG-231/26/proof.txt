@@ -1,10 +1,11 @@
 Solution:
-1. Square(a,c,d,e) => Length_a_c - Length_c_d & Angle_a_c_d + Angle_c_d_e - pi & Angle_a_c_d - Angle_c_d_e & Angle_a_c_e - Angle_c_a_d & Perpendicular(a,d,c,e) & Angle_a_d_c - Angle_d_c_e
-2. Square(b,c,f,g) => Length_b_c - Length_c_f & Angle_b_c_f + Angle_c_b_g - pi & Angle_b_c_f - Angle_c_b_g
-3. Angle_a_c_d + Angle_c_d_e - pi & Angle_b_c_f + Angle_c_b_g - pi & Angle_a_c_d - Angle_c_d_e & Angle_a_c_b + Angle_a_c_d - Angle_b_c_d & Angle_b_c_f - Angle_c_b_g & Angle_a_c_b - Angle_a_c_f + Angle_b_c_f => Angle_a_c_f - Angle_b_c_d
-4. Length_a_c - Length_c_d & -Length_b_c + Length_c_f & Angle_a_c_f - Angle_b_c_d => Congruent3(a,c,f,d,c,b)
-5. Congruent3(a,c,f,d,c,b) => Angle_b_d_c - Angle_c_a_f
-6. Perpendicular(a,d,c,e) => Angle_a_c_e + Angle_c_a_d - pi/2 & Angle_a_d_c + Angle_d_c_e - pi/2
-7. Angle_a_d_c - Angle_d_c_e & Angle_a_d_c + Angle_d_c_e - pi/2 & Angle_a_d_b - Angle_a_d_c + Angle_b_d_c => Angle_a_d_b + Angle_b_d_c - pi/4
-8. Angle_b_d_c - Angle_c_a_f & Angle_a_c_e - Angle_c_a_d & Angle_c_a_d + Angle_c_a_f - Angle_d_a_f & Angle_a_c_e + Angle_c_a_d - pi/2 & Angle_a_d_b + Angle_b_d_c - pi/4 => Angle_a_d_b + Angle_d_a_f - pi/2
-9. Angle_a_d_b + Angle_d_a_f - pi/2 => Perpendicular(a,f,b,d)
+1. Square(a,c,d,e) => Perpendicular(a,d,c,e) & Angle_a_d_c - Angle_d_c_e & Angle_a_c_e - Angle_c_a_d & Length_a_c - Length_c_d & Angle_a_c_d + Angle_c_d_e - pi & Angle_a_c_d - Angle_c_d_e
+2. Perpendicular(a,d,c,e) => Angle_a_d_c + Angle_d_c_e - pi/2 & Angle_a_c_e + Angle_c_a_d - pi/2
+3. Angle_a_d_c + Angle_d_c_e - pi/2 & Angle_a_d_b - Angle_a_d_c + Angle_b_d_c & Angle_a_d_c - Angle_d_c_e => Angle_a_d_b + Angle_b_d_c - pi/4
+4. Angle_a_c_e + Angle_c_a_d - pi/2 & Angle_a_c_e - Angle_c_a_d => Angle_c_a_d - pi/4
+5. Square(b,c,f,g) => Length_b_c - Length_c_f & Angle_b_c_f - Angle_c_f_g & Angle_b_c_f + Angle_c_f_g - pi
+6. Angle_a_c_b - Angle_a_c_f + Angle_b_c_f & Angle_b_c_f - Angle_c_f_g & Angle_a_c_d + Angle_c_d_e - pi & Angle_a_c_b + Angle_a_c_d - Angle_b_c_d & Angle_b_c_f + Angle_c_f_g - pi & Angle_a_c_d - Angle_c_d_e => Angle_a_c_f - Angle_b_c_d
+7. Length_a_c - Length_c_d & -Length_b_c + Length_c_f & Angle_a_c_f - Angle_b_c_d => Congruent3(a,c,f,d,c,b)
+8. Congruent3(a,c,f,d,c,b) => Angle_b_d_c - Angle_c_a_f
+9. Angle_a_d_b + Angle_b_d_c - pi/4 & Angle_c_a_d - pi/4 & Angle_c_a_d + Angle_c_a_f - Angle_d_a_f & Angle_b_d_c - Angle_c_a_f => Angle_a_d_b + Angle_d_a_f - pi/2
+10. Angle_a_d_b + Angle_d_a_f - pi/2 => Perpendicular(a,f,b,d)

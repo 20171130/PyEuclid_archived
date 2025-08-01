@@ -104,9 +104,6 @@ class ProofGenerator:
                     else:
                         conditions = self.find_conditions(equations, expr, sources[0])
                     
-                    if not conditions:
-                        breakpoint()
-                    
                     if self.max_equation_length_perstep:
                         discards = []
                         while len(conditions) > self.max_equation_length_perstep:
@@ -135,10 +132,6 @@ class ProofGenerator:
                             
                             equations = equations+additional_equations
                             conditions = self.find_conditions(equations, expr, sources[0])
-                        
-                    if not conditions:
-                        breakpoint()
-                        assert False
                     
                     self.cache_conditions[expr] = conditions
                     self.cache_source[expr] = sources[0]
@@ -198,10 +191,6 @@ class ProofGenerator:
                         
                         equations = equations + additional_equations
                         conditions = self.find_conditions(equations, node, source)
-                
-                if not conditions:
-                    breakpoint()
-                    assert False
 
                 self.cache_conditions[node] = conditions
                 self.cache_source[node] = source
@@ -535,7 +524,7 @@ class ProofGenerator:
                         try:
                             constant_num = float(term)
                         except:
-                            print(f"Warning: Could not parse term {term}")
+                            assert False
                     
                     # Apply to matrix with correct sign
                     # Numerator variables contribute positively
@@ -560,6 +549,10 @@ class ProofGenerator:
             variables = set()
             for eqn in equations:
                 variables = variables.union(eqn.free_symbols)
+            # Check if conclusion contains symbols not in equations
+            conclusion_symbols = conclusion.free_symbols
+            if not conclusion_symbols.issubset(variables):
+                return None
             variables = {item: i for i, item in enumerate(list(variables))}
             mat = self.vectorize([item.expr for item in equations], variables, source)
             try:

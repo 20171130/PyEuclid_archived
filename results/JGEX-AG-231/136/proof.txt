@@ -1,14 +1,14 @@
 Solution:
-1. Collinear(e,f,h) => Angle_c_e_f + Angle_c_e_h - Angle_f_e_h & Angle_b_e_f + Angle_b_e_h - Angle_f_e_h & Parallel(e,f,e,h)
-2. Collinear(b,c,e) => Angle_b_e_h + Angle_c_e_h - pi & Angle_b_e_f + Angle_c_e_f - pi
-3. Angle_c_e_f + Angle_c_e_h - Angle_f_e_h & Angle_b_e_h + Angle_c_e_h - pi & Angle_b_e_f + Angle_c_e_f - pi & Angle_b_e_f + Angle_b_e_h - Angle_f_e_h => Angle_b_e_h - Angle_c_e_f
-4. Collinear(e,f,g) => Parallel(e,f,e,g) & Angle_a_e_f + Angle_a_e_g - pi
-5. Perpendicular(a,e,e,f) & Parallel(e,f,e,g) => Perpendicular(a,e,e,g)
-6. Perpendicular(a,e,e,g) => Angle_a_e_g - pi/2
-7. Collinear(c,d,f) => Parallel(c,d,c,f)
-8. Perpendicular(a,c,c,d) & Parallel(c,d,c,f) => Perpendicular(a,c,c,f)
-9. Perpendicular(a,c,c,f) => Angle_a_c_f - pi/2
-10. Angle_a_e_g - pi/2 & Angle_a_c_f - pi/2 => Angle_a_c_f - Angle_a_e_g
+1. Collinear(e,f,h) => Angle_c_e_f + Angle_c_e_h - pi & Parallel(e,f,e,h)
+2. Collinear(b,c,e) => Angle_b_e_h + Angle_c_e_h - pi
+3. Angle_c_e_f + Angle_c_e_h - pi & Angle_b_e_h + Angle_c_e_h - pi => Angle_b_e_h - Angle_c_e_f
+4. Collinear(c,d,f) => Parallel(c,d,c,f)
+5. Perpendicular(a,c,c,d) & Parallel(c,d,c,f) => Perpendicular(a,c,c,f)
+6. Perpendicular(a,c,c,f) => Angle_a_c_f - pi/2
+7. Collinear(e,f,g) => Parallel(e,f,e,g) & Angle_a_e_f + Angle_a_e_g - pi
+8. Perpendicular(a,e,e,f) & Parallel(e,f,e,g) => Perpendicular(a,e,e,g)
+9. Perpendicular(a,e,e,g) => Angle_a_e_g - pi/2
+10. Angle_a_c_f - pi/2 & Angle_a_e_g - pi/2 => Angle_a_c_f - Angle_a_e_g
 11. Angle_a_c_f - Angle_a_e_g & Angle_a_e_f + Angle_a_e_g - pi => Angle_a_c_f + Angle_a_e_f - pi
 12. Angle_a_c_f + Angle_a_e_f - pi => Concyclic(a,c,e,f)
 13. Concyclic(a,c,e,f) => Angle_c_a_f - Angle_c_e_f
@@ -21,6 +21,6 @@ Solution:
 20. Angle_a_b_h - Angle_a_e_h => Concyclic(a,b,e,h)
 21. Concyclic(a,b,e,h) => Angle_b_a_h - Angle_b_e_h
 22. Angle_b_e_h - Angle_c_e_f & Angle_c_a_f - Angle_c_e_f & Angle_b_a_h - Angle_b_e_h => Angle_b_a_h - Angle_c_a_f
-23. Angle_a_b_h - pi/2 & Angle_a_c_f - pi/2 => Angle_a_b_h - Angle_a_c_f
+23. Angle_a_c_f - pi/2 & Angle_a_b_h - pi/2 => Angle_a_b_h - Angle_a_c_f
 24. -Angle_b_a_h + Angle_c_a_f & -Angle_a_b_h + Angle_a_c_f & -Length_a_b + Length_a_c => Congruent3(a,b,h,a,c,f)
 25. Congruent3(a,b,h,a,c,f) => Length_b_h - Length_c_f

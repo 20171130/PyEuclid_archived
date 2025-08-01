@@ -1,11 +1,11 @@
 Solution:
-1. Length_a_o2 - Length_c_o2 & Length_a_o2 - Length_h_o2 => Angle_c_a_h + Angle_c_o2_h/2 - pi
+1. Perpendicular(a,c,b,h) => Angle_a_h_b - Angle_c_a_h + pi/2
 2. Length_c_o1 - Length_h_o1 & -Length_c_o2 + Length_h_o2 => Kite(c,o1,h,o2)
 3. Kite(c,o1,h,o2) & Length_c_o1 - Length_h_o1 & -Length_c_o2 + Length_h_o2 => Angle_c_o2_o1 - Angle_h_o2_o1 & Angle_c_o1_o2 - Angle_h_o1_o2
-4. Angle_c_o2_h - Angle_c_o2_o1 - Angle_h_o2_o1 & Angle_c_a_h + Angle_c_o2_h/2 - pi & Angle_c_o2_o1 - Angle_h_o2_o1 => Angle_c_a_h + Angle_h_o2_o1 - pi
-5. Perpendicular(a,h,b,c) => Angle_a_c_b - Angle_c_a_h + pi/2
-6. Perpendicular(a,c,b,h) => Angle_a_c_b + Angle_c_b_h - pi/2
-7. Length_b_o1 - Length_c_o1 & Length_b_o1 - Length_h_o1 => Angle_c_b_h - Angle_c_o1_h/2
-8. Angle_c_o1_h - Angle_c_o1_o2 - Angle_h_o1_o2 & Angle_a_c_b - Angle_c_a_h + pi/2 & Angle_a_c_b + Angle_c_b_h - pi/2 & Angle_c_o1_o2 - Angle_h_o1_o2 & Angle_c_b_h - Angle_c_o1_h/2 => Angle_c_a_h + Angle_h_o1_o2 - pi
-9. Angle_c_a_h + Angle_h_o2_o1 - pi & Angle_c_a_h + Angle_h_o1_o2 - pi => Angle_h_o1_o2 - Angle_h_o2_o1
+4. Length_a_o2 - Length_c_o2 & Length_a_o2 - Length_h_o2 => Angle_c_a_h + Angle_c_o2_h/2 - pi
+5. Angle_c_o2_h - Angle_c_o2_o1 - Angle_h_o2_o1 & Angle_a_h_b - Angle_c_a_h + pi/2 & Angle_c_o2_o1 - Angle_h_o2_o1 & Angle_c_a_h + Angle_c_o2_h/2 - pi => Angle_a_h_b + Angle_h_o2_o1 - pi/2
+6. Length_b_o1 - Length_c_o1 & Length_b_o1 - Length_h_o1 => Angle_c_b_h - Angle_c_o1_h/2
+7. Perpendicular(a,h,b,c) => Angle_a_h_b + Angle_c_b_h - pi/2
+8. Angle_c_o1_h - Angle_c_o1_o2 - Angle_h_o1_o2 & Angle_c_o1_o2 - Angle_h_o1_o2 & Angle_c_b_h - Angle_c_o1_h/2 & Angle_a_h_b + Angle_c_b_h - pi/2 => Angle_a_h_b + Angle_h_o1_o2 - pi/2
+9. Angle_a_h_b + Angle_h_o2_o1 - pi/2 & Angle_a_h_b + Angle_h_o1_o2 - pi/2 => Angle_h_o1_o2 - Angle_h_o2_o1
 10. Angle_h_o1_o2 - Angle_h_o2_o1 => Length_h_o1 - Length_h_o2

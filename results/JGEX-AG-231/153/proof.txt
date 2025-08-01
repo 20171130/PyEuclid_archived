@@ -1,13 +1,13 @@
 Solution:
-1. Length_a_b - Length_a_d & Length_a_b - Length_a_c => Length_a_c - Length_a_d
-2. Length_a_b - Length_a_c & Length_a_b - Length_a_f => Length_a_c - Length_a_f
-3. Length_a_c - Length_a_d & Length_a_c - Length_a_f => Angle_d_a_f - 2*Angle_d_c_f
-4. Length_a_b - Length_a_g & Length_a_b - Length_a_d => Length_a_d - Length_a_g
-5. -Length_a_c + Length_a_d & Length_a_d - Length_a_g => Angle_c_a_g + 2*Angle_c_d_g - 2*pi
-6. Length_a_b - Length_a_c & Length_a_b - Length_a_g => Angle_c_a_g - 2*Angle_c_b_g
-7. Parallel(c,f,d,g) => Angle_c_d_g + Angle_d_c_f - pi
-8. Length_a_b - Length_a_d & Length_a_b - Length_a_e => Length_a_d - Length_a_e
-9. Length_a_b - Length_a_e & Length_a_b - Length_a_f => Length_a_e - Length_a_f
-10. -Length_a_d + Length_a_e & Length_a_e - Length_a_f => Angle_d_a_f - 2*Angle_d_e_f
-11. Angle_d_a_f - 2*Angle_d_c_f & Angle_c_a_g + 2*Angle_c_d_g - 2*pi & Angle_c_a_g - 2*Angle_c_b_g & Angle_c_d_g + Angle_d_c_f - pi & Angle_d_a_f - 2*Angle_d_e_f => Angle_c_b_g - Angle_d_e_f
+1. Length_a_b - Length_a_c & Length_a_b - Length_a_g => Angle_c_a_g - 2*Angle_c_b_g
+2. Length_a_b - Length_a_d & Length_a_b - Length_a_c => Length_a_c - Length_a_d
+3. Length_a_b - Length_a_c & Length_a_b - Length_a_f => Length_a_c - Length_a_f
+4. Length_a_c - Length_a_d & Length_a_c - Length_a_f => Angle_d_a_f - 2*Angle_d_c_f
+5. Parallel(c,f,d,g) => Angle_c_d_g + Angle_d_c_f - pi
+6. Length_a_b - Length_a_d & Length_a_b - Length_a_e => Length_a_d - Length_a_e
+7. Length_a_b - Length_a_e & Length_a_b - Length_a_f => Length_a_e - Length_a_f
+8. -Length_a_d + Length_a_e & Length_a_e - Length_a_f => Angle_d_a_f - 2*Angle_d_e_f
+9. Length_a_b - Length_a_d & Length_a_b - Length_a_g => Length_a_d - Length_a_g
+10. -Length_a_c + Length_a_d & Length_a_d - Length_a_g => Angle_c_a_g + 2*Angle_c_d_g - 2*pi
+11. Angle_c_a_g - 2*Angle_c_b_g & Angle_d_a_f - 2*Angle_d_c_f & Angle_c_d_g + Angle_d_c_f - pi & Angle_d_a_f - 2*Angle_d_e_f & Angle_c_a_g + 2*Angle_c_d_g - 2*pi => Angle_c_b_g - Angle_d_e_f
 12. Angle_c_b_g - Angle_d_e_f & Parallel(b,c,d,e) => Parallel(b,g,e,f)

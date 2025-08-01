@@ -108,14 +108,14 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
     # print(f"Rank {rank}: Starting problem {problem_id}")
 
-    max_steps = random.uniform(4, 10) # 4 - 8
-    max_attempt = random.uniform(50, 100)
-    max_points = random.uniform(8, 12) # 8 - 12
+    max_steps = random.uniform(4, 10) # 4 - 10
+    max_attempts = 100
+    max_points = random.uniform(8, 15) # 8 - 15
     constructions_list = []
     index = 0
 
     # Construction phase with timeout checks
-    while (step < max_steps and attempt < max_attempt and points < max_points 
+    while (step < max_steps and attempt < max_attempts and points < max_points 
            and not timeout_handler.check_timeout()):
         
         constructions = []
@@ -213,44 +213,53 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
                 continue
 
             construction = random.choice(valid_constructions)
-            
-            outputs = [Point(chr(ord('A') + num_points + i)) for i in range(picked.num_outputs)]
             construction.construct(*outputs)
             constructions.append(construction)
 
-        # if attempt == 0:
-        #     picked = construct_iso_triangle()
-        #     picked.construct(Point('A'),Point('B'),Point('C'))
+        # if step == 0:
+        #     picked = construct_segment()
+        #     picked.construct(Point('A'),Point('B'))
         #     constructions = [picked]
-        # elif attempt == 1:
-        #     picked = construct_free()
-        #     picked.construct(Point('D'))
+        # elif step == 1:
+        #     picked = construct_psquare(Point('A'),Point('B'))
+        #     picked.construct(Point('C'))
         #     constructions = [picked]
-        # elif attempt == 2:
-        #     picked = construct_eq_triangle(Point('A'),Point('D'))
-        #     picked.construct(Point('E'))
+        # elif step == 2:
+        #     picked = construct_centroid(Point('B'),Point('C'),Point('A'))
+        #     picked.construct(Point('D'),Point('E'),Point('F'),Point('G'))
         #     constructions = [picked]
-        # elif attempt == 3:
-        #     picked = construct_angle_mirror(Point('B'),Point('A'),Point('D'))
-        #     picked.construct(Point('F'))
-        #     picked1 = construct_on_bline(Point('D'),Point('A'))
-        #     picked1.construct(Point('F'))
-        #     constructions = [picked, picked1]
-        # elif attempt == 4:
-        #     picked = construct_trisegment(Point('A'),Point('D'))
-        #     picked.construct(Point('G'), Point('H'))
+        # elif step == 3:
+        #     picked = construct_parallelogram(Point('E'),Point('G'),Point('A'))
+        #     picked.construct(Point('H'))
         #     constructions = [picked]
-        # elif attempt == 5:
-        #     picked = construct_on_tline(Point('E'),Point('D'),Point('C'))
+        # elif step == 4:
+        #     picked = construct_circle(Point('G'),Point('E'),Point('H'))
         #     picked.construct(Point('I'))
+        #     constructions = [picked]
+        # elif step == 5:
+        #     picked = construct_on_circle(Point('I'),Point('D'))
+        #     picked.construct(Point('J'))
+        #     picked1 = construct_on_tline(Point('I'),Point('E'),Point('H'))
+        #     picked1.construct(Point('J'))
+        #     constructions = [picked, picked1]
+        # elif step == 6:
+        #     picked = construct_on_tline(Point('A'),Point('E'),Point('C'))
+        #     picked.construct(Point('K'))
+        #     picked1 =construct_lc_tangent(Point('D'),Point('H'))
+        #     picked1.construct(Point('K'))
+        #     constructions = [picked, picked1]
+        # elif step == 7:
+        #     picked = construct_trisegment(Point('C'),Point('A'))
+        #     picked.construct(Point('L'),Point('M'))
         #     constructions = [picked]
         # else:
         #     break
+        # outputs = constructions[0].outputs
 
         attempt += 1
         try:
             diagram.add_constructions(constructions)
-        except Exception as e:
+        except:
             continue
 
         constructions_list.append(constructions)
@@ -290,8 +299,15 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
                         if eq.sources and isinstance(eq.sources[0], InferenceRule) and not isinstance(eq.sources[0], (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2))]
     filtered_conclusions = []
     for relation in conclusions:
-        if isinstance(relation, Similar3):
+        # degenerated cases
+        if isinstance(relation, Congruent3):
             points = relation.get_points()
+            if len(set(points)) == 3:
+                continue
+        elif isinstance(relation, Similar3):
+            points = relation.get_points()
+            if len(set(points)) == 3:
+                continue
             if Congruent3(*points) in state.relations:
                 continue
         elif isinstance(relation, Parallel):
@@ -301,6 +317,23 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             elif diagram.numerical_check(Collinear(*points[:3])):
                 continue
         filtered_conclusions.append(relation)
+    
+    def get_sufficient_constructions(points):
+        res = []
+        target_points = set(points)
+        seen_points = set()
+        def mark_sufficient(point):
+            if point in seen_points:
+                return
+            seen_points.add(point)
+            for c in point2constructions[point]:
+                if c not in res:
+                    res.append(c)
+                    for inp in c.inputs:
+                        mark_sufficient(inp)
+        for point in target_points:
+            mark_sufficient(point)
+        return sorted(res, key=lambda c: c.index)
     
     for relation in filtered_conclusions:
         if timeout_handler.check_timeout():
@@ -319,22 +352,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             points_list = get_points_and_symbols(relation)[0]
             points = [p for points in points_list for p in points]
         
-        sufficient_constructions = []
-        target_points = set(points)
-        seen_points = set()
-        def mark_sufficient(point):
-            if point in seen_points:
-                return
-            seen_points.add(point)
-            for c in point2constructions[point]:
-                if c not in sufficient_constructions:
-                    sufficient_constructions.append(c)
-                    for inp in c.inputs:
-                        mark_sufficient(inp)
-        for point in target_points:
-            mark_sufficient(point)
-        sufficient_constructions = sorted(sufficient_constructions, key=lambda c: c.index)
-        
+        sufficient_constructions = get_sufficient_constructions(points)
         new_state = State()
         new_state.silent = True
         new_state.goal = relation.expr if isinstance(relation, Traced) else relation
@@ -352,13 +370,22 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             new_proof = new_proof_generator.get_proof()
             new_proof_str = new_proof_generator.get_proof_str()
         else:
+            # requires auxiliary constructions
             proof_generator.run(relation)
             auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
-            
-            new_constructions = sorted(list(sufficient_constructions+auxiliary_constructions), key=lambda c: c.index)
-            new_state = None
+            sufficient_auxiliary_constructions = []
             for auxiliary_construction in auxiliary_constructions:
-                new_constructions.remove(auxiliary_construction)
+                sufficient_auxiliary_constructions.append(auxiliary_construction)
+                for construction in get_sufficient_constructions([p for p in auxiliary_construction.inputs if isinstance(p, Point)]):
+                    if construction not in sufficient_constructions and construction not in sufficient_auxiliary_constructions:
+                        sufficient_auxiliary_constructions.append(construction)
+            sufficient_auxiliary_constructions = sorted(sufficient_auxiliary_constructions, key=lambda c: c.index)
+            auxiliary_constructions = sufficient_auxiliary_constructions.copy()
+            
+            for auxiliary_construction in sufficient_auxiliary_constructions[::-1]:
+                new_auxiliary_constructions = auxiliary_constructions.copy()
+                new_auxiliary_constructions.remove(auxiliary_construction)
+                new_constructions = sufficient_constructions + new_auxiliary_constructions
                 new_state = State()
                 new_state.silent = True
                 new_state.goal = relation.expr if isinstance(relation, Traced) else relation
@@ -369,6 +396,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
                 new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
                 new_engine.run()
                 if new_state.complete() is not None:
+                    # the auxiliary construction is not required
                     auxiliary_constructions.remove(auxiliary_construction)
             
             new_state = State()
@@ -393,9 +421,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         
         input_points = set()
         output_points = set()
-        for necessary_construction in necessary_constructions:
-            input_points.update([p for p in necessary_construction.inputs if isinstance(p, Point)])
-            output_points.update([p for p in necessary_construction.outputs])
+        for construction in new_proof_generator.source_constructions[key]:
+            input_points.update([p for p in construction.inputs if isinstance(p, Point)])
+            output_points.update([p for p in construction.outputs])
         
         added_constructions = []
         basic_points = []
@@ -434,134 +462,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             c.construct(*basic_points)
             c.index = 0
             added_constructions.append(c)
-
-    # for relation in filtered:
-    #     if timeout_handler.check_timeout():
-    #         break
-    #     if isinstance(relation, Traced):
-    #         key = relation.expr
-    #     else:
-    #         key = relation
-        
-    #     try:
-    #         proof_generator.run(relation)
-    #         proof = proof_generator.get_proof(relation)
-    #     except Exception as e:
-    #         continue
-        
-    #     if len(proof) <= 10 or len(proof_generator.source_constructions[key]) <= 2:
-    #         continue
-
-    #     if isinstance(relation, Relation):
-    #         points = relation.get_points()
-    #     else:
-    #         points_list = get_points_and_symbols(relation)[0]
-    #         points = [p for points in points_list for p in points]
-
-    #     constructions = proof_generator.source_constructions[key]
-
-    #     target_points = set(points)
-    #     output_to_constructions = defaultdict(list)
-    #     for c in constructions:
-    #         for out in c.outputs:
-    #             output_to_constructions[out].append(c)
-
-    #     required = set()
-    #     seen_points = set()
-
-    #     def mark_required(point):
-    #         if point in seen_points:
-    #             return
-    #         seen_points.add(point)
-
-    #         for c in output_to_constructions[point]:
-    #             if c not in required:
-    #                 required.add(c)
-    #                 for inp in c.inputs:
-    #                     mark_required(inp)
-        
-    #     for point in target_points:
-    #         mark_required(point)
-        
-        # input_points = set()
-        # output_points = set()
-        # required_constructions = [c for c in constructions if c in required]
-        # for required_construction in required_constructions:
-        #     input_points.update([p for p in required_construction.inputs if isinstance(p, Point)])
-        #     output_points.update([p for p in required_construction.outputs])
-        
-        # added_constructions = []
-        # basic_points = []
-        # for p in input_points:
-        #     if p not in output_points:
-        #         if len(point2constructions[p]) == 1 and type(point2constructions[p][0]) in list(construction_rule_sets["independent"]):
-        #             basic_points.append(p)
-        #         else:
-        #             c = construct_free()
-        #             c.construct(p)
-        #             c.index = point2constructions[p][0].index
-        #             added_constructions.append(c)
-        
-        # if len(basic_points) == 1:
-        #     c = construct_free()
-        #     c.construct(*basic_points)
-        #     c.index = 0
-        #     added_constructions.append(c)
-        # elif len(basic_points) == 2:
-        #     c = construct_segment()
-        #     c.construct(*basic_points)
-        #     c.index = 0
-        #     added_constructions.append(c)
-        # elif len(basic_points) == 3:
-        #     c = construct_triangle()
-        #     c.construct(*basic_points)
-        #     c.index = 0
-        #     added_constructions.append(c)
-        # elif len(basic_points) == 4:
-        #     c = construct_quadrangle()
-        #     c.construct(*basic_points)
-        #     c.index = 0
-        #     added_constructions.append(c)
-        # elif len(basic_points) == 5:
-        #     c = construct_pentagon()
-        #     c.construct(*basic_points)
-        #     c.index = 0
-        #     added_constructions.append(c)
-
-    #     auxiliary_constructions = [c for c in constructions if c not in required]
-        
-    #     # ensure auxiliary constructions are necessary
-    #     deleted = []
-    #     if auxiliary_constructions:
-    #         new_constructions = list(constructions)
-    #         new_state = None
-    #         for auxiliary_construction in auxiliary_constructions:
-    #             new_constructions.remove(auxiliary_construction)
-    #             new_state = State()
-    #             new_state.silent = True
-    #             new_state.goal = relation.expr if isinstance(relation, Traced) else relation
-    #             new_state.diagram = diagram
-    #             new_state.add_constructions(new_constructions)
-    #             new_deductive_database = DeductiveDatabase(new_state)
-    #             new_algebraic_system = AlgebraicSystem(new_state)
-    #             new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-    #             new_engine.run()
-    #             if new_state.complete() is not None:
-    #                 deleted.append(auxiliary_construction)
-    #             else:
-    #                 new_constructions.append(auxiliary_construction)
-        
-    #     if deleted:
-    #         # change auxiliary constructions and proof_str
-    #         auxiliary_constructions = [c for c in auxiliary_constructions if c not in deleted]
-    #         new_proof_generator = ProofGenerator(new_state)
-    #         new_proof_generator.run()
-    #         proof = new_proof_generator.get_proof()
-    #         if len(proof) <= 10 or len(new_proof_generator.source_constructions[key]) <= 2:
-    #             continue
-    #         proof_str = new_proof_generator.get_proof_str()
-    #     else:
-    #         proof_str = proof_generator.get_proof_str(relation)
         
         for (conditions, _, _) in new_proof:
             for cond in conditions:

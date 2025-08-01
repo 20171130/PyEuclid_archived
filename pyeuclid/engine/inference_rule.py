@@ -1208,9 +1208,7 @@ class PropertyOfCircumcenter(InferenceRule):
     
     def conclusion(self):
         return [
-            Length(self.o, self.a) - Length(self.o, self.b),
-            Length(self.o, self.b) - Length(self.o, self.c),
-            Length(self.o, self.c) - Length(self.o, self.a),
+            *equal(Length(self.o, self.a), Length(self.o, self.b), Length(self.o, self.c)),
         ]
 
 
@@ -1341,7 +1339,7 @@ class AlphaGeometry1(InferenceRule):
         self.f = f
 
     def condition(self):
-        return Perpendicular(self.a, self.b, self.c, self.d), Perpendicular(self.c, self.d, self.e, self.f), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.e, self.f), Lt(self.a, self.e)
+        return Perpendicular(self.a, self.b, self.c, self.d), Perpendicular(self.c, self.d, self.e, self.f), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.e, self.f), Leq(self.a, self.e)
 
     def conclusion(self):
         return Parallel(self.a, self.b, self.e, self.f)
@@ -1381,6 +1379,23 @@ class ConcyclicTransist(InferenceRule):
     def conclusion(self):
         return Concyclic(self.a, self.b, self.d, self.e), Concyclic(self.b, self.c, self.d, self.e), Concyclic(self.a, self.c, self.d, self.e)
 
+
+@register("ex")
+class CircumcenterTransist(InferenceRule):
+    """ Concyclic Transitivity"""
+    def __init__(self, o: Point, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.o = o
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+       
+    def condition(self):
+        return Circumcenter(self.o, self.a, self.b, self.c), Concyclic(self.a, self.b, self.c, self.d),  Lt(self.a, self.b), Lt(self.b, self.c), *Different(self.o, self.a, self.b, self.c, self.d)
+
+    def conclusion(self):
+        return Circumcenter(self.o, self.a, self.b, self.d), Circumcenter(self.o, self.a, self.c, self.d), Circumcenter(self.o, self.b, self.c, self.d)
 
 @register("ex")
 class AlphaGeometry1b(InferenceRule):

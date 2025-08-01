@@ -1,12 +1,11 @@
 Solution:
-1. Length_b_o - Length_e_o & Length_b_o - Length_f_o => Length_e_o - Length_f_o
-2. Length_a_e - Length_e_o & Length_e_o - Length_f_o & -Length_a_f + Length_f_o => Rhombus(a,e,o,f)
-3. Rhombus(a,e,o,f) => Angle_a_o_e - Angle_a_o_f
+1. Length_b_o - Length_c_o & Length_a_o - Length_b_o => Length_a_o - Length_c_o
+2. Length_b_o - Length_e_o & Length_b_o - Length_c_o => Length_c_o - Length_e_o
+3. -Length_a_o + Length_c_o & Length_c_o - Length_e_o => Angle_a_c_e - Angle_a_o_e/2
 4. Collinear(a,c,j) => Angle_a_c_e - Angle_e_c_j & Angle_a_c_f - Angle_f_c_j
-5. Length_b_o - Length_c_o & Length_a_o - Length_b_o => Length_a_o - Length_c_o
-6. Length_b_o - Length_e_o & Length_b_o - Length_c_o => Length_c_o - Length_e_o
-7. -Length_a_o + Length_c_o & Length_c_o - Length_e_o => Angle_a_c_e - Angle_a_o_e/2
-8. Length_a_f - Length_f_o & Length_b_o - Length_c_o & Length_b_o - Length_f_o => Length_a_f - Length_c_o
-9. Length_a_f - Length_c_o & Length_a_f - Length_f_o => Length_c_o - Length_f_o
-10. -Length_a_o + Length_c_o & Length_c_o - Length_f_o => Angle_a_c_f - Angle_a_o_f/2
-11. Angle_a_o_e - Angle_a_o_f & Angle_a_c_e - Angle_e_c_j & Angle_a_c_e - Angle_a_o_e/2 & Angle_a_c_f - Angle_f_c_j & Angle_a_c_f - Angle_a_o_f/2 => Angle_e_c_j - Angle_f_c_j
+5. Length_b_o - Length_c_o & Length_b_o - Length_f_o => Length_c_o - Length_f_o
+6. -Length_a_o + Length_c_o & Length_c_o - Length_f_o => Angle_a_c_f - Angle_a_o_f/2
+7. Length_b_o - Length_e_o & Length_b_o - Length_f_o => Length_e_o - Length_f_o
+8. Length_a_e - Length_e_o & Length_e_o - Length_f_o & -Length_a_f + Length_f_o => Rhombus(a,e,o,f)
+9. Rhombus(a,e,o,f) => Angle_a_o_e - Angle_a_o_f
+10. Angle_a_c_e - Angle_a_o_e/2 & Angle_a_c_e - Angle_e_c_j & Angle_a_c_f - Angle_a_o_f/2 & Angle_a_c_f - Angle_f_c_j & Angle_a_o_e - Angle_a_o_f => Angle_e_c_j - Angle_f_c_j
