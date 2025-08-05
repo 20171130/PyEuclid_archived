@@ -8,6 +8,7 @@ from collections import Counter
 
 from stopit import ThreadingTimeout as TT
 
+import pyeuclid.formalization.utils as utils
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.translation import parse_texts_from_file
@@ -23,6 +24,7 @@ import traceback
 
 class TestBenchmarks(unittest.TestCase):
     def test_jgex_ag_231(self):
+        utils.MAX_DIAGRAM_ATTEMPTS = None
         rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
         world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
         texts = parse_texts_from_file('data/JGEX-AG-231.txt')
@@ -35,7 +37,7 @@ class TestBenchmarks(unittest.TestCase):
             if world_size > 1:
                 state.silent = True
             try:
-                constructions_list = state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
+                state.load_problem_from_text(text, f'diagrams/JGEX-AG-231/{idx+1}.jpg')
                 shutil.copy(f"diagrams/JGEX-AG-231/{idx+1}.jpg", f"results/JGEX-AG-231/{idx+1}/diagram.jpg")
                 deductive_database = DeductiveDatabase(state)
                 algebraic_system = AlgebraicSystem(state)

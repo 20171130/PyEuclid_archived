@@ -1,7 +1,8 @@
 Solution:
-1. Collinear(d,e,f) & Collinear(d,e,g) => Collinear(e,f,g)
-2. Collinear(e,f,g) => Angle_b_e_f - Angle_b_e_g
-3. Length_a_b - Length_a_f & Length_a_b - Length_a_e & Perpendicular(a,b,b,d) => Angle_b_e_f - Angle_d_b_f
-4. Collinear(d,e,g) => Angle_b_g_d + Angle_b_g_e - pi
-5. Angle_b_e_f - Angle_b_e_g & Angle_b_e_f - Angle_d_b_f & Angle_e_b_g - Angle_f_b_g & Angle_b_e_g + Angle_b_g_e + Angle_e_b_g - pi & Angle_d_b_f - Angle_d_b_g + Angle_f_b_g & Angle_b_g_d + Angle_b_g_e - pi => Angle_b_g_d - Angle_d_b_g
-6. -Angle_b_g_d + Angle_d_b_g => Length_b_d - Length_d_g
+1. Collinear(d,e,f) & Collinear(d,e,g) => Collinear(d,f,g) & Collinear(e,f,g)
+2. Collinear(d,f,g) => Angle_b_g_d - Angle_b_g_f
+3. Length_a_b - Length_a_e & Length_a_b - Length_a_f & Perpendicular(a,b,b,d) => Angle_b_f_e + Angle_d_b_e - pi
+4. Collinear(e,f,g) => Angle_b_f_e - Angle_b_f_g
+5. Angle_e_b_f - 2*Angle_f_b_g & Angle_e_b_f - 2*Angle_e_b_g & Angle_b_f_e + Angle_d_b_e - pi & Angle_b_f_g + Angle_b_g_f + Angle_f_b_g - pi & Angle_b_f_e - Angle_b_f_g & Angle_d_b_e - Angle_d_b_g - Angle_e_b_g => Angle_b_g_f - Angle_d_b_g
+6. Angle_b_g_d - Angle_b_g_f & Angle_b_g_f - Angle_d_b_g => Angle_b_g_d - Angle_d_b_g
+7. -Angle_b_g_d + Angle_d_b_g => Length_b_d - Length_d_g

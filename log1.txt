@@ -1,3 +1,5 @@
+/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/formalization/numericals.py:594: RuntimeWarning: invalid value encountered in scalar divide
+  x = -c / a
 11 error x@4.96_-0.13 y@-1.0068968328888160_-1.2534881080682770 z@-2.8402847238575120_-4.9117762734006830 = triangle x y z; o = circle o x y z; w@6.9090049230038776_-1.3884003936987552 = on_circle w o x; a = on_tline a z o z, on_tline a x o x; b = on_tline b z o z, on_tline b w o w; c = on_tline c y o y, on_tline c w o w; d = on_tline d x o x, on_tline d y o y; i1 = incenter i1 a b c; i2 = incenter i2 a c d; f1 = foot f1 i1 a c; f2 = foot f2 i2 a c; q t p s = cc_tangent q t p s i1 f1 i2 f2; k = on_line k q t, on_line k p s ? cong o k o x
 
 Traceback (most recent call last):
@@ -15,203 +17,190 @@ pyeuclid.formalization.diagram.MaxAttemptsError
 
 .
 ----------------------------------------------------------------------
-Ran 1 test in 2.354s
+Ran 1 test in 2.734s
 
 OK
-3 solved in 12.359827280044556 seconds
-3 proof generation runs in 0.33773326873779297
+6 solved in 10.881721496582031 seconds
+6 proof generation runs in 0.29854369163513184
 .
 ----------------------------------------------------------------------
-Ran 1 test in 13.642s
+Ran 1 test in 12.199s
 
 OK
-2 solved in 27.433441638946533 seconds
-2 proof generation runs in 1.3618502616882324
+3 solved in 13.385101079940796 seconds
+3 proof generation runs in 0.26082777976989746
 .
 ----------------------------------------------------------------------
-Ran 1 test in 29.738s
+Ran 1 test in 14.969s
 
 OK
-6 solved in 11.05484127998352 seconds
-6 proof generation runs in 0.2784903049468994
+24 unsolved in 23.65643310546875 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 43.298s
+Ran 1 test in 25.013s
 
 OK
-/private/home/zhaoyuli/PyEuclid_archived/pyeuclid/formalization/numericals.py:594: RuntimeWarning: invalid value encountered in scalar divide
-  x = -c / a
-17 unsolved in 42.52619409561157 seconds
+2 solved in 33.43171811103821 seconds
+2 proof generation runs in 1.429605484008789
 .
 ----------------------------------------------------------------------
-Ran 1 test in 75.039s
+Ran 1 test in 36.827s
 
 OK
-24 unsolved in 23.843252420425415 seconds
+25 unsolved in 41.98745083808899 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 38.580s
+Ran 1 test in 44.137s
 
 OK
-25 unsolved in 39.3602237701416 seconds
+17 unsolved in 44.34015893936157 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 53.605s
+Ran 1 test in 45.593s
 
 OK
-14 solved in 90.8966851234436 seconds
-14 proof generation runs in 1.3203227519989014
+28 unsolved in 89.715487241745 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 125.551s
+Ran 1 test in 92.043s
 
 OK
-28 unsolved in 82.31096029281616 seconds
+14 solved in 101.67438220977783 seconds
+14 proof generation runs in 1.3605430126190186
 .
 ----------------------------------------------------------------------
-Ran 1 test in 97.164s
+Ran 1 test in 105.013s
 
 OK
-23 solved in 97.8219838142395 seconds
-23 proof generation runs in 2.6659834384918213
+23 solved in 106.35129189491272 seconds
+23 proof generation runs in 2.127406597137451
 .
 ----------------------------------------------------------------------
-Ran 1 test in 115.098s
+Ran 1 test in 110.584s
 
 OK
-19 unsolved in 166.2814347743988 seconds
+29 solved in 145.23048090934753 seconds
+29 proof generation runs in 4.30523419380188
 .
 ----------------------------------------------------------------------
-Ran 1 test in 199.459s
+Ran 1 test in 151.805s
 
 OK
-29 solved in 132.49317955970764 seconds
-29 proof generation runs in 3.8576297760009766
+19 unsolved in 162.9150071144104 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 151.623s
+Ran 1 test in 164.909s
 
 OK
-8 solved in 176.31971502304077 seconds
-13 unsolved in 176.95681023597717 seconds
+8 solved in 175.34367489814758 seconds
+8 proof generation runs in 6.515958547592163
 .
 ----------------------------------------------------------------------
-Ran 1 test in 210.865s
+Ran 1 test in 185.001s
 
 OK
-8 proof generation runs in 9.529422521591187
+12 unsolved in 190.14495587348938 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 220.021s
+Ran 1 test in 192.370s
 
 OK
-12 unsolved in 186.8129162788391 seconds
+5 unsolved in 192.75138092041016 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 220.567s
+Ran 1 test in 195.058s
 
 OK
-5 unsolved in 190.22662782669067 seconds
+13 unsolved in 197.34135365486145 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 224.182s
+Ran 1 test in 199.655s
 
 OK
-0 solved in 235.64210844039917 seconds
-0 proof generation runs in 6.13247537612915
+16 solved in 205.7031970024109 seconds
+16 proof generation runs in 16.616548776626587
 .
 ----------------------------------------------------------------------
-Ran 1 test in 245.170s
+Ran 1 test in 225.450s
 
 OK
-16 solved in 215.5164954662323 seconds
-16 proof generation runs in 15.993499040603638
+0 solved in 260.2864830493927 seconds
+0 proof generation runs in 6.47500467300415
 .
 ----------------------------------------------------------------------
-Ran 1 test in 265.623s
+Ran 1 test in 270.314s
 
 OK
-4 solved in 293.0031535625458 seconds
-4 proof generation runs in 15.024033308029175
+20 unsolved in 271.73984026908875 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 342.239s
+Ran 1 test in 274.976s
 
 OK
-18 solved in 317.1340799331665 seconds
-20 unsolved in 285.82507729530334 seconds
-18 proof generation runs in 9.54652214050293
+4 solved in 293.0476071834564 seconds
+22 solved in 300.58701968193054 seconds
+4 proof generation runs in 15.747700452804565
 .
 ----------------------------------------------------------------------
-Ran 1 test in 360.845s
+Ran 1 test in 311.969s
 
 OK
+18 solved in 320.12730288505554 seconds
+22 proof generation runs in 22.12260389328003
 .
 ----------------------------------------------------------------------
-Ran 1 test in 302.468s
+Ran 1 test in 325.037s
 
 OK
-22 solved in 292.4533882141113 seconds
-22 proof generation runs in 17.200798749923706
+18 proof generation runs in 10.94895601272583
 .
 ----------------------------------------------------------------------
-Ran 1 test in 325.035s
+Ran 1 test in 334.220s
 
 OK
-9 unsolved in 529.8981969356537 seconds
+9 unsolved in 546.7901833057404 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 564.513s
+Ran 1 test in 550.210s
 
 OK
-10 unsolved in 530.4917929172516 seconds
+10 unsolved in 549.932089805603 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 565.006s
+Ran 1 test in 553.411s
 
 OK
-27 solved in 579.047990322113 seconds
-27 proof generation runs in 1.9401719570159912
+27 solved in 557.2499740123749 seconds
+27 proof generation runs in 2.092984676361084
 .
 ----------------------------------------------------------------------
-Ran 1 test in 596.098s
+Ran 1 test in 562.685s
 
 OK
-7 solved in 651.1426277160645 seconds
-7 proof generation runs in 17.78033185005188
+21 solved in 656.1632385253906 seconds
+21 proof generation runs in 4.445811033248901
 .
 ----------------------------------------------------------------------
-Ran 1 test in 703.146s
+Ran 1 test in 663.958s
 
 OK
-26 unsolved in 1163.9196951389313 seconds
+7 solved in 683.1412131786346 seconds
+7 proof generation runs in 18.17851495742798
 .
 ----------------------------------------------------------------------
-Ran 1 test in 1212.800s
+Ran 1 test in 746.970s
 
 OK
-21 solved in 1586.272697687149 seconds
-21 proof generation runs in 4.431287050247192
+26 unsolved in 1108.9375953674316 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 1812.269s
+Ran 1 test in 1112.383s
 
 OK
-1 unsolved in 5251.223148345947 seconds
+1 unsolved in 4609.883834838867 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 5256.612s
+Ran 1 test in 4615.315s
 
 OK
-slurmstepd: error: *** JOB 51121971 ON learnfair0637 CANCELLED AT 2025-07-30T22:20:30 DUE TO TIME LIMIT ***
---------------------------------------------------------------------------
-ORTE has lost communication with a remote daemon.
-
-  HNP daemon   : [[19533,0],0] on node learnfair0637
-  Remote daemon: [[19533,0],1] on node learnfair0638
-
-This is usually due to either a failure of the TCP network
-connection to the node, or possibly an internal failure of
-the daemon itself. We cannot recover from this failure, and
-therefore will terminate the job.
---------------------------------------------------------------------------
+slurmstepd: error: *** JOB 51188432 ON learnfair0664 CANCELLED AT 2025-07-31T19:40:36 DUE TO TIME LIMIT ***

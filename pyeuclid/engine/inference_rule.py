@@ -898,6 +898,51 @@ class DefinitionOfEquilateralTrapezoid1(InferenceRule):
         return [
             Trapezoid(self.p1, self.p2, self.p3, self.p4),
             Parallel(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p4) - Length(self.p2, self.p3),
+            Acute(self.p1, self.p4, self.p3),
+            Acute(self.p2, self.p3, self.p4),
+        ]
+    
+    def conclusion(self):
+        return [
+            EquilateralTrapezoid(self.p1, self.p2, self.p3, self.p4),
+
+        ]
+
+
+@register("shape")
+class DefinitionOfEquilateralTrapezoid2(InferenceRule):
+    """ Definition of Trapezoid """
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Trapezoid(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
+            Length(self.p1, self.p4) - Length(self.p2, self.p3),
+            Obtuse(self.p1, self.p4, self.p3),
+            Obtuse(self.p2, self.p3, self.p4),
+        ]
+    
+    def conclusion(self):
+        return [
+            EquilateralTrapezoid(self.p1, self.p2, self.p3, self.p4),
+        ]
+
+
+@register("shape")
+class DefinitionOfEquilateralTrapezoid3(InferenceRule):
+    """ Definition of Trapezoid """
+    def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point):
+        super().__init__()
+        self.p1, self.p2, self.p3, self.p4 = p1, p2, p3, p4
+    
+    def condition(self):
+        return [
+            Trapezoid(self.p1, self.p2, self.p3, self.p4),
+            Parallel(self.p1, self.p2, self.p3, self.p4),
             Length(self.p1, self.p3) - Length(self.p2, self.p4), # diagonals
             # Lt(self.p1, self.p2),
             # Lt(self.p1, self.p3),
@@ -2454,6 +2499,22 @@ class Perp2Angle3(InferenceRule):  # segments cross
 
     def conclusion(self):
         return Angle(self.b, self.a, self.d) + Angle(self.c, self.d, self.a) - pi/2, Angle(self.b, self.a, self.c) + Angle(self.d, self.c, self.a) - pi/2, Angle(self.b, self.c, self.d) + Angle(self.a, self.b, self.c) - pi/2, Angle(self.a, self.b, self.d) + Angle(self.c, self.d, self.b) - pi/2
+
+
+@register("ex")
+class Perp2Angle4(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return Perpendicular(self.a, self.b, self.c, self.d), SameSide(self.a, self.b, self.c, self.d), SameSide(self.c, self.d, self.a, self.b), SameSide(self.b, self.c, self.a, self.d), SameSide(self.a, self.d, self.b, self.c), Acute(self.b, self.a, self.d), Acute(self.c, self.d, self.a), Lt(self.a, self.d),
+
+    def conclusion(self):
+        return Angle(self.b, self.a, self.d) + Angle(self.c, self.d, self.a) - pi/2, Angle(self.a, self.b, self.c) + Angle(self.b, self.c, self.d) - 3 * pi/2,
 
 
 @register("ex")

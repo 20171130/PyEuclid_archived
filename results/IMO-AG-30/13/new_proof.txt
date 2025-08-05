@@ -1,9 +1,0 @@
-Solution:
-1. Length_m_p - Length_m_q => Midpoint(m,p,q)
-2. Collinear(m,p,q) => Parallel(m,q,p,q)
-3. Perpendicular(m,q,m,w) & Parallel(m,q,p,q) => Perpendicular(m,w,p,q)
-4. Angle_m_w_o - Angle_m_w_p - Angle_o_w_p & Angle_l_w_m + Angle_l_w_o - Angle_m_w_o & Angle_l_o_w + Angle_l_w_o + Angle_o_l_w - pi & Angle_l_o_p - Angle_l_o_w - Angle_p_o_w & Angle_l_w_m - Angle_l_w_p + Angle_m_w_p & Angle_l_o_p + Angle_l_p_o + Angle_o_l_p - pi & Angle_l_p_o - Angle_l_p_w - Angle_o_p_w & Angle_o_l_p - Angle_o_l_w - Angle_p_l_w & Angle_o_p_w + Angle_o_w_p + Angle_p_o_w - pi & Angle_l_p_w + Angle_l_w_p + Angle_p_l_w - pi => Angle_m_w_o - pi
-5. Angle_m_w_o - pi => Collinear(m,o,w)
-6. Collinear(m,o,w) => Parallel(m,o,m,w)
-7. Perpendicular(m,w,p,q) & Parallel(m,o,m,w) => Perpendicular(m,o,p,q)
-8. Midpoint(m,p,q) & Perpendicular(m,o,p,q) => Length_o_p - Length_o_q

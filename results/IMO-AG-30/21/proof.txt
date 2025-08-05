@@ -1,9 +1,0 @@
-Solution:
-1. Perpendicular(h,k,k,q) => Angle_h_k_q - pi/2
-2. Angle_h_k_o1 - Angle_h_k_q + Angle_o1_k_q & Angle_h_k_q - pi/2 => Angle_h_k_o1 + Angle_o1_k_q - pi/2
-3. Perpendicular(a,q,h,q) => Angle_a_q_h - pi/2
-4. Angle_a_h_q + Angle_a_q_h + Angle_h_a_q - pi & Angle_a_q_h - pi/2 => Angle_a_h_q + Angle_h_a_q - pi/2
-5. Angle_h_k_q + Angle_h_q_k + Angle_k_h_q - pi & Angle_a_q_h - Angle_a_q_k - Angle_h_q_k & Angle_a_q_h - pi/2 & Angle_h_k_q - pi/2 => Angle_a_q_k - Angle_k_h_q
-6. Angle_a_k_q + Angle_a_q_k + Angle_k_a_q - pi & Angle_a_h_k + Angle_a_k_h + Angle_h_a_k - pi & Angle_a_h_k - Angle_a_h_q + Angle_k_h_q & Angle_h_a_k - Angle_h_a_q + Angle_k_a_q & Angle_a_h_q + Angle_h_a_q - pi/2 & Angle_a_q_k - Angle_k_h_q => Angle_a_k_h + Angle_a_k_q - 3*pi/2
-7. Angle_o1_k_o2 - Angle_o1_k_q - Angle_o2_k_q & Angle_a_k_o2 - Angle_a_k_q + Angle_o2_k_q & Angle_a_k_h - Angle_a_k_o1 + Angle_h_k_o1 & Angle_a_k_o1 + Angle_a_k_o2 - Angle_o1_k_o2 & Angle_h_k_o1 + Angle_o1_k_q - pi/2 & Angle_a_k_h + Angle_a_k_q - 3*pi/2 => Angle_o1_k_o2 - pi
-8. Angle_o1_k_o2 - pi => Collinear(k,o1,o2)

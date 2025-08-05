@@ -7,8 +7,9 @@ import random
 import matplotlib.patches as patches
 
 from matplotlib import pyplot as plt
-from itertools import product
+from itertools import product, zip_longest
 
+import pyeuclid.formalization.utils as utils
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.numericals import *
@@ -19,6 +20,13 @@ def hash_constructions_list(constructions_list):
     s = ", ".join(str(c) for constructions in constructions_list for c in constructions)
     return hashlib.md5(s.encode('utf-8')).hexdigest()
 
+def hash_coordinates_list(coordinates_list):
+    s = ", ".join(f"{str(p)}:{x},{y}" for coordinates in coordinates_list if coordinates for (p, x, y) in coordinates)
+    return hashlib.md5(s.encode('utf-8')).hexdigest()
+
+def merge_hashes(*hashes):
+    combined = "|".join(hashes)  # Delimiter to avoid accidental collisions
+    return hashlib.md5(combined.encode('utf-8')).hexdigest()
 
 class MaxAttemptsError(Exception):
     """Raised when the maximum number of allowed attempts is reached."""
@@ -39,14 +47,17 @@ class NumericalCheckingError(Exception):
 
 
 class Diagram:    
-    def __new__(cls, constructions_list:list[list[ConstructionRule]]=[], save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
+    def __new__(cls, constructions_list:list[list[ConstructionRule]]=[], coordinates_list=[], save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
         if cache_folder is not None:
             if not os.path.exists(cache_folder):
                 os.makedirs(cache_folder)
         
         if not resample and cache_folder is not None:
             if constructions_list:
-                file_name = f"{hash_constructions_list(constructions_list)}.pkl"
+                h = hash_constructions_list(constructions_list)
+                if coordinates_list:
+                    h = merge_hashes(h, hash_coordinates_list(coordinates_list))
+                file_name = f"{h}.pkl"
                 file_path = os.path.join(cache_folder, file_name)
                 try:
                     if os.path.exists(file_path):
@@ -62,7 +73,7 @@ class Diagram:
         instance = super().__new__(cls)
         return instance
     
-    def __init__(self, constructions_list:list[list[ConstructionRule]]=[], save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
+    def __init__(self, constructions_list:list[list[ConstructionRule]]=[], coordinates_list=[], save_path=None, cache_folder=os.path.join(ROOT_DIR, 'cache'), resample=False):
         if hasattr(self, 'cache_folder'):
             return
     
@@ -77,10 +88,13 @@ class Diagram:
         
         self.construction2diagram = {}
         self.constructions_list = []
+        self.coordinates_list = []
         self.auxiliary_constructions = []
 
         self.min_tol = 0.2
         self.max_tol = 2
+
+        self.numerical_cache = {}
         
         self.fig, self.ax = None, None
 
@@ -88,7 +102,7 @@ class Diagram:
         self.cache_folder = cache_folder
         
         if constructions_list:                
-            self.construct_diagram(constructions_list)
+            self.construct_diagram(constructions_list, coordinates_list)
             
     def clear(self):
         self.points.clear()
@@ -101,6 +115,8 @@ class Diagram:
         self.auxiliary_constructions.clear()
         self.construction2diagram.clear()
         self.constructions_list.clear()
+        self.numerical_cache.clear()
+        self.coordinates_list.clear()
     
     def save(self):
         self._saved = {
@@ -113,7 +129,9 @@ class Diagram:
             'point2name': self.point2name.copy(),
             'auxiliary_constructions': self.auxiliary_constructions.copy(),
             'construction2diagram': self.construction2diagram.copy(),
-            'constructions_list': self.constructions_list.copy()
+            'constructions_list': self.constructions_list.copy(),
+            'coordinates_list': self.coordinates_list.copy(),
+            'numerical_cache': self.numerical_cache.copy()
         }
     
     def restore(self):
@@ -128,41 +146,57 @@ class Diagram:
             self.auxiliary_constructions = self._saved['auxiliary_constructions']
             self.construction2diagram = self._saved['construction2diagram']
             self.constructions_list = self._saved['constructions_list']
+            self.coordinates_list = self._saved['coordinates_list']
+            self.numerical_cache = self._saved['numerical_cache']
         
     def show(self):
         self.draw_diagram(show=True)
         
     def save_to_cache(self):
         if self.cache_folder is not None:
-            file_name = f"{hash_constructions_list(self.constructions_list)}.pkl"
+            h = hash_constructions_list(self.constructions_list)
+            if self.coordinates_list:
+                h = merge_hashes(h, hash_coordinates_list(self.coordinates_list))
+            file_name = f"{h}.pkl"
             file_path = os.path.join(self.cache_folder, file_name)
             # print(f'Save to {file_path}...')
             with open(file_path, 'wb') as f:
                 pickle.dump(self, f)
     
-    def add_constructions(self, constructions, auxiliary=False):
+    def add_constructions(self, constructions, coordinates=None, auxiliary=False):
         self.save()
-        attempts = iter(range(MAX_DIAGRAM_ATTEMPTS)) if MAX_DIAGRAM_ATTEMPTS is not None else iter(int, 1)
-        for _ in attempts:
+        max_attempts = utils.MAX_DIAGRAM_ATTEMPTS or float('inf')
+        attempt = 0
+
+        while attempt < max_attempts:
+            attempt += 1
             try:
-                new_points = self.construct(constructions)
+                new_points = self.construct(constructions, coordinates)
                 self.draw(new_points, constructions, auxiliary)
+                self.constructions_list.append(constructions)
+                if coordinates:
+                    self.coordinates_list.append(coordinates)
                 return
             except (NumericalCheckingError, SamplingError, DistanceError):
                 self.restore()
             except Exception:
                 raise                
-        
         raise MaxAttemptsError()
             
-    def construct_diagram(self, constructions_list):
-        attempts = iter(range(MAX_DIAGRAM_ATTEMPTS)) if MAX_DIAGRAM_ATTEMPTS is not None else iter(int, 1)
-        for _ in attempts:
+    def construct_diagram(self, constructions_list, coordinates_list):
+        max_attempts = utils.MAX_DIAGRAM_ATTEMPTS or float('inf')
+        attempt = 0
+
+        while attempt < max_attempts:
+            attempt += 1
             try:
                 self.clear()
-                for constructions in constructions_list:
-                    new_points = self.construct(constructions)
+                for constructions, coordinates in zip_longest(constructions_list, coordinates_list, fillvalue=None):
+                    new_points = self.construct(constructions, coordinates)
                     self.draw(new_points, constructions, auxiliary=False)
+                    self.constructions_list.append(constructions)
+                    if coordinates:
+                        self.coordinates_list.append(coordinates)
                 self.draw_diagram()
                 self.save_to_cache()
                 return
@@ -173,21 +207,27 @@ class Diagram:
         
         raise MaxAttemptsError()
             
-    def construct(self, constructions: list[ConstructionRule]):
+    def construct(self, constructions: list[ConstructionRule], coordinates=None):
         outputs = constructions[0].outputs
         if any(construction.outputs != outputs for construction in constructions[1:]):
             raise Exception()
-
-        to_be_intersected = []
-        for construction in constructions:
-            for c in construction.conditions():
-                if not self.numerical_check(c):
-                    raise NumericalCheckingError()
-            to_be_intersected += self.sketch(construction)
         
-        new_points = self.reduce(to_be_intersected, self.points)
-        
-        self.check_distance(new_points)
+        if coordinates:
+            # given coordinates
+            if [c[0] for c in coordinates] != outputs:
+                raise Exception()
+            new_points = [Point(c[1], c[2]) for c in coordinates]
+        else:
+            # sampling
+            to_be_intersected = []
+            for construction in constructions:
+                for c in construction.conditions():
+                    if not self.numerical_check(c):
+                        raise NumericalCheckingError()
+                to_be_intersected += self.sketch(construction)
+            
+            new_points = self.reduce(to_be_intersected, self.points)
+            self.check_distance(new_points)
 
         self.points = self.points + new_points # Rebinds to a new list
         
@@ -226,27 +266,29 @@ class Diagram:
                 return True
             func = globals()['check_' + relation.__class__.__name__.lower()]
             args = [self.name2point[p.name] for p in relation.get_points()]
-            if relation.negated:
-                return not func(args)
-            else:
-                return func(args)
+            if relation not in self.numerical_cache:
+                if relation.negated:
+                    self.numerical_cache[relation] = not func(args)
+                else:
+                    self.numerical_cache[relation] = func(args)
+            return self.numerical_cache[relation]
         else:
-            symbol2value = {}
-            symbols, symbol_names = parse_expression(relation)
+            if relation not in self.numerical_cache:
+                symbol2value = {}
+                symbols, symbol_names = parse_expression(relation)
+                
+                for angle_symbol, angle_name in zip(symbols['Angle'], symbol_names['Angle']):
+                    angle_value = calculate_angle(*[self.name2point[n] for n in angle_name])
+                    symbol2value[angle_symbol] = angle_value
+                
+                for length_symbol, length_name in zip(symbols['Length'], symbol_names['Length']):
+                    length_value = calculate_length(*[self.name2point[n] for n in length_name])
+                    symbol2value[length_symbol] = length_value
+                
+                evaluated_expr = relation.subs(symbol2value)
+                self.numerical_cache[relation] = close_enough(float(evaluated_expr.evalf()), 0)
             
-            for angle_symbol, angle_name in zip(symbols['Angle'], symbol_names['Angle']):
-                angle_value = calculate_angle(*[self.name2point[n] for n in angle_name])
-                symbol2value[angle_symbol] = angle_value
-            
-            for length_symbol, length_name in zip(symbols['Length'], symbol_names['Length']):
-                length_value = calculate_length(*[self.name2point[n] for n in length_name])
-                symbol2value[length_symbol] = length_value
-            
-            evaluated_expr = relation.subs(symbol2value)
-            if close_enough(float(evaluated_expr.evalf()), 0):
-                return True
-            else:
-                return False
+            return self.numerical_cache[relation]
 
     def sketch(self, construction):
         func = getattr(self, 'sketch_' + construction.__class__.__name__[10:])
@@ -824,6 +866,24 @@ class Diagram:
             y = x + w - o
             t = z + w - o
             return [x, y, z, t]
+
+        swap = rb > ra
+        if swap:
+            o, a, w, b = w, b, o, a
+            ra, rb = rb, ra
+
+        oa = Circle(o, ra)
+        q = o + (w - o) * ra / (ra - rb)
+
+        x, z = intersect(Circle(center=(o+q)*0.5, p1=o), oa)
+        y = w.foot(Line(x, q))
+        t = w.foot(Line(z, q))
+
+        if swap:
+            x, y, z, t = y, x, t, z
+
+        return [x, y, z, t]
+
     
     def sketch_cc_tangent0(self, *args) -> Ray:
         o, a, w, b = args
@@ -842,8 +902,7 @@ class Diagram:
     
     def sketch_tangent(self, *args) -> list[Point]:
         a, o, b = args
-        dia = self.sketch_dia([a, o])
-        return list(intersect(Circle(o, o.distance(b)), dia))
+        return list(intersect(Circle(o, o.distance(b)), Circle(center=(a+o)*0.5, p1=a)))
     
     def sketch_on_circum(self, *args) -> Circle:
         a, b, c = args
@@ -865,7 +924,7 @@ class Diagram:
                 choices.append(obj)
             else:
                 choices.append((obj,))
-
+        
         for combo in product(*choices):
             try:
                 new_points = self._reduce(list(combo), existing_points)
@@ -936,8 +995,6 @@ class Diagram:
             )
             if auxiliary:
                 self.auxiliary_constructions.append(construction)
-        
-        self.constructions_list.append(constructions)
             
     def draw_angle_bisector(self, *args):
         x, a, b, c = args

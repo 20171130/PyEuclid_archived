@@ -5,10 +5,11 @@ import shutil
 import os
 from sympy import sympify
 
+import pyeuclid.formalization.utils as utils
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.translation import parse_texts_from_file
-from pyeuclid.formalization.utils import Timeout, MAX_DIAGRAM_ATTEMPTS
+from pyeuclid.formalization.utils import Timeout
 from pyeuclid.engine.inference_rule import inference_rule_sets
 from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
@@ -18,7 +19,7 @@ import traceback
 
 class TestBenchmarks(unittest.TestCase):
     def test_jgex_ag_231(self):
-        MAX_DIAGRAM_ATTEMPTS = None
+        utils.MAX_DIAGRAM_ATTEMPTS = None
         rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
         world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
         texts = parse_texts_from_file('data/IMO-AG-30.txt')
@@ -30,7 +31,7 @@ class TestBenchmarks(unittest.TestCase):
             if world_size > 1:
                 state.silent = True
             try:
-                constructions_list = state.load_problem_from_text(text, f'diagrams/IMO-AG-30/{idx+1}.jpg')
+                state.load_problem_from_text(text, f'diagrams/IMO-AG-30/{idx+1}.jpg')
                 os.makedirs(f'results/IMO-AG-30/{idx+1}/', exist_ok=True)
                 shutil.copy(f"diagrams/IMO-AG-30/{idx+1}.jpg", f"results/IMO-AG-30/{idx+1}/diagram.jpg")
                 deductive_database = DeductiveDatabase(state)

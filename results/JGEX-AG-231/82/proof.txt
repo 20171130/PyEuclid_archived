@@ -1,8 +1,8 @@
 Solution:
-1. Midpoint(f,c,d) => Length_c_d - 2*Length_c_f
-2. Length_c_d - 2*Length_c_f => Length_c_d/Length_c_f - 2
-3. Collinear(a,b,d) & Collinear(a,b,i) => Collinear(a,d,i)
-4. Midpoint(g,a,b) & Midpoint(e,b,c) => Parallel(a,c,e,g)
+1. Collinear(a,b,d) & Collinear(a,b,i) => Collinear(a,d,i)
+2. Midpoint(g,a,b) & Midpoint(e,b,c) => Parallel(a,c,e,g)
+3. Midpoint(h,f,g) => Length_f_g - 2*Length_f_h
+4. Length_f_g - 2*Length_f_h => -1/2 + Length_f_h/Length_f_g
 5. Midpoint(e,b,c) & Midpoint(f,c,d) => Parallel(b,d,e,f)
 6. Collinear(a,b,g) => Parallel(a,b,a,g)
 7. Collinear(a,b,d) => Parallel(a,b,b,d)
@@ -12,13 +12,13 @@ Solution:
 11. Parallel(a,g,b,d) & Parallel(a,g,g,i) => Parallel(b,d,g,i)
 12. Parallel(b,d,e,f) & Parallel(b,d,g,i) => Parallel(e,f,g,i)
 13. Collinear(e,h,i) & Collinear(f,g,h) & Parallel(e,f,g,i) => Length_e_h/Length_f_h - Length_e_i/Length_f_g
-14. Midpoint(h,f,g) => Length_f_g - 2*Length_f_h
-15. Length_f_g - 2*Length_f_h => -1/2 + Length_f_h/Length_f_g
-16. Length_e_h/Length_f_h - Length_e_i/Length_f_g & -1/2 + Length_f_h/Length_f_g => Length_e_h/Length_e_i - 1/2
-17. Length_e_h/Length_e_i - 1/2 => Midpoint(h,e,i)
-18. Midpoint(h,e,i) & Midpoint(h,f,g) => Parallel(e,g,f,i)
-19. Parallel(a,c,e,g) & Parallel(e,g,f,i) => Parallel(a,c,f,i)
-20. Collinear(a,d,i) & Collinear(c,d,f) & Parallel(a,c,f,i) => Length_a_d/Length_c_d - Length_a_i/Length_c_f
-21. Length_c_d/Length_c_f - 2 & Length_a_d/Length_c_d - Length_a_i/Length_c_f => -1/2 + Length_a_i/Length_a_d
+14. -1/2 + Length_f_h/Length_f_g & Length_e_h/Length_f_h - Length_e_i/Length_f_g => Length_e_h/Length_e_i - 1/2
+15. Length_e_h/Length_e_i - 1/2 => Midpoint(h,e,i)
+16. Midpoint(h,e,i) & Midpoint(h,f,g) => Parallel(e,g,f,i)
+17. Parallel(a,c,e,g) & Parallel(e,g,f,i) => Parallel(a,c,f,i)
+18. Collinear(a,d,i) & Collinear(c,d,f) & Parallel(a,c,f,i) => Length_a_d/Length_c_d - Length_a_i/Length_c_f
+19. Midpoint(f,c,d) => Length_c_d - 2*Length_c_f
+20. Length_c_d - 2*Length_c_f => Length_c_d/Length_c_f - 2
+21. Length_a_d/Length_c_d - Length_a_i/Length_c_f & Length_c_d/Length_c_f - 2 => -1/2 + Length_a_i/Length_a_d
 22. -1/2 + Length_a_i/Length_a_d => Midpoint(i,a,d)
 23. Midpoint(i,a,d) => Length_a_i - Length_d_i

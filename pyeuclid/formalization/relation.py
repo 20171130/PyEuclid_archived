@@ -658,10 +658,32 @@ class Excenter(Relation):
         return [(self.o, *perm) for perm in itertools.permutations([self.p1, self.p2, self.p3])]
 
 
+@register
+class Acute(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        p1, p3 = sort_points(p1, p3)
+        self.p1, self.p2, self.p3 = p1, p2, p3
+    
+    def permutations(self):
+        return [(self.p1, self.p2, self.p3), (self.p3, self.p2, self.p1)]
+
+
+@register
+class Obtuse(Relation):
+    def __init__(self, p1: Point, p2: Point, p3: Point):
+        super().__init__()
+        p1, p3 = sort_points(p1, p3)
+        self.p1, self.p2, self.p3 = p1, p2, p3
+    
+    def permutations(self):
+        return [(self.p1, self.p2, self.p3), (self.p3, self.p2, self.p1)]
+
+
 def trivial_condition(node):
     if isinstance(node, Relation) and node.negated:
         return True
-    if isinstance(node, (Between, SameSide, OppositeSide, Lt, Different2, Triangle, Quadrilateral)):
+    if isinstance(node, (Between, Acute, Obtuse, SameSide, OppositeSide, Lt, Different2, Triangle, Quadrilateral)):
         return True
     if isinstance(node, Collinear) and ((node.p1 == node.p2 or node.p2 == node.p3 or node.p3 == node.p1)):
         return True

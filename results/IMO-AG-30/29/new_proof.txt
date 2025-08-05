@@ -1,3 +1,0 @@
-Solution:
-1. Angle_d_o1_o2 - Angle_d_o1_x + Angle_o2_o1_x & Angle_o2_o1_x - Angle_o2_o1_y + Angle_x_o1_y & Angle_d_x_y + Angle_d_y_x + Angle_x_d_y - pi & Angle_o1_x_y + Angle_o1_y_x + Angle_x_o1_y - pi & Angle_d_o1_o2 + Angle_d_o1_y - Angle_o2_o1_y & Angle_d_x_o1 - Angle_d_x_y + Angle_o1_x_y & Angle_d_o1_y + Angle_d_y_o1 + Angle_o1_d_y - pi & Angle_o1_d_x + Angle_o1_d_y - Angle_x_d_y & Angle_d_o1_x + Angle_d_x_o1 + Angle_o1_d_x - pi & Angle_d_y_o1 - Angle_d_y_x + Angle_o1_y_x => Angle_o2_o1_y - pi
-2. Angle_o2_o1_y - pi => Collinear(o1,o2,y)

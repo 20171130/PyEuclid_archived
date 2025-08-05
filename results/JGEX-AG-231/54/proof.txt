@@ -1,11 +1,11 @@
 Solution:
 1. Collinear(a,b,e) => Angle_b_a_d - Angle_d_a_e
-2. Angle_b_a_d - Angle_c_a_d & Angle_b_a_d - Angle_d_a_e => Angle_c_a_d - Angle_d_a_e
+2. Angle_b_a_d - Angle_d_a_e & Angle_b_a_c - 2*Angle_c_a_d & Angle_b_a_c - 2*Angle_b_a_d => Angle_c_a_d - Angle_d_a_e
 3. Length_a_c - Length_a_e & Angle_c_a_d - Angle_d_a_e => Congruent3(a,c,d,a,e,d)
 4. Congruent3(a,c,d,a,e,d) => Angle_a_c_d - Angle_a_e_d
 5. Length_a_c - Length_a_e => Angle_a_c_e - Angle_a_e_c
 6. Collinear(b,c,d) => Parallel(b,c,c,d)
 7. Parallel(b,c,c,d) & Parallel(b,c,e,f) => Parallel(c,d,e,f)
 8. Parallel(c,d,e,f) => Angle_c_f_e + Angle_d_c_f - pi
-9. Angle_c_f_e + Angle_d_c_f - pi & Angle_c_e_f + Angle_c_f_e + Angle_e_c_f - pi & Angle_d_c_e - Angle_d_c_f + Angle_e_c_f => Angle_c_e_f - Angle_d_c_e
-10. Angle_a_c_d - Angle_a_e_d & Angle_a_c_e - Angle_a_e_c & Angle_a_e_c - Angle_a_e_d - Angle_c_e_d & Angle_c_e_f - Angle_d_c_e & Angle_a_c_d - Angle_a_c_e + Angle_d_c_e => Angle_c_e_d - Angle_c_e_f
+9. Angle_c_f_e + Angle_d_c_f - pi & Angle_d_c_e - Angle_d_c_f + Angle_e_c_f & Angle_c_e_f + Angle_c_f_e + Angle_e_c_f - pi => Angle_c_e_f - Angle_d_c_e
+10. Angle_a_c_d - Angle_a_c_e + Angle_d_c_e & Angle_a_c_d - Angle_a_e_d & Angle_a_c_e - Angle_a_e_c & Angle_a_e_c - Angle_a_e_d - Angle_c_e_d & Angle_c_e_f - Angle_d_c_e => Angle_c_e_d - Angle_c_e_f

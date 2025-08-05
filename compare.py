@@ -72,3 +72,33 @@ print('new')
 for i in solved2:
     if i not in solved1:
         print(i)
+
+def parse_problems_from_file(file_name):
+    with open(file_name, "r") as f:
+        lines = f.readlines()
+    
+    texts = [lines[i].strip() for i in range(0, len(lines), 2)]
+    return texts
+
+problems = parse_problems_from_file('data/IMO-AG-30.txt')
+
+def extract_solved_problems(lines):
+    solved = []
+    for i in range(len(lines) - 2):
+        if re.match(r'^translated_imo_\d{4}_p\w+', lines[i]):
+            if re.match(r'^=+$', lines[i+1]):
+                solved.append(lines[i])
+    return solved
+
+# Example usage
+with open('tests/30_proofs.txt', 'r') as f:
+    lines = [line.strip() for line in f.readlines()]
+
+solved_problems = extract_solved_problems(lines)
+print(solved_problems)
+
+
+for i, p in enumerate(problems):
+    ours = str(i) in solved2
+    AG = p in solved_problems
+    print(i, 'ours:', ours, 'AG:', AG)

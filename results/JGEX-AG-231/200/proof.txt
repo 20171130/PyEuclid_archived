@@ -1,16 +1,16 @@
 Solution:
-1. Collinear(b,c,p) => Angle_a_b_c + Angle_a_b_p - pi & Angle_a_p_b - Angle_a_p_c & Angle_b_p_d - Angle_c_p_d & Angle_c_b_d + Angle_d_b_p - pi & Angle_c_b_e + Angle_e_b_p - pi
+1. Collinear(b,c,p) => Angle_a_b_c + Angle_a_b_p - pi & Angle_a_p_b - Angle_a_p_c & Angle_b_p_d - Angle_c_p_d & Angle_c_b_e - Angle_c_b_p + Angle_e_b_p & Angle_c_b_d - Angle_c_b_p + Angle_d_b_p
 2. Length_a_o - Length_c_o & Length_a_o - Length_b_o & Perpendicular(a,o,a,p) => Angle_a_b_c + Angle_c_a_p - pi
 3. Angle_a_b_c + Angle_a_b_p - pi & Angle_a_b_c + Angle_c_a_p - pi => Angle_a_b_p - Angle_c_a_p
 4. Angle_a_b_p - Angle_c_a_p & Angle_a_p_b - Angle_a_p_c => Similar3(a,b,p,c,a,p)
-5. Similar3(a,b,p,c,a,p) => Length_a_p/Length_c_p - Length_b_p/Length_a_p
-6. Length_a_p - Length_d_p & Length_a_p/Length_c_p - Length_b_p/Length_a_p => Length_b_p/Length_d_p - Length_d_p/Length_c_p
+5. Similar3(a,b,p,c,a,p) => Length_a_p/Length_b_p - Length_c_p/Length_a_p
+6. Length_a_p/Length_b_p - Length_c_p/Length_a_p & Length_a_p - Length_d_p => Length_b_p/Length_d_p - Length_d_p/Length_c_p
 7. Length_b_p/Length_d_p - Length_d_p/Length_c_p & Angle_b_p_d - Angle_c_p_d => Similar3(b,d,p,d,c,p)
 8. Similar3(b,d,p,d,c,p) => Angle_c_d_p - Angle_d_b_p
-9. Length_b_o - Length_c_o & Length_b_o - Length_e_o => Angle_c_b_e - Angle_c_o_e/2 & Length_c_o - Length_e_o
-10. Collinear(b,d,e) => Angle_d_b_e - Angle_d_b_p - Angle_e_b_p & Angle_c_b_d + Angle_c_b_e - Angle_d_b_e
-11. Length_c_o - Length_e_o & Length_c_o - Length_f_o => Length_e_o - Length_f_o
+9. Collinear(b,d,e) => Angle_d_b_e - Angle_d_b_p - Angle_e_b_p & Angle_c_b_d + Angle_c_b_e - Angle_d_b_e
+10. Length_b_o - Length_c_o & Length_b_o - Length_e_o => Length_c_o - Length_e_o & Angle_c_b_e - Angle_c_o_e/2
+11. Length_c_o - Length_f_o & Length_c_o - Length_e_o => Length_e_o - Length_f_o
 12. -Length_c_o + Length_f_o & -Length_e_o + Length_f_o => Angle_c_f_e - Angle_c_o_e/2
-13. Angle_c_b_e - Angle_c_o_e/2 & Angle_c_b_d + Angle_d_b_p - pi & Angle_d_b_e - Angle_d_b_p - Angle_e_b_p & Angle_c_b_e + Angle_e_b_p - pi & Angle_c_b_d + Angle_c_b_e - Angle_d_b_e & Angle_c_f_e - Angle_c_o_e/2 => Angle_c_f_e - Angle_d_b_p
+13. Angle_d_b_e - Angle_d_b_p - Angle_e_b_p & Angle_c_b_e - Angle_c_b_p + Angle_e_b_p & Angle_c_f_e - Angle_c_o_e/2 & Angle_c_b_e - Angle_c_o_e/2 & Angle_c_b_d + Angle_c_b_e - Angle_d_b_e & Angle_c_b_d - Angle_c_b_p + Angle_d_b_p => Angle_c_f_e - Angle_d_b_p
 14. Angle_c_d_p - Angle_d_b_p & Angle_c_f_e - Angle_d_b_p => Angle_c_d_p - Angle_c_f_e
 15. Angle_c_d_p - Angle_c_f_e & Collinear(c,d,f) => Parallel(d,p,e,f)

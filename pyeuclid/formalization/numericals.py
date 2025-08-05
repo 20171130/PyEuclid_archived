@@ -799,3 +799,19 @@ def check_similiar3(points: list[Point]) -> bool:
   return close_enough(ab * yz, bc * xy, tol) and close_enough(
       bc * zx, ca * yz, tol
   )
+
+def check_acute(points: list[Point]) -> bool:
+    a, b, c = points
+    ab_x, ab_y = a.x - b.x, a.y - b.y
+    cb_x, cb_y = c.x - b.x, c.y - b.y
+
+    dot_product = ab_x * cb_x + ab_y * cb_y
+    return dot_product > ATOM
+
+def check_obtuse(points: list[Point]) -> bool:
+    a, b, c = points
+    ab_x, ab_y = a.x - b.x, a.y - b.y
+    cb_x, cb_y = c.x - b.x, c.y - b.y
+
+    dot_product = ab_x * cb_x + ab_y * cb_y
+    return dot_product < -ATOM

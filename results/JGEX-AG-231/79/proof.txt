@@ -15,10 +15,6 @@ Solution:
 14. Collinear(a,b,g) & Collinear(g,h,i) & Parallel(a,h,b,i) => Similar3(a,g,h,b,g,i)
 15. Similar3(a,g,h,b,g,i) => Length_a_g/Length_g_h - Length_b_g/Length_g_i
 16. Parallel(a,b,b,g) & Parallel(a,b,d,f) => Parallel(b,g,d,f)
-17. Collinear(b,d,e) & Collinear(e,f,g) & Parallel(b,g,d,f) => Length_b_d/Length_f_g - Length_b_e/Length_e_g & Similar3(b,e,g,d,e,f)
-18. Midpoint(e,b,d) => Length_b_d - 2*Length_b_e
-19. Length_b_d/Length_f_g - Length_b_e/Length_e_g & Length_b_d - 2*Length_b_e => Length_e_g/Length_f_g - 1/2
-20. Length_e_g/Length_f_g - 1/2 => Midpoint(e,f,g)
-21. Midpoint(e,f,g) => Length_e_f - Length_e_g
-22. Similar3(b,e,g,d,e,f) => Length_e_f/Length_d_f - Length_e_g/Length_b_g
-23. Length_a_g/Length_g_h - Length_d_f/Length_f_h & Length_a_g/Length_g_h - Length_b_g/Length_g_i & Length_e_f - Length_e_g & Length_e_f/Length_d_f - Length_e_g/Length_b_g => Length_f_h - Length_g_i
+17. Collinear(b,d,e) & Collinear(e,f,g) & Parallel(b,g,d,f) => Similar3(b,e,g,d,e,f)
+18. Similar3(b,e,g,d,e,f) => Length_b_e/Length_d_e - Length_b_g/Length_d_f
+19. Length_a_g/Length_g_h - Length_d_f/Length_f_h & Length_a_g/Length_g_h - Length_b_g/Length_g_i & Length_b_e - Length_d_e & Length_b_e/Length_d_e - Length_b_g/Length_d_f => Length_f_h - Length_g_i

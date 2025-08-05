@@ -3,11 +3,11 @@ Solution:
 2. Midpoint(g,a,e) & Midpoint(f,d,e) => Parallel(a,d,f,g)
 3. Parallel(a,d,b,c) & Parallel(a,d,f,g) => Parallel(b,c,f,g)
 4. Parallel(b,c,f,g) => Trapezoid(b,c,f,g)
-5. Parallelogram(a,b,c,d) & Collinear(a,c,e) & Collinear(b,d,e) => Length_b_e - Length_d_e & Length_a_e - Length_c_e
-6. Midpoint(f,d,e) => Length_d_e - 2*Length_d_f
-7. Length_d_f - Length_e_f & Length_b_e - Length_d_e & Length_b_e - Length_b_f + Length_e_f & Length_d_e - 2*Length_d_f & Length_b_d - Length_b_f - Length_d_f => Length_b_d - 4*Length_b_f/3
-8. Midpoint(g,a,e) => Length_a_e - 2*Length_a_g
-9. Length_a_c - Length_b_d & Length_c_e - Length_c_g + Length_e_g & Length_a_g - Length_e_g & Length_a_c - Length_a_g - Length_c_g & Length_a_e - 2*Length_a_g & Length_a_e - Length_c_e => Length_b_d - 4*Length_c_g/3
-10. Length_b_d - 4*Length_b_f/3 & Length_b_d - 4*Length_c_g/3 => Length_b_f - Length_c_g
+5. Midpoint(g,a,e) => Length_a_e - 2*Length_a_g
+6. Parallelogram(a,b,c,d) & Collinear(a,c,e) & Collinear(b,d,e) => Length_a_e - Length_c_e & Length_b_e - Length_d_e
+7. Length_a_g - Length_e_g & Length_a_e - 2*Length_a_g & Length_a_e - Length_c_e & Length_a_c - Length_a_g - Length_c_g & Length_c_e - Length_c_g + Length_e_g => Length_a_c - 4*Length_c_g/3
+8. Midpoint(f,d,e) => Length_d_e - 2*Length_e_f & Length_d_e - 2*Length_d_f
+9. Length_a_c - Length_b_d & Length_b_e - Length_d_e & Length_b_e - Length_b_f + Length_e_f & Length_b_d - Length_b_f - Length_d_f & Length_d_e - 2*Length_e_f & Length_d_e - 2*Length_d_f => Length_a_c - 4*Length_b_f/3
+10. Length_a_c - 4*Length_c_g/3 & Length_a_c - 4*Length_b_f/3 => Length_b_f - Length_c_g
 11. Trapezoid(b,c,f,g) & Parallel(b,c,f,g) & Length_b_f - Length_c_g => EquilateralTrapezoid(b,c,f,g)
 12. EquilateralTrapezoid(b,c,f,g) & Parallel(b,c,f,g) => Length_b_g - Length_c_f

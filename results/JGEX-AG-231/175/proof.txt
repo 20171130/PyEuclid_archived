@@ -1,5 +1,5 @@
 Solution:
-1. Parallel(a,b,e,i) => Angle_a_b_i + Angle_b_i_e - pi
+1. Parallel(a,b,e,i) => Angle_a_e_i + Angle_b_a_e - pi
 2. Collinear(a,c,e) => Angle_c_a_i - Angle_e_a_i
-3. Angle_a_b_i + Angle_b_i_e - pi & Angle_a_i_b + Angle_a_i_e - Angle_b_i_e & Angle_b_a_i - Angle_c_a_i & Angle_c_a_i - Angle_e_a_i & Angle_a_b_i + Angle_a_i_b + Angle_b_a_i - pi => Angle_a_i_e - Angle_e_a_i
+3. Angle_a_e_i + Angle_b_a_e - pi & Angle_c_a_i - Angle_e_a_i & Angle_b_a_i - Angle_c_a_i & Angle_b_a_e - Angle_b_a_i - Angle_e_a_i & Angle_a_e_i + Angle_a_i_e + Angle_e_a_i - pi => Angle_a_i_e - Angle_e_a_i
 4. -Angle_a_i_e + Angle_e_a_i => Length_a_e - Length_e_i

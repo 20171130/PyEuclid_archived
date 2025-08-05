@@ -2,6 +2,7 @@ import time
 import logging
 import argparse
 
+import pyeuclid.formalization.utils as utils
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.construction_rule import *
@@ -14,16 +15,17 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c d = isquare a b c d; e = circumcenter e a d b; f = incenter f b d c; g = eqdistance g f c d, lc_tangent g e f; h = angle_bisector2 h f e b, on_opline h a g; i = on_line i h d, on_dia i h c ? perp c g d h")
+# A,B,C = construct_risos(), D = construct_on_line(A,B), E = construct_on_pline(C,D,A), E = construct_on_tline(D,C,B)
+parser.add_argument('--problem-string', type=str, help="A problem string in jgex format, refer to data/JGEX-AG-231.txt for examples.", default="a b c = triangle a b c; d e = square a c d e; g f = square c b g f ? perp d b f a")
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
-    MAX_DIAGRAM_ATTEMPTS = 1000
+    utils.MAX_DIAGRAM_ATTEMPTS = None
     state = State()
     # state.silent = True
     state.logger.setLevel(logging.INFO)
     if args.problem_string is not None:
-        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg')
+        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg', resample=True)
         state.diagram.draw_diagram()
     else:
         namespace = {}
@@ -40,8 +42,6 @@ def run_single_problem(args):
     proof_generator = ProofGenerator(state)
     proof_generator.max_equation_length_perstep = 6
     engine = Engine(state, deductive_database, algebraic_system)
-    # state.goal = Circumcenter(Point('b'),Point('a'),Point('c'),Point('d'))
-    # state.goal = Rhombus(Point('b'),Point('a'),Point('c'),Point('d'))
     t0 = time.time()
     engine.run()
     t = time.time() - t0

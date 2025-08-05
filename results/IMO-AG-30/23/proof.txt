@@ -1,4 +1,0 @@
-Solution:
-1. Collinear(e,m,y) => Angle_d_y_e + Angle_d_y_m - pi & Angle_b_y_e + Angle_b_y_m - pi
-2. Angle_d_y_e + Angle_d_y_m - pi & Angle_b_y_d - Angle_b_y_m - Angle_d_y_m & Angle_b_y_d - Angle_b_y_e - Angle_d_y_e & Angle_b_y_e + Angle_b_y_m - pi => Angle_b_y_d - pi
-3. Angle_b_y_d - pi => Collinear(b,d,y)

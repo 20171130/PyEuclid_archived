@@ -184,7 +184,15 @@ class State:
             notcollinear_relation = Not(Collinear(*perm))
             if self.diagram.numerical_check(notcollinear_relation):
                 self.add_conditions(notcollinear_relation)
-        
+            
+            acute_relation = Acute(*perm)
+            if self.diagram.numerical_check(acute_relation):
+                self.add_conditions(acute_relation)
+            
+            obtuse_relation = Obtuse(*perm)
+            if self.diagram.numerical_check(obtuse_relation):
+                self.add_conditions(obtuse_relation)
+
         for perm in permutations(self.points, 4):
             sameside_relation = SameSide(*perm)
             if self.diagram.numerical_check(sameside_relation):
@@ -195,11 +203,11 @@ class State:
                 self.add_conditions(oppositeside_relation)
         
     def load_problem_from_text(self, text, diagram_path=None, resample=False):
-        constructions_list = get_constructions_list_from_text(text)
+        constructions_list, coordinates_list = get_constructions_list_from_text(text)
         goal = get_goal_from_text(text)
         satisfied_goal = None
         
-        diagram = Diagram(constructions_list, diagram_path, resample=resample)
+        diagram = Diagram(constructions_list, coordinates_list, diagram_path, resample=resample)
 
         if goal:
             satisfied, satisfied_goal = diagram.numerical_check_goal(goal)
@@ -207,7 +215,7 @@ class State:
             for _ in range(MAX_DIAGRAM_ATTEMPTS):
                 if satisfied:
                     break
-                diagram = Diagram(constructions_list, diagram_path, resample=True)
+                diagram = Diagram(constructions_list, coordinates_list, diagram_path, resample=True)
                 satisfied, satisfied_goal = diagram.numerical_check_goal(goal)
 
             if not satisfied:
@@ -221,8 +229,6 @@ class State:
         
         for constructions in constructions_list:
             self.add_constructions(constructions)
-        
-        return constructions_list
  
     def complete(self):
         if not self.goal:

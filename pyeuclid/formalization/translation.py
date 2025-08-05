@@ -9,12 +9,20 @@ def get_constructions_list_from_text(text):
     parts = text.split(' ? ')
     constructions_text_list = parts[0].split('; ')
     constructions_list = []
+    coordinates_list = []
     index = 0
     
     for constructions_text in constructions_text_list:
         outputs_text, constructions_text = constructions_text.split(' = ')
         construction_text_list = constructions_text.split(', ')
-        output_names = [name.replace('_', '') for name in outputs_text.split(' ')]
+        pattern = r'(\w+)@([-\d.]+)_([-\d.]+)'
+        results = re.findall(pattern, outputs_text)
+        if results:
+            output_names = [r[0] for r in results]
+            coordinates_list.append([(Point(name.replace('_', '')), float(x), float(y)) for name, x, y in results])
+        else:
+            output_names = [name.replace('_', '') for name in outputs_text.split(' ')]
+            coordinates_list.append(None)
         outputs = [Point(name) for name in output_names]
         constructions = []
         for construction_text in construction_text_list:
@@ -41,7 +49,7 @@ def get_constructions_list_from_text(text):
             constructions.append(construction)
         constructions_list.append(constructions)
     
-    return constructions_list
+    return constructions_list, coordinates_list
 
 def get_constructions_from_goal(goal):
     if isinstance(goal, Relation):

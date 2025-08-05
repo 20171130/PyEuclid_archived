@@ -1,0 +1,9 @@
+Solution:
+1. Midpoint(h,a,d) & Midpoint(e,c,d) => Similar3(a,c,d,h,e,d)
+2. Similar3(a,c,d,h,e,d) => Length_d_e/Length_c_d - Length_e_h/Length_a_c
+3. Parallel(a,b,c,d) => Trapezoid(a,b,c,d)
+4. Trapezoid(a,b,c,d) & Parallel(a,b,c,d) & -Length_a_d + Length_b_c => EquilateralTrapezoid(a,b,c,d)
+5. EquilateralTrapezoid(a,b,c,d) & Parallel(a,b,c,d) => Length_a_c - Length_b_d
+6. Midpoint(f,b,c) & Midpoint(e,c,d) => Similar3(b,c,d,f,c,e)
+7. Similar3(b,c,d,f,c,e) => Length_c_e/Length_c_d - Length_e_f/Length_b_d
+8. Length_d_e/Length_c_d - Length_e_h/Length_a_c & Length_a_c - Length_b_d & Length_c_e/Length_c_d - Length_e_f/Length_b_d & Length_c_e - Length_d_e => Length_e_f - Length_e_h

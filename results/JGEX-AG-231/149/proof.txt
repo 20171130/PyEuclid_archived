@@ -1,8 +1,8 @@
 Solution:
-1. Collinear(a,b,f) => Angle_b_a_e + Angle_e_a_f - pi & Angle_a_f_g - Angle_b_f_g
-2. Length_a_d - Length_b_d & Length_a_d - Length_d_e => Angle_b_a_e - Angle_b_d_e/2
-3. Collinear(c,e,f) => Angle_b_c_e + Angle_b_c_f - pi
-4. Parallel(a,e,f,g) => Angle_a_f_g + Angle_e_a_f - pi
-5. Length_a_d - Length_d_e & Length_a_d - Length_c_d => Length_c_d - Length_d_e
-6. -Length_b_d + Length_c_d & Length_c_d - Length_d_e => Angle_b_c_e - Angle_b_d_e/2
-7. Angle_b_a_e + Angle_e_a_f - pi & Angle_a_f_g - Angle_b_f_g & Angle_b_a_e - Angle_b_d_e/2 & Angle_b_c_e + Angle_b_c_f - pi & Angle_a_f_g + Angle_e_a_f - pi & Angle_b_c_e - Angle_b_d_e/2 => Angle_b_c_f + Angle_b_f_g - pi
+1. Collinear(c,e,f) => Angle_b_c_e + Angle_b_c_f - pi
+2. Length_a_d - Length_c_d & Length_a_d - Length_d_e => Length_c_d - Length_d_e
+3. -Length_b_d + Length_c_d & Length_c_d - Length_d_e => Angle_b_c_e - Angle_b_d_e/2
+4. Collinear(a,b,f) => Angle_a_f_g - Angle_b_f_g & Angle_b_a_e + Angle_e_a_f - pi
+5. Length_a_d - Length_b_d & Length_a_d - Length_d_e => Angle_b_a_e - Angle_b_d_e/2
+6. Parallel(a,e,f,g) => Angle_a_f_g + Angle_e_a_f - pi
+7. Angle_b_c_e + Angle_b_c_f - pi & Angle_b_c_e - Angle_b_d_e/2 & Angle_a_f_g - Angle_b_f_g & Angle_b_a_e - Angle_b_d_e/2 & Angle_a_f_g + Angle_e_a_f - pi & Angle_b_a_e + Angle_e_a_f - pi => Angle_b_c_f + Angle_b_f_g - pi

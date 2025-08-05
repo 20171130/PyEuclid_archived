@@ -179,3 +179,6 @@ diagrams/
 *.out
 samples*/
 logs/
+dataset/
+cache/*
+!cache/.gitkeep
