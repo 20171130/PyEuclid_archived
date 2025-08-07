@@ -211,7 +211,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             construction = random.choice(valid_constructions)
             construction.construct(*outputs)
             constructions.append(construction)
-
+        
         attempt += 1
         try:
             diagram.add_constructions(constructions)
@@ -253,7 +253,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         return {"samples_generated": 0, "samples_with_auxiliary": 0, "timeout": True}
 
     diagram.draw_diagram(save=True)
-
     i = 0
     samples_with_auxiliary = 0
     sub_conclusions = set()
@@ -284,9 +283,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     
     if not filtered_conclusions:
         return {"samples_generated": 0, "samples_with_auxiliary": 0}
-    
-    # print('found!!!')
-    # breakpoint()
     
     def get_sufficient_constructions(points):
         res = []
@@ -430,6 +426,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
                 aux_proof = aux_proof + str(construction) + '\n'
             new_proof_str = aux_proof + new_proof_str
             samples_with_auxiliary += 1
+        else:
+            continue
 
         diagram.save()
         if has_auxiliary:

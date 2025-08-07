@@ -1385,6 +1385,9 @@ class AlphaGeometry1(InferenceRule):
 
     def condition(self):
         return Perpendicular(self.a, self.b, self.c, self.d), Perpendicular(self.c, self.d, self.e, self.f), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.e, self.f), Leq(self.a, self.e)
+    
+    def degenerate(self):
+        return self.a == self.e and self.b == self.f
 
     def conclusion(self):
         return Parallel(self.a, self.b, self.e, self.f)
