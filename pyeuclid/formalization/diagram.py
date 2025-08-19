@@ -211,6 +211,12 @@ class Diagram:
         outputs = constructions[0].outputs
         if any(construction.outputs != outputs for construction in constructions[1:]):
             raise Exception()
+        if any(output.name in self.name2point.keys() for output in outputs):
+            raise Exception()
+        for construction in constructions:
+            for arg in construction.inputs:
+                if not isinstance(arg, float) and arg.name not in self.name2point.keys():
+                    raise Exception()
         
         if coordinates:
             # given coordinates
