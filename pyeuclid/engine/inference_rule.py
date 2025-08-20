@@ -29,8 +29,8 @@ class register():
         def format_conclusion(self):
             result = self._conclusion()
             if isinstance(result, Iterable):
-                return list(result)
-            return [result]
+                return result
+            return [result] 
         
         cls._condition = cls.condition        
         cls._conclusion = cls.conclusion
@@ -2762,3 +2762,232 @@ class CollinearParallel(InferenceRule):
 
     def conclusion(self):
         return Parallel(self.a, self.b, self.b, self.c), Parallel(self.a, self.b, self.a, self.c), Parallel(self.a, self.c, self.b, self.c)
+    
+    
+
+@register("complex")
+class RightTriangleTrigonometry(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a = a  # Vertex at angle A
+        self.b = b  # Right angle at B
+        self.c = c  # Vertex at C
+
+    def condition(self):
+        return [
+            Not(Collinear(self.a, self.b, self.c)),
+            Angle(self.a, self.b, self.c) - pi / 2,  # Right angle at B
+            *Different(self.a, self.b, self.c),
+        ]
+
+    def conclusion(self):
+        return [
+            sin(Angle(self.b, self.a, self.c)) -
+            Length(self.b, self.c) / Length(self.a, self.c),
+            cos(Angle(self.b, self.a, self.c)) -
+            Length(self.a, self.b) / Length(self.a, self.c),
+        ]
+
+
+@register("complex")
+class LawOfSines(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def condition(self):
+        return [
+            Not(Collinear(self.a, self.b, self.c)),
+            *Different(self.a, self.b, self.c),
+            Lt(self.a, self.b),
+            Lt(self.b, self.c),
+            Lt(self.a, self.c)
+        ]
+
+    def conclusion(self):
+        return [
+            sin(Angle(self.a, self.c, self.b)) / Length(self.a, self.b) -
+            sin(Angle(self.a, self.b, self.c)) /
+            Length(self.a, self.c),
+            sin(Angle(self.a, self.b, self.c)) / Length(self.a, self.c) -
+            sin(Angle(self.b, self.a, self.c)) /
+            Length(self.b, self.c),
+            sin(Angle(self.b, self.a, self.c)) / Length(self.b, self.c) -
+            sin(Angle(self.a, self.c, self.b)) /
+            Length(self.a, self.b)
+        ]
+
+
+@register("complex")
+class LawOfCosines(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def condition(self):
+        return [
+            Not(Collinear(self.a, self.b, self.c)),
+            *Different(self.a, self.b, self.c),
+            Lt(self.a, self.b),
+            Lt(self.a, self.c),
+            Lt(self.b, self.c)
+        ]
+
+    def conclusion(self):
+        return [
+            Length(self.b, self.c)**2 - Length(self.a, self.b)**2 - Length(self.a, self.c)**2 + Length(
+                self.a, self.b) * Length(self.a, self.c) * 2 * cos(Angle(self.b, self.a, self.c)),
+            Length(self.a, self.c)**2 - Length(self.a, self.b)**2 - Length(self.b, self.c)**2 + Length(
+                self.a, self.b) * Length(self.b, self.c) * 2 * cos(Angle(self.a, self.b, self.c)),
+            Length(self.a, self.b)**2 - Length(self.a, self.c)**2 - Length(self.b, self.c)**2 + Length(
+                self.a, self.c) * Length(self.b, self.c) * 2 * cos(Angle(self.a, self.c, self.b))
+        ]
+        
+
+@register('complex')
+class AreaEqualsBaseTimesHeight(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+
+        return [Not(Collinear(self.a, self.b, self.c)), *Different(self.a, self.b, self.c), Perpendicular(self.d, self.a, self.b, self.c), Collinear(self.d, self.b, self.c),
+                ]
+
+    def conclusion(self):
+        return [Area(self.a, self.b, self.c)-(Length(self.a, self.d)*Length(self.b, self.c))/2]
+
+
+@register('complex')
+class AreaRightTriangle(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def condition(self):
+        return [Not(Collinear(self.a, self.b, self.c)), Angle(self.a, self.b, self.c)-pi/2, *Different(self.a, self.b, self.c), Lt(self.a, self.c),]
+
+    def conclusion(self):
+
+        return [Area(self.a, self.b, self.c)-Length(self.a, self.b) * Length(self.b, self.c) / 2]
+
+
+@register('complex')
+class AreaHeronFormula(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def condition(self):
+        return [Not(Collinear(self.a, self.b, self.c)), *Different(self.a, self.b, self.c), Lt(self.a, self.b), Lt(self.b, self.c)]
+
+    def conclusion(self):
+        s = (Length(self.a, self.b)+Length(self.a, self.c)+Length(self.b, self.c))/2
+        return [Area(self.a, self.b, self.c)**2-(s*(s-Length(self.a, self.b))*(s-Length(self.a, self.c))*(s-Length(self.b, self.c)))]
+
+@register("complex")
+class ParallelogramArea(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return [Parallelogram(self.a, self.b, self.c, self.d), *Different(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d)
+                ]
+
+    def conclusion(self):
+        return [Area(self.a, self.b, self.c, self.d) - Length(self.a, self.b) * Length(self.b, self.c) * sin(Angle(self.a, self.b, self.c))]
+
+
+@register("complex")
+class TrapezoidArea(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+
+    def condition(self):
+
+        return [Trapezoid(self.a, self.b, self.c, self.d), Perpendicular(self.a, self.e, self.c, self.d), Collinear(self.e, self.c, self.d), *Different(self.a, self.b, self.c, self.d)
+                ]
+
+    def conclusion(self):
+        return [Area(self.a, self.b, self.c, self.d) - (Length(self.a, self.b) + Length(self.c, self.d)) * Length(self.a, self.e) / 2]
+
+
+@register("complex")
+class RightTrapezoidArea(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return [Trapezoid(self.a, self.b, self.c, self.d), Perpendicular(self.a, self.b, self.b, self.c)]
+
+    def conclusion(self):
+        return [Area(self.a, self.b, self.c, self.d) - (Length(self.a, self.b) + Length(self.c, self.d)) * Length(self.b, self.c) / 2]
+
+
+@register("complex")
+class Similar4PAreaLengthRatio(InferenceRule):
+    # only consider convex polygons
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point, g: Point, h: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+        self.g = g
+        self.h = h
+
+    def degenerate(self):
+        return self.a == self.e and self.b == self.f and self.c == self.g and self.d == self.h
+
+    def condition(self):
+        return [Similar(self.a, self.b, self.c, self.d, self.e, self.f, self.g, self.h), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.b, self.d), Quadrilateral(self.a, self.b, self.c, self.d), Quadrilateral(self.e, self.f, self.g, self.h)]
+
+    def conclusion(self):
+        return [Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.a, self.b)**2 / Length(self.e, self.f)**2,
+                Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.b, self.c)**2 / Length(self.f, self.g)**2,
+                Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.c, self.d)**2 / Length(self.g, self.h)**2,
+                Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.d, self.a)**2 / Length(self.h, self.e)**2]
+
+
+@register("complex")
+class RhombusArea(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return [Perpendicular(self.a, self.c, self.b, self.d), *Different(self.a, self.b, self.c, self.d),
+                Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), OppositeSide(self.a, self.c, self.b, self.d), OppositeSide(self.b, self.d, self.a, self.c)]
+
+    def conclusion(self):
+        return [Area(self.a, self.b, self.c, self.d) - Length(self.a, self.c) * Length(self.b, self.d) / 2]

@@ -105,11 +105,21 @@ class Equal(Relation):
 
 
 def Angle(p1: Point, p2: Point, p3: Point):
+    if isinstance(p1, str):
+        p1 = Point(p1)
+    if isinstance(p2, str):
+        p2 = Point(p2)
+    if isinstance(p3, str):
+        p3 = Point(p3)
     p1, p3 = sort_points(p1, p3)
     return Symbol(f"Angle_{p1}_{p2}_{p3}", non_negative=True)
 
 
 def Length(p1: Point, p2: Point):
+    if isinstance(p1, str):
+        p1 = Point(p1)
+    if isinstance(p2, str):
+        p2 = Point(p2)
     p1, p2 = sort_points(p1, p2)
     return Symbol(f"Length_{str(p1)}_{str(p2)}", positive=True)
 
@@ -190,6 +200,8 @@ class Collinear(Relation):
     def permutations(self):
         return itertools.permutations([self.p1, self.p2, self.p3])
 
+def NotCollinear(*ps):
+    return Not(Collinear(*ps))
 
 @register
 class Midpoint(Relation):
@@ -280,11 +292,11 @@ class Similar3(Relation):
         
         return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
 
-
+@register
 class Similar4(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point):
         super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3, p4], [p5, p6, p7, p8], mapping=True)
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8 = sort_point_groups([p1, p2, p3, p4], [p5, p6, p7, p8], mapping=True)
     
     def permutations(self):
         perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]

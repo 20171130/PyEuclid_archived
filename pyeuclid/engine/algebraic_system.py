@@ -44,8 +44,7 @@ class AlgebraicSystem:
         eqn = factors[0]
         for item in factors[1:]:
             eqn = eqn*item
-
-        return eqn
+        return eqn.expand()
     
     def process_solutions(self, var, eqn, solutions, var_types):
         symbols = eqn.free_symbols
@@ -168,7 +167,7 @@ class AlgebraicSystem:
             free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
             solved_vars.update(solved)
         free, solved = self.elim(length_linear, var_types, remove_redundant=False)
-        self.state.current_depth += 0.001
+        self.state.current_depth += 0.5
         for l1, v1 in solved.items():
             if len(v1.free_symbols) == 0:
                 self.state.add_conditions(Traced(l1-v1, depth=self.state.current_depth, sources=["length_linear"]))
@@ -180,31 +179,38 @@ class AlgebraicSystem:
 
         # prioritize on equations that contain only one variable to solve for exact values
         # then try to solve equations that are not much too complicated
-        for i, eqn in enumerate(others):
+        for eqn in others:
             if eqn.redundant:
                 continue
             raw_eqn = eqn
+            sources = [raw_eqn]
             symbols = eqn.free_symbols
             for symbol in symbols:
                 if symbol in solved_vars:
                     eqn = eqn.subs(symbol, solved_vars[symbol])
+                if "angle" in str(symbol).lower() or var_types.get(symbol) =="Angle":
+                    source = "angle_linear"
+                else: # including Area
+                    source = "length_ratio"
+                sources.append(Traced(symbol - solved_vars[symbol], depth=self.state.current_depth, sources=[source]))
+
             symbols = eqn.free_symbols
             expr = self.process_equation(eqn.expr)
-
-            angle_linear, length_linear, length_ratio, others = classify_equations([expr], var_types)
-            if others:
+            if expr == 0:
+                raw_eqn.redundant = True
                 continue
-            sources = [raw_eqn]
-            for other_symbol in raw_eqn.free_symbols:
-                if "angle" in str(other_symbol).lower():
-                    source = "angle_linear"
-                elif "length" in str(other_symbol).lower():
-                    source = "length_ratio"
-                else:
-                    source = var_types[other_symbol]
-                if not symbol == other_symbol:
-                    sources.append(Traced(other_symbol - solved_vars[other_symbol], depth=self.state.current_depth, sources=[source]))
-            eqn = Traced(expr, depth=self.state.current_depth, sources = sources)
+            if len(expr.free_symbols) ==  1:
+                symbol = list(expr.free_symbols)[0]
+                solutions = sympy.solve(expr, symbol)
+                solution = self.process_solutions(symbol, expr, solutions, var_types)
+                if solution is None:
+                    continue
+                eqn = Traced(symbol - solution, depth=self.state.current_depth, sources = sources)
+            else:
+                angle_linear, length_linear, length_ratio, others = classify_equations([Traced(expr)], var_types)
+                if others:
+                    continue
+                eqn = Traced(expr, depth=self.state.current_depth, sources = sources)
             self.state.add_conditions(eqn)
 
         self.state.solutions = solved_vars
@@ -234,7 +240,7 @@ class AlgebraicSystem:
                 unionfind.union(l, r)
         
     def compute_ratio_and_angle_sum(self):
-        self.state.current_depth += 0.001
+        self.state.current_depth += 0.5
         dic = {}
         tmp = self.state.lengths.equivalence_classes()
         for component in tmp.values():

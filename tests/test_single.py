@@ -14,7 +14,7 @@ from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
+parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=None)
 # A,B,C = construct_risos(), D = construct_on_circle(C,A), D = construct_on_line(C,A), E = construct_orthocenter(C,D,B), F = construct_angle_mirror(B,D,C), F = construct_on_circum(E,A,C), G,H = construct_square(E,F)
 parser.add_argument('--problem-string', type=str, default="a b = segment a b; c = free c; d = on_bline b c; e = parallelogram c a d e; f = eqdistance f e d b, on_circle f d a ? coll a d f")
 parser.add_argument('--show-proof', action='store_true')
@@ -24,10 +24,7 @@ def run_single_problem(args):
     state = State()
     # state.silent = True
     state.logger.setLevel(logging.INFO)
-    if args.problem_string is not None:
-        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg', resample=True)
-        state.diagram.draw_diagram()
-    else:
+    if args.problem_id is not None:
         namespace = {}
         with open(f'data/Geometry3K/{args.problem_id}/problem.py', "r") as file:
             exec(file.read(), namespace)
@@ -37,7 +34,11 @@ def run_single_problem(args):
         diagrammatic_relations = namespace.get("diagrammatic_relations")
         state.load_problem(conditions=conditions, goal=goal)
         state.add_conditions(diagrammatic_relations)
-    deductive_database = DeductiveDatabase(state)
+        deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['complex']+inference_rule_sets["basic"])
+    else:
+        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg', resample=True)
+        state.diagram.draw_diagram()
+        deductive_database = DeductiveDatabase(state)
     algebraic_system = AlgebraicSystem(state)
     proof_generator = ProofGenerator(state)
     proof_generator.max_equation_length_perstep = 6
@@ -83,8 +84,6 @@ def run_single_problem(args):
             for point in target_points:
                 mark_required(point)
             
-            input_points = set()
-            output_points = set()
             required_constructions = [c for c in constructions if c in required]
             auxilary_contructions = [c for c in constructions if c not in required]
             print([str(c) for c in required_constructions])

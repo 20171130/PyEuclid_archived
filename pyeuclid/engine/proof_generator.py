@@ -25,14 +25,20 @@ class ProofGenerator:
         if isinstance(node, ConstructionRule):
             return [node]
         
-        if not node and self.state.goal:
-            node = self.state.goal
-
         if root:
             depth = self.state.current_depth
         
-        if depth is None:
+        elif depth is None:
             depth = node.depth
+            
+        if not node and self.state.goal:
+            node = self.state.goal
+            if not (self.state.complete() == 0 or self.state.complete() is True):
+                if "angle" in str(node).lower() or self.state.var_types.get(node, None) =="Angle":
+                    source = "angle_linear"
+                else: # including Area
+                    source = "length_ratio"
+                node = Traced(node - self.state.complete(), depth=depth, sources=[source])
         
         if isinstance(node, (InferenceRule, Relation)):
             if node in self.visited:
@@ -90,12 +96,11 @@ class ProofGenerator:
                 assert False, f"{node} is not proved"
         else:
             if isinstance(node, Traced):
-                # if not node.sources or type(node.sources[0]) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2):
-                #     sources = []
-                # else:
                 sources = node.sources
                 expr = node.expr
-
+                if len(sources) == 0:
+                    self.proof_dict[node] = []
+                    return []
                 if isinstance(sources[0], str):
                     # backtrace linear systems
                     equations = [item for item in self.state.equations if item.depth < node.depth]
@@ -103,7 +108,8 @@ class ProofGenerator:
                         conditions = self.cache_conditions[expr]
                     else:
                         conditions = self.find_conditions(equations, expr, sources[0])
-                    
+                    if conditions is None:
+                        breakpoint()
                     if self.max_equation_length_perstep:
                         discards = []
                         while len(conditions) > self.max_equation_length_perstep:
@@ -149,7 +155,6 @@ class ProofGenerator:
                 assert isinstance(node, sympy.core.expr.Expr)
                 source = None
                 equations = [item for item in self.state.equations if item.depth < depth]
-
                 if node in self.cache_conditions:
                     conditions = self.cache_conditions[node]
                     source = self.cache_source[node]
@@ -329,6 +334,8 @@ class ProofGenerator:
         res = []
         if not node and self.state.goal:
             node = self.state.goal
+            if not (self.state.complete() == 0 or self.state.complete() is True):
+                node = Traced(node - self.state.complete())
         
         proof_steps = self.format_proof(node)
 
@@ -544,6 +551,7 @@ class ProofGenerator:
 
     def find_conditions(self, equations: list[Traced], conclusion, source):
         angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
+        
         """Given sympified equations and conclusions, return a list of necessary conditions"""
         def try_find(equations, conclusion):
             variables = set()
