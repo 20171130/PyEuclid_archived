@@ -170,7 +170,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             continue
 
         construction = random.choice(valid_constructions)
-        outputs = [Point(chr(ord('A') + num_points + i)) for i in range(picked.num_outputs)]
+        outputs = [Point(chr(ord('a') + num_points + i)) for i in range(picked.num_outputs)]
         construction.construct(*outputs)
         constructions.append(construction)
 
@@ -448,7 +448,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
         data = {
             "problem": ', '.join([str(construction) for construction in problem_constructions]),
-            "neccessary_constructions": ', '.join([str(construction) for construction in necessary_constructions]),
+            "necessary_constructions": ', '.join([str(construction) for construction in necessary_constructions]),
             "unused_constructions": ', '.join([str(construction) for construction in sufficient_constructions if construction not in necessary_constructions]),
             "auxiliary_constructions": ', '.join([str(construction) for construction in auxiliary_constructions]),
             "goal": str(relation),

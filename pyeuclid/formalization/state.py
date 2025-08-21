@@ -76,7 +76,8 @@ class State:
             else:
                 if self.diagram is not None:
                     if isinstance(item, Traced):
-                        assert self.diagram.numerical_check(item.expr)
+                        if not self.diagram.numerical_check(item.expr):
+                            breakpoint()
                     else:
                         assert self.diagram.numerical_check(item)
                 self.add_equation(item)
@@ -229,6 +230,8 @@ class State:
         
         for constructions in constructions_list:
             self.add_constructions(constructions)
+        
+        return constructions_list
  
     def complete(self):
         if not self.goal:

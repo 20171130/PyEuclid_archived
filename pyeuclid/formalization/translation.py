@@ -147,10 +147,42 @@ def get_goal_from_text(text):
     return goal
 
 
+def parse_construction_program(s):
+    def split_top_level(text: str) -> List[str]:
+        parts, buf, depth = [], [], 0
+        for ch in text:
+            if ch == "(": depth += 1
+            elif ch == ")": depth -= 1
+            if ch == ',' and depth == 0:
+                parts.append("".join(buf).strip()); buf.clear()
+            else:
+                buf.append(ch)
+        if buf: parts.append("".join(buf).strip())
+        return parts
+
+    def parse_segment(seg: str):
+        seg = seg.strip()
+        parts = re.split(r"\s*=\s*", seg, maxsplit=1)
+        lhs, rhs = parts[0].strip(), parts[1].strip()
+        output_names = [t.strip() for t in lhs.split(",") if t.strip()]
+        outputs = [Point(n) for n in output_names]
+
+        m = re.match(r"^(\w+)(?:\s*\((.*)\))?\s*$", rhs)
+        class_name, arg_str = m.group(1), (m.group(2) or "").strip()
+        rule = globals()[class_name]
+        
+        input_names = [t.strip() for t in arg_str.split(",") if t.strip()]
+        inputs = [typ(name) for typ, name in zip(rule.input_types, input_names)]
+
+        construction = rule(*inputs)
+        construction.construct(*outputs)
+        return construction
+
+    return [parse_segment(seg) for seg in split_top_level(s) if seg.strip()]
+
 def parse_texts_from_file(file_name):
     with open(file_name, "r") as f:
         lines = f.readlines()
     
     texts = [lines[i].strip() for i in range(1, len(lines), 2)]
     return texts
-            

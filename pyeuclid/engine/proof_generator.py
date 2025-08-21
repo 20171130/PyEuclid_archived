@@ -540,7 +540,7 @@ class ProofGenerator:
                         const_contribution = constant_num / constant_den
                         if const_contribution > 0:
                             b[i, 0] += sign * math.log(const_contribution)
-        return np.concat([A, b], axis=1)
+        return np.concatenate([A, b], axis=1)
 
     def find_conditions(self, equations: list[Traced], conclusion, source):
         angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
