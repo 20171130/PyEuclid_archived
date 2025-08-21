@@ -13,7 +13,7 @@ class GPT_Model:
     def __init__(
         self,
         client: Union[OpenAI, AzureOpenAI],
-        model="gpt-3.5-turbo",
+        model="gpt-4o",
         temperature=0,
         max_tokens=1024,
         n=1,
