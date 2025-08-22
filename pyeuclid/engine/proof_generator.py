@@ -22,6 +22,10 @@ class ProofGenerator:
         self.max_equation_length_perstep = 6
     
     def run(self, node=None, depth=None, root=True):
+        """
+        Conclusions of inference rules are Traced, goal and conditions are sympy expressions
+        the goal must be a single variable, although it is easy to support general expressions
+        """
         if isinstance(node, ConstructionRule):
             return [node]
         
@@ -38,7 +42,7 @@ class ProofGenerator:
                     source = "angle_linear"
                 else: # including Area
                     source = "length_ratio"
-                node = Traced(node - self.state.complete(), depth=depth, sources=[source])
+                node = node - self.state.complete()
         
         if isinstance(node, (InferenceRule, Relation)):
             if node in self.visited:
@@ -108,8 +112,6 @@ class ProofGenerator:
                         conditions = self.cache_conditions[expr]
                     else:
                         conditions = self.find_conditions(equations, expr, sources[0])
-                    if conditions is None:
-                        breakpoint()
                     if self.max_equation_length_perstep:
                         discards = []
                         while len(conditions) > self.max_equation_length_perstep:
@@ -143,11 +145,11 @@ class ProofGenerator:
                     self.cache_source[expr] = sources[0]
                     sources = conditions
                 else:
-                    # inference rules derived traced
+                    # sources annotated, from inference rules or solve complex
                     pass
                 self.proof_dict[expr] = sources
                 for item in sources:
-                    cond_constructions = self.run(item, root=False)
+                    cond_constructions = self.run(item, depth=depth, root=False)
                     constructions.update(cond_constructions)
                 self.source_constructions[expr] = sorted(constructions, key=lambda c: c.index)
                 return self.source_constructions[expr]
@@ -335,7 +337,7 @@ class ProofGenerator:
         if not node and self.state.goal:
             node = self.state.goal
             if not (self.state.complete() == 0 or self.state.complete() is True):
-                node = Traced(node - self.state.complete())
+                node = node - self.state.complete()
         
         proof_steps = self.format_proof(node)
 

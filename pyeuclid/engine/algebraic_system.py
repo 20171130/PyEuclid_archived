@@ -3,6 +3,7 @@ import math
 import sympy
 
 from sympy import factor_list
+from itertools import combinations
 
 from pyeuclid.formalization.utils import *
 
@@ -183,35 +184,41 @@ class AlgebraicSystem:
             if eqn.redundant:
                 continue
             raw_eqn = eqn
-            sources = [raw_eqn]
-            symbols = eqn.free_symbols
+            symbols = [symbol for symbol in eqn.free_symbols if symbol in solved_vars]
+            symbol2sources = {}
             for symbol in symbols:
-                if symbol in solved_vars:
-                    eqn = eqn.subs(symbol, solved_vars[symbol])
-                if "angle" in str(symbol).lower() or var_types.get(symbol) =="Angle":
-                    source = "angle_linear"
-                else: # including Area
-                    source = "length_ratio"
-                sources.append(Traced(symbol - solved_vars[symbol], depth=self.state.current_depth, sources=[source]))
-
-            symbols = eqn.free_symbols
-            expr = self.process_equation(eqn.expr)
-            if expr == 0:
-                raw_eqn.redundant = True
+                symbol2sources[symbol] = symbol - solved_vars[symbol]
+            combs = []
+            remaining_symbols = (len(eqn.free_symbols)-len(symbols))
+            if remaining_symbols > 2:
                 continue
-            if len(expr.free_symbols) ==  1:
-                symbol = list(expr.free_symbols)[0]
-                solutions = sympy.solve(expr, symbol)
-                solution = self.process_solutions(symbol, expr, solutions, var_types)
-                if solution is None:
+            for i in range(0, 3-remaining_symbols):
+                combs += combinations(symbols, len(symbols)-i)
+            for comb in combs:
+                eqn = raw_eqn
+                sources = [raw_eqn]
+                for symbol in comb:
+                    eqn = eqn.subs(symbol, solved_vars[symbol])
+                    sources.append(symbol2sources[symbol])
+                expr = self.process_equation(eqn.expr)
+                if expr == 0:
+                    raw_eqn.redundant = True
                     continue
-                eqn = Traced(symbol - solution, depth=self.state.current_depth, sources = sources)
-            else:
+                if len(expr.free_symbols) <= 2:
+                    symbol = list(expr.free_symbols)[0]
+                    try:
+                        solutions = sympy.solve(expr, symbol)
+                    except:
+                        continue
+                    solution = self.process_solutions(symbol, expr, solutions, var_types)
+                    if solution is None:
+                        continue
+                    expr = symbol - solution
                 angle_linear, length_linear, length_ratio, others = classify_equations([Traced(expr)], var_types)
                 if others:
                     continue
                 eqn = Traced(expr, depth=self.state.current_depth, sources = sources)
-            self.state.add_conditions(eqn)
+                self.state.add_conditions(eqn)
 
         self.state.solutions = solved_vars
         

@@ -222,7 +222,7 @@ def classify_equations(equations: List[Traced], var_types):
             for symbol in expr.free_symbols:
                 if "Angle" in str(symbol):
                     var_type.add("Angle")
-                elif "Length" in str(symbol):
+                elif "Length" in str(symbol) or "Area" in str(symbol):
                     var_type.add("Length")
                 else:
                     if symbol in var_types:
