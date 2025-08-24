@@ -108,7 +108,6 @@ class DeductiveDatabase():
         values = ", ".join(values)
         query = f"INSERT OR IGNORE INTO {table} ({cols}) VALUES {values}"
         self.cursor.execute(query)
-
         
     def execute(self, query):
         self.cursor.execute(query)
@@ -285,7 +284,19 @@ class DeductiveDatabase():
                     query += query_diff
                     wheres += wheres_diff
                     i = i_bak
-                    query += in_component([f"angle_rep{i}l.p0", f"angle_rep{i}l.p1", f"angle_rep{i}l.p2", f"angle_rep{i}r.p0", f"angle_rep{i}r.p1", f"angle_rep{i}r.p2"], component_id, "angle_sum")
+                    # query += in_component([f"angle_rep{i}l.p0", f"angle_rep{i}l.p1", f"angle_rep{i}l.p2", f"angle_rep{i}r.p0", f"angle_rep{i}r.p1", f"angle_rep{i}r.p2"], component_id, "angle_sum")
+                    lrep = [f"angle_rep{i}l.p0", f"angle_rep{i}l.p1", f"angle_rep{i}l.p2"]
+                    rrep = [f"angle_rep{i}r.p0", f"angle_rep{i}r.p1", f"angle_rep{i}r.p2"]
+
+                    query += (
+                        f" INNER JOIN angle_sum r{i} ON ("
+                        f"(r{i}.p0={lrep[0]} AND r{i}.p1={lrep[1]} AND r{i}.p2={lrep[2]} "
+                        f" AND r{i}.p3={rrep[0]} AND r{i}.p4={rrep[1]} AND r{i}.p5={rrep[2]})"
+                        " OR "
+                        f"(r{i}.p0={rrep[0]} AND r{i}.p1={rrep[1]} AND r{i}.p2={rrep[2]} "
+                        f" AND r{i}.p3={lrep[0]} AND r{i}.p4={lrep[1]} AND r{i}.p5={lrep[2]})) "
+                        f"AND r{i}.component={component_id}"
+                    )
             else:
                 if relation.negated:
                     continue # does not support negated condition

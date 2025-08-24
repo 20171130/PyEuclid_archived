@@ -1,6 +1,7 @@
 import time
 import logging
 import argparse
+import sympy
 
 import pyeuclid.formalization.utils as utils
 from pyeuclid.formalization.state import State
@@ -15,8 +16,7 @@ from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=2455)
-# A,B,C = construct_risos(), D = construct_on_circle(C,A), D = construct_on_line(C,A), E = construct_orthocenter(C,D,B), F = construct_angle_mirror(B,D,C), F = construct_on_circum(E,A,C), G,H = construct_square(E,F)
-parser.add_argument('--problem-string', type=str, default="a b = segment a b; c = free c; d = on_bline b c; e = parallelogram c a d e; f = eqdistance f e d b, on_circle f d a ? coll a d f")
+parser.add_argument('--problem-string', type=str, default="a b c = triangle a b c; m = free m; n = on_aline n a c b a m; q = foot q m a b; p = foot p m a c ? perp a n p q")
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -25,7 +25,7 @@ def run_single_problem(args):
     # state.silent = True
     state.logger.setLevel(logging.INFO)
     if args.problem_string is not None:
-        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg', resample=True)
+        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg')
         state.diagram.draw_diagram()
     else:
         namespace = {}
@@ -40,7 +40,7 @@ def run_single_problem(args):
     deductive_database = DeductiveDatabase(state)
     algebraic_system = AlgebraicSystem(state)
     proof_generator = ProofGenerator(state)
-    proof_generator.max_equation_length_perstep = 6
+    proof_generator.max_equation_length_perstep = None
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()
     engine.run()
@@ -91,7 +91,6 @@ def run_single_problem(args):
             print([str(c) for c in auxilary_contructions])
             print(f"Proof generated in {time.time()-t0:.2f}s")
     else:
-        breakpoint()
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':

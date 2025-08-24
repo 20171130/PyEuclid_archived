@@ -1,12 +1,12 @@
 Solution:
 1. Collinear(a,b,g) => Angle_b_a_d - Angle_d_a_g & Parallel(a,b,b,g)
 2. Collinear(d,e,g) => Angle_a_g_d - Angle_a_g_e & Angle_b_d_e - Angle_b_d_g & Angle_b_g_d - Angle_b_g_e
-3. Angle_a_e_g - Angle_b_a_d & Angle_a_e_g + Angle_a_g_e + Angle_e_a_g - pi & Angle_a_d_g + Angle_a_g_d + Angle_d_a_g - pi & Angle_b_a_d - Angle_d_a_g & Angle_a_g_d - Angle_a_g_e => Angle_a_d_g - Angle_e_a_g
+3. Angle_a_e_g - Angle_b_a_d & Angle_b_a_d - Angle_d_a_g & Angle_a_e_g + Angle_a_g_e + Angle_e_a_g - pi & Angle_a_g_d - Angle_a_g_e & Angle_a_d_g + Angle_a_g_d + Angle_d_a_g - pi => Angle_a_d_g - Angle_e_a_g
 4. Angle_a_d_g - Angle_e_a_g & Angle_a_g_d - Angle_a_g_e => Similar3(a,d,g,e,a,g)
-5. Similar3(a,d,g,e,a,g) => Length_a_g/Length_e_g - Length_d_g/Length_a_g
+5. Similar3(a,d,g,e,a,g) => Length_a_g/Length_d_g - Length_e_g/Length_a_g
 6. Perpendicular(a,b,b,c) & Parallel(a,b,b,g) => Perpendicular(b,c,b,g)
 7. Length_b_c - Length_c_e & Length_b_c - Length_c_d & Perpendicular(b,c,b,g) => Angle_b_d_e - Angle_e_b_g
 8. Angle_b_d_e - Angle_e_b_g & Angle_b_d_e - Angle_b_d_g => Angle_b_d_g - Angle_e_b_g
 9. Angle_b_d_g - Angle_e_b_g & Angle_b_g_d - Angle_b_g_e => Similar3(b,d,g,e,b,g)
-10. Similar3(b,d,g,e,b,g) => Length_b_g/Length_e_g - Length_d_g/Length_b_g
-11. Length_a_g/Length_e_g - Length_d_g/Length_a_g & Length_b_g/Length_e_g - Length_d_g/Length_b_g => Length_a_g - Length_b_g
+10. Similar3(b,d,g,e,b,g) => Length_b_g/Length_d_g - Length_e_g/Length_b_g
+11. Length_a_g/Length_d_g - Length_e_g/Length_a_g & Length_b_g/Length_d_g - Length_e_g/Length_b_g => Length_a_g - Length_b_g

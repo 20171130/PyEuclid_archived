@@ -428,25 +428,25 @@ class construct_angle_mirror(ConstructionRule):
         ]
 
 
-@register("deterministic")
-class construct_circle(ConstructionRule):
-    def __init__(self, a: Point, b: Point, c: Point):
-        self.inputs = [a, b, c]
-        self.outputs = None
+# @register("deterministic")
+# class construct_circle(ConstructionRule):
+#     def __init__(self, a: Point, b: Point, c: Point):
+#         self.inputs = [a, b, c]
+#         self.outputs = None
 
-    def construct(self, x: Point):
-        self.outputs = [x]
+#     def construct(self, x: Point):
+#         self.outputs = [x]
 
-    def conditions(self):
-        a, b, c = self.inputs
-        return [Not(Collinear(a, b, c))]
+#     def conditions(self):
+#         a, b, c = self.inputs
+#         return [Not(Collinear(a, b, c))]
 
-    def conclusions(self):
-        a, b, c = self.inputs
-        x, = self.outputs
-        return [
-            *equal(Length(x, a), Length(x, b), Length(x, c))
-        ]
+#     def conclusions(self):
+#         a, b, c = self.inputs
+#         x, = self.outputs
+#         return [
+#             *equal(Length(x, a), Length(x, b), Length(x, c))
+#         ]
 
 
 @register("deterministic")
@@ -567,7 +567,7 @@ class construct_eqdistance(ConstructionRule):
 #         return [Length(x, a) - sympy.simplify(alpha)]
 
 
-@register("nondeterministic")
+@register("deterministic")
 class construct_foot(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -637,8 +637,7 @@ class construct_incenter2(ConstructionRule):
             Angle(b, a, i) - Angle(i, a, c),
             Angle(a, c, i) - Angle(i, c, b),
             Angle(c, b, i) - Angle(i, b, a),
-            Length(i, x) - Length(i, y),
-            Length(i, y) - Length(i, z),
+            *equal(Length(i, x), Length(i, y), Length(i, z))
         ]
 
 
@@ -700,6 +699,27 @@ class construct_excenter2(ConstructionRule):
 
 @register("deterministic")
 class construct_centroid(ConstructionRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        self.inputs = [a, b, c]
+        self.outputs = None
+
+    def construct(self, x: Point):
+        self.outputs = [x]
+
+    def conditions(self):
+        a, b, c = self.inputs
+        return [Not(Collinear(a, b, c))]
+
+    def conclusions(self):
+        a, b, c = self.inputs
+        x = self.outputs
+        return [
+            Centroid(x, a, b, c),
+        ]
+
+
+@register("deterministic")
+class construct_centroid2(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
         self.outputs = None

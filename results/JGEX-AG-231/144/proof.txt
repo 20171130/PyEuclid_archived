@@ -1,16 +1,16 @@
 Solution:
-1. Collinear(a,c,f) => Angle_a_f_e + Angle_c_f_e - pi & Parallel(a,c,c,f) & Angle_c_a_e - Angle_e_a_f
-2. Perpendicular(a,c,e,f) & Parallel(a,c,c,f) => Perpendicular(c,f,e,f)
-3. Perpendicular(c,f,e,f) => Angle_c_f_e - pi/2
-4. Collinear(a,b,g) => Parallel(a,b,a,g)
-5. Perpendicular(a,b,e,g) & Parallel(a,b,a,g) => Perpendicular(a,g,e,g)
-6. Perpendicular(a,g,e,g) => Angle_a_g_e - pi/2
-7. Angle_c_f_e - pi/2 & Angle_a_g_e - pi/2 => Angle_a_g_e - Angle_c_f_e
-8. Angle_a_f_e + Angle_c_f_e - pi & Angle_a_g_e - Angle_c_f_e => Angle_a_f_e + Angle_a_g_e - pi
+1. Collinear(a,b,g) => Angle_a_g_e + Angle_b_g_e - pi & Parallel(a,b,b,g)
+2. Collinear(a,c,f) => Parallel(a,c,a,f) & Angle_c_a_e - Angle_e_a_f
+3. Perpendicular(a,c,e,f) & Parallel(a,c,a,f) => Perpendicular(a,f,e,f)
+4. Perpendicular(a,f,e,f) => Angle_a_f_e - pi/2
+5. Perpendicular(a,b,e,g) & Parallel(a,b,b,g) => Perpendicular(b,g,e,g)
+6. Perpendicular(b,g,e,g) => Angle_b_g_e - pi/2
+7. Angle_a_f_e - pi/2 & Angle_b_g_e - pi/2 => Angle_a_f_e - Angle_b_g_e
+8. Angle_a_g_e + Angle_b_g_e - pi & Angle_a_f_e - Angle_b_g_e => Angle_a_f_e + Angle_a_g_e - pi
 9. Angle_a_f_e + Angle_a_g_e - pi => Concyclic(a,e,f,g)
 10. Concyclic(a,e,f,g) => Angle_e_a_f - Angle_e_g_f
 11. Length_a_d - Length_c_d & Length_a_d - Length_d_e => Angle_c_a_e - Angle_c_d_e/2 & Length_c_d - Length_d_e
-12. Length_d_e - Length_d_h & Length_c_d - Length_d_e => Length_c_d - Length_d_h
+12. Length_c_d - Length_d_e & Length_d_e - Length_d_h => Length_c_d - Length_d_h
 13. -Length_c_d + Length_d_h & -Length_d_e + Length_d_h => Angle_c_d_e - 2*Angle_c_h_e
 14. Angle_c_a_e - Angle_c_d_e/2 & Angle_c_a_e - Angle_e_a_f & Angle_c_d_e - 2*Angle_c_h_e => Angle_c_h_e - Angle_e_a_f
 15. Angle_e_a_f - Angle_e_g_f & Angle_c_h_e - Angle_e_a_f => Angle_c_h_e - Angle_e_g_f

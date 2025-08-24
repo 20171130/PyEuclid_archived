@@ -1,7 +1,7 @@
 Solution:
-1. Collinear(b,c,e) & Collinear(b,c,g) => Collinear(b,e,g)
-2. Collinear(a,b,f) => Parallel(a,b,b,f)
-3. Parallel(a,b,b,f) & Parallel(a,b,d,g) => Parallel(b,f,d,g)
-4. Collinear(b,e,g) & Collinear(d,e,f) & Parallel(b,f,d,g) => Length_b_e/Length_e_f - Length_b_g/Length_d_f
-5. Collinear(a,c,d) & Collinear(b,c,g) & Parallel(a,b,d,g) => Length_a_c/Length_b_c - Length_a_d/Length_b_g
-6. Length_a_c - Length_b_c & Length_b_e/Length_e_f - Length_b_g/Length_d_f & Length_a_d - Length_b_e & Length_a_c/Length_b_c - Length_a_d/Length_b_g => Length_d_f - Length_e_f
+1. Collinear(a,c,d) & Collinear(b,c,g) & Parallel(a,b,d,g) => Length_a_c/Length_b_c - Length_a_d/Length_b_g
+2. Collinear(b,c,e) & Collinear(b,c,g) => Collinear(b,e,g)
+3. Collinear(a,b,f) => Parallel(a,b,b,f)
+4. Parallel(a,b,b,f) & Parallel(a,b,d,g) => Parallel(b,f,d,g)
+5. Collinear(b,e,g) & Collinear(d,e,f) & Parallel(b,f,d,g) => Length_b_e/Length_e_f - Length_b_g/Length_d_f
+6. Length_a_d - Length_b_e & Length_a_c/Length_b_c - Length_a_d/Length_b_g & Length_a_c - Length_b_c & Length_b_e/Length_e_f - Length_b_g/Length_d_f => Length_d_f - Length_e_f

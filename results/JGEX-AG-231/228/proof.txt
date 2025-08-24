@@ -1,14 +1,12 @@
 Solution:
-1. Length_b_c - Length_c_f & Length_b_c - Length_c_g => Length_c_f - Length_c_g
-2. -Length_b_c + Length_c_f & Length_c_f - Length_c_g => Angle_b_c_g - 2*Angle_b_f_g
-3. Collinear(d,e,f) & Collinear(d,e,g) => Collinear(e,f,g)
-4. Collinear(e,f,g) => Angle_b_f_e - Angle_b_f_g
-5. Collinear(a,b,c) => Angle_a_b_g - Angle_c_b_g
-6. Length_b_c - Length_c_g => Angle_b_g_c - Angle_c_b_g
-7. Angle_b_c_g - 2*Angle_b_f_g & Angle_b_c_g + Angle_b_g_c + Angle_c_b_g - pi & Angle_b_f_e - Angle_b_f_g & Angle_a_b_g - Angle_c_b_g & Angle_b_g_c - Angle_c_b_g => Angle_a_b_g + Angle_b_f_e - pi/2
-8. Length_a_b - Length_a_d => Angle_a_b_d - Angle_a_d_b
-9. Length_a_b - Length_a_e & Length_a_b - Length_a_d => Length_a_d - Length_a_e
-10. -Length_a_b + Length_a_e & -Length_a_d + Length_a_e => Angle_b_a_d - 2*Angle_b_e_d
-11. Collinear(d,e,f) => Angle_b_e_d - Angle_b_e_f
-12. Angle_a_b_d - Angle_a_d_b & Angle_b_a_d - 2*Angle_b_e_d & Angle_b_e_d - Angle_b_e_f & Angle_a_b_d + Angle_a_d_b + Angle_b_a_d - pi => Angle_a_b_d + Angle_b_e_f - pi/2
-13. Angle_b_e_f + Angle_b_f_e + Angle_e_b_f - pi & Angle_a_b_d + Angle_a_b_g - Angle_d_b_g & Angle_a_b_g + Angle_b_f_e - pi/2 & Angle_a_b_d + Angle_b_e_f - pi/2 => Angle_d_b_g - Angle_e_b_f
+1. Collinear(a,b,c) => Angle_a_b_e - Angle_c_b_e
+2. Length_a_b - Length_a_e & Length_a_b - Length_a_d => Length_a_d - Length_a_e
+3. -Length_a_b + Length_a_d & Length_a_d - Length_a_e => Angle_b_a_e - 2*Angle_b_d_e
+4. Collinear(d,e,g) => Angle_b_d_e - Angle_b_d_g
+5. Length_a_b - Length_a_e => Angle_a_b_e - Angle_a_e_b
+6. Length_b_c - Length_c_f => Angle_b_f_c - Angle_c_b_f
+7. Length_b_c - Length_c_f & Length_b_c - Length_c_g => Length_c_f - Length_c_g
+8. -Length_b_c + Length_c_g & -Length_c_f + Length_c_g => Angle_b_c_f - 2*Angle_b_g_f
+9. Collinear(d,e,f) & Collinear(d,e,g) => Collinear(d,f,g)
+10. Collinear(d,f,g) => Angle_b_g_d + Angle_b_g_f - pi
+11. Angle_a_b_e - Angle_c_b_e & Angle_b_d_g + Angle_b_g_d + Angle_d_b_g - pi & Angle_b_c_f + Angle_b_f_c + Angle_c_b_f - pi & Angle_b_a_e - 2*Angle_b_d_e & Angle_b_d_e - Angle_b_d_g & Angle_a_b_e - Angle_a_e_b & Angle_b_f_c - Angle_c_b_f & Angle_b_c_f - 2*Angle_b_g_f & Angle_c_b_e - Angle_c_b_f - Angle_e_b_f & Angle_b_g_d + Angle_b_g_f - pi & Angle_a_b_e + Angle_a_e_b + Angle_b_a_e - pi => Angle_d_b_g - Angle_e_b_f

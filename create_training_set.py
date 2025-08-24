@@ -4,6 +4,8 @@ from pathlib import Path
 import shutil
 import time
 import tqdm
+from collections import defaultdict
+import tqdm
 
 system_prompt = (
     "You are an expert in plane geometry, specializing in identifying the most effective "
@@ -13,18 +15,20 @@ system_prompt = (
     "Each new point must be defined using no more than two auxiliary constructions."
 )
 
-
+problems = defaultdict(list)
 dataset_dir = Path("new_dataset")
 data_json_list = []
 image_file_list = []
-for json_file in dataset_dir.rglob("*data.json"):
+for json_file in tqdm.tqdm(dataset_dir.rglob("*data.json")):
     with open(json_file, "r") as f:
         data = json.load(f)
-
     has_aux = data.get("has_auxiliary_constructions")
     sub_conclusion = data.get("sub_conclusion", None)
+    problem = data.get("problem")
+    auxiliary_constructions = data.get("auxiliary_constructions")
 
-    if has_aux and sub_conclusion is False:
+    if has_aux and sub_conclusion is False and (problem not in problems or auxiliary_constructions not in problems[problem]):
+        problems[problem].append(auxiliary_constructions)
         sample_dir = json_file.parent
         data_json_list.append(os.path.join(sample_dir, "data.json"))
 
@@ -50,6 +54,8 @@ for data_json in data_json_list:
         "output": answer
     }
     dataset.append(new_data)
+
+print(f'Totoal: {len(dataset)} instances.')
 
 with open(f"data/pyeuclid_text_train.json", "w") as f:
     json.dump(dataset, f, indent=4)

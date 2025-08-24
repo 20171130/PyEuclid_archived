@@ -173,10 +173,12 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+old/
 cache/
 cache1/
 diagrams/
 *.out
+*.err
 samples*/
 logs/
 dataset/

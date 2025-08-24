@@ -12,14 +12,14 @@ from pyeuclid.engine.inference_rule import *
 
 
 class ProofGenerator:
-    def __init__(self, state):
+    def __init__(self, state, max_equation_length_perstep=6):
         self.state = state
         self.visited = set()
         self.proof_dict = {}
         self.cache_conditions = {}
         self.cache_source = {}
         self.source_constructions = defaultdict(list)
-        self.max_equation_length_perstep = 6
+        self.max_equation_length_perstep = max_equation_length_perstep
     
     def run(self, node=None, depth=None, root=True):
         if isinstance(node, ConstructionRule):

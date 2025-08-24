@@ -5,8 +5,8 @@ Solution:
 4. Parallel(a,c,c,f) & Parallel(a,c,d,e) => Parallel(c,f,d,e)
 5. Parallel(c,d,e,f) & Parallel(c,f,d,e) => Parallelogram(c,d,e,f)
 6. Parallelogram(c,d,e,f) => Length_c_f - Length_d_e
-7. Parallel(a,c,d,e) => Angle_a_e_d + Angle_c_a_e - pi
-8. Collinear(a,b,e) => Angle_b_a_d - Angle_d_a_e
-9. Angle_b_a_c - 2*Angle_c_a_d & Angle_a_e_d + Angle_c_a_e - pi & Angle_c_a_d - Angle_c_a_e + Angle_d_a_e & Angle_a_d_e + Angle_a_e_d + Angle_d_a_e - pi & Angle_b_a_d - Angle_d_a_e & Angle_b_a_c - 2*Angle_b_a_d => Angle_a_d_e - Angle_d_a_e
+7. Collinear(a,b,e) => Angle_b_a_d - Angle_d_a_e
+8. Parallel(a,c,d,e) => Angle_a_e_d + Angle_c_a_e - pi
+9. Angle_b_a_d - Angle_c_a_d & Angle_b_a_d - Angle_d_a_e & Angle_a_d_e + Angle_a_e_d + Angle_d_a_e - pi & Angle_a_e_d + Angle_c_a_e - pi & Angle_c_a_d - Angle_c_a_e + Angle_d_a_e => Angle_a_d_e - Angle_d_a_e
 10. -Angle_a_d_e + Angle_d_a_e => Length_a_e - Length_d_e
 11. Length_c_f - Length_d_e & Length_a_e - Length_d_e => Length_a_e - Length_c_f

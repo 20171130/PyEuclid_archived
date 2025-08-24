@@ -18,7 +18,7 @@ def get_constructions_list_from_text(text):
         pattern = r'(\w+)@([-\d.]+)_([-\d.]+)'
         results = re.findall(pattern, outputs_text)
         if results:
-            output_names = [r[0] for r in results]
+            output_names = [r[0].replace('_', '') for r in results]
             coordinates_list.append([(Point(name.replace('_', '')), float(x), float(y)) for name, x, y in results])
         else:
             output_names = [name.replace('_', '') for name in outputs_text.split(' ')]

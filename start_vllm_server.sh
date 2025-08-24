@@ -1,14 +1,15 @@
 #!/bin/bash
 #SBATCH -J vllm-server
+#SBATCH -p learnfair,learnlab,scavenge
 #SBATCH --gres=gpu:ampere:4
-#SBATCH --cpus-per-task=12
-#SBATCH --mem=128G
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=60G
 #SBATCH -t 12:00:00
-#SBATCH -N 1
+#SBATCH -o %A_%a.out
 
 set -eo pipefail
 
-MODEL="saves/qwen2_5-math-7b/full/sft"
+MODEL="saves/qwen2_5-math-7b"
 PORT="${PORT:-8000}"
 SHARED_DIR=".vllm"
 HOST="0.0.0.0"
@@ -18,13 +19,9 @@ source ~/.bashrc && conda activate pyeuclid
 
 mkdir -p "${SHARED_DIR}"
 HOSTFILE="${SHARED_DIR}/vllm_server_host.txt"
-JOBFILE="${SHARED_DIR}/vllm_server_jobid.txt"
 
-echo "${SLURM_JOB_ID}" > "${JOBFILE}"
 echo "${HOSTNAME}:${PORT}" > "${HOSTFILE}"
-
-echo "[`date`] Launching vLLM on ${HOSTNAME}:${PORT} (job ${SLURM_JOB_ID})"
-echo "[info] Hostfile: ${HOSTFILE}  Jobfile: ${JOBFILE}"
+echo "[`date`] Launching vLLM on ${HOSTNAME}:${PORT}"
 
 vllm serve "${MODEL}" \
   --host "${HOST}" \

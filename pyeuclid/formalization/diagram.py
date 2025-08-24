@@ -55,8 +55,7 @@ class Diagram:
         if not resample and cache_folder is not None:
             if constructions_list:
                 h = hash_constructions_list(constructions_list)
-                if coordinates_list:
-                    h = merge_hashes(h, hash_coordinates_list(coordinates_list))
+                h = merge_hashes(h, hash_coordinates_list(coordinates_list))
                 file_name = f"{h}.pkl"
                 file_path = os.path.join(cache_folder, file_name)
                 try:
@@ -155,8 +154,7 @@ class Diagram:
     def save_to_cache(self):
         if self.cache_folder is not None:
             h = hash_constructions_list(self.constructions_list)
-            if self.coordinates_list:
-                h = merge_hashes(h, hash_coordinates_list(self.coordinates_list))
+            h = merge_hashes(h, hash_coordinates_list(self.coordinates_list))
             file_name = f"{h}.pkl"
             file_path = os.path.join(self.cache_folder, file_name)
             # print(f'Save to {file_path}...')
@@ -165,7 +163,7 @@ class Diagram:
     
     def add_constructions(self, constructions, coordinates=None, auxiliary=False):
         self.save()
-        max_attempts = utils.MAX_DIAGRAM_ATTEMPTS or float('inf')
+        max_attempts = 1000
         attempt = 0
 
         while attempt < max_attempts:
@@ -174,8 +172,7 @@ class Diagram:
                 new_points = self.construct(constructions, coordinates)
                 self.draw(new_points, constructions, auxiliary)
                 self.constructions_list.append(constructions)
-                if coordinates:
-                    self.coordinates_list.append(coordinates)
+                self.coordinates_list.append(coordinates)
                 return
             except (NumericalCheckingError, SamplingError, DistanceError):
                 self.restore()
@@ -195,8 +192,7 @@ class Diagram:
                     new_points = self.construct(constructions, coordinates)
                     self.draw(new_points, constructions, auxiliary=False)
                     self.constructions_list.append(constructions)
-                    if coordinates:
-                        self.coordinates_list.append(coordinates)
+                    self.coordinates_list.append(coordinates)
                 self.draw_diagram()
                 self.save_to_cache()
                 return
@@ -462,7 +458,13 @@ class Diagram:
         z = i.foot(Line(a, b))
         return [x, y, z, i]
     
-    def sketch_centroid(self, *args) -> list[Point]:
+    def sketch_centroid(self, *args) -> Point:
+        a, b, c = args
+        x = (b + c) * 0.5
+        y = (c + a) * 0.5
+        return intersect(Line(a, x), Line(b, y))
+    
+    def sketch_centroid2(self, *args) -> list[Point]:
         a, b, c = args
         x = (b + c) * 0.5
         y = (c + a) * 0.5
@@ -1133,8 +1135,14 @@ class Diagram:
         self.segments.append(Segment(b, c))
         self.segments.append(Segment(c, a))
         self.circles.append(Circle(p1=x, p2=y, p3=z))
-        
+    
     def draw_centroid(self, *args):
+        i, a, b, c = args
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, a))
+        
+    def draw_centroid2(self, *args):
         x, y, z, i, a, b, c = args
         self.segments.append(Segment(a, b))
         self.segments.append(Segment(b, c))

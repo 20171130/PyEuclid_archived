@@ -2,32 +2,27 @@ import os
 import time
 import json
 import copy
-import shutil
 import traceback
 import argparse
 from pathlib import Path
-from typing import Optional, Tuple, List
 
 import requests
 from stopit import ThreadingTimeout as TT
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# pyeuclid imports
 import pyeuclid.formalization.utils as utils
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.translation import (
     parse_texts_from_file,
     parse_construction_program,
 )
+from pyeuclid.formalization.construction_rule import *
+from pyeuclid.formalization.relation import *
 from pyeuclid.engine.deductive_database import DeductiveDatabase
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
-
-# --------------------------
-# Defaults / Config
-# --------------------------
 
 SYSTEM_PROMPT = (
     "You are an expert in plane geometry, specializing in identifying the most effective "
@@ -41,53 +36,45 @@ DATA_TXT = Path("data/JGEX-AG-231.txt")
 DIAGRAMS_DIR = Path("diagrams/JGEX-AG-231")
 RESULTS_DIR = Path("results/JGEX-AG-231")
 
-MAX_DIAGRAM_ATTEMPTS = 1000
+MAX_DIAGRAM_ATTEMPTS = None
 
 
-# --------------------------
-# Helpers
-# --------------------------
-
-def get_array_info() -> Tuple[int, int]:
-    """Return (task_id, task_count) from Slurm env; defaults to (0, 1)."""
+def get_array_info():
     tid = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
     tcount = int(os.environ.get("SLURM_ARRAY_TASK_COUNT", "1"))
     return tid, tcount
 
 
-def is_my_index(idx: int, task_id: int, task_count: int) -> bool:
+def is_my_index(idx, task_id, task_count):
     return (idx % task_count) == task_id
 
 
-def ensure_dir(p: Path) -> None:
+def ensure_dir(p):
     p.mkdir(parents=True, exist_ok=True)
 
 
-def write_json(path: Path, payload: dict) -> None:
+def write_json(path, payload):
     path.write_text(json.dumps(payload, indent=4), encoding="utf-8")
 
 
-def build_problem_json(constructions_list, state: State) -> dict:
-    # Only the ORIGINAL problem constructions (no LLM aux saved)
+def build_problem_json(constructions_list, state):
     constructions = [c for group in constructions_list for c in group]
     problem_str = ", ".join(str(c) for c in constructions)
     goal_str = str(state.goal)
     return {"problem": problem_str, "goal": goal_str}
 
 
-def solve_with_engine(state: State, timeout_s: int) -> Tuple[bool, float]:
+def solve_with_engine(state, timeout_s):
     dd = DeductiveDatabase(state)
     alg = AlgebraicSystem(state)
     eng = Engine(state, dd, alg)
-
     t0 = time.time()
     with TT(timeout_s):
         eng.run()
     return (state.complete() is not None, time.time() - t0)
 
 
-def generate_proof_str(state: State, timeout_s: int) -> Optional[str]:
-    """Run ProofGenerator with a timeout; return proof string or None."""
+def generate_proof_str(state, timeout_s):
     pg = ProofGenerator(state)
     pg.max_equation_length_perstep = None
     with TT(timeout_s):
@@ -114,26 +101,21 @@ def group_aux_by_outputs(aux):
     return grouped
 
 
-def openai_chat_completions(
-    base_url: str,
-    model: str,
-    messages: List[dict],
-    n: int,
-    max_tokens: int,
-    temperature: float,
-    top_p: float,
-    request_timeout: float = 120.0,
-) -> List[str]:
-    """
-    Minimal OpenAI-compatible call to a vLLM server.
-    """
+def chat_completions(
+    base_url,
+    model,
+    messages,
+    n,
+    temperature,
+    top_p,
+    request_timeout=120.0,
+):
     url = base_url.rstrip("/") + "/v1/chat/completions"
-    headers = {"Authorization": "Bearer EMPTY"}  # vLLM generally ignores auth by default
+    headers = {"Authorization": "Bearer EMPTY"}
     payload = {
         "model": model,
         "messages": messages,
         "n": n,
-        "max_tokens": max_tokens,
         "temperature": temperature,
         "top_p": top_p,
     }
@@ -143,76 +125,63 @@ def openai_chat_completions(
     return [c["message"]["content"] for c in data.get("choices", [])]
 
 
-# --------------------------
-# Beam evaluation (CPU-parallel)
-# --------------------------
-
 def evaluate_candidate_on_cpu(
-    raw_text: str,
-    base_state: State,
+    raw_text,
+    base_state,
     constructions_list,
-    result_dir: Path,
-    engine_timeout_s: int,
-    proof_timeout_s: int,
-) -> Optional[str]:
-    """
-    Evaluate a single candidate (LLM beam) on CPU:
-      - parse construction program
-      - apply to a deepcopy of base_state
-      - run engine with timeout
-      - if solved, generate proof and return the proof string
-    Returns proof_str if solved (and proof generated), else None.
-    """
+    result_dir,
+    engine_timeout_s,
+    proof_timeout_s,
+):
     try:
         aux = parse_construction_program(raw_text)
     except Exception:
         return None
-
     aux_grouped = group_aux_by_outputs(aux)
-
-    st = copy.deepcopy(base_state)
-    st.diagram.save_path = str(result_dir / "diagram.jpg")
-
+    st = State()
+    st.silent = True
+    st.goal = base_state.goal
+    st.diagram = copy.deepcopy(base_state.diagram)
     try:
         for group in aux_grouped:
             st.diagram.add_constructions(group)
     except Exception:
         return None
-
     try:
         for group in constructions_list + aux_grouped:
             st.add_constructions(group)
     except Exception:
         return None
-
     solved, _ = solve_with_engine(st, engine_timeout_s)
     if not solved:
         return None
-
-    # Generate proof if solved
     try:
         proof_str = generate_proof_str(st, proof_timeout_s)
-        return proof_str
+        if not proof_str:
+            return None
+        return proof_str, aux
     except Exception:
         return None
 
 
-# --------------------------
-# Main driver
-# --------------------------
+def format_proof_with_aux(aux, proof_str):
+    aux_line = ", ".join(str(a) for a in aux)
+    header = "Auxiliary construction" if len(aux) == 1 else "Auxiliary constructions"
+    return f"{header} (from LLM):\n{aux_line}\n{proof_str}"
+
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--base-url", type=str, default=os.environ.get("VLLM_BASE_URL", "http://127.0.0.1:8000"))
-    parser.add_argument("--model", type=str, default=os.environ.get("VLLM_MODEL", "saves/qwen2_5-math-7b/full/sft"))
-    parser.add_argument("--total-beams", type=int, default=int(os.environ.get("TOTAL_BEAMS", 512)))
-    parser.add_argument("--n-per-call", type=int, default=int(os.environ.get("N_PER_CALL", 32)))
-    parser.add_argument("--cpu-workers", type=int, default=int(os.environ.get("CPU_WORKERS", 32)))
-    parser.add_argument("--max-tokens", type=int, default=int(os.environ.get("MAX_TOKENS", 256)))
-    parser.add_argument("--temperature", type=float, default=float(os.environ.get("TEMPERATURE", 0.8)))
-    parser.add_argument("--top-p", type=float, default=float(os.environ.get("TOP_P", 0.95)))
-    parser.add_argument("--engine-timeout", type=int, default=int(os.environ.get("NUM_ENGINE_TIMEOUT", 1200)))
-    parser.add_argument("--proof-timeout", type=int, default=int(os.environ.get("NUM_PROOF_TIMEOUT", 1200)))
+    parser.add_argument("--base-url", type=str, default="http://127.0.0.1:8000")
+    parser.add_argument("--model", type=str, default="saves/qwen2_5-math-7b/full/sft")
+    parser.add_argument("--total-beams", type=int, default=32)
+    parser.add_argument("--n-per-call", type=int, default=32)
+    parser.add_argument("--cpu-workers", type=int, default=32)
+    parser.add_argument("--max-tokens", type=float, default=1024)
+    parser.add_argument("--temperature", type=float, default=1)
+    parser.add_argument("--top-p", type=float, default=0.95)
+    parser.add_argument("--engine-timeout", type=int, default=1200)
+    parser.add_argument("--proof-timeout", type=int, default=1200)
     args = parser.parse_args()
     utils.MAX_DIAGRAM_ATTEMPTS = MAX_DIAGRAM_ATTEMPTS
 
@@ -223,46 +192,28 @@ def main():
     )
 
     texts = parse_texts_from_file(str(DATA_TXT))
-
     tot = 0
     solved_cnt = 0
 
     for idx, text in enumerate(texts):
         if not is_my_index(idx, task_id, task_count):
             continue
-
         problem_id = idx + 1
         result_dir = RESULTS_DIR / f"{problem_id}"
         ensure_dir(result_dir)
-
         proof_path = result_dir / "proof.txt"
-        # If previously solved (proof exists), skip
         if proof_path.exists():
             continue
-
         state = State()
         state.silent = True
-
         try:
-            diagram_path = DIAGRAMS_DIR / f"{problem_id}.jpg"
+            diagram_path = result_dir / "diagram.jpg"
             constructions_list = state.load_problem_from_text(str(text), str(diagram_path))
-
             data_json = result_dir / "data.json"
             if not data_json.exists():
-                # Only the original problem — NO LLM aux saved
                 write_json(data_json, build_problem_json(constructions_list, state))
-
-            dst = result_dir / "diagram.jpg"
-            if not dst.exists():
-                try:
-                    shutil.copy(str(diagram_path), str(dst))
-                except Exception:
-                    pass
-
             print(f"[{problem_id}] Processing (task {task_id}) | {text}")
             tot += 1
-
-            # Try engine-only first
             solved, elapsed = solve_with_engine(state, args.engine_timeout)
             if solved:
                 print(f"[{problem_id}] Solved by engine in {elapsed:.2f}s; generating proof...")
@@ -274,50 +225,41 @@ def main():
                     continue
                 else:
                     print(f"[{problem_id}] Proof generation failed/timeout after engine solve; continuing to LLM beams.")
-
-            # Not solved by engine — do beam search with CPU-parallel evaluation
             data = json.loads((result_dir / "data.json").read_text())
             base_messages = [
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": f"Problem: {data['problem']}\nGoal: {data['goal']}\n"},
             ]
-
             total_done = 0
             success = False
-
             while total_done < args.total_beams and not success:
                 remaining = args.total_beams - total_done
                 req_n = min(args.n_per_call, remaining)
-
                 try:
-                    samples = openai_chat_completions(
+                    samples = chat_completions(
                         base_url=args.base_url,
                         model=args.model,
                         messages=base_messages,
                         n=req_n,
-                        max_tokens=args.max_tokens,
                         temperature=args.temperature,
                         top_p=args.top_p,
-                        request_timeout=180.0,
+                        request_timeout=120.0,
                     )
                 except Exception as e:
                     print(f"[{problem_id}] LLM request failed at beams {total_done}-{total_done+req_n-1}: {e}")
                     break
-
                 # for raw_text in samples:
-                #     proof_str = evaluate_candidate_on_cpu(raw_text, state, constructions_list,result_dir,args.engine_timeout,args.proof_timeout)
-                #     if proof_str:
-                #         print(proof_str)
-                #         print(f"[{problem_id}] Solved via LLM beam; proof saved.")
+                #     print('predicted', raw_text)
+                #     result = evaluate_candidate_on_cpu(raw_text, state, constructions_list, result_dir, args.engine_timeout, args.proof_timeout)
+                #     if result:
+                #         print('solved')
                 #         break
-
-                # Evaluate beams concurrently on CPU threads; return proof_str when solved
                 with ThreadPoolExecutor(max_workers=args.cpu_workers) as ex:
                     futures = [
                         ex.submit(
                             evaluate_candidate_on_cpu,
                             raw_text,
-                            state,                  # deepcopied inside worker
+                            state,
                             constructions_list,
                             result_dir,
                             args.engine_timeout,
@@ -327,26 +269,23 @@ def main():
                     ]
                     for fut in as_completed(futures):
                         try:
-                            proof_str = fut.result()
-                            if proof_str:
-                                proof_path.write_text(proof_str, encoding="utf-8")
-                                print(f"[{problem_id}] Solved via LLM beam; proof saved.")
-                                success = True
-                                # Cancel outstanding futures
+                            result = fut.result()
+                            if result:
+                                proof_str, aux = result
                                 for f in futures:
                                     f.cancel()
+                                payload = format_proof_with_aux(aux, proof_str)
+                                proof_path.write_text(payload, encoding="utf-8")
+                                print(f"[{problem_id}] Solved via LLM beam; proof saved.")
+                                success = True
                                 break
                         except Exception:
-                            # ignore single-beam errors, continue
                             pass
-
                 total_done += req_n
-
             if success:
                 solved_cnt += 1
             else:
                 print(f"[{problem_id}] Not solved after {args.total_beams} beams")
-
         except KeyboardInterrupt:
             raise
         except BaseException as e:
