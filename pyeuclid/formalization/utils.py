@@ -217,7 +217,7 @@ def classify_equations(equations: List[Traced], var_types):
         if not eqn.kinds:
             kinds = []
             expr = eqn.expr.expand()
-            assert isinstance(expr, sympy.core.add.Add)
+            assert isinstance(expr, (sympy.core.add.Add, sympy.core.symbol.Symbol))
             var_type = set()
             for symbol in expr.free_symbols:
                 if "Angle" in str(symbol):

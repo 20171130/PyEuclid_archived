@@ -52,7 +52,7 @@ def run_single_problem(args):
         if args.show_proof:
             t0 = time.time()
             proof_generator.run()
-            proof_generator.show_proof()
+            proof_generator.show_proof(verbose=True)
             constructions = proof_generator.source_constructions[state.goal]
             print([str(c) for c in constructions])
             if isinstance(state.goal, Relation):

@@ -22,8 +22,7 @@ from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
-from vllm import LLM, SamplingParams
-from transformers import AutoTokenizer
+
 from pathlib import Path
 
 
@@ -41,6 +40,8 @@ class TestBenchmarks(unittest.TestCase):
     def _test_jgex_ag_231(self):
         tot = 0
         cnt = 0
+        from vllm import LLM, SamplingParams
+        from transformers import AutoTokenizer
         model_path = "saves/qwen2_5-math-7b/full/sft"
         llm = LLM(model_path)
         tokenizer = AutoTokenizer.from_pretrained(model_path)
@@ -274,12 +275,12 @@ class TestBenchmarks(unittest.TestCase):
                         print(f"{idx} solved in {t} seconds")
                     else:
                         print(f"{idx} wrong solution in {t} seconds")
+                    proof_generator.run()
                     proof = proof_generator.get_proof_str()
-                    if world_size == 1:
-                        print(proof)
+                    # if world_size == 1:
+                    #     print(proof)
                 else:
                     print(f"{idx} unsolved in {t} seconds")
-                break
             except BaseException as e:
                 if isinstance(e, KeyboardInterrupt):
                     exit()

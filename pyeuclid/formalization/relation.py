@@ -306,7 +306,9 @@ class Similar4(Relation):
         
         return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
 
+Similar4P = Similar4
 
+@register
 class Similar5(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point, p9: Point, p10: Point):
         super().__init__()
@@ -320,6 +322,7 @@ class Similar5(Relation):
         
         return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
 
+Similar5P = Similar4
 
 @register
 class Concyclic(Relation):

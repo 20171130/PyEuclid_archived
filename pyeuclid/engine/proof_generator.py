@@ -43,7 +43,7 @@ class ProofGenerator:
                 else: # including Area
                     source = "length_ratio"
                 node = node - self.state.complete()
-        
+                
         if isinstance(node, (InferenceRule, Relation)):
             if node in self.visited:
                 return self.source_constructions[node]
@@ -60,6 +60,7 @@ class ProofGenerator:
                     if item.depth < depth:
                         if item.expr == node:
                             node = item
+                            depth = item.depth
                             break
             
             if isinstance(node, Traced):
@@ -319,17 +320,23 @@ class ProofGenerator:
         
         return proof
     
-    def show_proof(self, node=None):
-        res = self.get_proof_str(node)
+    def show_proof(self, node=None, verbose=False):
+        res = self.get_proof_str(node, verbose)
         print(res)
 
-    def get_proof_str(self, node=None):
+    def get_proof_str(self, node=None, verbose=False):
         res = "Solution:\n"
         proof = self.get_proof(node)
+        def _format(items):
+            if verbose:
+                return ' & '.join([str(item)+ (f"@{item.depth}" if hasattr(item, 'depth') else "") for item in items])
+            return ' & '.join([str(item) for item in items])
         for step, (conditions, theorem, conclusions) in enumerate(proof):
-            theorem_str = ' [' + str(theorem) + ']' if theorem else ''
-            theorem_str = ''
-            res += f'{step+1}. ' + ' & '.join([str(item) for item in conditions]) + theorem_str + ' => ' + ' & '.join([str(item) for item in conclusions]) + '\n'
+            if verbose:
+                theorem_str = ' [' + str(theorem) + ']' if theorem else ''
+            else:
+                theorem_str = ''
+            res += f'{step+1}. ' + _format(conditions) + theorem_str + ' => ' + _format(conclusions) + '\n'
         return res
     
     def get_proof(self, node=None):
