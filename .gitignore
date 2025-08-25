@@ -184,3 +184,5 @@ logs/
 dataset/
 cache/*
 !cache/.gitkeep
+
+.vllm/
