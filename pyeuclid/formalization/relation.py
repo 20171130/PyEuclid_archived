@@ -128,10 +128,31 @@ def Area(*ps: list[Point]):
     ps = sort_cyclic_points(*ps)
     return Symbol("_".join(["Area"] + [str(item) for item in ps]), positive=True)
 
-
 def Variable(name: str):
     return Symbol(f"Variable_{name}")
 
+def AreaOfCircle(center: Point, p1: Point):
+    return Symbol(f"AreaOfCircle_{center}_{p1}")
+
+def MajorSector(center: Point, p1: Point, p2: Point):
+    p1, p2 = sort_points(p1, p2)
+    return Symbol(f"MajorSector_{center}_{p1}_{p2}")
+    
+def MinorSector(center: Point, p1: Point, p2: Point):
+    p1, p2 = sort_points(p1, p2)
+    return Symbol(f"MinorSector_{center}_{p1}_{p2}")
+
+def MajorArc(center: Point, p1: Point, p2: Point):
+    p1, p2 = sort_points(p1, p2)
+    return Symbol(f"MajorArc_{center}_{p1}_{p2}")
+    
+def MinorArc(center: Point, p1: Point, p2: Point):
+    p1, p2 = sort_points(p1, p2)
+    return Symbol(f"MinorArc_{center}_{p1}_{p2}")
+
+def Perimeter(*ps: list[Point]):
+    ps = sort_cyclic_points(*ps)
+    return Symbol("_".join(["Perimeter"] + [str(item) for item in ps]), positive=True)
 
 class Different2(Relation):
     def __init__(self, p1: Point, p2: Point):

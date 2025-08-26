@@ -2991,3 +2991,74 @@ class RhombusArea(InferenceRule):
 
     def conclusion(self):
         return [Area(self.a, self.b, self.c, self.d) - Length(self.a, self.c) * Length(self.b, self.d) / 2]
+    
+    
+@register("complex")
+class CircleArea(InferenceRule):
+    def __init__(self, a: Point, b: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+
+    def condition(self):
+        return [Lt(self.a, self.b)]
+
+    def conclusion(self):
+        return CircleArea(self.a, self.b) - pi*Length(self.a, self.b)**2, CircleArea(self.b, self.a) - pi*Length(self.a, self.b)**2,
+    
+@register("complex")
+class SectorArea(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def condition(self):
+        return [Lt(self.b, self.c)]
+
+    def conclusion(self):
+        return MinorSector(self.a, self.b, self.c) - Angle(self.b, self.a, self.c)*Length(self.a, self.b)**2, MajorSector(self.a, self.b, self.c) - (2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)**2
+    
+@register("complex")
+class ArcLength(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def condition(self):
+        return [Lt(self.b, self.c)]
+
+    def conclusion(self):
+        return MinorArc(self.a, self.b, self.c) - Angle(self.b, self.a, self.c)*Length(self.a, self.b), MajorArc(self.a, self.b, self.c) - (2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)
+
+@register("complex")
+class Perimeter3(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def condition(self):
+        return [Not(Collinear(self.a, self.b, self.c))]
+
+    def conclusion(self):
+        return Perimeter3(self.a, self.b, self.c) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.a, self.c)
+    
+@register("complex")
+class Perimeter4(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d:Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return [SameSide(self.a, self.b, self.c, self.d), SameSide(self.b, self.c, self.a, self.d), SameSide(self.c, self.d, self.a, self.b), SameSide(self.a, self.d, self.b, self.c)]
+
+    def conclusion(self):
+        return Perimeter4(self.a, self.b, self.c, self.d) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.c, self.d) - Length(self.a, self.d)
