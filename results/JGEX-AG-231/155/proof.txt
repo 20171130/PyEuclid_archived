@@ -7,4 +7,4 @@ Solution:
 6. Parallel(a,c,e,h) & Parallel(a,c,f,g) => Parallel(e,h,f,g)
 7. Parallel(e,f,g,h) & Parallel(e,h,f,g) => Parallelogram(e,f,g,h)
 8. Parallelogram(e,f,g,h) & Collinear(e,g,i) & Collinear(f,h,i) => Length_f_i - Length_h_i
-9. Length_f_i - Length_h_i => Midpoint(i,f,h)
+9. Length_f_i - Length_h_i & Collinear(f,h,i) => Midpoint(i,f,h)

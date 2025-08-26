@@ -1,6 +1,6 @@
 Solution:
 1. Length_b_o - Length_c_o => IsoscelesTriangle(b,c,o)
 2. IsoscelesTriangle(b,c,o) & Length_b_o - Length_c_o & Collinear(b,c,q) & Midpoint(q,b,c) => Perpendicular(b,c,o,q)
-3. Length_j_m - Length_j_o => Midpoint(j,m,o)
+3. Length_j_m - Length_j_o & Collinear(j,m,o) => Midpoint(j,m,o)
 4. Midpoint(j,m,o) & Midpoint(j,q,s) => Parallel(m,s,o,q)
 5. Perpendicular(b,c,o,q) & Parallel(m,s,o,q) => Perpendicular(b,c,m,s)

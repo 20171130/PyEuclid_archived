@@ -84,7 +84,7 @@ class DefinitionOfMidpoint(InferenceRule):
         self.a, self.b, self.c = a, b, c
     
     def condition(self):
-        return Length(self.a, self.b) - Length(self.a, self.c), Between(self.a, self.b, self.c), Lt(self.b, self.c)
+        return Length(self.a, self.b) - Length(self.a, self.c), Collinear(self.a, self.b, self.c), Between(self.a, self.b, self.c), Lt(self.b, self.c)
     
     def conclusion(self):
         return Midpoint(self.a, self.b, self.c)
@@ -98,7 +98,7 @@ class DefinitionOfMidpoint1(InferenceRule):
         self.a, self.b, self.c = a, b, c
     
     def condition(self):
-        return Length(self.a, self.b)/Length(self.b, self.c) - Rational(1,2), Between(self.a, self.b, self.c)
+        return Length(self.a, self.b)/Length(self.b, self.c) - Rational(1,2), Collinear(self.a, self.b, self.c), Between(self.a, self.b, self.c)
     
     def conclusion(self):
         return Midpoint(self.a, self.b, self.c)
@@ -119,6 +119,7 @@ class PropertyOfMidpoint(InferenceRule):
             Length(self.a, self.b) - Length(self.a, self.c),
             Length(self.a, self.b) - Length(self.b, self.c) / 2,
             Length(self.a, self.c) - Length(self.b, self.c) / 2,
+            Collinear(self.a, self.b, self.c),
             Between(self.a, self.b, self.c)
         ]
 
@@ -2451,7 +2452,7 @@ class BetweenLength(InferenceRule):
         self.c = c
 
     def condition(self):
-        return Between(self.b, self.a, self.c), Lt(self.a, self.c)
+        return Collinear(self.b, self.a, self.c), Between(self.b, self.a, self.c), Lt(self.a, self.c)
 
     def conclusion(self):
         return Length(self.a, self.b)+Length(self.b, self.c)-Length(self.a, self.c)
@@ -3004,7 +3005,7 @@ class CircleArea(InferenceRule):
         return [Lt(self.a, self.b)]
 
     def conclusion(self):
-        return CircleArea(self.a, self.b) - pi*Length(self.a, self.b)**2, CircleArea(self.b, self.a) - pi*Length(self.a, self.b)**2,
+        return AreaOfCircle(self.a, self.b) - pi*Length(self.a, self.b)**2, AreaOfCircle(self.b, self.a) - pi*Length(self.a, self.b)**2,
     
 @register("complex")
 class SectorArea(InferenceRule):
@@ -3046,7 +3047,7 @@ class Perimeter3(InferenceRule):
         return [Not(Collinear(self.a, self.b, self.c))]
 
     def conclusion(self):
-        return Perimeter3(self.a, self.b, self.c) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.a, self.c)
+        return Perimeter(self.a, self.b, self.c) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.a, self.c)
     
 @register("complex")
 class Perimeter4(InferenceRule):
@@ -3061,4 +3062,4 @@ class Perimeter4(InferenceRule):
         return [SameSide(self.a, self.b, self.c, self.d), SameSide(self.b, self.c, self.a, self.d), SameSide(self.c, self.d, self.a, self.b), SameSide(self.a, self.d, self.b, self.c)]
 
     def conclusion(self):
-        return Perimeter4(self.a, self.b, self.c, self.d) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.c, self.d) - Length(self.a, self.d)
+        return Perimeter(self.a, self.b, self.c, self.d) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.c, self.d) - Length(self.a, self.d)

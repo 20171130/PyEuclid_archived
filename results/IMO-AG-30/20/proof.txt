@@ -1,0 +1,24 @@
+Solution:
+1. Length_a_o - Length_b_o & Length_b_o - Length_c_o => Circumcenter(o,a,b,c)
+2. Collinear(b,c,p) => Angle_a_b_c - Angle_a_b_p
+3. Angle_a_b_c - Angle_c_a_q & Angle_a_b_c - Angle_a_b_p => Angle_a_b_p - Angle_c_a_q
+4. Collinear(b,c,q) => Angle_a_c_b - Angle_a_c_q
+5. Angle_a_c_q + Angle_a_q_c + Angle_c_a_q - pi & Angle_a_b_c - Angle_c_a_q & Angle_a_c_b - Angle_a_c_q & Angle_a_c_b - Angle_b_a_p & Angle_a_b_c - Angle_a_b_p & Angle_a_b_p + Angle_a_p_b + Angle_b_a_p - pi => Angle_a_p_b - Angle_a_q_c
+6. Angle_a_b_p - Angle_c_a_q & Angle_a_p_b - Angle_a_q_c => Similar3(a,b,p,c,a,q)
+7. Similar3(a,b,p,c,a,q) => Length_a_p/Length_c_q - Length_b_p/Length_a_q
+8. Length_a_p - Length_m_p & Length_a_q - Length_n_q & Length_a_p/Length_c_q - Length_b_p/Length_a_q => Length_b_p/Length_n_q - Length_m_p/Length_c_q
+9. Collinear(a,m,p) => Angle_a_p_b + Angle_b_p_m - pi
+10. Collinear(a,n,q) => Angle_a_q_c + Angle_c_q_n - pi & Angle_a_n_c - Angle_c_n_q & Angle_c_a_n - Angle_c_a_q
+11. Angle_a_c_q + Angle_a_q_c + Angle_c_a_q - pi & Angle_a_p_b + Angle_b_p_m - pi & Angle_a_b_c - Angle_c_a_q & Angle_a_c_b - Angle_a_c_q & Angle_a_c_b - Angle_b_a_p & Angle_a_b_c - Angle_a_b_p & Angle_a_q_c + Angle_c_q_n - pi & Angle_a_b_p + Angle_a_p_b + Angle_b_a_p - pi => Angle_b_p_m - Angle_c_q_n
+12. Length_b_p/Length_n_q - Length_m_p/Length_c_q & Angle_b_p_m - Angle_c_q_n => Similar3(b,m,p,n,c,q)
+13. Similar3(b,m,p,n,c,q) => Angle_c_n_q - Angle_m_b_p
+14. -Length_a_o + Length_b_o & Length_b_o - Length_c_o => Angle_a_b_c - Angle_a_o_c/2
+15. Collinear(c,n,x) => Angle_n_c_o - Angle_o_c_x
+16. Length_a_o - Length_c_o => Angle_a_c_o - Angle_c_a_o
+17. Angle_a_b_c - Angle_a_o_c/2 & Angle_a_c_o + Angle_a_o_c + Angle_c_a_o - pi & Angle_a_b_c - Angle_c_a_q & Angle_a_c_n - Angle_a_c_o - Angle_n_c_o & Angle_n_c_o - Angle_o_c_x & Angle_a_c_n + Angle_a_n_c + Angle_c_a_n - pi & Angle_a_c_o - Angle_c_a_o & Angle_a_n_c - Angle_c_n_q & Angle_c_a_n - Angle_c_a_q => Angle_c_n_q + Angle_o_c_x - pi/2
+18. Collinear(b,m,x) => Angle_a_b_m - Angle_a_b_x
+19. Angle_a_b_c - Angle_a_o_c/2 & Angle_a_c_o + Angle_a_o_c + Angle_c_a_o - pi & Angle_a_c_o - Angle_c_a_o & Angle_a_b_c - Angle_a_b_p => Angle_a_b_p + Angle_a_c_o - pi/2
+20. Angle_a_b_m - Angle_a_b_p - Angle_m_b_p & Angle_a_c_o - Angle_a_c_x + Angle_o_c_x & Angle_c_n_q - Angle_m_b_p & Angle_c_n_q + Angle_o_c_x - pi/2 & Angle_a_b_m - Angle_a_b_x & Angle_a_b_p + Angle_a_c_o - pi/2 => Angle_a_b_x + Angle_a_c_x - pi
+21. Angle_a_b_x + Angle_a_c_x - pi => Concyclic(a,b,c,x)
+22. Circumcenter(o,a,b,c) & Concyclic(a,b,c,x) => Circumcenter(o,a,b,x)
+23. Circumcenter(o,a,b,x) => Length_a_o - Length_o_x

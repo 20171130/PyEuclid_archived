@@ -1,16 +1,13 @@
 Solution:
-1. Perpendicular(a,b,a,c) => Angle_b_a_c - pi/2
-2. Collinear(b,c,o) => Parallel(b,c,c,o)
-3. Perpendicular(a,d,b,c) & Parallel(b,c,c,o) => Perpendicular(a,d,c,o)
-4. Collinear(a,d,e) => Parallel(a,d,a,e)
-5. Perpendicular(a,d,c,o) & Parallel(a,d,a,e) => Perpendicular(a,e,c,o)
-6. Perpendicular(a,e,c,o) => Angle_a_c_o + Angle_c_a_e - pi/2
-7. Angle_b_a_c - pi/2 & Angle_b_a_c - Angle_b_a_e - Angle_c_a_e & Angle_a_c_o + Angle_c_a_e - pi/2 => Angle_a_c_o - Angle_b_a_e
+1. Midpoint(o,b,c) & Perpendicular(a,b,a,c) => Length_a_o - Length_b_o
+2. Length_a_o - Length_b_o => Angle_a_b_o - Angle_b_a_o
+3. Collinear(b,c,o) => Parallel(b,c,b,o)
+4. Perpendicular(a,d,b,c) & Parallel(b,c,b,o) => Perpendicular(a,d,b,o)
+5. Collinear(a,d,e) => Parallel(a,d,a,e)
+6. Perpendicular(a,d,b,o) & Parallel(a,d,a,e) => Perpendicular(a,e,b,o)
+7. Perpendicular(a,e,b,o) => Angle_a_b_o + Angle_b_a_e - pi/2
 8. Collinear(b,e,m) => Parallel(b,e,b,m)
 9. Perpendicular(a,o,b,m) & Parallel(b,e,b,m) => Perpendicular(a,o,b,e)
 10. Perpendicular(a,o,b,e) => Angle_a_b_e + Angle_b_a_o - pi/2
-11. Angle_a_b_e + Angle_b_a_o - pi/2 & Angle_b_a_c - pi/2 & Angle_b_a_c - Angle_b_a_o - Angle_c_a_o => Angle_a_b_e - Angle_c_a_o
-12. Midpoint(o,b,c) & Perpendicular(a,b,a,c) => Length_a_o - Length_c_o
-13. Length_a_o - Length_c_o => Angle_a_c_o - Angle_c_a_o
-14. Angle_a_c_o - Angle_b_a_e & Angle_a_b_e - Angle_c_a_o & Angle_a_c_o - Angle_c_a_o => Angle_a_b_e - Angle_b_a_e
-15. -Angle_a_b_e + Angle_b_a_e => Length_a_e - Length_b_e
+11. Angle_a_b_o - Angle_b_a_o & Angle_a_b_o + Angle_b_a_e - pi/2 & Angle_a_b_e + Angle_b_a_o - pi/2 => Angle_a_b_e - Angle_b_a_e
+12. -Angle_a_b_e + Angle_b_a_e => Length_a_e - Length_b_e

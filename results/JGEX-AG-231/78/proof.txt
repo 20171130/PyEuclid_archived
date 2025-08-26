@@ -5,11 +5,11 @@ Solution:
 4. Parallel(a,d,a,f) & Parallel(a,d,b,e) => Parallel(a,f,b,e)
 5. Parallel(a,b,e,f) & Parallel(a,f,b,e) => Parallelogram(a,b,e,f)
 6. Parallelogram(a,b,e,f) & Collinear(a,e,g) & Collinear(b,f,g) => Length_a_g - Length_e_g
-7. Length_a_g - Length_e_g => Midpoint(g,a,e)
+7. Length_a_g - Length_e_g & Collinear(a,e,g) => Midpoint(g,a,e)
 8. Parallel(a,b,c,d) & Parallel(a,b,e,f) => Parallel(c,d,e,f)
 9. Parallel(a,d,b,c) & Parallel(b,c,c,e) => Parallel(a,d,c,e)
 10. Parallel(a,d,c,e) & Parallel(a,d,d,f) => Parallel(c,e,d,f)
 11. Parallel(c,d,e,f) & Parallel(c,e,d,f) => Parallelogram(c,d,f,e)
 12. Parallelogram(c,d,f,e) & Collinear(c,f,h) & Collinear(d,e,h) => Length_d_h - Length_e_h
-13. Length_d_h - Length_e_h => Midpoint(h,d,e)
+13. Length_d_h - Length_e_h & Collinear(d,e,h) => Midpoint(h,d,e)
 14. Midpoint(g,a,e) & Midpoint(h,d,e) => Parallel(a,d,g,h)

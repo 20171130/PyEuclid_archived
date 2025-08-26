@@ -61,7 +61,7 @@ results = [(int(problem_id), float(time)) for problem_id, _, time in matches]
 
 
 solved2 = [_ for _, status, time in matches if status == "solved"]
-texts = parse_texts_from_file('data/IMO-AG-30.txt')
+texts = parse_texts_from_file('data/JGEX-AG-231.txt')
 
 for i in solved1:
     if i not in solved2:
@@ -80,7 +80,8 @@ def parse_problems_from_file(file_name):
     texts = [lines[i].strip() for i in range(0, len(lines), 2)]
     return texts
 
-problems = parse_problems_from_file('data/IMO-AG-30.txt')
+problems = parse_problems_from_file('data/JGEX-AG-231.txt')
+print(len(problems))
 
 def extract_solved_problems(lines):
     solved = []

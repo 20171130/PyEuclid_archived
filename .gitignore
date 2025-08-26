@@ -173,6 +173,7 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+old/
 cache/
 cache1/
 diagrams/
@@ -181,3 +182,5 @@ logs/
 dataset/
 cache/*
 !cache/.gitkeep
+
+.vllm/

@@ -1,12 +1,14 @@
 Solution:
-1. Midpoint(o,c,d) & Perpendicular(c,e,d,e) => Length_d_o - Length_e_o & Length_c_o - Length_e_o
-2. -Length_d_o + Length_e_o & -Length_c_o + Length_e_o & Perpendicular(a,e,e,o) => Angle_a_e_d + Angle_d_c_e - pi
-3. Collinear(d,e,f) => Angle_a_e_d + Angle_a_e_f - pi & Parallel(d,e,e,f)
-4. Perpendicular(c,e,d,e) & Parallel(d,e,e,f) => Perpendicular(c,e,e,f)
-5. Perpendicular(c,e,e,f) => Angle_c_e_f - pi/2
-6. Collinear(a,c,f) => Parallel(a,c,c,f) & Angle_a_f_e - Angle_c_f_e
-7. Perpendicular(a,c,c,d) & Parallel(a,c,c,f) => Perpendicular(c,d,c,f)
-8. Perpendicular(c,d,c,f) => Angle_d_c_f - pi/2
-9. Angle_c_e_f - pi/2 & Angle_d_c_f - pi/2 & Angle_a_f_e - Angle_c_f_e & Angle_d_c_e - Angle_d_c_f + Angle_e_c_f & Angle_c_e_f + Angle_c_f_e + Angle_e_c_f - pi => Angle_a_f_e - Angle_d_c_e
-10. Angle_a_e_d + Angle_d_c_e - pi & Angle_a_e_d + Angle_a_e_f - pi & Angle_a_f_e - Angle_d_c_e => Angle_a_e_f - Angle_a_f_e
-11. Angle_a_e_f - Angle_a_f_e => Length_a_e - Length_a_f
+1. Perpendicular(a,e,e,o) => Angle_a_e_o - pi/2
+2. Collinear(d,e,f) => Angle_a_e_d + Angle_a_e_f - pi & Angle_a_f_d - Angle_a_f_e & Angle_e_d_o - Angle_f_d_o
+3. Angle_a_e_o - pi/2 & Angle_a_e_d + Angle_a_e_f - pi & Angle_a_e_d - Angle_a_e_o - Angle_d_e_o => Angle_a_e_f + Angle_d_e_o - pi/2
+4. Collinear(c,d,o) => Parallel(c,d,d,o)
+5. Perpendicular(a,c,c,d) & Parallel(c,d,d,o) => Perpendicular(a,c,d,o)
+6. Collinear(a,c,f) => Parallel(a,c,a,f)
+7. Perpendicular(a,c,d,o) & Parallel(a,c,a,f) => Perpendicular(a,f,d,o)
+8. Perpendicular(a,f,d,o) => Angle_a_f_d + Angle_f_d_o - pi/2
+9. Angle_a_f_d - Angle_a_f_e & Angle_e_d_o - Angle_f_d_o & Angle_a_f_d + Angle_f_d_o - pi/2 => Angle_a_f_e + Angle_e_d_o - pi/2
+10. Midpoint(o,c,d) & Perpendicular(c,e,d,e) => Length_d_o - Length_e_o
+11. Length_d_o - Length_e_o => Angle_d_e_o - Angle_e_d_o
+12. Angle_a_e_f + Angle_d_e_o - pi/2 & Angle_a_f_e + Angle_e_d_o - pi/2 & Angle_d_e_o - Angle_e_d_o => Angle_a_e_f - Angle_a_f_e
+13. Angle_a_e_f - Angle_a_f_e => Length_a_e - Length_a_f

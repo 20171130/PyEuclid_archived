@@ -1,7 +1,7 @@
 Solution:
-1. Length_a_o - Length_c_o & Length_a_o - Length_b_o & Perpendicular(a,o,a,t) => Angle_a_b_c + Angle_c_a_t - pi
-2. Collinear(b,c,t) & Collinear(b,c,u) => Collinear(b,t,u)
-3. Collinear(b,t,u) => Angle_a_u_b - Angle_a_u_t
-4. Collinear(b,c,u) => Angle_a_b_c - Angle_a_b_u
-5. Angle_a_b_c + Angle_c_a_t - pi & Angle_a_b_u + Angle_a_u_b + Angle_b_a_u - pi & Angle_a_u_b - Angle_a_u_t & Angle_c_a_t - Angle_c_a_u - Angle_t_a_u & Angle_a_b_c - Angle_a_b_u & Angle_b_a_u - Angle_c_a_u => Angle_a_u_t - Angle_t_a_u
+1. Collinear(b,c,t) & Collinear(b,c,u) => Collinear(b,t,u)
+2. Collinear(b,t,u) => Angle_a_u_b + Angle_a_u_t - pi
+3. Collinear(b,c,u) => Angle_a_b_c - Angle_a_b_u
+4. Length_a_o - Length_c_o & Length_a_o - Length_b_o & Perpendicular(a,o,a,t) => Angle_a_b_c - Angle_c_a_t
+5. Angle_a_u_b + Angle_a_u_t - pi & Angle_b_a_u - Angle_c_a_u & Angle_a_b_u + Angle_a_u_b + Angle_b_a_u - pi & Angle_c_a_t + Angle_c_a_u - Angle_t_a_u & Angle_a_b_c - Angle_a_b_u & Angle_a_b_c - Angle_c_a_t => Angle_a_u_t - Angle_t_a_u
 6. -Angle_a_u_t + Angle_t_a_u => Length_a_t - Length_t_u

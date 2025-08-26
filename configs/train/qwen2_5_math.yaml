@@ -16,20 +16,20 @@ preprocessing_num_workers: 16
 dataloader_num_workers: 4
 
 ### output
-output_dir: saves/qwen2_5-math-7b_pyeuclid/
+output_dir: saves/qwen2_5-math-7b/
 logging_steps: 10
-save_steps: 100
+# save_steps: 100
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: true
-report_to: wandb  # choices: [none, wandb, tensorboard, swanlab, mlflow]
-save_total_limit: 1  # added
+report_to: wandb
+save_total_limit: 1
 
 ### train
-per_device_train_batch_size: 4
-gradient_accumulation_steps: 8
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 4
 learning_rate: 1.0e-5
-num_train_epochs: 2.0
+num_train_epochs: 2
 lr_scheduler_type: cosine
 warmup_ratio: 0.05
 bf16: true
