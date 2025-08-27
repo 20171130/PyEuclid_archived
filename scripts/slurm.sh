@@ -9,4 +9,4 @@
 
 export PYTHONBREAKPOINT=0
 
-mpirun python3 test.py
+mpirun python3 tests/test.py

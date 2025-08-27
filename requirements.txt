@@ -4,3 +4,4 @@ numpy==1.26.4
 stopit==1.1.2
 sympy==1.13.3
 tqdm==4.67.1
+vllm

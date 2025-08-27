@@ -46,8 +46,8 @@ tar -xvzf cache.tar.gz
 
 After installation, verify that everything is working by running:
 ```bash
-python test_single.py --help
-python test_single.py --show-proof
+python tests/test_single.py --help
+python tests/test_single.py --show-proof
 ```
 
 If you see output like `Solved in 8.90s`, the setup is successful.
@@ -62,8 +62,8 @@ To solve more complex problems, you may need a [Gurobi academic license](https:/
 ## Evaluation
 We provide both sequential and parallel methods to run experiments on the JGEX-AG-231 and Geometry3K datasets:
 ```bash
-python test.py                            # Run sequentially on a single machine
-sbatch slurm.sh                           # Run in parallel on a compute cluster via SLURM
+python tests/test.py                            # Run sequentially on a single machine
+sbatch scripts/slurm.sh                           # Run in parallel on a compute cluster via SLURM
 ```
 
 ## Extension

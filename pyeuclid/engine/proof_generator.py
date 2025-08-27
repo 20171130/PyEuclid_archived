@@ -25,43 +25,42 @@ class ProofGenerator:
         if isinstance(node, ConstructionRule):
             return [node]
         
-        if not node and self.state.goal:
-            node = self.state.goal
-
-        if root:
+        if root or depth is None:
             depth = self.state.current_depth
         
-        if depth is None:
-            depth = node.depth
-        
-        if isinstance(node, (InferenceRule, Relation)):
+        depth = min(getattr(node, "depth", self.state.current_depth), depth)
+            
+        if not node and self.state.goal:
+            node = self.state.goal
+            if not (self.state.complete() == 0 or self.state.complete() is True):
+                if "angle" in str(node).lower() or self.state.var_types.get(node, None) =="Angle":
+                    source = "angle_linear"
+                else: # including Area
+                    source = "length_ratio"
+                node = node - self.state.complete()
+                
+        if isinstance(node, Traced):
+            if node.expr in self.visited:
+                return self.source_constructions[node.expr]
+            else:
+                self.visited.add(node.expr)
+        else:
             if node in self.visited:
                 return self.source_constructions[node]
             else:
                 self.visited.add(node)
-        else:
-            assert isinstance(node, (Traced, sympy.core.expr.Expr))
-            if isinstance(node, sympy.core.expr.Expr):
-                terms = node.as_ordered_terms()
-                if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
-                    node = node/terms[0].args[0]
                 
-                for item in self.state.equations:
-                    if item.depth < depth:
-                        if item.expr == node:
-                            node = item
-                            break
+        if isinstance(node, sympy.core.expr.Expr):
+            terms = node.as_ordered_terms()
+            if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
+                node = node/terms[0].args[0]
             
-            if isinstance(node, Traced):
-                if node.expr in self.visited:
-                    return self.source_constructions[node.expr]
-                else:
-                    self.visited.add(node.expr)
-            else:
-                if node in self.visited:
-                    return self.source_constructions[node]
-                else:
-                    self.visited.add(node)
+            for item in self.state.equations:
+                if item.depth < depth:
+                    if item.expr == node:
+                        node = item
+                        depth = item.depth
+                        break
         
         constructions = set()
         
@@ -80,22 +79,22 @@ class ProofGenerator:
                     if hasattr(tmp, "source"):
                         source = tmp.source
                         self.proof_dict[node] = [source]
-                        cond_constructions = self.run(source, root=False)
+                        cond_constructions = self.run(source, depth=depth, root=False)
                         constructions.update(cond_constructions)
                         self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
                         return self.source_constructions[node]
                     else:
+                        self.proof_dict[node] = []
                         return []
             else:
                 assert False, f"{node} is not proved"
         else:
             if isinstance(node, Traced):
-                # if not node.sources or type(node.sources[0]) in (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2):
-                #     sources = []
-                # else:
                 sources = node.sources
                 expr = node.expr
-
+                if len(sources) == 0:
+                    self.proof_dict[node] = []
+                    return []
                 if isinstance(sources[0], str):
                     # backtrace linear systems
                     equations = [item for item in self.state.equations if item.depth < node.depth]
@@ -103,7 +102,6 @@ class ProofGenerator:
                         conditions = self.cache_conditions[expr]
                     else:
                         conditions = self.find_conditions(equations, expr, sources[0])
-                    
                     if self.max_equation_length_perstep:
                         discards = []
                         while len(conditions) > self.max_equation_length_perstep:
@@ -137,11 +135,11 @@ class ProofGenerator:
                     self.cache_source[expr] = sources[0]
                     sources = conditions
                 else:
-                    # inference rules derived traced
+                    # sources annotated, from inference rules or solve complex
                     pass
                 self.proof_dict[expr] = sources
                 for item in sources:
-                    cond_constructions = self.run(item, root=False)
+                    cond_constructions = self.run(item, depth=depth, root=False)
                     constructions.update(cond_constructions)
                 self.source_constructions[expr] = sorted(constructions, key=lambda c: c.index)
                 return self.source_constructions[expr]
@@ -149,7 +147,6 @@ class ProofGenerator:
                 assert isinstance(node, sympy.core.expr.Expr)
                 source = None
                 equations = [item for item in self.state.equations if item.depth < depth]
-
                 if node in self.cache_conditions:
                     conditions = self.cache_conditions[node]
                     source = self.cache_source[node]
@@ -163,6 +160,17 @@ class ProofGenerator:
                             if conditions:
                                 source = tmp
                                 break
+                if conditions is None:
+                    conditions = []
+                    expr = node
+                    symbols = [symbol for symbol in node.free_symbols if symbol in self.state.solutions]
+                    for symbol in symbols:
+                        expr = expr.subs(symbol, self.state.solutions[symbol])
+                        conditions.append(symbol - self.state.solutions[symbol])
+                        if expr == 0:
+                            break
+                    else:
+                        breakpoint()
                 if self.max_equation_length_perstep:
                     discards = []
                     while len(conditions) > self.max_equation_length_perstep:
@@ -198,7 +206,7 @@ class ProofGenerator:
                 self.proof_dict[node] = sources
             
                 for item in sources:
-                    cond_constructions = self.run(item, root=False)
+                    cond_constructions = self.run(item, root=False, depth=depth)
                     constructions.update(cond_constructions)
                 
                 self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
@@ -312,23 +320,31 @@ class ProofGenerator:
         
         return proof
     
-    def show_proof(self, node=None):
-        res = self.get_proof_str(node)
+    def show_proof(self, node=None, verbose=False):
+        res = self.get_proof_str(node, verbose)
         print(res)
 
-    def get_proof_str(self, node=None):
+    def get_proof_str(self, node=None, verbose=False):
         res = "Solution:\n"
         proof = self.get_proof(node)
+        def _format(items):
+            if verbose:
+                return ' & '.join([str(item)+ (f"@{item.depth}" if hasattr(item, 'depth') else "") for item in items])
+            return ' & '.join([str(item) for item in items])
         for step, (conditions, theorem, conclusions) in enumerate(proof):
-            theorem_str = ' [' + str(theorem) + ']' if theorem else ''
-            theorem_str = ''
-            res += f'{step+1}. ' + ' & '.join([str(item) for item in conditions]) + theorem_str + ' => ' + ' & '.join([str(item) for item in conclusions]) + '\n'
+            if verbose:
+                theorem_str = ' [' + str(theorem) + ']' if theorem else ''
+            else:
+                theorem_str = ''
+            res += f'{step+1}. ' + _format(conditions) + theorem_str + ' => ' + _format(conclusions) + '\n'
         return res
     
     def get_proof(self, node=None):
         res = []
         if not node and self.state.goal:
             node = self.state.goal
+            if not (self.state.complete() == 0 or self.state.complete() is True):
+                node = node - self.state.complete()
         
         proof_steps = self.format_proof(node)
 
@@ -544,6 +560,7 @@ class ProofGenerator:
 
     def find_conditions(self, equations: list[Traced], conclusion, source):
         angle_linear, length_linear, length_ratio, others = classify_equations(equations, self.state.var_types)
+        
         """Given sympified equations and conclusions, return a list of necessary conditions"""
         def try_find(equations, conclusion):
             variables = set()

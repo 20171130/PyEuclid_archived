@@ -195,30 +195,34 @@ from sympy.core import Add, Mul, Pow, Symbol
 
 def is_linear(expr):
     for term in Add.make_args(expr):
+        cnt = 0
         for factor in Mul.make_args(term):
-            if isinstance(factor, Pow):
-                base, exp = factor.args
-                if exp != 1:
+            if factor.free_symbols:
+                if isinstance(factor, Pow):
+                    base, exp = factor.args
+                    if exp != 1:
+                        return False
+                    cnt += 1
+                elif isinstance(factor, Symbol):
+                    cnt += 1
+                else:
                     return False
-            elif isinstance(factor, Symbol):
-                pass
-            elif factor.free_symbols:
-                return False
+        if cnt > 1:
+            return False
     return True
-    
     
 def classify_equations(equations: List[Traced], var_types):
     angle_linear, length_linear, length_ratio, others = [], [], [], []
     for eqn in equations:
         if not eqn.kinds:
             kinds = []
-            expr = eqn.expr
-            assert isinstance(expr, sympy.core.add.Add)
+            expr = eqn.expr.expand()
+            assert isinstance(expr, (sympy.core.add.Add, sympy.core.symbol.Symbol))
             var_type = set()
             for symbol in expr.free_symbols:
                 if "Angle" in str(symbol):
                     var_type.add("Angle")
-                elif "Length" in str(symbol):
+                elif "Length" in str(symbol) or "Area" in str(symbol):
                     var_type.add("Length")
                 else:
                     if symbol in var_types:

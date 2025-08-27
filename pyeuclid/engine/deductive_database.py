@@ -385,7 +385,6 @@ class DeductiveDatabase():
                 break
 
             inner_closure = False
-            self.state.current_depth += 0.001
             self.apply(inner_applicable)
             
         if self.state.complete() is not None:
@@ -398,6 +397,5 @@ class DeductiveDatabase():
                 self.state.logger.debug("Found Closure")
             return True
 
-        self.state.current_depth += 0.001
         self.apply(applicable_theorems)
         

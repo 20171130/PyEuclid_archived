@@ -23,9 +23,7 @@ class Engine:
                 break
             
             self.algebraic_system.run()
-
-            self.state.current_depth += 1
-
+            
     def step(self, conditions, conclusions=[], depth=1):
         """
         Only considers a subset of points and conditions
