@@ -122,6 +122,8 @@ class State:
             elif "Length" in s:
                 unionfind = self.lengths
                 unionfind.add(quantity)
+            elif "Variable" in s:
+                continue
             points = s.split("_")[1:]
             for p in points:
                 self.add_point(p)

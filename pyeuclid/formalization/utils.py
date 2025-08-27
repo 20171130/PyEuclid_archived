@@ -288,7 +288,7 @@ def parse_expression(expr):
             
     return symbols, symbol_names
 
-eps = 1e-3
+eps = 1e-8
 def is_small(x):
     if len(x.free_symbols) > 0:
         return False

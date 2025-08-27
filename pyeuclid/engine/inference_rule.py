@@ -3058,7 +3058,7 @@ class SectorArea(InferenceRule):
         self.c = c
 
     def condition(self):
-        return [Lt(self.b, self.c)]
+        return [*Different(self.a, self.b, self.c), Lt(self.b, self.c)]
 
     def conclusion(self):
         return MinorSector(self.a, self.b, self.c) - (Angle(self.b, self.a, self.c)*Length(self.a, self.b)**2)/2, MajorSector(self.a, self.b, self.c) - ((2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)**2)/2
@@ -3073,7 +3073,7 @@ class ArcLength(InferenceRule):
         self.c = c
 
     def condition(self):
-        return [Lt(self.b, self.c)]
+        return [*Different(self.a, self.b, self.c), Lt(self.b, self.c)]
 
     def conclusion(self):
         return MinorArc(self.a, self.b, self.c) - Angle(self.b, self.a, self.c)*Length(self.a, self.b), MajorArc(self.a, self.b, self.c) - (2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)
@@ -3104,7 +3104,7 @@ class Perimeter4(InferenceRule):
         self.d = d
 
     def condition(self):
-        return [SameSide(self.a, self.b, self.c, self.d), SameSide(self.b, self.c, self.a, self.d), SameSide(self.c, self.d, self.a, self.b), SameSide(self.a, self.d, self.b, self.c)]
+        return [Quadrilateral(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.b, self.d)]
 
     def conclusion(self):
         return Perimeter(self.a, self.b, self.c, self.d) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.c, self.d) - Length(self.a, self.d)

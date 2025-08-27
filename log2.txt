@@ -1,1201 +1,3156 @@
-13 solved in 2.8066859245300293 seconds
-13 proof generation runs in 0.04326820373535156
-Proof steps:  5
-Max condition number:  3
-Average condition number:  2.2
-1 solved in 3.6935842037200928 seconds
-1 proof generation runs in 0.1704697608947754
-Proof steps:  9
-Max condition number:  5
-Average condition number:  2.2222222222222223
-22 unsolved in 2.857342481613159 seconds
-10 solved in 7.133410930633545 seconds
-10 proof generation runs in 0.15997743606567383
-Proof steps:  14
-Max condition number:  17
-Average condition number:  2.642857142857143
-19 solved in 6.756199836730957 seconds
-19 proof generation runs in 0.09081459045410156
-Proof steps:  9
-Max condition number:  5
-Average condition number:  2.0
-24 solved in 5.796119213104248 seconds
-18 solved in 7.324253082275391 seconds
-24 proof generation runs in 0.2040262222290039
-Proof steps:  7
-Max condition number:  8
-Average condition number:  2.7142857142857144
-18 proof generation runs in 0.1767127513885498
-Proof steps:  17
-Max condition number:  6
-Average condition number:  2.0
-28 solved in 6.2108399868011475 seconds
-28 proof generation runs in 0.02462911605834961
-Proof steps:  9
-Max condition number:  4
-Average condition number:  1.8888888888888888
-43 solved in 5.933616638183594 seconds
-43 proof generation runs in 0.13683271408081055
-Proof steps:  19
-Max condition number:  4
-Average condition number:  1.8421052631578947
-20 solved in 7.24534010887146 seconds
-20 proof generation runs in 0.16992688179016113
-Proof steps:  15
-Max condition number:  3
-Average condition number:  1.8
-52 solved in 4.134162187576294 seconds
-52 proof generation runs in 0.1345806121826172
-Proof steps:  13
-Max condition number:  4
-Average condition number:  2.0
-5 solved in 11.196655035018921 seconds
-5 proof generation runs in 0.17681503295898438
-Proof steps:  15
-Max condition number:  6
-Average condition number:  2.0
-21 unsolved in 9.352504014968872 seconds
-16 solved in 12.164809465408325 seconds
-0 solved in 11.664934158325195 seconds
-27 solved in 9.882011651992798 seconds
-48 solved in 2.569132089614868 seconds
-16 proof generation runs in 0.21556687355041504
-Proof steps:  13
-Max condition number:  11
-Average condition number:  2.230769230769231
-48 proof generation runs in 0.046070098876953125
-Proof steps:  10
-Max condition number:  5
-Average condition number:  2.1
-0 proof generation runs in 0.20203900337219238
-Proof steps:  13
-Max condition number:  6
-Average condition number:  2.3846153846153846
-27 proof generation runs in 0.1731874942779541
-Proof steps:  16
-Max condition number:  3
-Average condition number:  1.8125
-40 solved in 5.172870874404907 seconds
-40 proof generation runs in 0.015488624572753906
-Proof steps:  6
-Max condition number:  4
-Average condition number:  2.5
-50 solved in 2.9260058403015137 seconds
-50 proof generation runs in 0.06318378448486328
-Proof steps:  6
-Max condition number:  6
-Average condition number:  2.1666666666666665
-12 solved in 14.300614595413208 seconds
-12 proof generation runs in 0.17791056632995605
-Proof steps:  12
-Max condition number:  6
-Average condition number:  2.0833333333333335
-31 solved in 9.66451120376587 seconds
-54 solved in 5.700613021850586 seconds
-31 proof generation runs in 0.12816762924194336
-Proof steps:  8
-Max condition number:  10
-Average condition number:  2.625
-54 proof generation runs in 0.13268518447875977
-Proof steps:  16
-Max condition number:  8
-Average condition number:  2.0
-23 solved in 12.834526777267456 seconds
-23 proof generation runs in 0.06446027755737305
-Proof steps:  24
-Max condition number:  2
-Average condition number:  1.6666666666666667
-70 solved in 1.7446513175964355 seconds
-70 proof generation runs in 0.011403799057006836
-Proof steps:  9
-Max condition number:  4
-Average condition number:  2.0
-7 solved in 15.877888917922974 seconds
-7 proof generation runs in 0.22723913192749023
-Proof steps:  9
-Max condition number:  5
-Average condition number:  2.2222222222222223
-73 solved in 7.100911617279053 seconds
-73 proof generation runs in 0.2969200611114502
-Proof steps:  23
-Max condition number:  7
-Average condition number:  1.9565217391304348
-58 solved in 7.887616872787476 seconds
-29 solved in 15.225932121276855 seconds
-29 proof generation runs in 0.06258249282836914
-Proof steps:  23
-Max condition number:  2
-Average condition number:  1.6521739130434783
-58 proof generation runs in 0.1791677474975586
-Proof steps:  10
-Max condition number:  12
-Average condition number:  3.6
-51 solved in 5.500798463821411 seconds
-49 solved in 9.238984107971191 seconds
-49 proof generation runs in 0.010798215866088867
-Proof steps:  8
-Max condition number:  3
-Average condition number:  1.875
-57 solved in 4.834394931793213 seconds
-51 proof generation runs in 0.17279505729675293
-Proof steps:  14
-Max condition number:  6
-Average condition number:  1.7142857142857142
-57 proof generation runs in 0.08043193817138672
-Proof steps:  8
-Max condition number:  7
-Average condition number:  2.375
-25 solved in 16.85955286026001 seconds
-25 proof generation runs in 0.3975391387939453
-Proof steps:  10
-Max condition number:  6
-Average condition number:  2.3
-59 solved in 2.9289867877960205 seconds
-59 proof generation runs in 0.07689642906188965
-Proof steps:  6
-Max condition number:  10
-Average condition number:  2.8333333333333335
-80 solved in 7.109739542007446 seconds
-80 proof generation runs in 0.12847900390625
-Proof steps:  9
-Max condition number:  8
-Average condition number:  2.3333333333333335
-42 solved in 6.696964979171753 seconds
-42 proof generation runs in 0.09591460227966309
-Proof steps:  13
-Max condition number:  15
-Average condition number:  2.4615384615384617
-61 solved in 6.333335638046265 seconds
-61 proof generation runs in 0.09256434440612793
-Proof steps:  8
-Max condition number:  11
-Average condition number:  2.75
-53 solved in 6.441554069519043 seconds
-53 proof generation runs in 0.18391180038452148
-Proof steps:  11
-Max condition number:  13
-Average condition number:  3.090909090909091
-26 solved in 20.500600337982178 seconds
-30 solved in 10.006098985671997 seconds
-30 proof generation runs in 0.3124532699584961
-Proof steps:  21
-Max condition number:  5
-Average condition number:  1.8095238095238095
-26 proof generation runs in 1.048306941986084
-Proof steps:  39
-Max condition number:  8
-Average condition number:  2.1025641025641026
-72 solved in 3.232254981994629 seconds
-72 proof generation runs in 0.0714869499206543
-Proof steps:  7
-Max condition number:  5
-Average condition number:  2.142857142857143
-15 solved in 25.73757266998291 seconds
-15 proof generation runs in 0.3868141174316406
-Proof steps:  11
-Max condition number:  11
-Average condition number:  2.5454545454545454
-60 solved in 2.9492433071136475 seconds
-60 proof generation runs in 0.011348247528076172
-Proof steps:  3
-Max condition number:  4
-Average condition number:  2.6666666666666665
-35 solved in 15.393807649612427 seconds
-35 proof generation runs in 0.23378491401672363
-Proof steps:  9
-Max condition number:  4
-Average condition number:  2.0
-87 solved in 8.811622619628906 seconds
-87 proof generation runs in 0.054796695709228516
-Proof steps:  17
-Max condition number:  6
-Average condition number:  2.5294117647058822
-55 solved in 7.6388702392578125 seconds
-55 proof generation runs in 0.09374570846557617
-Proof steps:  7
-Max condition number:  5
-Average condition number:  2.5714285714285716
-56 solved in 3.422236680984497 seconds
-100 solved in 11.558379411697388 seconds
-56 proof generation runs in 0.07297372817993164
-Proof steps:  10
-Max condition number:  15
-Average condition number:  2.7
-100 proof generation runs in 0.3984537124633789
-Proof steps:  15
-Max condition number:  6
-Average condition number:  1.9333333333333333
-110 solved in 6.269277811050415 seconds
-110 proof generation runs in 0.20757079124450684
-Proof steps:  16
-Max condition number:  5
-Average condition number:  1.6875
-82 solved in 18.102031707763672 seconds
-82 proof generation runs in 0.06298017501831055
-Proof steps:  21
-Max condition number:  6
-Average condition number:  2.380952380952381
-102 solved in 3.005807876586914 seconds
-102 proof generation runs in 0.07349324226379395
-Proof steps:  8
-Max condition number:  4
-Average condition number:  2.0
-3 solved in 28.828611373901367 seconds
-117 solved in 1.33420991897583 seconds
-117 proof generation runs in 0.002399921417236328
-Proof steps:  2
-Max condition number:  3
-Average condition number:  2.5
-3 proof generation runs in 0.45990777015686035
-Proof steps:  19
-Max condition number:  8
-Average condition number:  2.1578947368421053
-8 solved in 30.43757653236389 seconds
-84 solved in 14.773065090179443 seconds
-84 proof generation runs in 0.018904685974121094
-Proof steps:  7
-Max condition number:  2
-Average condition number:  1.8571428571428572
-8 proof generation runs in 0.8325393199920654
-Proof steps:  18
-Max condition number:  5
-Average condition number:  1.6666666666666667
-83 solved in 8.556634187698364 seconds
-83 proof generation runs in 0.1668715476989746
-Proof steps:  21
-Max condition number:  13
-Average condition number:  2.4285714285714284
-38 solved in 0.6288280487060547 seconds
-38 proof generation runs in 0.015006542205810547
-Proof steps:  5
-Max condition number:  4
-Average condition number:  1.8
-37 solved in 16.47468376159668 seconds
-112 solved in 3.721897602081299 seconds
-112 proof generation runs in 0.08185982704162598
-Proof steps:  11
-Max condition number:  3
-Average condition number:  1.4545454545454546
-37 proof generation runs in 0.33632326126098633
-Proof steps:  27
-Max condition number:  3
-Average condition number:  1.6666666666666667
-45 solved in 6.851551294326782 seconds
-65 solved in 5.402821063995361 seconds
-45 proof generation runs in 0.00975346565246582
-Proof steps:  4
-Max condition number:  4
-Average condition number:  2.25
-65 proof generation runs in 0.09550976753234863
-Proof steps:  9
-Max condition number:  6
-Average condition number:  2.2222222222222223
-103 unsolved in 16.164822101593018 seconds
-114 solved in 4.802213191986084 seconds
-114 proof generation runs in 0.12812447547912598
-Proof steps:  18
-Max condition number:  8
-Average condition number:  2.0555555555555554
-113 solved in 3.4820244312286377 seconds
-113 proof generation runs in 0.0321354866027832
-Proof steps:  5
-Max condition number:  6
-Average condition number:  2.4
-33 solved in 5.779548168182373 seconds
-33 proof generation runs in 0.1297924518585205
-Proof steps:  14
-Max condition number:  10
-Average condition number:  2.2142857142857144
-91 solved in 14.070798873901367 seconds
-88 solved in 18.655810117721558 seconds
-91 proof generation runs in 0.35288333892822266
-Proof steps:  16
-Max condition number:  5
-Average condition number:  2.1875
-88 proof generation runs in 0.03209185600280762
-Proof steps:  10
-Max condition number:  4
-Average condition number:  2.0
-79 solved in 18.40093159675598 seconds
-46 solved in 24.352165699005127 seconds
-79 proof generation runs in 0.36918210983276367
-Proof steps:  22
-Max condition number:  6
-Average condition number:  1.9090909090909092
-46 proof generation runs in 0.6389434337615967
-Proof steps:  17
-Max condition number:  7
-Average condition number:  1.8235294117647058
-75 solved in 4.627514123916626 seconds
-75 proof generation runs in 0.06305623054504395
-Proof steps:  8
-Max condition number:  3
-Average condition number:  1.5
-95 solved in 5.504730224609375 seconds
-95 proof generation runs in 0.10703778266906738
-Proof steps:  5
-Max condition number:  3
-Average condition number:  2.0
-68 solved in 7.262336254119873 seconds
-68 proof generation runs in 0.1920022964477539
-Proof steps:  15
-Max condition number:  6
-Average condition number:  1.8666666666666667
-118 solved in 2.9260053634643555 seconds
-118 proof generation runs in 0.04530072212219238
-Proof steps:  9
-Max condition number:  3
-Average condition number:  2.3333333333333335
-63 solved in 3.5450572967529297 seconds
-63 proof generation runs in 0.0041828155517578125
-Proof steps:  6
-Max condition number:  2
-Average condition number:  1.5
-67 solved in 7.0035765171051025 seconds
-67 proof generation runs in 0.18024802207946777
-Proof steps:  22
-Max condition number:  9
-Average condition number:  2.090909090909091
-89 solved in 20.425379753112793 seconds
-90 solved in 14.82343339920044 seconds
-89 proof generation runs in 0.1010122299194336
-Proof steps:  24
-Max condition number:  3
-Average condition number:  1.8333333333333333
-90 proof generation runs in 0.386197566986084
-Proof steps:  20
-Max condition number:  9
-Average condition number:  2.1
-147 solved in 14.623669147491455 seconds
-121 solved in 7.3692786693573 seconds
-121 proof generation runs in 0.14787530899047852
-Proof steps:  12
-Max condition number:  7
-Average condition number:  1.9166666666666667
-147 proof generation runs in 0.4440956115722656
-Proof steps:  28
-Max condition number:  6
-Average condition number:  2.107142857142857
-78 solved in 32.846707820892334 seconds
-78 proof generation runs in 0.09511327743530273
-Proof steps:  23
-Max condition number:  4
-Average condition number:  1.826086956521739
-148 solved in 5.354939222335815 seconds
-148 proof generation runs in 0.11968374252319336
-Proof steps:  7
-Max condition number:  8
-Average condition number:  2.4285714285714284
-6 solved in 46.68145179748535 seconds
-93 solved in 5.697726011276245 seconds
-93 proof generation runs in 0.14294910430908203
-Proof steps:  10
-Max condition number:  8
-Average condition number:  2.4
-6 proof generation runs in 0.6605551242828369
-Proof steps:  18
-Max condition number:  7
-Average condition number:  1.7777777777777777
-76 solved in 10.051265478134155 seconds
-76 proof generation runs in 0.26618480682373047
-Proof steps:  20
-Max condition number:  6
-Average condition number:  2.25
-108 solved in 2.9298858642578125 seconds
-108 proof generation runs in 0.013663768768310547
-Proof steps:  3
-Max condition number:  3
-Average condition number:  2.3333333333333335
-36 solved in 2.8001694679260254 seconds
-36 proof generation runs in 0.05241560935974121
-Proof steps:  8
-Max condition number:  3
-Average condition number:  2.125
-119 solved in 8.717585325241089 seconds
-109 solved in 13.43676495552063 seconds
-119 proof generation runs in 0.170518159866333
-Proof steps:  22
-Max condition number:  12
-Average condition number:  2.3181818181818183
-178 solved in 4.586472988128662 seconds
-178 proof generation runs in 0.07372736930847168
-Proof steps:  11
-Max condition number:  6
-Average condition number:  1.8181818181818181
-109 proof generation runs in 0.28145623207092285
-Proof steps:  16
-Max condition number:  6
-Average condition number:  1.9375
-142 solved in 18.64777135848999 seconds
-86 solved in 24.41436219215393 seconds
-86 proof generation runs in 0.05814385414123535
-Proof steps:  17
-Max condition number:  4
-Average condition number:  2.176470588235294
-142 proof generation runs in 0.28577756881713867
-Proof steps:  10
-Max condition number:  6
-Average condition number:  1.8
-85 solved in 24.67134380340576 seconds
-140 solved in 24.066531896591187 seconds
-85 proof generation runs in 0.3062019348144531
-Proof steps:  19
-Max condition number:  4
-Average condition number:  1.9473684210526316
-98 solved in 12.441446304321289 seconds
-140 proof generation runs in 0.44001173973083496
-Proof steps:  12
-Max condition number:  7
-Average condition number:  2.0
-98 proof generation runs in 0.1535499095916748
-Proof steps:  7
-Max condition number:  6
-Average condition number:  2.2857142857142856
-17 solved in 54.120359659194946 seconds
-2 solved in 54.59314751625061 seconds
-208 unsolved in 2.5219902992248535 seconds
+2417 solved in 0.07822251319885254 seconds
+2411 solved in 0.466442346572876 seconds
+2425 unsolved in 1.763235092163086 seconds
+2409 solved in 2.161707639694214 seconds
+2427 solved in 2.848573923110962 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x727e52be2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2455 solved in 0.3567323684692383 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78c03ce3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78d040816980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2423 solved in 3.457231283187866 seconds
+2447 solved in 2.708048105239868 seconds
+2439 solved in 0.7299206256866455 seconds
+2401 solved in 4.382709503173828 seconds
+2430 solved in 4.805679798126221 seconds
+2422 solved in 5.1041154861450195 seconds
+2469 solved in 0.8077383041381836 seconds
+2477 solved in 1.4469859600067139 seconds
+2421 solved in 6.238533020019531 seconds
+2424 solved in 6.616563558578491 seconds
+2414 solved in 6.5916547775268555 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770c46c3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2410 unsolved in 7.436535358428955 seconds
+2412 solved in 7.306583881378174 seconds
+2457 solved in 4.41217565536499 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x796cec2b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2499 solved in 2.064692735671997 seconds
+2485 solved in 4.3999857902526855 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78c03ce3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2403 solved in 8.409085035324097 seconds
+2460 unsolved in 3.2366020679473877 seconds
+2426 unsolved in 8.84963846206665 seconds
+2408 solved in 9.125543355941772 seconds
+2451 unsolved in 2.526470899581909 seconds
+2420 solved in 9.32916808128357 seconds
+2442 solved in 1.3666460514068604 seconds
+2413 solved in 9.487318754196167 seconds
+2529 solved in 2.1187939643859863 seconds
+2433 solved in 2.0035417079925537 seconds
+2481 solved in 1.456322431564331 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78369a93a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2472 solved in 2.1870839595794678 seconds
+2450 solved in 2.855618476867676 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f39d4b66980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2559 solved in 2.1806137561798096 seconds
+2443 solved in 3.296940565109253 seconds
+2511 solved in 1.7671077251434326 seconds
+2419 solved in 14.403294086456299 seconds
+2502 solved in 1.5929992198944092 seconds
+2454 solved in 2.3505141735076904 seconds
+2541 solved in 0.819849967956543 seconds
+2406 solved in 15.18760871887207 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fac13296980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2515 solved in 7.039671897888184 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770c46c3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2429 solved in 16.1703999042511 seconds
+2449 solved in 1.96329665184021 seconds
+2479 error Similar4.__init__() takes 9 positional arguments but 11 were given
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 246, in test_geometry3k
+    exec(file.read(), namespace)
+  File "<string>", line 7, in <module>
+TypeError: Similar4.__init__() takes 9 positional arguments but 11 were given
+
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2545 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2473 unsolved in 3.288954496383667 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7510bfdbe980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2438 unsolved in 8.851359128952026 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2453 solved in 15.65210509300232 seconds
+2444 unsolved in 12.398516178131104 seconds
+2532 solved in 4.932337522506714 seconds
+2415 solved in 19.978370904922485 seconds
+2484 solved in 4.712751388549805 seconds
+2562 solved in 0.009297370910644531 seconds
+2402 solved in 20.912662506103516 seconds
+2474 solved in 1.1299700736999512 seconds
+2503 solved in 3.646930456161499 seconds
+2571 solved in 6.7370219230651855 seconds
+2428 solved in 22.87852644920349 seconds
+2483 solved in 2.4525327682495117 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78569237a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x796cec2b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2592 unsolved in 2.0514774322509766 seconds
+2459 solved in 6.769249677658081 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x73455735e980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2432 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2504 solved in 2.0695531368255615 seconds
+2405 solved in 24.04242491722107 seconds
+2507 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2489 solved in 0.9103236198425293 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2435 solved in 0.5210933685302734 seconds
+2445 solved in 5.046809196472168 seconds
+2513 unsolved in 3.1018168926239014 seconds
+2456 solved in 17.500864028930664 seconds
+2514 solved in 6.353844881057739 seconds
+2622 unsolved in 4.790082931518555 seconds
+2416 solved in 28.456113815307617 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f39d4b66980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2463 solved in 17.583378553390503 seconds
+2575 solved in 11.68867826461792 seconds
+2462 solved in 5.26762056350708 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2418 solved in 30.14740490913391 seconds
+2519 solved in 4.612349987030029 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2544 solved in 3.118396043777466 seconds
+2652 unsolved in 2.3880183696746826 seconds
+2589 unsolved in 17.578824281692505 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2468 solved in 12.742579698562622 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x703578eba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2448 solved in 2.2735071182250977 seconds
+2436 solved in 17.305771827697754 seconds
+2574 solved in 2.2348108291625977 seconds
+2498 solved in 1.3447699546813965 seconds
+2605 solved in 3.6712117195129395 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f39d4b66980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78c03ce3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2528 solved in 0.40323925018310547 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x762251e6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2604 unsolved in 1.5676820278167725 seconds
+2558 solved in 0.6305618286132812 seconds
+2478 solved in 2.620745897293091 seconds
+2478 error SCIP: error in LP solver!
+[solve.c:4032] ERROR: (node 1) unresolved numerical troubles in LP 3 cannot be dealt with
+[solve.c:4311] ERROR: Error <-6> in function call
+[solve.c:5104] ERROR: Error <-6> in function call
+[scip_solve.c:2661] ERROR: Error <-6> in function call
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 278, in test_geometry3k
+    proof_generator.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/proof_generator.py", line 159, in run
+    conditions = self.find_conditions(equations, node, tmp)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/proof_generator.py", line 592, in find_conditions
+    return try_find(equations, conclusion)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/proof_generator.py", line 579, in try_find
+    deps = self.traceback_l1(mat, eq)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/proof_generator.py", line 388, in traceback_l1
+    model.optimize()
+  File "src/pyscipopt/scip.pxi", line 7209, in pyscipopt.scip.Model.optimize
+  File "src/pyscipopt/scip.pxi", line 313, in pyscipopt.scip.PY_SCIP_CALL
+Exception: SCIP: error in LP solver!
+
+2543 solved in 9.94311785697937 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7cde705e2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2549 unsolved in 6.628594398498535 seconds
+2508 solved in 0.7635650634765625 seconds
+2537 solved in 12.49384069442749 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2466 solved in 6.3841917514801025 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2567 solved in 4.110363721847534 seconds
+2601 solved in 20.923336505889893 seconds
+2579 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x762251e6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2619 solved in 12.485903263092041 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2490 solved in 37.50411105155945 seconds
+2649 solved in 2.042941093444824 seconds
+2682 solved in 16.30701494216919 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f39d4b66980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x746bc2f6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78569237a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2534 unsolved in 29.648229360580444 seconds
+2597 solved in 11.30991268157959 seconds
+2446 solved in 26.521815299987793 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x762251e6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2712 solved in 7.669129371643066 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2407 solved in 56.90412354469299 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7df41b186980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2533 solved in 37.295448303222656 seconds
+2404 solved in 59.76332974433899 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2492 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2437 solved in 4.148747444152832 seconds
+2631 solved in 17.468942880630493 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x762251e6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7df41b186980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f39d4b66980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x746bc2f6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x73455735e980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2635 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2679 solved in 18.229718923568726 seconds
+2634 solved in 30.008443355560303 seconds
+2467 solved in 4.619931697845459 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2627 solved in 1.4206154346466064 seconds
+2434 unsolved in 7.245613098144531 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x762251e6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2661 solved in 6.3778297901153564 seconds
+2657 solved in 0.667116641998291 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f39d4b66980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2496 solved in 28.652520656585693 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7510bfdbe980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2691 solved in 0.6856272220611572 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x73e981c7a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2709 solved in 3.588193416595459 seconds
+2563 solved in 12.53350830078125 seconds
+2665 solved in 6.1810526847839355 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2522 unsolved in 11.924463748931885 seconds
+2564 solved in 19.529267072677612 seconds
+2721 unsolved in 3.7962124347686768 seconds
+2487 solved in 67.09040880203247 seconds
+2464 solved in 7.153564214706421 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x73455735e980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f39d4b66980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fac13296980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2552 solved in 1.7035531997680664 seconds
+2476 solved in 20.198559999465942 seconds
+2593 solved in 3.4349255561828613 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7df41b186980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x762251e6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2695 solved in 5.205022096633911 seconds
+2594 solved in 3.4696152210235596 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2517 solved in 2.525371789932251 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x762251e6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2573 solved in 44.6509108543396 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f42b04ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2493 solved in 53.22082018852234 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x73e981c7a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x762251e6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2623 unsolved in 8.561176538467407 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fac13296980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2739 solved in 16.381543397903442 seconds
+2431 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2461 error Centroid.__init__() takes 5 positional arguments but 8 were given
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 246, in test_geometry3k
+    exec(file.read(), namespace)
+  File "<string>", line 7, in <module>
+TypeError: Centroid.__init__() takes 5 positional arguments but 8 were given
+
+2520 solved in 41.037431716918945 seconds
+2742 solved in 31.477770566940308 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2769 solved in 1.9676637649536133 seconds
+2486 solved in 12.541242361068726 seconds
+2491 solved in 2.7886152267456055 seconds
+2624 unsolved in 13.027897596359253 seconds
+2521 solved in 0.7143223285675049 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f42b04ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2609 solved in 52.14502191543579 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f42b04ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2772 solved in 10.43229365348816 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7510bfdbe980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2516 solved in 8.97558856010437 seconds
+2546 solved in 0.02722454071044922 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2551 solved in 7.665679931640625 seconds
+2523 unsolved in 18.317559242248535 seconds
+2576 solved in 2.8969736099243164 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2550 solved in 15.914156675338745 seconds
+2547 solved in 25.963337898254395 seconds
+2687 solved in 35.7638144493103 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2603 solved in 23.71638512611389 seconds
+2581 solved in 5.439387798309326 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78d040816980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2802 solved in 1.8535568714141846 seconds
+2611 solved in 1.614492416381836 seconds
+2582 solved in 33.12151098251343 seconds
+2606 solved in 6.2500481605529785 seconds
+2641 solved in 1.2023990154266357 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7510bfdbe980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2580 solved in 6.299346685409546 seconds
+2832 solved in 4.518967151641846 seconds
+2862 solved in 0.8046479225158691 seconds
+2892 error Centroid.__init__() takes 5 positional arguments but 8 were given
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 246, in test_geometry3k
+    exec(file.read(), namespace)
+  File "<string>", line 7, in <module>
+TypeError: Centroid.__init__() takes 5 positional arguments but 8 were given
+
+2610 solved in 2.2243847846984863 seconds
+2725 solved in 35.544066429138184 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2755 solved in 1.8629076480865479 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2497 solved in 52.0684974193573 seconds
+2480 solved in 107.8513503074646 seconds
+2639 solved in 23.713411331176758 seconds
+2640 solved in 7.099997282028198 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2510 solved in 3.089663505554199 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2527 solved in 4.827139377593994 seconds
+2669 solved in 3.918613910675049 seconds
+2557 solved in 2.7238569259643555 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2799 solved in 45.38264608383179 seconds
+2587 solved in 8.074209928512573 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2636 solved in 27.974010944366455 seconds
+2671 solved in 28.25273871421814 seconds
+2617 unsolved in 2.0736804008483887 seconds
+2922 unsolved in 29.53628158569336 seconds
+2654 unsolved in 53.091681241989136 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2701 solved in 7.356527328491211 seconds
+2785 unsolved in 30.66562032699585 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2731 solved in 5.140349388122559 seconds
+2952 unsolved in 8.695884704589844 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fac13296980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2666 solved in 18.719247102737427 seconds
+2647 solved in 18.42561101913452 seconds
+2684 unsolved in 14.70357060432434 seconds
+2696 solved in 3.0301668643951416 seconds
+2714 solved in 0.7665767669677734 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2677 solved in 3.438000440597534 seconds
+2744 solved in 1.3794691562652588 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f42b04ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fac13296980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2774 solved in 2.1493732929229736 seconds
+2726 solved in 4.780385971069336 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2756 unsolved in 2.6249849796295166 seconds
+2804 solved in 4.450368881225586 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2751 unsolved in 101.58193397521973 seconds
+2786 solved in 5.93757176399231 seconds
+2699 solved in 50.284775495529175 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2761 solved in 26.582508325576782 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2707 solved in 17.259033679962158 seconds
+2781 solved in 6.257855653762817 seconds
+2737 solved in 2.1432182788848877 seconds
+2811 solved in 2.034843921661377 seconds
+2834 solved in 14.406212329864502 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78c03ce3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2816 unsolved in 10.587676048278809 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fac13296980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2767 solved in 2.816683053970337 seconds
+2841 solved in 2.6917715072631836 seconds
+2864 solved in 2.835965156555176 seconds
+2846 solved in 2.36462140083313 seconds
+2871 solved in 1.899857521057129 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2538 solved in 154.15257263183594 seconds
+2901 solved in 1.211240291595459 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x743cfd5fa980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2568 solved in 1.4830126762390137 seconds
+2633 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2577 unsolved in 89.51368498802185 seconds
+2797 solved in 7.152636289596558 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fac13296980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2729 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2663 solved in 6.286442041397095 seconds
+2598 solved in 6.974996328353882 seconds
+2607 unsolved in 6.605651378631592 seconds
+2931 solved in 9.723259210586548 seconds
+2961 solved in 0.7282540798187256 seconds
+2693 solved in 2.0600216388702393 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x746bc2f6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2827 solved in 8.962198972702026 seconds
+2637 solved in 3.0318615436553955 seconds
+2723 solved in 2.75122332572937 seconds
+2759 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2664 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 130, in elim
+    assert False
+           ^^^^^
+AssertionError
+
+2876 unsolved in 18.73992681503296 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x746bc2f6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2906 solved in 5.444763898849487 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x746bc2f6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2857 solved in 10.489366054534912 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f42b04ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78c03ce3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2936 solved in 2.6593081951141357 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2791 unsolved in 37.77102279663086 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78c03ce3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x746bc2f6a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2667 solved in 17.566869735717773 seconds
+2821 solved in 3.6284711360931396 seconds
+2851 solved in 0.7346978187561035 seconds
+2697 solved in 0.751793622970581 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fac13296980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2727 solved in 1.817814826965332 seconds
+2966 solved in 10.46119499206543 seconds
+2694 solved in 20.325124263763428 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x71b91acb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2458 solved in 12.900813102722168 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x78c03ce3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f42b04ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x703578eba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fac13296980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2488 solved in 1.352902889251709 seconds
+2996 solved in 6.739529132843018 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 54.678s
+Ran 1 test in 242.094s
 
 OK
-2 proof generation runs in 0.03761911392211914
-Proof steps:  5
-Max condition number:  4
-Average condition number:  2.2
-97 solved in 13.600794792175293 seconds
-97 proof generation runs in 0.04300212860107422
-Proof steps:  16
-Max condition number:  11
-Average condition number:  2.1875
-115 solved in 1.4696836471557617 seconds
-115 proof generation runs in 0.04172921180725098
-Proof steps:  6
-Max condition number:  6
-Average condition number:  2.5
-17 proof generation runs in 1.1801848411560059
-Proof steps:  15
-Max condition number:  3
-Average condition number:  1.6666666666666667
-120 solved in 13.361399173736572 seconds
-125 solved in 16.290037155151367 seconds
-120 proof generation runs in 0.5083920955657959
-Proof steps:  30
-Max condition number:  4
-Average condition number:  1.6
-125 proof generation runs in 0.2238326072692871
-Proof steps:  15
-Max condition number:  12
-Average condition number:  2.3333333333333335
-116 solved in 4.486637115478516 seconds
-116 proof generation runs in 0.07049131393432617
-Proof steps:  13
-Max condition number:  2
-Average condition number:  1.5384615384615385
-66 solved in 7.110108375549316 seconds
-66 proof generation runs in 0.0869131088256836
-Proof steps:  8
-Max condition number:  7
-Average condition number:  2.25
-9 solved in 59.13668179512024 seconds
-9 proof generation runs in 0.047829389572143555
-Proof steps:  12
-Max condition number:  3
-Average condition number:  2.0833333333333335
-144 solved in 22.7299587726593 seconds
-47 solved in 1.8934779167175293 seconds
-47 proof generation runs in 0.011061668395996094
-Proof steps:  7
-Max condition number:  4
-Average condition number:  2.0
-144 proof generation runs in 0.0498354434967041
-Proof steps:  18
-Max condition number:  4
-Average condition number:  1.7222222222222223
-105 solved in 19.617765188217163 seconds
-105 proof generation runs in 0.36679911613464355
-Proof steps:  20
-Max condition number:  6
-Average condition number:  2.0
-174 solved in 2.1953089237213135 seconds
-174 proof generation runs in 0.02666783332824707
-Proof steps:  4
-Max condition number:  5
-Average condition number:  2.0
-39 solved in 2.8214006423950195 seconds
-39 proof generation runs in 0.0756683349609375
-Proof steps:  10
-Max condition number:  10
-Average condition number:  2.3
-143 solved in 26.558369159698486 seconds
-143 proof generation runs in 0.6677436828613281
-Proof steps:  20
-Max condition number:  6
-Average condition number:  1.8
-172 unsolved in 10.268492937088013 seconds
-145 solved in 9.306043863296509 seconds
-145 proof generation runs in 0.02294158935546875
-Proof steps:  10
-Max condition number:  4
-Average condition number:  1.8
-170 solved in 11.939279556274414 seconds
-170 proof generation runs in 0.19076085090637207
-Proof steps:  5
-Max condition number:  11
-Average condition number:  3.6
-204 solved in 4.241077423095703 seconds
-204 proof generation runs in 0.05838942527770996
-173 unsolved in 2.574253559112549 seconds
-Proof steps:  8
-Max condition number:  10
-Average condition number:  2.375
+2753 solved in 28.537842750549316 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2518 solved in 2.7705535888671875 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2789 solved in 30.126092672348022 seconds
+2991 solved in 35.29560351371765 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x703578eba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
 .
 ----------------------------------------------------------------------
-Ran 1 test in 66.632s
+Ran 1 test in 245.837s
 
 OK
-32 solved in 11.405707359313965 seconds
-149 solved in 14.816169500350952 seconds
-32 proof generation runs in 0.2026677131652832
-Proof steps:  15
-Max condition number:  7
-Average condition number:  2.1333333333333333
-149 proof generation runs in 0.5747432708740234
-Proof steps:  28
-Max condition number:  7
-Average condition number:  1.9285714285714286
-69 solved in 5.1567254066467285 seconds
-69 proof generation runs in 0.1819455623626709
-Proof steps:  20
-Max condition number:  10
-Average condition number:  2.4
-96 solved in 9.466702699661255 seconds
-96 proof generation runs in 0.13442373275756836
-Proof steps:  12
-Max condition number:  7
-Average condition number:  1.8333333333333333
-106 solved in 19.535769939422607 seconds
-106 proof generation runs in 0.5395686626434326
-Proof steps:  26
-Max condition number:  7
-Average condition number:  1.7692307692307692
-175 unsolved in 3.5580151081085205 seconds
-150 solved in 12.009958028793335 seconds
-150 proof generation runs in 0.21587514877319336
-Proof steps:  14
-Max condition number:  5
-Average condition number:  2.4285714285714284
-202 solved in 6.01277232170105 seconds
-202 proof generation runs in 0.14486169815063477
-Proof steps:  19
-Max condition number:  4
-Average condition number:  1.8421052631578947
+2724 solved in 12.199038982391357 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7a45c12b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2783 solved in 5.694878101348877 seconds
+2548 solved in 4.659687519073486 seconds
+2754 solved in 2.648005485534668 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x703578eba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2881 solved in 23.01394271850586 seconds
+2887 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2813 unsolved in 6.613533973693848 seconds
+2911 unsolved in 2.503908634185791 seconds
+2628 solved in 50.37360620498657 seconds
+2784 unsolved in 6.8487708568573 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fac13296980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2819 solved in 13.904048681259155 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2658 unsolved in 6.386660099029541 seconds
+2917 solved in 13.53756308555603 seconds
+2814 solved in 10.568573236465454 seconds
+2843 solved in 13.895443439483643 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2947 solved in 2.3756518363952637 seconds
+2873 solved in 2.0665671825408936 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2903 solved in 2.7257790565490723 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2688 solved in 13.185953140258789 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x76535bcb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2718 solved in 2.0787315368652344 seconds
+2748 solved in 1.2745721340179443 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2977 unsolved in 12.173974752426147 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 70.262s
+Ran 1 test in 288.006s
 
 OK
-151 solved in 25.213777542114258 seconds
-177 solved in 25.002328395843506 seconds
-151 proof generation runs in 0.08048796653747559
-Proof steps:  11
-Max condition number:  4
-Average condition number:  2.1818181818181817
-130 solved in 42.349194049835205 seconds
-177 proof generation runs in 0.22823166847229004
-Proof steps:  8
-Max condition number:  8
-Average condition number:  2.5
-138 solved in 20.959174394607544 seconds
-133 solved in 37.074756145477295 seconds
-130 proof generation runs in 0.8980190753936768
-Proof steps:  24
-Max condition number:  5
-Average condition number:  1.75
-133 proof generation runs in 0.5886580944061279
-Proof steps:  19
-Max condition number:  10
-Average condition number:  2.3157894736842106
-138 proof generation runs in 0.6167657375335693
-Proof steps:  25
-Max condition number:  6
-Average condition number:  1.64
-127 solved in 16.094777822494507 seconds
-127 proof generation runs in 0.21956801414489746
-Proof steps:  9
-Max condition number:  4
-Average condition number:  2.2222222222222223
-62 solved in 5.889335632324219 seconds
-62 proof generation runs in 0.19167590141296387
-Proof steps:  19
-Max condition number:  8
-Average condition number:  2.210526315789474
-181 solved in 2.744079113006592 seconds
-181 proof generation runs in 0.04445958137512207
-Proof steps:  7
-Max condition number:  7
-Average condition number:  2.4285714285714284
-14 solved in 74.74624300003052 seconds
-14 proof generation runs in 1.0229499340057373
-Proof steps:  28
-Max condition number:  6
-Average condition number:  1.75
-77 solved in 15.397138118743896 seconds
-77 proof generation runs in 0.02643752098083496
-Proof steps:  14
-Max condition number:  3
-Average condition number:  2.0
-99 solved in 7.184477090835571 seconds
-99 proof generation runs in 0.019805908203125
-Proof steps:  4
-Max condition number:  3
-Average condition number:  2.75
-123 solved in 29.586286067962646 seconds
-123 proof generation runs in 0.9264049530029297
-Proof steps:  29
-Max condition number:  8
-Average condition number:  1.9310344827586208
-207 solved in 5.792484998703003 seconds
-207 proof generation runs in 0.06298470497131348
-Proof steps:  9
-Max condition number:  4
-Average condition number:  2.111111111111111
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2844 solved in 23.231136322021484 seconds
+2933 solved in 22.473684787750244 seconds
+2452 solved in 291.4874384403229 seconds
+2482 solved in 1.6449122428894043 seconds
+2963 solved in 4.637093544006348 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x71b91acb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2512 solved in 9.508126497268677 seconds
+2542 solved in 0.4622318744659424 seconds
+2572 solved in 0.8893756866455078 seconds
+2602 solved in 0.39810776710510254 seconds
+2874 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2778 unsolved in 36.387853145599365 seconds
+2993 solved in 14.275867223739624 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 78.659s
+Ran 1 test in 320.439s
 
 OK
-205 unsolved in 9.316895246505737 seconds
+2904 solved in 1.459589958190918 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2934 solved in 2.1028192043304443 seconds
+2808 solved in 6.839507102966309 seconds
+2632 unsolved in 10.461101770401001 seconds
+2578 unsolved in 79.92469477653503 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2608 solved in 2.2424190044403076 seconds
+2662 solved in 7.352287292480469 seconds
+2638 solved in 2.6436800956726074 seconds
+2964 solved in 16.102599382400513 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2668 solved in 5.385881662368774 seconds
+2698 solved in 4.3641276359558105 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2838 solved in 22.063697576522827 seconds
+2692 solved in 13.88631796836853 seconds
+2868 solved in 2.588047981262207 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2670 solved in 230.52645182609558 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2722 unsolved in 10.824347972869873 seconds
+2700 solved in 3.9279963970184326 seconds
+2730 solved in 2.0732083320617676 seconds
+2760 solved in 0.22472286224365234 seconds
+2790 error Centroid.__init__() takes 5 positional arguments but 8 were given
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 246, in test_geometry3k
+    exec(file.read(), namespace)
+  File "<string>", line 7, in <module>
+TypeError: Centroid.__init__() takes 5 positional arguments but 8 were given
+
+2820 solved in 0.015480518341064453 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x71b91acb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2850 solved in 9.807172536849976 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x71b91acb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x706c5b2ba980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2880 solved in 8.025784015655518 seconds
+2898 solved in 34.641521692276 seconds
+2910 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 159, in elim
+    assert False
+           ^^^^^
+AssertionError
+
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2728 solved in 44.21151089668274 seconds
+2758 solved in 1.8673303127288818 seconds
+2788 solved in 7.651009798049927 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2818 solved in 2.013805627822876 seconds
+2848 unsolved in 1.9745850563049316 seconds
+2878 unsolved in 3.1497414112091064 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2526 solved in 345.0413815975189 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7510bfdbe980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x71b91acb6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2908 solved in 15.828648328781128 seconds
+2845 solved in 282.83147644996643 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2875 solved in 6.24612832069397 seconds
+2940 solved in 52.38677787780762 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2556 solved in 37.14060163497925 seconds
+2586 solved in 0.9003686904907227 seconds
+2905 unsolved in 15.925309181213379 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2935 unsolved in 1.1650571823120117 seconds
+2965 solved in 0.6757855415344238 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f4f8f9ae980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2928 solved in 81.78001713752747 seconds
+2995 solved in 7.871821165084839 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 79.488s
+Ran 1 test in 473.221s
 
 OK
-146 solved in 22.414084911346436 seconds
-146 proof generation runs in 0.2326805591583252
-Proof steps:  19
-Max condition number:  4
-Average condition number:  1.8421052631578947
-168 solved in 8.675781011581421 seconds
-168 proof generation runs in 0.07052206993103027
-Proof steps:  10
-Max condition number:  3
-Average condition number:  1.7
-200 solved in 14.781220436096191 seconds
-200 proof generation runs in 0.17191052436828613
-Proof steps:  12
-Max condition number:  8
-Average condition number:  2.0
-163 unsolved in 11.068828582763672 seconds
-160 unsolved in 11.33665919303894 seconds
-203 solved in 16.472397804260254 seconds
-92 solved in 9.419808149337769 seconds
-92 proof generation runs in 0.04643106460571289
-Proof steps:  13
-Max condition number:  4
-Average condition number:  2.1538461538461537
-211 unsolved in 9.353407144546509 seconds
+2540 solved in 344.6622984409332 seconds
+2616 unsolved in 18.366106033325195 seconds
+2970 solved in 32.64425015449524 seconds
+2958 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 159, in elim
+    assert False
+           ^^^^^
+AssertionError
+
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7cde705e2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2570 unsolved in 6.3662109375 seconds
+2646 unsolved in 4.254884958267212 seconds
+2600 solved in 3.5853610038757324 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7cde705e2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2988 solved in 8.894660711288452 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 85.693s
+Ran 1 test in 489.430s
 
 OK
-139 solved in 31.048778772354126 seconds
-203 proof generation runs in 0.5940496921539307
-Proof steps:  29
-Max condition number:  4
-Average condition number:  1.7241379310344827
+2676 unsolved in 10.774584293365479 seconds
+2706 unsolved in 1.660918951034546 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7510bfdbe980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2736 solved in 4.522339582443237 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7510bfdbe980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+3000 solved in 22.959184646606445 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 84.443s
+Ran 1 test in 502.967s
 
 OK
-122 solved in 0.047521352767944336 seconds
-122 proof generation runs in 0.0009274482727050781
-Proof steps:  0
-Max condition number:  0
-Average condition number:  0
-107 solved in 8.36487102508545 seconds
-139 proof generation runs in 0.6375501155853271
-Proof steps:  22
-Max condition number:  13
-Average condition number:  2.272727272727273
-176 unsolved in 3.2140064239501953 seconds
-107 proof generation runs in 0.32047557830810547
-Proof steps:  13
-Max condition number:  3
-Average condition number:  1.5384615384615385
-81 solved in 68.78598260879517 seconds
-81 proof generation runs in 0.11720013618469238
-Proof steps:  23
-Max condition number:  3
-Average condition number:  1.7391304347826086
-155 solved in 29.117337465286255 seconds
-155 proof generation runs in 0.04020118713378906
-Proof steps:  13
-Max condition number:  3
-Average condition number:  1.8461538461538463
-193 solved in 4.026314735412598 seconds
-193 proof generation runs in 0.030200719833374023
-Proof steps:  6
-Max condition number:  3
-Average condition number:  2.1666666666666665
-44 solved in 12.911381959915161 seconds
-129 solved in 12.333189964294434 seconds
-44 proof generation runs in 0.23397016525268555
-Proof steps:  9
-Max condition number:  8
-Average condition number:  2.5555555555555554
-129 proof generation runs in 0.22194766998291016
-Proof steps:  5
-Max condition number:  5
-Average condition number:  2.8
-179 solved in 21.81717824935913 seconds
-179 proof generation runs in 0.31383419036865234
-Proof steps:  18
-Max condition number:  7
-Average condition number:  2.0
-152 solved in 5.936649322509766 seconds
-152 proof generation runs in 0.17661738395690918
-Proof steps:  11
-Max condition number:  7
-Average condition number:  2.3636363636363638
-198 solved in 9.136503219604492 seconds
-198 proof generation runs in 0.10675644874572754
-Proof steps:  6
-Max condition number:  6
-Average condition number:  2.3333333333333335
-206 unsolved in 7.463582277297974 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2766 solved in 4.919344425201416 seconds
+2796 wrong solution in 9.357498168945312 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2630 solved in 62.169864654541016 seconds
+2660 solved in 2.38077712059021 seconds
+2690 solved in 2.8430464267730713 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2506 solved in 485.38967990875244 seconds
+2720 solved in 22.51487946510315 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2536 solved in 34.815778732299805 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2566 unsolved in 7.700566053390503 seconds
+2596 solved in 0.6437673568725586 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x73e981c7a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2626 solved in 8.382416486740112 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x73e981c7a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x73e981c7a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2656 solved in 28.203008890151978 seconds
+2686 solved in 1.570288896560669 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x73e981c7a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2716 solved in 4.850429058074951 seconds
+2746 solved in 2.707937479019165 seconds
+2776 solved in 5.510622501373291 seconds
+2806 solved in 0.6836440563201904 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2941 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2971 solved in 4.85265040397644 seconds
+3001 solved in 0.026713132858276367 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 93.177s
+Ran 1 test in 697.433s
 
 OK
-11 solved in 93.68972611427307 seconds
-11 proof generation runs in 0.08223938941955566
-Proof steps:  12
-Max condition number:  2
-Average condition number:  1.5833333333333333
-132 solved in 63.94318675994873 seconds
-185 solved in 6.406388521194458 seconds
-185 proof generation runs in 0.11259317398071289
-Proof steps:  9
-Max condition number:  10
-Average condition number:  2.2222222222222223
-74 solved in 5.016349792480469 seconds
-74 proof generation runs in 0.08513617515563965
-Proof steps:  8
-Max condition number:  6
-Average condition number:  2.25
-209 solved in 5.105034112930298 seconds
-209 proof generation runs in 0.21643829345703125
-Proof steps:  21
-Max condition number:  10
-Average condition number:  2.619047619047619
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x73e981c7a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2836 solved in 64.25100636482239 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2829 solved in 646.393119096756 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2859 solved in 5.721748352050781 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2889 unsolved in 3.003641128540039 seconds
+2919 solved in 3.4423725605010986 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2949 solved in 5.523940563201904 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7fb4600b2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2979 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
 .
 ----------------------------------------------------------------------
-Ran 1 test in 96.664s
+Ran 1 test in 854.229s
 
 OK
-228 solved in 5.994805812835693 seconds
-228 proof generation runs in 0.10106539726257324
-Proof steps:  11
-Max condition number:  5
-Average condition number:  2.0
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2938 solved in 440.3888988494873 seconds
+2440 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2968 unsolved in 2.5000410079956055 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2998 solved in 1.8213951587677002 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 100.144s
+Ran 1 test in 878.006s
 
 OK
-135 solved in 38.87132239341736 seconds
-135 proof generation runs in 0.8678410053253174
-Proof steps:  22
-Max condition number:  4
-Average condition number:  1.6363636363636365
-223 solved in 11.220119714736938 seconds
-223 proof generation runs in 0.21987152099609375
-Proof steps:  19
-Max condition number:  3
-Average condition number:  2.1052631578947367
+2470 solved in 6.743399143218994 seconds
+2500 solved in 28.011820077896118 seconds
+2530 unsolved in 3.20628023147583 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2560 solved in 29.419304847717285 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2590 solved in 6.633792400360107 seconds
+2620 solved in 2.291759967803955 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2650 solved in 33.89025163650513 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x75ee86fa6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2680 solved in 15.324021339416504 seconds
+2475 solved in 1254.7262473106384 seconds
+2505 solved in 5.226099967956543 seconds
+2653 solved in 1219.1665472984314 seconds
+2535 solved in 21.22528076171875 seconds
+2553 error query string is too large
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 20, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+sqlite3.DataError: query string is too large
+
+2565 unsolved in 2.107099771499634 seconds
+2595 solved in 1.5059707164764404 seconds
+2683 unsolved in 7.91175389289856 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770c46c3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2625 solved in 17.054983854293823 seconds
+2713 solved in 16.772486925125122 seconds
+2655 solved in 4.486146450042725 seconds
+2743 unsolved in 1.9073219299316406 seconds
+2612 solved in 1233.8813843727112 seconds
+2588 solved in 1312.3058965206146 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f39d4b66980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2685 solved in 10.481364011764526 seconds
+2715 solved in 1.6320140361785889 seconds
+2618 solved in 2.8846654891967773 seconds
+2773 solved in 13.378062009811401 seconds
+2745 solved in 5.465699911117554 seconds
+2465 solved in 1335.023865222931 seconds
+2648 solved in 8.005065441131592 seconds
+2775 solved in 5.042962074279785 seconds
+2803 solved in 2.1310648918151855 seconds
+2833 error Centroid.__init__() takes 5 positional arguments but 8 were given
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 246, in test_geometry3k
+    exec(file.read(), namespace)
+  File "<string>", line 7, in <module>
+TypeError: Centroid.__init__() takes 5 positional arguments but 8 were given
+
+2583 solved in 46.87221074104309 seconds
+2495 solved in 8.657705545425415 seconds
+2613 solved in 8.141665935516357 seconds
+2642 unsolved in 26.470970630645752 seconds
+2805 solved in 13.800233364105225 seconds
+2672 solved in 5.942222356796265 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770c46c3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2525 solved in 10.224605321884155 seconds
+2702 solved in 2.115169048309326 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770c46c3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2835 solved in 12.191660165786743 seconds
+2555 solved in 12.115209341049194 seconds
+2732 solved in 12.90207552909851 seconds
+2585 solved in 2.7097699642181396 seconds
+2865 solved in 6.919856548309326 seconds
+2615 solved in 1.9358747005462646 seconds
+2645 solved in 1.3805737495422363 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770c46c3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770c46c3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2675 solved in 6.307708978652954 seconds
+2705 solved in 2.208808183670044 seconds
+2643 solved in 40.00245428085327 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770c46c3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2895 solved in 18.679852962493896 seconds
+2735 solved in 4.6830127239227295 seconds
+2765 solved in 0.11079168319702148 seconds
+2795 solved in 0.8864161968231201 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770c46c3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2925 solved in 6.911019802093506 seconds
+2955 unsolved in 13.115788459777832 seconds
+2762 solved in 49.12970304489136 seconds
+2825 solved in 25.68455147743225 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770c46c3a980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2855 solved in 3.0385544300079346 seconds
+2885 error Similar4.__init__() takes 9 positional arguments but 11 were given
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 246, in test_geometry3k
+    exec(file.read(), namespace)
+  File "<string>", line 7, in <module>
+TypeError: Similar4.__init__() takes 9 positional arguments but 11 were given
+
+2678 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2985 solved in 12.255395412445068 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 102.890s
+Ran 1 test in 1457.220s
 
 OK
-41 solved in 7.0249199867248535 seconds
-41 proof generation runs in 0.11564326286315918
-Proof steps:  9
-Max condition number:  3
-Average condition number:  1.8888888888888888
-71 solved in 3.6764731407165527 seconds
-71 proof generation runs in 0.09958267211914062
-Proof steps:  15
-Max condition number:  11
-Average condition number:  2.2666666666666666
-215 unsolved in 11.25735092163086 seconds
+2673 solved in 41.86626100540161 seconds
+2708 solved in 8.951915502548218 seconds
+2738 solved in 2.634042501449585 seconds
+2703 unsolved in 7.787878751754761 seconds
+2915 solved in 13.891266822814941 seconds
+2733 solved in 7.26961612701416 seconds
+2849 solved in 1221.151213645935 seconds
+2763 solved in 3.6669089794158936 seconds
+2793 solved in 1.446866512298584 seconds
+2879 solved in 3.00274395942688 seconds
+2945 solved in 17.25693416595459 seconds
+2823 solved in 6.168519020080566 seconds
+2909 solved in 4.041668653488159 seconds
+2853 unsolved in 2.2703969478607178 seconds
+2939 solved in 2.0995306968688965 seconds
+2969 solved in 1.1690757274627686 seconds
+2883 solved in 16.18393111228943 seconds
+2913 solved in 2.8398401737213135 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770fa0676980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x770fa0676980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2943 solved in 15.50592041015625 seconds
+2975 solved in 11.614394187927246 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 108.419s
+Ran 1 test in 1532.174s
 
 OK
-180 unsolved in 37.030688524246216 seconds
-132 proof generation runs in 14.12441611289978
-Proof steps:  115
-Max condition number:  19
-Average condition number:  2.3130434782608695
-169 solved in 23.943546295166016 seconds
-111 solved in 22.04968237876892 seconds
-111 proof generation runs in 0.3015899658203125
-Proof steps:  13
-Max condition number:  13
-Average condition number:  2.5384615384615383
-169 proof generation runs in 0.8217794895172119
-Proof steps:  23
-Max condition number:  8
-Average condition number:  2.391304347826087
-101 solved in 5.654480934143066 seconds
-101 proof generation runs in 0.028072118759155273
-Proof steps:  6
-Max condition number:  3
-Average condition number:  2.3333333333333335
-165 solved in 13.796303272247314 seconds
-165 proof generation runs in 0.12551283836364746
-Proof steps:  11
-Max condition number:  7
-Average condition number:  1.9090909090909092
-182 solved in 23.32944345474243 seconds
-182 proof generation runs in 0.06658744812011719
-Proof steps:  11
-Max condition number:  4
-Average condition number:  1.8181818181818181
-137 solved in 33.267372369766235 seconds
-137 proof generation runs in 1.22306227684021
-Proof steps:  34
-Max condition number:  9
-Average condition number:  2.2941176470588234
-136 solved in 52.290969371795654 seconds
-212 solved in 6.24933123588562 seconds
-212 proof generation runs in 0.12337684631347656
-Proof steps:  18
-Max condition number:  4
-Average condition number:  1.7777777777777777
+2973 unsolved in 2.107783794403076 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 124.531s
+Ran 1 test in 1535.011s
 
 OK
-210 solved in 14.87160038948059 seconds
-104 solved in 27.125837326049805 seconds
-136 proof generation runs in 0.6439683437347412
-Proof steps:  23
-Max condition number:  6
-Average condition number:  2.0
-210 proof generation runs in 0.2051072120666504
-Proof steps:  17
-Max condition number:  7
-Average condition number:  1.8823529411764706
+2999 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
 .
 ----------------------------------------------------------------------
-Ran 1 test in 124.887s
+Ran 1 test in 1580.794s
 
 OK
-104 proof generation runs in 0.3783531188964844
-Proof steps:  24
-Max condition number:  6
-Average condition number:  1.9166666666666667
-128 solved in 70.73087906837463 seconds
-167 unsolved in 4.017889738082886 seconds
-128 proof generation runs in 1.1301097869873047
-Proof steps:  23
-Max condition number:  10
-Average condition number:  2.3043478260869565
-131 solved in 15.194426774978638 seconds
-131 proof generation runs in 0.21912193298339844
-Proof steps:  9
-Max condition number:  8
-Average condition number:  2.4444444444444446
-153 solved in 51.85289406776428 seconds
-153 proof generation runs in 0.050498008728027344
-Proof steps:  7
-Max condition number:  3
-Average condition number:  2.4285714285714284
-141 solved in 21.132460117340088 seconds
-141 proof generation runs in 0.6113896369934082
-Proof steps:  22
-Max condition number:  5
-Average condition number:  2.1363636363636362
-162 solved in 26.671607971191406 seconds
-162 proof generation runs in 0.0647420883178711
-Proof steps:  12
-Max condition number:  3
-Average condition number:  1.9166666666666667
-166 unsolved in 15.480813264846802 seconds
-171 solved in 7.261730670928955 seconds
-171 proof generation runs in 0.5152609348297119
-Proof steps:  36
-Max condition number:  17
-Average condition number:  3.3055555555555554
-126 solved in 76.90764927864075 seconds
-126 proof generation runs in 1.5473253726959229
-Proof steps:  30
-Max condition number:  9
-Average condition number:  2.0
-190 solved in 66.52485585212708 seconds
-195 solved in 37.00264525413513 seconds
-190 proof generation runs in 1.4773497581481934
-Proof steps:  40
-Max condition number:  8
-Average condition number:  2.025
-195 proof generation runs in 0.7483656406402588
-Proof steps:  14
-Max condition number:  10
-Average condition number:  2.4285714285714284
-225 solved in 0.02205967903137207 seconds
-225 proof generation runs in 0.0006947517395019531
-Proof steps:  0
-Max condition number:  0
-Average condition number:  0
+2863 solved in 238.04068541526794 seconds
+2893 solved in 2.7875635623931885 seconds
+2923 solved in 2.54274845123291 seconds
+2953 solved in 3.5118141174316406 seconds
+2494 solved in 1550.452185869217 seconds
+2524 solved in 8.5055570602417 seconds
+2826 solved in 1130.8806898593903 seconds
+2554 solved in 9.123173236846924 seconds
+2856 unsolved in 6.198455095291138 seconds
+2886 solved in 5.820193767547607 seconds
+2916 solved in 0.6588952541351318 seconds
+2946 solved in 1.6293175220489502 seconds
+2792 solved in 222.2108838558197 seconds
+2822 unsolved in 6.913419723510742 seconds
+2852 solved in 6.391573905944824 seconds
+2976 solved in 17.579837799072266 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 156.081s
+Ran 1 test in 1691.469s
 
 OK
-158 solved in 26.881938934326172 seconds
-199 solved in 41.92473244667053 seconds
-158 proof generation runs in 0.4445362091064453
-Proof steps:  17
-Max condition number:  11
-Average condition number:  2.4705882352941178
-199 proof generation runs in 0.6192948818206787
-Proof steps:  15
-Max condition number:  4
-Average condition number:  1.9333333333333333
-220 solved in 2.9038784503936768 seconds
-220 proof generation runs in 0.05016684532165527
-Proof steps:  3
-Max condition number:  6
-Average condition number:  3.0
+2882 solved in 13.095484018325806 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f39d4b66980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x7f39d4b66980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2983 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
 .
 ----------------------------------------------------------------------
-Ran 1 test in 158.560s
+Ran 1 test in 1814.105s
 
 OK
-229 unsolved in 3.9899613857269287 seconds
+2710 solved in 1183.0601971149445 seconds
+2740 solved in 11.446431398391724 seconds
+2770 solved in 0.7181599140167236 seconds
+2800 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2830 unsolved in 0.7793323993682861 seconds
+2860 solved in 6.211615324020386 seconds
+2890 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2920 unsolved in 7.03996729850769 seconds
+2757 solved in 2054.634215116501 seconds
+2787 solved in 8.063151836395264 seconds
+2817 solved in 2.5039148330688477 seconds
+2847 solved in 3.9087414741516113 seconds
+2877 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2907 solved in 26.14026689529419 seconds
+2509 error query string is too large
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 20, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+sqlite3.DataError: query string is too large
+
+2937 solved in 2.3248257637023926 seconds
+2967 unsolved in 5.515087842941284 seconds
+2997 solved in 10.239033460617065 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 161.130s
+Ran 1 test in 2375.077s
 
 OK
-134 solved in 37.52200746536255 seconds
-134 proof generation runs in 1.4083218574523926
-Proof steps:  37
-Max condition number:  4
-Average condition number:  1.6486486486486487
-188 solved in 10.18751573562622 seconds
-188 proof generation runs in 0.1887059211730957
-Proof steps:  12
-Max condition number:  5
-Average condition number:  1.8333333333333333
-196 solved in 27.950453281402588 seconds
-196 proof generation runs in 0.8337149620056152
-Proof steps:  30
-Max condition number:  14
-Average condition number:  2.0
-161 solved in 39.54380917549133 seconds
-161 proof generation runs in 0.6592502593994141
-Proof steps:  20
-Max condition number:  4
-Average condition number:  1.95
-164 unsolved in 11.511823654174805 seconds
-201 solved in 40.99529409408569 seconds
-201 proof generation runs in 1.0422661304473877
-Proof steps:  53
-Max condition number:  7
-Average condition number:  1.9433962264150944
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x727e52be2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2539 solved in 48.65754175186157 seconds
+2717 error query string is too large
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 20, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+sqlite3.DataError: query string is too large
+
+2441 error query string is too large
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 20, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+sqlite3.DataError: query string is too large
+
+2747 solved in 6.290032625198364 seconds
+2777 solved in 12.809283971786499 seconds
+2471 solved in 5.266705751419067 seconds
+2501 solved in 8.086617231369019 seconds
+2531 solved in 3.2116379737854004 seconds
+2807 solved in 23.270872831344604 seconds
+2561 solved in 18.49817657470703 seconds
+2837 solved in 12.22761583328247 seconds
+2621 solved in 2.752390146255493 seconds
+2867 solved in 6.071611166000366 seconds
+2897 solved in 1.1335039138793945 seconds
+2651 solved in 8.029797554016113 seconds
+2584 solved in 858.3141648769379 seconds
+2569 solved in 104.8365125656128 seconds
+2614 solved in 4.0030293464660645 seconds
+2927 unsolved in 7.959841012954712 seconds
+2957 solved in 2.889766216278076 seconds
+2599 solved in 6.301004886627197 seconds
+2644 solved in 9.333579301834106 seconds
+2987 unsolved in 7.26130223274231 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 184.252s
+Ran 1 test in 2534.540s
 
 OK
-183 unsolved in 63.449668645858765 seconds
-213 solved in 4.576663970947266 seconds
-213 proof generation runs in 0.05711007118225098
-Proof steps:  6
-Max condition number:  6
-Average condition number:  2.3333333333333335
+2681 solved in 16.845839977264404 seconds
+2711 solved in 1.9186387062072754 seconds
+2674 solved in 7.07957911491394 seconds
+2704 solved in 1.0819368362426758 seconds
+2734 solved in 0.6777966022491455 seconds
+2741 solved in 10.511223316192627 seconds
+2764 solved in 26.845097541809082 seconds
+2771 unsolved in 11.354562282562256 seconds
+2794 unsolved in 8.223958015441895 seconds
+2801 solved in 16.456454515457153 seconds
+2824 solved in 25.34490728378296 seconds
+2854 solved in 1.3178296089172363 seconds
+2831 unsolved in 30.545897483825684 seconds
+2884 unsolved in 23.67319130897522 seconds
+2914 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2950 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 217, in solve_equation
+    angle_linear, length_linear, length_ratio, others = classify_equations([Traced(expr)], var_types)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 220, in classify_equations
+    assert isinstance(expr, (sympy.core.add.Add, sympy.core.symbol.Symbol))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+2980 solved in 0.026538372039794922 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 202.772s
+Ran 1 test in 2690.838s
 
 OK
-157 solved in 129.32019758224487 seconds
-157 proof generation runs in 2.89633846282959
-Proof steps:  16
-Max condition number:  8
-Average condition number:  2.3125
-4 solved in 209.47656321525574 seconds
-4 proof generation runs in 3.7432548999786377
-Proof steps:  27
-Max condition number:  9
-Average condition number:  1.7777777777777777
-187 solved in 6.896613359451294 seconds
-187 proof generation runs in 0.18178653717041016
-Proof steps:  14
-Max condition number:  10
-Average condition number:  2.5
-194 solved in 40.05543804168701 seconds
-194 proof generation runs in 0.5978298187255859
-Proof steps:  22
-Max condition number:  7
-Average condition number:  2.0
-191 solved in 50.937896728515625 seconds
-156 solved in 73.0199203491211 seconds
-191 proof generation runs in 1.0955617427825928
-Proof steps:  38
-Max condition number:  8
-Average condition number:  1.9210526315789473
-34 solved in 9.43771243095398 seconds
-34 proof generation runs in 0.15079569816589355
-Proof steps:  15
-Max condition number:  11
-Average condition number:  2.066666666666667
-156 proof generation runs in 1.5628409385681152
-Proof steps:  26
-Max condition number:  4
-Average condition number:  1.5769230769230769
-224 solved in 6.670989990234375 seconds
-224 proof generation runs in 0.06874489784240723
-Proof steps:  13
-Max condition number:  4
-Average condition number:  1.9230769230769231
+2750 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 168, in solve_equation
+    free, solved = self.elim([item for item in eqs if not item.redundant], var_types)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2780 solved in 3.995915651321411 seconds
+2982 solved in 2631.7556347846985 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 226.919s
+Ran 1 test in 2793.145s
 
 OK
-221 solved in 3.743192434310913 seconds
-221 proof generation runs in 0.015513896942138672
-Proof steps:  4
-Max condition number:  3
-Average condition number:  2.5
+2810 solved in 211.92230319976807 seconds
+2840 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2870 solved in 8.48907470703125 seconds
+2900 solved in 1.3892731666564941 seconds
+2930 unsolved in 3.8075501918792725 seconds
+2960 solved in 2.4476709365844727 seconds
+2866 error query string is too large
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 20, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+sqlite3.DataError: query string is too large
+
+2896 solved in 2.717373847961426 seconds
+2926 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2956 solved in 7.508128643035889 seconds
+2986 unsolved in 17.65625262260437 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 229.454s
+Ran 1 test in 3089.878s
 
 OK
-217 solved in 14.296303033828735 seconds
-217 proof generation runs in 0.4835934638977051
-Proof steps:  19
-Max condition number:  7
-Average condition number:  1.8421052631578947
+2861 solved in 649.337851524353 seconds
+2629 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 20, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+MemoryError
+
+2659 solved in 0.6025981903076172 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x77c5e3f76980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2689 unsolved in 24.381129026412964 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x77c5e3f76980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2891 solved in 52.84663462638855 seconds
+2921 solved in 1.6461541652679443 seconds
+2951 error 
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 25, in search
+    self.algebraic_system.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 329, in run
+    self.solve_equation()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 171, in solve_equation
+    free, solved = self.elim(length_linear, var_types, remove_redundant=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 106, in elim
+    eqn = self.process_equation(eqn, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/algebraic_system.py", line 42, in process_equation
+    assert False
+           ^^^^^
+AssertionError
+
+2981 solved in 3.9578990936279297 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 231.086s
+Ran 1 test in 3334.252s
 
 OK
-64 solved in 8.044715404510498 seconds
-64 proof generation runs in 0.15091276168823242
-Proof steps:  14
-Max condition number:  3
-Average condition number:  1.7857142857142858
-197 unsolved in 110.8519356250763 seconds
-186 unsolved in 20.160377264022827 seconds
-227 solved in 5.980164051055908 seconds
-227 proof generation runs in 0.13033795356750488
-Proof steps:  11
-Max condition number:  11
-Average condition number:  2.3636363636363638
+2944 solved in 1064.1055471897125 seconds
+2974 solved in 4.359134197235107 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 246.785s
+Ran 1 test in 3709.253s
 
 OK
-94 solved in 15.462102890014648 seconds
-94 proof generation runs in 0.39868879318237305
-Proof steps:  19
-Max condition number:  9
-Average condition number:  2.1052631578947367
-124 solved in 12.509490966796875 seconds
-124 proof generation runs in 0.23891830444335938
-Proof steps:  11
-Max condition number:  5
-Average condition number:  2.1818181818181817
-230 unsolved in 186.40683913230896 seconds
+2752 error query string is too large
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 20, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+sqlite3.DataError: query string is too large
+
+2782 solved in 2.045546054840088 seconds
+2812 solved in 2.5621492862701416 seconds
+2842 solved in 16.788750886917114 seconds
+2872 solved in 2.2785727977752686 seconds
+2902 solved in 4.36930775642395 seconds
+2932 unsolved in 8.941048383712769 seconds
+2962 solved in 0.026017189025878906 seconds
+2992 solved in 105.53902411460876 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 270.498s
+Ran 1 test in 4067.267s
 
 OK
-216 solved in 54.53369069099426 seconds
-216 proof generation runs in 0.5963842868804932
-Proof steps:  10
-Max condition number:  19
-Average condition number:  3.2
+2719 solved in 1276.9531354904175 seconds
+2749 solved in 10.962437629699707 seconds
+2779 solved in 17.924838066101074 seconds
+2809 solved in 0.34845423698425293 seconds
+2839 solved in 0.36901235580444336 seconds
+2869 solved in 7.006962537765503 seconds
+2899 solved in 12.406633138656616 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x727e52be2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x727e52be2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2929 unsolved in 110.41406512260437 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x727e52be2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x727e52be2980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+  File "/h/99/henryb/PyEuclid/pyeuclid/formalization/utils.py", line 29, in _handle_timeout
+    raise TimeoutException("Operation timed out")
+pyeuclid.formalization.utils.TimeoutException: Operation timed out
+2959 solved in 11.619216203689575 seconds
+2989 unsolved in 8.320425987243652 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 303.844s
+Ran 1 test in 4776.526s
 
 OK
-154 solved in 43.06068420410156 seconds
-154 proof generation runs in 0.037518978118896484
-Proof steps:  9
-Max condition number:  3
-Average condition number:  2.111111111111111
-218 solved in 144.46601009368896 seconds
-218 proof generation runs in 1.456777811050415
-Proof steps:  11
-Max condition number:  21
-Average condition number:  3.3636363636363638
+2768 error query string is too large
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 20, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+sqlite3.DataError: query string is too large
+
+2798 unsolved in 16.411362886428833 seconds
+2828 solved in 6.43784499168396 seconds
+2858 solved in 3.3205604553222656 seconds
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x796cec2b6980>
+Traceback (most recent call last):
+  File "/u/henryb/miniconda3/lib/python3.12/_weakrefset.py", line 39, in _remove
+    def _remove(item, selfref=ref(self)):
+
+stopit.utils.TimeoutException: 
+2888 solved in 70.13763093948364 seconds
+2918 unsolved in 6.385595321655273 seconds
+2948 solved in 4.687434911727905 seconds
+2978 solved in 6.592864990234375 seconds
 .
 ----------------------------------------------------------------------
-Ran 1 test in 316.209s
+Ran 1 test in 5090.267s
 
 OK
-192 unsolved in 179.22769045829773 seconds
-222 solved in 5.648037910461426 seconds
-222 proof generation runs in 0.05689501762390137
-Proof steps:  10
-Max condition number:  3
-Average condition number:  1.7
+2990 error query string is too large
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 20, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+sqlite3.DataError: query string is too large
+
 .
 ----------------------------------------------------------------------
-Ran 1 test in 324.712s
+Ran 1 test in 6315.167s
 
 OK
-184 solved in 85.87683391571045 seconds
-184 proof generation runs in 0.9482898712158203
-Proof steps:  15
-Max condition number:  14
-Average condition number:  2.4
-214 solved in 6.512884616851807 seconds
-214 proof generation runs in 0.10905265808105469
-Proof steps:  10
-Max condition number:  3
-Average condition number:  1.8
+2912 error query string is too large
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 270, in test_geometry3k
+    raise e
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 266, in test_geometry3k
+    engine.run()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 12, in run
+    self.search()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/engine.py", line 20, in search
+    closure = self.deductive_database.run()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 372, in run
+    inner_applicable = self.get_applicable_theorems(self.inner_theorems)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 317, in get_applicable_theorems
+    self._sync()
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 65, in _sync
+    self.update_equivalence_class(components, table)
+  File "/h/99/henryb/PyEuclid/pyeuclid/engine/deductive_database.py", line 110, in update_equivalence_class
+    self.cursor.execute(query)
+sqlite3.DataError: query string is too large
+
+2942 solved in 0.47691869735717773 seconds
+2972 error Centroid.__init__() takes 5 positional arguments but 8 were given
+Traceback (most recent call last):
+  File "/h/99/henryb/PyEuclid/tests/test.py", line 246, in test_geometry3k
+    exec(file.read(), namespace)
+  File "<string>", line 7, in <module>
+TypeError: Centroid.__init__() takes 5 positional arguments but 8 were given
+
 .
 ----------------------------------------------------------------------
-Ran 1 test in 404.993s
+Ran 1 test in 6695.003s
 
 OK
-159 unsolved in 1200.0385947227478 seconds
-189 solved in 16.995604515075684 seconds
-189 proof generation runs in 0.3513805866241455
-Proof steps:  17
-Max condition number:  11
-Average condition number:  2.4705882352941178
-219 solved in 4.678956031799316 seconds
-219 proof generation runs in 0.07429003715515137
-Proof steps:  11
-Max condition number:  5
-Average condition number:  1.7272727272727273
-.
-----------------------------------------------------------------------
-Ran 1 test in 1342.180s
-
-OK
-226 unsolved in 1200.0066380500793 seconds
-.
-----------------------------------------------------------------------
-Ran 1 test in 1374.763s
-
-OK
+[2025-08-26T01:27:28.994] error: *** JOB 2024 ON cpunode6 CANCELLED AT 2025-08-26T01:27:28 DUE TO TIME LIMIT ***

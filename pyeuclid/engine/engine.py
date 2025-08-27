@@ -17,12 +17,15 @@ class Engine:
             if self.state.complete() is not None:
                 break
                         
-            closure = self.deductive_database.run()
+            dd_closure = self.deductive_database.run()
             
-            if self.state.complete() is not None or closure:
+            if self.state.complete() is not None:
                 break
             
-            self.algebraic_system.run()
+            as_closure = self.algebraic_system.run()
+
+            if dd_closure and as_closure:
+                break
             
     def step(self, conditions, conclusions=[], depth=1):
         """

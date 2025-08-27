@@ -161,6 +161,7 @@ class AlgebraicSystem:
         return free_vars, exprs
 
     def solve_equation(self):
+        closure = True
         var_types = self.state.var_types
         solved_vars = {}
         angle_linear, length_linear, length_ratio, others = classify_equations(self.state.equations, var_types)
@@ -217,8 +218,9 @@ class AlgebraicSystem:
                     angle_linear, length_linear, length_ratio, others = classify_equations([Traced(expr)], var_types)
                     if others:
                         continue
-                    eqn = Traced(expr, depth=self.state.current_depth, sources = sources)
+                    eqn = Traced(expr, depth=self.state.current_depth, sources=sources)
                     self.state.add_conditions(eqn)
+                    closure = False
         
         # extract equivalence relations and store in union find
         dic = {}
@@ -243,6 +245,8 @@ class AlgebraicSystem:
             if unionfind is not None:
                 l, r = eqn
                 unionfind.union(l, r)
+        
+        return closure
         
     def compute_ratio_and_angle_sum(self):
         dic = {}
@@ -326,5 +330,6 @@ class AlgebraicSystem:
         self.state.angle_sums = dic
 
     def run(self):
-        self.solve_equation()
+        closure = self.solve_equation()
         self.compute_ratio_and_angle_sum()
+        return closure
