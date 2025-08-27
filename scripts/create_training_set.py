@@ -22,13 +22,11 @@ image_file_list = []
 for json_file in tqdm.tqdm(dataset_dir.rglob("*data.json")):
     with open(json_file, "r") as f:
         data = json.load(f)
-    has_aux = data.get("has_auxiliary_constructions")
     sub_conclusion = data.get("sub_conclusion", None)
     problem = data.get("problem")
     auxiliary_constructions = data.get("auxiliary_constructions")
 
-    if has_aux and sub_conclusion is False and (problem not in problems or auxiliary_constructions not in problems[problem]):
-        problems[problem].append(auxiliary_constructions)
+    if sub_conclusion is False:
         sample_dir = json_file.parent
         data_json_list.append(os.path.join(sample_dir, "data.json"))
 

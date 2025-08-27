@@ -237,6 +237,50 @@ class PropertyOfIsoscelesTriangle2(InferenceRule):
 
 
 @register("shape")
+class PropertyOfIsoscelesTriangle3(InferenceRule):
+    """ Property of Isosceles Triangle """
+    def __init__(self, a: Point, b: Point, c: Point, d:Point):
+        super().__init__()
+        self.a, self.b, self.c, self.d = a, b, c, d
+    
+    def condition(self):
+        return [
+            IsoscelesTriangle(self.a, self.b, self.c),
+            Length(self.a, self.b) - Length(self.a, self.c),
+            Perpendicular(self.a, self.d, self.b, self.c),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            Angle(self.b, self.a, self.d) - Angle(self.c, self.a, self.d),
+            Length(self.b, self.d) - Length(self.c, self.d)
+        ]
+
+
+@register("shape")
+class PropertyOfIsoscelesTriangle4(InferenceRule):
+    """ Property of Isosceles Triangle """
+    def __init__(self, a: Point, b: Point, c: Point, d:Point):
+        super().__init__()
+        self.a, self.b, self.c, self.d = a, b, c, d
+    
+    def condition(self):
+        return [
+            IsoscelesTriangle(self.a, self.b, self.c),
+            Length(self.a, self.b) - Length(self.a, self.c),
+            Angle(self.b, self.a, self.d) - Angle(self.c, self.a, self.d),
+            Lt(self.b, self.c)
+        ]
+    
+    def conclusion(self):
+        return [
+            Perpendicular(self.a, self.d, self.b, self.c),
+            Length(self.b, self.d) - Length(self.c, self.d)
+        ]
+
+
+@register("shape")
 class DefinitionOfEquilateralTriangle1(InferenceRule):
     """ Definition of Equilateral Triangle """
     def __init__(self, a: Point, b: Point, c: Point):
@@ -2859,9 +2903,7 @@ class AreaEqualsBaseTimesHeight(InferenceRule):
         self.d = d
 
     def condition(self):
-
-        return [Not(Collinear(self.a, self.b, self.c)), *Different(self.a, self.b, self.c), Perpendicular(self.d, self.a, self.b, self.c), Collinear(self.d, self.b, self.c),
-                ]
+        return [Not(Collinear(self.a, self.b, self.c)), *Different(self.a, self.b, self.c), Perpendicular(self.d, self.a, self.b, self.c), Collinear(self.d, self.b, self.c)]
 
     def conclusion(self):
         return [Area(self.a, self.b, self.c)-(Length(self.a, self.d)*Length(self.b, self.c))/2]
@@ -2898,6 +2940,7 @@ class AreaHeronFormula(InferenceRule):
         s = (Length(self.a, self.b)+Length(self.a, self.c)+Length(self.b, self.c))/2
         return [Area(self.a, self.b, self.c)**2-(s*(s-Length(self.a, self.b))*(s-Length(self.a, self.c))*(s-Length(self.b, self.c)))]
 
+
 @register("complex")
 class ParallelogramArea(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
@@ -2926,9 +2969,7 @@ class TrapezoidArea(InferenceRule):
         self.e = e
 
     def condition(self):
-
-        return [Trapezoid(self.a, self.b, self.c, self.d), Perpendicular(self.a, self.e, self.c, self.d), Collinear(self.e, self.c, self.d), *Different(self.a, self.b, self.c, self.d)
-                ]
+        return [Trapezoid(self.a, self.b, self.c, self.d), Perpendicular(self.a, self.e, self.c, self.d), Collinear(self.e, self.c, self.d), *Different(self.a, self.b, self.c, self.d)]
 
     def conclusion(self):
         return [Area(self.a, self.b, self.c, self.d) - (Length(self.a, self.b) + Length(self.c, self.d)) * Length(self.a, self.e) / 2]
@@ -3006,7 +3047,8 @@ class CircleArea(InferenceRule):
 
     def conclusion(self):
         return AreaOfCircle(self.a, self.b) - pi*Length(self.a, self.b)**2, AreaOfCircle(self.b, self.a) - pi*Length(self.a, self.b)**2,
-    
+
+
 @register("complex")
 class SectorArea(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
@@ -3019,8 +3061,9 @@ class SectorArea(InferenceRule):
         return [Lt(self.b, self.c)]
 
     def conclusion(self):
-        return MinorSector(self.a, self.b, self.c) - Angle(self.b, self.a, self.c)*Length(self.a, self.b)**2, MajorSector(self.a, self.b, self.c) - (2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)**2
-    
+        return MinorSector(self.a, self.b, self.c) - (Angle(self.b, self.a, self.c)*Length(self.a, self.b)**2)/2, MajorSector(self.a, self.b, self.c) - ((2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)**2)/2
+
+
 @register("complex")
 class ArcLength(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
@@ -3035,6 +3078,7 @@ class ArcLength(InferenceRule):
     def conclusion(self):
         return MinorArc(self.a, self.b, self.c) - Angle(self.b, self.a, self.c)*Length(self.a, self.b), MajorArc(self.a, self.b, self.c) - (2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)
 
+
 @register("complex")
 class Perimeter3(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point):
@@ -3048,7 +3092,8 @@ class Perimeter3(InferenceRule):
 
     def conclusion(self):
         return Perimeter(self.a, self.b, self.c) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.a, self.c)
-    
+
+
 @register("complex")
 class Perimeter4(InferenceRule):
     def __init__(self, a: Point, b: Point, c: Point, d:Point):

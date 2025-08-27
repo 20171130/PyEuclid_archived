@@ -1,8 +1,8 @@
 Solution:
-1. Midpoint(d,a,c) & Midpoint(f,b,c) => Parallel(a,b,d,f)
-2. Collinear(a,b,g) => Parallel(a,b,a,g)
-3. Collinear(a,b,g) & Collinear(a,b,h) => Collinear(a,g,h)
-4. Collinear(a,g,h) => Parallel(a,g,g,h) & Length_a_g - Length_a_h + Length_g_h
+1. Collinear(a,b,g) & Collinear(a,b,h) => Collinear(a,g,h)
+2. Collinear(a,g,h) => Length_a_g - Length_a_h + Length_g_h & Parallel(a,g,g,h)
+3. Midpoint(d,a,c) & Midpoint(f,b,c) => Parallel(a,b,d,f)
+4. Collinear(a,b,g) => Parallel(a,b,a,g)
 5. Parallel(a,b,a,g) & Parallel(a,g,g,h) => Parallel(a,b,g,h)
 6. Parallel(a,b,d,f) & Parallel(a,b,g,h) => Parallel(d,f,g,h)
 7. Parallel(d,f,g,h) & Parallel(d,h,f,g) => Parallelogram(d,f,g,h)
@@ -16,4 +16,4 @@ Solution:
 15. Parallel(a,b,a,e) & Parallel(a,b,d,f) => Parallel(a,e,d,f)
 16. Parallel(a,d,e,f) & Parallel(a,e,d,f) => Parallelogram(a,d,f,e)
 17. Parallelogram(a,d,f,e) => Length_a_e - Length_d_f
-18. Length_d_f - Length_g_h & Length_a_g - Length_a_h + Length_g_h & Length_a_e + Length_a_g - Length_e_g & Length_a_e - Length_d_f => Length_a_h - Length_e_g
+18. Length_a_g - Length_a_h + Length_g_h & Length_d_f - Length_g_h & Length_a_e + Length_a_g - Length_e_g & Length_a_e - Length_d_f => Length_a_h - Length_e_g

@@ -1,9 +1,9 @@
 Solution:
-1. Length_a_e - Length_e_f & Length_a_e - Length_c_e => Length_c_e - Length_e_f
-2. Length_a_e - Length_e_f & Length_a_e - Length_d_e => Length_d_e - Length_e_f
-3. -Length_c_e + Length_e_f & -Length_d_e + Length_e_f => Angle_c_e_d - 2*Angle_c_f_d
-4. Collinear(b,c,f) => Angle_c_b_d - Angle_d_b_f & Angle_b_f_d - Angle_c_f_d
-5. Length_a_e - Length_c_e & Length_a_e - Length_d_e => Angle_c_a_d + Angle_c_e_d/2 - pi
-6. Length_a_b - Length_a_c & Length_a_b - Length_a_d => Angle_c_a_d - 2*Angle_c_b_d
-7. Angle_c_e_d - 2*Angle_c_f_d & Angle_c_b_d - Angle_d_b_f & Angle_b_d_f + Angle_b_f_d + Angle_d_b_f - pi & Angle_c_a_d + Angle_c_e_d/2 - pi & Angle_c_a_d - 2*Angle_c_b_d & Angle_b_f_d - Angle_c_f_d => Angle_b_d_f - Angle_d_b_f
+1. Length_a_b - Length_a_c & Length_a_b - Length_a_d => Angle_c_a_d - 2*Angle_c_b_d
+2. Length_a_e - Length_c_e & Length_a_e - Length_d_e => Angle_c_a_d + Angle_c_e_d/2 - pi
+3. Collinear(b,c,f) => Angle_b_f_d - Angle_c_f_d & Angle_c_b_d - Angle_d_b_f
+4. Length_a_e - Length_c_e & Length_a_e - Length_e_f => Length_c_e - Length_e_f
+5. Length_a_e - Length_e_f & Length_a_e - Length_d_e => Length_d_e - Length_e_f
+6. -Length_c_e + Length_e_f & -Length_d_e + Length_e_f => Angle_c_e_d - 2*Angle_c_f_d
+7. Angle_c_a_d - 2*Angle_c_b_d & Angle_c_a_d + Angle_c_e_d/2 - pi & Angle_b_d_f + Angle_b_f_d + Angle_d_b_f - pi & Angle_b_f_d - Angle_c_f_d & Angle_c_b_d - Angle_d_b_f & Angle_c_e_d - 2*Angle_c_f_d => Angle_b_d_f - Angle_d_b_f
 8. -Angle_b_d_f + Angle_d_b_f => Length_b_f - Length_d_f

@@ -1,14 +1,14 @@
 Solution:
-1. -Length_a_o + Length_b_o & Length_b_o - Length_e_o => Angle_a_b_e - Angle_a_o_e/2
-2. Collinear(b,c,e) => Angle_a_b_c + Angle_a_b_e - Angle_c_b_e & Angle_c_b_e - Angle_c_b_p - Angle_e_b_p & Angle_b_c_p - Angle_e_c_p
-3. Length_c_o1 - Length_d_o1 & Length_c_o1 - Length_o1_q => Length_d_o1 - Length_o1_q
-4. Length_c_o1 - Length_o1_q & Length_c_o1 - Length_e_o1 => Length_e_o1 - Length_o1_q
-5. -Length_d_o1 + Length_o1_q & -Length_e_o1 + Length_o1_q => Angle_d_o1_e - 2*Angle_d_q_e
-6. Collinear(a,b,p) => Angle_a_b_e + Angle_e_b_p - pi & Angle_a_b_c + Angle_c_b_p - pi
-7. Collinear(c,d,p) => Angle_d_c_e + Angle_e_c_p - pi
-8. Collinear(c,d,p) & Collinear(a,b,p) => Angle_a_p_d - Angle_b_p_c
-9. Length_c_o1 - Length_d_o1 & Length_c_o1 - Length_e_o1 => Angle_d_c_e - Angle_d_o1_e/2
-10. Length_a_o - Length_e_o & Length_a_o - Length_o_q => Length_e_o - Length_o_q
-11. -Length_a_o + Length_o_q & -Length_e_o + Length_o_q => Angle_a_o_e - 2*Angle_a_q_e
-12. Angle_a_b_e - Angle_a_o_e/2 & Angle_a_b_c + Angle_a_b_e - Angle_c_b_e & Angle_b_c_p + Angle_b_p_c + Angle_c_b_p - pi & Angle_d_o1_e - 2*Angle_d_q_e & Angle_a_b_e + Angle_e_b_p - pi & Angle_d_c_e + Angle_e_c_p - pi & Angle_a_b_c + Angle_c_b_p - pi & Angle_c_b_e - Angle_c_b_p - Angle_e_b_p & Angle_b_c_p - Angle_e_c_p & Angle_a_q_d + Angle_a_q_e - Angle_d_q_e & Angle_a_p_d - Angle_b_p_c & Angle_d_c_e - Angle_d_o1_e/2 & Angle_a_o_e - 2*Angle_a_q_e => Angle_a_p_d - Angle_a_q_d
+1. Collinear(b,c,e) => Angle_b_c_d - Angle_d_c_e & Angle_c_b_e - Angle_c_b_p - Angle_e_b_p & Angle_a_b_c + Angle_a_b_e - Angle_c_b_e
+2. Collinear(c,d,p) & Collinear(a,b,p) => Angle_a_p_d - Angle_b_p_c
+3. Length_a_o - Length_e_o & Length_a_o - Length_o_q => Length_e_o - Length_o_q
+4. -Length_a_o + Length_o_q & -Length_e_o + Length_o_q => Angle_a_o_e - 2*Angle_a_q_e
+5. Length_c_o1 - Length_d_o1 & Length_c_o1 - Length_e_o1 => Angle_d_c_e - Angle_d_o1_e/2
+6. Collinear(c,d,p) => Angle_b_c_d + Angle_b_c_p - pi
+7. Collinear(a,b,p) => Angle_a_b_e - Angle_a_b_p + Angle_e_b_p & Angle_a_b_c - Angle_a_b_p + Angle_c_b_p
+8. -Length_a_o + Length_b_o & Length_b_o - Length_e_o => Angle_a_b_e - Angle_a_o_e/2
+9. Length_c_o1 - Length_d_o1 & Length_c_o1 - Length_o1_q => Length_d_o1 - Length_o1_q
+10. Length_c_o1 - Length_o1_q & Length_c_o1 - Length_e_o1 => Length_e_o1 - Length_o1_q
+11. -Length_d_o1 + Length_o1_q & -Length_e_o1 + Length_o1_q => Angle_d_o1_e - 2*Angle_d_q_e
+12. Angle_b_c_d - Angle_d_c_e & Angle_c_b_e - Angle_c_b_p - Angle_e_b_p & Angle_a_p_d - Angle_b_p_c & Angle_a_o_e - 2*Angle_a_q_e & Angle_d_c_e - Angle_d_o1_e/2 & Angle_b_c_d + Angle_b_c_p - pi & Angle_a_b_e - Angle_a_b_p + Angle_e_b_p & Angle_a_b_c - Angle_a_b_p + Angle_c_b_p & Angle_a_b_e - Angle_a_o_e/2 & Angle_b_c_p + Angle_b_p_c + Angle_c_b_p - pi & Angle_a_q_d + Angle_a_q_e - Angle_d_q_e & Angle_a_b_c + Angle_a_b_e - Angle_c_b_e & Angle_d_o1_e - 2*Angle_d_q_e => Angle_a_p_d - Angle_a_q_d
 13. Angle_a_p_d - Angle_a_q_d => Concyclic(a,d,p,q)

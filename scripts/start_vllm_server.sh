@@ -15,7 +15,7 @@ SHARED_DIR=".vllm"
 HOST="0.0.0.0"
 
 module load cuda/12.1
-source ~/.bashrc && conda activate pyeuclid
+source ~/.bashrc && conda activate euclidea
 
 mkdir -p "${SHARED_DIR}"
 HOSTFILE="${SHARED_DIR}/vllm_server_host.txt"

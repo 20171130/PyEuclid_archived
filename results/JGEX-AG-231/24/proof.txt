@@ -1,5 +1,5 @@
 Solution:
-1. Collinear(a,b,e) => Parallel(a,b,b,e) & Parallel(a,b,a,e)
+1. Collinear(a,b,e) => Parallel(a,b,b,e)
 2. Midpoint(d,a,c) & Midpoint(f,b,c) => Parallel(a,b,d,f)
 3. Parallel(a,b,b,e) & Parallel(a,b,d,f) => Parallel(b,e,d,f)
 4. Collinear(a,c,d) => Parallel(a,c,c,d) & Parallel(a,c,a,d)
@@ -7,20 +7,15 @@ Solution:
 6. Parallel(a,c,a,d) & Parallel(a,c,f,g) => Parallel(a,d,f,g)
 7. Parallel(a,d,f,g) & Parallel(a,f,d,g) => Parallelogram(a,d,g,f)
 8. Parallelogram(a,d,g,f) => Length_a_d - Length_f_g
-9. Length_a_d - Length_c_d & Length_a_d - Length_f_g => Length_c_d - Length_f_g
+9. Length_a_d - Length_f_g & Length_a_d - Length_c_d => Length_c_d - Length_f_g
 10. Parallel(c,d,f,g) & Length_c_d - Length_f_g => Parallelogram(c,d,f,g)
-11. Parallelogram(c,d,f,g) => Parallel(c,g,d,f)
+11. Parallelogram(c,d,f,g) => Parallel(c,g,d,f) & Length_c_g - Length_d_f
 12. Parallel(b,e,d,f) & Parallel(c,g,d,f) => Parallel(b,e,c,g)
-13. Midpoint(e,a,b) => Length_a_b - 2*Length_b_e & Length_a_b - 2*Length_a_e
-14. Midpoint(e,a,b) & Midpoint(f,b,c) => Parallel(a,c,e,f)
-15. Parallel(a,c,e,f) & Parallel(a,c,f,g) => Parallel(e,f,f,g)
-16. Parallel(e,f,f,g) => Collinear(e,f,g)
-17. Collinear(e,f,g) => Parallel(e,f,e,g)
-18. Parallel(a,c,e,f) & Parallel(e,f,e,g) => Parallel(a,c,e,g)
-19. Parallel(a,b,a,e) & Parallel(a,b,d,f) => Parallel(a,e,d,f)
-20. Parallel(a,e,d,f) & Parallel(c,g,d,f) => Parallel(a,e,c,g)
-21. Parallel(a,c,e,g) & Parallel(a,e,c,g) => Parallelogram(a,c,g,e)
-22. Parallelogram(a,c,g,e) => Length_a_e - Length_c_g
-23. Length_a_b - 2*Length_b_e & Length_a_e - Length_c_g & Length_a_b - 2*Length_a_e => Length_b_e - Length_c_g
-24. Parallel(b,e,c,g) & Length_b_e - Length_c_g => Parallelogram(b,e,c,g)
-25. Parallelogram(b,e,c,g) => Parallel(b,g,c,e)
+13. Collinear(b,c,f) => Parallel(b,c,b,f)
+14. Midpoint(e,a,b) & Midpoint(d,a,c) => Parallel(b,c,d,e)
+15. Parallel(b,c,b,f) & Parallel(b,c,d,e) => Parallel(b,f,d,e)
+16. Parallel(b,e,d,f) & Parallel(b,f,d,e) => Parallelogram(b,e,d,f)
+17. Parallelogram(b,e,d,f) => Length_b_e - Length_d_f
+18. Length_c_g - Length_d_f & Length_b_e - Length_d_f => Length_b_e - Length_c_g
+19. Parallel(b,e,c,g) & Length_b_e - Length_c_g => Parallelogram(b,e,c,g)
+20. Parallelogram(b,e,c,g) => Parallel(b,g,c,e)

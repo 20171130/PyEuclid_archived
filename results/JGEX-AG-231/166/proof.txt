@@ -1,9 +1,9 @@
 Solution:
-1. Collinear(c,d,e) => Angle_d_c_f - Angle_e_c_f & Parallel(c,d,c,e)
-2. Perpendicular(a,c,b,c) => Angle_a_c_b - pi/2
-3. Perpendicular(a,b,c,d) & Parallel(c,d,c,e) => Perpendicular(a,b,c,e)
-4. Perpendicular(a,b,c,e) => Angle_a_c_e + Angle_b_a_c - pi/2
-5. Angle_d_c_f - Angle_e_c_f & Angle_a_c_b - pi/2 & Angle_a_c_b - Angle_a_c_f - Angle_b_c_f & Angle_b_a_c - 2*Angle_c_a_e & Angle_b_c_f - Angle_d_c_f & Angle_a_c_e - Angle_a_c_f + Angle_e_c_f & Angle_a_c_e + Angle_b_a_c - pi/2 => Angle_a_c_f + Angle_c_a_e - pi/2
+1. Collinear(c,d,e) => Parallel(c,d,c,e) & Angle_d_c_f - Angle_e_c_f
+2. Perpendicular(a,b,c,d) & Parallel(c,d,c,e) => Perpendicular(a,b,c,e)
+3. Perpendicular(a,b,c,e) => Angle_a_c_e + Angle_b_a_c - pi/2
+4. Perpendicular(a,c,b,c) => Angle_a_c_b - pi/2
+5. Angle_b_c_d - 2*Angle_b_c_f & Angle_a_c_e + Angle_b_a_c - pi/2 & Angle_b_c_d - 2*Angle_d_c_f & Angle_a_c_e - Angle_a_c_f + Angle_e_c_f & Angle_a_c_b - pi/2 & Angle_d_c_f - Angle_e_c_f & Angle_b_a_c - 2*Angle_c_a_e & Angle_a_c_b - Angle_a_c_f - Angle_b_c_f => Angle_a_c_f + Angle_c_a_e - pi/2
 6. Angle_a_c_f + Angle_c_a_e - pi/2 => Perpendicular(a,e,c,f)
 7. Collinear(a,b,f) => Parallel(a,b,a,f)
 8. Perpendicular(a,b,c,e) & Parallel(a,b,a,f) => Perpendicular(a,f,c,e)

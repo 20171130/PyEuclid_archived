@@ -1,17 +1,13 @@
 Solution:
-1. Perpendicular(a,c,b,c) => Angle_a_c_b - pi/2
-2. Square(a,b,f,e) => Perpendicular(a,f,b,e) & Angle_a_b_e - Angle_b_a_f
-3. Collinear(b,e,p) => Parallel(b,e,b,p) & Parallel(b,e,e,p) & Angle_a_p_b + Angle_a_p_e - pi & Angle_a_b_e - Angle_a_b_p
-4. Perpendicular(a,f,b,e) & Parallel(b,e,b,p) => Perpendicular(a,f,b,p)
-5. Collinear(a,f,p) => Parallel(a,f,a,p) & Angle_b_a_f - Angle_b_a_p
+1. Square(a,b,f,e) => Angle_a_b_e - Angle_b_a_f & Perpendicular(a,f,b,e)
+2. Collinear(b,e,p) => Angle_a_b_e - Angle_a_b_p & Parallel(b,e,b,p)
+3. Collinear(a,f,p) => Angle_b_a_f - Angle_b_a_p & Parallel(a,f,a,p)
+4. Angle_a_b_e - Angle_b_a_f & Angle_a_b_e - Angle_a_b_p & Angle_b_a_f - Angle_b_a_p => Angle_a_b_p - Angle_b_a_p
+5. Perpendicular(a,f,b,e) & Parallel(b,e,b,p) => Perpendicular(a,f,b,p)
 6. Perpendicular(a,f,b,p) & Parallel(a,f,a,p) => Perpendicular(a,p,b,p)
 7. Perpendicular(a,p,b,p) => Angle_a_p_b - pi/2
-8. Perpendicular(a,f,b,e) & Parallel(b,e,e,p) => Perpendicular(a,f,e,p)
-9. Perpendicular(a,f,e,p) & Parallel(a,f,a,p) => Perpendicular(a,p,e,p)
-10. Perpendicular(a,p,e,p) => Angle_a_p_e - pi/2
-11. Angle_a_p_b - pi/2 & Angle_a_p_e - pi/2 => Angle_a_p_b - Angle_a_p_e
-12. Angle_a_c_b - pi/2 & Angle_a_p_b - Angle_a_p_e & Angle_a_p_b + Angle_a_p_e - pi => Angle_a_c_b + Angle_a_p_b - pi
-13. Angle_a_c_b + Angle_a_p_b - pi => Concyclic(a,b,c,p)
-14. Concyclic(a,b,c,p) => Angle_a_b_p - Angle_a_c_p & Angle_b_a_p - Angle_b_c_p
-15. Angle_a_b_e - Angle_b_a_f & Angle_b_a_f - Angle_b_a_p & Angle_a_b_e - Angle_a_b_p => Angle_a_b_p - Angle_b_a_p
-16. Angle_a_b_p - Angle_a_c_p & Angle_b_a_p - Angle_b_c_p & Angle_a_b_p - Angle_b_a_p => Angle_a_c_p - Angle_b_c_p
+8. Perpendicular(a,c,b,c) => Angle_a_c_b - pi/2
+9. Angle_a_p_b - pi/2 & Angle_a_c_b - pi/2 => Angle_a_c_b + Angle_a_p_b - pi
+10. Angle_a_c_b + Angle_a_p_b - pi => Concyclic(a,b,c,p)
+11. Concyclic(a,b,c,p) => Angle_a_b_p - Angle_a_c_p & Angle_b_a_p - Angle_b_c_p
+12. Angle_a_b_p - Angle_b_a_p & Angle_a_b_p - Angle_a_c_p & Angle_b_a_p - Angle_b_c_p => Angle_a_c_p - Angle_b_c_p

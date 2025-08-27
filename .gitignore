@@ -182,5 +182,10 @@ logs/
 dataset/
 cache/*
 !cache/.gitkeep
-
+wandb/
+saves/
+data/*.json
 .vllm/
+
+*.out
+try.py

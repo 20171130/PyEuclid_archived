@@ -26,7 +26,7 @@ def informalize_problem(problem):
 
 def informalize_goal(goal):
     informal_goal = informalize_relation(goal)
-    informal_goal = "Please try to prove that:\n" + informal_goal
+    # informal_goal = "Please try to prove that:\n" + informal_goal
     return informal_goal
 
 def informalize_aux(aux):
@@ -108,5 +108,5 @@ def informalize_proof(proof):
         if "=>" in proof_step:
             informal_step = informalize_proof_step(proof_step)
             informal_steps.append(informal_step)
-    informal_proof = "Proof:\n" + "\n".join(informal_steps)
+    informal_proof = "\n".join(informal_steps)
     return informal_proof

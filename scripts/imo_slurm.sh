@@ -5,8 +5,8 @@
 #SBATCH --time=2:00:00
 #SBATCH --cpus-per-task=2
 #SBATCH --mem-per-cpu=4G
-#SBTACH --qos=formal_math_reasoning_high
+#SBATCH --partition=learnfair,learnlab,devlab,scavenge
 
 export PYTHONBREAKPOINT=0
 
-mpirun python3 test_imo.py
+mpirun python3 tests/test_imo.py
