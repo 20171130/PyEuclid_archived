@@ -93,6 +93,8 @@ class Diagram:
         self.min_tol = 0.2
         self.max_tol = 2
 
+        self.angle_values = set()
+        self.length_values = set()
         self.numerical_cache = {}
         
         self.fig, self.ax = None, None
@@ -177,7 +179,7 @@ class Diagram:
             except (NumericalCheckingError, SamplingError, DistanceError):
                 self.restore()
             except Exception:
-                raise                
+                raise
         raise MaxAttemptsError()
             
     def construct_diagram(self, constructions_list, coordinates_list):
@@ -211,7 +213,7 @@ class Diagram:
             raise Exception()
         for construction in constructions:
             for arg in construction.inputs:
-                if not isinstance(arg, float) and arg.name not in self.name2point.keys():
+                if not isinstance(arg, (int, float, sympy.core.expr.Expr)) and arg.name not in self.name2point.keys():
                     raise Exception()
         
         if coordinates:
@@ -293,9 +295,15 @@ class Diagram:
             return self.numerical_cache[relation]
 
     def sketch(self, construction):
-        func = getattr(self, 'sketch_' + construction.__class__.__name__[10:])
-        args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.inputs]
-        result = func(*args)
+        if hasattr(construction, "sketch"):
+            lengths, angles = construction.sample(length_values=self.length_values, angle_values=self.angle_values)
+            self.length_values = self.length_values.union(lengths)
+            self.angle_values = self.angle_values.union(angles)
+            result = construction.sketch()
+        else:
+            func = getattr(self, 'sketch_' + construction.__class__.__name__[10:])
+            args = [arg if isinstance(arg, (int, float, sympy.core.expr.Expr)) else self.name2point[arg.name] for arg in construction.inputs]
+            result = func(*args)
         if isinstance(result, list):
             return result
         else:
@@ -991,9 +999,14 @@ class Diagram:
             len_c = len(self.circles)
             len_hs = len(self.highlight_segments)
             len_ha = len(self.highlight_angles)
-            func = getattr(self, 'draw_' + construction.__class__.__name__[10:])
-            args = [arg if isinstance(arg, float) else self.name2point[arg.name] for arg in construction.inputs]
-            func(*new_points, *args)
+            if hasattr(construction, "draw"):
+                new_segments, new_circles = construction.draw()
+                self.segments += new_segments
+                self.circles += new_circles
+            else:
+                func = getattr(self, 'draw_' + construction.__class__.__name__[10:])
+                args = [arg if isinstance(arg, (int, float, sympy.core.expr.Expr)) else self.name2point[arg.name] for arg in construction.inputs]
+                func(*new_points, *args)
             self.construction2diagram[construction] = (
                 new_points,
                 self.segments[len_s:],
@@ -1561,6 +1574,7 @@ class Diagram:
     
     def draw_opposingsides(self, *args):
         x, a, b, c = args
+
     
     def draw_diagram(self, constructions=None, show=False, save=True):
         imsize = 512 / 100

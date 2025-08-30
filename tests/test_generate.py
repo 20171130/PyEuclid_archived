@@ -19,72 +19,10 @@ from pyeuclid.engine.inference_rule import *
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
-from pyeuclid.formalization.construction_q import *
+from pyeuclid.formalization.construction_q import ConstructionQ, construct_segment_q, construct_point_on_circle
 
-class TimeoutHandler:
-    def __init__(self, timeout_seconds: Optional[int] = None):
-        self.timeout_occurred = False
-        self.timeout_seconds = timeout_seconds
-        self.start_time = time.time()
-        self.lock = threading.Lock()
-
-    def timeout_handler(self, signum, frame):
-        """Handles SIGTERM for graceful timeout"""
-        with self.lock:
-            self.timeout_occurred = True
-        print(f"Timeout signal received (signal {signum})")
-
-    def check_timeout(self) -> bool:
-        """Check if timeout has occurred or time limit exceeded"""
-        with self.lock:
-            if self.timeout_occurred:
-                return True
-
-        if self.timeout_seconds:
-            elapsed = time.time() - self.start_time
-            if elapsed >= self.timeout_seconds:
-                with self.lock:
-                    self.timeout_occurred = True
-                print(f"Time limit exceeded: {elapsed:.2f}s >= {self.timeout_seconds}s")
-                return True
-
-        return False
-
-    def get_elapsed_time(self) -> float:
-        return time.time() - self.start_time
-
-    def get_remaining_time(self) -> Optional[float]:
-        if not self.timeout_seconds:
-            return None
-        return max(0, self.timeout_seconds - self.get_elapsed_time())
-
-@contextmanager
-def timeout_context(timeout_seconds: Optional[int] = None):
-    """Context manager that handles SIGTERM for graceful shutdown and SIGINT for immediate exit"""
-    timeout_handler = TimeoutHandler(timeout_seconds)
-
-    # Set up signal handlers
-    old_sigterm = signal.signal(signal.SIGTERM, timeout_handler.timeout_handler)
-
-    def handle_sigint(signum, frame):
-        print("SIGINT (Ctrl+C) received — exiting immediately")
-        raise KeyboardInterrupt()
-
-    old_sigint = signal.signal(signal.SIGINT, handle_sigint)
-
-    try:
-        yield timeout_handler
-    finally:
-        # Restore original signal handlers
-        signal.signal(signal.SIGTERM, old_sigterm)
-        signal.signal(signal.SIGINT, old_sigint)
-
-def generate_single_problem(rank: int, output_dir: str, problem_id: int, 
-                          timeout_handler: TimeoutHandler) -> Dict[str, Any]:
+def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
     """Generate a single problem with timeout checking at key points"""
-    
-    if timeout_handler.check_timeout():
-        return {"samples_generated": 0, "samples_with_auxiliary": 0, "timeout": True}
     
     problem_output_dir = os.path.join(output_dir, f'rank_{rank}', f'problem_{problem_id}')
     os.makedirs(problem_output_dir, exist_ok=True)
@@ -116,15 +54,14 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     length_values, angle_values = set(), set()
     index = 0
     # Construction phase with timeout checks
-    while (step < max_steps and attempt < max_attempts and points < max_points 
-           and not timeout_handler.check_timeout()):
+    while (step < max_steps and attempt < max_attempts and points < max_points):
         
         constructions = []
         multiconstructions = False
 
         if step == 0:
-            candidate_set = list(construction_rule_sets["independent"])
-            # candidate_set.remove(construct_free)
+            candidate_set = [rule for rule in list(construction_rule_sets['independent']) 
+                               if rule.num_inputs <= len(state.points)]
         else:
             rand = random.random()
             if rand < 0.3:
@@ -135,7 +72,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
                 multiconstructions = False if rand < 0.1 else True
                 candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
                                if rule.num_inputs <= len(state.points)]
-        
+            candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
         picked = random.choice(candidate_set)
         all_points = list(state.points.copy())
         num_points = len(all_points)
@@ -147,8 +84,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             # For input types that are all points
             candidates = itertools.permutations(all_points, len(picked.input_types))
             for candidate in candidates:
-                if isinstance(picked, ConstructionQ):
-                    construction = picked(*candidate, angle_values=angle_values, length_values=length_values)
+                if issubclass(picked, ConstructionQ):
+                    construction = picked(*candidate, diagram=diagram)
                 else:
                     construction = picked(*candidate)
                 for condition in construction.conditions():
@@ -183,9 +120,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         constructions.append(construction)
 
         if multiconstructions:
+            to_intersect = picked
             candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
                            if rule.num_inputs <= len(state.points) and 
-                           rule.num_outputs == picked.num_outputs and rule != picked]
+                           rule.num_outputs == picked.num_outputs]
+            candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
             num_points = len(all_points)
@@ -196,8 +135,13 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             if all(typ == Point for typ in picked.input_types):
                 # For input types that are all points
                 candidates = itertools.product(all_points, repeat=len(picked.input_types))
+                if picked == to_intersect and picked == construct_point_on_circle:
+                    candidates = [item for item in candidates if not item[0] == construction.o]
                 for candidate in candidates:
-                    construction = picked(*candidate)
+                    if issubclass(picked, ConstructionQ):
+                        construction = picked(*candidate, diagram=diagram)
+                    else:
+                        construction = picked(*candidate)
                     for condition in construction.conditions():
                         if not diagram.numerical_check(condition):
                             break
@@ -224,51 +168,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             construction.construct(*outputs)
             constructions.append(construction)
 
-        # if step == 0:
-        #     picked = construct_segment()
-        #     picked.construct(Point('A'),Point('B'))
-        #     constructions = [picked]
-        # elif step == 1:
-        #     picked = construct_psquare(Point('A'),Point('B'))
-        #     picked.construct(Point('C'))
-        #     constructions = [picked]
-        # elif step == 2:
-        #     picked = construct_centroid(Point('B'),Point('C'),Point('A'))
-        #     picked.construct(Point('D'),Point('E'),Point('F'),Point('G'))
-        #     constructions = [picked]
-        # elif step == 3:
-        #     picked = construct_parallelogram(Point('E'),Point('G'),Point('A'))
-        #     picked.construct(Point('H'))
-        #     constructions = [picked]
-        # elif step == 4:
-        #     picked = construct_circle(Point('G'),Point('E'),Point('H'))
-        #     picked.construct(Point('I'))
-        #     constructions = [picked]
-        # elif step == 5:
-        #     picked = construct_on_circle(Point('I'),Point('D'))
-        #     picked.construct(Point('J'))
-        #     picked1 = construct_on_tline(Point('I'),Point('E'),Point('H'))
-        #     picked1.construct(Point('J'))
-        #     constructions = [picked, picked1]
-        # elif step == 6:
-        #     picked = construct_on_tline(Point('A'),Point('E'),Point('C'))
-        #     picked.construct(Point('K'))
-        #     picked1 =construct_lc_tangent(Point('D'),Point('H'))
-        #     picked1.construct(Point('K'))
-        #     constructions = [picked, picked1]
-        # elif step == 7:
-        #     picked = construct_trisegment(Point('C'),Point('A'))
-        #     picked.construct(Point('L'),Point('M'))
-        #     constructions = [picked]
-        # else:
-        #     break
-        # outputs = constructions[0].outputs
-
         attempt += 1
-        try:
-            diagram.add_constructions(constructions)
-        except:
-            continue
+        diagram.add_constructions(constructions)
+
 
         constructions_list.append(constructions)
         for construction in constructions:
@@ -286,9 +188,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     
     with open(os.path.join(problem_output_dir, f'constructions_list.json'), 'w') as f:
         f.write(', '.join([str(construction) for constructions in constructions_list for construction in constructions])) 
-
-    if timeout_handler.check_timeout():
-        return {"samples_generated": 0, "samples_with_auxiliary": 0, "timeout": True}
 
     diagram.draw_diagram(save=True)
     engine.run()
@@ -344,8 +243,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         return sorted(res, key=lambda c: c.index)
     
     for relation in filtered_conclusions:
-        if timeout_handler.check_timeout():
-            break
         if isinstance(relation, Traced):
             key = relation.expr
         else:
@@ -535,91 +432,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     print(f"Rank {rank}: Problem {problem_id} - Generated {i} samples ({samples_with_auxiliary} with auxiliary)")
     return {
         "samples_generated": i, 
-        "samples_with_auxiliary": samples_with_auxiliary,
-        "timeout": timeout_handler.check_timeout()
+        "samples_with_auxiliary": samples_with_auxiliary
     }
-
-def generate_until_timeout(rank: int, output_dir: str, timeout_handler: TimeoutHandler,
-                          max_problem_id: Optional[int] = None) -> Dict[str, Any]:
-    """Generate problems until timeout with improved progress tracking"""
-    
-    rank_output_dir = os.path.join(output_dir, f'rank_{rank}')
-    os.makedirs(rank_output_dir, exist_ok=True)
-
-    problem_id = 0
-    total_samples = 0
-    total_samples_with_auxiliary = 0
-    start_time = time.time()
-    problems_with_errors = 0
-    problems_with_timeouts = 0
-
-    print(f"Rank {rank}: Starting generation with timeout handler")
-    if timeout_handler.timeout_seconds:
-        print(f"Rank {rank}: Time limit: {timeout_handler.timeout_seconds}s")
-    if max_problem_id:
-        print(f"Rank {rank}: Max problems: {max_problem_id}")
-
-    try:
-        while not timeout_handler.check_timeout():
-            if max_problem_id and problem_id >= max_problem_id:
-                print(f"Rank {rank}: Max problem ID {max_problem_id} reached")
-                break
-
-            try:
-                result = generate_single_problem(rank, output_dir, problem_id, timeout_handler)
-                
-                if result.get("timeout"):
-                    problems_with_timeouts += 1
-                    print(f"Rank {rank}: Problem {problem_id} timed out")
-                    break
-                    
-                if result.get("error"):
-                    problems_with_errors += 1
-                    
-                total_samples += result["samples_generated"]
-                total_samples_with_auxiliary += result["samples_with_auxiliary"]
-                problem_id += 1
-            except KeyboardInterrupt:
-                print(f"Rank {rank}: Keyboard interrupt received")
-                timeout_handler.timeout_occurred = True
-                break
-            except Exception as e:
-                print(f"Rank {rank}: Error in problem {problem_id}: {e}")
-                problems_with_errors += 1
-                problem_id += 1
-                continue
-                
-    except Exception as e:
-        print(f"Rank {rank}: Fatal error in generation loop: {e}")
-        raise
-
-    duration = timeout_handler.get_elapsed_time()
-    
-    # Determine termination reason
-    if timeout_handler.check_timeout():
-        if problems_with_timeouts > 0:
-            termination_reason = "timeout_during_problem"
-        else:
-            termination_reason = "timeout"
-    elif max_problem_id and problem_id >= max_problem_id:
-        termination_reason = "max_problems_reached"
-    else:
-        termination_reason = "completed"
-
-    result = {
-        "total_samples": total_samples,
-        "total_problems": problem_id,
-        "samples_with_auxiliary": total_samples_with_auxiliary,
-        "problems_with_errors": problems_with_errors,
-        "problems_with_timeouts": problems_with_timeouts,
-        "termination_reason": termination_reason,
-        "duration": duration,
-        "problems_per_second": problem_id / duration if duration > 0 else 0,
-        "samples_per_second": total_samples / duration if duration > 0 else 0
-    }
-    
-    print(f"Rank {rank}: Generation completed - {termination_reason}")
-    return result
 
 def main():
     rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
@@ -628,17 +442,8 @@ def main():
     base_output_dir = os.environ.get('OUTPUT_DIR', 'new_samples')
     
     os.makedirs(base_output_dir, exist_ok=True)
-    
-    print(f"SLURM task {rank} starting...")
-    print(f"Timeout: {timeout_seconds}s, Max problems: {max_problem_id}")
 
-    with timeout_context(timeout_seconds if timeout_seconds > 0 else None) as timeout_handler:
-        result = generate_until_timeout(
-            rank, base_output_dir, timeout_handler,
-            max_problem_id=max_problem_id if max_problem_id > 0 else None
-        )
-        
-        print(f"SLURM task {rank} completed: {json.dumps(result, indent=2)}")
+    generate_single_problem(rank=0, problem_id=0, output_dir=base_output_dir)
 
 
 if __name__ == '__main__':
