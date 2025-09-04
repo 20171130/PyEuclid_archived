@@ -30,8 +30,6 @@ class State:
 
         self.current_depth = 0
         self.solutions = {}
-        self.solvers = {}
-        self.try_complex = False
         self.silent = False
         self.logger = logging.getLogger(__name__)
         self.set_logger(logging.DEBUG)
@@ -76,7 +74,9 @@ class State:
             else:
                 if self.diagram is not None:
                     if isinstance(item, Traced):
-                        assert self.diagram.numerical_check(item.expr)
+                        if not self.diagram.numerical_check(item.expr):
+                            print(item)
+                            breakpoint()
                     else:
                         assert self.diagram.numerical_check(item)
                 self.add_equation(item)
@@ -84,6 +84,18 @@ class State:
     def add_relation(self, relation):
         if relation in self.relations:
             return
+        if Not(relation) in self.relations:
+            print(relation)
+            breakpoint()
+            raise
+        if isinstance(relation, SameSide):
+            if OppositeSide(*relation.get_points()) in self.relations:
+                print(relation)
+                raise
+        if isinstance(relation, OppositeSide):
+            if SameSide(*relation.get_points()) in self.relations:
+                print(relation)
+                raise
         
         points = relation.get_points()
         for p in points:
@@ -107,7 +119,6 @@ class State:
                 self.points.add(p)
 
     def add_equation(self, equation):
-        # allow redundant equations for neat proofs
         equation = Traced(equation, depth=self.current_depth)
         if equation == 0 or equation in self.equations:
             return
@@ -134,7 +145,7 @@ class State:
 
     
     def categorize_variable(self): 
-        angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types)
+        angle_linear, length_linear, length_ratio, others = classify_equations(self.equations, self.var_types, cache=False)
         for eq in self.equations:
             if "Variable" not in str(eq):
                 continue
@@ -245,26 +256,25 @@ class State:
                 return None
         else:
             assert isinstance(self.goal, sympy.core.expr.Expr)
-            solution = self.simplify_equation(self.goal)
-            if len(solution.free_symbols) == 0:
-                return solution
+            for length_solved in [self.solutions['length_ratio'], self.solutions['length_linear']]:
+                solutions = self.solutions['angle_linear'] | length_solved
+                result = self.simplify_equation(self.goal, solutions)
+                if len(result.free_symbols) == 0:
+                    return result
             return None
     
-    def simplify_equation(self, expr):
+    def simplify_equation(self, expr, solutions):
         expr = getattr(expr, "expr", expr)
         for symbol in expr.free_symbols:
-            if symbol in self.solutions:
-                value = self.solutions[symbol]
+            if symbol in solutions:
+                value = solutions[symbol]
                 expr = expr.subs(symbol, value)
         return expr
     
     def check_conditions(self, conditions):
         if not type(conditions) in (list, tuple, set):
             conditions = [conditions]
-        conditional_relations, conditional_equations = set(), []
-        i = 0
-        while i < len(conditions):
-            item = conditions[i]
+        for item in conditions:
             if isinstance(item, Different2):
                 if item.negated is True:
                     return False
@@ -291,8 +301,13 @@ class State:
                 elif not item.negated and not item in self.relations:
                     return False
             else:
-                conditional_equations.append(self.simplify_equation(item))
-            i += 1
-        equation_satisfied = check_equalities(conditional_equations)
-        return equation_satisfied
+                result = any(
+                    check_equalities(
+                        self.simplify_equation(item, self.solutions['angle_linear'] | length_solved)
+                    )
+                    for length_solved in [self.solutions['length_ratio'], self.solutions['length_linear']]
+                )
+                if not result:
+                    return False
+        return True
     

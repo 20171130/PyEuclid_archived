@@ -8,7 +8,4 @@ conditions = [(Length(Point('D'),Point('E')) - (Variable('x') - sympy.simplify('
 goal = Length(Point('A'),Point('B'))
 solution = '10'
 
-diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C'))]
-
-new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C'))}
-
+diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C')), NotCollinear(Point('D'),Point('E'),Point('F'))]

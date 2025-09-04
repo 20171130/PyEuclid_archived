@@ -4,7 +4,7 @@ from pyeuclid.formalization.relation import *
 pi = sympy.pi
 
 
-conditions = [(Length(Point('J'),Point('K')) - sympy.simplify('13')), (Length(Point('G'),Point('H')) - sympy.simplify('17')), (Area(Point('G'),Point('H'),Point('J'),Point('K')) - sympy.simplify('75')), Trapezoid(Point('G'),Point('H'),Point('J'),Point('K')), (Area(Point('G'),Point('H'),Point('J'),Point('K')) - sympy.simplify('75')), Trapezoid(Point('G'),Point('H'),Point('J'),Point('K')), Between(Point('A'),Point('G'),Point('H')), Collinear(Point('A'),Point('G'),Point('H')), Perpendicular(Point('A'),Point('J'),Point('G'),Point('H'))]
+conditions = [(Length(Point('J'),Point('K')) - sympy.simplify('13')), (Length(Point('G'),Point('H')) - sympy.simplify('17')), (Area(Point('G'),Point('H'),Point('J'),Point('K')) - sympy.simplify('75')), Trapezoid(Point('G'),Point('H'),Point('J'),Point('K')), Parallel(Point('G'),Point('H'),Point('J'),Point('K')), (Area(Point('G'),Point('H'),Point('J'),Point('K')) - sympy.simplify('75')), Between(Point('A'),Point('G'),Point('H')), Collinear(Point('A'),Point('G'),Point('H')), Perpendicular(Point('A'),Point('J'),Point('G'),Point('H'))]
 goal = Length(Point('A'),Point('J'))
 solution = '5'
 

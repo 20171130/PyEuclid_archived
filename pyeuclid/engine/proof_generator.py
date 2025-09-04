@@ -32,11 +32,7 @@ class ProofGenerator:
             
         if not node and self.state.goal:
             node = self.state.goal
-            if not (self.state.complete() == 0 or self.state.complete() is True):
-                if "angle" in str(node).lower() or self.state.var_types.get(node, None) =="Angle":
-                    source = "angle_linear"
-                else: # including Area
-                    source = "length_ratio"
+            if not self.state.complete() is True:
                 node = node - self.state.complete()
                 
         if isinstance(node, Traced):
@@ -61,7 +57,7 @@ class ProofGenerator:
                         node = item
                         depth = item.depth
                         break
-        
+
         constructions = set()
         
         if isinstance(node, InferenceRule):
@@ -163,10 +159,11 @@ class ProofGenerator:
                 if conditions is None:
                     conditions = []
                     expr = node
-                    symbols = [symbol for symbol in node.free_symbols if symbol in self.state.solutions]
+                    solutions = (self.state.solutions['angle_linear'] | self.state.solutions['length_ratio'])
+                    symbols = [symbol for symbol in node.free_symbols if symbol in solutions]
                     for symbol in symbols:
-                        expr = expr.subs(symbol, self.state.solutions[symbol])
-                        conditions.append(symbol - self.state.solutions[symbol])
+                        expr = expr.subs(symbol, solutions[symbol])
+                        conditions.append(symbol - solutions[symbol])
                         if expr == 0:
                             break
                     else:
@@ -368,8 +365,8 @@ class ProofGenerator:
         x_pos = {}
         x_neg = {}
         for i in range(m):
-            x_pos[i] = model.addVar(lb=0.0, vtype="C", name=f"x_pos_{i}")
-            x_neg[i] = model.addVar(lb=0.0, vtype="C", name=f"x_neg_{i}")
+            x_pos[i] = model.addVar(lb=0.0, ub=1e8, vtype="C", name=f"x_pos_{i}")
+            x_neg[i] = model.addVar(lb=0.0, ub=1e8, vtype="C", name=f"x_neg_{i}")
 
         model.setObjective(
             quicksum(x_pos[i] + x_neg[i] for i in range(m)),
@@ -384,9 +381,9 @@ class ProofGenerator:
                 if coef != 0:
                     expr.append(coef * deltas[j])
             model.addCons(quicksum(expr) == e[i])
-              
-        model.optimize()
         
+        model.optimize()
+            
         if model.getStatus() == "optimal":
             x_values = [model.getVal(x_pos[i]) - model.getVal(x_neg[i]) for i in range(m)]
             indices = [i for i, val in enumerate(x_values) if abs(val) > threshold]

@@ -386,7 +386,7 @@ class PropertyOfEquilateralTriangle(InferenceRule):
 
 
 @register("basic")
-class PropertyOfSimilar(InferenceRule):
+class PropertyOfSimilar3(InferenceRule):
     """ Property of Similar Triangles """
     def __init__(self, a: Point, b: Point, c: Point, p: Point, q: Point, r: Point):
         super().__init__()
@@ -408,6 +408,55 @@ class PropertyOfSimilar(InferenceRule):
             Angle(self.b, self.c, self.a) - Angle(self.q, self.r, self.p),
             Angle(self.c, self.a, self.b) - Angle(self.r, self.p, self.q),
         ]
+
+
+
+@register("basic")
+class PropertyOfSimilar4(InferenceRule):
+    """ Property of Similar Triangles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, m: Point, n: Point, p: Point, q: Point):
+        super().__init__()
+        self.a, self.b, self.c, self.d, self.m, self.n, self.p, self.q = a, b, c, d, m, n, p, q
+    
+    def condition(self):
+        return Similar4(self.a, self.b, self.c, self.d, self.m, self.n, self.p, self.q), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.b, self.d), Leq(self.a, self.m)
+    
+    def degenerate(self):
+        return self.a == self.m and self.b == self.n and self.c == self.p and self.d == self.q
+    
+    def conclusion(self):
+        return [
+            *equal(Length(self.a, self.b)/Length(self.m, self.n), Length(self.b, self.c)/Length(self.n, self.p), Length(self.c, self.d)/Length(self.p, self.q),Length(self.d, self.a)/Length(self.q, self.m)),
+            Angle(self.a, self.b, self.c) - Angle(self.m, self.n, self.p),
+            Angle(self.b, self.c, self.d) - Angle(self.n, self.p, self.q),
+            Angle(self.c, self.d, self.a) - Angle(self.p, self.q, self.m),
+            Angle(self.d, self.a, self.b) - Angle(self.q, self.m, self.n),
+        ]
+
+
+@register("basic")
+class PropertyOfSimilar5(InferenceRule):
+    """ Property of Similar Triangles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, m: Point, n: Point, p: Point, q: Point, r: Point):
+        super().__init__()
+        self.a, self.b, self.c, self.d, self.e, self.m, self.n, self.p, self.q, self.r = a, b, c, d, e, m, n, p, q, r
+    
+    def condition(self):
+        return Similar5(self.a, self.b, self.c, self.d, self.e, self.m, self.n, self.p, self.q, self.r), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.a, self.e), Lt(self.b, self.e), Leq(self.a, self.m)
+    
+    def degenerate(self):
+        return self.a == self.m and self.b == self.n and self.c == self.p and self.d == self.q and self.e == self.r
+    
+    def conclusion(self):
+        return [
+            *equal(Length(self.a, self.b)/Length(self.m, self.n), Length(self.b, self.c)/Length(self.n, self.p), Length(self.c, self.d)/Length(self.p, self.q), Length(self.d, self.e)/Length(self.q, self.r), Length(self.e, self.a)/Length(self.r, self.m)),
+            Angle(self.a, self.b, self.c) - Angle(self.m, self.n, self.p),
+            Angle(self.b, self.c, self.d) - Angle(self.n, self.p, self.q),
+            Angle(self.c, self.d, self.e) - Angle(self.p, self.q, self.r),
+            Angle(self.d, self.e, self.a) - Angle(self.q, self.r, self.m),
+            Angle(self.e, self.a, self.b) - Angle(self.r, self.m, self.n),
+        ]
+
 
 @register("shape")
 class DefinitionOfTriangle(InferenceRule):
@@ -1918,6 +1967,27 @@ class AlphaGeometry8(InferenceRule):
 
 
 @register("basic")
+class AlphaGeometry8b(InferenceRule):
+    """ length ratios arising from similar triangles """
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+
+    def condition(self):
+        return Parallel(self.a, self.b, self.c, self.d), Parallel(self.a, self.b, self.e, self.f), Collinear(self.e, self.a, self.c), Between(self.e, self.a, self.c), Collinear(self.f, self.b, self.d), Between(self.f, self.b, self.d), Not(Collinear(self.a, self.b, self.c)), SameSide(self.a, self.c, self.b, self.d), SameSide(self.b, self.d, self.a, self.c), Not(Collinear(self.a, self.b, self.e)), Not(Collinear(self.c, self.d, self.e)), *Different(self.a, self.b, self.c, self.d, self.e, self.f), Lt(self.a, self.b),  Lt(self.a, self.c), 
+
+    def conclusion(self):
+        return [
+            *equal(Length(self.a, self.c)/Length(self.b, self.d), Length(self.a, self.e)/Length(self.b, self.f), Length(self.c, self.e)/Length(self.d, self.f)), Length(self.e, self.f) - Length(self.c, self.d)*Length(self.a, self.e)/Length(self.a, self.c) - Length(self.a, self.b)*Length(self.c, self.e)/Length(self.a, self.c)
+        ]
+
+
+@register("basic")
 class AlphaGeometry12(InferenceRule):
     """ Inversed Angle Bisector Theorem """
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
@@ -2257,6 +2327,24 @@ class AlphaGeometry28(InferenceRule):
     def conclusion(self):
         return Parallel(self.a, self.b, self.c, self.d)
 
+# @register("basic")
+# class AlphaGeometry28b(InferenceRule):
+#     """ inversed basic proportionality theorem """
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
+#         self.e = e
+#         self.f = f
+
+#     def condition(self):
+#         return Parallel(self.a, self.b, self.c, self.d), Not(Collinear(self.a, self.b, self.c)), Collinear(self.e, self.a, self.c), Between(self.e, self.a, self.c), Collinear(self.f, self.b, self.d), Between(self.f, self.b, self.d), Length(self.e, self.a)/Length(self.a, self.c)-Length(self.f, self.b)/Length(self.b, self.d), *Different(self.a, self.b, self.c, self.d, self.e, self.f), Lt(self.a, self.b), Lt(self.a, self.c)
+
+#     def conclusion(self):
+#         return Parallel(self.a, self.b, self.e, self.f), Parallel(self.c, self.d, self.e, self.f), 
+
 
 @register("ex")
 class AlphaGeometry29(InferenceRule):
@@ -2465,7 +2553,7 @@ class AlphaGeometry42(InferenceRule):
         return Collinear(self.m, self.a, self.d), Parallel(self.a, self.b, self.c, self.d), Collinear(self.n, self.b, self.c), Length(self.m, self.a)/Length(self.m, self.d)-Length(self.n, self.b)/Length(self.n, self.c),  SameSide(self.m, self.n, self.a, self.b),  SameSide(self.m, self.n, self.c, self.d), *Different(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.d)
 
     def conclusion(self):
-        return Parallel(self.m, self.n, self.a, self.b)
+        return Parallel(self.m, self.n, self.a, self.b), Parallel(self.m, self.n, self.c, self.d)
 
 
 @register("basic")
@@ -2807,8 +2895,115 @@ class CollinearParallel(InferenceRule):
 
     def conclusion(self):
         return Parallel(self.a, self.b, self.b, self.c), Parallel(self.a, self.b, self.a, self.c), Parallel(self.a, self.c, self.b, self.c)
-    
-    
+
+
+# @register("basic")
+# class MidsegmentTheorem(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
+#         self.e = e
+#         self.f = f
+
+#     def condition(self):
+#         return [Quadrilateral(self.a, self.b, self.c, self.d),
+#                 Parallel(self.a, self.b, self.c, self.d),
+#                 Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d),
+#                 Midpoint(self.e, self.a, self.d), Midpoint(self.f, self.b, self.c)]
+
+#     def conclusion(self):
+#         return [Length(self.e, self.f) - (Length(self.a, self.b) + Length(self.c, self.d)) / 2]
+
+
+
+@register("basic")
+class AlternateSegmentTheorem(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, o: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.o = o
+        
+    def condition(self):
+        return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.b, self.o)-Length(self.c, self.o), *Different(self.a,self.b,self.c,self.d,self.o), OppositeSide(self.a,self.d, self.b,self.c), Angle(self.o,self.c,self.d)-pi / 2, ]
+
+    def conclusion(self):
+        return [Angle(self.b,self.a,self.c)-Angle(self.b,self.c,self.d)]
+
+
+@register("basic")
+class InscribedAngleTheorem1(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, o: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.o = o
+
+    def condition(self):
+        return [SameSide(self.o, self.b, self.a, self.c), Lt(self.a, self.c), *Different(self.a, self.b, self.c, self.o),
+                Length(self.o, self.a)-Length(self.o, self.b), Length(self.o, self.b) - Length(self.o, self.c)]
+
+    def conclusion(self):
+        return [Angle(self.a, self.b, self.c) - Angle(self.a, self.o, self.c) / 2]
+
+
+
+@register("basic")
+class IntersectingChordsTheorem(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+
+    def condition(self):
+        return [Concyclic(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.c, self.d), Lt(self.a, self.c), *Different(self.a, self.b, self.c, self.d, self.e), Collinear(self.e, self.a, self.b), Collinear(self.e, self.c, self.d)]
+
+    def conclusion(self):
+        return [Length(self.a, self.e)/Length(self.c, self.e) - Length(self.d, self.e)/Length(self.b, self.e)]
+
+# When one line is tangent to the circle
+@register("basic")
+class IntersectingChordsTheorem2(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, o: Point, e: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.o = o
+        self.e = e
+
+    def condition(self):
+        return [Length(self.a, self.o)-Length(self.b, self.o), Length(self.a, self.o)-Length(self.c, self.o), Lt(self.a, self.b), Angle(self.o, self.c, self.e)-pi/2, Collinear(self.a, self.b, self.e), *Different(self.a, self.b, self.c, self.o, self.e)]
+
+    def conclusion(self):
+        return [Length(self.a, self.e) / Length(self.c, self.e) - Length(self.c, self.e) / Length(self.b, self.e)]
+
+
+@register("basic")
+class InscribedAngleTheorem2(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, o: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.o = o
+
+    def condition(self):
+        return [OppositeSide(self.o, self.b, self.a, self.c), Lt(self.a, self.c), *Different(self.a, self.b, self.c, self.o),
+                Length(self.o, self.a)-Length(self.o, self.b), Length(self.o, self.b) - Length(self.o, self.c)]
+
+    def conclusion(self):
+        return [Angle(self.a, self.b, self.c) + Angle(self.a, self.o, self.c) / 2 - pi]
+
 
 @register("complex")
 class RightTriangleTrigonometry(InferenceRule):
@@ -2951,8 +3146,9 @@ class ParallelogramArea(InferenceRule):
         self.d = d
 
     def condition(self):
-        return [Parallelogram(self.a, self.b, self.c, self.d), *Different(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d)
-                ]
+        return [
+            Parallelogram(self.a, self.b, self.c, self.d),
+        ]
 
     def conclusion(self):
         return [Area(self.a, self.b, self.c, self.d) - Length(self.a, self.b) * Length(self.b, self.c) * sin(Angle(self.a, self.b, self.c))]
@@ -2969,7 +3165,12 @@ class TrapezoidArea(InferenceRule):
         self.e = e
 
     def condition(self):
-        return [Trapezoid(self.a, self.b, self.c, self.d), Perpendicular(self.a, self.e, self.c, self.d), Collinear(self.e, self.c, self.d), *Different(self.a, self.b, self.c, self.d)]
+        return [
+            Trapezoid(self.a, self.b, self.c, self.d),
+            Parallel(self.a, self.b, self.c, self.d),
+            Perpendicular(self.a, self.e, self.c, self.d), 
+            Collinear(self.e, self.c, self.d), 
+        ]
 
     def conclusion(self):
         return [Area(self.a, self.b, self.c, self.d) - (Length(self.a, self.b) + Length(self.c, self.d)) * Length(self.a, self.e) / 2]
@@ -2985,7 +3186,11 @@ class RightTrapezoidArea(InferenceRule):
         self.d = d
 
     def condition(self):
-        return [Trapezoid(self.a, self.b, self.c, self.d), Perpendicular(self.a, self.b, self.b, self.c)]
+        return [
+            Trapezoid(self.a, self.b, self.c, self.d),
+            Parallel(self.a, self.b, self.c, self.d),
+            Perpendicular(self.a, self.b, self.b, self.c),
+        ]
 
     def conclusion(self):
         return [Area(self.a, self.b, self.c, self.d) - (Length(self.a, self.b) + Length(self.c, self.d)) * Length(self.b, self.c) / 2]
@@ -3009,14 +3214,10 @@ class Similar4PAreaLengthRatio(InferenceRule):
         return self.a == self.e and self.b == self.f and self.c == self.g and self.d == self.h
 
     def condition(self):
-        return [Similar(self.a, self.b, self.c, self.d, self.e, self.f, self.g, self.h), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.b, self.d), Quadrilateral(self.a, self.b, self.c, self.d), Quadrilateral(self.e, self.f, self.g, self.h)]
+        return [Similar4(self.a, self.b, self.c, self.d, self.e, self.f, self.g, self.h), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.b, self.d), Quadrilateral(self.a, self.b, self.c, self.d), Quadrilateral(self.e, self.f, self.g, self.h)]
 
     def conclusion(self):
-        return [Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.a, self.b)**2 / Length(self.e, self.f)**2,
-                Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.b, self.c)**2 / Length(self.f, self.g)**2,
-                Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.c, self.d)**2 / Length(self.g, self.h)**2,
-                Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h)-Length(self.d, self.a)**2 / Length(self.h, self.e)**2]
-
+        return [*equal(Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h), Length(self.a, self.b)**2/Length(self.e, self.f)**2, Length(self.b, self.c)**2/Length(self.f, self.g)**2, Length(self.c, self.d)**2/Length(self.g, self.h)**2, Length(self.d, self.a)**2/Length(self.h, self.e)**2)]
 
 @register("complex")
 class RhombusArea(InferenceRule):
@@ -3034,77 +3235,77 @@ class RhombusArea(InferenceRule):
     def conclusion(self):
         return [Area(self.a, self.b, self.c, self.d) - Length(self.a, self.c) * Length(self.b, self.d) / 2]
     
-    
-@register("complex")
-class CircleArea(InferenceRule):
-    def __init__(self, a: Point, b: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
 
-    def condition(self):
-        return [Lt(self.a, self.b)]
+# @register("complex")
+# class CircleArea(InferenceRule):
+#     def __init__(self, a: Point, b: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
 
-    def conclusion(self):
-        return AreaOfCircle(self.a, self.b) - pi*Length(self.a, self.b)**2, AreaOfCircle(self.b, self.a) - pi*Length(self.a, self.b)**2,
+#     def condition(self):
+#         return [Lt(self.a, self.b)]
 
-
-@register("complex")
-class SectorArea(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point, d: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-
-    def condition(self):
-        return [*Different(self.a, self.b, self.c), Lt(self.b, self.c)]
-
-    def conclusion(self):
-        return MinorSector(self.a, self.b, self.c) - (Angle(self.b, self.a, self.c)*Length(self.a, self.b)**2)/2, MajorSector(self.a, self.b, self.c) - ((2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)**2)/2
+#     def conclusion(self):
+#         return AreaOfCircle(self.a, self.b) - pi*Length(self.a, self.b)**2, AreaOfCircle(self.b, self.a) - pi*Length(self.a, self.b)**2,
 
 
-@register("complex")
-class ArcLength(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point, d: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
+# @register("complex")
+# class SectorArea(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
 
-    def condition(self):
-        return [*Different(self.a, self.b, self.c), Lt(self.b, self.c)]
+#     def condition(self):
+#         return [*Different(self.a, self.b, self.c), Lt(self.b, self.c)]
 
-    def conclusion(self):
-        return MinorArc(self.a, self.b, self.c) - Angle(self.b, self.a, self.c)*Length(self.a, self.b), MajorArc(self.a, self.b, self.c) - (2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)
-
-
-@register("complex")
-class Perimeter3(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-
-    def condition(self):
-        return [Not(Collinear(self.a, self.b, self.c))]
-
-    def conclusion(self):
-        return Perimeter(self.a, self.b, self.c) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.a, self.c)
+#     def conclusion(self):
+#         return MinorSector(self.a, self.b, self.c) - (Angle(self.b, self.a, self.c)*Length(self.a, self.b)**2)/2, MajorSector(self.a, self.b, self.c) - ((2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)**2)/2
 
 
-@register("complex")
-class Perimeter4(InferenceRule):
-    def __init__(self, a: Point, b: Point, c: Point, d:Point):
-        super().__init__()
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
+# @register("complex")
+# class ArcLength(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
 
-    def condition(self):
-        return [Quadrilateral(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.b, self.d)]
+#     def condition(self):
+#         return [*Different(self.a, self.b, self.c), Lt(self.b, self.c)]
 
-    def conclusion(self):
-        return Perimeter(self.a, self.b, self.c, self.d) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.c, self.d) - Length(self.a, self.d)
+#     def conclusion(self):
+#         return MinorArc(self.a, self.b, self.c) - Angle(self.b, self.a, self.c)*Length(self.a, self.b), MajorArc(self.a, self.b, self.c) - (2*pi-Angle(self.b, self.a, self.c))*Length(self.a, self.b)
+
+
+# @register("complex")
+# class Perimeter3(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
+
+#     def condition(self):
+#         return [Not(Collinear(self.a, self.b, self.c))]
+
+#     def conclusion(self):
+#         return Perimeter(self.a, self.b, self.c) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.a, self.c)
+
+
+# @register("complex")
+# class Perimeter4(InferenceRule):
+#     def __init__(self, a: Point, b: Point, c: Point, d:Point):
+#         super().__init__()
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
+
+#     def condition(self):
+#         return [Quadrilateral(self.a, self.b, self.c, self.d), Lt(self.a, self.b), Lt(self.a, self.c), Lt(self.a, self.d), Lt(self.b, self.d)]
+
+#     def conclusion(self):
+#         return Perimeter(self.a, self.b, self.c, self.d) - Length(self.a, self.b) - Length(self.b, self.c) - Length(self.c, self.d) - Length(self.a, self.d)

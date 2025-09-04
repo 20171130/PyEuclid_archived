@@ -4,7 +4,7 @@ from pyeuclid.formalization.relation import *
 pi = sympy.pi
 
 
-conditions = [(Length(Point('A'),Point('C')) - sympy.simplify('11')), (Length(Point('B'),Point('D')) - sympy.simplify('8')), (Length(Point('B'),Point('H')) - sympy.simplify('10')), Between(Point('H'),Point('A'),Point('C')), Collinear(Point('A'),Point('C'),Point('H')), Perpendicular(Point('A'),Point('C'),Point('B'),Point('H')), Trapezoid(Point('A'),Point('C'),Point('B'),Point('D'))]
+conditions = [(Length(Point('A'),Point('C')) - sympy.simplify('11')), (Length(Point('B'),Point('D')) - sympy.simplify('8')), (Length(Point('B'),Point('H')) - sympy.simplify('10')), Between(Point('H'),Point('A'),Point('C')), Collinear(Point('A'),Point('C'),Point('H')), Perpendicular(Point('A'),Point('C'),Point('B'),Point('H')), Trapezoid(Point('A'),Point('C'),Point('B'),Point('D')), Parallel(Point('A'),Point('C'),Point('B'),Point('D'))]
 goal = Area(Point('A'),Point('C'),Point('B'),Point('D'))
 solution = '95'
 

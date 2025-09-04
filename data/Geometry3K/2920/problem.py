@@ -4,7 +4,7 @@ from pyeuclid.formalization.relation import *
 pi = sympy.pi
 
 
-conditions = [Between(Point('S'),Point('R'),Point('T')), Collinear(Point('R'),Point('S'),Point('T')), Between(Point('V'),Point('Q'),Point('U')), Collinear(Point('Q'),Point('U'),Point('V')), Trapezoid(Point('Q'),Point('R'),Point('T'),Point('U')), Midpoint(Point('V'),Point('Q'),Point('U')), Midpoint(Point('S'),Point('R'),Point('T')), (Length(Point('Q'),Point('R')) - sympy.simplify('4')), (Length(Point('T'),Point('U')) - sympy.simplify('16')), Trapezoid(Point('Q'),Point('R'),Point('T'),Point('U')), Midpoint(Point('V'),Point('Q'),Point('U')), Midpoint(Point('S'),Point('R'),Point('T')), (Length(Point('Q'),Point('R')) - sympy.simplify('4')), (Length(Point('T'),Point('U')) - sympy.simplify('16'))]
+conditions = [Between(Point('S'),Point('R'),Point('T')), Collinear(Point('R'),Point('S'),Point('T')), Between(Point('V'),Point('Q'),Point('U')), Collinear(Point('Q'),Point('U'),Point('V')), Trapezoid(Point('Q'),Point('R'),Point('T'),Point('U')), Parallel(Point('Q'),Point('R'),Point('T'),Point('U')), Midpoint(Point('V'),Point('Q'),Point('U')), Midpoint(Point('S'),Point('R'),Point('T')), (Length(Point('Q'),Point('R')) - sympy.simplify('4')), (Length(Point('T'),Point('U')) - sympy.simplify('16')), Trapezoid(Point('Q'),Point('R'),Point('T'),Point('U')), Midpoint(Point('V'),Point('Q'),Point('U')), Midpoint(Point('S'),Point('R'),Point('T')), (Length(Point('Q'),Point('R')) - sympy.simplify('4')), (Length(Point('T'),Point('U')) - sympy.simplify('16'))]
 goal = Length(Point('S'),Point('V'))
 solution = '10'
 

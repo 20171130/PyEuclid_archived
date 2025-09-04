@@ -240,7 +240,7 @@ class DeductiveDatabase():
                     cnst = abs(cnst)
                     hit = False
                     for component_id, rep in enumerate(self.state.ratios):
-                        if self.state.simplify_equation(rep) == cnst:
+                        if self.state.simplify_equation(rep, self.state.solutions['length_ratio']) == cnst:
                             hit = True
                             break
                     if not hit:
@@ -255,7 +255,7 @@ class DeductiveDatabase():
                     cnst = abs(cnst)
                     hit = False
                     for component_id, rep in enumerate(self.state.angles.equivalence_classes()):
-                        if self.state.simplify_equation(rep) == cnst:
+                        if self.state.simplify_equation(rep, self.state.solutions['angle_linear']) == cnst:
                             hit = True
                             break
                     if not hit:
@@ -268,7 +268,7 @@ class DeductiveDatabase():
                     cnst = abs(cnst)
                     hit = False
                     for component_id, rep in enumerate(self.state.angle_sums):
-                        if self.state.simplify_equation(rep) == cnst:
+                        if self.state.simplify_equation(rep, self.state.solutions['angle_linear']) == cnst:
                             hit = True
                             break
                     if not hit:

@@ -4,7 +4,7 @@ from pyeuclid.formalization.relation import *
 pi = sympy.pi
 
 
-conditions = [(Length(Point('A'),Point('E')) - sympy.simplify('23')), (Length(Point('B'),Point('C')) - sympy.simplify('37')), (Length(Point('A'),Point('D')) - sympy.simplify('22')), Between(Point('E'),Point('B'),Point('C')), Collinear(Point('B'),Point('C'),Point('E')), Perpendicular(Point('A'),Point('E'),Point('C'),Point('E')), Trapezoid(Point('B'),Point('C'),Point('A'),Point('D'))]
+conditions = [(Length(Point('A'),Point('E')) - sympy.simplify('23')), (Length(Point('B'),Point('C')) - sympy.simplify('37')), (Length(Point('A'),Point('D')) - sympy.simplify('22')), Between(Point('E'),Point('B'),Point('C')), Collinear(Point('B'),Point('C'),Point('E')), Perpendicular(Point('A'),Point('E'),Point('C'),Point('E')), Trapezoid(Point('B'),Point('C'),Point('A'),Point('D')), Parallel(Point('B'),Point('C'),Point('A'),Point('D'))]
 goal = Area(Point('A'),Point('C'),Point('B'),Point('D'))
 solution = '678.5'
 

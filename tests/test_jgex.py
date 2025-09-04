@@ -55,26 +55,11 @@ class TestBenchmarks(unittest.TestCase):
                     proof = None
                     with TT(1200):
                         proof_generator.run()
-                        proof = proof_generator.get_proof()
                         proof_str = proof_generator.get_proof_str()
-                        max_cond_num = 0
-                        acc_cond_num = 0
-                        for (conditions, theorem, conclusion) in proof:
-                            max_cond_num = max(max_cond_num, len(conditions))
-                            acc_cond_num += len(conditions)
-                    
-                    if proof is not None:
                         print(f'{idx} proof generation runs in {time.time()-t0}')
                         proof_path = os.path.join(result_dir, "proof.txt")
                         with open(proof_path, 'w+') as f:
                             f.write(proof_str)
-                        print(f'Proof steps: ', len(proof))
-                        print(f'Max condition number: ', max_cond_num)
-                        print(f'Average condition number: ', acc_cond_num / len(proof) if len(proof) > 0 else 0)
-                    else:
-                        print(f'{idx} proof generation fails {time.time()-t0}')
-                    # if world_size == 1:
-                    #     proof_generator.show_proof()
                 else:
                     print(f"{idx} unsolved in {t} seconds")
             except BaseException as e:

@@ -5,7 +5,7 @@ import re
 import itertools
 
 from sympy import Symbol
-from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups
+from pyeuclid.formalization.utils import sort_points, sort_cyclic_points, sort_point_groups, sort_cyclic_point_groups
 
 
 class UnsupportedRelation(Exception):
@@ -249,7 +249,7 @@ def Congruent(*ps: list[Point]):
 class Congruent3(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
         super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3], [p4, p5, p6], mapping=True)
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_cyclic_point_groups([p1, p2, p3], [p4, p5, p6], mapping=True)
         
     def permutations(self):
         perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3]), i, i + 3)) for i in range(3)]
@@ -263,7 +263,7 @@ class Congruent3(Relation):
 class Congruent4(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point):
         super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3, p4], [p5, p6, p7, p8], mapping=True)
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_cyclic_point_groups([p1, p2, p3, p4], [p5, p6, p7, p8], mapping=True)
     
     def permutations(self):
         perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
@@ -277,7 +277,7 @@ class Congruent4(Relation):
 class Congruent5(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point, p9: Point, p10: Point):
         super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3, p4, p5], [p6, p7, p8, p9, p10], mapping=True)
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_cyclic_point_groups([p1, p2, p3, p4, p5], [p6, p7, p8, p9, p10], mapping=True)
     
     def permutations(self):
         perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5]), i, i + 5)) for i in range(5)]
@@ -303,7 +303,7 @@ def Similar(*ps: list[Point]):
 class Similar3(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point):
         super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3], [p4, p5, p6], mapping=True)
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_cyclic_point_groups([p1, p2, p3], [p4, p5, p6], mapping=True)
     
     def permutations(self):
         perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3]), i, i + 3)) for i in range(3)]
@@ -317,7 +317,7 @@ class Similar3(Relation):
 class Similar4(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point):
         super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8 = sort_point_groups([p1, p2, p3, p4], [p5, p6, p7, p8], mapping=True)
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8 = sort_cyclic_point_groups([p1, p2, p3, p4], [p5, p6, p7, p8], mapping=True)
     
     def permutations(self):
         perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4]), i, i + 4)) for i in range(4)]
@@ -333,7 +333,7 @@ Similar4P = Similar4
 class Similar5(Relation):
     def __init__(self, p1: Point, p2: Point, p3: Point, p4: Point, p5: Point, p6: Point, p7: Point, p8: Point, p9: Point, p10: Point):
         super().__init__()
-        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6 = sort_point_groups([p1, p2, p3, p4, p5], [p6, p7, p8, p9, p10], mapping=True)
+        self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8, self.p9, self.p10 = sort_cyclic_point_groups([p1, p2, p3, p4, p5], [p6, p7, p8, p9, p10], mapping=True)
     
     def permutations(self):
         perm_group1 = [tuple(itertools.islice(itertools.cycle([self.p1, self.p2, self.p3, self.p4, self.p5]), i, i + 5)) for i in range(5)]
@@ -343,7 +343,7 @@ class Similar5(Relation):
         
         return [(*p, *q) for p, q in zip(perm_group1, perm_group2)] + [(*q, *p) for p, q in zip(perm_group1, perm_group2)]
 
-Similar5P = Similar4
+Similar5P = Similar5
 
 @register
 class Concyclic(Relation):

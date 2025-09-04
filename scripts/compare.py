@@ -65,8 +65,9 @@ solved2 = [_ for _, status, time in matches if status == "solved"]
 
 for i in solved1:
     if i not in solved2:
-        print(i)
+        print(i, end=', ')
         # print(texts[int(i)])
+print()
     
 print('new')
 for i in solved2:
