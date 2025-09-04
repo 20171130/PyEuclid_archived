@@ -38,7 +38,7 @@ def sort_cyclic_points(*points):
         remaining_list = list(points[min_index:] + points[:min_index])[1:]
         return [points[min_index]] + remaining_list[::-1]
     else:
-        return points[min_index:] + points[:min_index]
+        return list(points[min_index:] + points[:min_index])
 
 
 def ordered_groups(g1, g2):
@@ -68,6 +68,21 @@ def sort_point_groups(g1, g2, mapping=False):
         mapping = get_point_mapping(g1, g2)
         sorted_g2 = [mapping[p] for p in sorted_g1]
     
+    return sorted_g1 + sorted_g2
+
+
+def sort_cyclic_point_groups(g1, g2, mapping=False): 
+    sorted_g1 = sort_cyclic_points(*g1)
+    sorted_g2 = sort_cyclic_points(*g2)
+    
+    if not ordered_groups(sorted_g1, sorted_g2):
+        g1, g2 = g2, g1
+        sorted_g1, sorted_g2 = sorted_g2, sorted_g1
+    
+    if mapping:
+        mapping = get_point_mapping(g1, g2)
+        sorted_g2 = [mapping[p] for p in sorted_g1]
+
     return sorted_g1 + sorted_g2
 
 
@@ -141,7 +156,9 @@ class Traced():
             sources = expr.sources
             redundant = expr.redundant
             expr = expr.expr
-            
+        
+        # num, den = sympy.together(expr).as_numer_denom()
+        # expr = num
         terms = expr.as_ordered_terms()
         if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
             expr = expr/terms[0].args[0]
@@ -211,13 +228,12 @@ def is_linear(expr):
             return False
     return True
     
-def classify_equations(equations: List[Traced], var_types):
+def classify_equations(equations: List[Traced], var_types, cache=True):
     angle_linear, length_linear, length_ratio, others = [], [], [], []
     for eqn in equations:
         if not eqn.kinds:
-            kinds = []
+            kinds = set()
             expr = eqn.expr.expand()
-            assert isinstance(expr, (sympy.core.add.Add, sympy.core.symbol.Symbol))
             var_type = set()
             for symbol in expr.free_symbols:
                 if "Angle" in str(symbol):
@@ -227,38 +243,44 @@ def classify_equations(equations: List[Traced], var_types):
                 else:
                     if symbol in var_types:
                         var_type.add(var_types[symbol])
-            if not len(var_type) == 1:
-                kinds = ["others"]
+            if not isinstance(expr, (sympy.core.add.Add, sympy.core.symbol.Symbol)) or not len(var_type) == 1:
+                kinds.add("others")
             else:
                 if "Angle" in var_type:
                     if is_linear(expr):
-                        kinds = ["angle_linear"]
+                        kinds.add("angle_linear")
                     else:
-                        kinds = ["others"]
+                        kinds.add("others")
                 else:
                     if is_linear(expr):
-                        kinds.append("length_linear")
+                        kinds.add("length_linear")
+                        if len(expr.free_symbols) == 1:
+                            kinds.add("length_ratio")
                     if len(expr.args) == 2:
                         lhs, rhs = expr.args
-                        rhs = - rhs
-                        expr = []
-                        for factor in Mul.make_args(lhs/rhs):
+                        rhs = -rhs
+                        tmp_terms = []
+                        for factor in Mul.make_args(lhs / rhs):
                             if isinstance(factor, Pow):
-                                expr.append(factor.args[0]*factor.args[1])
+                                tmp_terms.append(factor.args[0] * factor.args[1])
                             elif isinstance(factor, Symbol):
-                                expr.append(factor)
-                        if is_linear(Add(*expr)):
-                            kinds.append("length_ratio")
+                                tmp_terms.append(factor)
+                        if is_linear(Add(*tmp_terms)):
+                            kinds.add("length_ratio")
                     if len(kinds) == 0:
-                        kinds.append("others")
-            eqn.kinds = kinds
-        if "angle_linear" in eqn.kinds:
+                        kinds.add("others")
+            if cache:
+                eqn.kinds = kinds
+        else:
+            kinds = eqn.kinds
+
+        if "angle_linear" in kinds:
             angle_linear.append(eqn)
-        if "length_linear" in eqn.kinds:
+        if "length_linear" in kinds:
             length_linear.append(eqn)
-        if "length_ratio" in eqn.kinds:
+        if "length_ratio" in kinds:
             length_ratio.append(eqn)
-        if "others" in eqn.kinds:
+        if "others" in kinds:
             others.append(eqn)
         
     return angle_linear, length_linear, length_ratio, others
@@ -288,7 +310,7 @@ def parse_expression(expr):
             
     return symbols, symbol_names
 
-eps = 1e-3
+eps = 1e-8
 def is_small(x):
     if len(x.free_symbols) > 0:
         return False

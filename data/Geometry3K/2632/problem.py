@@ -8,6 +8,21 @@ conditions = [Between(Point('G'),Point('A'),Point('C')), Collinear(Point('A'),Po
 goal = Length(Point('E'),Point('H'))
 solution = '7.5'
 
-diagrammatic_relations = [NotCollinear(Point('A'),Point('B'),Point('C')), NotCollinear(Point('B'),Point('C'),Point('G')), SameSide(Point('A'),Point('G'),Point('B'),Point('C')),SameSide(Point('D'),Point('H'),Point('E'),Point('F')), OppositeSide(Point('D'),Point('F'),Point('E'),Point('H')), OppositeSide(Point('A'),Point('C'),Point('B'),Point('G')), NotCollinear(Point('A'),Point('B'),Point('G')), SameSide(Point('C'),Point('G'),Point('A'),Point('B'))]
-new_diagrammatic_relations = {NotCollinear(Point('A'),Point('B'),Point('C')), NotCollinear(Point('B'),Point('C'),Point('G')), SameSide(Point('A'),Point('G'),Point('B'),Point('C')),SameSide(Point('D'),Point('H'),Point('E'),Point('F')), OppositeSide(Point('D'),Point('F'),Point('E'),Point('H')), OppositeSide(Point('A'),Point('C'),Point('B'),Point('G')), NotCollinear(Point('A'),Point('B'),Point('G')), SameSide(Point('C'),Point('G'),Point('A'),Point('B'))}
+diagrammatic_relations = [
+    OppositeSide(Point('A'), Point('C'), Point('B'), Point('G')),
+    SameSide(Point('C'), Point('G'), Point('A'), Point('B')),
+    NotCollinear(Point('A'), Point('B'), Point('C')),
+    NotCollinear(Point('A'), Point('B'), Point('G')),
+    SameSide(Point('A'), Point('G'), Point('B'), Point('C')),
+    NotCollinear(Point('B'), Point('C'), Point('G')),
+    Between(Point('G'), Point('A'), Point('C')),
+
+    OppositeSide(Point('D'), Point('F'), Point('E'), Point('H')),
+    SameSide(Point('D'), Point('H'), Point('E'), Point('F')),
+    SameSide(Point('F'), Point('H'), Point('D'), Point('E')),
+    NotCollinear(Point('D'), Point('E'), Point('H')),
+    Between(Point('H'), Point('D'), Point('F')),
+    NotCollinear(Point('E'), Point('F'), Point('H')),
+    NotCollinear(Point('D'), Point('E'), Point('F'))
+]
 

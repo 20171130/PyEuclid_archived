@@ -4,7 +4,7 @@ from pyeuclid.formalization.relation import *
 pi = sympy.pi
 
 
-conditions = [(Length(Point('A'),Point('D')) - sympy.simplify('15')), (Length(Point('B'),Point('D')) - sympy.simplify('10')), (Length(Point('A'),Point('C')) - sympy.simplify('14')), Perpendicular(Point('A'),Point('C'),Point('A'),Point('D')), Perpendicular(Point('A'),Point('D'),Point('B'),Point('D')), Trapezoid(Point('A'),Point('C'),Point('B'),Point('D'))]
+conditions = [(Length(Point('A'),Point('D')) - sympy.simplify('15')), (Length(Point('B'),Point('D')) - sympy.simplify('10')), (Length(Point('A'),Point('C')) - sympy.simplify('14')), Perpendicular(Point('A'),Point('C'),Point('A'),Point('D')), Perpendicular(Point('A'),Point('D'),Point('B'),Point('D')), Trapezoid(Point('A'),Point('C'),Point('B'),Point('D')), Parallel(Point('A'),Point('C'),Point('B'),Point('D'))]
 goal = Area(Point('A'),Point('C'),Point('B'),Point('D'))
 solution = '180'
 

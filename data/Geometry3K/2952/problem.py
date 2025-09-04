@@ -4,7 +4,7 @@ from pyeuclid.formalization.relation import *
 pi = sympy.pi
 
 
-conditions = [(Length(Point('S'),Point('T')) - sympy.simplify('12')), (Length(Point('Q'),Point('R')) - sympy.simplify('20')), (Angle(Point('Q'),Point('T'),Point('S')) - sympy.simplify('120/180*pi')), (Angle(Point('Q'),Point('R'),Point('S')) - sympy.simplify('45/180*pi')), Between(Point('A'),Point('Q'),Point('T')), Collinear(Point('A'),Point('Q'),Point('T')), Between(Point('B'),Point('R'),Point('S')), Collinear(Point('B'),Point('R'),Point('S')), Trapezoid(Point('Q'),Point('R'),Point('S'),Point('T')), Midpoint(Point('A'),Point('Q'),Point('T')), Midpoint(Point('B'),Point('R'),Point('S')), Trapezoid(Point('Q'),Point('R'),Point('S'),Point('T')), Midpoint(Point('A'),Point('Q'),Point('T')), Midpoint(Point('B'),Point('R'),Point('S'))]
+conditions = [(Length(Point('S'),Point('T')) - sympy.simplify('12')), (Length(Point('Q'),Point('R')) - sympy.simplify('20')), (Angle(Point('Q'),Point('T'),Point('S')) - sympy.simplify('120/180*pi')), (Angle(Point('Q'),Point('R'),Point('S')) - sympy.simplify('45/180*pi')), Between(Point('A'),Point('Q'),Point('T')), Collinear(Point('A'),Point('Q'),Point('T')), Between(Point('B'),Point('R'),Point('S')), Collinear(Point('B'),Point('R'),Point('S')), Trapezoid(Point('Q'),Point('R'),Point('S'),Point('T')), Parallel(Point('Q'),Point('R'),Point('S'),Point('T')), Midpoint(Point('A'),Point('Q'),Point('T')), Midpoint(Point('B'),Point('R'),Point('S')), Trapezoid(Point('Q'),Point('R'),Point('S'),Point('T')), Midpoint(Point('A'),Point('Q'),Point('T')), Midpoint(Point('B'),Point('R'),Point('S'))]
 goal = Angle(Point('B'),Point('S'),Point('T'))
 solution = '(135)/180*pi'
 

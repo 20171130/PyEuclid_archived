@@ -132,12 +132,12 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             candidate_set = list(construction_rule_sets["independent"])
         else:
             rand = random.random()
-            if rand < 0.3:
+            if rand < 0.25:
                 candidate_set = [rule for rule in list(construction_rule_sets['deterministic'])
                                  if rule.num_inputs <= len(state.points)]
             else:
                 rand = random.random()
-                multiconstructions = False if rand < 0.3 else True
+                multiconstructions = False if rand < 0.25 else True
                 candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic'])
                                  if rule.num_inputs <= len(state.points)]
 
@@ -180,7 +180,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         if multiconstructions:
             candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic'])
                              if rule.num_inputs <= len(state.points) and
-                             rule.num_outputs == picked.num_outputs and rule != picked]
+                             rule.num_outputs == picked.num_outputs]
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
             num_points = len(all_points)
@@ -554,6 +554,8 @@ def main():
     base_output_dir = os.environ.get('OUTPUT_DIR', 'dataset')
 
     os.makedirs(base_output_dir, exist_ok=True)
+
+    print(base_output_dir)
 
     with timeout_context(timeout_seconds if timeout_seconds > 0 else None) as timeout_handler:
         result = generate_until_timeout(

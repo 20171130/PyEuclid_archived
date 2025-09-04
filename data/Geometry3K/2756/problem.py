@@ -8,7 +8,7 @@ conditions = [(Length(Point('S'),Point('T')) - 6), (Length(Point('W'),Point('X')
 goal = ((Length(Point('W'),Point('Z')) + Length(Point('X'),Point('Z'))) + Length(Point('W'),Point('X')))
 solution = '12.5'
 
-diagrammatic_relations = [NotCollinear(Point('R'),Point('S'),Point('T'))]
+diagrammatic_relations = [NotCollinear(Point('R'),Point('S'),Point('T')), NotCollinear(Point('W'),Point('X'),Point('Z'))]
 
 new_diagrammatic_relations = {NotCollinear(Point('R'),Point('S'),Point('T'))}
 

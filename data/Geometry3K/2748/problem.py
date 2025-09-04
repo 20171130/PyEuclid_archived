@@ -4,7 +4,7 @@ from pyeuclid.formalization.relation import *
 pi = sympy.pi
 
 
-conditions = [(Angle(Point('A'),Point('Y'),Point('Z'))-Angle(Point('Y'),Point('Z'),Point('X'))), (Angle(Point('B'),Point('Y'),Point('X')) - Variable('angle_1')), (Angle(Point('X'),Point('Y'),Point('Z')) - Variable('angle_2')), (Angle(Point('A'),Point('Y'),Point('Z')) - Variable('angle_3')), Between(Point('Y'),Point('A'),Point('B')), Collinear(Point('A'),Point('B'),Point('Y')), Parallel(Point('A'),Point('B'),Point('X'),Point('Z'))]
+conditions = [(Angle(Point('A'),Point('Y'),Point('Z'))-Angle(Point('Y'),Point('Z'),Point('X'))), (Angle(Point('B'),Point('Y'),Point('X')) - Variable('angle_1')), (Angle(Point('X'),Point('Y'),Point('Z')) - Variable('angle_2')), (Angle(Point('A'),Point('Y'),Point('Z')) - Variable('angle_3')), Between(Point('Y'),Point('A'),Point('B')), Collinear(Point('A'),Point('B'),Point('Y'))]
 goal = Parallel(Point('B'),Point('A'),Point('X'),Point('Z'))
 solution = True
 

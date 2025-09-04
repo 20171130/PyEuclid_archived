@@ -13,7 +13,7 @@ PORT="${PORT:-8000}"
 SHARED_DIR=".vllm1"
 
 module load cuda/12.1
-source ~/.bashrc && conda activate pyeuclid
+source ~/.bashrc && conda activate euclidea
 
 HOSTFILE="${SHARED_DIR}/vllm_server_host.txt"
 
@@ -56,4 +56,3 @@ python -u eval.py \
   --cpu-workers "${CPU_WORKERS}" \
   --engine-timeout "${ENGINE_TIMEOUT}" \
   --proof-timeout "${PROOF_TIMEOUT}" \
-

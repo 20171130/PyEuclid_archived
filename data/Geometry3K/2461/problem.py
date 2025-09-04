@@ -4,7 +4,7 @@ from pyeuclid.formalization.relation import *
 pi = sympy.pi
 
 
-conditions = [Centroid(Point('Q'),Point('A'),Point('B'),Point('C'),Point('D'),Point('E'),Point('F')), Between(Point('D'),Point('B'),Point('C')), Collinear(Point('B'),Point('C'),Point('D')), Between(Point('F'),Point('A'),Point('B')), Collinear(Point('A'),Point('B'),Point('F')), Between(Point('Q'),Point('B'),Point('E')), Collinear(Point('B'),Point('E'),Point('Q')), Between(Point('E'),Point('A'),Point('C')), Collinear(Point('A'),Point('C'),Point('E')), Between(Point('Q'),Point('C'),Point('F')), Collinear(Point('C'),Point('F'),Point('Q')), Between(Point('Q'),Point('A'),Point('D')), Collinear(Point('A'),Point('D'),Point('Q')), (Length(Point('B'),Point('E')) - sympy.simplify('9')), (Length(Point('B'),Point('E')) - sympy.simplify('9'))]
+conditions = [Centroid(Point('Q'),Point('A'),Point('B'),Point('C')), Between(Point('D'),Point('B'),Point('C')), Collinear(Point('B'),Point('C'),Point('D')), Between(Point('F'),Point('A'),Point('B')), Collinear(Point('A'),Point('B'),Point('F')), Between(Point('Q'),Point('B'),Point('E')), Collinear(Point('B'),Point('E'),Point('Q')), Between(Point('E'),Point('A'),Point('C')), Collinear(Point('A'),Point('C'),Point('E')), Between(Point('Q'),Point('C'),Point('F')), Collinear(Point('C'),Point('F'),Point('Q')), Between(Point('Q'),Point('A'),Point('D')), Collinear(Point('A'),Point('D'),Point('Q')), (Length(Point('B'),Point('E')) - sympy.simplify('9')), (Length(Point('B'),Point('E')) - sympy.simplify('9'))]
 goal = Length(Point('B'),Point('Q'))
 solution = '6'
 

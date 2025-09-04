@@ -5,7 +5,7 @@ Solution:
 4. Parallel(b,c,e,f) => Angle_b_f_e + Angle_c_b_f - pi
 5. Collinear(a,b,d) => Angle_a_b_f - Angle_d_b_f
 6. Angle_a_b_f - Angle_d_b_f & Angle_a_b_f - Angle_c_b_f => Angle_c_b_f - Angle_d_b_f
-7. Angle_b_f_e + Angle_c_b_f - pi & Angle_b_f_d + Angle_b_f_e - pi & Angle_c_b_f - Angle_d_b_f => Angle_b_f_d - Angle_d_b_f
+7. Angle_b_f_e + Angle_c_b_f - pi & Angle_c_b_f - Angle_d_b_f & Angle_b_f_d + Angle_b_f_e - pi => Angle_b_f_d - Angle_d_b_f
 8. -Angle_b_f_d + Angle_d_b_f => Length_b_d - Length_d_f
-9. Length_a_d - Length_b_d & Length_b_d - Length_d_f => Length_a_d - Length_d_f
+9. Length_b_d - Length_d_f & Length_a_d - Length_b_d => Length_a_d - Length_d_f
 10. Collinear(a,b,d) & Length_a_d - Length_d_f & Length_a_d - Length_b_d => Perpendicular(a,f,b,f)

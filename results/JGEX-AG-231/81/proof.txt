@@ -1,10 +1,11 @@
 Solution:
-1. Length_b_c - Length_b_e & Length_b_c - Length_b_d => Length_b_d - Length_b_e
-2. Length_b_e - Length_b_g & Length_b_d - Length_b_e => Length_b_d - Length_b_g
-3. -Length_b_c + Length_b_d & Length_b_d - Length_b_g => Angle_c_b_g - 2*Angle_c_d_g
-4. Collinear(c,e,f) => Angle_b_c_e + Angle_b_c_f - pi
-5. Collinear(b,e,g) => Angle_c_b_e + Angle_c_b_g - pi
-6. Length_a_c - Length_a_f & Length_a_c - Length_a_d & Perpendicular(a,c,b,c) => Angle_b_c_f + Angle_c_d_f - pi
-7. Length_b_c - Length_b_e => Angle_b_c_e - Angle_b_e_c
-8. Angle_b_c_e + Angle_b_e_c + Angle_c_b_e - pi & Angle_c_b_g - 2*Angle_c_d_g & Angle_a_d_c - Angle_a_d_g - Angle_c_d_g & Angle_b_c_e + Angle_b_c_f - pi & Angle_c_b_e + Angle_c_b_g - pi & Angle_a_d_c - Angle_a_d_f - Angle_c_d_f & Angle_b_c_f + Angle_c_d_f - pi & Angle_b_c_e - Angle_b_e_c => Angle_a_d_f - Angle_a_d_g
-9. Angle_a_d_f - Angle_a_d_g => Collinear(d,f,g)
+1. Length_b_c - Length_b_e => Angle_b_c_e - Angle_b_e_c
+2. Length_a_c - Length_a_f & Length_a_c - Length_a_d & Perpendicular(a,c,b,c) => Angle_b_c_f + Angle_c_d_f - pi
+3. Collinear(c,e,f) => Angle_b_c_e - Angle_b_c_f
+4. Length_b_c - Length_b_e & Length_b_c - Length_b_d => Length_b_d - Length_b_e
+5. -Length_b_c + Length_b_d & Length_b_d - Length_b_e => Angle_c_b_e - 2*Angle_c_d_e
+6. Angle_b_c_e - Angle_b_e_c & Angle_c_d_e - Angle_c_d_f + Angle_e_d_f & Angle_b_c_f + Angle_c_d_f - pi & Angle_b_c_e + Angle_b_e_c + Angle_c_b_e - pi & Angle_b_c_e - Angle_b_c_f & Angle_c_b_e - 2*Angle_c_d_e => Angle_e_d_f - pi/2
+7. Angle_e_d_f - pi/2 => Perpendicular(d,e,d,f)
+8. Collinear(b,e,g) & -Length_b_d + Length_b_e & Length_b_e - Length_b_g => Perpendicular(d,e,d,g)
+9. Perpendicular(d,e,d,f) & Perpendicular(d,e,d,g) => Parallel(d,f,d,g)
+10. Parallel(d,f,d,g) => Collinear(d,f,g)

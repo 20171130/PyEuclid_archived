@@ -749,9 +749,9 @@ class Diagram:
         d = Point(0.0, 0.0)
         c = Point(1.0, 0.0)
 
-        base = unif(0.5, 2.0)
-        height = unif(0.5, 2.0)
-        a = Point(unif(0.2, 0.5), height)
+        base = unif(0.2, 2.0)
+        height = unif(0.2, 2.0)
+        a = Point(unif(0.1, 0.5), height)
         b = Point(a.x + base, height)
         a, b, c, d = random_rfss(a, b, c, d)
         return [a, b, c, d]

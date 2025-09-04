@@ -2,7 +2,7 @@ import time
 import logging
 import argparse
 import sympy
-
+from itertools import combinations
 import pyeuclid.formalization.utils as utils
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
@@ -15,9 +15,8 @@ from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.", default=None)
-# A,B,C = construct_risos(), D = construct_on_circle(C,A), D = construct_on_line(C,A), E = construct_orthocenter(C,D,B), F = construct_angle_mirror(B,D,C), F = construct_on_circum(E,A,C), G,H = construct_square(E,F)
-parser.add_argument('--problem-string', type=str, default="a b = segment a b; c = free c; d = on_bline b c; e = parallelogram c a d e; f = eqdistance f e d b, on_circle f d a ? coll a d f")
+parser.add_argument('--problem-string', type=str, default=" a b = segment a b; c = on_tline c a a b; d = foot d a b c; e = midpoint e d a; f = on_line f b e, on_line f a c; g = foot g f b c; h = midpoint h c a; i = on_tline i f a c, on_circle i h a ? cong f i f g")
+parser.add_argument('--problem-id', type=int, help="Problem id from InterGPS dataset, refer to data/Geometry3K for examples.")
 parser.add_argument('--show-proof', action='store_true')
 
 def run_single_problem(args):
@@ -34,12 +33,21 @@ def run_single_problem(args):
         solution = namespace.get("solution")
         diagrammatic_relations = namespace.get("diagrammatic_relations")
         state.load_problem(conditions=conditions, goal=goal)
-        state.add_conditions(diagrammatic_relations)
-        deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets['complex']+inference_rule_sets["basic"])
+        for relation in diagrammatic_relations:
+            if isinstance(relation, (SameSide, OppositeSide)):
+                pts = relation.get_points()
+                pts1 = [pts[0]] + pts[2:]
+                pts2 = pts[1:]
+                if any(Collinear(*trip) in state.relations for trip in [pts1, pts2]):
+                    print(relation)
+                    continue
+            state.add_conditions(relation)
+        deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets["basic"]+inference_rule_sets['complex'])
     else:
-        state.load_problem_from_text(args.problem_string, f'diagrams/JGEX-AG-231/test.jpg', resample=True)
+        state.load_problem_from_text(args.problem_string, f'diagrams/test.jpg')
         state.diagram.draw_diagram()
         deductive_database = DeductiveDatabase(state)
+
     algebraic_system = AlgebraicSystem(state)
     proof_generator = ProofGenerator(state)
     proof_generator.max_equation_length_perstep = None
@@ -54,43 +62,9 @@ def run_single_problem(args):
             t0 = time.time()
             proof_generator.run()
             proof_generator.show_proof(verbose=True)
-            constructions = proof_generator.source_constructions[state.goal]
-            print([str(c) for c in constructions])
-            if isinstance(state.goal, Relation):
-                points = state.goal.get_points()
-            else:
-                points_list = get_points_and_symbols(state.goal)[0]
-                points = [p for points in points_list for p in points]
-            target_points = set(points)
-            print('target', target_points)
-            output_to_constructions = defaultdict(list)
-            for c in constructions:
-                for out in c.outputs:
-                    output_to_constructions[out].append(c)
-
-            required = set()
-            seen_points = set()
-
-            def mark_required(point):
-                if point in seen_points:
-                    return
-                seen_points.add(point)
-
-                for c in output_to_constructions[point]:
-                    if c not in required:
-                        required.add(c)
-                        for inp in c.inputs:
-                            mark_required(inp)
-            
-            for point in target_points:
-                mark_required(point)
-            
-            required_constructions = [c for c in constructions if c in required]
-            auxilary_contructions = [c for c in constructions if c not in required]
-            print([str(c) for c in required_constructions])
-            print([str(c) for c in auxilary_contructions])
             print(f"Proof generated in {time.time()-t0:.2f}s")
     else:
+        breakpoint()
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':

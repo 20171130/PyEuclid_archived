@@ -4,7 +4,7 @@ from pyeuclid.formalization.relation import *
 pi = sympy.pi
 
 
-conditions = [(Length(Point('A'),Point('C')) - sympy.simplify('8')), (Length(Point('B'),Point('C')) - sympy.simplify('10')), (Length(Point('A'),Point('D')) - sympy.simplify('4')), Perpendicular(Point('A'),Point('C'),Point('B'),Point('C')), Perpendicular(Point('A'),Point('C'),Point('A'),Point('D')), Trapezoid(Point('B'),Point('C'),Point('A'),Point('D'))]
+conditions = [(Length(Point('A'),Point('C')) - sympy.simplify('8')), (Length(Point('B'),Point('C')) - sympy.simplify('10')), (Length(Point('A'),Point('D')) - sympy.simplify('4')), Perpendicular(Point('A'),Point('C'),Point('B'),Point('C')), Perpendicular(Point('A'),Point('C'),Point('A'),Point('D')), Trapezoid(Point('B'),Point('C'),Point('A'),Point('D')), Parallel(Point('B'),Point('C'),Point('A'),Point('D'))]
 goal = (((Length(Point('A'),Point('C')) + Length(Point('B'),Point('C'))) + Length(Point('B'),Point('D'))) + Length(Point('A'),Point('D')))
 solution = '32'
 
