@@ -94,15 +94,16 @@ class construct_square_q(ConstructionQ):
         return [a, b, c, d]
 
     def draw(self):
-        return [Segment(self.a, self.b), Segment(self.a, self.c), Segment(self.a, self.d), Segment(self.b, self.c)], []
+        a, b, c, d = self.point2coord(self.a), self.point2coord(self.b), self.point2coord(self.c), self.point2coord(self.d)
+        return [Segment(a, b), Segment(c, d), Segment(a, d), Segment(b, c)], []
     
 
         
 @register("independent")
 class construct_rectangle_q(ConstructionQ):
-    def __init__(self, ab:float=None, ac:float=None, diagram=None):
-        self.ab = ab
-        self.ac = ac
+    def __init__(self, h:float=None, w:float=None, diagram=None):
+        self.h = h
+        self.w = w
         self.inputs = []
         self.diagram = diagram
     
@@ -111,18 +112,18 @@ class construct_rectangle_q(ConstructionQ):
         self.outputs = [a, b, c, d]
     
     def sample(self, angle_values=[], length_values=[]):
-        ab = sample_length()
-        ac = sample_length()
-        self.ab = ab
-        self.ac = ac
-        return [self.ab, self.ac], [pi/2]
+        h = sample_length()
+        w = sample_length()
+        self.h = h
+        self.w = w
+        return [self.h, self.w], [pi/2]
 
     def conclusions(self):
         a, b, c, d = self.outputs
         return [
             Rectangle(a, b, c, d),
-            Length(a, b) - self.ab,
-            Length(a, c) - self.ac
+            Length(a, b) - self.h,
+            Length(a, d) - self.w
         ]
     
     def sketch(self) -> list[Point]:
@@ -135,7 +136,8 @@ class construct_rectangle_q(ConstructionQ):
         return [a, b, c, d]
     
     def draw(self):
-        return [Segment(self.a, self.b), Segment(self.a, self.c), Segment(self.a, self.d), Segment(self.b, self.c)], []
+        a, b, c, d = self.point2coord(self.a), self.point2coord(self.b), self.point2coord(self.c), self.point2coord(self.d)
+        return [Segment(a, b), Segment(c, d), Segment(a, d), Segment(b, c)], []
     
 
 @register("nondeterministic")

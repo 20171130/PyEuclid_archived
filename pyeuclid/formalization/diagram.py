@@ -165,7 +165,7 @@ class Diagram:
     
     def add_constructions(self, constructions, coordinates=None, auxiliary=False):
         self.save()
-        max_attempts = 1000
+        max_attempts = 100
         attempt = 0
 
         while attempt < max_attempts:

@@ -10,7 +10,7 @@ from contextlib import contextmanager
 from typing import Optional, Dict, Any
 
 from pyeuclid.formalization.relation import *
-from pyeuclid.formalization.diagram import Diagram
+from pyeuclid.formalization.diagram import Diagram, MaxAttemptsError
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.translation import get_constructions_from_goal
@@ -19,7 +19,7 @@ from pyeuclid.engine.inference_rule import *
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
-from pyeuclid.formalization.construction_q import ConstructionQ, construct_segment_q, construct_point_on_circle
+from pyeuclid.formalization.construction_q import ConstructionQ, construct_segment_q, construct_point_on_circle, construct_point_on_line, construct_angle_clockwise, construct_angle_counterclockwise
 
 def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
     """Generate a single problem with timeout checking at key points"""
@@ -27,8 +27,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     problem_output_dir = os.path.join(output_dir, f'rank_{rank}', f'problem_{problem_id}')
     os.makedirs(problem_output_dir, exist_ok=True)
 
-    random.seed(42 + rank * 1000 + problem_id)
-    np.random.seed(42 + rank * 1000 + problem_id)
+    # random.seed(42 + rank * 1000 + problem_id)
+    # np.random.seed(42 + rank * 1000 + problem_id)
 
     state = State()
     state.silent = True
@@ -72,7 +72,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
                 multiconstructions = False if rand < 0.1 else True
                 candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
                                if rule.num_inputs <= len(state.points)]
-            candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
+        candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
         picked = random.choice(candidate_set)
         all_points = list(state.points.copy())
         num_points = len(all_points)
@@ -137,6 +137,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
                 candidates = itertools.product(all_points, repeat=len(picked.input_types))
                 if picked == to_intersect and picked == construct_point_on_circle:
                     candidates = [item for item in candidates if not item[0] == construction.o]
+                if picked in (construct_angle_clockwise, construct_angle_counterclockwise) and to_intersect in (construct_angle_clockwise, construct_angle_counterclockwise):
+                    candidates = [item for item in candidates if not item[0] == construction.a]
                 for candidate in candidates:
                     if issubclass(picked, ConstructionQ):
                         construction = picked(*candidate, diagram=diagram)
@@ -169,9 +171,14 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             constructions.append(construction)
 
         attempt += 1
-        diagram.add_constructions(constructions)
-
-
+        for construction in constructions:
+            print(construction, end=' ')
+        
+        try:
+            diagram.add_constructions(constructions)
+        except MaxAttemptsError:
+            continue
+            
         constructions_list.append(constructions)
         for construction in constructions:
             construction.index = index
@@ -182,14 +189,12 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         for p in outputs:
             point2constructions[p] = constructions
         
-        # for construction in constructions:
-        #     print(construction, end=' ')
-        # print()
+        diagram.draw_diagram(save=True)
     
     with open(os.path.join(problem_output_dir, f'constructions_list.json'), 'w') as f:
         f.write(', '.join([str(construction) for constructions in constructions_list for construction in constructions])) 
 
-    diagram.draw_diagram(save=True)
+    print("finished sampling, starting inference")
     engine.run()
 
     if state.current_depth <= 2:
