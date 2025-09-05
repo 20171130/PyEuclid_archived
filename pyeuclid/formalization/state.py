@@ -263,7 +263,7 @@ class State:
                     return result
             return None
     
-    def simplify_equation(self, expr, solutions):
+    def simplify_equation(self, expr, solutions):        
         expr = getattr(expr, "expr", expr)
         for symbol in expr.free_symbols:
             if symbol in solutions:

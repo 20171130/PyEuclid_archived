@@ -4,7 +4,7 @@ from pyeuclid.formalization.relation import *
 pi = sympy.pi
 
 
-conditions = [(Length(Point('E'),Point('J')) - sympy.simplify('6')), (Length(Point('K'),Point('L')) - sympy.simplify('7.2')), (Length(Point('L'),Point('M')) - sympy.simplify('4')), Between(Point('E'),Point('L'),Point('M')), Collinear(Point('E'),Point('L'),Point('M')), Perpendicular(Point('E'),Point('J'),Point('E'),Point('L')), Parallelogram(Point('J'),Point('K'),Point('L'),Point('M')), Parallel(Point('J'),Point('K'),Point('L'),Point('M'))]
+conditions = [(Length(Point('E'),Point('J')) - sympy.Rational('6')), (Length(Point('K'),Point('L')) - sympy.Rational('7.2')), (Length(Point('L'),Point('M')) - sympy.Rational('4')), Between(Point('E'),Point('L'),Point('M')), Collinear(Point('E'),Point('L'),Point('M')), Perpendicular(Point('E'),Point('J'),Point('E'),Point('L')), Parallelogram(Point('J'),Point('K'),Point('L'),Point('M')), Parallel(Point('J'),Point('K'),Point('L'),Point('M'))]
 goal = Area(Point('J'),Point('K'),Point('L'),Point('M'))
 solution = '24'
 

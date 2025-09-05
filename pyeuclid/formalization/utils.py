@@ -319,6 +319,7 @@ def is_small(x):
     try:
         return abs(x) < eps
     except:
+        breakpoint()
         assert False
 
 def check_equalities(equalities):
