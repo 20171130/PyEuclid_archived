@@ -248,6 +248,10 @@ class AlgebraicSystem:
                 for symbol in symbols:
                     sources.append(symbol - substitute_solved[symbol])
                 expr = self.process_equation(eqn)
+                s = str(expr)
+                complexity = s.count("sin") + s.count("cos") + s.count("tan") + s.count("**")/2
+                if complexity > 2:
+                    continue
                 if len(expr.free_symbols) > 0:
                     if len(expr.free_symbols) <= 2:
                         symbol = list(expr.free_symbols)[0]
@@ -296,7 +300,6 @@ class AlgebraicSystem:
                     for symbol in comb:
                         try:
                             with TT(0.1):
-                                print(eqn, symbol)
                                 eqn = eqn.subs(symbol, solved[symbol])
                         except:
                             continue

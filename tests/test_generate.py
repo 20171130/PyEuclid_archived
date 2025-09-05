@@ -27,8 +27,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     problem_output_dir = os.path.join(output_dir, f'rank_{rank}', f'problem_{problem_id}')
     os.makedirs(problem_output_dir, exist_ok=True)
 
-    # random.seed(42 + rank * 1000 + problem_id)
-    # np.random.seed(42 + rank * 1000 + problem_id)
+    seed = random.randint(0, 65536)
+    seed = 10243
+    print(seed)
+    random.seed(seed)
+    np.random.seed(seed)
 
     state = State()
     deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets["basic"]+inference_rule_sets['complex'])
@@ -49,7 +52,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     max_steps = random.uniform(4, 10) # 4 - 10
     max_attempts = 100
     max_points = random.uniform(8, 15) # 8 - 15
-    max_steps = 4
+    # max_steps = 2
     constructions_list = []
     length_values, angle_values = set(), set()
     index = 0
@@ -208,7 +211,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     proof_generator = ProofGenerator(state)
     # filter conclusions
     conclusions = list([relation for relation in state.relations if not trivial_condition(relation) and hasattr(relation, "source")]) + [eq for eq in state.equations 
-                        if eq.sources and isinstance(eq.sources[0], InferenceRule) and not isinstance(eq.sources[0], (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2))]
+                        if eq.sources and isinstance(eq.sources[0], InferenceRule) and not isinstance(eq.sources[0], (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2)) and not type(eq.sources[0]) in inference_rule_sets["complex"]+inference_rule_sets["shape"]]
+    conclusions += [symbol - solution for symbol, solution in state.solutions["angle_linear"].items() if len(solution.free_symbols)==0]
+    conclusions += [symbol - solution for symbol, solution in state.solutions["length_ratio"].items() if len(solution.free_symbols)==0]
+    conclusions += [symbol - solution for symbol, solution in state.solutions["length_linear"].items() if len(solution.free_symbols)==0]
     filtered_conclusions = []
     for relation in conclusions:
         # degenerated cases
@@ -228,9 +234,17 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
                 continue
             elif diagram.numerical_check(Collinear(*points[:3])):
                 continue
+        if isinstance(relation, Traced):
+            key = relation.expr
+        else:
+            key = relation
+        
+        if state.condition2depth[key] <= 2:
+            continue 
         filtered_conclusions.append(relation)
     print(f"Amount of filtered conclusions {len(filtered_conclusions)}")
-    
+    print(filtered_conclusions)
+
     def get_sufficient_constructions(points):
         res = []
         target_points = set(points)
@@ -249,14 +263,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         return sorted(res, key=lambda c: c.index)
     
     for relation in filtered_conclusions:
-        if isinstance(relation, Traced):
-            key = relation.expr
-        else:
-            key = relation
-        
-        if state.condition2depth[key] <= 2:
-            continue 
-
         if isinstance(relation, Relation):
             points = relation.get_points()
         else:

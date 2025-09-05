@@ -697,10 +697,7 @@ def calculate_angle(a, b, c):
     
     mag_ab_sq = ab_x * ab_x + ab_y * ab_y
     mag_bc_sq = bc_x * bc_x + bc_y * bc_y
-    
-    mag_ab = math.sqrt(mag_ab_sq)
-    mag_bc = math.sqrt(mag_bc_sq)
-    
+
     dot_product = ab_x * bc_x + ab_y * bc_y
     cross_product = ab_x * bc_y - ab_y * bc_x
 
