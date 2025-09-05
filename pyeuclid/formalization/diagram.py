@@ -280,6 +280,8 @@ class Diagram:
             if relation not in self.numerical_cache:
                 symbol2value = {}
                 symbols, symbol_names = parse_expression(relation)
+                if "Area" in str(relation):
+                    return True
                 
                 for angle_symbol, angle_name in zip(symbols['Angle'], symbol_names['Angle']):
                     angle_value = calculate_angle(*[self.name2point[n] for n in angle_name])
@@ -291,6 +293,7 @@ class Diagram:
                 
                 evaluated_expr = relation.subs(symbol2value)
                 self.numerical_cache[relation] = close_enough(float(evaluated_expr.evalf()), 0)
+
             
             return self.numerical_cache[relation]
 

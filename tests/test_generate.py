@@ -31,8 +31,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     # np.random.seed(42 + rank * 1000 + problem_id)
 
     state = State()
-    state.silent = True
-    deductive_database = DeductiveDatabase(state)
+    deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets["basic"]+inference_rule_sets['complex'])
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
     point2constructions = {}
