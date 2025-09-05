@@ -49,6 +49,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     max_steps = random.uniform(4, 10) # 4 - 10
     max_attempts = 100
     max_points = random.uniform(8, 15) # 8 - 15
+    max_steps = 4
     constructions_list = []
     length_values, angle_values = set(), set()
     index = 0
@@ -228,6 +229,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             elif diagram.numerical_check(Collinear(*points[:3])):
                 continue
         filtered_conclusions.append(relation)
+    print(f"Amount of filtered conclusions {len(filtered_conclusions)}")
     
     def get_sufficient_constructions(points):
         res = []
