@@ -98,6 +98,7 @@ class ProofGenerator:
                         conditions = self.cache_conditions[expr]
                     else:
                         conditions = self.find_conditions(equations, expr, sources[0])
+                    
                     if self.max_equation_length_perstep:
                         discards = []
                         while len(conditions) > self.max_equation_length_perstep:
@@ -147,27 +148,23 @@ class ProofGenerator:
                     conditions = self.cache_conditions[node]
                     source = self.cache_source[node]
                 else:
-                    if "Angle" in str(node):
-                        source = "angle_linear"
+                    for source in ("angle_linear", "length_ratio", "length_linear"):
                         conditions = self.find_conditions(equations, node, source)
-                    else:
-                        for tmp in ("length_ratio", "length_linear"):
-                            conditions = self.find_conditions(equations, node, tmp)
-                            if conditions:
-                                source = tmp
-                                break
+                        if conditions:
+                            break
+
+                # for goals are not log linear or linear
                 if conditions is None:
                     conditions = []
                     expr = node
-                    solutions = (self.state.solutions['angle_linear'] | self.state.solutions['length_ratio'])
-                    symbols = [symbol for symbol in node.free_symbols if symbol in solutions]
-                    for symbol in symbols:
-                        expr = expr.subs(symbol, solutions[symbol])
-                        conditions.append(symbol - solutions[symbol])
-                        if expr == 0:
+                    for length_solved in [self.state.solutions['length_ratio'], self.state.solutions['length_linear']]:
+                        solutions = self.state.solutions['angle_linear'] | length_solved
+                        if self.state.simplify_equation(expr, solutions) == 0:
+                            symbols = [symbol for symbol in node.free_symbols if symbol in solutions]
+                            for symbol in symbols:
+                                conditions.append(symbol - solutions[symbol])
                             break
-                    else:
-                        breakpoint()
+                
                 if self.max_equation_length_perstep:
                     discards = []
                     while len(conditions) > self.max_equation_length_perstep:
@@ -201,7 +198,6 @@ class ProofGenerator:
                 self.cache_source[node] = source
                 sources = conditions
                 self.proof_dict[node] = sources
-            
                 for item in sources:
                     cond_constructions = self.run(item, root=False, depth=depth)
                     constructions.update(cond_constructions)
@@ -261,6 +257,9 @@ class ProofGenerator:
                     return
                 visited.add(node)
             
+            if node not in self.proof_dict:
+                breakpoint()
+            
             conditions = self.proof_dict[node]
             
             theorem = None
@@ -286,7 +285,6 @@ class ProofGenerator:
             # if all([type(item) in (Collinear, Between, SameSide) for item in conditions]):
             #     return
             
-            # print('node', node, 'step_counter', step_counter, 'conditions', conditions)
             proof_steps[node] = (step_counter, conditions, theorem)
             step_counter += 1
 
@@ -360,13 +358,13 @@ class ProofGenerator:
         n = n - 1
 
         model = Model()
-        model.setParam('display/verblevel', 0)
+        model.setParam('display/verblevel', 0)        
 
         x_pos = {}
         x_neg = {}
         for i in range(m):
-            x_pos[i] = model.addVar(lb=0.0, ub=1e8, vtype="C", name=f"x_pos_{i}")
-            x_neg[i] = model.addVar(lb=0.0, ub=1e8, vtype="C", name=f"x_neg_{i}")
+            x_pos[i] = model.addVar(lb=0.0, ub=1e4, vtype="C", name=f"x_pos_{i}")
+            x_neg[i] = model.addVar(lb=0.0, ub=1e4, vtype="C", name=f"x_neg_{i}")
 
         model.setObjective(
             quicksum(x_pos[i] + x_neg[i] for i in range(m)),
@@ -383,7 +381,7 @@ class ProofGenerator:
             model.addCons(quicksum(expr) == e[i])
         
         model.optimize()
-            
+
         if model.getStatus() == "optimal":
             x_values = [model.getVal(x_pos[i]) - model.getVal(x_neg[i]) for i in range(m)]
             indices = [i for i, val in enumerate(x_values) if abs(val) > threshold]
@@ -458,6 +456,14 @@ class ProofGenerator:
         else:
             assert source == "length_ratio"  # length=const or eqlength or eqlength ratio or lengthratio=const      
             for i, eqn in enumerate(equations):
+                if isinstance(eqn, sympy.Mul):
+                    div = 1
+                    for arg in eqn.args:
+                        if arg.is_number:
+                            div *= arg
+                    if div != 1:
+                        eqn = eqn / div
+                
                 if isinstance(eqn, sympy.Add):
                     terms = eqn.args
                 else:

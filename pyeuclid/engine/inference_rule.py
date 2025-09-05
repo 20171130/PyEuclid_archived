@@ -1558,7 +1558,7 @@ class AlphaGeometry1b(InferenceRule):
         return Perpendicular(self.c, self.d, self.e, self.f)
 
 
-@register("basic")
+@register("ex")
 class AlphaGeometry2(InferenceRule):
     """ Definition of Concyclic """
     def __init__(self, o: Point, a: Point, b: Point, c: Point, d: Point):
@@ -2766,6 +2766,23 @@ class DiagramAngle4a(InferenceRule):  # systemE Diagram-angle transfer 4
 
 
 @register("ex")
+class DiagramAngle4(InferenceRule):  # systemE Diagram-angle transfer 4
+    def __init__(self, a: Point, b: Point, c: Point, b1: Point, c1: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.b1 = b1
+        self.c1 = c1
+
+    def condition(self):
+        return Between(self.a, self.c1, self.c), Between(self.a, self.b1, self.b), *Different(self.a, self.b, self.c, self.b1, self.c1), Not(Collinear(self.a, self.b, self.c)), Collinear(self.a, self.c, self.c1), Collinear(self.b, self.b1, self.a)
+
+    def conclusion(self):
+        return Angle(self.b1, self.a, self.c1) - Angle(self.b, self.a, self.c)
+
+
+@register("ex")
 class DiagramAngle4b(InferenceRule):  # systemE Diagram-angle transfer 4
     def __init__(self, a: Point, b: Point, c: Point, b1: Point):
         super().__init__()
@@ -3197,8 +3214,25 @@ class RightTrapezoidArea(InferenceRule):
 
 
 @register("complex")
+class RectangleArea(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point, d: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+
+    def condition(self):
+        return [
+            Rectangle(self.a, self.b, self.c, self.d),
+        ]
+
+    def conclusion(self):
+        return [Area(self.a, self.b, self.c, self.d) - Length(self.a, self.b) * Length(self.b, self.c)]
+
+
+@register("complex")
 class Similar4PAreaLengthRatio(InferenceRule):
-    # only consider convex polygons
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point, g: Point, h: Point):
         super().__init__()
         self.a = a
@@ -3218,6 +3252,7 @@ class Similar4PAreaLengthRatio(InferenceRule):
 
     def conclusion(self):
         return [*equal(Area(self.a, self.b, self.c, self.d)/Area(self.e, self.f, self.g, self.h), Length(self.a, self.b)**2/Length(self.e, self.f)**2, Length(self.b, self.c)**2/Length(self.f, self.g)**2, Length(self.c, self.d)**2/Length(self.g, self.h)**2, Length(self.d, self.a)**2/Length(self.h, self.e)**2)]
+
 
 @register("complex")
 class RhombusArea(InferenceRule):

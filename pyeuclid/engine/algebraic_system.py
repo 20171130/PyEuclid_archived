@@ -190,8 +190,8 @@ class AlgebraicSystem:
         var_types = self.state.var_types
         angle_linear, length_linear, length_ratio, others = classify_equations(self.state.equations, var_types)
         
-        angle_linear_free, angle_linear_solved = self.elim([eq for eq in angle_linear if not eq.redundant], var_types)
-        length_ratio_free, length_ratio_solved = self.elim([eq for eq in length_ratio if not eq.redundant], var_types)
+        angle_linear_free, angle_linear_solved = self.elim([eq for eq in angle_linear], var_types)
+        length_ratio_free, length_ratio_solved = self.elim([eq for eq in length_ratio], var_types)
         length_linear_free, length_linear_solved = self.elim(length_linear, var_types, remove_redundant=False)
 
         self.state.solutions['angle_linear'] = angle_linear_solved
@@ -236,75 +236,43 @@ class AlgebraicSystem:
         
         self.state.current_depth += 1
 
-        for key, value in length_ratio_solved.items():
-            eqn = key - value
-            raw_eqn = eqn
-            sources = [raw_eqn]
-            eqn = self.state.simplify_equation(eqn, length_linear_solved)
-            if len(eqn.free_symbols) == 0:
-                continue
-            symbols = [symbol for symbol in eqn.free_symbols if symbol in length_linear_solved]
-            for symbol in symbols:
-                sources.append(symbol - length_linear_solved[symbol])
-            expr = self.process_equation(eqn)
-            if len(expr.free_symbols) > 0:
-                if len(expr.free_symbols) <= 2:
-                    symbol = list(expr.free_symbols)[0]
-                    solutions = []
-                    try:
-                        with TT(0.1):
-                            solutions = sympy.solve(expr, symbol)
-                    except:
-                        continue
-                    solution = self.process_solutions(symbol, expr, solutions, var_types)
-                    if solution is None:
-                        continue
-                    expr = symbol - solution
-                traced = Traced(expr)
-                sub_angle_linear, sub_length_linear, sub_length_ratio, sub_others = classify_equations([traced], var_types)
-                if sub_others:
+        for original_solved, substitute_solved in [(length_ratio_solved, length_linear_solved), (length_linear_solved, length_ratio_solved)]:
+            for key, value in original_solved.items():
+                eqn = key - value
+                raw_eqn = eqn
+                sources = [raw_eqn]
+                eqn = self.state.simplify_equation(eqn, substitute_solved)
+                if self.state.simplify_equation(eqn, original_solved) == 0:
                     continue
-                eqn = Traced(expr, depth=self.state.current_depth, sources=sources)
-                if eqn not in self.state.equations:
-                    self.state.add_conditions(eqn)
-                    closure = False
-        
-        for key, value in length_linear_solved.items():
-            eqn = key - value
-            raw_eqn = eqn
-            sources = [raw_eqn]
-            eqn = self.state.simplify_equation(eqn, length_ratio_solved)
-            if len(eqn.free_symbols) == 0:
-                continue
-            symbols = [symbol for symbol in eqn.free_symbols if symbol in length_ratio_solved]
-            for symbol in symbols:
-                sources.append(symbol - length_ratio_solved[symbol])
-            expr = self.process_equation(eqn)
-            if len(expr.free_symbols) > 0:
-                if len(expr.free_symbols) <= 2:
-                    symbol = list(expr.free_symbols)[0]
-                    solutions = []
-                    try:
-                        with TT(0.1):
-                            solutions = sympy.solve(expr, symbol)
-                    except:
+                symbols = [symbol for symbol in raw_eqn.free_symbols if symbol in substitute_solved]
+                for symbol in symbols:
+                    sources.append(symbol - substitute_solved[symbol])
+                expr = self.process_equation(eqn)
+                if len(expr.free_symbols) > 0:
+                    if len(expr.free_symbols) <= 2:
+                        symbol = list(expr.free_symbols)[0]
+                        solutions = []
+                        try:
+                            with TT(0.1):
+                                solutions = sympy.solve(expr, symbol)
+                        except:
+                            continue
+                        solution = self.process_solutions(symbol, expr, solutions, var_types)
+                        if solution is None:
+                            continue
+                        expr = symbol - solution
+                    traced = Traced(expr)
+                    kinds = classify_equations([traced], var_types)
+                    if kinds[-1]:
                         continue
-                    solution = self.process_solutions(symbol, expr, solutions, var_types)
-                    if solution is None:
-                        continue
-                    expr = symbol - solution
-                traced = Traced(expr)
-                sub_angle_linear, sub_length_linear, sub_length_ratio, sub_others = classify_equations([traced], var_types)
-                if sub_others:
-                    continue
-                eqn = Traced(expr, depth=self.state.current_depth, sources=sources)
-                if eqn not in self.state.equations:
-                    self.state.add_conditions(eqn)
-                    closure = False
+                    eqn = Traced(expr, depth=self.state.current_depth, sources=sources)
+                    if eqn not in self.state.equations:
+                        self.state.add_conditions(eqn)
+                        closure = False
 
         # prioritize on equations that contain only one variable to solve for exact values
         # then try to solve equations that are not much too complicated
-        for length_solved in [length_ratio_solved, length_linear_solved]:
+        for i, length_solved in enumerate([length_ratio_solved, length_linear_solved]):
             solved = angle_linear_solved | length_solved
             for eqn in others:
                 if len(self.state.simplify_equation(eqn, solved).free_symbols) == 0:
@@ -313,7 +281,7 @@ class AlgebraicSystem:
                 if eqn.redundant:
                     continue
                 raw_eqn = eqn
-                symbols = [symbol for symbol in eqn.free_symbols if symbol in solved]
+                symbols = [symbol for symbol in raw_eqn.free_symbols if symbol in solved]
                 symbol2sources = {}
                 for symbol in symbols:
                     symbol2sources[symbol] = symbol - solved[symbol]
@@ -342,8 +310,8 @@ class AlgebraicSystem:
                             expr = symbol - solution
 
                         traced = Traced(expr)
-                        angle_linear, length_linear, length_ratio, others = classify_equations([traced], var_types)
-                        if others:
+                        kinds = classify_equations([traced], var_types)
+                        if kinds[-1]:
                             continue
                         eqn = Traced(expr, depth=self.state.current_depth, sources=sources)
                         if eqn not in self.state.equations:
@@ -437,5 +405,3 @@ class AlgebraicSystem:
 
     def run(self):
         return self.solve_equation()
-        # self.compute_ratio_and_angle_sum()
-        # return closure
