@@ -89,7 +89,7 @@ class ProofGenerator:
                 sources = node.sources
                 expr = node.expr
                 if len(sources) == 0:
-                    self.proof_dict[node] = []
+                    self.proof_dict[expr] = []
                     return []
                 if isinstance(sources[0], str):
                     # backtrace linear systems
@@ -135,6 +135,8 @@ class ProofGenerator:
                     # sources annotated, from inference rules or solve complex
                     pass
                 self.proof_dict[expr] = sources
+                if not sources:
+                    breakpoint()
                 for item in sources:
                     cond_constructions = self.run(item, depth=depth, root=False)
                     constructions.update(cond_constructions)
@@ -198,6 +200,8 @@ class ProofGenerator:
                 self.cache_source[node] = source
                 sources = conditions
                 self.proof_dict[node] = sources
+                if sources is None:
+                    breakpoint()
                 for item in sources:
                     cond_constructions = self.run(item, root=False, depth=depth)
                     constructions.update(cond_constructions)
@@ -358,7 +362,8 @@ class ProofGenerator:
         n = n - 1
 
         model = Model()
-        model.setParam('display/verblevel', 0)        
+        model.setParam('display/verblevel', 0)
+        model.setParam("numerics/feastol", 1e-9)
 
         x_pos = {}
         x_neg = {}
@@ -429,32 +434,27 @@ class ProofGenerator:
             return None
 
     def vectorize(self, equations, variables, source):
-        A = np.zeros(shape=(len(equations), len(variables)), dtype=np.float64)
-        b = np.zeros(shape=(len(equations), 1), dtype=np.float64)
+        A = np.zeros((len(equations), len(variables)), dtype=np.float64)
+        b = np.zeros((len(equations), 1), dtype=np.float64)
+
         if source in ("angle_linear", "length_linear"):
             for i, eqn in enumerate(equations):
                 eqn = sympy.expand(eqn)
-                if isinstance(eqn, sympy.Add):
-                    terms = eqn.args
-                else:
-                    terms = [eqn]
-
+                terms = eqn.args if eqn.is_Add else (eqn,)
                 for term in terms:
-                    mul_args = sympy.Mul.make_args(term)
-                    constants = [f for f in mul_args if not f.free_symbols]
-                    symbols = [f for f in mul_args if f.free_symbols]
-
-                    coeff = sympy.Mul(*constants)
-
-                    if len(symbols) == 0:
-                        b[i, 0] += coeff
+                    c, r = term.as_coeff_Mul()
+                    syms = [f for f in sympy.Mul.make_args(r) if getattr(f, "is_Symbol", False) and f in variables]
+                    if not syms:
+                        b[i, 0] += float(c * r)
                     else:
-                        assert len(symbols) == 1, f"Nonlinear term: {term}"
-                        var = symbols[0]
-                        assert var in variables
+                        if len(syms) != 1:
+                            raise AssertionError(f"Nonlinear term: {term}")
+                        var = syms[0]
+                        others = [f for f in sympy.Mul.make_args(r) if f is not var]
+                        coeff = float(c * (sympy.Mul(*others) if others else 1))
                         A[i, variables[var]] += coeff
         else:
-            assert source == "length_ratio"  # length=const or eqlength or eqlength ratio or lengthratio=const      
+            assert source == "length_ratio"
             for i, eqn in enumerate(equations):
                 if isinstance(eqn, sympy.Mul):
                     div = 1
@@ -463,102 +463,62 @@ class ProofGenerator:
                             div *= arg
                     if div != 1:
                         eqn = eqn / div
-                
-                if isinstance(eqn, sympy.Add):
-                    terms = eqn.args
-                else:
-                    terms = [eqn]
-                
+
+                eqn = sympy.expand(eqn)
+
+                probe = eqn.args if eqn.is_Add else (eqn,)
+                const_sum0 = sum(float(t) for t in probe if not t.free_symbols)
+                if const_sum0 > 0.0:
+                    eqn = -eqn
+
+                const_sum = 0.0
+                terms = eqn.args if eqn.is_Add else (eqn,)
+
                 for term in terms:
-                    # Extract sign from the term
-                    if isinstance(term, sympy.Mul) and len(term.args) > 0 and term.args[0].is_number and term.args[0] < 0:
-                        sign = -1
-                        # Remove the negative sign for processing
-                        if len(term.args) == 1:
-                            term = -term.args[0]  # Just a negative number
+                    c, r = term.as_coeff_Mul()
+                    sign = -1.0 if (c.is_number and c < 0) else 1.0
+                    if sign < 0:
+                        c = -c
+                    mult = float(c)
+
+                    exps = {}
+                    for f in sympy.Mul.make_args(r):
+                        if not f.free_symbols:
+                            mult *= float(f)
+                            continue
+                        if isinstance(f, sympy.Pow):
+                            base, exp = f.as_base_exp()
+                            if base.is_Symbol and base in variables and exp.is_number:
+                                e = float(exp)
+                                exps[base] = exps.get(base, 0.0) + e
+                                continue
+                            if base.is_number and exp.is_number:
+                                mult *= float(base) ** float(exp)
+                                continue
+                        if f.is_Symbol and f in variables:
+                            exps[f] = exps.get(f, 0.0) + 1.0
+                            continue
+                        mult *= float(f)
+
+                    if not exps:
+                        const_sum += sign * mult
+                        continue
+
+                    for var, p in exps.items():
+                        if p >= 0:
+                            A[i, variables[var]] += sign * p
                         else:
-                            # Multiply by -1 to make positive, then we'll apply sign later
-                            term = sympy.Mul(*[-term.args[0]] + list(term.args[1:]))
-                    elif term.is_number and term < 0:
-                        sign = -1
-                        term = -term
-                    else:
-                        sign = 1
-                    
-                    # Now process the positive term and apply sign at the end
-                    numerator_vars = {}
-                    denominator_vars = {}
-                    constant_num = 1
-                    constant_den = 1
-                    
-                    if isinstance(term, sympy.Mul):
-                        for factor in term.args:
-                            if factor.is_number:
-                                constant_num *= float(factor)
-                            elif factor.is_symbol and factor in variables:
-                                numerator_vars[factor] = numerator_vars.get(factor, 0) + 1
-                            elif isinstance(factor, sympy.Pow):
-                                base, exp = factor.args
-                                exp_val = float(exp)
-                                if base.is_symbol and base in variables:
-                                    if exp_val > 0:
-                                        numerator_vars[base] = numerator_vars.get(base, 0) + exp_val
-                                    else:
-                                        denominator_vars[base] = denominator_vars.get(base, 0) + abs(exp_val)
-                                elif base.is_number:
-                                    if exp_val > 0:
-                                        constant_num *= float(base) ** exp_val
-                                    else:
-                                        constant_den *= float(base) ** abs(exp_val)
-                            elif isinstance(factor, (sympy.core.numbers.Rational, sympy.core.numbers.Float)):
-                                constant_num *= float(factor)
-                            else:
-                                try:
-                                    val = float(factor)
-                                    constant_num *= val
-                                except:
-                                    pass
-                                    
-                    elif isinstance(term, sympy.Pow):
-                        base, exp = term.args
-                        exp_val = float(exp)
-                        if base.is_symbol and base in variables:
-                            if exp_val > 0:
-                                numerator_vars[base] = exp_val
-                            else:
-                                denominator_vars[base] = abs(exp_val)
-                        elif base.is_number:
-                            if exp_val > 0:
-                                constant_num = float(base) ** exp_val
-                            else:
-                                constant_den = float(base) ** abs(exp_val)
-                                
-                    elif term.is_symbol and term in variables:
-                        numerator_vars[term] = 1
-                        
-                    elif term.is_number or isinstance(term, (sympy.core.numbers.Rational, sympy.core.numbers.Float)):
-                        constant_num = float(term)
-                        
-                    else:
-                        try:
-                            constant_num = float(term)
-                        except:
-                            assert False
-                    
-                    # Apply to matrix with correct sign
-                    # Numerator variables contribute positively
-                    for var, power in numerator_vars.items():
-                        A[i, variables[var]] += sign * power
-                    
-                    # Denominator variables contribute negatively  
-                    for var, power in denominator_vars.items():
-                        A[i, variables[var]] -= sign * power
-                    
-                    # Handle constants
-                    if constant_num != 1 or constant_den != 1:
-                        const_contribution = constant_num / constant_den
-                        if const_contribution > 0:
-                            b[i, 0] += sign * math.log(const_contribution)
+                            A[i, variables[var]] -= sign * (-p)
+
+                    if mult != 1.0:
+                        if mult <= 0.0:
+                            raise ValueError(f"Non-positive multiplier {mult} in term {term!r}")
+                        b[i, 0] -= sign * math.log(mult)
+
+                rhs = -const_sum
+                if rhs > 0.0:
+                    b[i, 0] += math.log(rhs)
+
         return np.concatenate([A, b], axis=1)
 
     def find_conditions(self, equations: list[Traced], conclusion, source):
