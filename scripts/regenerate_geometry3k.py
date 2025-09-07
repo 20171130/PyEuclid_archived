@@ -60,7 +60,7 @@ def dump_relations_to_py(
         f.write(text)
 
 # problem = "K@-8.49_0.84 H@-1.39_3.59 J@-2.06_-1.56 = triangle K H J; A@-4.62_1.39 = free A; G@-8.33_2.61 = on_circle G A H; F@-11.87_2.11 = on_line F G H, on_line F K J"
-problem = "A B E = r_triangle A B E; C = on_dia C B E, on_circle C E A; D = on_circle D E C" 
+problem = "R T S = triangle R T S; P = midpoint R S"
 state = State()
 state.load_problem_from_text(problem, f'diagrams/test.jpg', resample=True)
 rs = []

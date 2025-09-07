@@ -1,9 +1,11 @@
 import re
 import sympy
+from sympy import Add, Mul, Pow, Symbol, Rational, cancel
 import signal
 
 from typing import List
 from pathlib import Path
+from fractions import Fraction
 
 ROOT_DIR = Path(__file__).parents[2]
 MAX_DIAGRAM_ATTEMPTS = 1000
@@ -149,52 +151,277 @@ class UnionFind:
                 setattr(v.rep_by, "rep_by", None)
 
 
-class Traced():
-    def __init__(self, expr, depth=0, sources=[], redundant=False):
+# class Traced():
+#     def __init__(self, expr, depth=0, sources=[], redundant=False):
+#         if isinstance(expr, Traced):
+#             depth = expr.depth
+#             sources = expr.sources
+#             redundant = expr.redundant
+#             expr = expr.expr
+        
+#         # num, den = sympy.together(expr).as_numer_denom()
+#         # expr = num
+#         terms = expr.as_ordered_terms()
+#         if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
+#             expr = expr/terms[0].args[0]
+#         self.expr = expr
+#         self.redundant = redundant
+#         self.sources = sources
+#         self.kinds = []
+#         self.depth = max([depth] + [getattr(item, "depth", 0) for item in self.sources])
+#         for key in ("free_symbols", "args"):
+#             setattr(self, key, getattr(self.expr, key))
+    
+#     def subs(self, key, value):
+#         if isinstance(value, Traced):
+#             if len(self.sources) > 0 and isinstance(self.sources[0], Traced):
+#                 sources = [item for item in self.sources] + [value]
+#             else:
+#                 sources = [self, value]
+#             value.symbol = key
+#             value = value.expr
+#         else:
+#             sources = self.sources
+#         expr = self.expr.subs(key, value)
+#         other = Traced(expr, sources=sources)
+#         return other
+    
+#     def __str__(self):
+#         return str(self.expr)
+    
+#     def __repr__(self):
+#         return str(self)
+    
+#     def __eq__(self, other):
+#         return hash(self) == hash(other)
+    
+#     def __hash__(self):
+#         return hash(self.expr)
+
+
+class Traced:
+    def __init__(self, expr, depth=0, sources=None, redundant=None, approx_sig=15):
         if isinstance(expr, Traced):
             depth = expr.depth
-            sources = expr.sources
-            redundant = expr.redundant
+            sources = list(expr.sources) if expr.sources else []
+            redundant = set(expr.redundant) if expr.redundant else set()
             expr = expr.expr
-        
-        # num, den = sympy.together(expr).as_numer_denom()
-        # expr = num
+
+        sources = sources or []
+        redundant = redundant or set()
+
         terms = expr.as_ordered_terms()
         if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
             expr = expr/terms[0].args[0]
+
+        self._approx_sig = int(approx_sig) if approx_sig else 0
+        if self._approx_sig > 0:
+            expr = self._approximate_numeric_factors(expr, self._approx_sig)
+
         self.expr = expr
-        self.redundant = redundant
-        self.sources = sources
+        self.sources = list(sources)
+        self.redundant = set(redundant)
         self.kinds = []
-        self.depth = max([depth] + [getattr(item, "depth", 0) for item in self.sources])
-        for key in ("free_symbols", "args"):
-            setattr(self, key, getattr(self.expr, key))
-    
+        
+        source_depths = [getattr(s, "depth", 0) for s in self.sources]
+        self.depth = max([depth] + source_depths) if self.sources else depth
+
+        self.free_symbols = getattr(self.expr, "free_symbols", set())
+        self.args = getattr(self.expr, "args", ())
+        self.symbol = None
+
+    @staticmethod
+    def _is_numeric(expr):
+        return isinstance(expr, sympy.Basic) and not expr.free_symbols
+
+    @staticmethod
+    def _is_simple_numeric(expr):
+        return (expr.is_Integer or expr.is_Rational or 
+                isinstance(expr, (sympy.Integer, sympy.Rational)) or
+                expr.count_ops(visual=False) <= 2)
+
+    @classmethod
+    def _approximate_numeric_factors(cls, expr, sig_digits):
+        if not isinstance(expr, sympy.Basic) or expr.is_Atom:
+            return expr
+
+        if expr.is_Add:
+            new_args = [cls._approximate_numeric_factors(arg, sig_digits) for arg in expr.args]
+            return sympy.Add(*new_args, evaluate=False)
+
+        if expr.is_Mul:
+            numeric_factors = []
+            symbolic_factors = []
+            
+            for arg in expr.args:
+                if cls._is_numeric(arg):
+                    numeric_factors.append(arg)
+                else:
+                    symbolic_factors.append(cls._approximate_numeric_factors(arg, sig_digits))
+
+            if symbolic_factors and numeric_factors:
+                approximated_numerics = []
+                for factor in numeric_factors:
+                    if cls._is_simple_numeric(factor):
+                        approximated_numerics.append(factor)
+                    else:
+                        approximated_numerics.append(sympy.Float(factor.evalf(sig_digits), sig_digits))
+                return sympy.Mul(*(symbolic_factors + approximated_numerics), evaluate=False)
+            else:
+                new_args = [cls._approximate_numeric_factors(arg, sig_digits) for arg in expr.args]
+                return sympy.Mul(*new_args, evaluate=False)
+
+        if expr.is_Pow:
+            base = cls._approximate_numeric_factors(expr.base, sig_digits)
+            exp = expr.exp
+            
+            if cls._is_numeric(exp) and not cls._is_simple_numeric(exp):
+                exp = sympy.Float(exp.evalf(sig_digits), sig_digits)
+            else:
+                exp = cls._approximate_numeric_factors(exp, sig_digits)
+            
+            return sympy.Pow(base, exp, evaluate=False)
+
+        new_args = [cls._approximate_numeric_factors(arg, sig_digits) for arg in expr.args]
+        return expr.func(*new_args, evaluate=False)
+
     def subs(self, key, value):
         if isinstance(value, Traced):
-            if len(self.sources) > 0 and isinstance(self.sources[0], Traced):
-                sources = [item for item in self.sources] + [value]
-            else:
-                sources = [self, value]
+            sources = list(self.sources) + [value] if self.sources else [self, value]
             value.symbol = key
-            value = value.expr
+            value_expr = value.expr
         else:
-            sources = self.sources
-        expr = self.expr.subs(key, value)
-        other = Traced(expr, sources=sources)
-        return other
-    
+            sources = list(self.sources)
+            value_expr = value
+        
+        new_expr = self.expr.subs(key, value_expr)
+        
+        try:
+            expanded = new_expr.expand()
+            coeffs = expanded.as_coefficients_dict()
+            if all(abs(float(c.evalf())) < 1e-8 for c in coeffs.values()):
+                new_expr = sympy.Integer(0)
+        except:
+            pass
+        
+        return Traced(new_expr, depth=self.depth, sources=sources,
+                    redundant=set(self.redundant), approx_sig=self._approx_sig)
+
     def __str__(self):
         return str(self.expr)
-    
+
     def __repr__(self):
         return str(self)
-    
+
     def __eq__(self, other):
         return hash(self) == hash(other)
     
     def __hash__(self):
         return hash(self.expr)
+
+# def _rationalize_floats(expr: sympy.Expr, *, tol: float = 1e-12, max_den: int = 10**6) -> sympy.Expr:
+#     repl = {}
+#     for f in expr.atoms(sympy.Float):
+#         val = float(f)
+#         frac = Fraction(val).limit_denominator(max_den)
+#         r = sympy.Rational(frac.numerator, frac.denominator)
+#         if abs(float(r) - val) <= tol * max(1.0, abs(val)):
+#             repl[f] = r
+#     return expr.xreplace(repl)
+
+
+# def canon_key(expr):
+#     # numerator in common-denominator form (cheap)
+#     num, _ = sympy.together(expr).as_numer_denom()
+#     if num.is_zero:
+#         return ('ZERO',)
+
+#     # fast float→rational snap (no nsimplify)
+#     if num.has(sympy.Float):
+#         repl = {}
+#         for f in num.atoms(sympy.Float):
+#             val = float(f)
+#             frac = Fraction(val).limit_denominator(10**6)
+#             r = sympy.Rational(frac.numerator, frac.denominator)
+#             if abs(float(r) - val) <= 1e-12 * max(1.0, abs(val)):
+#                 repl[f] = r
+#         if repl:
+#             num = num.xreplace(repl)
+
+#     syms = tuple(sorted(num.free_symbols, key=str))
+
+#     # polynomial path over QQ only (fast)
+#     if syms and num.is_polynomial(*syms) and all(n.is_Rational for n in num.atoms(sympy.Number)):
+#         try:
+#             P = sympy.Poly(num, *syms, domain='QQ')
+#             _, Pp = P.primitive()
+#             if Pp.LC() < 0:
+#                 Pp = -Pp
+#             return ('POLY_QQ', syms, tuple(sorted(Pp.terms())))
+#         except:
+#             pass
+
+#     # lightweight structural fallback (no global expand)
+#     num = sympy.signsimp(sympy.powsimp(sympy.gcd_terms(num, clear=True), force=True))
+#     ts = num.as_ordered_terms()
+#     if ts:
+#         c, _ = ts[0].as_coeff_Mul()
+#         if c.is_negative:
+#             num = -num
+#     return ('NON_POLY', sympy.srepr(num))
+
+
+# class Traced():
+#     def __init__(self, expr, depth=0, sources=None, redundant=None):
+#         if isinstance(expr, Traced):
+#             depth     = expr.depth
+#             sources   = list(expr.sources) if expr.sources else []
+#             redundant = set(expr.redundant) if expr.redundant else set()
+#             expr      = expr.expr
+
+#         if sources is None:
+#             sources = []
+#         if redundant is None:
+#             redundant = set()
+
+#         terms = expr.as_ordered_terms()
+#         if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
+#             expr = expr/terms[0].args[0]
+#         self.expr = expr
+#         self.sources = list(sources)
+#         self.redundant = set(redundant)
+#         self.kinds = []
+#         self.depth = max([depth] + [getattr(item, "depth", 0) for item in self.sources])
+#         for key in ("free_symbols", "args"):
+#             setattr(self, key, getattr(self.expr, key))
+#         self._key = canon_key(self.expr)
+    
+#     def subs(self, key, value):
+#         if isinstance(value, Traced):
+#             if self.sources and isinstance(self.sources[0], Traced):
+#                 sources = list(self.sources) + [value]
+#             else:
+#                 sources = [self, value]
+#             value.symbol = key
+#             value_expr = value.expr
+#         else:
+#             sources = list(self.sources)
+#             value_expr = value
+
+#         new_expr = self.expr.subs(key, value_expr)
+#         return Traced(new_expr, depth=self.depth, sources=sources, redundant=set(self.redundant))
+    
+#     def __str__(self):
+#         return str(self.expr)
+    
+#     def __repr__(self):
+#         return str(self)
+    
+#     def __hash__(self):
+#         return hash(self._key)
+    
+#     def __eq__(self, other):
+#         return isinstance(other, Traced) and self._key == other._key
 
         
 def infer_eq_types(eq, var_types):
@@ -207,8 +434,7 @@ def infer_eq_types(eq, var_types):
         elif symbol in var_types and not var_types[symbol] is None:
             eq_types.add(var_types[symbol])
     return eq_types
-    
-from sympy.core import Add, Mul, Pow, Symbol
+
 
 def is_linear(expr):
     for term in Add.make_args(expr):
@@ -227,23 +453,133 @@ def is_linear(expr):
         if cnt > 1:
             return False
     return True
+
+
+def ratio_is_linear(expr):
+    """
+    True iff expr is const1*a/b - const2 OR const2 - const1*a/b,
+    where const1,const2 are constant (no free symbols) and a,b are single Symbols.
+    Robust for pi, E, sqrt(2), rationals, and either term order.
+    """
+    # Get the top-level terms (before putting over common denominator)
+    terms = list(Add.make_args(expr))
     
-def classify_equations(equations: List[Traced], var_types, cache=True):
+    if len(terms) != 2:
+        return False
+    
+    # We need exactly one ratio term and one constant term
+    ratio_term = None
+    const_term = None
+    
+    for term in terms:
+        # Check if this term is a constant
+        if term.free_symbols == set():
+            if const_term is not None:
+                return False  # Multiple constant terms
+            const_term = term
+            continue
+            
+        # Check if this term is of the form const * a / b
+        # First, get numerator and denominator
+        num, den = term.as_numer_denom()
+        
+        # Check if it's a ratio form at all
+        if den == 1:
+            continue  # Not a ratio
+            
+        # For the numerator: extract all factors that are constants vs symbols
+        if isinstance(num, Symbol):
+            num_symbols = [num]
+            num_constants = []
+        elif isinstance(num, Mul):
+            factors = num.as_ordered_factors()
+            num_symbols = [f for f in factors if isinstance(f, Symbol)]
+            num_constants = [f for f in factors if f.free_symbols == set()]
+            # Check for any remaining factors that are neither symbols nor constants
+            remaining = [f for f in factors if f not in num_symbols and f not in num_constants]
+            if remaining:
+                continue  # Has complex factors
+        else:
+            # Could be a power, function, etc.
+            if num.free_symbols == set():
+                num_symbols = []
+                num_constants = [num]
+            elif len(num.free_symbols) == 1 and isinstance(list(num.free_symbols)[0], Symbol):
+                # It's some function of a single symbol - not what we want
+                continue
+            else:
+                continue
+                
+        # For the denominator: similar analysis
+        if isinstance(den, Symbol):
+            den_symbols = [den]
+            den_constants = []
+        elif isinstance(den, Mul):
+            factors = den.as_ordered_factors()
+            den_symbols = [f for f in factors if isinstance(f, Symbol)]
+            den_constants = [f for f in factors if f.free_symbols == set()]
+            # Check for any remaining factors that are neither symbols nor constants
+            remaining = [f for f in factors if f not in den_symbols and f not in den_constants]
+            if remaining:
+                continue  # Has complex factors
+        else:
+            # Could be a power, function, etc.
+            if den.free_symbols == set():
+                den_symbols = []
+                den_constants = [den]
+            elif len(den.free_symbols) == 1 and isinstance(list(den.free_symbols)[0], Symbol):
+                # It's some function of a single symbol - not what we want
+                continue
+            else:
+                continue
+        
+        # We want exactly one symbol in numerator and one in denominator
+        if len(num_symbols) != 1 or len(den_symbols) != 1:
+            continue
+            
+        # Make sure the symbols are different
+        if num_symbols[0] == den_symbols[0]:
+            continue
+            
+        if ratio_term is not None:
+            return False  # Multiple ratio terms
+        ratio_term = term
+    
+    # We need exactly one ratio term and one constant term
+    return ratio_term is not None and const_term is not None
+    
+def classify_equations(equations: List, var_types, cache=True):
+    def _is_monomial_ratio(q: sympy.Expr) -> bool:
+        q = cancel(q)
+        if q.has(Add):
+            return False
+        for f in Mul.make_args(q):
+            if f.is_Number:
+                continue
+            if isinstance(f, Symbol):
+                continue
+            if isinstance(f, Pow) and isinstance(f.base, Symbol) and (f.exp.is_Rational or f.exp.is_Integer):
+                continue
+            return False
+        return True
+
     angle_linear, length_linear, length_ratio, others = [], [], [], []
     for eqn in equations:
-        if not eqn.kinds:
+        if not getattr(eqn, "kinds", None):
             kinds = set()
             expr = eqn.expr.expand()
             var_type = set()
             for symbol in expr.free_symbols:
-                if "Angle" in str(symbol):
+                s = str(symbol)
+                if "Angle" in s:
                     var_type.add("Angle")
-                elif "Length" in str(symbol) or "Area" in str(symbol):
+                elif "Length" in s or "Area" in s:
                     var_type.add("Length")
                 else:
                     if symbol in var_types:
                         var_type.add(var_types[symbol])
-            if not isinstance(expr, (sympy.core.add.Add, sympy.core.symbol.Symbol)) or not len(var_type) == 1:
+
+            if not isinstance(expr, (sympy.Add, sympy.Symbol)) or not len(var_type) == 1:
                 kinds.add("others")
             else:
                 if "Angle" in var_type:
@@ -258,15 +594,17 @@ def classify_equations(equations: List[Traced], var_types, cache=True):
                             kinds.add("length_ratio")
                     if len(expr.args) == 2:
                         lhs, rhs = expr.args
-                        rhs = -rhs
-                        tmp_terms = []
-                        for factor in Mul.make_args(lhs / rhs):
-                            if isinstance(factor, Pow):
-                                tmp_terms.append(factor.args[0] * factor.args[1])
-                            elif isinstance(factor, Symbol):
-                                tmp_terms.append(factor)
-                        if is_linear(Add(*tmp_terms)):
-                            kinds.add("length_ratio")
+                        q = lhs / (-rhs)
+                        if _is_monomial_ratio(q):
+                            q = cancel(q)
+                            tmp_terms = []
+                            for f in Mul.make_args(q):
+                                if isinstance(f, Symbol):
+                                    tmp_terms.append(f)
+                                elif isinstance(f, Pow) and isinstance(f.base, Symbol) and (f.exp.is_Rational or f.exp.is_Integer):
+                                    tmp_terms.append(f.base * f.exp)
+                            if tmp_terms and is_linear(Add(*tmp_terms)):
+                                kinds.add("length_ratio")
                     if len(kinds) == 0:
                         kinds.add("others")
             if cache:
@@ -282,7 +620,7 @@ def classify_equations(equations: List[Traced], var_types, cache=True):
             length_ratio.append(eqn)
         if "others" in kinds:
             others.append(eqn)
-        
+
     return angle_linear, length_linear, length_ratio, others
 
 def is_float(s):
