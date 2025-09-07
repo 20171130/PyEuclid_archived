@@ -42,6 +42,7 @@ class TestBenchmarks(unittest.TestCase):
                 with open(f'data/Geometry3K/{idx}/problem.py', "r") as file:
                     exec(file.read(), namespace)
                 conditions = namespace.get("conditions")
+                conditions = [expr if isinstance(expr, Relation) else sympy.nsimplify(expr, rational=True, tolerance=1e-12) for expr in conditions]
                 goal = namespace.get("goal")
                 solution = namespace.get("solution")
                 diagrammatic_relations = namespace.get("diagrammatic_relations")
