@@ -200,7 +200,7 @@ class UnionFind:
 
 
 class Traced:
-    def __init__(self, expr, depth=0, sources=None, redundant=None, approx_sig=15):
+    def __init__(self, expr, depth=0, sources=None, redundant=None, approx_sig=16):
         if isinstance(expr, Traced):
             depth = expr.depth
             sources = list(expr.sources) if expr.sources else []
@@ -247,7 +247,7 @@ class Traced:
 
         if expr.is_Add:
             new_args = [cls._approximate_numeric_factors(arg, sig_digits) for arg in expr.args]
-            return sympy.Add(*new_args, evaluate=False)
+            return sympy.Add(*new_args, evaluate=True)
 
         if expr.is_Mul:
             numeric_factors = []
@@ -266,10 +266,10 @@ class Traced:
                         approximated_numerics.append(factor)
                     else:
                         approximated_numerics.append(sympy.Float(factor.evalf(sig_digits), sig_digits))
-                return sympy.Mul(*(symbolic_factors + approximated_numerics), evaluate=False)
+                return sympy.Mul(*(symbolic_factors + approximated_numerics), evaluate=True)
             else:
                 new_args = [cls._approximate_numeric_factors(arg, sig_digits) for arg in expr.args]
-                return sympy.Mul(*new_args, evaluate=False)
+                return sympy.Mul(*new_args, evaluate=True)
 
         if expr.is_Pow:
             base = cls._approximate_numeric_factors(expr.base, sig_digits)
@@ -280,10 +280,10 @@ class Traced:
             else:
                 exp = cls._approximate_numeric_factors(exp, sig_digits)
             
-            return sympy.Pow(base, exp, evaluate=False)
+            return sympy.Pow(base, exp, evaluate=True)
 
         new_args = [cls._approximate_numeric_factors(arg, sig_digits) for arg in expr.args]
-        return expr.func(*new_args, evaluate=False)
+        return expr.func(*new_args, evaluate=True)
 
     def subs(self, key, value):
         if isinstance(value, Traced):

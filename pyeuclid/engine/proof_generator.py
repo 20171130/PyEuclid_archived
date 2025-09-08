@@ -2,6 +2,8 @@ import math
 import numpy as np
 import sympy
 
+from sympy.printing.str import StrPrinter
+
 from pyscipopt import Model, quicksum
 from collections import defaultdict
 
@@ -9,6 +11,98 @@ from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.utils import *
 from pyeuclid.engine.inference_rule import *
+
+
+class CustomPrinter(StrPrinter):
+    """
+    Clean, recursion-safe SymPy string printer:
+    - Eq: moves negative numeric terms to RHS and flips the numeric sign
+          (e.g., X*(-1/2) on LHS -> (1/2)*X on RHS).
+    - Add: tidy '+/-' joins; single leading '-'.
+    - Mul: no '1*...' or '-1*...'; single leading '-'; avoids recursion loops.
+    - Pow: parenthesizes negative exponents.
+    """
+
+    # ---------- Equality: canonical split by numeric sign ----------
+    def _print_Equality(self, expr):
+        # Consolidate to one side, then send negative-numeric terms to RHS with flipped sign
+        consolidated = expr.lhs - expr.rhs
+        lhs_terms, rhs_terms = [], []
+
+        for term in sympy.Add.make_args(consolidated):
+            coeff, rest = term.as_coeff_Mul()  # (-1/2, Length_C_D) for Length_C_D*(-1/2)
+            # If there's a numeric coeff and it's negative, flip and move to RHS
+            if coeff.is_number and getattr(coeff, "is_negative", False):
+                rhs_terms.append((-coeff) * rest)   # e.g., (1/2)*Length_C_D
+            else:
+                lhs_terms.append(term)
+
+        new_lhs = sympy.Add(*lhs_terms) if lhs_terms else sympy.S.Zero
+        new_rhs = sympy.Add(*rhs_terms) if rhs_terms else sympy.S.Zero
+        return f"{self._print(new_lhs)} = {self._print(new_rhs)}"
+
+    # ---------- Add: clean '+/-' joins ----------
+    def _print_Add(self, expr, order=None):
+        if hasattr(self, "_as_ordered_terms"):
+            terms = self._as_ordered_terms(expr, order=order)
+        else:
+            terms = list(sympy.Add.make_args(expr))
+        if not terms:
+            return "0"
+
+        out = []
+        for i, term in enumerate(terms):
+            if self._term_is_negative(term):
+                piece = self._print(-term)
+                out.append(f"-{piece}" if i == 0 else f" - {piece}")
+            else:
+                piece = self._print(term)
+                out.append(piece if i == 0 else f" + {piece}")
+        return "".join(out)
+
+    # ---------- Mul: strip ±1 and avoid recursion ----------
+    def _print_Mul(self, expr, order=None):
+        coeff, rest = expr.as_coeff_Mul()  # (1, expr) if no numeric coeff
+
+        # Avoid infinite recursion when no numeric coeff was extracted
+        if coeff == 1:
+            return super()._print_Mul(expr)
+
+        if coeff == -1:
+            return "-" + self._print(rest)
+
+        if rest == 1:
+            return self._print(coeff)
+
+        if getattr(coeff, "is_negative", False):
+            # Single leading minus; flip coeff to positive
+            return "-" + f"{self._print(-coeff)}*{self._print(rest)}"
+
+        return f"{self._print(coeff)}*{self._print(rest)}"
+
+    # ---------- Pow: parenthesize negative exponents ----------
+    def _print_Pow(self, expr):
+        base, exp = expr.as_base_exp()
+        if getattr(exp, "is_negative", False):
+            return f"{self._print(base)}**({self._print(exp)})"
+        return super()._print_Pow(expr)
+
+    # ---------- Helper ----------
+    def _term_is_negative(self, term):
+        """True if additive term has an overall negative numeric coefficient."""
+        coeff, _ = term.as_coeff_Mul()
+        if getattr(coeff, "is_negative", None):
+            return True
+        # Fallback: catch x*(-2) patterns if needed
+        if term.is_Mul and any(getattr(a, "is_negative", False) for a in term.args if a.is_number):
+            return True
+        return bool(getattr(term, "is_negative", False))
+
+
+def pretty_print_expr(expr):
+    """Formats any SymPy expression using the CustomPrinter."""
+    return str(expr)
+    # return CustomPrinter().doprint(sympy.Eq(expr, 0))
 
 
 class ProofGenerator:
@@ -327,15 +421,20 @@ class ProofGenerator:
         res = "Solution:\n"
         proof = self.get_proof(node)
         def _format(items):
-            if verbose:
-                return ' & '.join([str(item)+ (f"@{item.depth}" if hasattr(item, 'depth') else "") for item in items])
-            return ' & '.join([str(item) for item in items])
+            formatted_items = []
+            for item in items:
+                if isinstance(item, sympy.core.expr.Expr):
+                    s = pretty_print_expr(item)
+                else:
+                    s = str(item)
+                if verbose and hasattr(item, 'depth'):
+                    s += f"@{item.depth}"
+                formatted_items.append(s)
+            return ' & '.join(formatted_items)
+
         for step, (conditions, theorem, conclusions) in enumerate(proof):
-            if verbose:
-                theorem_str = ' [' + str(theorem) + ']' if theorem else ''
-            else:
-                theorem_str = ''
-            res += f'{step+1}. ' + _format(conditions) + theorem_str + ' => ' + _format(conclusions) + '\n'
+            theorem_str = f" [{theorem}]" if theorem and verbose else ""
+            res += f"{step + 1}. {_format(conditions)}{theorem_str} => {_format(conclusions)}\n"
         return res
     
     def get_proof(self, node=None):
