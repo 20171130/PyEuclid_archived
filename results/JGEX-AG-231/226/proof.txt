@@ -1,1 +1,2 @@
 Solution:
+1. Angle_a_b_c + Angle_b_a_d*(-1) => Angle_a_b_c - Angle_b_a_d

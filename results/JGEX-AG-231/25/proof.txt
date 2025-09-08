@@ -1,8 +1,14 @@
 Solution:
-1. Collinear(b,e,f) => Angle_c_b_e - Angle_c_b_f & Angle_a_b_e - Angle_a_b_f
-2. -Length_a_d + Length_b_d & Length_b_d - Length_d_f => Angle_a_b_f - Angle_a_d_f/2
-3. Length_b_d - Length_d_f & Length_b_d - Length_c_d => Length_c_d - Length_d_f
-4. -Length_c_d + Length_d_f & -Length_b_d + Length_d_f & Perpendicular(d,f,f,g) => Angle_c_b_f + Angle_c_f_g - pi
-5. -Length_a_d + Length_c_d & Length_c_d - Length_d_f => Angle_a_c_f - Angle_a_d_f/2
-6. Angle_c_b_e - Angle_c_b_f & Angle_a_b_e - Angle_a_b_f & Angle_a_b_f - Angle_a_d_f/2 & Angle_a_b_e - Angle_c_b_e & Angle_c_b_f + Angle_c_f_g - pi & Angle_a_c_f - Angle_a_d_f/2 => Angle_a_c_f + Angle_c_f_g - pi
-7. Angle_a_c_f + Angle_c_f_g - pi => Parallel(a,c,f,g)
+1. Collinear(b,e,f) => Angle_c_b_e + Angle_c_b_f*(-1) & Angle_a_b_e + Angle_a_b_f*(-1)
+2. Length_a_d + Length_b_d*(-1) => Length_a_d - Length_b_d
+3. Length_a_d + Length_c_d*(-1) => Length_a_d - Length_c_d
+4. Length_a_d + Length_b_d*(-1) & Length_b_d + Length_d_f*(-1) => Length_a_d + Length_d_f*(-1)
+5. Length_a_d + Length_d_f*(-1) => Length_a_d - Length_d_f
+6. Length_a_d - Length_b_d & Length_a_d - Length_c_d & Length_a_d - Length_d_f => Concyclic(a,b,c,f)
+7. Concyclic(a,b,c,f) => Angle_a_b_f + Angle_a_c_f*(-1)
+8. Length_b_d + Length_c_d*(-1) & Length_b_d + Length_d_f*(-1) => Length_c_d + Length_d_f*(-1)
+9. Length_c_d + Length_d_f*(-1) => Length_c_d - Length_d_f
+10. Length_b_d + Length_d_f*(-1) => Length_b_d - Length_d_f
+11. -Length_c_d + Length_d_f & -Length_b_d + Length_d_f & Perpendicular(d,f,f,g) => Angle_c_b_f + Angle_c_f_g*(-1)
+12. Angle_a_c_f + Angle_a_c_g*(-1) + Angle_f_c_g & Angle_c_b_e + Angle_c_b_f*(-1) & Angle_a_b_f + Angle_a_c_f*(-1) & Angle_a_b_e + Angle_c_b_e*(-1) & Angle_c_f_g + Angle_c_g_f + Angle_f_c_g - pi & Angle_c_b_f + Angle_c_f_g*(-1) & Angle_a_b_e + Angle_a_b_f*(-1) => Angle_a_c_g + Angle_c_g_f - pi
+13. Angle_a_c_g + Angle_c_g_f - pi => Parallel(a,c,f,g)

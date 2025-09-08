@@ -28,12 +28,13 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     os.makedirs(problem_output_dir, exist_ok=True)
 
     seed = random.randint(0, 65536)
-    seed = 10243
-    print(seed)
     random.seed(seed)
     np.random.seed(seed)
+    sympy.core.random.seed(seed)
+
 
     state = State()
+    # state.silent = True
     deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets["basic"]+inference_rule_sets['complex'])
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
@@ -198,7 +199,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         f.write(', '.join([str(construction) for constructions in constructions_list for construction in constructions])) 
 
     print("finished sampling, starting inference")
-    engine.run()
+    try:
+        engine.run()
+    except:
+        return
 
     if state.current_depth <= 2:
         return {"samples_generated": 0, "samples_with_auxiliary": 0}
@@ -207,8 +211,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     samples_with_auxiliary = 0
     sub_conclusions = set()
     conclusions2dir = {}
-
-    proof_generator = ProofGenerator(state)
     # filter conclusions
     conclusions = list([relation for relation in state.relations if not trivial_condition(relation) and hasattr(relation, "source")]) + [eq for eq in state.equations 
                         if eq.sources and isinstance(eq.sources[0], InferenceRule) and not isinstance(eq.sources[0], (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2)) and not type(eq.sources[0]) in inference_rule_sets["complex"]+inference_rule_sets["shape"]]
@@ -244,7 +246,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         filtered_conclusions.append(relation)
     print(f"Amount of filtered conclusions {len(filtered_conclusions)}")
     print(filtered_conclusions)
-
+    
+    """
     def get_sufficient_constructions(points):
         res = []
         target_points = set(points)
@@ -262,7 +265,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             mark_sufficient(point)
         return sorted(res, key=lambda c: c.index)
     
-    for relation in filtered_conclusions:
+
         if isinstance(relation, Relation):
             points = relation.get_points()
         else:
@@ -399,32 +402,31 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         if has_auxiliary:
             diagram.auxiliary_constructions.extend(auxiliary_constructions)
 
-        sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
-        os.makedirs(sample_dir, exist_ok=True)
-
-        diagram_sample_path = os.path.join(sample_dir, 'diagram.jpg')
-        diagram.save_path = diagram_sample_path
-
         goal_constructions = get_constructions_from_goal(relation)
         diagram.draw([], goal_constructions)
         diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True)
         diagram.restore()
-
-        problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
-
+    """
+    
+    sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
+    os.makedirs(sample_dir, exist_ok=True)
+    filtered_conclusions.sort(key=lambda x: state.condition2depth[x] if x in state.condition2depth else state.condition2depth[x.expr])
+    state.goal = filtered_conclusions[-1]
+    diagram_sample_path = os.path.join(sample_dir, 'diagram.jpg')
+    diagram.save_path = diagram_sample_path
+    proof_generator = ProofGenerator(state)
+    proof_generator.run()
+    proof = proof_generator.get_proof_str()
+    problem_constructions = sorted(constructions, key=lambda c: c.index)
+    for relation in filtered_conclusions:
         data = {
             "problem": ', '.join([str(construction) for construction in problem_constructions]),
-            "necessary_constructions": ', '.join([str(construction) for construction in necessary_constructions]),
-            "unused_constructions": ', '.join([str(construction) for construction in sufficient_constructions if construction not in necessary_constructions]),
-            "auxiliary_constructions": ', '.join([str(construction) for construction in auxiliary_constructions]),
             "goal": str(relation),
             "diagram": diagram_sample_path,
-            "proof": new_proof_str,
+            "proof": proof,
             "rank": rank,
             "problem_id": problem_id,
             "sample_id": i,
-            "has_auxiliary_constructions": has_auxiliary,
-            "num_auxiliary_constructions": len(auxiliary_constructions)
         }
 
         with open(os.path.join(sample_dir, "data.json"), "w") as f:
@@ -432,6 +434,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         
         conclusions2dir[relation] = sample_dir
         i += 1
+
     
     for relation, sample_dir in conclusions2dir.items():
         if os.path.exists(os.path.join(sample_dir, "data.json")):
@@ -450,12 +453,12 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 def main():
     rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
     timeout_seconds = int(os.environ.get("TIMEOUT_SECONDS", "3600"))
-    max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "0"))
+    max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "100"))
     base_output_dir = os.environ.get('OUTPUT_DIR', 'new_samples')
     
     os.makedirs(base_output_dir, exist_ok=True)
-
-    generate_single_problem(rank=0, problem_id=0, output_dir=base_output_dir)
+    for problem_id in range(max_problem_id):
+        generate_single_problem(rank=0, problem_id=problem_id, output_dir=base_output_dir)
 
 
 if __name__ == '__main__':

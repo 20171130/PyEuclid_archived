@@ -1,10 +1,15 @@
 Solution:
-1. Collinear(a,b,d) => Angle_b_a_m - Angle_d_a_m
-2. Length_a_o - Length_m_o & Length_a_o - Length_b_o & Perpendicular(a,e,a,o) => Angle_a_b_m - Angle_e_a_m
-3. Angle_a_b_m - Angle_b_a_m & Angle_b_a_m - Angle_d_a_m & Angle_a_b_m - Angle_e_a_m => Angle_d_a_m - Angle_e_a_m
-4. Parallel(a,o,e,m) => Angle_a_e_m + Angle_e_a_o - pi
-5. Length_a_o - Length_m_o => Angle_a_m_o - Angle_m_a_o
-6. Collinear(d,m,o) => Angle_a_m_d - Angle_a_m_o
-7. Angle_a_e_m + Angle_e_a_o - pi & Angle_a_m_o - Angle_m_a_o & Angle_a_m_d - Angle_a_m_o & Angle_a_e_m + Angle_a_m_e + Angle_e_a_m - pi & Angle_e_a_m - Angle_e_a_o + Angle_m_a_o => Angle_a_m_d - Angle_a_m_e
-8. Angle_d_a_m - Angle_e_a_m & Angle_a_m_d - Angle_a_m_e => Congruent3(a,d,m,a,e,m)
-9. Congruent3(a,d,m,a,e,m) => Length_d_m - Length_e_m
+1. Collinear(a,b,d) => Angle_b_a_m + Angle_d_a_m*(-1)
+2. Length_a_o + Length_m_o*(-1) => Length_a_o - Length_m_o
+3. Length_a_o + Length_b_o*(-1) => Length_a_o - Length_b_o
+4. Length_a_o - Length_m_o & Length_a_o - Length_b_o & Perpendicular(a,e,a,o) => Angle_a_b_m + Angle_e_a_m*(-1)
+5. Angle_b_a_m + Angle_d_a_m*(-1) & Angle_a_b_m + Angle_e_a_m*(-1) & Angle_a_b_m + Angle_b_a_m*(-1) => Angle_d_a_m + Angle_e_a_m*(-1)
+6. Angle_d_a_m + Angle_e_a_m*(-1) => Angle_d_a_m - Angle_e_a_m
+7. Parallel(a,o,e,m) => Angle_a_o_m + Angle_e_m_o - pi
+8. Length_a_o - Length_m_o => Angle_a_m_o + Angle_m_a_o*(-1)
+9. Collinear(d,m,o) => Angle_a_m_d + Angle_a_m_o*(-1)
+10. Angle_a_m_e + Angle_a_m_o + Angle_e_m_o*(-1) & Angle_a_o_m + Angle_e_m_o - pi & Angle_a_m_o + Angle_m_a_o*(-1) & Angle_a_m_d + Angle_a_m_o*(-1) & Angle_a_m_o + Angle_a_o_m + Angle_m_a_o - pi => Angle_a_m_d + Angle_a_m_e*(-1)
+11. Angle_a_m_d + Angle_a_m_e*(-1) => Angle_a_m_d - Angle_a_m_e
+12. Angle_d_a_m - Angle_e_a_m & Angle_a_m_d - Angle_a_m_e => Congruent3(a,d,m,a,e,m)
+13. Congruent3(a,d,m,a,e,m) => Length_d_m + Length_e_m*(-1)
+14. Length_d_m + Length_e_m*(-1) => Length_d_m - Length_e_m

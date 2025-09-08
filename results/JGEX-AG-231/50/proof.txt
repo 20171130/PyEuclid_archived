@@ -6,4 +6,5 @@ Solution:
 5. Midpoint(e,a,b) & Midpoint(d,b,c) => Parallel(a,c,d,e)
 6. Parallel(a,c,a,f) & Parallel(a,c,d,e) => Parallel(a,f,d,e)
 7. Parallel(a,e,d,f) & Parallel(a,f,d,e) => Parallelogram(a,e,d,f)
-8. Parallelogram(a,e,d,f) & Collinear(a,d,g) & Collinear(e,f,g) => Length_e_g - Length_f_g
+8. Parallelogram(a,e,d,f) & Collinear(a,d,g) & Collinear(e,f,g) => Length_e_g + Length_f_g*(-1)
+9. Length_e_g + Length_f_g*(-1) => Length_e_g - Length_f_g

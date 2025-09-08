@@ -1,10 +1,15 @@
 Solution:
 1. Parallel(a,b,c,d) => Trapezoid(a,b,d,c)
-2. Trapezoid(a,b,d,c) & Parallel(a,b,c,d) & Length_a_d - Length_b_c => EquilateralTrapezoid(a,b,d,c)
-3. EquilateralTrapezoid(a,b,d,c) & Parallel(a,b,c,d) => Length_a_c - Length_b_d & Angle_a_c_d - Angle_b_d_c
-4. Collinear(c,d,e) => Angle_b_d_c - Angle_b_d_e & Angle_a_c_d - Angle_a_c_e
-5. Angle_a_c_d - Angle_b_d_c & Angle_b_d_c - Angle_b_d_e & Angle_a_c_d - Angle_a_c_e => Angle_a_c_e - Angle_b_d_e
-6. Length_a_c - Length_b_d & Length_c_e - Length_d_e & Angle_a_c_e - Angle_b_d_e => Congruent3(a,c,e,b,d,e)
-7. Congruent3(a,c,e,b,d,e) => Length_a_e - Length_b_e
-8. Length_a_e - Length_b_e => IsoscelesTriangle(a,b,e)
-9. IsoscelesTriangle(a,b,e) & Length_a_e - Length_b_e & Collinear(a,b,f) & Midpoint(f,a,b) => Perpendicular(a,b,e,f)
+2. Length_a_d + Length_b_c*(-1) => Length_a_d - Length_b_c
+3. Trapezoid(a,b,d,c) & Parallel(a,b,c,d) & Length_a_d - Length_b_c => EquilateralTrapezoid(a,b,d,c)
+4. EquilateralTrapezoid(a,b,d,c) & Parallel(a,b,c,d) => Length_a_c + Length_b_d*(-1) & Angle_a_c_d + Angle_b_d_c*(-1)
+5. Length_a_c + Length_b_d*(-1) => Length_a_c - Length_b_d
+6. Length_c_e + Length_d_e*(-1) => Length_c_e - Length_d_e
+7. Collinear(c,d,e) => Angle_b_d_c + Angle_b_d_e*(-1) & Angle_a_c_d + Angle_a_c_e*(-1)
+8. Angle_b_d_c + Angle_b_d_e*(-1) & Angle_a_c_d + Angle_b_d_c*(-1) & Angle_a_c_d + Angle_a_c_e*(-1) => Angle_a_c_e + Angle_b_d_e*(-1)
+9. Angle_a_c_e + Angle_b_d_e*(-1) => Angle_a_c_e - Angle_b_d_e
+10. Length_a_c - Length_b_d & Length_c_e - Length_d_e & Angle_a_c_e - Angle_b_d_e => Congruent3(a,c,e,b,d,e)
+11. Congruent3(a,c,e,b,d,e) => Length_a_e + Length_b_e*(-1)
+12. Length_a_e + Length_b_e*(-1) => Length_a_e - Length_b_e
+13. Length_a_e - Length_b_e => IsoscelesTriangle(a,b,e)
+14. IsoscelesTriangle(a,b,e) & Length_a_e - Length_b_e & Collinear(a,b,f) & Midpoint(f,a,b) => Perpendicular(a,b,e,f)

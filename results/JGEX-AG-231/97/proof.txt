@@ -1,13 +1,15 @@
 Solution:
-1. Collinear(a,e,f) => Angle_a_f_c + Angle_c_f_e - pi & Angle_a_e_c - Angle_c_e_f
-2. Collinear(a,e,f) & Collinear(a,b,g) => Angle_b_a_e - Angle_f_a_g
-3. Collinear(c,d,f) => Parallel(c,d,c,f)
-4. Perpendicular(a,b,c,d) & Parallel(c,d,c,f) => Perpendicular(a,b,c,f)
-5. Collinear(a,b,g) => Parallel(a,b,a,g)
-6. Perpendicular(a,b,c,f) & Parallel(a,b,a,g) => Perpendicular(a,g,c,f)
-7. Perpendicular(a,g,c,f) => Angle_a_f_c - Angle_f_a_g - pi/2
-8. Collinear(b,c,e) => Parallel(b,c,c,e)
-9. Perpendicular(a,c,b,c) & Parallel(b,c,c,e) => Perpendicular(a,c,c,e)
-10. Perpendicular(a,c,c,e) => Angle_a_c_e - pi/2
-11. Angle_a_f_c + Angle_c_f_e - pi & Angle_b_a_e - Angle_f_a_g & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_b_a_e - Angle_c_a_e & Angle_a_f_c - Angle_f_a_g - pi/2 & Angle_a_e_c - Angle_c_e_f & Angle_a_c_e - pi/2 => Angle_c_e_f - Angle_c_f_e
-12. Angle_c_e_f - Angle_c_f_e => Length_c_e - Length_c_f
+1. Collinear(c,d,f) => Parallel(c,d,c,f)
+2. Perpendicular(a,b,c,d) & Parallel(c,d,c,f) => Perpendicular(a,b,c,f)
+3. Collinear(a,b,g) => Parallel(a,b,a,g)
+4. Perpendicular(a,b,c,f) & Parallel(a,b,a,g) => Perpendicular(a,g,c,f)
+5. Perpendicular(a,g,c,f) => Angle_a_f_c + Angle_f_a_g*(-1) - pi/2
+6. Collinear(a,e,f) & Collinear(a,b,g) => Angle_b_a_e + Angle_f_a_g*(-1)
+7. Collinear(b,c,e) => Parallel(b,c,c,e)
+8. Perpendicular(a,c,b,c) & Parallel(b,c,c,e) => Perpendicular(a,c,c,e)
+9. Perpendicular(a,c,c,e) => Angle_a_c_e - pi/2
+10. Collinear(a,e,f) => Angle_a_e_c + Angle_c_e_f*(-1) & Angle_a_f_c + Angle_c_f_e - pi
+11. Angle_a_f_c + Angle_f_a_g*(-1) - pi/2 & Angle_b_a_e + Angle_f_a_g*(-1) & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_b_a_c + Angle_c_a_e*(-2) & Angle_b_a_c + Angle_b_a_e*(-2) & Angle_a_c_e - pi/2 & Angle_a_e_c + Angle_c_e_f*(-1) & Angle_a_f_c + Angle_c_f_e - pi => Angle_c_e_f + Angle_c_f_e*(-1)
+12. Angle_c_e_f + Angle_c_f_e*(-1) => Angle_c_e_f - Angle_c_f_e
+13. Angle_c_e_f - Angle_c_f_e => Length_c_e + Length_c_f*(-1)
+14. Length_c_e + Length_c_f*(-1) => Length_c_e - Length_c_f

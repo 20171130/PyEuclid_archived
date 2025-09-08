@@ -6,7 +6,7 @@ from sympy import factor_list
 from itertools import combinations
 from tqdm import tqdm
 from pyeuclid.formalization.utils import *
-from stopit import ThreadingTimeout as TT
+from stopit import ThreadingTimeout as TT, SignalTimeout as ST
 
 class AlgebraicSystem:
     def __init__(self, state):
@@ -256,8 +256,9 @@ class AlgebraicSystem:
                         symbol = list(expr.free_symbols)[0]
                         solutions = []
                         try:
-                            with TT(0.1):
-                                solutions = sympy.solve(expr, symbol)
+                            with ST(1):
+                                with TT(0.1):
+                                    solutions = sympy.solve(expr, symbol)
                         except:
                             continue
                         solution = self.process_solutions(symbol, expr, solutions, var_types)
@@ -277,8 +278,7 @@ class AlgebraicSystem:
         # then try to solve equations that are not much too complicated
         for i, length_solved in enumerate([length_ratio_solved, length_linear_solved]):
             solved = angle_linear_solved | length_solved
-            pbar = tqdm(others)
-            pbar.set_description("solving non-linear equations")
+            pbar = others if self.state.silent else tqdm(others)
             for eqn in pbar:
                 if len(self.state.simplify_equation(eqn, solved).free_symbols) == 0:
                     # eqn.redundant.add('others')

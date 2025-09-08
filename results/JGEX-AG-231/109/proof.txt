@@ -1,4 +1,6 @@
 Solution:
-1. Length_a_o - Length_b_o & Length_a_o - Length_d_o => Length_b_o - Length_d_o
-2. Collinear(d,e,o) & -Length_b_o + Length_d_o & Length_d_o - Length_e_o => Perpendicular(b,d,b,e)
-3. Perpendicular(a,c,b,d) & Perpendicular(b,d,b,e) => Parallel(a,c,b,e)
+1. Length_a_o + Length_d_o*(-1) & Length_a_o + Length_b_o*(-1) => Length_b_o + Length_d_o*(-1)
+2. Length_b_o + Length_d_o*(-1) => Length_b_o - Length_d_o
+3. Length_d_o + Length_e_o*(-1) => Length_d_o - Length_e_o
+4. Collinear(d,e,o) & -Length_b_o + Length_d_o & Length_d_o - Length_e_o => Perpendicular(b,d,b,e)
+5. Perpendicular(a,c,b,d) & Perpendicular(b,d,b,e) => Parallel(a,c,b,e)

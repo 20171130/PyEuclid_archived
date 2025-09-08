@@ -1,6 +1,9 @@
 Solution:
-1. Length_c_e - Length_e_f => Angle_c_f_e - Angle_e_c_f
-2. Collinear(b,c,e) => Angle_b_c_f - Angle_e_c_f
-3. Length_b_e - Length_c_e & Length_c_e - Length_e_f => Length_b_e - Length_e_f
-4. -Length_b_e + Length_e_f & -Length_c_e + Length_e_f & Perpendicular(a,f,e,f) => Angle_a_f_b - Angle_b_c_f
-5. Angle_c_f_e - Angle_e_c_f & Angle_b_c_f - Angle_e_c_f & Angle_a_f_b - Angle_b_c_f => Angle_a_f_b - Angle_c_f_e
+1. Length_c_e + Length_e_f*(-1) => Length_c_e - Length_e_f
+2. Length_c_e - Length_e_f => Angle_c_f_e + Angle_e_c_f*(-1)
+3. Length_c_e + Length_e_f*(-1) & Length_b_e + Length_c_e*(-1) => Length_b_e + Length_e_f*(-1)
+4. Length_b_e + Length_e_f*(-1) => Length_b_e - Length_e_f
+5. -Length_b_e + Length_e_f & -Length_c_e + Length_e_f & Perpendicular(a,f,e,f) => Angle_a_f_b + Angle_b_c_f*(-1)
+6. Collinear(b,c,e) => Angle_b_c_f + Angle_e_c_f*(-1)
+7. Angle_c_f_e + Angle_e_c_f*(-1) & Angle_a_f_b + Angle_b_c_f*(-1) & Angle_b_c_f + Angle_e_c_f*(-1) => Angle_a_f_b + Angle_c_f_e*(-1)
+8. Angle_a_f_b + Angle_c_f_e*(-1) => Angle_a_f_b - Angle_c_f_e

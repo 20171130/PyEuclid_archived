@@ -1,7 +1,10 @@
 Solution:
-1. Collinear(a,c,d) & Collinear(a,c,f) => Collinear(c,d,f)
-2. Collinear(b,d,e) & Collinear(c,d,f) & Parallel(b,f,c,e) => Similar3(b,d,f,e,d,c) & Length_b_d/Length_d_f - Length_b_e/Length_c_f
-3. Similar3(b,d,f,e,d,c) => Length_b_d/Length_d_f - Length_d_e/Length_c_d
-4. Collinear(b,d,e) & Angle_b_a_e - Angle_d_a_e => Length_a_b/Length_a_d - Length_b_e/Length_d_e
-5. Length_a_b/Length_a_d - Length_b_e/Length_d_e & Length_a_d - Length_c_d => Length_a_b/Length_c_d - Length_b_e/Length_d_e
-6. Length_b_d/Length_d_f - Length_d_e/Length_c_d & Length_a_b/Length_c_d - Length_b_e/Length_d_e & Length_b_d/Length_d_f - Length_b_e/Length_c_f => Length_a_b - Length_c_f
+1. Angle_b_a_d + Angle_d_a_e*(-2) & Angle_b_a_d + Angle_b_a_e*(-2) => Angle_b_a_e - Angle_d_a_e
+2. Collinear(b,d,e) & Angle_b_a_e - Angle_d_a_e => Length_a_b/Length_a_d + Length_b_e*(-1)/Length_d_e
+3. Length_a_d + Length_c_d*(-1) & Length_a_b/Length_a_d + Length_b_e*(-1)/Length_d_e => Length_d_e/Length_c_d + Length_b_e*(-1)/Length_a_b
+4. Collinear(a,c,d) & Collinear(a,c,f) => Collinear(c,d,f)
+5. Collinear(b,d,e) & Collinear(c,d,f) & Parallel(b,f,c,e) => Similar3(b,d,f,e,d,c) & Length_b_d/Length_d_f + Length_b_e*(-1)/Length_c_f
+6. Similar3(b,d,f,e,d,c) => Length_c_d/Length_d_f + Length_d_e*(-1)/Length_b_d & Length_b_d/Length_d_f + Length_d_e*(-1)/Length_c_d
+7. Length_b_d/Length_d_f + Length_b_e*(-1)/Length_c_f => Length_c_f/Length_d_f + Length_b_e*(-1)/Length_b_d
+8. Length_d_e/Length_c_d + Length_b_e*(-1)/Length_a_b & Length_c_d/Length_d_f + Length_d_e*(-1)/Length_b_d & Length_c_f/Length_d_f + Length_b_e*(-1)/Length_b_d & Length_b_d/Length_d_f + Length_b_e*(-1)/Length_c_f & Length_b_d/Length_d_f + Length_d_e*(-1)/Length_c_d => Length_a_b + Length_c_f*(-1)
+9. Length_a_b + Length_c_f*(-1) => Length_a_b - Length_c_f
