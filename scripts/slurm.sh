@@ -4,7 +4,7 @@
 #SBATCH -n 30
 #SBATCH --time=2:00:00
 #SBATCH --cpus-per-task=2
-#SBATCH --mem-per-cpu=4G
+#SBATCH --mem-per-cpu=16G
 
 export PYTHONBREAKPOINT=0
 

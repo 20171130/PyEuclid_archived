@@ -27,6 +27,15 @@ class ConstructionQ(ConstructionRule):
     
     def point2coord(self, point):
         return self.diagram.name2point[point.name]
+    
+    def __str__(self):
+        class_name = self.__class__.__name__
+        params = self.inputs + getattr(self, "params", [])
+        inputs = ",".join([str(item) for item in params]) 
+        outputs = ",".join(str(out) for out in self.outputs)
+        return f"{outputs} = {class_name}({inputs})"
+        
+
         
 @register("independent")
 class construct_segment_q(ConstructionQ):
@@ -43,6 +52,7 @@ class construct_segment_q(ConstructionQ):
     def sample(self, angle_values=[], length_values=[]):
         ab = sample_length()
         self.ab = ab
+        self.params = [ab]
         return [ab], []
 
     def conclusions(self):
@@ -72,6 +82,7 @@ class construct_square_q(ConstructionQ):
     def sample(self, angle_values=[], length_values=[]):
         l = sample_length()
         self.l = l
+        self.params = [l]
         return [self.l], [pi/2]
 
     def construct(self, a: Point, b: Point, c: Point, d: Point):
@@ -116,6 +127,7 @@ class construct_rectangle_q(ConstructionQ):
         w = sample_length()
         self.h = h
         self.w = w
+        self.params = [h, w]
         return [self.h, self.w], [pi/2]
 
     def conclusions(self):
@@ -155,6 +167,7 @@ class construct_angle_clockwise(ConstructionQ):
     
     def sample(self, angle_values=[], length_values=[]):
         self.xab = sample_angle(special_values=angle_values)
+        self.params = [self.xab]
         return [], [self.xab]
 
     def conditions(self):
@@ -199,6 +212,7 @@ class construct_angle_counterclockwise(ConstructionQ):
     
     def sample(self, angle_values=[], length_values=[]):
         self.xab = sample_angle(special_values=angle_values)
+        self.parmas = [self.xab]
         return [], [self.xab]
 
     def conditions(self):
@@ -238,6 +252,7 @@ class construct_point_on_circle(ConstructionQ):
     def sample(self, angle_values=[], length_values=[]):
         r = sample_length(special_values=length_values)
         self.r = r
+        self.params = [r]
         return [self.r], []
         
     def construct(self, x: Point):
@@ -269,6 +284,7 @@ class construct_point_on_line(ConstructionQ):
     def sample(self, angle_values=[], length_values=[]):
         l = sample_length(special_values=length_values)
         self.l = l
+        self.params = [l]
         return [self.l], []
     
     def conditions(self):

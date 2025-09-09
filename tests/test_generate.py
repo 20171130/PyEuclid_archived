@@ -34,7 +34,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
 
     state = State()
-    # state.silent = True
+    state.silent = True
     deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets["basic"]+inference_rule_sets['complex'])
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
@@ -275,7 +275,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         sufficient_constructions = get_sufficient_constructions(points)
         new_state = State()
         new_state.silent = True
-        new_state.goal = relation.expr if isinstance(relation, Traced) else relation
         new_state.diagram = diagram
         new_state.add_constructions(sufficient_constructions)
         new_deductive_database = DeductiveDatabase(new_state)
@@ -411,7 +410,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
     filtered_conclusions.sort(key=lambda x: state.condition2depth[x] if x in state.condition2depth else state.condition2depth[x.expr])
-    state.goal = filtered_conclusions[-1]
+    goal = filtered_conclusions[-1]
+    state.goal = goal.expr if isinstance(goal, Traced) else relation
     diagram_sample_path = os.path.join(sample_dir, 'diagram.jpg')
     diagram.save_path = diagram_sample_path
     proof_generator = ProofGenerator(state)
@@ -451,14 +451,16 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     }
 
 def main():
-    rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
     timeout_seconds = int(os.environ.get("TIMEOUT_SECONDS", "3600"))
     max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "100"))
     base_output_dir = os.environ.get('OUTPUT_DIR', 'new_samples')
-    
+    from mpi4py import MPI
+
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
     os.makedirs(base_output_dir, exist_ok=True)
     for problem_id in range(max_problem_id):
-        generate_single_problem(rank=0, problem_id=problem_id, output_dir=base_output_dir)
+        generate_single_problem(rank=rank, problem_id=problem_id, output_dir=base_output_dir)
 
 
 if __name__ == '__main__':
