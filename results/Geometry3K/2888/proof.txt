@@ -1,0 +1,16 @@
+Solution:
+1. Length_F_G - Variable_radius_F & Length_F_J - Variable_radius_F => Length_F_G - Length_F_J
+2. Length_F_G - Length_F_J => IsoscelesTriangle(F,G,J)
+3. Collinear(F,H,L) => Parallel(F,H,H,L)
+4. Perpendicular(H,J,H,L) & Parallel(F,H,H,L) => Perpendicular(F,H,H,J)
+5. Collinear(G,H,J) => Parallel(G,J,H,J) & Parallel(G,H,H,J)
+6. Perpendicular(F,H,H,J) & Parallel(G,J,H,J) => Perpendicular(F,H,G,J)
+7. IsoscelesTriangle(F,G,J) & Length_F_G - Length_F_J & Collinear(G,H,J) & Perpendicular(F,H,G,J) => Midpoint(H,G,J)
+8. Midpoint(H,G,J) => Length_G_J - 2*Length_H_J
+9. Perpendicular(F,H,H,J) & Parallel(G,H,H,J) => Perpendicular(F,H,G,H)
+10. Perpendicular(F,H,G,H) => Angle_F_H_G - pi/2
+11. Length_F_G - Variable_radius_F & Length_F_K - 17 & Length_F_K - Variable_radius_F => Length_F_G - 17
+12. IsoscelesTriangle(F,G,J) & Length_F_G - Length_F_J & Perpendicular(F,H,G,J) => Length_G_H - Length_H_J
+13. Length_F_G**2 - Length_F_H**2 + 2*Length_F_H*Length_G_H*cos(Angle_F_H_G) - Length_G_H**2 & Angle_F_H_G - pi/2 & Length_F_G - 17 & Length_F_H - 8 & Length_G_H - Length_H_J => Length_H_J - 15
+14. Length_G_J - 2*Length_H_J => Length_G_J/Length_H_J - 2
+15. Length_G_J - 2*Length_H_J & Length_H_J - 15 & Length_G_J/Length_H_J - 2 => Length_G_J - 30

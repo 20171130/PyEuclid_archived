@@ -1,0 +1,20 @@
+Solution:
+1. Length_N_R - Variable_radius_R & Length_J_R - Variable_radius_R => Length_J_R - Length_N_R
+2. Length_J_P - Length_N_P & -Length_J_R + Length_N_R => Kite(J,P,N,R)
+3. Kite(J,P,N,R) & Length_J_P - Length_N_P & -Length_J_R + Length_N_R => Angle_J_R_P - Angle_N_R_P
+4. Length_L_R - Variable_radius_R & Length_J_R - Variable_radius_R => Length_J_R - Length_L_R
+5. Length_J_K - Length_K_L & -Length_J_R + Length_L_R => Kite(J,K,L,R)
+6. Kite(J,K,L,R) & Length_J_K - Length_K_L & -Length_J_R + Length_L_R => Perpendicular(J,L,K,R) & Angle_J_R_K - Angle_K_R_L
+7. Perpendicular(J,L,K,R) => Angle_J_L_R + Angle_K_R_L - pi/2
+8. Length_N_R - Variable_radius_R & Length_L_R - Variable_radius_R => Length_L_R - Length_N_R
+9. -Length_J_R + Length_L_R & Length_L_R - Length_N_R => Angle_J_L_N - Angle_J_R_N/2
+10. Length_M_R - Variable_radius_R & Length_K_R - Variable_radius_R => Length_K_R - Length_M_R
+11. Length_K_L - Length_L_M & -Length_K_R + Length_M_R => Kite(K,L,M,R)
+12. Kite(K,L,M,R) & Length_K_L - Length_L_M & -Length_K_R + Length_M_R => Angle_K_R_L - Angle_L_R_M
+13. Length_L_M - Length_M_N & -Length_L_R + Length_N_R => Kite(L,M,N,R)
+14. Kite(L,M,N,R) & Length_L_M - Length_M_N & -Length_L_R + Length_N_R => Perpendicular(L,N,M,R)
+15. Perpendicular(L,N,M,R) => Angle_L_R_M + Angle_N_L_R - pi/2
+16. Length_P_R - Variable_radius_R & Length_K_R - Variable_radius_R => Length_K_R - Length_P_R
+17. Length_J_K - Length_J_P & -Length_K_R + Length_P_R => Kite(J,K,R,P)
+18. Kite(J,K,R,P) & Length_J_K - Length_J_P & -Length_K_R + Length_P_R => Angle_J_R_K - Angle_J_R_P
+19. Angle_J_R_P - Angle_N_R_P & Angle_J_L_R + Angle_K_R_L - pi/2 & Angle_J_L_N - Angle_J_R_N/2 & Angle_K_R_L - Angle_L_R_M & Angle_J_L_N - Angle_J_L_R - Angle_N_L_R & Angle_L_R_M + Angle_N_L_R - pi/2 & Angle_J_R_K - Angle_J_R_P & Angle_J_R_N - Angle_J_R_P - Angle_N_R_P & Angle_J_R_K - Angle_K_R_L => Angle_K_R_L - pi/3

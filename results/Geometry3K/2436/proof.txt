@@ -1,0 +1,2 @@
+Solution:
+1. Angle_B_A_C - 5*pi/36 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - 2*pi/9 & Angle_A_C_B - pi*Variable_x/180 => Variable_x - 115

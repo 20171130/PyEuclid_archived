@@ -1,0 +1,6 @@
+Solution:
+1. Length_M_Q - 5 & Length_M_N - 6 => -5/6 + Length_M_Q/Length_M_N
+2. Collinear(M,N,O) & Collinear(M,P,Q) & Parallel(N,Q,O,P) => Length_M_N/Length_M_Q - Length_N_O/Length_P_Q
+3. Length_N_O - 18/5 & Length_M_N - 6 => Length_M_N/Length_N_O - 5/3 & -3/5 + Length_N_O/Length_M_N
+4. -5/6 + Length_M_Q/Length_M_N & Length_M_N/Length_M_Q - Length_N_O/Length_P_Q & Length_M_N/Length_N_O - 5/3 & -3/5 + Length_N_O/Length_M_N => -1/2 + Length_P_Q/Length_M_N & Length_M_N - 2*Length_P_Q
+5. -1/2 + Length_P_Q/Length_M_N & Length_M_N - 2*Length_P_Q & Length_M_N - 6 => Length_P_Q - 3

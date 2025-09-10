@@ -1,0 +1,22 @@
+Solution:
+1. Similar3(A,B,C,D,E,F) => Length_A_B/Length_A_C - Length_D_E/Length_D_F & Angle_B_A_C - Angle_E_D_F & Length_E_F/Length_D_F - Length_B_C/Length_A_C & Angle_A_C_B - Angle_D_F_E
+2. Midpoint(H,D,F) => Length_D_F - 2*Length_D_H & Length_D_F - 2*Length_F_H
+3. Midpoint(G,A,C) => Length_A_C - 2*Length_A_G & Length_A_C - 2*Length_C_G
+4. Length_A_B/Length_A_C - Length_D_E/Length_D_F & Length_D_F - 2*Length_D_H & Length_A_C - 2*Length_A_G => Length_A_B/Length_A_G - Length_D_E/Length_D_H
+5. Length_A_B/Length_A_G - Length_D_E/Length_D_H => Length_A_B/Length_D_E - Length_A_G/Length_D_H
+6. Collinear(A,C,G) => Angle_B_A_C - Angle_B_A_G & Angle_A_C_B - Angle_B_C_G
+7. Collinear(D,F,H) => Angle_E_D_F - Angle_E_D_H & Angle_D_F_E - Angle_E_F_H
+8. Angle_B_A_C - Angle_E_D_F & Angle_B_A_C - Angle_B_A_G & Angle_E_D_F - Angle_E_D_H => Angle_B_A_G - Angle_E_D_H
+9. Length_A_B/Length_D_E - Length_A_G/Length_D_H & Angle_B_A_G - Angle_E_D_H => Similar3(A,B,G,D,E,H)
+10. Similar3(A,B,G,D,E,H) => Length_A_G/Length_D_H - Length_B_G/Length_E_H
+11. Length_E_F - 15 & Length_B_C - 30 => Length_B_C/Length_E_F - 2 & Length_B_C - 2*Length_E_F
+12. Length_E_F/Length_D_F - Length_B_C/Length_A_C & Length_B_C/Length_E_F - 2 & Length_D_F - 2*Length_F_H & Length_B_C - 2*Length_E_F & Length_A_C - 2*Length_A_G => -1/2 + Length_F_H/Length_A_G & Length_A_G/Length_F_H - 2
+13. Length_B_C - 30 & Length_B_G - 15 => Length_B_C/Length_B_G - 2 & Length_B_C - 2*Length_B_G
+14. Length_E_F/Length_D_F - Length_B_C/Length_A_C & Length_B_C/Length_E_F - 2 & Length_B_C - 2*Length_E_F & Length_D_F - 2*Length_D_H & Length_A_C - 2*Length_C_G => Length_C_G - 2*Length_D_H & -1/2 + Length_D_H/Length_C_G
+15. Length_E_F/Length_D_F - Length_B_C/Length_A_C & Length_D_F - 2*Length_F_H & Length_A_C - 2*Length_C_G => Length_F_H/Length_E_F - Length_C_G/Length_B_C
+16. Length_F_H/Length_E_F - Length_C_G/Length_B_C => Length_B_C/Length_E_F - Length_C_G/Length_F_H
+17. Angle_A_C_B - Angle_D_F_E & Angle_A_C_B - Angle_B_C_G & Angle_D_F_E - Angle_E_F_H => Angle_B_C_G - Angle_E_F_H
+18. Length_B_C/Length_E_F - Length_C_G/Length_F_H & Angle_B_C_G - Angle_E_F_H => Similar3(B,C,G,E,F,H)
+19. Similar3(B,C,G,E,F,H) => Length_F_H/Length_E_H - Length_C_G/Length_B_G
+20. Length_A_G/Length_D_H - Length_B_G/Length_E_H & -1/2 + Length_F_H/Length_A_G & Length_A_G/Length_F_H - 2 & Length_B_C/Length_B_G - 2 & Length_C_G - 2*Length_D_H & -1/2 + Length_D_H/Length_C_G & Length_B_C - 2*Length_B_G & Length_F_H/Length_E_H - Length_C_G/Length_B_G => Length_B_C - 4*Length_E_H & Length_B_C/Length_E_H - 4
+21. Length_B_C - 4*Length_E_H & Length_B_C/Length_E_H - 4 & Length_B_C - 30 => Length_E_H - 15/2

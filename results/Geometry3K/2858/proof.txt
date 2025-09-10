@@ -1,0 +1,13 @@
+Solution:
+1. Kite(F,G,H,J) & Length_F_G - Length_F_J & -Length_G_H + Length_H_J => Perpendicular(F,H,G,J)
+2. Collinear(A,F,H) => Parallel(A,H,F,H) & Parallel(A,F,F,H)
+3. Perpendicular(F,H,G,J) & Parallel(A,H,F,H) => Perpendicular(A,H,G,J)
+4. Perpendicular(A,H,G,J) & Collinear(A,G,J) => Area_G_H_J - Length_A_H*Length_G_J/2
+5. Length_F_G - Length_F_J => IsoscelesTriangle(F,G,J)
+6. Perpendicular(F,H,G,J) & Parallel(A,F,F,H) => Perpendicular(A,F,G,J)
+7. IsoscelesTriangle(F,G,J) & Length_F_G - Length_F_J & Perpendicular(A,F,G,J) => Length_A_G - Length_A_J
+8. Collinear(A,G,J) => Length_A_G + Length_A_J - Length_G_J
+9. Length_A_G - Length_A_J & Length_A_G + Length_A_J - Length_G_J & Length_A_G - 12 => Length_G_J - 24
+10. Area_G_H_J - Length_A_H*Length_G_J/2 & Length_G_J - 24 & Length_A_H - 15 => Area_G_H_J - 180
+11. Area_G_H_J**2 - (-Length_G_H/2 + Length_G_J/2 + Length_H_J/2)*(Length_G_H/2 - Length_G_J/2 + Length_H_J/2)*(Length_G_H/2 + Length_G_J/2 - Length_H_J/2)*(Length_G_H/2 + Length_G_J/2 + Length_H_J/2) & Area_G_H_J - 180 & Length_G_J - 24 & Length_G_H - Length_H_J => Length_H_J - 3*sqrt(41)
+12. Length_H_J - 3*sqrt(41) & Length_G_H - Length_H_J => Length_G_H - 3*sqrt(41)

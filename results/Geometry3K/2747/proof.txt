@@ -1,0 +1,2 @@
+Solution:
+1. Length_A_B - Length_B_C & Length_A_B - 2*Variable_x - 5 & Length_B_C - 3*Variable_x + 4 => Length_A_B - 23

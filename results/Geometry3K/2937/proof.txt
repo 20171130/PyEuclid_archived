@@ -1,0 +1,5 @@
+Solution:
+1. Perpendicular(M,P,N,P) => Angle_M_P_N - pi/2
+2. Angle_M_N_P + Angle_M_P_N + Angle_N_M_P - pi & Angle_M_P_N - pi/2 => Angle_M_N_P + Angle_N_M_P - pi/2
+3. sin(Angle_N_M_P)/Length_N_P - sin(Angle_M_N_P)/Length_M_P & Angle_M_N_P + Angle_N_M_P - pi/2 & Length_M_P - 36 & Length_N_P - 15 => Angle_N_M_P - atan(5/12)
+4. Angle_N_M_P - atan(5/12) => tan(Angle_N_M_P) - 5/12

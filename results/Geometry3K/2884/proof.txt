@@ -1,0 +1,8 @@
+Solution:
+1. Collinear(W,Y,Z) => Angle_T_W_Y - Angle_T_W_Z & Angle_W_Y_X - Angle_X_Y_Z
+2. Perpendicular(T,W,W,X) & Perpendicular(W,X,X,Y) => Parallel(T,W,X,Y)
+3. Perpendicular(T,Y,X,Y) & Perpendicular(W,X,X,Y) => Parallel(T,Y,W,X)
+4. Parallel(T,W,X,Y) & Parallel(T,Y,W,X) => Parallelogram(T,W,X,Y)
+5. Parallelogram(T,W,X,Y) => Angle_T_W_Y - Angle_W_Y_X
+6. Angle_X_Y_Z - 19*pi/90 & Angle_T_W_Y - Angle_T_W_Z & Angle_T_W_Y - Angle_W_Y_X & Angle_W_Y_X - Angle_X_Y_Z => Angle_T_W_Z - 19*pi/90
+7. Angle_T_W_Z - Variable_angle_3 & Angle_T_W_Z - 19*pi/90 => Variable_angle_3 - 19*pi/90

@@ -1,0 +1,11 @@
+Solution:
+1. Length_H_M - 9 & Length_H_L - 9 => Length_H_L - Length_H_M
+2. Length_H_L - Length_H_M => IsoscelesTriangle(H,L,M)
+3. Collinear(L,M,P) => Parallel(L,M,M,P) & Parallel(L,P,M,P)
+4. Perpendicular(H,P,M,P) & Parallel(L,M,M,P) => Perpendicular(H,P,L,M)
+5. IsoscelesTriangle(H,L,M) & Length_H_L - Length_H_M & Collinear(L,M,P) & Perpendicular(H,P,L,M) => Midpoint(P,L,M)
+6. Midpoint(P,L,M) => Length_L_M - 2*Length_L_P
+7. Length_L_M - 12 & Length_L_M - 2*Length_L_P => Length_L_P - 6
+8. Perpendicular(H,P,M,P) & Parallel(L,P,M,P) => Perpendicular(H,P,L,P)
+9. Perpendicular(H,P,L,P) => Angle_H_P_L - pi/2
+10. Length_H_L**2 - Length_H_P**2 + 2*Length_H_P*Length_L_P*cos(Angle_H_P_L) - Length_L_P**2 & Length_H_L - 9 & Length_L_P - 6 & Angle_H_P_L - pi/2 => Length_H_P - 3*sqrt(5)

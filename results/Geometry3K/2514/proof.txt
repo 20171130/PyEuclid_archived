@@ -1,0 +1,5 @@
+Solution:
+1. Angle_B_A_C - 97*pi/180 & Angle_A_C_B - 7*pi/60 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_A_B_C - 31*pi/90
+2. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_B_C)/Length_A_C & Angle_A_B_C - 31*pi/90 & Angle_B_A_C - 97*pi/180 & Length_B_C - 16 => Length_A_C - 14.2332540027297
+3. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_B_C - 31*pi/90 & Angle_A_C_B - 7*pi/60 & Length_A_B - Variable_x => Length_A_C - 2.46380178243958*Variable_x
+4. Length_A_C - 14.2332540027297 & Length_A_C - 2.46380178243958*Variable_x => Variable_x - 5.77694768474289

@@ -1,0 +1,6 @@
+Solution:
+1. Collinear(C,D,R) => Length_C_D + Length_C_R - Length_D_R
+2. Collinear(C,D,S) => Length_C_D - Length_C_S + Length_D_S
+3. Length_C_S - 15 & Length_D_R - 10 => Length_C_S - 3*Length_D_R/2
+4. Length_C_S - 15 & Length_D_S - 9 => Length_C_S - 5*Length_D_S/3
+5. Length_C_D + Length_C_R - Length_D_R & Length_C_D - Length_C_S + Length_D_S & Length_C_S - 3*Length_D_R/2 & Length_D_R - 10 & Length_C_S - 5*Length_D_S/3 => Length_C_R - 4

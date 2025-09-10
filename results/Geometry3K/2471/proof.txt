@@ -1,0 +1,6 @@
+Solution:
+1. Rhombus(L,M,P,Q) => Length_L_M - Length_M_P & Length_L_Q - Length_M_P & Length_M_P - Length_P_Q
+2. Length_M_P - 10 & Length_L_M - Length_M_P => Length_L_M - 10
+3. Length_L_Q - Length_M_P & Length_M_P - 10 => Length_L_Q - 10
+4. Length_M_P - Length_P_Q & Length_M_P - 10 => Length_P_Q - 10
+5. Length_L_M - 10 & Length_L_Q - 10 & Length_P_Q - 10 & Length_M_P - 10 => Length_L_M + Length_L_Q + Length_M_P + Length_P_Q - 40

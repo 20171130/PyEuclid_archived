@@ -1,0 +1,10 @@
+Solution:
+1. Length_L_M - Length_L_N => IsoscelesTriangle(L,M,N)
+2. IsoscelesTriangle(L,M,N) & Length_L_M - Length_M_N & Angle_L_M_P - Angle_N_M_P => Perpendicular(L,N,M,P)
+3. Collinear(L,N,P) => Parallel(L,N,L,P) & Parallel(L,N,N,P) & Angle_L_P_M + Angle_M_P_N - pi
+4. Perpendicular(L,N,M,P) & Parallel(L,N,L,P) => Perpendicular(L,P,M,P)
+5. Perpendicular(L,P,M,P) => Angle_L_P_M - pi/2
+6. Perpendicular(L,N,M,P) & Parallel(L,N,N,P) => Perpendicular(M,P,N,P)
+7. Perpendicular(M,P,N,P) => Angle_M_P_N - pi/2
+8. Angle_L_P_M - pi/2 & Angle_M_P_N - pi/2 => Angle_L_P_M - Angle_M_P_N
+9. Angle_L_P_M - Angle_M_P_N & Angle_L_P_M + Angle_M_P_N - pi & Angle_L_P_M - pi*Variable_y/36 => Variable_y - 18

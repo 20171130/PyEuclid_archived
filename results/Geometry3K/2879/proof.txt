@@ -1,0 +1,2 @@
+Solution:
+1. Variable_angle_2 - 67*pi/180 & Variable_angle_1 + Variable_angle_2 - pi => Variable_angle_1 - 113*pi/180

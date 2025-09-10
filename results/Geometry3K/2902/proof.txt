@@ -1,0 +1,5 @@
+Solution:
+1. Collinear(X,Y,Z) => Parallel(X,Y,X,Z)
+2. Perpendicular(W,X,X,Z) & Parallel(X,Y,X,Z) => Perpendicular(W,X,X,Y)
+3. Perpendicular(W,X,X,Y) => Angle_W_X_Y - pi/2
+4. Angle_W_X_Y - pi*(Variable_y/9 + 1/18) & Angle_W_X_Y - pi/2 => Variable_y - 4

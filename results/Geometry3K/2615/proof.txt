@@ -1,0 +1,5 @@
+Solution:
+1. Length_E_F - Length_E_G & Length_E_F - Length_F_G => EquilateralTriangle(E,F,G)
+2. EquilateralTriangle(E,F,G) => Angle_F_E_G - pi/3
+3. Angle_F_E_G - pi/3 & Angle_F_E_G - Angle_F_E_H - Angle_G_E_H & Angle_F_E_H - Angle_G_E_H => Angle_G_E_H - pi/6
+4. Angle_G_E_H - pi/6 & Angle_G_E_H - Variable_angle_2 => Variable_angle_2 - pi/6

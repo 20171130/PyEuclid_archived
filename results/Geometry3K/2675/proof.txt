@@ -1,0 +1,3 @@
+Solution:
+1. Collinear(D,E,F) => Angle_A_F_D + Angle_A_F_E - pi
+2. Angle_A_F_D + Angle_A_F_E - pi & Angle_A_F_D - 5*pi/18 => Angle_A_F_E - 13*pi/18

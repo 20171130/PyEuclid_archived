@@ -1,0 +1,8 @@
+Solution:
+1. Similar3(R,U,W,S,T,V) => Length_R_U/Length_U_W - Length_S_T/Length_T_V & Length_T_V/Length_S_V - Length_U_W/Length_R_W
+2. Length_U_W - 21 & Length_T_V - 18 => Length_T_V/Length_U_W - 6/7 & Length_T_V - 6*Length_U_W/7
+3. Length_R_U/Length_U_W - Length_S_T/Length_T_V & Length_T_V/Length_U_W - 6/7 & Length_T_V - 6*Length_U_W/7 => Length_R_U - 7*Length_S_T/6
+4. Length_S_V - 12 & Length_T_V - 18 => Length_S_V - 2*Length_T_V/3 & Length_S_V/Length_T_V - 2/3
+5. Length_U_W - 21 & Length_S_T - 24 => Length_S_T/Length_U_W - 8/7 & -7/8 + Length_U_W/Length_S_T
+6. Length_T_V/Length_S_V - Length_U_W/Length_R_W & Length_S_V - 2*Length_T_V/3 & Length_S_V/Length_T_V - 2/3 & Length_S_T/Length_U_W - 8/7 & -7/8 + Length_U_W/Length_S_T => Length_R_W - 7*Length_S_T/12
+7. Length_R_U - 7*Length_S_T/6 & Length_U_W - 21 & Length_R_W - 7*Length_S_T/12 & Length_S_T - 24 => Length_R_U + Length_R_W + Length_U_W - 63

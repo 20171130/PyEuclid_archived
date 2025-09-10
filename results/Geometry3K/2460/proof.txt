@@ -1,0 +1,5 @@
+Solution:
+1. Rhombus(L,M,R,P) => Angle_M_L_P - Angle_M_R_P
+2. Rectangle(J,K,L,M) => Angle_J_M_L - Angle_K_L_M & Parallel(J,M,K,L)
+3. Parallel(J,M,K,L) => Angle_J_M_L + Angle_K_L_M - pi
+4. Angle_M_L_P - Angle_M_R_P & Angle_K_L_M - Angle_K_L_P + Angle_M_L_P & Angle_M_R_P - 7*pi/18 & Angle_J_M_L - Angle_K_L_M & Angle_J_M_L + Angle_K_L_M - pi => Angle_K_L_P - 8*pi/9

@@ -1,0 +1,9 @@
+Solution:
+1. Length_A_C - Variable_radius_A & Length_A_B - Variable_radius_A => Length_A_B - Length_A_C
+2. Length_A_B - Variable_radius_A & Length_A_D - Variable_radius_A => Length_A_B - Length_A_D
+3. Length_A_E - Variable_radius_A & Length_A_B - Variable_radius_A => Length_A_B - Length_A_E
+4. Length_A_B - Length_A_C & Length_A_B - Length_A_D & Length_A_B - Length_A_E => Concyclic(B,C,D,E)
+5. Concyclic(B,C,D,E) & Collinear(B,C,F) & Collinear(D,E,F) => Length_B_F/Length_D_F - Length_E_F/Length_C_F
+6. Length_B_F/Length_D_F - Length_E_F/Length_C_F => Length_C_F/Length_E_F - Length_D_F/Length_B_F
+7. Length_B_F - Variable_x & Length_C_F/Length_E_F - Length_D_F/Length_B_F & Length_E_F - 4 & Length_D_F - 5 => Length_C_F - 20/Variable_x
+8. Length_C_F - 20/Variable_x & Length_C_F - Variable_x - 8 => Variable_x - 2

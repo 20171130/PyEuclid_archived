@@ -1,0 +1,4 @@
+Solution:
+1. Collinear(B,C,K) => Length_B_C - Length_B_K + Length_C_K
+2. Length_B_C - 27/5 & Length_B_K - 8 => Length_B_C - 27*Length_B_K/40
+3. Length_B_C - Length_B_K + Length_C_K & Length_B_C - 27*Length_B_K/40 & Length_B_K - 8 => Length_C_K - 13/5

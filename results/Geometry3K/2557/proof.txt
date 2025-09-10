@@ -1,0 +1,15 @@
+Solution:
+1. Length_C_F - 6 & Length_C_E - Variable_radius_C & Length_C_F - Variable_radius_C => Length_C_E - 6
+2. Length_A_E - 8 & Length_B_E - 8 => Length_A_E - Length_B_E
+3. Length_A_E - Length_B_E & Collinear(A,B,E) => Midpoint(E,A,B)
+4. Angle_A_E_C - pi/2 => Perpendicular(A,E,C,E)
+5. Collinear(A,B,E) => Parallel(A,B,A,E) & Length_A_B - Length_A_E - Length_B_E
+6. Perpendicular(A,E,C,E) & Parallel(A,B,A,E) => Perpendicular(A,B,C,E)
+7. Midpoint(E,A,B) & Perpendicular(A,B,C,E) => Length_A_C - Length_B_C
+8. Length_A_B - Length_A_E - Length_B_E & Length_A_E - 8 & Length_B_E - 8 => Length_A_B - 16
+9. Collinear(A,C,F) => Length_A_C - Length_A_F - Length_C_F
+10. Length_C_F - 6 & Length_B_E - 8 => Length_B_E/Length_C_F - 4/3
+11. Midpoint(E,A,B) => Length_A_B - 2*Length_B_E
+12. Length_B_E/Length_C_F - 4/3 & Length_A_B - 2*Length_B_E => Length_A_B - 8*Length_C_F/3
+13. Length_A_C - Length_B_C & Length_A_B - 16 & Length_A_F - Variable_x & Length_A_C - Length_A_F - Length_C_F & Length_A_B - 8*Length_C_F/3 => Length_B_C - Variable_x - 6
+14. Length_B_C**2 - Length_B_E**2 + 2*Length_B_E*Length_C_E*cos(Angle_B_E_C) - Length_C_E**2 & Length_C_E - 6 & Length_B_C - Variable_x - 6 & Length_B_E - 8 & Angle_B_E_C - pi/2 => Variable_x - 4

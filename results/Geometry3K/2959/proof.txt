@@ -1,0 +1,16 @@
+Solution:
+1. Perpendicular(A,X,B,X) => Angle_A_X_B - pi/2
+2. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
+3. Angle_A_X_B - pi/2 & Angle_A_B_C - pi/2 => Angle_A_B_C - Angle_A_X_B
+4. Collinear(A,C,X) => Angle_B_A_C - Angle_B_A_X & Parallel(A,X,C,X)
+5. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_X_B - pi/2 & Angle_A_B_X + Angle_A_X_B + Angle_B_A_X - pi & Angle_B_A_C - Angle_B_A_X & Angle_A_B_C - pi/2 => Angle_A_B_X - Angle_A_C_B
+6. Angle_A_B_C - Angle_A_X_B & -Angle_A_B_X + Angle_A_C_B => Similar3(A,B,C,A,X,B)
+7. Similar3(A,B,C,A,X,B) => Length_A_B/Length_A_X - Length_A_C/Length_A_B
+8. Length_C_X - Variable_x & Length_A_C - 7*Variable_x => Length_A_C/Length_C_X - 7 & Length_A_C - 7*Length_C_X & -1/7 + Length_C_X/Length_A_C
+9. Perpendicular(A,X,B,X) & Parallel(A,X,C,X) => Perpendicular(B,X,C,X)
+10. Perpendicular(B,X,C,X) => Angle_B_X_C - pi/2
+11. Angle_A_B_C - Angle_A_B_X - Angle_C_B_X & Angle_B_C_X + Angle_B_X_C + Angle_C_B_X - pi & Angle_B_X_C - pi/2 & Angle_A_B_C - pi/2 => Angle_A_B_X - Angle_B_C_X
+12. Angle_A_X_B - pi/2 & Angle_B_X_C - pi/2 => Angle_A_X_B - Angle_B_X_C
+13. Angle_A_B_X - Angle_B_C_X & Angle_A_X_B - Angle_B_X_C => Similar3(A,B,X,B,C,X)
+14. Similar3(A,B,X,B,C,X) => Length_A_X/Length_B_X - Length_B_X/Length_C_X
+15. Length_A_B/Length_A_X - Length_A_C/Length_A_B & Length_A_C/Length_C_X - 7 & Length_A_X/Length_B_X - Length_B_X/Length_C_X & Length_A_B - Variable_z & Length_B_X - 36 & Length_A_C - 7*Length_C_X & -1/7 + Length_C_X/Length_A_C => Variable_z - 36*sqrt(7)

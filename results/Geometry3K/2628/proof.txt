@@ -1,0 +1,9 @@
+Solution:
+1. Length_B_R - Variable_radius_B & Length_B_T - Variable_radius_B => Length_B_R - Length_B_T
+2. Length_B_S - Variable_radius_B & Length_B_T - Variable_radius_B => Length_B_S - Length_B_T
+3. -Length_B_R + Length_B_T & -Length_B_S + Length_B_T => Angle_R_B_S - 2*Angle_R_T_S
+4. Length_B_R - Variable_radius_B & Length_B_S - Variable_radius_B => Length_B_R - Length_B_S
+5. Length_B_R - Length_B_S & Length_B_R - Length_B_T => Angle_S_B_T - 2*Angle_S_R_T
+6. Collinear(B,R,T) => Angle_R_B_S + Angle_S_B_T - pi
+7. Angle_R_B_S - 2*Angle_R_T_S & Angle_R_T_S - pi*Variable_x/90 & Angle_S_B_T - 2*Angle_S_R_T & Angle_R_B_S + Angle_S_B_T - pi & Angle_S_R_T - pi*Variable_x/180 => Angle_R_T_S - pi/3
+8. Angle_R_T_S - pi/3 & Angle_R_T_S - pi*Variable_x/90 => Variable_x - 30

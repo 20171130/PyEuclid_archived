@@ -1,0 +1,7 @@
+Solution:
+1. Length_R_S - 7 & Length_S_T - 7 => Length_R_S - Length_S_T
+2. Length_R_S - Length_S_T & Collinear(R,S,T) => Midpoint(S,R,T)
+3. Collinear(R,S,T) => Parallel(R,T,S,T)
+4. Perpendicular(Q,S,S,T) & Parallel(R,T,S,T) => Perpendicular(Q,S,R,T)
+5. Midpoint(S,R,T) & Perpendicular(Q,S,R,T) => Length_Q_R - Length_Q_T
+6. Length_Q_R - Variable_x - 3 & Length_Q_T - 2*Variable_x + 6 & Length_Q_R - Length_Q_T => Length_Q_T - 12

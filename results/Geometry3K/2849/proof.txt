@@ -1,0 +1,2 @@
+Solution:
+1. Length_I_P + 3*Variable_y - 12 & Length_D_P - Length_I_P & Length_D_P + 5*Variable_y - 16 => Variable_y - 2

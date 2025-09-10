@@ -1,0 +1,9 @@
+Solution:
+1. Length_Q_R - 35 & Length_Q_S - 12 => -12/35 + Length_Q_S/Length_Q_R & Length_Q_R - 35*Length_Q_S/12
+2. Similar3(L,M,N,Q,R,S) => Length_L_M/Length_L_N - Length_Q_R/Length_Q_S & Length_L_N/Length_Q_S - Length_M_N/Length_R_S
+3. -12/35 + Length_Q_S/Length_Q_R & Length_L_M/Length_L_N - Length_Q_R/Length_Q_S & Length_Q_R - 35*Length_Q_S/12 => Length_L_M - 35*Length_L_N/12
+4. Length_L_N - 5 & Length_Q_S - 12 => Length_L_N/Length_Q_S - 5/12 & -12/5 + Length_Q_S/Length_L_N
+5. Length_R_S - 37 & Length_Q_R - 35 => Length_Q_R - 35*Length_R_S/37 & Length_Q_R/Length_R_S - 35/37
+6. Length_L_N/Length_Q_S - 5/12 & Length_Q_R - 35*Length_R_S/37 & -12/5 + Length_Q_S/Length_L_N & Length_Q_R/Length_R_S - 35/37 & Length_L_M/Length_L_N - Length_Q_R/Length_Q_S => Length_L_M - 175*Length_R_S/444
+7. Length_L_N/Length_Q_S - Length_M_N/Length_R_S & Length_L_N/Length_Q_S - 5/12 & -12/5 + Length_Q_S/Length_L_N => Length_M_N - 5*Length_R_S/12
+8. Length_L_M - 35*Length_L_N/12 & Length_R_S - 37 & Length_L_M - 175*Length_R_S/444 & Length_M_N - 5*Length_R_S/12 => Length_L_M + Length_L_N + Length_M_N - 35

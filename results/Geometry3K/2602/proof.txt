@@ -1,0 +1,11 @@
+Solution:
+1. Length_A_B - 3 & Length_D_E - 3 => Length_A_B - Length_D_E
+2. Collinear(A,B,C) & Collinear(A,D,E) & Parallel(B,E,C,D) => Length_A_B/Length_A_E - Length_B_C/Length_D_E
+3. Length_A_B - Length_D_E & Length_A_B/Length_A_E - Length_B_C/Length_D_E => Length_A_B/Length_B_C - Length_A_E/Length_A_B
+4. Length_A_B - 3 & Length_A_B/Length_B_C - Length_A_E/Length_A_B & Length_A_E - Variable_y => Length_B_C - 9/Variable_y
+5. Length_A_C - 5 & Length_A_B - 3 => Length_A_B - 3*Length_A_C/5
+6. Collinear(A,B,C) => Length_A_B - Length_A_C + Length_B_C
+7. Length_A_C - 5 & Length_A_B - 3*Length_A_C/5 & Length_A_B - Length_A_C + Length_B_C => Length_B_C - 2
+8. Length_B_C - 9/Variable_y & Length_B_C - 2 => Variable_y - 9/2
+9. Collinear(A,D,E) => Length_A_D - Length_A_E - Length_D_E
+10. Variable_y - 9/2 & Length_A_E - Variable_y & Length_D_E - 3 & Length_A_D - Length_A_E - Length_D_E => Length_A_D - 15/2

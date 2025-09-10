@@ -1,0 +1,12 @@
+Solution:
+1. Perpendicular(A,D,B,D) => Angle_A_D_B - pi/2
+2. Angle_A_D_B - pi/2 => sin(Angle_B_A_D) - Length_B_D/Length_A_B
+3. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
+4. Angle_A_B_C - Angle_A_B_D - Angle_C_B_D & Angle_A_B_C - pi/2 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_D_B - pi/2 => Angle_B_A_D - Angle_C_B_D
+5. Collinear(A,C,D) => Parallel(A,D,C,D)
+6. Perpendicular(A,D,B,D) & Parallel(A,D,C,D) => Perpendicular(B,D,C,D)
+7. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2
+8. Angle_B_D_C - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_B_C_D + Angle_C_B_D - pi/2
+9. sin(Angle_C_B_D)/Length_C_D - sin(Angle_B_C_D)/Length_B_D & Length_B_D - 16 & Angle_B_C_D + Angle_C_B_D - pi/2 & Length_C_D - 8 => Angle_C_B_D - atan(1/2)
+10. Angle_B_A_D - Angle_C_B_D & Angle_C_B_D - atan(1/2) => Angle_B_A_D - atan(1/2)
+11. sin(Angle_B_A_D) - Length_B_D/Length_A_B & Length_B_D - 16 & Angle_B_A_D - atan(1/2) & Length_A_B - Variable_y => Variable_y - 16*sqrt(5)

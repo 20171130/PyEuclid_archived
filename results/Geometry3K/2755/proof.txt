@@ -1,0 +1,6 @@
+Solution:
+1. Collinear(C,E,F) => Parallel(C,E,C,F) & Angle_C_F_D + Angle_D_F_E - pi
+2. Parallel(B,D,C,E) & Parallel(C,E,C,F) => Parallel(B,D,C,F)
+3. Parallel(B,D,C,F) => Angle_B_D_F + Angle_C_F_D - pi
+4. Angle_D_F_E - 3*pi/5 & Angle_B_D_F + Angle_C_F_D - pi & Angle_C_F_D + Angle_D_F_E - pi => Angle_B_D_F - 3*pi/5
+5. Angle_B_D_F - pi*Variable_x/90 & Angle_B_D_F - 3*pi/5 => Variable_x - 54

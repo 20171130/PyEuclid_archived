@@ -1,0 +1,3 @@
+Solution:
+1. Congruent3(L,M,N,Q,R,S) => Length_L_M - Length_Q_R
+2. Length_L_M - 2*Variable_x - 11 & Length_L_M - Length_Q_R & Length_Q_R - 3*Variable_x + 9 => Variable_x - 20

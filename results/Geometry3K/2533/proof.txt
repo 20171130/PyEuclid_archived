@@ -1,0 +1,12 @@
+Solution:
+1. Perpendicular(A,B,A,E) => Angle_B_A_E - pi/2
+2. Length_A_C - Variable_radius_A & Length_A_E - Variable_radius_A => Length_A_C - Length_A_E
+3. Length_A_E - Variable_radius_A & Length_A_D - Variable_radius_A => Length_A_D - Length_A_E
+4. -Length_A_C + Length_A_E & -Length_A_D + Length_A_E => Angle_C_A_D - 2*Angle_C_E_D
+5. Length_A_D - Length_A_E => Angle_A_D_E - Angle_A_E_D
+6. Angle_A_E_C + Angle_A_E_D - Angle_C_E_D & Angle_C_A_D - 5*pi/6 & Angle_A_D_E + Angle_A_E_D + Angle_D_A_E - pi & Angle_B_A_D - 17*pi/36 & Angle_B_A_D + Angle_B_A_E - Angle_D_A_E & Angle_B_A_E - pi/2 & Angle_C_A_D - 2*Angle_C_E_D & Angle_A_D_E - Angle_A_E_D => Angle_A_E_C - 29*pi/72
+7. Length_A_C - Variable_radius_A & Length_A_D - Variable_radius_A => Length_A_C - Length_A_D
+8. Length_A_C - Length_A_D & Length_A_C - Length_A_E => Angle_D_A_E - 2*Angle_D_C_E
+9. Length_A_C - Length_A_D => Angle_A_C_D - Angle_A_D_C
+10. Angle_C_A_D - 5*pi/6 & Angle_B_A_D - 17*pi/36 & Angle_B_A_D + Angle_B_A_E - Angle_D_A_E & Angle_D_A_E - 2*Angle_D_C_E & Angle_A_C_D + Angle_A_C_E - Angle_D_C_E & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_B_A_E - pi/2 & Angle_A_C_D - Angle_A_D_C => Angle_A_C_E - 29*pi/72
+11. Angle_A_C_E + Angle_A_E_C + Angle_C_A_E - pi & Angle_C_A_E - pi*Variable_x/180 & Angle_A_E_C - 29*pi/72 & Angle_A_C_E - 29*pi/72 => Variable_x - 35

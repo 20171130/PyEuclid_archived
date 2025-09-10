@@ -1,0 +1,2 @@
+Solution:
+1. Length_A_D - Length_B_E & Length_A_C + Length_A_D + Length_B_D + Length_B_E + Length_C_E - 60 & Length_A_C - Length_B_D & Length_B_E - Length_C_E & Length_A_C - Length_C_E => Length_A_D - 12

@@ -1,0 +1,10 @@
+Solution:
+1. Length_B_F - Variable_radius_F & Length_A_F - Variable_radius_F => Length_A_F - Length_B_F
+2. Length_A_F - Variable_radius_F & Length_C_F - Variable_radius_F => Length_A_F - Length_C_F
+3. Length_A_F - Length_B_F & Length_A_F - Length_C_F => Angle_B_A_C - Angle_B_F_C/2
+4. Collinear(A,C,E) => Angle_B_A_C - Angle_B_A_E
+5. Collinear(B,D,E) => Angle_A_B_D - Angle_A_B_E
+6. Length_B_F - Variable_radius_F & Length_D_F - Variable_radius_F => Length_B_F - Length_D_F
+7. -Length_A_F + Length_B_F & Length_B_F - Length_D_F => Angle_A_B_D - Angle_A_F_D/2
+8. Angle_B_A_C - Angle_B_F_C/2 & Angle_A_F_D - pi/9 & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi & Angle_B_A_C - Angle_B_A_E & Angle_A_B_D - Angle_A_B_E & Angle_A_B_D - Angle_A_F_D/2 & Angle_B_F_C - pi/6 => Angle_A_E_B - 31*pi/36
+9. Angle_A_E_B - Variable_angle_2 & Angle_A_E_B - 31*pi/36 => Variable_angle_2 - 31*pi/36

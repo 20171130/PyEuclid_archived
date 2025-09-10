@@ -1,0 +1,13 @@
+Solution:
+1. Length_F_L - Variable_radius_L & Length_D_L - Variable_radius_L => Length_D_L - Length_F_L
+2. Length_D_L - Length_F_L => IsoscelesTriangle(D,F,L)
+3. Collinear(D,E,F) => Parallel(D,F,E,F) & Length_D_E - Length_D_F + Length_E_F
+4. Perpendicular(E,F,E,L) & Parallel(D,F,E,F) => Perpendicular(D,F,E,L)
+5. IsoscelesTriangle(D,F,L) & Length_D_L - Length_F_L & Perpendicular(D,F,E,L) => Length_D_E - Length_E_F
+6. Length_B_L - Variable_radius_L & Length_A_L - Variable_radius_L => Length_A_L - Length_B_L
+7. Length_A_L - Length_B_L => IsoscelesTriangle(A,B,L)
+8. Collinear(A,B,C) => Parallel(A,B,B,C)
+9. Perpendicular(B,C,C,L) & Parallel(A,B,B,C) => Perpendicular(A,B,C,L)
+10. IsoscelesTriangle(A,B,L) & Length_A_L - Length_B_L & Collinear(A,B,C) & Perpendicular(A,B,C,L) => Midpoint(C,A,B)
+11. Midpoint(C,A,B) => Length_A_B - 2*Length_B_C
+12. Length_D_E - 2*Variable_x - 14 & Length_D_E - Length_E_F & Length_A_B - Length_D_F & Length_A_B - 2*Length_B_C & Length_D_E - Length_D_F + Length_E_F & Length_B_C - 9*Variable_x => Variable_x - 2

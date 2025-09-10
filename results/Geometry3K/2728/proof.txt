@@ -1,0 +1,5 @@
+Solution:
+1. Perpendicular(X,Y,Y,Z) => Angle_X_Y_Z - pi/2
+2. Angle_X_Y_Z + Angle_X_Z_Y + Angle_Y_X_Z - pi & Angle_X_Y_Z - pi/2 => Angle_X_Z_Y + Angle_Y_X_Z - pi/2
+3. sin(Angle_X_Y_Z)/Length_X_Z - sin(Angle_X_Z_Y)/Length_X_Y & Length_X_Y - 5 & Angle_X_Y_Z - pi/2 & Length_X_Z - 9 & Angle_X_Z_Y + Angle_Y_X_Z - pi/2 => Angle_Y_X_Z - acos(5/9)
+4. Angle_X_Z_Y + Angle_Y_X_Z - pi/2 & Angle_Y_X_Z - acos(5/9) => Angle_X_Z_Y - pi/2 + acos(5/9)

@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(C,H,J) => Angle_C_J_D - Angle_D_J_H
+2. Length_D_G - Variable_radius_G & Length_G_J - Variable_radius_G => Length_D_G - Length_G_J
+3. Length_G_J - Variable_radius_G & Length_G_H - Variable_radius_G => Length_G_H - Length_G_J
+4. -Length_D_G + Length_G_J & -Length_G_H + Length_G_J => Angle_D_G_H - 2*Angle_D_J_H
+5. Collinear(C,D,F) => Angle_C_D_J - Angle_F_D_J
+6. Length_D_G - Variable_radius_G & Length_F_G - Variable_radius_G => Length_D_G - Length_F_G
+7. Length_D_G - Length_F_G & Length_D_G - Length_G_J => Angle_F_D_J - Angle_F_G_J/2
+8. Angle_C_J_D - Angle_D_J_H & Angle_D_G_H - 2*Angle_D_J_H & Angle_F_G_H - 13*pi/18 & Angle_D_G_F + Angle_D_G_H - Angle_F_G_H & Angle_D_G_F - Angle_D_G_J - Angle_F_G_J & Angle_C_D_J - Angle_F_D_J & Angle_F_D_J - Angle_F_G_J/2 & Angle_D_G_J - 17*pi/36 & Angle_C_D_J + Angle_C_J_D + Angle_D_C_J - pi => Angle_D_C_J - 7*pi/8
+9. Angle_D_C_J - Variable_angle_2 & Angle_D_C_J - 7*pi/8 => Variable_angle_2 - 7*pi/8

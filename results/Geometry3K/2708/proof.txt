@@ -1,0 +1,10 @@
+Solution:
+1. Perpendicular(B,E,C,E) => Angle_B_E_C - pi/2
+2. Length_B_C**2 - Length_B_E**2 + 2*Length_B_E*Length_C_E*cos(Angle_B_E_C) - Length_C_E**2 & Length_B_E - 5 & Angle_B_E_C - pi/2 & Length_B_C - 13 => Length_C_E - 12
+3. Parallelogram(A,B,C,D) => Trapezoid(A,B,C,D) & Parallel(A,B,C,D) & Length_A_B - Length_C_D
+4. Collinear(A,B,E) => Parallel(A,B,B,E)
+5. Perpendicular(B,E,C,E) & Parallel(A,B,B,E) => Perpendicular(A,B,C,E)
+6. Trapezoid(A,B,C,D) & Parallel(A,B,C,D) & Perpendicular(A,B,C,E) & Collinear(A,B,E) => Area_A_B_C_D - Length_C_E*(Length_A_B + Length_C_D)/2
+7. Length_C_D - 15 & Length_A_B - Length_C_D => Length_A_B - 15
+8. Area_A_B_C_D - Length_C_E*(Length_A_B + Length_C_D)/2 & Length_C_D - 15 & Length_A_B - 15 => Area_A_B_C_D - 15*Length_C_E
+9. Length_C_E - 12 & Area_A_B_C_D - 15*Length_C_E => Area_A_B_C_D - 180

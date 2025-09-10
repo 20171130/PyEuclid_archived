@@ -1,0 +1,13 @@
+Solution:
+1. Length_A_F - Length_B_E & Length_B_D - Length_B_E & Length_A_F - Length_C_F & Length_B_D - Length_C_F => Length_A_F/Length_C_F - Length_B_E/Length_B_D
+2. Collinear(A,C,F) & Parallel(A,E,C,D) & Collinear(B,D,E) & Length_A_F/Length_C_F - Length_B_E/Length_B_D => Parallel(A,E,B,F)
+3. Parallel(A,E,C,D) & Parallel(A,E,B,F) & Collinear(A,C,F) & Collinear(B,D,E) => Length_B_F - Length_A_E*Length_C_F/Length_A_C - Length_A_F*Length_C_D/Length_A_C
+4. Length_B_D - Length_B_E & Collinear(B,D,E) => Midpoint(B,D,E)
+5. Midpoint(B,D,E) => Length_B_E - Length_D_E/2
+6. Length_A_F - Length_B_E & Length_B_E - Length_D_E/2 => Length_A_F - Length_D_E/2
+7. Length_A_F - Length_C_F & Collinear(A,C,F) => Midpoint(F,A,C)
+8. Midpoint(F,A,C) => Length_A_C - 2*Length_A_F
+9. Length_A_C - 2*Length_A_F & Length_A_F - Length_B_E & Length_B_E - Length_D_E/2 => Length_A_C - Length_D_E
+10. Length_A_F - Length_B_E & Length_A_F - Length_C_F => Length_B_E - Length_C_F
+11. Length_B_E - Length_C_F & Length_B_E - Length_D_E/2 => Length_C_F - Length_D_E/2
+12. Length_B_F - Length_A_E*Length_C_F/Length_A_C - Length_A_F*Length_C_D/Length_A_C & Length_A_F - Length_D_E/2 & Length_C_D - 6*Variable_x - 4 & Length_B_F - 5*Variable_x - 10 & Length_A_C - Length_D_E & Length_C_F - Length_D_E/2 & Length_A_E - 10*Variable_x + 2 => Variable_x - 3

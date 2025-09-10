@@ -1,0 +1,7 @@
+Solution:
+1. Collinear(C,G,I) => Angle_B_I_C + Angle_B_I_G - pi & Angle_B_C_G - Angle_B_C_I
+2. Collinear(B,F,I) => Angle_C_B_F + Angle_C_B_I - pi
+3. Collinear(B,D,E) => Angle_B_D_C + Angle_C_D_E - pi
+4. Collinear(C,D,H) => Angle_D_C_G + Angle_G_C_H - pi
+5. Angle_B_I_C + Angle_B_I_G - pi & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_B_C_G - Angle_B_C_I & Angle_C_D_E - 79*pi/180 & Angle_D_B_F - pi*(Variable_x/180 - 1/180) & Angle_G_C_H - pi*(Variable_x/180 + 1/18) & Angle_C_B_F + Angle_C_B_I - pi & Angle_C_B_D - Angle_C_B_F + Angle_D_B_F & Angle_B_I_G - pi*Variable_x/90 & Angle_B_D_C + Angle_C_D_E - pi & Angle_B_C_D + Angle_B_C_G - Angle_D_C_G & Angle_B_C_I + Angle_B_I_C + Angle_C_B_I - pi & Angle_D_C_G + Angle_G_C_H - pi => Angle_B_I_G - 34*pi/45
+6. Angle_B_I_G - 34*pi/45 & Angle_B_I_G - pi*Variable_x/90 => Variable_x - 68

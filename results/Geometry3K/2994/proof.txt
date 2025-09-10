@@ -1,0 +1,2 @@
+Solution:
+1. Perpendicular(A,O,C,O) => Angle_A_O_C - pi/2

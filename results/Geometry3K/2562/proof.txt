@@ -1,0 +1,8 @@
+Solution:
+1. Rectangle(A,B,E,D) => Trapezoid(A,B,E,D) & Length_A_D - Length_B_E
+2. Perpendicular(A,D,D,E) & Perpendicular(B,E,D,E) => Parallel(A,D,B,E)
+3. Trapezoid(A,B,E,D) & Parallel(A,D,B,E) & Perpendicular(A,D,D,E) => Area_A_B_E_D - Length_D_E*(Length_A_D + Length_B_E)/2
+4. Length_A_D - Length_B_E & Length_A_D - 5 => Length_B_E - 5
+5. Area_A_B_E_D - Length_D_E*(Length_A_D + Length_B_E)/2 & Length_A_D - 5 & Length_D_E - 6 & Length_B_E - 5 => Area_A_B_E_D - 30
+6. Area_A_B_C**2 - (-Length_A_B/2 + Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 - Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 - Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 + Length_B_C/2) & Length_A_C - 4 & Length_A_B - 6 & Length_B_C - 4 => Area_A_B_C - 3*sqrt(7)
+7. Area_A_B_E_D - 30 & Area_A_B_C - 3*sqrt(7) => Area_A_B_C - Area_A_B_E_D - 3*sqrt(7) + 30

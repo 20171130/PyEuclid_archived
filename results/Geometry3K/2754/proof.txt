@@ -1,0 +1,10 @@
+Solution:
+1. Length_C_E - Variable_radius_E & Length_B_E - Variable_radius_E => Length_B_E - Length_C_E
+2. Length_B_E - Variable_radius_E & Length_D_E - Variable_radius_E => Length_B_E - Length_D_E
+3. Length_B_E - Variable_radius_E & Length_E_I - Variable_radius_E => Length_B_E - Length_E_I
+4. Length_B_E - Length_C_E & Length_B_E - Length_D_E & Length_B_E - Length_E_I => Concyclic(B,C,D,I)
+5. Concyclic(B,C,D,I) & Collinear(B,G,I) & Collinear(C,D,G) => Length_B_G/Length_C_G - Length_D_G/Length_G_I
+6. Length_G_I - 103/10 & Length_D_G - 81/10 => Length_D_G - 81*Length_G_I/103
+7. Length_D_G - 81/10 & Length_B_G - 17 => -81/170 + Length_D_G/Length_B_G
+8. Length_B_G/Length_C_G - Length_D_G/Length_G_I & Length_D_G - 81*Length_G_I/103 & -81/170 + Length_D_G/Length_B_G => -6561/17510 + Length_D_G/Length_C_G & Length_C_G - 17510*Length_D_G/6561
+9. Length_B_G/Length_C_G - Length_D_G/Length_G_I & Length_G_I - 103/10 & -6561/17510 + Length_D_G/Length_C_G & Length_C_G - Variable_x & Length_C_G - 17510*Length_D_G/6561 & Length_B_G - 17 => Variable_x - 1751/81

@@ -1,0 +1,7 @@
+Solution:
+1. Collinear(B,D,E) => Parallel(B,D,B,E)
+2. Perpendicular(B,C,B,D) & Parallel(B,D,B,E) => Perpendicular(B,C,B,E)
+3. Perpendicular(B,C,B,E) => Angle_C_B_E - pi/2
+4. Collinear(B,F,G) & Collinear(B,D,E) => Angle_D_B_G - Angle_E_B_F
+5. Angle_C_B_E - Angle_C_B_F - Angle_E_B_F & Angle_C_B_E - pi/2 & Angle_D_B_G - Angle_E_B_F & Angle_C_B_F - 37*pi/180 => Angle_D_B_G - 53*pi/180
+6. Angle_D_B_G - 53*pi/180 & Angle_D_B_G - Variable_angle_1 => Variable_angle_1 - 53*pi/180

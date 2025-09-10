@@ -1,0 +1,14 @@
+Solution:
+1. Length_A_B - Length_D_N & Length_A_B - 3 => Length_D_N - 3
+2. Rectangle(A,B,N,D) => Angle_B_N_D - pi/2 & Angle_A_N_B - Angle_D_B_N & Trapezoid(A,B,N,D) & Parallel(A,B,D,N) & Parallel(A,D,B,N) & Angle_A_D_N - Angle_B_N_D & Length_A_N - Length_B_D
+3. Angle_A_N_B - 31*pi/90 & Angle_A_N_B - Angle_D_B_N => Angle_D_B_N - 31*pi/90
+4. sin(Angle_D_B_N)/Length_D_N - sin(Angle_B_N_D)/Length_B_D & Length_D_N - 3 & Angle_B_N_D - pi/2 & Angle_D_B_N - 31*pi/90 => Length_B_D - 3/sin(31*pi/90)
+5. Perpendicular(A,B,B,N) & Parallel(A,D,B,N) => Perpendicular(A,B,A,D)
+6. Trapezoid(A,B,N,D) & Parallel(A,B,D,N) & Perpendicular(A,B,A,D) => Area_A_B_N_D - Length_A_D*(Length_A_B + Length_D_N)/2
+7. Area_A_B_N_D - Length_A_D*(Length_A_B + Length_D_N)/2 & Length_D_N - 3 & Length_A_B - 3 & Length_A_D - Length_B_N => Area_A_B_N_D - 3*Length_B_N
+8. Perpendicular(A,D,D,N) => Angle_A_D_N - pi/2
+9. Parallel(A,D,B,N) => Angle_A_D_N + Angle_B_N_D - pi
+10. Angle_A_N_B - 31*pi/90 & Angle_A_D_N + Angle_B_N_D - pi & Angle_A_D_N - Angle_B_N_D & Angle_A_N_B + Angle_A_N_D - Angle_B_N_D => Angle_A_N_D - 7*pi/45
+11. sin(Angle_A_D_N)/Length_A_N - sin(Angle_A_N_D)/Length_A_D & Angle_A_D_N - pi/2 & Length_A_D - Length_B_N & Angle_A_N_D - 7*pi/45 & Length_A_N - Length_B_D => 1.0*Length_B_D - 2.13005446818951*Length_B_N
+12. Length_B_D - 3/sin(31*pi/90) & Area_A_B_N_D - 3*Length_B_N & 1.0*Length_B_D - 2.13005446818951*Length_B_N => Area_A_B_N_D - 4.7853848849533
+13. Area_A_B_N_D - 4.7853848849533 => Area_A_B_N_D - 4.78538488495331

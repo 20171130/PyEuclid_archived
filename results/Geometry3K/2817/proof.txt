@@ -1,0 +1,14 @@
+Solution:
+1. Length_R_X - Length_S_Y & Length_T_Y - Length_V_X & Length_R_X - 2*Length_V_X => Length_S_Y/Length_T_Y - 2 & Length_S_Y - 2*Length_T_Y
+2. Length_R_X - 2*Length_V_X => -1/2 + Length_V_X/Length_R_X
+3. Length_S_Y/Length_T_Y - 2 & -1/2 + Length_V_X/Length_R_X => Length_R_X/Length_V_X - Length_S_Y/Length_T_Y
+4. Collinear(R,V,X) & Parallel(R,S,T,V) & Collinear(S,T,Y) & Length_R_X/Length_V_X - Length_S_Y/Length_T_Y => Parallel(R,S,X,Y)
+5. Parallel(R,S,T,V) & Parallel(R,S,X,Y) & Collinear(R,V,X) & Collinear(S,T,Y) => Length_R_S*Length_V_X/Length_R_V - Length_X_Y + Length_R_X*Length_T_V/Length_R_V & Length_R_V/Length_S_T - Length_V_X/Length_T_Y
+6. Length_R_X - Length_S_Y & Length_R_X - 2*Length_V_X => Length_S_Y/Length_V_X - 2 & Length_S_Y - 2*Length_V_X & -1/2 + Length_V_X/Length_S_Y
+7. Length_T_Y - Length_V_X & Length_R_X - 2*Length_V_X => Length_R_X - 2*Length_T_Y
+8. Collinear(R,V,X) => Length_R_V - Length_R_X - Length_V_X
+9. Length_S_Y - 2*Length_T_Y & Length_S_Y - 2*Length_V_X & Length_R_X - 2*Length_T_Y & Length_R_V - Length_R_X - Length_V_X => Length_R_V - 3*Length_T_Y
+10. Collinear(S,T,Y) => Length_S_T - Length_S_Y - Length_T_Y
+11. Length_S_T - Length_S_Y - Length_T_Y & Length_S_Y - 2*Length_T_Y => Length_S_T - 3*Length_S_Y/2
+12. Length_S_Y/Length_V_X - 2 & Length_R_V/Length_S_T - Length_V_X/Length_T_Y & Length_R_V - 3*Length_T_Y & -1/2 + Length_V_X/Length_S_Y & Length_S_T - 3*Length_S_Y/2 => Length_R_V - 3*Length_V_X
+13. Length_R_S*Length_V_X/Length_R_V - Length_X_Y + Length_R_X*Length_T_V/Length_R_V & Length_R_S - 6 & Length_T_V - 3 & Length_R_V - 3*Length_V_X & Length_R_X - 2*Length_V_X => Length_X_Y - 4

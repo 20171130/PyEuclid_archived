@@ -1,0 +1,3 @@
+Solution:
+1. Parallel(A,B,C,D) => Angle_A_D_C + Angle_B_A_D - pi
+2. Angle_A_D_C - 13*pi/36 & Angle_B_A_D - pi*Variable_x/180 & Angle_A_D_C + Angle_B_A_D - pi => Variable_x - 115

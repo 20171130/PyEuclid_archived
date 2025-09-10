@@ -1,0 +1,2 @@
+Solution:
+1. Length_R_S - Length_R_T & Length_R_T - 3*Variable_x + 9 & Length_R_S - Variable_x - 9 => Variable_x - 9

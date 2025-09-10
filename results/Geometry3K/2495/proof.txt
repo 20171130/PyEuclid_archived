@@ -1,0 +1,2 @@
+Solution:
+1. Length_B_J - Length_J_L & Length_J_L - 2*Variable_x - 3 & Length_B_J + Variable_x - 6 => Variable_x - 1

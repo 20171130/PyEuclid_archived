@@ -1,0 +1,9 @@
+Solution:
+1. Length_D_E - 8 & Length_B_E - 18 => -4/9 + Length_D_E/Length_B_E
+2. Length_D_E - 8 & Length_A_D - 10 => -4/5 + Length_D_E/Length_A_D
+3. Collinear(B,D,E) => Parallel(B,D,D,E)
+4. Perpendicular(A,E,D,E) & Parallel(B,D,D,E) => Perpendicular(A,E,B,D)
+5. Perpendicular(A,E,B,D) & Perpendicular(B,C,B,D) => Parallel(A,E,B,C)
+6. Collinear(A,C,D) & Collinear(B,D,E) & Parallel(A,E,B,C) => Length_A_C/Length_B_E - Length_A_D/Length_D_E
+7. -4/9 + Length_D_E/Length_B_E & -4/5 + Length_D_E/Length_A_D & Length_A_C/Length_B_E - Length_A_D/Length_D_E => -16/45 + Length_D_E/Length_A_C & Length_A_C/Length_D_E - 45/16
+8. -16/45 + Length_D_E/Length_A_C & Length_A_C/Length_D_E - 45/16 & Length_B_E - 18 & Length_A_C - Variable_x & Length_A_D - 10 & Length_A_C/Length_B_E - Length_A_D/Length_D_E => Variable_x - 45/2

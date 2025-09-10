@@ -1,0 +1,4 @@
+Solution:
+1. Centroid(J,S,U,Z) & Collinear(U,V,Z) & Collinear(J,S,V) => -0.5 + Length_J_V/Length_J_S
+2. -0.5 + Length_J_V/Length_J_S => Length_J_S - 2.0*Length_J_V
+3. Length_J_V - 3 & Length_J_S - 2.0*Length_J_V => Length_J_S - 6.0

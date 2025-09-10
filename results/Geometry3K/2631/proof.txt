@@ -1,0 +1,11 @@
+Solution:
+1. Collinear(B,C,D) => Length_B_C - Length_B_D + Length_C_D & Parallel(B,C,C,D)
+2. Length_A_C - 9 & Length_D_E - 9 => Length_A_C - Length_D_E
+3. Parallel(A,C,D,E) & Length_A_C - Length_D_E => Parallelogram(A,C,D,E)
+4. Parallelogram(A,C,D,E) => Length_A_E - Length_C_D & Parallel(A,E,C,D)
+5. Collinear(B,E,F) => Angle_A_B_E - Angle_A_B_F
+6. Parallel(A,E,C,D) & Parallel(B,C,C,D) => Parallel(A,E,B,C)
+7. Parallel(A,E,B,C) => Angle_A_B_C + Angle_B_A_E - pi
+8. Angle_A_B_E - Angle_A_B_F & Angle_A_B_F - Angle_C_B_F & Angle_A_B_C - Angle_A_B_F - Angle_C_B_F & Angle_A_B_C + Angle_B_A_E - pi & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi => Angle_A_B_E - Angle_A_E_B
+9. Angle_A_B_E - Angle_A_E_B => Length_A_B - Length_A_E
+10. Length_B_C - 15/2 & Length_B_C - Length_B_D + Length_C_D & Length_A_E - Length_C_D & Length_A_B - Length_A_E & Length_A_B - 6 => Length_B_D - 27/2

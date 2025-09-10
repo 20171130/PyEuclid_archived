@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(P,Q,T) & Collinear(P,R,S) & Parallel(Q,R,S,T) => Length_P_Q/Length_P_R - Length_Q_T/Length_R_S
+2. Length_P_Q/Length_P_R - Length_Q_T/Length_R_S => Length_R_S/Length_Q_T - Length_P_R/Length_P_Q
+3. Length_R_S - 5 & Length_R_S/Length_Q_T - Length_P_R/Length_P_Q => Length_P_Q - Length_P_R*Length_Q_T/5
+4. Length_R_S - 5 & Length_P_T - 15 => Length_P_T - 3*Length_R_S
+5. Collinear(P,R,S) => Length_P_R - Length_P_S - Length_R_S
+6. Length_P_T - 3*Length_R_S & Length_P_R - Length_P_S - Length_R_S & Length_P_S - 25/2 & Length_P_T - 15 => Length_P_R - 35/2
+7. Collinear(P,Q,T) => Length_P_Q - Length_P_T - Length_Q_T
+8. Length_P_Q - Length_P_T - Length_Q_T & Length_P_T - 15 => Length_P_Q - Length_Q_T - 15
+9. Length_P_Q - Length_P_R*Length_Q_T/5 & Length_P_R - 35/2 & Length_P_Q - Length_Q_T - 15 => Length_Q_T - 6

@@ -1,0 +1,4 @@
+Solution:
+1. Rectangle(A,B,C,D) => Angle_A_D_C - Angle_B_A_D & Angle_A_C_D - Angle_B_A_C
+2. Angle_B_A_C - Angle_B_A_D + Angle_C_A_D & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_B_A_C - pi*(Variable_x/90 + 1/180) & Angle_A_D_C - Angle_B_A_D & Angle_C_A_D - pi*(Variable_x/36 + 1/36) & Angle_A_C_D - Angle_B_A_C => Angle_C_A_D - 13*pi/36
+3. Angle_C_A_D - pi*(Variable_x/36 + 1/36) & Angle_C_A_D - 13*pi/36 => Variable_x - 12

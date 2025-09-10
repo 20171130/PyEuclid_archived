@@ -1,0 +1,6 @@
+Solution:
+1. Rectangle(A,B,D,C) => Angle_A_D_C - Angle_B_A_D & Angle_B_A_D - Angle_B_C_D
+2. Collinear(B,C,E) => Angle_B_C_D - Angle_D_C_E
+3. Collinear(A,D,E) => Angle_A_D_C - Angle_C_D_E
+4. Angle_A_D_C - Angle_B_A_D & Angle_B_C_D - Angle_D_C_E & Angle_A_D_C - Angle_C_D_E & Angle_B_A_D - Angle_B_C_D & Angle_C_D_E + Angle_C_E_D + Angle_D_C_E - pi & Angle_B_A_D - 2*pi/9 => Angle_C_E_D - 5*pi/9
+5. Angle_C_E_D - 5*pi/9 & Angle_C_E_D - Variable_angle_8 => Variable_angle_8 - 5*pi/9

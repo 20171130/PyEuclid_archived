@@ -1,0 +1,8 @@
+Solution:
+1. Collinear(L,R,T) & Collinear(R,S,W) & Parallel(L,W,S,T) => Length_L_R/Length_R_W - Length_L_T/Length_S_W
+2. Length_L_R/Length_R_W - Length_L_T/Length_S_W => Length_S_W/Length_L_T - Length_R_W/Length_L_R
+3. Length_S_W/Length_L_T - Length_R_W/Length_L_R & Length_L_R - 5 & Length_S_W - 6 & Length_L_R/Length_R_W - Length_L_T/Length_S_W => Length_L_T - 30/Length_R_W
+4. Collinear(L,R,T) => Length_L_R + Length_L_T - Length_R_T
+5. Length_R_T - 9 & Length_L_R - 5 => Length_L_R - 5*Length_R_T/9
+6. Length_L_R + Length_L_T - Length_R_T & Length_R_T - 9 & Length_L_R - 5*Length_R_T/9 => Length_L_T - 4
+7. Length_L_T - 30/Length_R_W & Length_L_T - 4 => Length_R_W - 15/2

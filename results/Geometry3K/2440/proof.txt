@@ -1,0 +1,3 @@
+Solution:
+1. Length_R_S - Length_R_T => Angle_R_S_T - Angle_R_T_S
+2. Angle_S_R_T - 7*pi/18 & Angle_R_S_T - Angle_R_T_S & Angle_R_S_T + Angle_R_T_S + Angle_S_R_T - pi => Angle_R_S_T - 11*pi/36

@@ -1,0 +1,5 @@
+Solution:
+1. Perpendicular(J,L,K,L) => Angle_J_L_K - pi/2
+2. Angle_J_L_K - pi/2 => cos(Angle_K_J_L) - Length_J_L/Length_J_K
+3. Length_J_K**2 - Length_J_L**2 + 2*Length_J_L*Length_K_L*cos(Angle_J_L_K) - Length_K_L**2 & Angle_J_L_K - pi/2 & Length_J_K - 14 & Length_K_L - 9 => Length_J_L - sqrt(115)
+4. cos(Angle_K_J_L) - Length_J_L/Length_J_K & Length_J_K - 14 & Length_J_L - sqrt(115) => Angle_K_J_L - acos(sqrt(115)/14)

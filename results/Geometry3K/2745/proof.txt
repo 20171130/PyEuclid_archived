@@ -1,0 +1,4 @@
+Solution:
+1. Perpendicular(B,C,C,D) => Angle_B_C_D - pi/2
+2. Angle_A_C_B + Angle_A_C_D - Angle_B_C_D & Angle_B_C_D - pi/2 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_B_A_D - 23*pi/60 & Angle_A_D_C - 61*pi/180 & Angle_B_A_C - Angle_B_A_D + Angle_C_A_D => Angle_A_C_B + Angle_B_A_C - 2*pi/9
+3. Angle_A_C_B + Angle_B_A_C - 2*pi/9 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_A_B_C - 7*pi/9

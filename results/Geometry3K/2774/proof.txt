@@ -1,0 +1,5 @@
+Solution:
+1. Collinear(A,E,F) => Angle_E_A_P - Angle_F_A_P
+2. Incenter(P,A,C,E) => Angle_C_A_P - Angle_E_A_P & Angle_A_C_P - Angle_E_C_P & Angle_A_E_P - Angle_C_E_P
+3. Collinear(C,D,E) => Angle_D_C_P - Angle_E_C_P & Angle_C_E_P - Angle_D_E_P
+4. Angle_E_A_P - Angle_F_A_P & Angle_A_C_E - Angle_A_C_P - Angle_E_C_P & Angle_C_A_E - Angle_C_A_P - Angle_E_A_P & Angle_C_A_P - Angle_E_A_P & Angle_A_C_P - Angle_E_C_P & Angle_D_C_P - Angle_E_C_P & Angle_A_E_C - Angle_A_E_P - Angle_C_E_P & Angle_C_E_P - Angle_D_E_P & Angle_A_C_E + Angle_A_E_C + Angle_C_A_E - pi & Angle_F_A_P - 11*pi/60 & Angle_D_C_P - 19*pi/120 & Angle_A_E_P - Angle_C_E_P => Angle_D_E_P - 19*pi/120

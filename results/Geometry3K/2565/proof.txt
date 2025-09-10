@@ -1,0 +1,5 @@
+Solution:
+1. Rectangle(B,C,D,E) => Length_B_E - Length_C_D & Area_B_C_D_E - Length_C_D*Length_D_E
+2. Length_B_E - Length_C_D & Length_B_E - 10 => Length_C_D - 10
+3. Length_C_D - 10 & Length_D_E - 5 & Area_B_C_D_E - Length_C_D*Length_D_E => Area_B_C_D_E - 50
+4. Length_A_J - 5/2 & Area_B_C_D_E - 50 => Area_B_C_D_E - 2*pi*Length_A_J**2 - 50 + 25*pi/2

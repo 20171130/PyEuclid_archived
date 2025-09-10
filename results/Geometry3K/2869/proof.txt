@@ -1,0 +1,5 @@
+Solution:
+1. Collinear(A,B,D) & Collinear(B,C,E) & Parallel(A,E,C,D) => Length_A_B/Length_B_E - Length_A_D/Length_C_E
+2. Length_C_E - 5 & Length_A_D - 4 => -5/4 + Length_C_E/Length_A_D & Length_A_D - 4*Length_C_E/5
+3. Length_A_B/Length_B_E - Length_A_D/Length_C_E & -5/4 + Length_C_E/Length_A_D & Length_A_D - 4*Length_C_E/5 => Length_A_B - 4*Length_B_E/5 & -5/4 + Length_B_E/Length_A_B
+4. Length_A_B - 4*Length_B_E/5 & -5/4 + Length_B_E/Length_A_B & Length_B_E - 12 & Length_A_B - Variable_x => Variable_x - 48/5

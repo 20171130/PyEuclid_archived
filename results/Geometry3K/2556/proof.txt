@@ -1,0 +1,4 @@
+Solution:
+1. Parallelogram(J,K,L,M) => Angle_J_K_L + Angle_K_L_M - pi
+2. Collinear(J,L,R) => Angle_J_L_K - Angle_K_L_R
+3. Angle_J_L_K + Angle_J_L_M - Angle_K_L_M & Angle_J_K_L + Angle_K_L_M - pi & Angle_J_L_K - Angle_K_L_R & Angle_K_L_R - 7*pi/18 & Angle_J_L_M - pi/6 => Angle_J_K_L - 4*pi/9

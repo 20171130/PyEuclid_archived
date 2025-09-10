@@ -1,0 +1,10 @@
+Solution:
+1. Length_C_P - Variable_radius_P & Length_B_P - Variable_radius_P => Length_B_P - Length_C_P
+2. Length_B_P - Variable_radius_P & Length_A_P - Variable_radius_P => Length_A_P - Length_B_P
+3. Perpendicular(A,M,A,P) => Angle_M_A_P - pi/2
+4. Length_B_P - Length_C_P & -Length_A_P + Length_B_P & Angle_M_A_P - pi/2 & Collinear(B,C,M) => Length_A_M/Length_C_M - Length_B_M/Length_A_M
+5. Length_A_M/Length_C_M - Length_B_M/Length_A_M => Length_A_M/Length_B_M - Length_C_M/Length_A_M
+6. Length_A_M/Length_B_M - Length_C_M/Length_A_M & Length_B_M - Variable_y & Length_A_M - 10 & Length_A_M/Length_C_M - Length_B_M/Length_A_M => Length_C_M - 100/Variable_y
+7. Collinear(B,C,M) => Length_B_C + Length_B_M - Length_C_M
+8. Length_B_M - Variable_y & Length_B_C + Length_B_M - Length_C_M & Length_B_C - 6 => Length_C_M - Variable_y - 6
+9. Length_C_M - 100/Variable_y & Length_C_M - Variable_y - 6 => Variable_y - sqrt(109) + 3

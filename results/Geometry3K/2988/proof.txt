@@ -1,0 +1,8 @@
+Solution:
+1. Collinear(A,B,K) => Length_A_B - Length_A_K + Length_B_K
+2. Length_C_K - 5 & Length_C_K - Variable_radius_K & Length_A_K - Variable_radius_K & Length_A_B - 2 => Length_A_B - 2*Length_A_K/5
+3. Length_C_K - 5 & Length_C_K - Variable_radius_K & Length_A_K - Variable_radius_K => Length_A_K - 5
+4. Length_A_B - Length_A_K + Length_B_K & Length_A_B - 2*Length_A_K/5 & Length_A_K - 5 => Length_B_K - 3
+5. Perpendicular(B,C,B,K) => Angle_C_B_K - pi/2
+6. Length_B_C**2 - 2*Length_B_C*Length_B_K*cos(Angle_C_B_K) + Length_B_K**2 - Length_C_K**2 & Length_B_K - 3 & Length_B_C - Variable_x & Angle_C_B_K - pi/2 & Length_C_K - 5 => Variable_x - 4
+7. Length_B_C - Variable_x & Variable_x - 4 => Length_B_C - 4

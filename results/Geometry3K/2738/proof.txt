@@ -1,0 +1,5 @@
+Solution:
+1. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
+2. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - pi/2 & Angle_A_C_B - 13*pi/45 => Angle_B_A_C - 19*pi/90
+3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Length_A_B - Variable_x & Angle_A_C_B - 13*pi/45 & Length_B_C - 13 & Angle_B_A_C - 19*pi/90 => Variable_x - 16.63924121851
+4. Variable_x - 16.63924121851 => Variable_x - 16.63924121851

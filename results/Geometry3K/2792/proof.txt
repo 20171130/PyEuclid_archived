@@ -1,0 +1,13 @@
+Solution:
+1. Length_A_G - Variable_radius_A & Length_A_H - Variable_radius_A => Length_A_G - Length_A_H
+2. Length_A_G - Variable_radius_A & Length_A_J - Variable_radius_A => Length_A_G - Length_A_J
+3. Length_A_G - Variable_radius_A & Length_A_K - Variable_radius_A => Length_A_G - Length_A_K
+4. Length_A_G - Length_A_H & Length_A_G - Length_A_J & Length_A_G - Length_A_K => Concyclic(G,H,J,K)
+5. Concyclic(G,H,J,K) & Collinear(F,G,H) & Collinear(F,J,K) => Length_F_G/Length_F_J - Length_F_K/Length_F_H
+6. Length_F_G - 18 & Length_F_K - 15 => Length_F_G/Length_F_K - 6/5 & Length_F_G - 6*Length_F_K/5
+7. Length_F_G/Length_F_J - Length_F_K/Length_F_H & Length_F_G/Length_F_K - 6/5 & Length_F_G - 6*Length_F_K/5 => Length_F_H - 5*Length_F_J/6
+8. Collinear(F,G,H) => Length_F_G - Length_F_H + Length_G_H
+9. Length_F_G - Length_F_H + Length_G_H & Length_G_H - 42 & Length_F_G - 18 => Length_F_H - 60
+10. Collinear(F,J,K) => Length_F_J - Length_F_K - Length_J_K
+11. Length_F_K - 15 & Length_J_K - Variable_a & Length_F_J - Length_F_K - Length_J_K => Length_F_J - Variable_a - 15
+12. Length_F_H - 5*Length_F_J/6 & Length_F_H - 60 & Length_F_J - Variable_a - 15 => Variable_a - 57

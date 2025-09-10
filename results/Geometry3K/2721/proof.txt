@@ -1,0 +1,5 @@
+Solution:
+1. Rectangle(L,M,N,P) => Parallelogram(L,M,N,P) & Length_L_N - Length_M_P
+2. Parallelogram(L,M,N,P) & Collinear(J,L,N) & Collinear(J,M,P) => Length_J_M - Length_J_P
+3. Collinear(J,M,P) => Length_J_M + Length_J_P - Length_M_P
+4. Length_J_M - Length_J_P & Length_L_N - Length_M_P & Length_J_M + Length_J_P - Length_M_P & Length_J_P - 3*Variable_x + 1 & Length_L_N - 10 => Variable_x - 2

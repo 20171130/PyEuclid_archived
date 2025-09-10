@@ -1,0 +1,7 @@
+Solution:
+1. Perpendicular(N,P,P,Q) => Angle_N_P_Q - pi/2
+2. Perpendicular(M,N,M,Q) => Angle_N_M_Q - pi/2
+3. Angle_N_P_Q + Angle_N_Q_P + Angle_P_N_Q - pi & Angle_M_N_Q + Angle_M_Q_N + Angle_N_M_Q - pi & Angle_N_P_Q - pi/2 & Angle_M_N_Q - Angle_P_N_Q & Angle_N_M_Q - pi/2 => Angle_M_Q_N - Angle_N_Q_P
+4. Angle_M_N_Q - Angle_P_N_Q & Angle_M_Q_N - Angle_N_Q_P => Congruent3(M,N,Q,P,N,Q)
+5. Congruent3(M,N,Q,P,N,Q) => Length_M_Q - Length_P_Q
+6. Length_P_Q - 4*Variable_x + 8 & Length_M_Q - 2*Variable_x - 2 & Length_M_Q - Length_P_Q => Length_M_Q - 12

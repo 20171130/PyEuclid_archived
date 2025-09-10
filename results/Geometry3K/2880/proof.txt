@@ -1,0 +1,4 @@
+Solution:
+1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
+2. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Length_B_C - Variable_y & Length_A_B - 20 & Angle_A_C_B - pi/2 & Length_A_C - 10 => Variable_y - 10*sqrt(3)
+3. Variable_y - 10*sqrt(3) & Length_B_C - Variable_x & Length_B_C - Variable_y => Variable_x - 10*sqrt(3)

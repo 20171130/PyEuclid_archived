@@ -1,0 +1,6 @@
+Solution:
+1. Collinear(D,E,G) => Angle_A_E_D - Angle_A_E_G & Parallel(D,G,E,G)
+2. Angle_A_E_D - pi/4 & Angle_A_E_D - Angle_A_E_G => Angle_A_E_G - pi/4
+3. Perpendicular(A,G,D,G) & Parallel(D,G,E,G) => Perpendicular(A,G,E,G)
+4. Perpendicular(A,G,E,G) => Angle_A_G_E - pi/2
+5. sin(Angle_A_E_G)/Length_A_G - sin(Angle_A_G_E)/Length_A_E & Length_A_E - 8 & Angle_A_E_G - pi/4 & Length_A_G - Variable_x & Angle_A_G_E - pi/2 => Variable_x - 4*sqrt(2)

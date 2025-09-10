@@ -1,0 +1,6 @@
+Solution:
+1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
+2. Angle_A_C_B - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_A_B_C + Angle_B_A_C - pi/2
+3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_B_C)/Length_A_C & Angle_A_B_C + Angle_B_A_C - pi/2 & Length_A_C - 24 & Length_B_C - 10 => Angle_B_A_C - atan(5/12)
+4. Angle_B_A_C - atan(5/12) & Angle_A_B_C + Angle_B_A_C - pi/2 => Angle_A_B_C - pi/2 + atan(5/12)
+5. Angle_A_B_C - pi/2 + atan(5/12) => cos(Angle_A_B_C) - 5/13

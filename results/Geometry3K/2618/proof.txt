@@ -1,0 +1,5 @@
+Solution:
+1. Length_D_E - Variable_f & Variable_f - 20 => Length_D_E - 20
+2. Angle_D_E_F + Angle_D_F_E + Angle_E_D_F - pi & Angle_D_E_F - 3*pi/5 & Angle_D_F_E - 13*pi/90 => Angle_E_D_F - 23*pi/90
+3. sin(Angle_E_D_F)/Length_E_F - sin(Angle_D_F_E)/Length_D_E & Length_D_E - 20 & Length_E_F - Variable_d & Angle_E_D_F - 23*pi/90 & Angle_D_F_E - 13*pi/90 => Variable_d - 32.8187566908806
+4. Variable_d - 32.8187566908806 => Variable_d - 32.8187566908805

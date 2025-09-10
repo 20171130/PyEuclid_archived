@@ -1,0 +1,18 @@
+Solution:
+1. Length_Q_U - 3 & Length_Q_U - Length_Q_V => Length_Q_V - 3
+2. Angle_R_S_T - Angle_U_V_W & Angle_R_T_S - Angle_U_W_V => Similar3(R,S,T,U,V,W)
+3. Similar3(R,S,T,U,V,W) => Length_R_S/Length_U_V - Length_S_T/Length_V_W
+4. Length_P_R - Length_P_S & Collinear(P,R,S) => Midpoint(P,R,S)
+5. Midpoint(P,R,S) => Length_P_S - Length_R_S/2
+6. Length_Q_U - Length_Q_V & Collinear(Q,U,V) => Midpoint(Q,U,V)
+7. Midpoint(Q,U,V) => Length_Q_V - Length_U_V/2
+8. Length_P_S - Length_R_S/2 & Length_Q_V - Length_U_V/2 => Length_P_S/Length_Q_V - Length_R_S/Length_U_V
+9. Length_R_S/Length_U_V - Length_S_T/Length_V_W & Length_P_S/Length_Q_V - Length_R_S/Length_U_V => Length_P_S/Length_Q_V - Length_S_T/Length_V_W
+10. Collinear(P,R,S) => Angle_P_S_T - Angle_R_S_T
+11. Collinear(Q,U,V) => Angle_Q_V_W - Angle_U_V_W
+12. Angle_P_S_T - Angle_R_S_T & Angle_Q_V_W - Angle_U_V_W & Angle_R_S_T - Angle_U_V_W => Angle_P_S_T - Angle_Q_V_W
+13. Length_P_S/Length_Q_V - Length_S_T/Length_V_W & Angle_P_S_T - Angle_Q_V_W => Similar3(P,S,T,Q,V,W)
+14. Similar3(P,S,T,Q,V,W) => Length_P_S/Length_P_T - Length_Q_V/Length_Q_W
+15. Length_P_T - 27/2 & Length_Q_W - 9 => Length_P_T/Length_Q_W - 3/2 & -2/3 + Length_Q_W/Length_P_T
+16. Length_Q_V - 3 & Length_P_S/Length_P_T - Length_Q_V/Length_Q_W & Length_P_T/Length_Q_W - 3/2 & -2/3 + Length_Q_W/Length_P_T => Length_P_S - 9/2
+17. Length_P_S - Variable_x & Length_P_S - 9/2 => Variable_x - 9/2

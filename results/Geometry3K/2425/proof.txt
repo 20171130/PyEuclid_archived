@@ -1,0 +1,6 @@
+Solution:
+1. Length_A_G - Variable_radius_G & Length_C_G - Variable_radius_G => Length_A_G - Length_C_G
+2. Length_A_G - Length_C_G & Angle_A_G_C - pi/3 => EquilateralTriangle(A,C,G)
+3. EquilateralTriangle(A,C,G) => Angle_A_G_C - Angle_C_A_G & Angle_A_C_G - Angle_A_G_C
+4. Collinear(C,E,G) & Collinear(A,B,G) => Angle_A_G_C - Angle_B_G_E
+5. Angle_A_G_C - Angle_C_A_G & Angle_A_C_G + Angle_A_G_C + Angle_C_A_G - pi & Angle_A_G_C - Angle_B_G_E & Angle_A_C_G - Angle_A_G_C => Angle_B_G_E - pi/3

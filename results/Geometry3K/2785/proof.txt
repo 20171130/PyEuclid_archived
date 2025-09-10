@@ -1,0 +1,5 @@
+Solution:
+1. Length_A_D - 9 & Length_A_D - Variable_radius_A & Length_A_E - Variable_radius_A => Length_A_E - 9
+2. Collinear(A,C,E) => Length_A_C - Length_A_E - Length_C_E
+3. Length_A_E - 9 & Length_C_E - 6 & Length_A_C - Length_A_E - Length_C_E => Length_A_C - 15
+4. Length_A_C**2 - Length_A_D**2 + 2*Length_A_D*Length_C_D*cos(Angle_A_D_C) - Length_C_D**2 & Angle_A_D_C - pi/2 & Length_C_D - Variable_x & Length_A_C - 15 & Length_A_D - 9 => Variable_x - 12

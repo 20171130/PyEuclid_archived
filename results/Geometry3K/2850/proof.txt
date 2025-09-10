@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(B,F,G) => Angle_D_B_F + Angle_D_B_G - pi
+2. Collinear(B,G,H) & Collinear(B,D,E) => Angle_D_B_G - Angle_E_B_H
+3. Collinear(A,C,H) => Parallel(A,H,C,H)
+4. Parallel(A,H,C,H) & Parallel(B,D,C,H) => Parallel(A,H,B,D)
+5. Collinear(B,D,E) => Parallel(B,D,B,E)
+6. Parallel(A,H,B,D) & Parallel(B,D,B,E) => Parallel(A,H,B,E)
+7. Parallel(A,H,B,E) => Angle_A_H_B + Angle_E_B_H - pi
+8. Variable_angle_4 - pi*(Variable_y/90 + 8/45) & Angle_D_B_F + Angle_D_B_G - pi & Angle_A_H_B - Variable_angle_4 & Angle_D_B_G - Angle_E_B_H & Angle_A_H_B + Angle_E_B_H - pi & Variable_angle_5 - pi*(Variable_y/60 - 1/60) & Angle_D_B_F - Variable_angle_5 => Angle_D_B_F - 17*pi/30
+9. Angle_D_B_F - 17*pi/30 & Variable_angle_5 - pi*(Variable_y/60 - 1/60) & Angle_D_B_F - Variable_angle_5 => Variable_y - 35

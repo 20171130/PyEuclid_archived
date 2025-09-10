@@ -1,0 +1,12 @@
+Solution:
+1. Perpendicular(B,M,B,T) => Angle_M_B_T - pi/2
+2. Collinear(A,C,D) => Parallel(A,D,C,D) & Angle_A_C_M - Angle_D_C_M
+3. Perpendicular(A,D,D,M) & Parallel(A,D,C,D) => Perpendicular(C,D,D,M)
+4. Perpendicular(C,D,D,M) => Angle_C_D_M - pi/2
+5. Length_M_T - Variable_radius_M & Length_C_M - Variable_radius_M => Length_C_M - Length_M_T
+6. Angle_M_B_T - pi/2 & Angle_C_D_M - pi/2 & Length_B_M - Length_D_M & -Length_C_M + Length_M_T => Congruent3(B,M,T,D,M,C)
+7. Congruent3(B,M,T,D,M,C) => Angle_B_T_M - Angle_D_C_M
+8. Length_A_M - Variable_radius_M & Length_C_M - Variable_radius_M => Length_A_M - Length_C_M
+9. Length_A_M - Length_C_M => Angle_A_C_M - Angle_C_A_M
+10. Angle_A_C_M - Angle_C_A_M & Angle_A_C_M - Angle_D_C_M => Angle_C_A_M - Angle_D_C_M
+11. Angle_B_T_M - 7*pi/45 & Angle_B_T_M - Angle_D_C_M & Angle_C_A_M - Angle_D_C_M => Angle_C_A_M - 7*pi/45

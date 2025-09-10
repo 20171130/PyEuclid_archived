@@ -1,0 +1,17 @@
+Solution:
+1. Collinear(A,D,E) => Angle_A_D_J - Angle_E_D_J
+2. Collinear(B,C,D) => Angle_B_C_G - Angle_D_C_G
+3. Collinear(A,G,J) => Angle_A_J_D + Angle_D_J_G - pi
+4. Collinear(B,F,G) => Angle_C_B_F - Angle_C_B_G & Angle_B_G_C + Angle_C_G_F - pi
+5. Length_G_I - Variable_radius_I & Length_C_I - Variable_radius_I => Length_C_I - Length_G_I
+6. Length_F_I - Variable_radius_I & Length_G_I - Variable_radius_I => Length_F_I - Length_G_I
+7. -Length_C_I + Length_G_I & -Length_F_I + Length_G_I => Angle_C_G_F - Angle_C_I_F/2
+8. Length_D_I - Variable_radius_I & Length_C_I - Variable_radius_I => Length_C_I - Length_D_I
+9. Length_I_J - Variable_radius_I & Length_C_I - Variable_radius_I => Length_C_I - Length_I_J
+10. Length_C_I - Length_D_I & Length_C_I - Length_G_I & Length_C_I - Length_I_J => Concyclic(C,D,G,J)
+11. Concyclic(C,D,G,J) => Angle_D_C_G - Angle_D_J_G
+12. Length_D_I - Variable_radius_I & Length_E_I - Variable_radius_I => Length_D_I - Length_E_I
+13. Length_I_J - Variable_radius_I & Length_D_I - Variable_radius_I => Length_D_I - Length_I_J
+14. Length_D_I - Length_E_I & Length_D_I - Length_I_J => Angle_E_D_J - Angle_E_I_J/2
+15. Angle_A_D_J - Angle_E_D_J & Angle_B_C_G - Angle_D_C_G & Angle_C_I_F - 19*pi/36 & Angle_A_J_D + Angle_D_J_G - pi & Angle_D_A_J - Variable_angle_A & Variable_angle_A - pi/18 & Angle_C_B_F - Angle_C_B_G & Angle_B_G_C + Angle_C_G_F - pi & Angle_B_C_G + Angle_B_G_C + Angle_C_B_G - pi & Angle_C_G_F - Angle_C_I_F/2 & Angle_D_C_G - Angle_D_J_G & Angle_E_I_J - pi/12 & Angle_A_D_J + Angle_A_J_D + Angle_D_A_J - pi & Angle_E_D_J - Angle_E_I_J/2 => Angle_C_B_F - pi/6
+16. Angle_C_B_F - Variable_angle_B & Angle_C_B_F - pi/6 => Variable_angle_B - pi/6

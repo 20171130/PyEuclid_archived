@@ -1,0 +1,4 @@
+Solution:
+1. Centroid(P,X,Y,Z) & Collinear(J,X,Y) & Collinear(J,P,Z) => Midpoint(J,X,Y)
+2. Midpoint(J,X,Y) => Length_J_X - Length_J_Y
+3. Length_J_X - 8 & Length_J_X - Length_J_Y => Length_J_Y - 8.0

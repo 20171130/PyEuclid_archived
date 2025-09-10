@@ -1,0 +1,5 @@
+Solution:
+1. Congruent3(R,S,V,T,V,S) => Angle_S_R_V - Angle_S_T_V
+2. Perpendicular(R,S,S,V) => Angle_R_S_V - pi/2
+3. Angle_S_R_V - Angle_S_T_V & Angle_R_V_S - 13*pi/30 & Angle_R_S_V + Angle_R_V_S + Angle_S_R_V - pi & Angle_R_S_V - pi/2 => Angle_S_T_V - pi/15
+4. Angle_S_T_V - pi*Variable_x/180 & Angle_S_T_V - pi/15 => Variable_x - 12

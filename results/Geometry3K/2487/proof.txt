@@ -1,0 +1,5 @@
+Solution:
+1. Length_C_O - 13 & Length_D_O - 13 => Length_C_O - Length_D_O
+2. Length_C_O - Length_D_O => IsoscelesTriangle(C,D,O)
+3. IsoscelesTriangle(C,D,O) & Length_C_O - Length_D_O & Perpendicular(B,O,C,D) => Angle_B_O_C - Angle_B_O_D
+4. Angle_B_O_C - Angle_B_O_D & Angle_B_O_C + Angle_B_O_D - Angle_C_O_D & Angle_C_O_D - 67*pi/90 => Angle_B_O_C - 67*pi/180

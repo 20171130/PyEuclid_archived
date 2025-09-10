@@ -1,0 +1,5 @@
+Solution:
+1. Parallel(B,D,F,H) => Angle_B_D_F + Angle_D_F_H - pi
+2. Parallel(A,G,B,D) => Angle_A_D_B + Angle_D_A_G - pi
+3. Angle_B_D_F - pi*(7*Variable_y/180 - 1/45) & Angle_D_A_G - pi*(Variable_y/90 + 1/36) & Angle_B_D_F + Angle_D_F_H - pi & Angle_A_D_B + Angle_D_A_G - pi & Angle_A_D_B - pi*(11*Variable_x/180 - 1/180) & Angle_D_F_H - pi*(7*Variable_x/180 + 1/20) => Angle_A_D_B - 17*pi/20
+4. Angle_A_D_B - 17*pi/20 & Angle_A_D_B - pi*(11*Variable_x/180 - 1/180) => Variable_x - 14

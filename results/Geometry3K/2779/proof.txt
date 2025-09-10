@@ -1,0 +1,13 @@
+Solution:
+1. Length_T_W - 7 & Length_T_Y - 6 => Length_T_W/Length_T_Y - 7/6 & Length_T_W - 7*Length_T_Y/6
+2. Length_A_X - Variable_radius_A & Length_A_W - Variable_radius_A => Length_A_W - Length_A_X
+3. Length_A_Y - Variable_radius_A & Length_A_W - Variable_radius_A => Length_A_W - Length_A_Y
+4. Length_A_Z - Variable_radius_A & Length_A_W - Variable_radius_A => Length_A_W - Length_A_Z
+5. Length_A_W - Length_A_X & Length_A_W - Length_A_Y & Length_A_W - Length_A_Z => Concyclic(W,X,Y,Z)
+6. Concyclic(W,X,Y,Z) & Collinear(T,W,X) & Collinear(T,Y,Z) => Length_T_W/Length_T_Y - Length_T_Z/Length_T_X
+7. Length_T_W/Length_T_Y - 7/6 & Length_T_W - 7*Length_T_Y/6 & Length_T_W/Length_T_Y - Length_T_Z/Length_T_X => Length_T_X - 6*Length_T_Z/7
+8. Collinear(T,Y,Z) => Length_T_Y - Length_T_Z + Length_Y_Z
+9. Length_T_Y - Length_T_Z + Length_Y_Z & Length_Y_Z - Variable_x & Length_T_Y - 6 => Length_T_Z - Variable_x - 6
+10. Collinear(T,W,X) => Length_T_W - Length_T_X + Length_W_X
+11. Length_T_W - 7 & Length_W_X - 12 & Length_T_W - Length_T_X + Length_W_X => Length_T_X - 19
+12. Length_T_X - 6*Length_T_Z/7 & Length_T_Z - Variable_x - 6 & Length_T_X - 19 => Variable_x - 97/6

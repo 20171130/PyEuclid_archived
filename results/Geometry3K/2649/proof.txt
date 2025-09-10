@@ -1,0 +1,8 @@
+Solution:
+1. Length_A_E - Variable_radius_A & Length_A_B - Variable_radius_A => Length_A_B - Length_A_E
+2. Length_A_E - Variable_radius_A & Length_A_F - Variable_radius_A => Length_A_E - Length_A_F
+3. -Length_A_B + Length_A_E & Length_A_E - Length_A_F => Angle_B_A_F - 2*Angle_B_E_F
+4. Perpendicular(A,D,A,F) => Angle_D_A_F - pi/2
+5. Collinear(A,B,C) => Angle_B_A_F + Angle_C_A_F - pi
+6. Angle_B_A_F - 2*Angle_B_E_F & Angle_D_A_F - pi/2 & Angle_B_A_F + Angle_C_A_F - pi & Angle_C_A_D - Angle_C_A_F + Angle_D_A_F & Angle_C_A_D - 67*pi/180 => Angle_B_E_F - 23*pi/360
+7. Angle_B_A_F - 2*Angle_B_E_F & Angle_B_E_F - 23*pi/360 & Angle_B_A_F - pi*Variable_x/180 => Variable_x - 23

@@ -1,0 +1,6 @@
+Solution:
+1. Length_V_W**2 - 2*Length_V_W*Length_V_X*cos(Angle_W_V_X) + Length_V_X**2 - Length_W_X**2 & Length_V_X - 75 & Length_V_W - 72 & Length_W_X - 21 => Angle_W_V_X - acos(24/25)
+2. Perpendicular(V,W,W,X) => Angle_V_W_X - pi/2
+3. Angle_V_W_X - pi/2 & Angle_V_W_X + Angle_V_X_W + Angle_W_V_X - pi => Angle_V_X_W + Angle_W_V_X - pi/2
+4. Angle_W_V_X - acos(24/25) & Angle_V_X_W + Angle_W_V_X - pi/2 => Angle_V_X_W - pi/2 + acos(24/25)
+5. Angle_V_X_W - pi/2 + acos(24/25) => cos(Angle_V_X_W) - 7/25

@@ -1,0 +1,6 @@
+Solution:
+1. Length_B_Z - Variable_radius_Z & Length_A_Z - Variable_radius_Z => Length_A_Z - Length_B_Z
+2. Length_A_Z - Length_B_Z => Angle_A_B_Z - Angle_B_A_Z
+3. Length_C_Z - Variable_radius_Z & Length_A_Z - Variable_radius_Z => Length_A_Z - Length_C_Z
+4. Length_A_Z - Length_B_Z & Length_A_Z - Length_C_Z => Angle_B_A_C - Angle_B_Z_C/2
+5. Angle_A_B_Z - Angle_B_A_Z & Angle_A_Z_B - 26*pi/45 & Angle_B_A_C - Angle_B_Z_C/2 & Angle_A_B_Z + Angle_A_Z_B + Angle_B_A_Z - pi & Angle_B_A_C - Angle_B_A_Z - Angle_C_A_Z & Angle_B_Z_C - 47*pi/90 => Angle_C_A_Z - pi/20

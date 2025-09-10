@@ -1,0 +1,7 @@
+Solution:
+1. Collinear(J,L,P) => Angle_J_P_M + Angle_L_P_M - pi
+2. Angle_J_P_M + Angle_L_P_M - pi & Angle_L_P_M - 13*pi/36 => Angle_J_P_M - 23*pi/36
+3. Perpendicular(L,P,N,P) => Angle_L_P_N - pi/2
+4. Perpendicular(J,P,N,P) => Angle_J_P_N - pi/2
+5. Angle_L_P_N - pi/2 & Angle_J_P_N - pi/2 => Angle_J_P_N - Angle_L_P_N
+6. Angle_J_P_M - 23*pi/36 & Angle_J_P_N - Angle_L_P_N & Angle_L_P_M - Angle_L_P_N + Angle_M_P_N & Angle_J_P_M - Angle_J_P_N - Angle_M_P_N & Angle_L_P_M - 13*pi/36 => Angle_M_P_N - 5*pi/36

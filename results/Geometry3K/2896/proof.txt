@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(A,B,D) => Angle_A_B_C - Angle_C_B_D & Parallel(A,D,B,D) & Length_A_B - Length_A_D - Length_B_D
+2. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
+3. Perpendicular(A,D,C,D) & Parallel(A,D,B,D) => Perpendicular(B,D,C,D)
+4. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2
+5. Angle_A_C_B - pi/2 & Angle_B_D_C - pi/2 => Angle_A_C_B - Angle_B_D_C
+6. Angle_A_B_C - Angle_C_B_D & Angle_A_C_B - Angle_B_D_C => Similar3(A,B,C,C,B,D)
+7. Similar3(A,B,C,C,B,D) => Length_A_B/Length_B_C - Length_B_C/Length_B_D
+8. Length_A_B - Length_A_D - Length_B_D & Length_B_D - 12 & Length_A_D - 3 => Length_A_B - 15
+9. Length_A_B/Length_B_C - Length_B_C/Length_B_D & Length_A_B - 15 & Length_B_D - 12 & Length_B_C - Variable_z => Variable_z - 6*sqrt(5)

@@ -1,0 +1,7 @@
+Solution:
+1. Length_A_O - Variable_radius_O & Length_B_O - Variable_radius_O => Length_A_O - Length_B_O
+2. Length_A_O - Variable_radius_O & Length_C_O - Variable_radius_O => Length_A_O - Length_C_O
+3. Length_A_O - Variable_radius_O & Length_D_O - Variable_radius_O => Length_A_O - Length_D_O
+4. Length_A_O - Length_B_O & Length_A_O - Length_C_O & Length_A_O - Length_D_O => Concyclic(A,B,C,D)
+5. Concyclic(A,B,C,D) => Angle_A_B_C + Angle_A_D_C - pi
+6. Angle_A_D_C - pi*(Variable_y/90 + 4/45) & Angle_A_B_C - pi*(Variable_y/60 + 1/45) & Angle_A_B_C + Angle_A_D_C - pi => Angle_A_D_C - 4*pi/9

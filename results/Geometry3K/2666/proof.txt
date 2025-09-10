@@ -1,0 +1,5 @@
+Solution:
+1. Similar3(A,B,C,E,F,G) => Length_A_B/Length_E_F - Length_B_C/Length_F_G
+2. Length_F_G - 15 & Length_E_F - 12 => -5/4 + Length_F_G/Length_E_F & Length_E_F/Length_F_G - 4/5
+3. Length_A_B/Length_E_F - Length_B_C/Length_F_G & -5/4 + Length_F_G/Length_E_F & Length_E_F/Length_F_G - 4/5 => Length_A_B - 4*Length_B_C/5 & Length_A_B/Length_B_C - 4/5
+4. Length_A_B - 4*Length_B_C/5 & Length_A_B/Length_B_C - 4/5 & Length_A_B - 2*Variable_x & Length_B_C - 20 => Variable_x - 8

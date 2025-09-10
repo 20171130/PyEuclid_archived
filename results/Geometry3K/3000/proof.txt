@@ -1,0 +1,17 @@
+Solution:
+1. Collinear(C,F,I) => Parallel(C,F,C,I) & Parallel(C,F,F,I)
+2. Perpendicular(C,E,C,I) & Parallel(C,F,C,I) => Perpendicular(C,E,C,F)
+3. Perpendicular(F,I,F,M) & Parallel(C,F,F,I) => Perpendicular(C,F,F,M)
+4. Perpendicular(C,E,C,F) & Perpendicular(C,F,F,M) => Parallel(C,E,F,M)
+5. Square(A,C,F,D) => Length_A_C - Length_D_F & Length_C_F - Length_D_F
+6. Midpoint(E,A,C) => Length_A_C - 2*Length_C_E
+7. Midpoint(M,D,F) => Length_D_F - 2*Length_F_M
+8. Length_A_C - Length_D_F & Length_A_C - 2*Length_C_E & Length_D_F - 2*Length_F_M => Length_C_E - Length_F_M
+9. Parallel(C,E,F,M) & Length_C_E - Length_F_M => Parallelogram(C,E,M,F)
+10. Parallelogram(C,E,M,F) => Length_C_F - Length_E_M
+11. Length_D_F - 14 & Length_C_F - Length_D_F => Length_C_F - 14
+12. Length_H_M - Variable_radius_H & Length_H_I - Variable_radius_H => Length_H_I - Length_H_M
+13. Midpoint(H,E,M) => Length_E_M - 2*Length_H_M
+14. Length_H_I - Length_H_M & Length_E_M - 2*Length_H_M => Length_E_M - 2*Length_H_I
+15. Length_C_F - Length_E_M & Length_C_F - 14 & Length_E_M - 2*Length_H_I & Length_H_I - Variable_radius_H => Variable_radius_H - 7
+16. Variable_radius_H - 7 => pi*Variable_radius_H - 7*pi

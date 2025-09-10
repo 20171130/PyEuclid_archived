@@ -1,0 +1,7 @@
+Solution:
+1. Collinear(D,T,X) => Length_D_T + Length_D_X - Length_T_X
+2. Length_D_E - 7 & Length_A_X - 24 & Length_D_E - Variable_radius_D & Length_D_T - Variable_radius_D => Length_A_X - 24*Length_D_T/7
+3. Length_D_T + Length_D_X - Length_T_X & Length_A_X - 24 & Length_A_X - 24*Length_D_T/7 => Length_D_X - Length_T_X + 7
+4. Perpendicular(A,D,A,X) => Angle_D_A_X - pi/2
+5. Length_D_E - 7 & Length_D_E - Variable_radius_D & Length_A_D - Variable_radius_D => Length_A_D - 7
+6. Length_A_D**2 - 2*Length_A_D*Length_A_X*cos(Angle_D_A_X) + Length_A_X**2 - Length_D_X**2 & Length_D_X - Length_T_X + 7 & Length_A_X - 24 & Angle_D_A_X - pi/2 & Length_A_D - 7 => Length_T_X - 32

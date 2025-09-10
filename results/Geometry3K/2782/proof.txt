@@ -1,0 +1,5 @@
+Solution:
+1. Rhombus(A,B,C,D) => Angle_A_C_B - Angle_B_A_C
+2. Collinear(A,C,E) => Angle_B_A_C - Angle_B_A_E
+3. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - Angle_B_A_C & Angle_A_B_C - 7*pi/18 & Angle_B_A_C - Angle_B_A_E => Angle_B_A_E - 11*pi/36
+4. Angle_B_A_E - Variable_angle_1 & Angle_B_A_E - 11*pi/36 => Variable_angle_1 - 11*pi/36

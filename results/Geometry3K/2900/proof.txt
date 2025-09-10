@@ -1,0 +1,8 @@
+Solution:
+1. Length_E_W - Variable_radius_W & Length_D_W - Variable_radius_W => Length_D_W - Length_E_W
+2. Length_D_W - Length_E_W => IsoscelesTriangle(D,E,W)
+3. Collinear(D,E,F) => Parallel(D,E,D,F)
+4. Perpendicular(D,F,F,W) & Parallel(D,E,D,F) => Perpendicular(D,E,F,W)
+5. IsoscelesTriangle(D,E,W) & Length_D_W - Length_E_W & Collinear(D,E,F) & Perpendicular(D,E,F,W) => Midpoint(F,D,E)
+6. Midpoint(F,D,E) => Length_D_E - 2*Length_D_F
+7. Length_D_E - 2*Length_D_F & Length_D_E - 30 => Length_D_F - 15

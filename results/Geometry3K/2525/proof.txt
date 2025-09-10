@@ -1,0 +1,7 @@
+Solution:
+1. Collinear(V,Y,Z) & Collinear(U,W,Z) => Angle_U_Z_V - Angle_W_Z_Y
+2. Length_U_Z - Variable_radius_Z & Length_W_Z - Variable_radius_Z => Length_U_Z - Length_W_Z
+3. Length_U_Z - Variable_radius_Z & Length_X_Z - Variable_radius_Z => Length_U_Z - Length_X_Z
+4. Length_U_Z - Length_W_Z & Length_U_Z - Length_X_Z => Angle_W_U_X - Angle_W_Z_X/2
+5. Collinear(U,W,Z) => Angle_U_Z_X + Angle_W_Z_X - pi
+6. Angle_U_Z_X - Angle_U_Z_Y - Angle_X_Z_Y & Angle_U_Z_Y - pi*(Variable_x/90 + 2/15) & Angle_U_Z_V - Angle_W_Z_Y & Angle_W_U_X - Angle_W_Z_X/2 & Angle_W_Z_X - Angle_X_Z_Y & Angle_U_Z_X + Angle_W_Z_X - pi & Angle_W_Z_X - Angle_W_Z_Y + Angle_X_Z_Y & Angle_U_Z_V - pi*Variable_x/45 => Angle_W_U_X - 13*pi/90

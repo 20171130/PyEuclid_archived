@@ -1,0 +1,3 @@
+Solution:
+1. Parallelogram(A,B,C,D) => Angle_A_D_C + Angle_B_A_D - pi
+2. Angle_A_D_C + Angle_B_A_D - pi & Angle_B_A_F - 8*pi/45 & Angle_D_A_F - pi/9 & Angle_B_A_D - Angle_B_A_F - Angle_D_A_F => Angle_A_D_C - 32*pi/45

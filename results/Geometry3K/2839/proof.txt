@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(K,M,P) & Collinear(L,M,R) & Parallel(K,L,P,R) => Similar3(K,L,M,P,R,M)
+2. Similar3(K,L,M,P,R,M) => Length_K_L/Length_P_R - Length_K_M/Length_M_P & Length_K_L/Length_K_M - Length_P_R/Length_M_P
+3. Collinear(K,M,P) => Length_K_M - Length_K_P - Length_M_P
+4. Length_K_P - Length_M_P/2 & Length_K_M - Length_K_P - Length_M_P => Length_K_M - 3*Length_K_P
+5. Length_K_P - Length_M_P/2 => -2 + Length_M_P/Length_K_P
+6. Length_K_L/Length_P_R - Length_K_M/Length_M_P & Length_K_M - 3*Length_K_P & Length_K_L/Length_K_M - Length_P_R/Length_M_P & Length_K_P - Length_M_P/2 & -2 + Length_M_P/Length_K_P => Length_K_L/Length_P_R - 3/2 & Length_K_L - 3*Length_P_R/2
+7. Collinear(K,L,N) => Length_K_L - Length_K_N - Length_L_N
+8. Length_K_L - Length_K_N - Length_L_N & Length_L_N - 16 & Length_K_N - 9 => Length_K_L - 25
+9. Length_K_L/Length_P_R - 3/2 & Length_K_L - 3*Length_P_R/2 & Length_K_L - 25 => Length_P_R - 50/3

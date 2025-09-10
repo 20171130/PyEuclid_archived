@@ -1,0 +1,2 @@
+Solution:
+1. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Angle_A_C_B - pi*Variable_x/180 & Length_A_C - 29 & Length_B_C - 50 & Length_A_B - 61 => Variable_x - 180*acos(-19/145)/pi

@@ -1,0 +1,5 @@
+Solution:
+1. Parallelogram(A,B,C,D) => Area_A_B_C_D - Length_B_C*Length_C_D*sin(Angle_B_C_D) & Angle_A_B_C + Angle_B_C_D - pi & Length_A_B - Length_C_D
+2. Angle_A_B_C + Angle_B_C_D - pi & Angle_A_B_C - pi/4 => Angle_B_C_D - 3*pi/4
+3. Length_A_B - 28 & Length_A_B - Length_C_D => Length_C_D - 28
+4. Area_A_B_C_D - Length_B_C*Length_C_D*sin(Angle_B_C_D) & Length_B_C - 9 & Angle_B_C_D - 3*pi/4 & Length_C_D - 28 => Area_A_B_C_D - 126*sqrt(2)

@@ -1,0 +1,4 @@
+Solution:
+1. Parallelogram(A,B,D,C) => Angle_A_C_B - Angle_C_B_D
+2. Angle_A_C_B - Angle_C_B_D & Angle_A_C_B - 5*pi/9 => Angle_C_B_D - 5*pi/9
+3. Angle_C_B_D - 5*pi/9 & Angle_C_B_D - 5*pi*Variable_x/36 => Variable_x - 4

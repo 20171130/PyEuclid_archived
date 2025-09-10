@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(C,L,M) => Angle_L_C_N + Angle_M_C_N - pi
+2. Length_C_N - Variable_radius_C & Length_C_M - Variable_radius_C => Length_C_M - Length_C_N
+3. Length_C_M - Length_C_N & Angle_M_C_N - pi/3 => EquilateralTriangle(C,M,N)
+4. EquilateralTriangle(C,M,N) => Angle_C_M_N - Angle_M_C_N & Angle_C_N_M - Angle_M_C_N
+5. Length_C_L - Variable_radius_C & Length_C_R - Variable_radius_C => Length_C_L - Length_C_R
+6. Length_C_R - Variable_radius_C & Length_C_N - Variable_radius_C => Length_C_N - Length_C_R
+7. -Length_C_L + Length_C_R & -Length_C_N + Length_C_R => Angle_L_C_N - 2*Angle_L_R_N
+8. Angle_L_C_N + Angle_M_C_N - pi & Angle_C_M_N - Angle_M_C_N & Angle_C_N_M - Angle_M_C_N & Angle_L_C_N - 2*Angle_L_R_N & Angle_C_M_N + Angle_C_N_M + Angle_M_C_N - pi => Angle_L_R_N - Angle_M_C_N
+9. Angle_L_R_N - Angle_M_C_N & Angle_L_C_N + Angle_M_C_N - pi & Angle_L_C_N - 2*Angle_L_R_N => Angle_L_C_N - 2*pi/3

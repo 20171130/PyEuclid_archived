@@ -1,0 +1,2 @@
+Solution:
+1. Area_A_B_C**2 - (-Length_A_B/2 + Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 - Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 - Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 + Length_B_C/2) & Length_A_C - 10 & Length_A_B - 13 & Length_B_C - 13 => Area_A_B_C - 60

@@ -1,0 +1,6 @@
+Solution:
+1. Length_P_Q - 6 & Length_K_L - 4 => Length_K_L/Length_P_Q - 2/3 & -3/2 + Length_P_Q/Length_K_L
+2. Parallel(H,S,K,Q) & Parallel(K,Q,L,P) => Parallel(H,S,L,P)
+3. Collinear(H,K,L) & Collinear(P,Q,S) & Parallel(H,S,L,P) & Parallel(H,S,K,Q) => Length_H_L/Length_K_L - Length_P_S/Length_P_Q
+4. Parallel(H,S,L,P) & Parallel(H,S,J,R) & Collinear(H,J,L) & Collinear(P,R,S) => Length_H_J/Length_R_S - Length_H_L/Length_P_S
+5. Length_K_L/Length_P_Q - 2/3 & Length_H_L/Length_K_L - Length_P_S/Length_P_Q & -3/2 + Length_P_Q/Length_K_L & Length_R_S - 6 & Length_H_J/Length_R_S - Length_H_L/Length_P_S => Length_H_J - 4

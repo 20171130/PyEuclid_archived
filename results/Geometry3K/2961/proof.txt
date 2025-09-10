@@ -1,0 +1,7 @@
+Solution:
+1. Perpendicular(R,T,S,T) => Angle_R_T_S - pi/2
+2. Angle_R_S_T + Angle_R_T_S + Angle_S_R_T - pi & Angle_R_T_S - pi/2 => Angle_R_S_T + Angle_S_R_T - pi/2
+3. sin(Angle_S_R_T)/Length_S_T - sin(Angle_R_S_T)/Length_R_T & Length_S_T - 4 & Angle_R_S_T + Angle_S_R_T - pi/2 & Length_R_T - 3 => Angle_S_R_T - atan(4/3)
+4. sin(Angle_R_S_T)/Length_R_T - sin(Angle_R_T_S)/Length_R_S & Angle_R_S_T + Angle_S_R_T - pi/2 & Length_R_T - 3 & Angle_R_T_S - pi/2 & Length_R_S - 5 => Angle_S_R_T - acos(3/5)
+5. Angle_S_R_T - atan(4/3) & Angle_S_R_T - acos(3/5) & Angle_R_S_T + Angle_S_R_T - pi/2 => Angle_R_S_T - pi/2 + atan(4/3)
+6. Angle_R_S_T - pi/2 + atan(4/3) => sin(Angle_R_S_T) - 3/5

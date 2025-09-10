@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(R,T,W) => Angle_R_T_V - Angle_V_T_W
+2. Angle_R_T_V - Angle_V_T_W & Angle_R_T_V - Angle_S_W_T & Angle_T_V_W + Angle_T_W_V + Angle_V_T_W - pi & Angle_S_W_T - Angle_S_W_V + Angle_T_W_V => Angle_S_W_V + Angle_T_V_W - pi
+3. Angle_S_W_V + Angle_T_V_W - pi => Parallel(S,W,T,V)
+4. Collinear(R,S,V) & Collinear(R,T,W) & Parallel(S,W,T,V) => Similar3(R,S,W,R,V,T)
+5. Similar3(R,S,W,R,V,T) => Length_S_W/Length_T_V - Length_R_W/Length_R_T
+6. Length_T_V - 10 & Length_S_W - 8 => -5/4 + Length_T_V/Length_S_W & Length_S_W/Length_T_V - 4/5
+7. Length_S_W/Length_T_V - Length_R_W/Length_R_T & -5/4 + Length_T_V/Length_S_W & Length_S_W/Length_T_V - 4/5 => Length_R_T - 5*Length_R_W/4
+8. Length_R_T - 5*Length_R_W/4 & Length_R_T - 2*Variable_x - 6 & Length_R_W - Variable_x - 6 => Variable_x - 2
+9. Variable_x - 2 & Length_R_W - Variable_x - 6 => Length_R_W - 8

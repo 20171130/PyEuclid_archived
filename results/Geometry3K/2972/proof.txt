@@ -1,0 +1,3 @@
+Solution:
+1. Parallelogram(W,X,Y,Z) => Length_W_X - Length_Y_Z
+2. Length_W_X - Variable_b - 11 & Length_W_X - Length_Y_Z & Length_Y_Z - 2*Variable_b => Variable_b - 11

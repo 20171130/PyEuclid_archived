@@ -1,0 +1,6 @@
+Solution:
+1. Collinear(B,C,D) => Parallel(B,C,C,D)
+2. Perpendicular(A,D,C,D) & Parallel(B,C,C,D) => Perpendicular(A,D,B,C)
+3. Perpendicular(A,D,B,C) & Collinear(B,C,D) => Area_A_B_C - Length_A_D*Length_B_C/2
+4. Area_A_B_C - 357 & Length_B_C - 34 & Area_A_B_C - Length_A_D*Length_B_C/2 => -34/21 + Length_B_C/Length_A_D & Length_A_D - 21*Length_B_C/34
+5. -34/21 + Length_B_C/Length_A_D & Area_A_B_C - 357 & Area_A_B_C - Length_A_D*Length_B_C/2 & Length_A_D - Variable_x & Length_A_D - 21*Length_B_C/34 => Variable_x - 21

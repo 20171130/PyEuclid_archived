@@ -1,0 +1,2 @@
+Solution:
+1. Length_J_K - Length_J_L & Length_J_K - Length_K_L & Length_J_L - 4*Variable_x + 8 & Length_J_K - Variable_x - 7 => Length_K_L - 12

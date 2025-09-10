@@ -1,0 +1,9 @@
+Solution:
+1. Length_E_F - 3 & Length_B_C - 5 => Length_B_C/Length_E_F - 5/3 & Length_B_C - 5*Length_E_F/3
+2. Angle_B_A_C - Angle_E_D_F & Angle_D_E_F + Angle_D_F_E + Angle_E_D_F - pi & Angle_A_B_C - Angle_D_E_F & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_A_C_B - Angle_D_F_E
+3. Angle_A_B_C - Angle_D_E_F & Angle_A_C_B - Angle_D_F_E => Similar3(A,B,C,D,E,F)
+4. Similar3(A,B,C,D,E,F) => Length_A_B/Length_D_E - Length_B_C/Length_E_F
+5. Length_B_C/Length_E_F - 5/3 & Length_A_B/Length_D_E - Length_B_C/Length_E_F & Length_B_C - 5*Length_E_F/3 => Length_A_B/Length_D_E - 5/3 & -3/5 + Length_D_E/Length_A_B
+6. Length_A_B/Length_D_E - 5/3 & -3/5 + Length_D_E/Length_A_B & Length_A_B - Variable_x => Length_D_E - 3*Variable_x/5
+7. Length_D_E - 3*Variable_x/5 & Length_D_E - Variable_x + 4 => Variable_x - 10
+8. Variable_x - 10 & Length_A_B - Variable_x => Length_A_B - 10

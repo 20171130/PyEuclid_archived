@@ -1,0 +1,8 @@
+Solution:
+1. Length_A_E - Length_D_E & Collinear(A,D,E) => Midpoint(E,A,D)
+2. Midpoint(E,A,D) => Length_A_D - 2*Length_D_E
+3. Length_D_E - 8 & Length_B_C - 17 => Length_B_C - 17*Length_D_E/8
+4. Length_A_D - 2*Length_D_E & Length_B_C - 17*Length_D_E/8 & Length_B_C - 17 => Length_A_D - 16
+5. Rhombus(A,B,D,C) => Perpendicular(A,D,B,C)
+6. Perpendicular(A,D,B,C) => Area_A_B_D_C - Length_A_D*Length_B_C/2
+7. Length_B_C - 17 & Length_A_D - 16 & Area_A_B_D_C - Length_A_D*Length_B_C/2 => Area_A_B_D_C - 136

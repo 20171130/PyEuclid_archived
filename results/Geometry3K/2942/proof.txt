@@ -1,0 +1,7 @@
+Solution:
+1. Length_A_F - Variable_radius_F & Length_C_F - Variable_radius_F => Length_A_F - Length_C_F
+2. Length_A_F - Variable_radius_F & Length_D_F - Variable_radius_F => Length_A_F - Length_D_F
+3. Length_A_F - Length_C_F & Length_A_F - Length_D_F => Angle_C_A_D - Angle_C_F_D/2
+4. Square(A,B,D,C) => Perpendicular(A,D,B,C) & Angle_A_C_B - Angle_C_A_D
+5. Perpendicular(A,D,B,C) => Angle_A_C_B + Angle_C_A_D - pi/2
+6. Angle_C_A_D - Angle_C_F_D/2 & Angle_A_C_B + Angle_C_A_D - pi/2 & Angle_A_C_B - Angle_C_A_D => Angle_C_F_D - pi/2

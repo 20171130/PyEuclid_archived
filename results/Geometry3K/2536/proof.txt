@@ -1,0 +1,12 @@
+Solution:
+1. Collinear(A,B,D) => Angle_A_B_C - Angle_C_B_D & Parallel(A,D,B,D) & Length_A_B - Length_A_D - Length_B_D
+2. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2
+3. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
+4. Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_A_C_B - Angle_A_C_D - Angle_B_C_D & Angle_A_B_C - Angle_C_B_D & Angle_B_D_C - pi/2 & Angle_A_C_B - pi/2 => Angle_A_B_C - Angle_A_C_D
+5. Perpendicular(B,D,C,D) & Parallel(A,D,B,D) => Perpendicular(A,D,C,D)
+6. Perpendicular(A,D,C,D) => Angle_A_D_C - pi/2
+7. Angle_A_D_C - pi/2 & Angle_A_C_B - pi/2 => Angle_A_C_B - Angle_A_D_C
+8. Angle_A_B_C - Angle_A_C_D & Angle_A_C_B - Angle_A_D_C => Similar3(A,B,C,A,C,D)
+9. Similar3(A,B,C,A,C,D) => Length_A_D/Length_A_C - Length_A_C/Length_A_B
+10. Length_B_D - 25/2 & Length_A_D - 8 & Length_A_B - Length_A_D - Length_B_D => Length_A_B - 41/2
+11. Length_A_C - Variable_y & Length_A_D/Length_A_C - Length_A_C/Length_A_B & Length_A_D - 8 & Length_A_B - 41/2 => Variable_y - 2*sqrt(41)

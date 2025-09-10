@@ -1,0 +1,7 @@
+Solution:
+1. Length_B_H - Variable_radius_B & Length_B_F - Variable_radius_B => Length_B_F - Length_B_H
+2. Length_B_J - Variable_radius_B & Length_B_G - Variable_radius_B => Length_B_G - Length_B_J
+3. Length_B_F - Length_B_H & Length_F_G - Length_H_J & Length_B_G - Length_B_J => Congruent3(B,F,G,B,H,J)
+4. Congruent3(B,F,G,B,H,J) => Angle_F_B_G - Angle_H_B_J
+5. Angle_F_B_G - Angle_H_B_J & Angle_F_B_G - 7*pi/18 => Angle_H_B_J - 7*pi/18
+6. Angle_H_B_J - 7*pi/18 & Angle_H_B_J - pi*Variable_x/180 => Variable_x - 70

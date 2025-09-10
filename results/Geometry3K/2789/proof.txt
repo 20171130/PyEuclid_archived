@@ -1,0 +1,4 @@
+Solution:
+1. Collinear(B,C,E) => Angle_C_B_D - Angle_D_B_E
+2. Angle_C_B_D - Angle_D_B_E & Angle_B_D_E - 5*pi/12 & Angle_B_D_E + Angle_B_E_D + Angle_D_B_E - pi & Angle_C_B_D - 7*pi/36 => Angle_B_E_D - 7*pi/18
+3. Angle_B_E_D - 7*pi/18 & Angle_B_E_D - Variable_angle_1 => Variable_angle_1 - 7*pi/18
