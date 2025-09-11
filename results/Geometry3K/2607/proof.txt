@@ -1,5 +1,2 @@
 Solution:
-1. Parallel(A,B,D,E) => Angle_A_B_D + Angle_B_D_E - pi
-2. Collinear(B,D,F) => Angle_A_B_D - Angle_A_B_F & Angle_B_D_E - Angle_E_D_F
-3. Angle_A_B_D + Angle_B_D_E - pi & Angle_A_B_F - 23*pi/36 & Angle_A_B_D - Angle_A_B_F & Angle_B_D_E - Angle_E_D_F => Angle_E_D_F - 13*pi/36
-4. Angle_E_D_F - pi*Variable_x/180 & Angle_E_D_F - 13*pi/36 => Variable_x - 65
+1. Variable_x - 65 => Variable_x - 65

@@ -1,4 +1,4 @@
 Solution:
 1. Congruent3(A,B,C,R,S,T) => Angle_A_B_C - Angle_R_S_T
-2. Angle_R_S_T - pi*(Variable_x/36 + 1/9) & Angle_A_B_C - pi*(Variable_x/60 + 2/9) & Angle_A_B_C - Angle_R_S_T => Angle_R_S_T - 7*pi/18
-3. Angle_R_S_T - 7*pi/18 & Angle_R_S_T - pi*(Variable_x/36 + 1/9) => Variable_x - 10
+2. Angle_A_B_C - Angle_R_S_T & Angle_R_S_T - pi*(Variable_x/36 + 1/9) & Angle_A_B_C - pi*(Variable_x/60 + 2/9) => Angle_R_S_T - 7*pi/18 & Angle_A_B_C - 7*pi/18
+3. Angle_R_S_T - pi*(Variable_x/36 + 1/9) & Angle_R_S_T - 7*pi/18 & Angle_A_B_C - pi*(Variable_x/60 + 2/9) & Angle_A_B_C - 7*pi/18 => Variable_x - 10

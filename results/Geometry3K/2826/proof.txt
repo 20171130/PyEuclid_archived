@@ -7,4 +7,4 @@ Solution:
 6. Collinear(J,K,Q) => Parallel(J,K,J,Q)
 7. Perpendicular(J,Q,L,P) & Parallel(J,K,J,Q) => Perpendicular(J,K,L,P)
 8. IsoscelesTriangle(J,K,P) & Length_J_P - Length_K_P & Perpendicular(J,K,L,P) => Angle_J_P_L - Angle_K_P_L
-9. Angle_J_P_K - Angle_J_P_L - Angle_K_P_L & Angle_J_P_L - Angle_K_P_L & Angle_J_P_K - 67*pi/90 => Angle_J_P_L - 67*pi/180
+9. Angle_J_P_L - Angle_K_P_L & Angle_J_P_K - 67*pi/90 & Angle_J_P_K - Angle_J_P_L - Angle_K_P_L => Angle_J_P_L - 67*pi/180

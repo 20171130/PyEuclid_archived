@@ -1,5 +1,6 @@
 Solution:
-1. Similar3(A,B,C,E,D,C) => Length_A_C/Length_C_E - Length_B_C/Length_C_D
-2. Length_B_C - 4 & Length_C_D - 6 => -3/2 + Length_C_D/Length_B_C & Length_B_C/Length_C_D - 2/3
-3. Length_A_C/Length_C_E - Length_B_C/Length_C_D & -3/2 + Length_C_D/Length_B_C & Length_B_C/Length_C_D - 2/3 => Length_A_C - 2*Length_C_E/3
-4. Length_C_E + Variable_x - 12 & Length_A_C - 2*Length_C_E/3 & Length_A_C - Variable_x - 7 => Length_A_C - 38/5
+1. Length_C_D - 6 & Length_B_C - 4 => -3/2 + Length_C_D/Length_B_C
+2. Similar3(A,B,C,E,D,C) => Length_C_D/Length_B_C - Length_C_E/Length_A_C
+3. -3/2 + Length_C_D/Length_B_C & Length_C_D/Length_B_C - Length_C_E/Length_A_C => Length_A_C - 2*Length_C_E/3
+4. Length_A_C - 2*Length_C_E/3 & Length_A_C - Variable_x - 7 & Length_C_E + Variable_x - 12 => Variable_x - 3/5
+5. Length_A_C - Variable_x - 7 & Variable_x - 3/5 => Length_A_C - 38/5

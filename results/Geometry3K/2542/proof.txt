@@ -1,4 +1,5 @@
 Solution:
 1. Perpendicular(A,B,B,C) & Perpendicular(B,C,C,D) => Parallel(A,B,C,D)
 2. Parallel(A,B,C,D) => Angle_A_D_C + Angle_B_A_D - pi
-3. Angle_A_D_C + Angle_B_A_D - pi & Angle_B_A_D - pi*Variable_x/60 & Angle_A_D_C - pi*Variable_x/180 => Angle_B_A_D - 3*pi/4
+3. Angle_A_D_C + Angle_B_A_D - pi & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_D_C - pi*Variable_x/180 & Angle_B_A_D - pi*Variable_x/60 => Angle_A_B_D + Angle_A_D_B - pi/4
+4. Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_B_D + Angle_A_D_B - pi/4 => Angle_B_A_D - 3*pi/4

@@ -2,4 +2,4 @@ Solution:
 1. Collinear(A,C,E) => Parallel(A,C,A,E)
 2. Perpendicular(A,E,B,E) & Parallel(A,C,A,E) => Perpendicular(A,C,B,E)
 3. Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Perpendicular(A,C,B,E) & Collinear(A,C,E) => Area_A_C_B_D - Length_B_E*(Length_A_C + Length_B_D)/2
-4. Area_A_C_B_D - Length_B_E*(Length_A_C + Length_B_D)/2 & Length_A_C - 16 & Length_B_E - 12 & Length_B_D - 6 => Area_A_C_B_D - 132
+4. Area_A_C_B_D - Length_B_E*(Length_A_C + Length_B_D)/2 & Length_A_C - 16 & Length_B_D - 6 & Length_B_E - 12 => Area_A_C_B_D - 132

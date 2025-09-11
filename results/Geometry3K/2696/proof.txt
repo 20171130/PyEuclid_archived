@@ -1,11 +1,13 @@
 Solution:
-1. Length_B_N - Variable_radius_B & Length_B_L - Variable_radius_B => Length_B_L - Length_B_N
-2. Length_B_P - Variable_radius_B & Length_B_N - Variable_radius_B => Length_B_N - Length_B_P
-3. -Length_B_L + Length_B_N & Length_B_N - Length_B_P => Angle_L_B_P - 2*Angle_L_N_P
-4. Length_B_P - Variable_radius_B & Length_B_L - Variable_radius_B => Length_B_L - Length_B_P
-5. -Length_B_L + Length_B_P & -Length_B_N + Length_B_P => Angle_L_B_N - 2*Angle_L_P_N
-6. Collinear(M,N,P) => Angle_L_N_M + Angle_L_N_P - pi
-7. Length_B_L - Length_B_P => Angle_B_L_P - Angle_B_P_L
-8. Length_B_L - Length_B_N & Length_B_L - Length_B_P & Perpendicular(B,L,L,M) => Angle_L_P_N - Angle_M_L_N
-9. Angle_L_B_P - 2*Angle_L_N_P & Angle_B_L_P + Angle_B_P_L + Angle_L_B_P - pi & Angle_L_M_N - pi/5 & Angle_L_B_N - 2*Angle_L_P_N & Angle_L_N_M + Angle_L_N_P - pi & Angle_B_L_P - Angle_B_P_L & Angle_L_B_N - 13*pi/30 & Angle_L_M_N + Angle_L_N_M + Angle_M_L_N - pi & Angle_L_P_N - Angle_M_L_N => Angle_B_L_P - pi/12 & Angle_B_P_L - pi/12
-10. Angle_B_L_P - pi/12 & Angle_B_L_P + Angle_B_P_L + Angle_L_B_P - pi & Angle_B_P_L - pi/12 => Angle_L_B_P - 5*pi/6
+1. Length_B_L - Variable_radius_B & Length_B_P - Variable_radius_B => Length_B_L - Length_B_P
+2. Length_B_L - Length_B_P => Angle_B_L_P - Angle_B_P_L
+3. Length_B_L - Variable_radius_B & Length_B_N - Variable_radius_B => Length_B_L - Length_B_N
+4. Length_B_L - Length_B_N & Length_B_L - Length_B_P & Perpendicular(B,L,L,M) => Angle_L_P_N - Angle_M_L_N
+5. Length_B_N - Variable_radius_B & Length_B_P - Variable_radius_B => Length_B_N - Length_B_P
+6. -Length_B_L + Length_B_P & -Length_B_N + Length_B_P => Angle_L_B_N - 2*Angle_L_P_N
+7. -Length_B_L + Length_B_N & Length_B_N - Length_B_P => Angle_L_B_P - 2*Angle_L_N_P
+8. Collinear(M,N,P) => Angle_L_N_M + Angle_L_N_P - pi & Angle_L_M_N - Angle_L_M_P & Angle_L_P_M - Angle_L_P_N
+9. Angle_L_B_N - 13*pi/30 & Angle_B_L_P - Angle_B_P_L & Angle_L_P_N - Angle_M_L_N & Angle_L_B_N - 2*Angle_L_P_N & Angle_B_L_P + Angle_B_P_L + Angle_L_B_P - pi & Angle_L_B_P - 2*Angle_L_N_P & Angle_L_M_N + Angle_L_N_M + Angle_M_L_N - pi & Angle_L_M_N - pi/5 & Angle_L_N_M + Angle_L_N_P - pi => Angle_B_P_L - pi/12
+10. Perpendicular(B,L,L,M) => Angle_B_L_M - pi/2
+11. Angle_L_B_N - 13*pi/30 & Angle_B_L_M - pi/2 & Angle_L_B_N - 2*Angle_L_P_N & Angle_L_M_N - Angle_L_M_P & Angle_L_P_M - Angle_L_P_N & Angle_B_L_M + Angle_B_L_P - Angle_M_L_P & Angle_L_M_N - pi/5 & Angle_L_M_P + Angle_L_P_M + Angle_M_L_P - pi => Angle_B_L_P - pi/12
+12. Angle_B_P_L - pi/12 & Angle_B_L_P + Angle_B_P_L + Angle_L_B_P - pi & Angle_B_L_P - pi/12 => Angle_L_B_P - 5*pi/6

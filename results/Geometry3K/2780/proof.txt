@@ -1,6 +1,6 @@
 Solution:
-1. Collinear(T,W,Y) & Collinear(W,X,Z) & Parallel(T,Z,X,Y) => Similar3(T,W,Z,Y,W,X)
-2. Similar3(T,W,Z,Y,W,X) => Length_X_Y/Length_T_Z - Length_W_Y/Length_T_W
-3. Length_X_Y - 16 & Length_T_Z - 10 => Length_T_Z/Length_X_Y - 5/8 & -8/5 + Length_X_Y/Length_T_Z
-4. Length_X_Y/Length_T_Z - Length_W_Y/Length_T_W & Length_T_Z/Length_X_Y - 5/8 & -8/5 + Length_X_Y/Length_T_Z => Length_T_W/Length_W_Y - 5/8 & Length_T_W - 5*Length_W_Y/8
-5. Length_T_W/Length_W_Y - 5/8 & Length_T_W - 5*Length_W_Y/8 & Length_T_W - Variable_x & Length_W_Y - 20 => Variable_x - 25/2
+1. Length_X_Y - 16 & Length_T_Z - 10 => -8/5 + Length_X_Y/Length_T_Z
+2. Collinear(T,W,Y) & Collinear(W,X,Z) & Parallel(T,Z,X,Y) => Similar3(T,W,Z,Y,W,X)
+3. Similar3(T,W,Z,Y,W,X) => Length_X_Y/Length_W_Y - Length_T_Z/Length_T_W
+4. -8/5 + Length_X_Y/Length_T_Z & Length_X_Y/Length_W_Y - Length_T_Z/Length_T_W => Length_T_W - 5*Length_W_Y/8
+5. Length_T_W - Variable_x & Length_W_Y - 20 & Length_T_W - 5*Length_W_Y/8 => Variable_x - 25/2

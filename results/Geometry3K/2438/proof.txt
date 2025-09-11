@@ -1,4 +1,4 @@
 Solution:
-1. Collinear(W,X,Z) => Angle_V_X_W + Angle_V_X_Z - pi
-2. Collinear(W,X,Z) & Collinear(V,X,Y) => Angle_V_X_Z - Angle_W_X_Y
-3. Angle_V_X_W + Angle_V_X_Z - pi & Angle_V_X_Z - pi*(Variable_x/90 + 13/36) & Angle_V_X_Z - Angle_W_X_Y & Angle_W_X_Y - pi*(Variable_x/45 + 1/12) => Angle_V_X_W - 13*pi/36
+1. Collinear(V,X,Y) => Angle_V_X_W + Angle_W_X_Y - pi
+2. Collinear(W,X,Z) => Angle_V_X_W + Angle_V_X_Z - pi
+3. Angle_W_X_Y - pi*(Variable_x/45 + 1/12) & Angle_V_X_W + Angle_W_X_Y - pi & Angle_V_X_Z - pi*(Variable_x/90 + 13/36) & Angle_V_X_W + Angle_V_X_Z - pi => Angle_V_X_W - 13*pi/36

@@ -1,9 +1,13 @@
 Solution:
-1. Length_B_C - Length_B_D => IsoscelesTriangle(B,C,D) & Angle_B_C_D - Angle_B_D_C
-2. Collinear(A,C,D) => Parallel(A,C,C,D) & Parallel(A,C,A,D)
-3. Perpendicular(A,B,A,C) & Parallel(A,C,C,D) => Perpendicular(A,B,C,D)
-4. IsoscelesTriangle(B,C,D) & Length_B_C - Length_B_D & Collinear(A,C,D) & Perpendicular(A,B,C,D) => Angle_A_B_C - Angle_A_B_D
-5. Angle_A_B_C + Angle_A_B_D - Angle_C_B_D & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_A_B_C - Angle_A_B_D & Angle_B_C_D - Angle_B_D_C & Angle_B_C_D - 3*pi/10 => Angle_A_B_D - pi/5
-6. Perpendicular(A,B,A,C) & Parallel(A,C,A,D) => Perpendicular(A,B,A,D)
-7. Perpendicular(A,B,A,D) => Angle_B_A_D - pi/2
-8. sin(Angle_B_A_D)/Length_B_D - sin(Angle_A_B_D)/Length_A_D & Angle_A_B_D - pi/5 & Length_A_D - Variable_x & Length_B_D - 32 & Angle_B_A_D - pi/2 => Variable_x - 18.8091280733591
+1. Collinear(A,C,D) => Angle_A_C_B - Angle_B_C_D & Parallel(A,C,C,D)
+2. Perpendicular(A,B,A,C) => Angle_B_A_C - pi/2
+3. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - Angle_B_C_D & Angle_B_C_D - 3*pi/10 & Angle_B_A_C - pi/2 => Angle_A_B_C - pi/5
+4. Length_B_C - Length_B_D => IsoscelesTriangle(B,C,D) & Angle_B_C_D - Angle_B_D_C
+5. Perpendicular(A,B,A,C) & Parallel(A,C,C,D) => Perpendicular(A,B,C,D)
+6. IsoscelesTriangle(B,C,D) & Length_B_C - Length_B_D & Collinear(A,C,D) & Perpendicular(A,B,C,D) => Angle_A_B_C - Angle_A_B_D & Midpoint(A,C,D)
+7. Angle_B_C_D - 3*pi/10 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_A_B_C + Angle_A_B_D - Angle_C_B_D & Angle_A_B_C - Angle_A_B_D & Angle_B_C_D - Angle_B_D_C => Angle_A_B_D - pi/5
+8. Angle_A_B_C + Angle_A_B_D - Angle_C_B_D & Angle_A_B_C - pi/5 & Angle_A_B_D - pi/5 => Angle_C_B_D - 2*pi/5
+9. Length_B_D - 32 & Length_B_C - Length_B_D => Length_B_C - 32
+10. Midpoint(A,C,D) => Length_A_D - Length_C_D/2
+11. Length_A_D - Length_C_D/2 & Length_A_D - Variable_x => Length_C_D - 2*Variable_x
+12. Length_B_C**2 - 2*Length_B_C*Length_B_D*cos(Angle_C_B_D) + Length_B_D**2 - Length_C_D**2 & Angle_C_B_D - 2*pi/5 & Length_B_C - 32 & Length_C_D - 2*Variable_x & Length_B_D - 32 => Variable_x - 18.8091280733591

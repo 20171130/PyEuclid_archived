@@ -1,10 +1,2 @@
 Solution:
-1. Collinear(A,D,Y) => Parallel(A,D,A,Y)
-2. Collinear(B,E,I) => Parallel(B,I,E,I)
-3. Parallel(A,D,E,I) & Parallel(B,I,E,I) => Parallel(A,D,B,I)
-4. Parallel(A,D,A,Y) & Parallel(A,D,B,I) => Parallel(A,Y,B,I)
-5. Parallel(A,Y,B,I) => Angle_A_Y_B + Angle_I_B_Y - pi
-6. Collinear(B,G,Y) => Angle_A_Y_B - Angle_A_Y_G
-7. Collinear(B,G,Y) & Collinear(B,E,I) => Angle_E_B_G - Angle_I_B_Y
-8. Angle_E_B_G - 7*pi/12 & Angle_A_Y_B + Angle_I_B_Y - pi & Angle_A_Y_B - Angle_A_Y_G & Angle_E_B_G - Angle_I_B_Y => Angle_A_Y_G - 5*pi/12
-9. Angle_A_Y_G - 5*pi/12 & Angle_A_Y_G - pi*(Variable_y/180 + 5/36) => Variable_y - 50
+1. Variable_y - 50 => Variable_y - 50

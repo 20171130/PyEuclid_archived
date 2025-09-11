@@ -4,4 +4,4 @@ Solution:
 3. Collinear(Q,R,S) => Parallel(Q,R,Q,S)
 4. Perpendicular(P,R,Q,R) & Parallel(Q,R,Q,S) => Perpendicular(P,R,Q,S)
 5. Midpoint(R,Q,S) & Perpendicular(P,R,Q,S) => Length_P_Q - Length_P_S
-6. Length_P_Q - Length_P_S & Length_P_Q - 9 => Length_P_S - 9
+6. Length_P_Q - 9 & Length_P_Q - Length_P_S => Length_P_S - 9

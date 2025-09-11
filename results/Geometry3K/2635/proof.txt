@@ -1,11 +1,11 @@
 Solution:
-1. Collinear(R,T,Y) => Parallel(R,T,T,Y)
-2. Midpoint(X,R,S) & Midpoint(Z,S,T) => Parallel(R,T,X,Z)
-3. Parallel(R,T,T,Y) & Parallel(R,T,X,Z) => Parallel(T,Y,X,Z)
-4. Collinear(S,T,Z) => Parallel(S,T,T,Z)
-5. Midpoint(X,R,S) & Midpoint(Y,R,T) => Parallel(S,T,X,Y)
-6. Parallel(S,T,T,Z) & Parallel(S,T,X,Y) => Parallel(T,Z,X,Y)
-7. Parallel(T,Y,X,Z) & Parallel(T,Z,X,Y) => Parallelogram(T,Y,X,Z)
-8. Parallelogram(T,Y,X,Z) => Length_T_Z - Length_X_Y
-9. Midpoint(Z,S,T) => Length_S_T - 2*Length_T_Z
-10. Length_T_Z - Length_X_Y & Length_S_T - 2*Length_T_Z & Length_X_Y - 7 => Length_S_T - 14
+1. Midpoint(Z,S,T) => Length_S_T - 2*Length_T_Z
+2. Collinear(R,T,Y) => Parallel(R,T,T,Y)
+3. Midpoint(X,R,S) & Midpoint(Z,S,T) => Parallel(R,T,X,Z)
+4. Parallel(R,T,T,Y) & Parallel(R,T,X,Z) => Parallel(T,Y,X,Z)
+5. Collinear(S,T,Z) => Parallel(S,T,T,Z)
+6. Midpoint(X,R,S) & Midpoint(Y,R,T) => Parallel(S,T,X,Y)
+7. Parallel(S,T,T,Z) & Parallel(S,T,X,Y) => Parallel(T,Z,X,Y)
+8. Parallel(T,Y,X,Z) & Parallel(T,Z,X,Y) => Parallelogram(T,Y,X,Z)
+9. Parallelogram(T,Y,X,Z) => Length_T_Z - Length_X_Y
+10. Length_S_T - 2*Length_T_Z & Length_X_Y - 7 & Length_T_Z - Length_X_Y => Length_S_T - 14

@@ -5,4 +5,4 @@ Solution:
 4. Collinear(B,X,Z) => Parallel(B,Z,X,Z)
 5. Perpendicular(B,Z,W,Y) & Parallel(B,Z,X,Z) => Perpendicular(W,Y,X,Z)
 6. Midpoint(Z,W,Y) & Perpendicular(W,Y,X,Z) => Length_W_X - Length_X_Y
-7. Length_X_Y - 12 & Length_W_X - Length_X_Y => Length_W_X - 12
+7. Length_W_X - Length_X_Y & Length_X_Y - 12 => Length_W_X - 12

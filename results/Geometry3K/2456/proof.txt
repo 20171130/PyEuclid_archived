@@ -1,4 +1,6 @@
 Solution:
-1. Collinear(A,B,C) => Length_A_B + Length_A_C - Length_B_C
-2. Length_A_B + Length_A_C - Length_B_C & Length_A_B - Variable_radius_A & Length_B_C - 31/5 & Length_A_C - Variable_radius_A => Variable_radius_A - 31/10
-3. Variable_radius_A - 31/10 => pi*Variable_radius_A - 31*pi/10
+1. Length_A_B - Variable_radius_A & Length_A_C - Variable_radius_A => Length_A_B - Length_A_C
+2. Length_A_B - Length_A_C & Collinear(A,B,C) => Midpoint(A,B,C)
+3. Midpoint(A,B,C) => Length_A_B - Length_B_C/2
+4. Length_A_B - Variable_radius_A & Length_A_B - Length_B_C/2 & Length_B_C - 31/5 => Variable_radius_A - 31/10
+5. Variable_radius_A - 31/10 => pi*Variable_radius_A - 31*pi/10

@@ -1,7 +1,7 @@
 Solution:
-1. Midpoint(S,R,T) => Length_R_S - Length_S_T
-2. Midpoint(V,Q,U) => Length_Q_V - Length_U_V & Length_Q_U - 2*Length_U_V
-3. Length_R_S - Length_S_T & Length_Q_V - Length_U_V => Length_Q_V/Length_U_V - Length_R_S/Length_S_T
+1. Midpoint(V,Q,U) => Length_Q_V - Length_U_V & Length_Q_U - 2*Length_U_V
+2. Midpoint(S,R,T) => Length_R_S - Length_S_T
+3. Length_Q_V - Length_U_V & Length_R_S - Length_S_T => Length_Q_V/Length_U_V - Length_R_S/Length_S_T
 4. Collinear(Q,U,V) & Parallel(Q,R,T,U) & Collinear(R,S,T) & Length_Q_V/Length_U_V - Length_R_S/Length_S_T => Parallel(Q,R,S,V)
 5. Parallel(Q,R,T,U) & Parallel(Q,R,S,V) & Collinear(Q,U,V) & Collinear(R,S,T) => Length_Q_R*Length_U_V/Length_Q_U - Length_S_V + Length_Q_V*Length_T_U/Length_Q_U
-6. Length_Q_R*Length_U_V/Length_Q_U - Length_S_V + Length_Q_V*Length_T_U/Length_Q_U & Length_Q_R - 4 & Length_Q_U - 2*Length_U_V & Length_Q_V - Length_U_V & Length_T_U - 16 => Length_S_V - 10
+6. Length_Q_R*Length_U_V/Length_Q_U - Length_S_V + Length_Q_V*Length_T_U/Length_Q_U & Length_T_U - 16 & Length_Q_U - 2*Length_U_V & Length_Q_V - Length_U_V & Length_Q_R - 4 => Length_S_V - 10

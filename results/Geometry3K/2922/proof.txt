@@ -1,5 +1,5 @@
 Solution:
 1. Perpendicular(R,S,S,T) => Angle_R_S_T - pi/2
 2. Angle_R_S_T - pi/2 & Angle_R_S_T + Angle_R_T_S + Angle_S_R_T - pi => Angle_R_T_S + Angle_S_R_T - pi/2
-3. sin(Angle_S_R_T)/Length_S_T - sin(Angle_R_T_S)/Length_R_S & Length_S_T - 10*sqrt(3) & Length_R_S - 4*sqrt(3) & Angle_R_T_S + Angle_S_R_T - pi/2 => Angle_S_R_T - atan(5/2)
+3. sin(Angle_S_R_T)/Length_S_T - sin(Angle_R_T_S)/Length_R_S & Length_R_S - 4*sqrt(3) & Angle_R_T_S + Angle_S_R_T - pi/2 & Length_S_T - 10*sqrt(3) => Angle_S_R_T - atan(5/2)
 4. Angle_R_T_S + Angle_S_R_T - pi/2 & Angle_S_R_T - atan(5/2) => Angle_R_T_S - pi/2 + atan(5/2)

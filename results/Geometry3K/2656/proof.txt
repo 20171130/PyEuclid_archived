@@ -1,12 +1,2 @@
 Solution:
-1. Length_A_C - Length_B_D & Length_A_D - Length_B_C => Parallelogram(A,C,B,D)
-2. Parallelogram(A,C,B,D) => Parallel(A,D,B,C)
-3. Perpendicular(A,D,B,D) & Parallel(A,D,B,C) => Perpendicular(B,C,B,D)
-4. Perpendicular(B,C,B,D) => Angle_C_B_D - pi/2
-5. Length_A_C - Length_A_D & Length_A_D - Length_B_C => Length_A_C - Length_B_C
-6. Length_A_C - Length_B_D & Length_A_C - Length_A_D & Length_A_D - Length_B_C => Length_B_C - Length_B_D
-7. Length_A_C - Length_B_D & Length_A_C - Length_A_D => Length_A_D - Length_B_D
-8. Length_A_C - Length_B_C & Length_B_C - Length_B_D & -Length_A_D + Length_B_D => Rhombus(A,C,B,D)
-9. Rhombus(A,C,B,D) => Angle_A_B_C - Angle_A_B_D
-10. Angle_C_B_D - pi/2 & Angle_A_B_C + Angle_A_B_D - Angle_C_B_D & Angle_A_B_C - Angle_A_B_D => Angle_A_B_C - pi/4
-11. Angle_A_B_C - pi/4 & Angle_A_B_C - pi*Variable_y/180 => Variable_y - 45
+1. Variable_y - 45 => Variable_y - 45

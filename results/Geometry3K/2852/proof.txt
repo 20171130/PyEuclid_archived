@@ -1,2 +1,2 @@
 Solution:
-1. Angle_A_B_C - 7*pi/36 & Angle_B_A_C - pi*Variable_x/180 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - 13*pi/45 => Variable_x - 93
+1. Variable_x - 93 => Variable_x - 93

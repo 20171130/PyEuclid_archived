@@ -1,5 +1,4 @@
 Solution:
 1. Collinear(A,B,E) => Angle_B_A_J - Angle_E_A_J
 2. Parallel(A,J,B,H) => Angle_A_B_H + Angle_B_A_J - pi
-3. Angle_B_A_J - Angle_E_A_J & Angle_A_B_H - Variable_angle_3 & Variable_angle_3 - pi*(Variable_p/60 - 1/18) & Variable_angle_1 - pi*(Variable_p/45 + 1/12) & Angle_E_A_J - Variable_angle_1 & Angle_A_B_H + Angle_B_A_J - pi => Angle_E_A_J - 23*pi/36
-4. Angle_E_A_J - 23*pi/36 & Variable_angle_1 - pi*(Variable_p/45 + 1/12) & Angle_E_A_J - Variable_angle_1 => Variable_p - 25
+3. Angle_B_A_J - Angle_E_A_J & Variable_angle_1 - pi*(Variable_p/45 + 1/12) & Angle_E_A_J - Variable_angle_1 & Variable_angle_3 - pi*(Variable_p/60 - 1/18) & Angle_A_B_H + Angle_B_A_J - pi & Angle_A_B_H - Variable_angle_3 => Variable_p - 25

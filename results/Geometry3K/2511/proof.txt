@@ -1,5 +1,5 @@
 Solution:
-1. Collinear(C,J,K) => Length_C_J + Length_C_K - Length_J_K
+1. Length_B_K - 8 & Length_C_J - 10 => Length_B_K - 4*Length_C_J/5
 2. Collinear(B,C,K) => Length_B_C - Length_B_K + Length_C_K
-3. Length_B_C - 27/5 & Length_B_K - 8 => Length_B_C - 27*Length_B_K/40
-4. Length_C_J + Length_C_K - Length_J_K & Length_B_K - 8 & Length_B_C - Length_B_K + Length_C_K & Length_C_J - 10 & Length_B_C - 27*Length_B_K/40 => Length_J_K - 63/5
+3. Collinear(C,J,K) => Length_C_J + Length_C_K - Length_J_K
+4. Length_B_K - 8 & Length_B_C - 27/5 & Length_B_K - 4*Length_C_J/5 & Length_B_C - Length_B_K + Length_C_K & Length_C_J + Length_C_K - Length_J_K => Length_J_K - 63/5

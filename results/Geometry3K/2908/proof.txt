@@ -1,13 +1,13 @@
 Solution:
-1. Collinear(C,K,L) & Collinear(B,K,M) => Angle_B_K_C - Angle_L_K_M
-2. Angle_B_K_C - 37*pi/180 & Angle_B_K_C - Angle_L_K_M => Angle_L_K_M - 37*pi/180
-3. Collinear(B,K,M) => Parallel(B,M,K,M)
-4. Perpendicular(B,M,L,M) & Parallel(B,M,K,M) => Perpendicular(K,M,L,M)
-5. Perpendicular(K,M,L,M) => Angle_K_M_L - pi/2
-6. Perpendicular(J,K,J,L) => Angle_K_J_L - pi/2
-7. Length_J_L - Length_L_M => Angle_J_M_L - Angle_L_J_M
-8. Angle_J_M_K + Angle_J_M_L - Angle_K_M_L & Angle_K_M_L - pi/2 & Angle_K_J_L - pi/2 & Angle_K_J_L - Angle_K_J_M - Angle_L_J_M & Angle_J_M_L - Angle_L_J_M => Angle_J_M_K - Angle_K_J_M
-9. -Angle_J_M_K + Angle_K_J_M => Length_J_K - Length_K_M
-10. Length_J_K - Length_K_M & -Length_J_L + Length_L_M => Kite(J,K,M,L)
-11. Kite(J,K,M,L) & Length_J_K - Length_K_M & -Length_J_L + Length_L_M => Angle_J_K_L - Angle_L_K_M
-12. Angle_L_K_M - 37*pi/180 & Angle_J_K_L - Angle_L_K_M => Angle_J_K_L - 37*pi/180
+1. Collinear(B,K,M) => Parallel(B,M,K,M)
+2. Perpendicular(B,M,L,M) & Parallel(B,M,K,M) => Perpendicular(K,M,L,M)
+3. Perpendicular(K,M,L,M) => Angle_K_M_L - pi/2
+4. Perpendicular(J,K,J,L) => Angle_K_J_L - pi/2
+5. Length_J_L - Length_L_M => Angle_J_M_L - Angle_L_J_M
+6. Angle_K_M_L - pi/2 & Angle_K_J_L - Angle_K_J_M - Angle_L_J_M & Angle_K_J_L - pi/2 & Angle_J_M_K + Angle_J_M_L - Angle_K_M_L & Angle_J_M_L - Angle_L_J_M => Angle_J_M_K - Angle_K_J_M
+7. -Angle_J_M_K + Angle_K_J_M => Length_J_K - Length_K_M
+8. Length_J_K - Length_K_M & -Length_J_L + Length_L_M => Kite(J,K,M,L)
+9. Kite(J,K,M,L) & Length_J_K - Length_K_M & -Length_J_L + Length_L_M => Angle_J_K_L - Angle_L_K_M
+10. Collinear(C,K,L) & Collinear(B,K,M) => Angle_B_K_C - Angle_L_K_M
+11. Angle_B_K_C - 37*pi/180 & Angle_B_K_C - Angle_L_K_M => Angle_L_K_M - 37*pi/180
+12. Angle_J_K_L - Angle_L_K_M & Angle_L_K_M - 37*pi/180 => Angle_J_K_L - 37*pi/180

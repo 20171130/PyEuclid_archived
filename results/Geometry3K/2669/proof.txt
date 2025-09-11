@@ -1,10 +1,10 @@
 Solution:
-1. Collinear(A,C,D) => Angle_B_A_C - Angle_B_A_D & Angle_A_C_B - Angle_B_C_D & Parallel(A,D,C,D)
-2. Angle_B_A_C - Angle_B_A_D & Angle_B_A_D - 47*pi/180 => Angle_B_A_C - 47*pi/180
-3. Angle_B_C_D - 11*pi/36 & Angle_A_C_B - Angle_B_C_D => Angle_A_C_B - 11*pi/36
-4. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_B_A_C - 47*pi/180 & Angle_A_C_B - 11*pi/36 & Length_A_B - Variable_y => 1.0*Length_B_C - 0.892818014333311*Variable_y
-5. Perpendicular(A,D,B,D) & Parallel(A,D,C,D) => Perpendicular(B,D,C,D)
-6. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2
-7. Angle_B_C_D - 11*pi/36 & Angle_B_D_C - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_C_B_D - 7*pi/36
-8. sin(Angle_C_B_D)/Length_C_D - sin(Angle_B_D_C)/Length_B_C & Angle_C_B_D - 7*pi/36 & Angle_B_D_C - pi/2 & Length_C_D - 12 => Length_B_C - 20.9213615474532
-9. 1.0*Length_B_C - 0.892818014333311*Variable_y & Length_B_C - 20.9213615474532 => Variable_y - 23.4329518575806
+1. Collinear(A,C,D) => Parallel(A,D,C,D) & Angle_B_A_C - Angle_B_A_D & Angle_A_C_B - Angle_B_C_D
+2. Perpendicular(A,D,B,D) & Parallel(A,D,C,D) => Perpendicular(B,D,C,D)
+3. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2
+4. Angle_B_C_D - 11*pi/36 & Angle_B_D_C - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_C_B_D - 7*pi/36
+5. sin(Angle_C_B_D)/Length_C_D - sin(Angle_B_D_C)/Length_B_C & Angle_B_D_C - pi/2 & Angle_C_B_D - 7*pi/36 & Length_C_D - 12 => Length_B_C - 20.9213615474532
+6. Angle_B_A_C - Angle_B_A_D & Angle_B_A_D - 47*pi/180 => Angle_B_A_C - 47*pi/180
+7. Angle_A_C_B - Angle_B_C_D & Angle_B_C_D - 11*pi/36 => Angle_A_C_B - 11*pi/36
+8. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_B_A_C - 47*pi/180 & Angle_A_C_B - 11*pi/36 & Length_A_B - Variable_y => 1.0*Length_B_C - 0.892818014333311*Variable_y
+9. Length_B_C - 20.9213615474532 & 1.0*Length_B_C - 0.892818014333311*Variable_y => Variable_y - 23.4329518575806

@@ -1,4 +1,4 @@
 Solution:
 1. Angle_L_M_P - pi/3 & Angle_L_P_M - pi/3 => EquilateralTriangle(L,M,P)
 2. EquilateralTriangle(L,M,P) => Length_L_P - Length_M_P
-3. Length_L_P - 5*Variable_x + 3 & Length_L_P - Length_M_P & Length_M_P - 4 => Variable_x - 7/5
+3. Length_L_P - Length_M_P & Length_L_P - 5*Variable_x + 3 & Length_M_P - 4 => Variable_x - 7/5

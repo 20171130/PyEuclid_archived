@@ -1,3 +1,7 @@
 Solution:
-1. Collinear(A,C,F) => Angle_A_F_D + Angle_C_F_D - pi
-2. Angle_A_F_D - pi*(Variable_a/90 - 1/36) & Angle_A_F_D + Angle_C_F_D - pi & Angle_C_F_D - pi*(Variable_a/45 - 1/180) => Angle_C_F_D - 41*pi/60
+1. Length_C_F - Variable_radius_F & Length_B_F - Variable_radius_F => Length_B_F - Length_C_F
+2. Length_D_F - Variable_radius_F & Length_B_F - Variable_radius_F => Length_B_F - Length_D_F
+3. Length_B_F - Length_C_F & Length_B_F - Length_D_F => Angle_C_B_D - Angle_C_F_D/2
+4. Collinear(A,C,F) => Angle_A_F_D + Angle_C_F_D - pi
+5. Angle_C_B_D - Angle_C_F_D/2 & Angle_A_F_D + Angle_C_F_D - pi & Angle_C_F_D - pi*(Variable_a/45 - 1/180) & Angle_A_F_D - pi*(Variable_a/90 - 1/36) => Angle_C_B_D - 41*pi/120
+6. Angle_C_B_D - Angle_C_F_D/2 & Angle_C_B_D - 41*pi/120 => Angle_C_F_D - 41*pi/60

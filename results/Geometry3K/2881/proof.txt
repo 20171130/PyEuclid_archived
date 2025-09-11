@@ -1,7 +1,8 @@
 Solution:
-1. Perpendicular(L,P,N,P) => Angle_L_P_N - pi/2
-2. Collinear(K,M,P) => Angle_K_P_N + Angle_M_P_N - pi
-3. Length_N_P - Variable_radius_P & Length_K_P - Variable_radius_P => Length_K_P - Length_N_P
-4. Length_K_P - Length_N_P => Angle_K_N_P - Angle_N_K_P
-5. Angle_K_N_P + Angle_K_P_N + Angle_N_K_P - pi & Angle_L_P_N - pi/2 & Angle_K_P_N + Angle_M_P_N - pi & Angle_L_P_M - 13*pi/36 & Angle_K_N_P - Angle_N_K_P & Angle_L_P_M - Angle_L_P_N + Angle_M_P_N => Angle_K_N_P - 5*pi/72 & Angle_N_K_P - 5*pi/72
-6. Angle_K_N_P - 5*pi/72 & Angle_K_N_P + Angle_K_P_N + Angle_N_K_P - pi & Angle_N_K_P - 5*pi/72 => Angle_K_P_N - 31*pi/36
+1. Length_K_P - Variable_radius_P & Length_L_P - Variable_radius_P => Length_K_P - Length_L_P
+2. Length_L_P - Variable_radius_P & Length_N_P - Variable_radius_P => Length_L_P - Length_N_P
+3. -Length_K_P + Length_L_P & Length_L_P - Length_N_P => Angle_K_L_N - Angle_K_P_N/2
+4. Perpendicular(L,P,N,P) => Angle_L_P_N - pi/2
+5. Collinear(K,M,P) => Angle_K_P_N + Angle_M_P_N - pi
+6. Angle_L_P_M - 13*pi/36 & Angle_L_P_N - pi/2 & Angle_K_L_N - Angle_K_P_N/2 & Angle_L_P_M - Angle_L_P_N + Angle_M_P_N & Angle_K_P_N + Angle_M_P_N - pi => Angle_K_L_N - 31*pi/72
+7. Angle_K_L_N - Angle_K_P_N/2 & Angle_K_L_N - 31*pi/72 => Angle_K_P_N - 31*pi/36

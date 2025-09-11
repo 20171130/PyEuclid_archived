@@ -3,4 +3,4 @@ Solution:
 2. Collinear(X,Y,Z) => Parallel(X,Y,X,Z)
 3. Perpendicular(W,Y,X,Y) & Parallel(X,Y,X,Z) => Perpendicular(W,Y,X,Z)
 4. Midpoint(Y,X,Z) & Perpendicular(W,Y,X,Z) => Length_W_X - Length_W_Z
-5. Length_W_Z - 149/10 & Length_W_X - Length_W_Z => Length_W_X - 149/10
+5. Length_W_X - Length_W_Z & Length_W_Z - 149/10 => Length_W_X - 149/10

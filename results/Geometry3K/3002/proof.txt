@@ -1,3 +1,3 @@
 Solution:
-1. Length_C_K - Variable_radius_C & Length_C_K - 2 => Variable_radius_C - 2
-2. Angle_J_C_K - pi/6 & Variable_radius_C - 2 => Angle_J_C_K*Variable_radius_C - pi/3
+1. Length_C_K - 2 & Length_C_K - Variable_radius_C => Variable_radius_C - 2
+2. Variable_radius_C - 2 & Angle_J_C_K - pi/6 => Angle_J_C_K*Variable_radius_C - pi/3

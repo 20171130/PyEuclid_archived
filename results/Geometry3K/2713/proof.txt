@@ -1,9 +1,9 @@
 Solution:
-1. Length_B_D - 24 & Length_C_E - 18 => Length_B_D - 4*Length_C_E/3 & -3/4 + Length_C_E/Length_B_D
+1. Length_C_E - 18 & Length_B_D - 24 => Length_B_D/Length_C_E - 4/3
 2. Collinear(A,B,D) & Collinear(A,C,E) & Parallel(B,C,D,E) => Length_A_B/Length_A_C - Length_B_D/Length_C_E
-3. Length_B_D - 4*Length_C_E/3 & -3/4 + Length_C_E/Length_B_D & Length_A_B/Length_A_C - Length_B_D/Length_C_E => Length_A_B - 4*Length_A_C/3
-4. Collinear(A,C,E) => Length_A_C - Length_A_E - Length_C_E
-5. Length_A_C - Length_A_E - Length_C_E & Length_A_E - 3 & Length_C_E - 18 => Length_A_C - 21
-6. Collinear(A,B,D) => Length_A_B - Length_A_D - Length_B_D
-7. Length_A_B - Length_A_D - Length_B_D & Length_B_D - 24 => Length_A_B - Length_A_D - 24
-8. Length_A_B - 4*Length_A_C/3 & Length_A_C - 21 & Length_A_B - Length_A_D - 24 => Length_A_D - 4
+3. Length_B_D/Length_C_E - 4/3 & Length_A_B/Length_A_C - Length_B_D/Length_C_E => Length_A_B - 4*Length_A_C/3
+4. Collinear(A,B,D) => Length_A_B - Length_A_D - Length_B_D
+5. Length_B_D - 24 & Length_A_B - Length_A_D - Length_B_D => Length_A_B - Length_A_D - 24
+6. Collinear(A,C,E) => Length_A_C - Length_A_E - Length_C_E
+7. Length_C_E - 18 & Length_A_C - Length_A_E - Length_C_E & Length_A_E - 3 => Length_A_C - 21
+8. Length_A_B - 4*Length_A_C/3 & Length_A_B - Length_A_D - 24 & Length_A_C - 21 => Length_A_D - 4

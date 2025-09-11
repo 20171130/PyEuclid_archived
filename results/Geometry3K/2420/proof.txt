@@ -1,11 +1,10 @@
 Solution:
-1. Rectangle(A,C,F,G) => Length_A_G - Length_C_F & Angle_C_A_G - pi/2
-2. Length_C_F - 8 & Length_A_G - Length_C_F => Length_A_G - 8
-3. Length_E_G - Variable_radius_E & Length_C_E - Variable_radius_E => Length_C_E - Length_E_G
-4. Length_C_E - Length_E_G & Collinear(C,E,G) => Midpoint(E,C,G)
-5. Midpoint(E,C,G) => Length_C_G - 2*Length_E_G
-6. Length_A_E - Variable_radius_E & Length_E_G - Variable_radius_E => Length_A_E - Length_E_G
-7. Length_C_G - 2*Length_E_G & Length_A_E - Length_E_G => -2 + Length_C_G/Length_A_E & Length_A_E/Length_C_G - 1/2
-8. Length_A_E - Variable_radius_E & -2 + Length_C_G/Length_A_E & Length_A_E/Length_C_G - 1/2 => Length_C_G - 2*Variable_radius_E
-9. Length_A_C**2 - 2*Length_A_C*Length_A_G*cos(Angle_C_A_G) + Length_A_G**2 - Length_C_G**2 & Length_A_G - 8 & Length_C_G - 2*Variable_radius_E & Angle_C_A_G - pi/2 & Length_A_C - 6 => Variable_radius_E - 5
-10. Variable_radius_E - 5 => pi*Variable_radius_E - 5*pi
+1. Rectangle(A,C,F,G) => Angle_A_C_F - pi/2
+2. Length_E_F - Variable_radius_E & Length_A_E - Variable_radius_E => Length_A_E - Length_E_F
+3. Length_A_E - Length_E_F & Collinear(A,E,F) => Midpoint(E,A,F)
+4. Midpoint(E,A,F) => Length_A_F - 2*Length_E_F
+5. Length_E_F - Variable_radius_E & Length_E_G - Variable_radius_E => Length_E_F - Length_E_G
+6. Length_A_F - 2*Length_E_F & Length_E_F - Length_E_G => -1/2 + Length_E_G/Length_A_F
+7. -1/2 + Length_E_G/Length_A_F & Length_E_G - Variable_radius_E => Length_A_F - 2*Variable_radius_E
+8. Length_A_C**2 - 2*Length_A_C*Length_C_F*cos(Angle_A_C_F) - Length_A_F**2 + Length_C_F**2 & Angle_A_C_F - pi/2 & Length_C_F - 8 & Length_A_C - 6 & Length_A_F - 2*Variable_radius_E => Variable_radius_E - 5
+9. Variable_radius_E - 5 => pi*Variable_radius_E - 5*pi

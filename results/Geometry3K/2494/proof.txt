@@ -1,5 +1,5 @@
 Solution:
-1. Length_F_M - Variable_radius_M & Length_G_M - Variable_radius_M => Length_F_M - Length_G_M
+1. Length_G_M - Variable_radius_M & Length_F_M - Variable_radius_M => Length_F_M - Length_G_M
 2. Length_F_M - Length_G_M => IsoscelesTriangle(F,G,M)
 3. Collinear(K,L,M) => Parallel(K,L,L,M)
 4. Perpendicular(G,L,K,L) & Parallel(K,L,L,M) => Perpendicular(G,L,L,M)

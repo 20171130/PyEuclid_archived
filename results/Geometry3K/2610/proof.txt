@@ -1,11 +1,13 @@
 Solution:
-1. Collinear(M,N,P) => Parallel(M,P,N,P)
-2. Perpendicular(J,N,N,P) & Parallel(M,P,N,P) => Perpendicular(J,N,M,P)
-3. Collinear(H,J,N) => Parallel(H,J,J,N)
-4. Perpendicular(J,N,M,P) & Parallel(H,J,J,N) => Perpendicular(H,J,M,P)
-5. Perpendicular(H,J,M,P) => Angle_H_M_P + Angle_J_H_M - pi/2
-6. Length_H_M - Variable_radius_M & Length_J_M - Variable_radius_M => Length_H_M - Length_J_M
-7. Length_H_M - Length_J_M => Angle_H_J_M - Angle_J_H_M
-8. Angle_H_M_P + Angle_J_H_M - pi/2 & Angle_H_M_P - 13*pi/36 & Angle_H_J_M - Angle_J_H_M => Angle_H_J_M - 5*pi/36
-9. Angle_H_M_P + Angle_J_H_M - pi/2 & Angle_H_M_P - 13*pi/36 => Angle_J_H_M - 5*pi/36
-10. Angle_H_J_M - 5*pi/36 & Angle_J_H_M - 5*pi/36 & Angle_H_J_M + Angle_H_M_J + Angle_J_H_M - pi => Angle_H_M_J - 13*pi/18
+1. Length_G_M - Variable_radius_M & Length_H_M - Variable_radius_M => Length_G_M - Length_H_M
+2. Length_G_M - Variable_radius_M & Length_J_M - Variable_radius_M => Length_G_M - Length_J_M
+3. Length_G_M - Length_H_M & Length_G_M - Length_J_M => Angle_H_G_J - Angle_H_M_J/2
+4. Length_H_M - Variable_radius_M & Length_J_M - Variable_radius_M => Length_H_M - Length_J_M
+5. Length_H_M - Length_J_M => IsoscelesTriangle(H,J,M)
+6. Collinear(M,N,P) => Parallel(M,P,N,P)
+7. Perpendicular(J,N,N,P) & Parallel(M,P,N,P) => Perpendicular(J,N,M,P)
+8. Collinear(H,J,N) => Parallel(H,J,J,N)
+9. Perpendicular(J,N,M,P) & Parallel(H,J,J,N) => Perpendicular(H,J,M,P)
+10. IsoscelesTriangle(H,J,M) & Length_H_M - Length_J_M & Perpendicular(H,J,M,P) => Angle_H_M_P - Angle_J_M_P
+11. Angle_H_M_P - 13*pi/36 & Angle_H_M_J - Angle_H_M_P - Angle_J_M_P & Angle_H_G_J - Angle_H_M_J/2 & Angle_H_M_P - Angle_J_M_P => Angle_H_G_J - 13*pi/36
+12. Angle_H_G_J - 13*pi/36 & Angle_H_G_J - Angle_H_M_J/2 => Angle_H_M_J - 13*pi/18

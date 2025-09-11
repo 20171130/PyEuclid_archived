@@ -1,5 +1,5 @@
 Solution:
-1. Collinear(A,B,G) => Angle_A_G_C + Angle_B_G_C - pi
-2. Collinear(C,F,G) => Angle_A_G_C - Angle_A_G_F
-3. Angle_A_G_C + Angle_B_G_C - pi & Angle_A_G_C - Angle_A_G_F & Angle_A_G_F - 26*pi/45 => Angle_B_G_C - 19*pi/45
-4. Angle_B_G_C - Variable_angle_3 & Angle_B_G_C - 19*pi/45 => Variable_angle_3 - 19*pi/45
+1. Collinear(D,F,G) & Collinear(A,B,G) => Angle_A_G_F - Angle_B_G_D
+2. Collinear(C,D,G) => Angle_B_G_C + Angle_B_G_D - pi
+3. Angle_A_G_F - 26*pi/45 & Angle_A_G_F - Angle_B_G_D & Angle_B_G_C + Angle_B_G_D - pi => Angle_B_G_C - 19*pi/45
+4. Angle_B_G_C - 19*pi/45 & Angle_B_G_C - Variable_angle_3 => Variable_angle_3 - 19*pi/45

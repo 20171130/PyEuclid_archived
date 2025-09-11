@@ -1,11 +1,6 @@
 Solution:
-1. Collinear(B,O,X) => Parallel(B,X,O,X) & Parallel(B,O,O,X)
-2. Perpendicular(B,X,D,X) & Parallel(B,X,O,X) => Perpendicular(D,X,O,X)
-3. Perpendicular(D,X,O,X) => Angle_D_X_O - pi/2
-4. Length_C_O - 13 & Length_D_O - 13 => Length_C_O - Length_D_O
-5. Length_C_O - Length_D_O => IsoscelesTriangle(C,D,O)
-6. Perpendicular(B,O,C,D) & Parallel(B,O,O,X) => Perpendicular(C,D,O,X)
-7. IsoscelesTriangle(C,D,O) & Length_C_O - Length_D_O & Collinear(C,D,X) & Perpendicular(C,D,O,X) => Midpoint(X,C,D)
-8. Midpoint(X,C,D) => Length_C_D - 2*Length_D_X
-9. Length_C_D - 2*Length_D_X & Length_C_D - 24 => Length_D_X - 12
-10. Length_D_O**2 - Length_D_X**2 + 2*Length_D_X*Length_O_X*cos(Angle_D_X_O) - Length_O_X**2 & Length_D_O - 13 & Angle_D_X_O - pi/2 & Length_D_X - 12 => Length_O_X - 5
+1. Collinear(B,O,X) => Parallel(B,O,O,X)
+2. Perpendicular(B,O,C,D) & Parallel(B,O,O,X) => Perpendicular(C,D,O,X)
+3. Perpendicular(C,D,O,X) & Collinear(C,D,X) => Area_C_D_O - Length_C_D*Length_O_X/2
+4. Length_C_D - 24 & Area_C_D_O - Length_C_D*Length_O_X/2 => Area_C_D_O - 12*Length_O_X
+5. Area_C_D_O**2 - (-Length_C_D/2 + Length_C_O/2 + Length_D_O/2)*(Length_C_D/2 - Length_C_O/2 + Length_D_O/2)*(Length_C_D/2 + Length_C_O/2 - Length_D_O/2)*(Length_C_D/2 + Length_C_O/2 + Length_D_O/2) & Length_D_O - 13 & Length_C_D - 24 & Length_C_O - 13 & Area_C_D_O - 12*Length_O_X => Length_O_X - 5

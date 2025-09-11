@@ -1,6 +1,6 @@
 Solution:
-1. Rectangle(W,X,Y,Z) => Parallelogram(W,X,Y,Z) & Length_W_Y - Length_X_Z
-2. Parallelogram(W,X,Y,Z) & Collinear(P,W,Y) & Collinear(P,X,Z) => Length_P_W - Length_P_Y & Length_P_X - Length_P_Z
-3. Collinear(P,W,Y) => Length_P_W + Length_P_Y - Length_W_Y
+1. Collinear(P,W,Y) => Length_P_W + Length_P_Y - Length_W_Y
+2. Rectangle(W,X,Y,Z) => Parallelogram(W,X,Y,Z) & Length_W_Y - Length_X_Z
+3. Parallelogram(W,X,Y,Z) & Collinear(P,W,Y) & Collinear(P,X,Z) => Length_P_X - Length_P_Z & Length_P_W - Length_P_Y
 4. Collinear(P,X,Z) => Length_P_X + Length_P_Z - Length_X_Z
-5. Length_P_W - Length_P_Y & Length_P_Z - 4*Variable_x + 9 & Length_W_Y - Length_X_Z & Length_P_W + Length_P_Y - Length_W_Y & Length_P_X - Length_P_Z & Length_P_X + Length_P_Z - Length_X_Z & Length_P_Y - 2*Variable_x - 5 => Length_X_Z - 38
+5. Length_P_W + Length_P_Y - Length_W_Y & Length_P_X - Length_P_Z & Length_W_Y - Length_X_Z & Length_P_Z - 4*Variable_x + 9 & Length_P_Y - 2*Variable_x - 5 & Length_P_X + Length_P_Z - Length_X_Z & Length_P_W - Length_P_Y => Length_X_Z - 38

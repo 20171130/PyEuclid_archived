@@ -5,7 +5,7 @@ Solution:
 4. Perpendicular(E,L,F,L) & Parallel(F,G,F,L) => Perpendicular(E,L,F,G)
 5. Trapezoid(E,G,F,H) & Parallel(E,H,F,G) & Perpendicular(E,L,F,G) & Collinear(F,G,L) => Area_E_G_F_H - Length_E_L*(Length_E_H + Length_F_G)/2
 6. Length_E_H - 14 & Length_E_H - Length_F_G => Length_F_G - 14
-7. Area_E_G_F_H - Length_E_L*(Length_E_H + Length_F_G)/2 & Length_F_G - 14 & Length_E_H - 14 & Length_E_L - 9 => Area_E_G_F_H - 126
+7. Area_E_G_F_H - Length_E_L*(Length_E_H + Length_F_G)/2 & Length_F_G - 14 & Length_E_L - 9 & Length_E_H - 14 => Area_E_G_F_H - 126
 8. Perpendicular(A,B,C,D) => Area_A_C_B_D - Length_A_B*Length_C_D/2
 9. Parallel(A,B,F,G) & Parallel(E,H,F,G) => Parallel(A,B,E,H)
 10. Collinear(A,E,G) => Parallel(A,E,E,G)

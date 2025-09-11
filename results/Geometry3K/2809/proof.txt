@@ -1,10 +1,8 @@
 Solution:
 1. Collinear(B,E,F) => Parallel(B,E,B,F)
 2. Perpendicular(A,D,B,E) & Parallel(B,E,B,F) => Perpendicular(A,D,B,F)
-3. Collinear(A,D,F) => Parallel(A,D,A,F) & Parallel(A,D,D,F) & Angle_A_F_C + Angle_C_F_D - pi
-4. Perpendicular(A,D,B,F) & Parallel(A,D,A,F) => Perpendicular(A,F,B,F)
-5. Perpendicular(A,F,B,F) => Angle_A_F_B - pi/2
-6. Perpendicular(A,D,B,F) & Parallel(A,D,D,F) => Perpendicular(B,F,D,F)
-7. Perpendicular(B,F,D,F) => Angle_B_F_D - pi/2
-8. Angle_A_F_B - pi/2 & Angle_B_F_D - pi/2 => Angle_A_F_B - Angle_B_F_D
-9. Angle_A_F_B - Angle_B_F_D & Angle_C_F_D - pi*Variable_x/60 & Angle_B_F_C - pi*Variable_x/30 & Angle_A_F_C + Angle_C_F_D - pi & Angle_A_F_B - Angle_A_F_C + Angle_B_F_C & Angle_B_F_C - Angle_B_F_D + Angle_C_F_D => Variable_x - 10
+3. Collinear(A,D,F) => Parallel(A,D,D,F)
+4. Perpendicular(A,D,B,F) & Parallel(A,D,D,F) => Perpendicular(B,F,D,F)
+5. Perpendicular(B,F,D,F) => Angle_B_F_D - pi/2
+6. Angle_B_F_D - pi/2 & Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi & Angle_B_F_C - Angle_B_F_D + Angle_C_F_D & Angle_B_F_C - pi*Variable_x/30 & Angle_C_F_D - pi*Variable_x/60 => Angle_B_C_F + Angle_C_B_F - 2*pi/3
+7. Angle_B_C_F + Angle_C_B_F - 2*pi/3 & Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi & Angle_B_F_C - pi*Variable_x/30 => Variable_x - 10

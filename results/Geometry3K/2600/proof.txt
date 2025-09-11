@@ -1,8 +1,8 @@
 Solution:
-1. Length_S_T - 8 & Length_P_T - 6 => -4/3 + Length_S_T/Length_P_T & Length_P_T/Length_S_T - 3/4
-2. Collinear(P,Q,S) & Collinear(R,S,T) & Parallel(P,T,Q,R) => Similar3(P,S,T,Q,S,R)
-3. Similar3(P,S,T,Q,S,R) => Length_R_S/Length_Q_R - Length_S_T/Length_P_T
-4. -4/3 + Length_S_T/Length_P_T & Length_P_T/Length_S_T - 3/4 & Length_R_S/Length_Q_R - Length_S_T/Length_P_T => Length_Q_R - 3*Length_R_S/4 & Length_Q_R/Length_R_S - 3/4
-5. Collinear(R,S,T) => Length_R_S - Length_R_T - Length_S_T
-6. Length_S_T - 8 & Length_R_T - 4 & Length_R_S - Length_R_T - Length_S_T => Length_R_S - 12
-7. Length_Q_R - 3*Length_R_S/4 & Length_R_S - 12 & Length_Q_R/Length_R_S - 3/4 => Length_Q_R - 9
+1. Collinear(R,S,T) => Length_R_S - Length_R_T - Length_S_T
+2. Length_R_S - Length_R_T - Length_S_T & Length_S_T - 8 & Length_R_T - 4 => Length_R_S - 12
+3. Length_P_T - 6 & Length_S_T - 8 => Length_P_T - 3*Length_S_T/4
+4. Collinear(P,Q,S) & Collinear(R,S,T) & Parallel(P,T,Q,R) => Similar3(P,S,T,Q,S,R)
+5. Similar3(P,S,T,Q,S,R) => Length_R_S/Length_Q_R - Length_S_T/Length_P_T
+6. Length_P_T - 3*Length_S_T/4 & Length_R_S/Length_Q_R - Length_S_T/Length_P_T => -4/3 + Length_R_S/Length_Q_R
+7. Length_R_S - 12 & -4/3 + Length_R_S/Length_Q_R => Length_Q_R - 9

@@ -1,10 +1,10 @@
 Solution:
-1. Collinear(F,R,T) => Angle_F_T_U - Angle_R_T_U & Angle_R_F_U + Angle_T_F_U - pi
-2. Length_B_S - Variable_radius_B & Length_B_U - Variable_radius_B => Length_B_S - Length_B_U
-3. Length_B_T - Variable_radius_B & Length_B_U - Variable_radius_B => Length_B_T - Length_B_U
-4. -Length_B_S + Length_B_U & -Length_B_T + Length_B_U => Angle_S_B_T - 2*Angle_S_U_T
-5. Collinear(F,S,U) => Angle_F_U_T - Angle_S_U_T
-6. Length_B_T - Variable_radius_B & Length_B_R - Variable_radius_B => Length_B_R - Length_B_T
-7. -Length_B_R + Length_B_T & Length_B_T - Length_B_U => Angle_R_B_U - 2*Angle_R_T_U
-8. Angle_F_T_U - Angle_R_T_U & Angle_R_B_U - 23*pi/45 & Angle_S_B_T - 2*Angle_S_U_T & Angle_R_F_U + Angle_T_F_U - pi & Angle_F_U_T - Angle_S_U_T & Angle_R_B_U - 2*Angle_R_T_U & Angle_S_B_T - 17*pi/60 & Angle_F_T_U + Angle_F_U_T + Angle_T_F_U - pi => Angle_R_F_U - 143*pi/360
-9. Angle_R_F_U - Variable_angle_4 & Angle_R_F_U - 143*pi/360 => Variable_angle_4 - 143*pi/360
+1. Collinear(F,R,T) => Angle_R_F_U + Angle_T_F_U - pi & Angle_F_T_U - Angle_R_T_U
+2. Collinear(F,S,U) => Angle_F_U_T - Angle_S_U_T
+3. Length_B_T - Variable_radius_B & Length_B_R - Variable_radius_B => Length_B_R - Length_B_T
+4. Length_B_T - Variable_radius_B & Length_B_U - Variable_radius_B => Length_B_T - Length_B_U
+5. -Length_B_R + Length_B_T & Length_B_T - Length_B_U => Angle_R_B_U - 2*Angle_R_T_U
+6. Length_B_S - Variable_radius_B & Length_B_U - Variable_radius_B => Length_B_S - Length_B_U
+7. -Length_B_S + Length_B_U & -Length_B_T + Length_B_U => Angle_S_B_T - 2*Angle_S_U_T
+8. Angle_R_B_U - 23*pi/45 & Angle_R_F_U + Angle_T_F_U - pi & Angle_S_B_T - 17*pi/60 & Angle_F_U_T - Angle_S_U_T & Angle_F_T_U + Angle_F_U_T + Angle_T_F_U - pi & Angle_R_B_U - 2*Angle_R_T_U & Angle_F_T_U - Angle_R_T_U & Angle_S_B_T - 2*Angle_S_U_T => Angle_R_F_U - 143*pi/360
+9. Angle_R_F_U - 143*pi/360 & Angle_R_F_U - Variable_angle_4 => Variable_angle_4 - 143*pi/360

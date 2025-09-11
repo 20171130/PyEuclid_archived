@@ -1,10 +1,10 @@
 Solution:
-1. Length_B_Q - Variable_radius_B & Length_A_B - Variable_radius_B => Length_A_B - Length_B_Q
+1. Length_A_B - Variable_radius_B & Length_B_S - Variable_radius_B => Length_A_B - Length_B_S
 2. Length_B_Q - Variable_radius_B & Length_B_S - Variable_radius_B => Length_B_Q - Length_B_S
-3. -Length_A_B + Length_B_Q & Length_B_Q - Length_B_S => Angle_A_B_S - 2*Angle_A_Q_S
-4. Collinear(A,Q,R) => Angle_Q_A_S + Angle_R_A_S - pi
-5. Length_B_S - Variable_radius_B & Length_A_B - Variable_radius_B => Length_A_B - Length_B_S
-6. Length_A_B - Length_B_Q & Length_A_B - Length_B_S => Angle_Q_A_S + Angle_Q_B_S/2 - pi
-7. -Length_A_B + Length_B_S & -Length_B_Q + Length_B_S & Perpendicular(B,S,R,S) => Angle_A_Q_S - Angle_A_S_R
-8. Angle_A_B_S - 53*pi/90 & Angle_A_B_S - 2*Angle_A_Q_S & Angle_Q_B_R - Angle_Q_B_S + Angle_R_B_S & Angle_Q_A_S + Angle_R_A_S - pi & Angle_Q_A_S + Angle_Q_B_S/2 - pi & Angle_A_Q_S - Angle_A_S_R & Angle_A_R_S + Angle_A_S_R + Angle_R_A_S - pi & Angle_A_R_S - 71*pi/180 => Angle_Q_B_R + Angle_R_B_S - 28*pi/45
-9. Angle_Q_B_R - Angle_Q_B_S + Angle_R_B_S & Angle_Q_B_R + Angle_R_B_S - 28*pi/45 => Angle_Q_B_S - 28*pi/45
+3. -Length_A_B + Length_B_S & -Length_B_Q + Length_B_S & Perpendicular(B,S,R,S) => Angle_A_Q_S - Angle_A_S_R
+4. Length_B_Q - Variable_radius_B & Length_A_B - Variable_radius_B => Length_A_B - Length_B_Q
+5. Length_A_B - Length_B_Q & Length_A_B - Length_B_S => Angle_Q_A_S + Angle_Q_B_S/2 - pi
+6. Collinear(A,Q,R) => Angle_Q_A_S + Angle_R_A_S - pi
+7. -Length_A_B + Length_B_Q & Length_B_Q - Length_B_S => Angle_A_B_S - 2*Angle_A_Q_S
+8. Angle_A_Q_S - Angle_A_S_R & Angle_A_R_S - 71*pi/180 & Angle_Q_A_S + Angle_Q_B_S/2 - pi & Angle_Q_A_S + Angle_R_A_S - pi & Angle_A_R_S + Angle_A_S_R + Angle_R_A_S - pi & Angle_Q_B_R - Angle_Q_B_S + Angle_R_B_S & Angle_A_B_S - 53*pi/90 & Angle_A_B_S - 2*Angle_A_Q_S => Angle_Q_B_R + Angle_R_B_S - 28*pi/45
+9. Angle_Q_B_R + Angle_R_B_S - 28*pi/45 & Angle_Q_B_R - Angle_Q_B_S + Angle_R_B_S => Angle_Q_B_S - 28*pi/45

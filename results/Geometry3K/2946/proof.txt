@@ -1,9 +1,9 @@
 Solution:
-1. Collinear(F,G,H) => Angle_G_F_J - Angle_H_F_J & Angle_F_H_J - Angle_G_H_J
-2. Collinear(H,J,K) => Angle_F_J_H + Angle_F_J_K - pi
-3. Length_B_G - Variable_radius_B & Length_B_F - Variable_radius_B => Length_B_F - Length_B_G
-4. Length_B_J - Variable_radius_B & Length_B_F - Variable_radius_B => Length_B_F - Length_B_J
-5. Length_B_F - Length_B_G & Length_B_F - Length_B_J => Angle_G_B_J - 2*Angle_G_F_J
-6. Length_B_J - Variable_radius_B & Length_B_K - Variable_radius_B => Length_B_J - Length_B_K
-7. -Length_B_F + Length_B_J & Length_B_J - Length_B_K => Angle_F_B_K - 2*Angle_F_J_K
-8. Angle_G_F_J - Angle_H_F_J & Angle_G_B_J - 13*pi/90 & Angle_F_J_H + Angle_F_J_K - pi & Angle_F_H_J - Angle_G_H_J & Angle_G_B_J - 2*Angle_G_F_J & Angle_F_B_K - 2*Angle_F_J_K & Angle_F_H_J + Angle_F_J_H + Angle_H_F_J - pi & Angle_F_B_K - 22*pi/45 => Angle_G_H_J - 31*pi/180
+1. Length_B_F - Variable_radius_B & Length_B_G - Variable_radius_B => Length_B_F - Length_B_G
+2. Length_B_K - Variable_radius_B & Length_B_G - Variable_radius_B => Length_B_G - Length_B_K
+3. -Length_B_F + Length_B_G & Length_B_G - Length_B_K => Angle_F_B_K - 2*Angle_F_G_K
+4. Collinear(F,G,H) => Angle_F_G_K + Angle_H_G_K - pi
+5. Length_B_J - Variable_radius_B & Length_B_K - Variable_radius_B => Length_B_J - Length_B_K
+6. -Length_B_G + Length_B_K & -Length_B_J + Length_B_K => Angle_G_B_J - 2*Angle_G_K_J
+7. Collinear(H,J,K) => Angle_G_H_J - Angle_G_H_K & Angle_G_K_H - Angle_G_K_J
+8. Angle_F_B_K - 2*Angle_F_G_K & Angle_G_B_J - 13*pi/90 & Angle_F_G_K + Angle_H_G_K - pi & Angle_G_H_K + Angle_G_K_H + Angle_H_G_K - pi & Angle_F_B_K - 22*pi/45 & Angle_G_B_J - 2*Angle_G_K_J & Angle_G_H_J - Angle_G_H_K & Angle_G_K_H - Angle_G_K_J => Angle_G_H_J - 31*pi/180

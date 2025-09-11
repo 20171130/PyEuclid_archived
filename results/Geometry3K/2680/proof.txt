@@ -1,5 +1,2 @@
 Solution:
-1. Collinear(A,F,G) => Angle_A_G_C - Angle_C_G_F
-2. Parallel(C,G,E,F) => Angle_C_G_F + Angle_E_F_G - pi
-3. Angle_A_G_C - Angle_C_G_F & Angle_C_G_F + Angle_E_F_G - pi & Angle_A_G_C - 11*pi/36 => Angle_E_F_G - 25*pi/36
-4. Angle_E_F_G - 25*pi/36 & Angle_E_F_G - pi*Variable_x/180 => Variable_x - 125
+1. Variable_x - 125 => Variable_x - 125

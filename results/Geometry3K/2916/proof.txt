@@ -1,5 +1,11 @@
 Solution:
-1. Angle_D_O_E - Angle_E_O_F & Angle_B_O_D - Angle_D_O_E => Angle_B_O_D - Angle_E_O_F
-2. Angle_D_O_E - Angle_E_O_F & Angle_B_O_D - Angle_D_O_E & Angle_A_O_F - Angle_E_O_F => Angle_A_O_F - Angle_B_O_D
-3. Collinear(A,B,O) => Angle_A_O_D + Angle_B_O_D - pi
-4. Angle_B_O_D - Angle_E_O_F & Angle_A_O_E - Angle_A_O_F - Angle_E_O_F & Angle_A_O_D - Angle_A_O_E - Angle_D_O_E & Angle_B_O_D - Angle_D_O_E & Angle_A_O_F - Angle_B_O_D & Angle_A_O_D + Angle_B_O_D - pi => Angle_A_O_D - 3*pi/4
+1. Length_D_O - Variable_radius_O & Length_F_O - Variable_radius_O => Length_D_O - Length_F_O
+2. Length_D_O - Length_F_O => IsoscelesTriangle(D,F,O)
+3. IsoscelesTriangle(D,F,O) & Length_D_O - Length_F_O & Angle_D_O_E - Angle_E_O_F => Perpendicular(D,F,E,O)
+4. Perpendicular(D,F,E,O) => Angle_D_O_E + Angle_F_D_O - pi/2
+5. Collinear(C,E,O) => Parallel(C,O,E,O)
+6. Perpendicular(A,O,C,O) & Parallel(C,O,E,O) => Perpendicular(A,O,E,O)
+7. Perpendicular(A,O,E,O) & Perpendicular(D,F,E,O) => Parallel(A,O,D,F)
+8. Parallel(A,O,D,F) => Angle_A_O_D + Angle_F_D_O - pi
+9. Collinear(A,B,O) => Angle_A_O_D + Angle_B_O_D - pi
+10. Angle_D_O_E + Angle_F_D_O - pi/2 & Angle_B_O_D - Angle_D_O_E & Angle_A_O_D + Angle_F_D_O - pi & Angle_A_O_D + Angle_B_O_D - pi => Angle_A_O_D - 3*pi/4

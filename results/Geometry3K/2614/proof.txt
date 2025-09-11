@@ -1,13 +1,2 @@
 Solution:
-1. Length_A_C - Variable_radius_A & Length_A_D - Variable_radius_A => Length_A_C - Length_A_D
-2. Length_A_G - Variable_radius_A & Length_A_D - Variable_radius_A => Length_A_D - Length_A_G
-3. Angle_A_D_B - pi/2 => Perpendicular(A,D,B,D)
-4. -Length_A_C + Length_A_D & Length_A_D - Length_A_G & Perpendicular(A,D,B,D) => Angle_B_D_C + Angle_C_G_D - pi
-5. Collinear(B,C,G) => Angle_B_C_D - Angle_D_C_G
-6. Length_A_C - Variable_radius_A & Length_A_G - Variable_radius_A => Length_A_C - Length_A_G
-7. -Length_A_C + Length_A_G & -Length_A_D + Length_A_G => Angle_C_A_D - 2*Angle_C_G_D
-8. Length_A_C - Length_A_D & Length_A_C - Length_A_G => Angle_D_A_G - 2*Angle_D_C_G
-9. Angle_C_A_D - pi*(Variable_x/45 + 1/36) & Angle_B_D_C + Angle_C_G_D - pi & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_A_D_B + Angle_A_D_C - Angle_B_D_C & Angle_B_C_D - Angle_D_C_G & Angle_C_A_D - 2*Angle_C_G_D & Angle_A_D_B - pi/2 & Angle_C_B_D - pi*(Variable_x/180 + 1/72) & Angle_D_A_G - 2*Angle_D_C_G & Angle_D_A_G - 5*pi/18 => Angle_A_D_C - 5*pi/24
-10. Length_A_C - Length_A_D => Angle_A_C_D - Angle_A_D_C
-11. Angle_C_A_D - pi*(Variable_x/45 + 1/36) & Angle_B_D_C + Angle_C_G_D - pi & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_B_C_D - Angle_D_C_G & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_C_A_D - 2*Angle_C_G_D & Angle_C_B_D - pi*(Variable_x/180 + 1/72) & Angle_D_A_G - 2*Angle_D_C_G & Angle_D_A_G - 5*pi/18 & Angle_A_C_D - Angle_A_D_C => Angle_A_C_D - 5*pi/24
-12. Angle_C_A_D - pi*(Variable_x/45 + 1/36) & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_D_C - 5*pi/24 & Angle_A_C_D - 5*pi/24 => Variable_x - 25
+1. Variable_x - 25 => Variable_x - 25

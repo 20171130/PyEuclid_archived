@@ -1,5 +1,4 @@
 Solution:
 1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. Angle_A_B_C - 7*pi/18 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 => Angle_B_A_C - pi/9
-3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_B_A_C - pi/9 & Length_B_C - 15 & Angle_A_C_B - pi/2 & Length_A_B - Variable_x => Variable_x - 15/sin(pi/9)
-4. Variable_x - 15/sin(pi/9) => Variable_x - 43.8570660024463
+2. Angle_A_C_B - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - 7*pi/18 => Angle_B_A_C - pi/9
+3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_C_B - pi/2 & Length_A_B - Variable_x & Angle_B_A_C - pi/9 & Length_B_C - 15 => Variable_x - 15/sin(pi/9)

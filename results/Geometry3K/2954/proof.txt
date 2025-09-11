@@ -1,2 +1,2 @@
 Solution:
-1. Angle_A_B_D - pi/4 & Angle_A_D_B - Variable_angle_3 & Angle_B_A_D - 2*pi/9 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi => Variable_angle_3 - 19*pi/36
+1. Angle_A_B_D - pi/4 & Angle_A_D_B - Variable_angle_3 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_B_A_D - 2*pi/9 => Variable_angle_3 - 19*pi/36

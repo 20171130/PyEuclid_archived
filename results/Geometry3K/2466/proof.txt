@@ -1,3 +1,3 @@
 Solution:
 1. Midpoint(G,P,R) => Length_G_P - Length_G_R
-2. Length_G_P - Length_G_R & Length_G_R - 7 & Length_G_P - Variable_z - 4 => Variable_z - 3
+2. Length_G_P - Variable_z - 4 & Length_G_P - Length_G_R & Length_G_R - 7 => Variable_z - 3

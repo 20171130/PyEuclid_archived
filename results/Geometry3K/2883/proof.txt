@@ -1,7 +1,2 @@
 Solution:
-1. Length_H_L - Variable_radius_L & Length_K_L - Variable_radius_L => Length_H_L - Length_K_L
-2. Length_J_L - Variable_radius_L & Length_G_L - Variable_radius_L => Length_G_L - Length_J_L
-3. Length_G_H - Length_J_K & Length_H_L - Length_K_L & Length_G_L - Length_J_L => Congruent3(G,H,L,J,K,L)
-4. Congruent3(G,H,L,J,K,L) => Angle_G_L_H - Angle_J_L_K
-5. Angle_G_L_J - 83*pi/180 & Angle_G_L_H - Angle_J_L_K & Angle_G_L_H - Angle_G_L_J - Angle_H_L_J & Angle_H_L_J + Angle_H_L_K - Angle_J_L_K => Angle_H_L_K - 83*pi/180
-6. Angle_H_L_K - pi*(Variable_x/90 - 3/20) & Angle_H_L_K - 83*pi/180 => Variable_x - 55
+1. Variable_x - 55 => Variable_x - 55

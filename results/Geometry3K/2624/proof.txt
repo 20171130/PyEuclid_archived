@@ -1,8 +1,10 @@
 Solution:
-1. Midpoint(S,A,C) => Length_A_S - Length_C_S & Length_A_C - 2*Length_C_S
-2. Midpoint(T,B,D) => Length_B_T - Length_D_T
-3. Length_A_S - Length_C_S & Length_B_T - Length_D_T => Length_A_S/Length_C_S - Length_B_T/Length_D_T
-4. Collinear(A,C,S) & Parallel(A,B,C,D) & Collinear(B,D,T) & Length_A_S/Length_C_S - Length_B_T/Length_D_T => Parallel(A,B,S,T)
-5. Parallel(A,B,C,D) & Parallel(A,B,S,T) & Collinear(A,C,S) & Collinear(B,D,T) => Length_A_B*Length_C_S/Length_A_C - Length_S_T + Length_A_S*Length_C_D/Length_A_C
-6. Length_A_B*Length_C_S/Length_A_C - Length_S_T + Length_A_S*Length_C_D/Length_A_C & Length_A_C - 2*Length_C_S & Length_A_S - Length_C_S & Length_S_T - 9 => Length_A_B + Length_C_D - 18
-7. Length_A_B - Variable_x - 4 & Length_A_B + Length_C_D - 18 & Length_C_D - 3*Variable_x - 2 => Length_A_B - 7
+1. Midpoint(S,A,C) => Length_A_C - 2*Length_A_S & Length_A_C - 2*Length_C_S & Length_A_S - Length_C_S
+2. Midpoint(T,B,D) => Length_B_D - 2*Length_B_T & Length_B_D - 2*Length_D_T
+3. Length_A_C - 2*Length_A_S & Length_B_D - 2*Length_B_T => Length_A_C/Length_B_D - Length_A_S/Length_B_T
+4. Length_B_D - 2*Length_D_T & Length_A_C - 2*Length_C_S => Length_A_C/Length_B_D - Length_C_S/Length_D_T
+5. Length_A_C/Length_B_D - Length_A_S/Length_B_T & Length_A_C/Length_B_D - Length_C_S/Length_D_T => Length_A_S/Length_C_S - Length_B_T/Length_D_T
+6. Collinear(A,C,S) & Parallel(A,B,C,D) & Collinear(B,D,T) & Length_A_S/Length_C_S - Length_B_T/Length_D_T => Parallel(A,B,S,T)
+7. Parallel(A,B,C,D) & Parallel(A,B,S,T) & Collinear(A,C,S) & Collinear(B,D,T) => Length_A_B*Length_C_S/Length_A_C - Length_S_T + Length_A_S*Length_C_D/Length_A_C
+8. Length_A_B*Length_C_S/Length_A_C - Length_S_T + Length_A_S*Length_C_D/Length_A_C & Length_A_C - 2*Length_C_S & Length_A_B - Variable_x - 4 & Length_S_T - 9 & Length_C_D - 3*Variable_x - 2 & Length_A_S - Length_C_S => Variable_x - 3
+9. Variable_x - 3 & Length_A_B - Variable_x - 4 => Length_A_B - 7

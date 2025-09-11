@@ -7,4 +7,4 @@ Solution:
 6. Length_M_Q - 9 & Length_M_Q - Length_P_Q => Length_P_Q - 9
 7. Perpendicular(N,P,P,Q) & Parallel(J,P,N,P) => Perpendicular(J,P,P,Q)
 8. Perpendicular(J,P,P,Q) => Angle_J_P_Q - pi/2
-9. Length_J_P**2 - 2*Length_J_P*Length_P_Q*cos(Angle_J_P_Q) - Length_J_Q**2 + Length_P_Q**2 & Length_J_P - 33/2 & Length_P_Q - 9 & Angle_J_P_Q - pi/2 => Length_J_Q - 3*sqrt(157)/2
+9. Length_J_P**2 - 2*Length_J_P*Length_P_Q*cos(Angle_J_P_Q) - Length_J_Q**2 + Length_P_Q**2 & Length_P_Q - 9 & Length_J_P - 33/2 & Angle_J_P_Q - pi/2 => Length_J_Q - 3*sqrt(157)/2

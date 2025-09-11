@@ -1,8 +1,8 @@
 Solution:
-1. Length_A_S - Length_B_S & Collinear(A,B,S) => Midpoint(S,A,B)
-2. Length_B_T - Length_C_T & Collinear(B,C,T) => Midpoint(T,B,C)
-3. Midpoint(S,A,B) & Midpoint(T,B,C) & Collinear(C,M,S) & Collinear(A,M,T) => Centroid(M,A,B,C)
-4. Centroid(M,A,B,C) & Collinear(A,C,R) & Collinear(B,M,R) => -0.5 + Length_M_R/Length_B_M
-5. Length_M_R - 4 & Length_A_T - 16 => Length_A_T/Length_M_R - 4 & Length_A_T - 4*Length_M_R
-6. -0.5 + Length_M_R/Length_B_M & Length_A_T/Length_M_R - 4 & Length_A_T - 4*Length_M_R => -0.5 + Length_B_M/Length_A_T
-7. -0.5 + Length_B_M/Length_A_T & Length_A_T - 16 => Length_B_M - 8.0
+1. Length_C_M - 7 & Length_M_R - 4 => Length_C_M - 7*Length_M_R/4
+2. Length_A_S - Length_B_S & Collinear(A,B,S) => Midpoint(S,A,B)
+3. Length_B_T - Length_C_T & Collinear(B,C,T) => Midpoint(T,B,C)
+4. Midpoint(S,A,B) & Midpoint(T,B,C) & Collinear(C,M,S) & Collinear(A,M,T) => Centroid(M,A,B,C)
+5. Centroid(M,A,B,C) & Collinear(A,C,R) & Collinear(B,M,R) => -0.5 + Length_M_R/Length_B_M
+6. Length_C_M - 7*Length_M_R/4 & -0.5 + Length_M_R/Length_B_M => 1.0*Length_B_M - 1.14285714285714*Length_C_M
+7. 1.0*Length_B_M - 1.14285714285714*Length_C_M & Length_C_M - 7 => Length_B_M - 8.0

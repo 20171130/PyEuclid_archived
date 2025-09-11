@@ -1,2 +1,2 @@
 Solution:
-1. Length_X_Y - Length_Y_Z & Length_Y_Z - 4*Variable_x + 1 & Length_X_Y - 2*Variable_x - 3 => Length_X_Y - 7
+1. Length_X_Y - 2*Variable_x - 3 & Length_X_Y - Length_Y_Z & Length_Y_Z - 4*Variable_x + 1 => Length_X_Y - 7

@@ -1,4 +1,3 @@
 Solution:
 1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Length_A_B - Variable_x & Angle_A_C_B - pi/2 & Angle_A_B_C - 61*pi/180 & Length_A_C - 24 => Variable_x - 27.4404976289597
-3. Variable_x - 27.4404976289597 => Variable_x - 27.4404976289597
+2. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Length_A_C - 24 & Angle_A_C_B - pi/2 & Length_A_B - Variable_x & Angle_A_B_C - 61*pi/180 => Variable_x - 24/sin(61*pi/180)

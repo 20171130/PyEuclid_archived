@@ -1,7 +1,5 @@
 Solution:
-1. Rectangle(W,X,Z,Y) => Angle_W_Y_X - Angle_Y_W_Z & Angle_W_X_Y - Angle_X_W_Z
-2. Collinear(A,X,Y) => Angle_A_Y_W - Angle_W_Y_X & Angle_W_A_X + Angle_W_A_Y - pi & Angle_A_X_W - Angle_W_X_Y
-3. Collinear(A,W,Z) => Angle_A_W_Y - Angle_Y_W_Z & Angle_A_W_X - Angle_X_W_Z
-4. Angle_W_Y_X - Angle_Y_W_Z & Angle_A_Y_W - Angle_W_Y_X & Angle_A_W_Y - Angle_Y_W_Z => Angle_A_W_Y - Angle_A_Y_W
-5. Angle_A_W_X + Angle_A_X_W + Angle_W_A_X - pi & Angle_W_X_Y - Angle_X_W_Z & Angle_W_Y_X - Angle_Y_W_Z & Variable_angle_1 - pi/6 & Angle_X_W_Y - Angle_X_W_Z - Angle_Y_W_Z & Angle_W_A_X + Angle_W_A_Y - pi & Angle_W_X_Y + Angle_W_Y_X + Angle_X_W_Y - pi & Angle_A_X_W - Angle_W_X_Y & Angle_A_Y_W - Angle_W_Y_X & Angle_A_W_X - Angle_X_W_Z & Angle_A_X_W - Variable_angle_1 => Angle_A_Y_W - Angle_W_A_Y
-6. Angle_A_W_Y - Angle_A_Y_W & Angle_A_Y_W - Variable_angle_6 & Angle_A_W_Y + Angle_A_Y_W + Angle_W_A_Y - pi & Angle_A_Y_W - Angle_W_A_Y => Variable_angle_6 - pi/3
+1. Rectangle(W,X,Z,Y) => Angle_X_W_Y - pi/2
+2. Collinear(A,X,Y) => Angle_A_X_W - Angle_W_X_Y & Angle_A_Y_W - Angle_W_Y_X
+3. Variable_angle_1 - pi/6 & Angle_A_X_W - Variable_angle_1 & Angle_X_W_Y - pi/2 & Angle_W_X_Y + Angle_W_Y_X + Angle_X_W_Y - pi & Angle_A_X_W - Angle_W_X_Y & Angle_A_Y_W - Angle_W_Y_X => Angle_A_Y_W - pi/3
+4. Angle_A_Y_W - pi/3 & Angle_A_Y_W - Variable_angle_6 => Variable_angle_6 - pi/3

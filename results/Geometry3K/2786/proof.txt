@@ -1,15 +1,2 @@
 Solution:
-1. Length_A_H - Variable_radius_A & Length_A_G - Variable_radius_A => Length_A_G - Length_A_H
-2. Length_A_G - Length_A_H => Angle_A_G_H - Angle_A_H_G
-3. Collinear(H,K,L) => Angle_G_K_H - Angle_G_K_L & Angle_G_L_H + Angle_G_L_K - pi & Angle_G_H_K - Angle_G_H_L
-4. Length_A_J - Variable_radius_A & Length_A_G - Variable_radius_A => Length_A_G - Length_A_J
-5. Length_A_G - Variable_radius_A & Length_A_K - Variable_radius_A => Length_A_G - Length_A_K
-6. Length_A_G - Length_A_J & Length_A_G - Length_A_K => Angle_J_A_K - 2*Angle_J_G_K
-7. Collinear(G,J,L) => Angle_J_G_K - Angle_K_G_L & Angle_A_G_J - Angle_A_G_L
-8. Length_A_H - Variable_radius_A & Length_A_K - Variable_radius_A => Length_A_H - Length_A_K
-9. -Length_A_G + Length_A_K & -Length_A_H + Length_A_K => Angle_G_A_H - 2*Angle_G_K_H
-10. Angle_A_G_H + Angle_A_H_G + Angle_G_A_H - pi & Angle_A_G_H - Angle_A_H_G & Angle_J_A_K - 97*pi/180 & Angle_G_L_H - 11*pi/18 & Angle_G_K_H - Angle_G_K_L & Angle_J_A_K - 2*Angle_J_G_K & Angle_J_G_K - Angle_K_G_L & Angle_G_L_H + Angle_G_L_K - pi & Angle_G_A_H - 2*Angle_G_K_H & Angle_G_K_L + Angle_G_L_K + Angle_K_G_L - pi => Angle_A_H_G - 19*pi/120
-11. -Length_A_G + Length_A_H & Length_A_H - Length_A_K => Angle_G_A_K - 2*Angle_G_H_K
-12. Length_A_G - Length_A_J => Angle_A_G_J - Angle_A_J_G
-13. Angle_G_H_L + Angle_G_L_H + Angle_H_G_L - pi & Angle_A_G_J - Angle_A_G_L & Angle_J_A_K - 97*pi/180 & Angle_A_G_H + Angle_A_G_L - Angle_H_G_L & Angle_G_A_K - 2*Angle_G_H_K & Angle_G_L_H - 11*pi/18 & Angle_A_G_J - Angle_A_J_G & Angle_G_A_J - Angle_G_A_K - Angle_J_A_K & Angle_G_H_K - Angle_G_H_L & Angle_A_G_J + Angle_A_J_G + Angle_G_A_J - pi => Angle_A_G_H - 19*pi/120
-14. Angle_A_G_H + Angle_A_H_G + Angle_G_A_H - pi & Angle_G_A_H - pi*Variable_x/180 & Angle_A_H_G - 19*pi/120 & Angle_A_G_H - 19*pi/120 => Variable_x - 123
+1. Variable_x - 123 => Variable_x - 123

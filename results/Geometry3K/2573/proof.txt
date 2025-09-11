@@ -1,4 +1,4 @@
 Solution:
 1. Collinear(N,P,Q) => Angle_M_Q_N - Angle_M_Q_P
-2. Angle_M_Q_N - Angle_M_Q_P & Angle_N_M_P - 14*pi/45 & Angle_N_M_P - Angle_N_M_Q + Angle_P_M_Q & Angle_M_N_Q + Angle_M_Q_N + Angle_N_M_Q - pi & Angle_M_N_Q - pi/4 => Angle_M_Q_P + Angle_P_M_Q - 79*pi/180
+2. Angle_N_M_P - Angle_N_M_Q + Angle_P_M_Q & Angle_M_N_Q + Angle_M_Q_N + Angle_N_M_Q - pi & Angle_M_Q_N - Angle_M_Q_P & Angle_M_N_Q - pi/4 & Angle_N_M_P - 14*pi/45 => Angle_M_Q_P + Angle_P_M_Q - 79*pi/180
 3. Angle_M_P_Q + Angle_M_Q_P + Angle_P_M_Q - pi & Angle_M_Q_P + Angle_P_M_Q - 79*pi/180 => Angle_M_P_Q - 101*pi/180

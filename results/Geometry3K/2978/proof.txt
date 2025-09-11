@@ -1,8 +1,8 @@
 Solution:
-1. Length_H_J - 10 & Length_G_H - 7 => Length_G_H/Length_H_J - 7/10 & Length_G_H - 7*Length_H_J/10 & -10/7 + Length_H_J/Length_G_H
-2. Collinear(D,G,J) => Angle_D_G_H - Angle_H_G_J
-3. Angle_G_D_H - Angle_G_H_J & Angle_D_G_H - Angle_H_G_J & Angle_G_H_J + Angle_G_J_H + Angle_H_G_J - pi & Angle_D_G_H + Angle_D_H_G + Angle_G_D_H - pi => Angle_D_H_G - Angle_G_J_H
-4. Angle_D_G_H - Angle_H_G_J & Angle_D_H_G - Angle_G_J_H => Similar3(D,G,H,H,G,J)
-5. Similar3(D,G,H,H,G,J) => Length_H_J/Length_D_H - Length_G_H/Length_D_G & Length_D_G/Length_G_H - Length_D_H/Length_H_J
-6. Length_G_H/Length_H_J - 7/10 & Length_H_J/Length_D_H - Length_G_H/Length_D_G & Length_D_G/Length_G_H - Length_D_H/Length_H_J & Length_G_H - 7*Length_H_J/10 & -10/7 + Length_H_J/Length_G_H => Length_D_G - 7*Length_D_H/10
+1. Collinear(D,G,J) => Angle_D_G_H - Angle_H_G_J
+2. Angle_D_G_H + Angle_D_H_G + Angle_G_D_H - pi & Angle_G_H_J + Angle_G_J_H + Angle_H_G_J - pi & Angle_D_G_H - Angle_H_G_J & Angle_G_D_H - Angle_G_H_J => Angle_D_H_G - Angle_G_J_H
+3. Angle_D_G_H - Angle_H_G_J & Angle_D_H_G - Angle_G_J_H => Similar3(D,G,H,H,G,J)
+4. Similar3(D,G,H,H,G,J) => Length_D_G/Length_G_H - Length_D_H/Length_H_J
+5. Length_H_J - 10 & Length_G_H - 7 => Length_G_H - 7*Length_H_J/10
+6. Length_D_G/Length_G_H - Length_D_H/Length_H_J & Length_G_H - 7*Length_H_J/10 => Length_D_G - 7*Length_D_H/10
 7. Length_D_G - 7*Length_D_H/10 & Length_D_H - 2*Variable_x - 4 & Length_D_G - 2*Variable_x + 2 => Length_D_G - 14

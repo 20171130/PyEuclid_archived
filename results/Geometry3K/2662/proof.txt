@@ -7,5 +7,5 @@ Solution:
 6. Perpendicular(A,D,C,D) => Angle_A_D_C - pi/2
 7. Angle_B_D_C - pi/2 & Angle_A_D_C - pi/2 => Angle_A_D_C - Angle_B_D_C
 8. Angle_A_C_D - Angle_C_B_D & Angle_A_D_C - Angle_B_D_C => Similar3(A,C,D,C,B,D)
-9. Similar3(A,C,D,C,B,D) => Length_A_D/Length_C_D - Length_C_D/Length_B_D
-10. Length_B_D - 14 & Length_A_D/Length_C_D - Length_C_D/Length_B_D & Length_A_D - 24 => Length_C_D - 4*sqrt(21)
+9. Similar3(A,C,D,C,B,D) => Length_B_D/Length_C_D - Length_C_D/Length_A_D
+10. Length_B_D - 14 & Length_A_D - 24 & Length_B_D/Length_C_D - Length_C_D/Length_A_D => Length_C_D - 4*sqrt(21)

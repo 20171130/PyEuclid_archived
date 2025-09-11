@@ -1,4 +1,2 @@
 Solution:
-1. Collinear(A,B,D) => Angle_A_B_C - Angle_C_B_D & Angle_A_D_C + Angle_B_D_C - pi
-2. Angle_A_B_C - Angle_C_B_D & Angle_A_B_C - Angle_B_D_C => Angle_B_D_C - Angle_C_B_D
-3. Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_A_D_C - pi*Variable_x/180 & Angle_B_D_C - Angle_C_B_D & Angle_A_D_C + Angle_B_D_C - pi & Angle_B_C_D - Angle_B_D_C => Variable_x - 120
+1. Variable_x - 120 => Variable_x - 120

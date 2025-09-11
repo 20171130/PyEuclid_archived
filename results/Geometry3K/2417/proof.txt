@@ -1,4 +1,4 @@
 Solution:
 1. Parallel(A,E,B,C) => Angle_A_B_C + Angle_B_A_E - pi
-2. Angle_A_B_C + Angle_B_A_E - pi & Angle_A_B_C - pi*(5*Variable_y/36 - 1/9) & Angle_B_A_E - pi*(2*Variable_y/45 + 1/90) => Angle_A_B_C - 13*pi/18
+2. Angle_A_B_C - pi*(5*Variable_y/36 - 1/9) & Angle_B_A_E - pi*(2*Variable_y/45 + 1/90) & Angle_A_B_C + Angle_B_A_E - pi => Angle_A_B_C - 13*pi/18
 3. Angle_A_B_C - pi*(5*Variable_y/36 - 1/9) & Angle_A_B_C - 13*pi/18 => Variable_y - 6

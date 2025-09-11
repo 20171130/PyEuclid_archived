@@ -1,8 +1,8 @@
 Solution:
-1. Collinear(B,F,G) => Angle_B_F_E - Angle_E_F_G & Angle_B_G_E + Angle_E_G_F - pi
+1. Collinear(C,E,G) => Angle_C_E_F - Angle_F_E_G
 2. Length_C_O - Variable_radius_O & Length_E_O - Variable_radius_O => Length_C_O - Length_E_O
 3. Length_F_O - Variable_radius_O & Length_E_O - Variable_radius_O => Length_E_O - Length_F_O
 4. -Length_C_O + Length_E_O & Length_E_O - Length_F_O => Angle_C_E_F - Angle_C_O_F/2
-5. Collinear(C,E,G) => Angle_C_E_F - Angle_F_E_G
-6. Angle_B_F_E - Angle_E_F_G & Angle_B_F_E - pi/6 & Angle_C_E_F - Angle_C_O_F/2 & Angle_B_G_E - 13*pi/45 & Angle_C_O_F - Angle_C_O_G - Angle_F_O_G & Angle_E_F_G + Angle_E_G_F + Angle_F_E_G - pi & Angle_C_E_F - Angle_F_E_G & Angle_B_G_E + Angle_E_G_F - pi => Angle_C_O_G + Angle_F_O_G - 11*pi/45
+5. Collinear(B,F,G) => Angle_B_G_E + Angle_E_G_F - pi & Angle_B_F_E - Angle_E_F_G
+6. Angle_C_O_F - Angle_C_O_G - Angle_F_O_G & Angle_B_G_E - 13*pi/45 & Angle_C_E_F - Angle_F_E_G & Angle_C_E_F - Angle_C_O_F/2 & Angle_B_F_E - pi/6 & Angle_B_G_E + Angle_E_G_F - pi & Angle_B_F_E - Angle_E_F_G & Angle_E_F_G + Angle_E_G_F + Angle_F_E_G - pi => Angle_C_O_G + Angle_F_O_G - 11*pi/45
 7. Angle_C_O_F - Angle_C_O_G - Angle_F_O_G & Angle_C_O_G + Angle_F_O_G - 11*pi/45 => Angle_C_O_F - 11*pi/45

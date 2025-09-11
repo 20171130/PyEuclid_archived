@@ -1,9 +1,9 @@
 Solution:
-1. Length_B_E - Variable_x & Length_A_E - Variable_x => Length_A_E - Length_B_E
-2. Length_B_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_B_G
-3. Length_C_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_C_G
-4. Length_D_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_D_G
-5. Length_A_G - Length_B_G & Length_A_G - Length_C_G & Length_A_G - Length_D_G => Concyclic(A,B,C,D)
-6. Concyclic(A,B,C,D) & Collinear(A,B,E) & Collinear(C,D,E) => Length_A_E/Length_C_E - Length_D_E/Length_B_E
-7. Length_A_E - Length_B_E & Length_A_E/Length_C_E - Length_D_E/Length_B_E & Length_C_E - 9 & Length_D_E - 4 => Length_B_E - 6
-8. Length_B_E - Variable_x & Length_B_E - 6 => Variable_x - 6
+1. Length_B_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_B_G
+2. Length_C_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_C_G
+3. Length_D_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_D_G
+4. Length_A_G - Length_B_G & Length_A_G - Length_C_G & Length_A_G - Length_D_G => Concyclic(A,B,C,D)
+5. Concyclic(A,B,C,D) & Collinear(A,B,E) & Collinear(C,D,E) => Length_A_E/Length_C_E - Length_D_E/Length_B_E
+6. Length_B_E - Variable_x & Length_A_E - Variable_x => Length_A_E - Length_B_E
+7. Length_C_E - 9 & Length_D_E - 4 & Length_A_E/Length_C_E - Length_D_E/Length_B_E & Length_A_E - Length_B_E => Length_B_E - 6
+8. Length_B_E - 6 & Length_B_E - Variable_x => Variable_x - 6

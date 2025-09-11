@@ -1,8 +1,9 @@
 Solution:
-1. Rectangle(A,B,D,C) => Angle_A_B_C - Angle_B_C_D & Angle_A_B_D - Angle_B_D_C & Trapezoid(A,B,D,C) & Parallel(A,B,C,D) & Parallel(A,C,B,D)
-2. Angle_A_B_C - Angle_B_C_D & Angle_A_B_C - Angle_A_B_D + Angle_C_B_D & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_A_B_D - Angle_B_D_C & Angle_B_C_D - pi/6 => Angle_C_B_D - pi/3
-3. sin(Angle_C_B_D)/Length_C_D - sin(Angle_B_C_D)/Length_B_D & Angle_B_C_D - pi/6 & Angle_C_B_D - pi/3 & Length_C_D - 15 => Length_B_D - 5*sqrt(3)
-4. Perpendicular(A,B,A,C) & Parallel(A,C,B,D) => Perpendicular(A,B,B,D)
-5. Trapezoid(A,B,D,C) & Parallel(A,B,C,D) & Perpendicular(A,B,B,D) => Area_A_B_D_C - Length_B_D*(Length_A_B + Length_C_D)/2
-6. Area_A_B_D_C - Length_B_D*(Length_A_B + Length_C_D)/2 & Length_C_D - 15 & Length_A_B - 15 => Area_A_B_D_C - 15*Length_B_D
-7. Length_B_D - 5*sqrt(3) & Area_A_B_D_C - 15*Length_B_D => Area_A_B_D_C - 75*sqrt(3)
+1. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2
+2. sin(Angle_B_C_D)/Length_B_D - sin(Angle_B_D_C)/Length_B_C & Angle_B_C_D - pi/6 & Angle_B_D_C - pi/2 => Length_B_C - 2*Length_B_D
+3. Perpendicular(A,B,A,C) => Angle_B_A_C - pi/2
+4. Rectangle(A,B,D,C) => Angle_A_C_D - pi/2 & Area_A_B_D_C - Length_B_D*Length_C_D*sin(Angle_B_D_C)
+5. Angle_B_C_D - pi/6 & Angle_A_C_B - Angle_A_C_D + Angle_B_C_D & Angle_A_C_D - pi/2 => Angle_A_C_B - pi/3
+6. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_B_A_C - pi/2 & Length_A_B - 15 & Angle_A_C_B - pi/3 => Length_B_C - 10*sqrt(3)
+7. Area_A_B_D_C - Length_B_D*Length_C_D*sin(Angle_B_D_C) & Length_C_D - 15 & Angle_B_D_C - pi/2 => Area_A_B_D_C - 15*Length_B_D
+8. Length_B_C - 2*Length_B_D & Length_B_C - 10*sqrt(3) & Area_A_B_D_C - 15*Length_B_D => Area_A_B_D_C - 75*sqrt(3)

@@ -2,4 +2,4 @@ Solution:
 1. Length_J_K - 2*sqrt(33)/sqrt(pi) & Length_K_L - 2*sqrt(33)/sqrt(pi) => Length_J_K - Length_K_L
 2. Length_J_K - Length_K_L & Collinear(J,K,L) => Midpoint(K,J,L)
 3. Midpoint(K,J,L) => Length_J_L - 2*Length_K_L
-4. Length_J_L - Variable_x & Length_J_L - 2*Length_K_L & Length_K_L - 2*sqrt(33)/sqrt(pi) => Variable_x - 4*sqrt(33)/sqrt(pi)
+4. Length_J_L - Variable_x & Length_K_L - 2*sqrt(33)/sqrt(pi) & Length_J_L - 2*Length_K_L => Variable_x - 4*sqrt(33)/sqrt(pi)

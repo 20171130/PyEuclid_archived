@@ -1,7 +1,7 @@
 Solution:
-1. Similar4(A,B,D,C,E,F,G,H) => Length_E_H**2/Length_A_C**2 - Area_E_F_G_H/Area_A_B_D_C & Length_A_C/Length_E_H - Length_C_D/Length_G_H & Angle_A_C_D - Angle_E_H_G
+1. Similar4(A,B,D,C,E,F,G,H) => Length_A_C/Length_E_H - Length_C_D/Length_G_H & Angle_A_C_D - Angle_E_H_G & Area_A_B_D_C/Area_E_F_G_H - Length_C_D**2/Length_G_H**2
 2. Length_A_C/Length_E_H - Length_C_D/Length_G_H & Angle_A_C_D - Angle_E_H_G => Similar3(A,C,D,E,H,G)
-3. Similar3(A,C,D,E,H,G) => Length_A_C/Length_E_H - Length_A_D/Length_E_G
-4. Length_E_G - 4 & Length_A_D - 8 => -1/2 + Length_E_G/Length_A_D & Length_A_D/Length_E_G - 2
-5. Length_A_C/Length_E_H - Length_A_D/Length_E_G & -1/2 + Length_E_G/Length_A_D & Length_A_D/Length_E_G - 2 => Length_A_C - 2*Length_E_H
-6. Length_E_H**2/Length_A_C**2 - Area_E_F_G_H/Area_A_B_D_C & Length_A_C - 2*Length_E_H & Area_A_B_D_C - 36 => Area_E_F_G_H - 9
+3. Similar3(A,C,D,E,H,G) => Length_G_H/Length_E_G - Length_C_D/Length_A_D
+4. Length_E_G - 4 & Length_A_D - 8 => Length_A_D/Length_E_G - 2
+5. Length_G_H/Length_E_G - Length_C_D/Length_A_D & Length_A_D/Length_E_G - 2 => -1/2 + Length_G_H/Length_C_D
+6. -1/2 + Length_G_H/Length_C_D & Area_A_B_D_C/Area_E_F_G_H - Length_C_D**2/Length_G_H**2 & Area_A_B_D_C - 36 => Area_E_F_G_H - 9

@@ -1,6 +1,4 @@
 Solution:
-1. Length_B_W - 15 & Length_C_Y - 5 => Length_B_W - 3*Length_C_Y
-2. Length_B_Z - 15 & Length_C_Y - 5 => Length_B_Z - 3*Length_C_Y
-3. Length_C_W - 2 & Length_B_Z - 15 => Length_B_Z - 15*Length_C_W/2
-4. Collinear(C,W,Y) => Length_C_W - Length_C_Y + Length_W_Y
-5. Length_B_W - 3*Length_C_Y & Length_B_W - 15 & Length_B_Z - 3*Length_C_Y & Length_B_Z - 15*Length_C_W/2 & Length_C_W - Length_C_Y + Length_W_Y => Length_W_Y - 3
+1. Collinear(C,W,Y) => Length_C_W - Length_C_Y + Length_W_Y
+2. Length_C_Y - 5 & Length_C_W - 2 => Length_C_W - 2*Length_C_Y/5
+3. Length_C_W - Length_C_Y + Length_W_Y & Length_C_W - 2*Length_C_Y/5 & Length_C_Y - 5 => Length_W_Y - 3

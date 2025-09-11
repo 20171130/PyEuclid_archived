@@ -1,4 +1,4 @@
 Solution:
-1. Similar4(A,C,B,D,E,F,G,H) => Length_F_G**2/Length_B_C**2 - Area_E_F_G_H/Area_A_C_B_D
-2. Area_E_F_G_H - 64 & Length_F_G**2/Length_B_C**2 - Area_E_F_G_H/Area_A_C_B_D & Area_A_C_B_D - 400 => -2/5 + Length_F_G/Length_B_C & Length_B_C/Length_F_G - 5/2
-3. -2/5 + Length_F_G/Length_B_C & Length_B_C/Length_F_G - 5/2 & Length_F_G - Variable_x & Length_B_C - 40 => Variable_x - 16
+1. Similar4(A,C,B,D,E,F,G,H) => Area_A_C_B_D/Area_E_F_G_H - Length_B_C**2/Length_F_G**2
+2. Area_E_F_G_H - 64 & Area_A_C_B_D - 400 & Area_A_C_B_D/Area_E_F_G_H - Length_B_C**2/Length_F_G**2 => Length_B_C - 5*Length_F_G/2
+3. Length_B_C - 5*Length_F_G/2 & Length_F_G - Variable_x & Length_B_C - 40 => Variable_x - 16

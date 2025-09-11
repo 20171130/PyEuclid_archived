@@ -2,4 +2,4 @@ Solution:
 1. Rectangle(E,F,G,H) => Length_E_G - Length_F_H & Parallelogram(E,F,G,H)
 2. Collinear(F,H,K) => Length_F_H - Length_F_K - Length_H_K
 3. Parallelogram(E,F,G,H) & Collinear(E,G,K) & Collinear(F,H,K) => Length_F_K - Length_H_K
-4. Length_E_G - Length_F_H & Length_F_H - Length_F_K - Length_H_K & Length_F_K - 32 & Length_F_K - Length_H_K => Length_E_G - 64
+4. Length_E_G - Length_F_H & Length_F_K - 32 & Length_F_H - Length_F_K - Length_H_K & Length_F_K - Length_H_K => Length_E_G - 64

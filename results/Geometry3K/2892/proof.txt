@@ -1,10 +1,14 @@
 Solution:
-1. Length_A_B - 8 & Length_B_E - Variable_radius_B & Length_A_B - Variable_radius_B => Length_B_E - 8
-2. Collinear(B,D,F) => Parallel(B,D,D,F)
-3. Perpendicular(C,D,D,F) & Parallel(B,D,D,F) => Perpendicular(B,D,C,D)
-4. Collinear(C,D,E) => Parallel(C,D,C,E)
-5. Perpendicular(B,D,C,D) & Parallel(C,D,C,E) => Perpendicular(B,D,C,E)
-6. Perpendicular(B,D,C,E) & Collinear(C,D,E) => Area_B_C_E - Length_B_D*Length_C_E/2
-7. Area_B_C_E - Length_B_D*Length_C_E/2 & Length_C_E - 27/2 => Area_B_C_E - 27*Length_B_D/4
-8. Length_A_B - 8 & Length_A_B - Variable_radius_B & Length_B_C - Variable_radius_B => Length_B_C - 8
-9. Area_B_C_E**2 - (-Length_B_C/2 + Length_B_E/2 + Length_C_E/2)*(Length_B_C/2 - Length_B_E/2 + Length_C_E/2)*(Length_B_C/2 + Length_B_E/2 - Length_C_E/2)*(Length_B_C/2 + Length_B_E/2 + Length_C_E/2) & Length_C_E - 27/2 & Length_B_E - 8 & Area_B_C_E - 27*Length_B_D/4 & Length_B_C - 8 => Length_B_D - sqrt(295)/4
+1. Collinear(B,D,F) => Parallel(B,D,D,F)
+2. Perpendicular(C,D,D,F) & Parallel(B,D,D,F) => Perpendicular(B,D,C,D)
+3. Collinear(C,D,E) => Parallel(C,D,D,E) & Parallel(C,D,C,E)
+4. Perpendicular(B,D,C,D) & Parallel(C,D,D,E) => Perpendicular(B,D,D,E)
+5. Perpendicular(B,D,D,E) => Angle_B_D_E - pi/2
+6. Length_A_B - 8 & Length_A_B - Variable_radius_B & Length_B_E - Variable_radius_B => Length_B_E - 8
+7. Length_B_C - Variable_radius_B & Length_B_E - Variable_radius_B => Length_B_C - Length_B_E
+8. Length_B_C - Length_B_E => IsoscelesTriangle(B,C,E)
+9. Perpendicular(B,D,C,D) & Parallel(C,D,C,E) => Perpendicular(B,D,C,E)
+10. IsoscelesTriangle(B,C,E) & Length_B_C - Length_B_E & Collinear(C,D,E) & Perpendicular(B,D,C,E) => Midpoint(D,C,E)
+11. Midpoint(D,C,E) => Length_C_E - 2*Length_D_E
+12. Length_C_E - 2*Length_D_E & Length_C_E - 27/2 => Length_D_E - 27/4
+13. Length_B_D**2 - 2*Length_B_D*Length_D_E*cos(Angle_B_D_E) - Length_B_E**2 + Length_D_E**2 & Angle_B_D_E - pi/2 & Length_B_E - 8 & Length_D_E - 27/4 => Length_B_D - sqrt(295)/4

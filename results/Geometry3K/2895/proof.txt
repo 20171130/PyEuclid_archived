@@ -1,5 +1,5 @@
 Solution:
-1. Parallelogram(A,B,D,C) => Length_A_B - Length_C_D & Length_A_C - Length_B_D
-2. Length_A_B - Length_C_D & Length_C_D - 23 => Length_A_B - 23
-3. Length_A_C - Length_B_D & Length_A_C - 16 => Length_B_D - 16
-4. Length_A_B - 23 & Length_B_D - 16 & Length_A_C - 16 & Length_C_D - 23 => Length_A_B + Length_A_C + Length_B_D + Length_C_D - 78
+1. Parallelogram(A,B,D,C) => Length_A_C - Length_B_D & Length_A_B - Length_C_D
+2. Length_A_C - Length_B_D & Length_A_C - 16 => Length_B_D - 16
+3. Length_C_D - 23 & Length_A_B - Length_C_D => Length_A_B - 23
+4. Length_B_D - 16 & Length_A_C - 16 & Length_A_B - 23 & Length_C_D - 23 => Length_A_B + Length_A_C + Length_B_D + Length_C_D - 78

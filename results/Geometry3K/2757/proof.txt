@@ -1,8 +1,8 @@
 Solution:
-1. Length_S_T - 6 & Length_R_S + Length_R_T + Length_S_T - 15 => Length_R_S + Length_R_T - 9
-2. Length_S_T - 6 & Length_W_X - 5 => Length_S_T/Length_W_X - 6/5 & Length_S_T - 6*Length_W_X/5
-3. Similar3(R,S,T,Z,W,X) => Length_R_S/Length_S_T - Length_W_Z/Length_W_X & Length_W_X/Length_X_Z - Length_S_T/Length_R_T
-4. Length_S_T/Length_W_X - 6/5 & Length_S_T - 6*Length_W_X/5 & Length_R_S/Length_S_T - Length_W_Z/Length_W_X => Length_R_S - 6*Length_W_Z/5
-5. Length_W_X/Length_X_Z - Length_S_T/Length_R_T & Length_S_T/Length_W_X - 6/5 & Length_S_T - 6*Length_W_X/5 => Length_R_T - 6*Length_X_Z/5
+1. Length_R_S + Length_R_T + Length_S_T - 15 & Length_S_T - 6 => Length_R_S + Length_R_T - 9
+2. Length_W_X - 5 & Length_S_T - 6 => -5/6 + Length_W_X/Length_S_T
+3. Similar3(R,S,T,Z,W,X) => Length_R_S/Length_W_Z - Length_S_T/Length_W_X & Length_W_X/Length_X_Z - Length_S_T/Length_R_T
+4. -5/6 + Length_W_X/Length_S_T & Length_R_S/Length_W_Z - Length_S_T/Length_W_X => Length_R_S - 6*Length_W_Z/5
+5. Length_W_X/Length_X_Z - Length_S_T/Length_R_T & -5/6 + Length_W_X/Length_S_T => Length_R_T - 6*Length_X_Z/5
 6. Length_R_S + Length_R_T - 9 & Length_R_S - 6*Length_W_Z/5 & Length_R_T - 6*Length_X_Z/5 => Length_W_Z + Length_X_Z - 15/2
 7. Length_W_X - 5 & Length_W_Z + Length_X_Z - 15/2 => Length_W_X + Length_W_Z + Length_X_Z - 25/2

@@ -1,13 +1,12 @@
 Solution:
-1. Angle_B_C_E + Angle_B_E_C + Angle_C_B_E - pi & Angle_C_B_E - pi/6 & Angle_B_E_C - pi/2 => Angle_B_C_E - pi/3
-2. sin(Angle_C_B_E)/Length_C_E - sin(Angle_B_C_E)/Length_B_E & Length_C_E - 5 & Angle_C_B_E - pi/6 & Angle_B_C_E - pi/3 => Length_B_E - 5*sqrt(3)
-3. Angle_B_E_C - pi/2 => Area_B_C_E - Length_B_E*Length_C_E/2
-4. Length_C_E - 5 & Length_B_E - 5*sqrt(3) & Area_B_C_E - Length_B_E*Length_C_E/2 => Area_B_C_E - 25*sqrt(3)/2
-5. Collinear(B,C,D) => Angle_B_D_E + Angle_C_D_E - pi & Angle_C_B_E - Angle_D_B_E
-6. Length_B_D - Length_C_D & Length_B_D - Length_D_E => Length_C_D - Length_D_E
-7. Length_C_D - Length_D_E => Angle_C_E_D - Angle_D_C_E
-8. Length_B_D - Length_D_E => Angle_B_E_D - Angle_D_B_E
-9. Angle_B_D_E + Angle_C_D_E - pi & Angle_C_B_E - Angle_D_B_E & Angle_C_E_D - Angle_D_C_E & Angle_B_D_E + Angle_B_E_D + Angle_D_B_E - pi & Angle_C_B_E - pi/6 & Angle_B_E_D - Angle_D_B_E & Angle_C_D_E + Angle_C_E_D + Angle_D_C_E - pi => Angle_C_D_E - Angle_C_E_D
-10. Angle_C_D_E - Angle_C_E_D => Length_C_D - Length_C_E
-11. Length_C_E - 5 & Length_C_D - Length_C_E => Length_C_D - 5
-12. Area_B_C_E - 25*sqrt(3)/2 & Length_C_D - 5 => Area_B_C_E - pi*Length_C_D**2 - 25*sqrt(3)/2 + 25*pi
+1. Length_B_D - Length_D_E => Angle_B_E_D - Angle_D_B_E
+2. Collinear(B,C,D) => Angle_C_B_E - Angle_D_B_E & Angle_B_D_E + Angle_C_D_E - pi
+3. Angle_B_E_D - Angle_D_B_E & Angle_C_B_E - pi/6 & Angle_C_B_E - Angle_D_B_E & Angle_B_D_E + Angle_B_E_D + Angle_D_B_E - pi & Angle_B_D_E + Angle_C_D_E - pi => Angle_C_D_E - pi/3
+4. Length_B_D - Length_D_E & Length_B_D - Length_C_D => Length_C_D - Length_D_E
+5. Length_C_D**2 - 2*Length_C_D*Length_D_E*cos(Angle_C_D_E) - Length_C_E**2 + Length_D_E**2 & Length_C_E - 5 & Angle_C_D_E - pi/3 & Length_C_D - Length_D_E => Length_D_E - 5
+6. Length_D_E - 5 & Length_C_D - Length_D_E => Length_C_D - 5
+7. Angle_C_B_E - pi/6 & Angle_B_C_E + Angle_B_E_C + Angle_C_B_E - pi & Angle_B_E_C - pi/2 => Angle_B_C_E - pi/3
+8. sin(Angle_C_B_E)/Length_C_E - sin(Angle_B_C_E)/Length_B_E & Angle_B_C_E - pi/3 & Angle_C_B_E - pi/6 & Length_C_E - 5 => Length_B_E - 5*sqrt(3)
+9. Angle_B_E_C - pi/2 => Area_B_C_E - Length_B_E*Length_C_E/2
+10. Length_B_E - 5*sqrt(3) & Area_B_C_E - Length_B_E*Length_C_E/2 & Length_C_E - 5 => Area_B_C_E - 25*sqrt(3)/2
+11. Length_C_D - 5 & Area_B_C_E - 25*sqrt(3)/2 => Area_B_C_E - pi*Length_C_D**2 - 25*sqrt(3)/2 + 25*pi

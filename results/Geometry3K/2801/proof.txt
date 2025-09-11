@@ -4,4 +4,4 @@ Solution:
 3. Perpendicular(A,L,L,N) & Parallel(A,B,A,L) => Perpendicular(A,B,L,N)
 4. Trapezoid(A,B,C,N) & Parallel(A,B,C,N) & Perpendicular(A,B,L,N) & Collinear(A,B,L) => Area_A_B_C_N - Length_L_N*(Length_A_B + Length_C_N)/2
 5. Length_A_B - 40 & Length_A_B - Length_C_N => Length_C_N - 40
-6. Area_A_B_C_N - Length_L_N*(Length_A_B + Length_C_N)/2 & Length_C_N - 40 & Length_L_N - 36 & Length_A_B - 40 => Area_A_B_C_N - 1440
+6. Area_A_B_C_N - Length_L_N*(Length_A_B + Length_C_N)/2 & Length_C_N - 40 & Length_A_B - 40 & Length_L_N - 36 => Area_A_B_C_N - 1440

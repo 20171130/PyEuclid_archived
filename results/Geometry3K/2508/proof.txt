@@ -1,7 +1,7 @@
 Solution:
-1. Similar3(J,L,M,Q,S,T) => Length_J_M/Length_Q_T - Length_L_M/Length_S_T
-2. Length_Q_T - 2 & Length_S_T - 3 => Length_Q_T - 2*Length_S_T/3 & -3/2 + Length_S_T/Length_Q_T
-3. Length_Q_T - 2 & Length_J_M - 4 => -1/2 + Length_Q_T/Length_J_M & Length_J_M - 2*Length_Q_T
-4. Length_J_M/Length_Q_T - Length_L_M/Length_S_T & Length_Q_T - 2*Length_S_T/3 & -1/2 + Length_Q_T/Length_J_M & Length_J_M - 2*Length_Q_T & -3/2 + Length_S_T/Length_Q_T => Length_L_M/Length_Q_T - 3 & -1/3 + Length_Q_T/Length_L_M
-5. Length_J_M/Length_Q_T - Length_L_M/Length_S_T & Length_L_M/Length_Q_T - 3 & Length_S_T - 3 & Length_J_M - 4 & -1/3 + Length_Q_T/Length_L_M => Length_L_M - 6
+1. Similar3(J,L,M,Q,S,T) => Length_S_T/Length_Q_T - Length_L_M/Length_J_M
+2. Length_Q_T - 2 & Length_J_M - 4 => Length_J_M/Length_Q_T - 2
+3. Length_Q_T - 2 & Length_S_T - 3 => Length_Q_T/Length_S_T - 2/3
+4. Length_S_T/Length_Q_T - Length_L_M/Length_J_M & Length_J_M/Length_Q_T - 2 & Length_Q_T/Length_S_T - 2/3 => -1/3 + Length_Q_T/Length_L_M
+5. Length_Q_T - 2 & -1/3 + Length_Q_T/Length_L_M => Length_L_M - 6
 6. Length_L_M - 6 & Length_L_M - 6*Variable_x + 3 => Variable_x - 3/2

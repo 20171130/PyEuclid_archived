@@ -1,4 +1,4 @@
 Solution:
 1. Collinear(A,L,M) => Length_A_L + Length_A_M - Length_L_M
-2. Length_A_L - 10 & Length_A_M - Variable_x & Length_A_L + Length_A_M - Length_L_M => Length_L_M - Variable_x - 10
-3. Length_K_L**2 - 2*Length_K_L*Length_K_M*cos(Angle_L_K_M) + Length_K_M**2 - Length_L_M**2 & Length_K_M - Variable_x & Length_L_M - Variable_x - 10 & Length_K_L - 17 & Angle_L_K_M - pi/2 => Variable_x - 189/20
+2. Length_A_M - Variable_x & Length_A_L - 10 & Length_A_L + Length_A_M - Length_L_M => Length_L_M - Variable_x - 10
+3. Length_K_L**2 - 2*Length_K_L*Length_K_M*cos(Angle_L_K_M) + Length_K_M**2 - Length_L_M**2 & Length_L_M - Variable_x - 10 & Angle_L_K_M - pi/2 & Length_K_M - Variable_x & Length_K_L - 17 => Variable_x - 189/20

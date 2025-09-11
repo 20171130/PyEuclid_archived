@@ -1,8 +1,2 @@
 Solution:
-1. Collinear(A,C,H) => Angle_A_H_G + Angle_C_H_G - pi
-2. Collinear(B,C,I) => Angle_B_C_H + Angle_H_C_I - pi
-3. Collinear(E,G,H) => Angle_D_G_E + Angle_D_G_H - pi
-4. Collinear(B,D,F) => Angle_C_B_D + Angle_C_B_F - pi
-5. Collinear(D,G,J) => Angle_B_D_G + Angle_B_D_J - pi
-6. Angle_A_H_G - pi*(Variable_x/180 - 1/30) & Angle_C_B_D - Angle_C_B_G - Angle_D_B_G & Angle_B_G_D + Angle_B_G_H - Angle_D_G_H & Angle_B_G_C - Angle_B_G_H + Angle_C_G_H & Angle_A_H_G + Angle_C_H_G - pi & Angle_C_G_H + Angle_C_H_G + Angle_G_C_H - pi & Angle_B_C_H + Angle_H_C_I - pi & Angle_B_D_J - 14*pi/45 & Angle_B_C_G + Angle_B_G_C + Angle_C_B_G - pi & Angle_D_G_E + Angle_D_G_H - pi & Angle_B_D_G + Angle_B_G_D + Angle_D_B_G - pi & Angle_H_C_I - pi*Variable_x/180 & Angle_C_B_D + Angle_C_B_F - pi & Angle_B_D_G + Angle_B_D_J - pi & Angle_D_G_E - pi*(Variable_x/180 + 1/18) & Angle_C_B_F - pi*(Variable_x/180 + 1/45) & Angle_B_C_G - Angle_B_C_H + Angle_G_C_H => Angle_A_H_G - 17*pi/45
-7. Angle_A_H_G - pi*(Variable_x/180 - 1/30) & Angle_A_H_G - 17*pi/45 => Variable_x - 74
+1. Variable_x - 74 => Variable_x - 74

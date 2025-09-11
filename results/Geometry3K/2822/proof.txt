@@ -1,3 +1,3 @@
 Solution:
 1. Rhombus(A,B,C,D) => Length_A_B - Length_B_C & Length_B_C - Length_C_D
-2. Length_A_B - 2*Variable_x - 3 & Length_A_B - Length_B_C & Length_B_C - Length_C_D & Length_B_C - Variable_x - 7 => Length_C_D - 11
+2. Length_A_B - 2*Variable_x - 3 & Length_B_C - Variable_x - 7 & Length_A_B - Length_B_C & Length_B_C - Length_C_D => Length_C_D - 11

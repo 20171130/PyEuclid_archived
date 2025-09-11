@@ -1,12 +1,13 @@
 Solution:
-1. Collinear(J,K,M) => Angle_J_K_L - Angle_L_K_M & Parallel(J,M,K,M) & Length_J_K - Length_J_M - Length_K_M
+1. Perpendicular(J,L,K,L) => Angle_J_L_K - pi/2
 2. Perpendicular(K,M,L,M) => Angle_K_M_L - pi/2
-3. Perpendicular(J,L,K,L) => Angle_J_L_K - pi/2
-4. Angle_J_L_K - Angle_J_L_M - Angle_K_L_M & Angle_J_K_L - Angle_L_K_M & Angle_K_M_L - pi/2 & Angle_K_L_M + Angle_K_M_L + Angle_L_K_M - pi & Angle_J_L_K - pi/2 => Angle_J_K_L - Angle_J_L_M
+3. Collinear(J,K,M) => Angle_J_K_L - Angle_L_K_M & Parallel(J,M,K,M) & Length_J_K - Length_J_M - Length_K_M
+4. Angle_J_L_K - pi/2 & Angle_K_M_L - pi/2 & Angle_J_L_K - Angle_J_L_M - Angle_K_L_M & Angle_K_L_M + Angle_K_M_L + Angle_L_K_M - pi & Angle_J_K_L - Angle_L_K_M => Angle_J_K_L - Angle_J_L_M
 5. Perpendicular(K,M,L,M) & Parallel(J,M,K,M) => Perpendicular(J,M,L,M)
 6. Perpendicular(J,M,L,M) => Angle_J_M_L - pi/2
-7. Angle_J_M_L - pi/2 & Angle_J_L_K - pi/2 => Angle_J_L_K - Angle_J_M_L
+7. Angle_J_L_K - pi/2 & Angle_J_M_L - pi/2 => Angle_J_L_K - Angle_J_M_L
 8. Angle_J_K_L - Angle_J_L_M & Angle_J_L_K - Angle_J_M_L => Similar3(J,K,L,J,L,M)
 9. Similar3(J,K,L,J,L,M) => Length_J_K/Length_J_L - Length_J_L/Length_J_M
-10. Length_J_M - 5 & Length_K_M - 20 & Length_J_K - Length_J_M - Length_K_M => Length_J_K - 25
-11. Length_J_K/Length_J_L - Length_J_L/Length_J_M & Length_J_L - Variable_y & Length_J_K - 25 & Length_J_M - 5 => Variable_y - 5*sqrt(5)
+10. Length_K_M - 20 & Length_J_M - 5 => Length_J_M - Length_K_M/4
+11. Length_K_M - 20 & Length_J_K - Length_J_M - Length_K_M & Length_J_M - Length_K_M/4 => Length_J_K - 25
+12. Length_J_K/Length_J_L - Length_J_L/Length_J_M & Length_J_M - 5 & Length_J_L - Variable_y & Length_J_K - 25 => Variable_y - 5*sqrt(5)

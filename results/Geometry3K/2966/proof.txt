@@ -1,2 +1,2 @@
 Solution:
-1. Length_W_X - 9*Variable_x & Length_X_Y - 4*Variable_x - 5 & Length_W_X - Length_W_Y & Length_W_Y - Length_X_Y => Variable_x - 1
+1. Length_W_Y - Length_X_Y & Length_X_Y - 4*Variable_x - 5 & Length_W_Y - 6*Variable_x - 3 => Variable_x - 1

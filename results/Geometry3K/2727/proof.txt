@@ -1,5 +1,2 @@
 Solution:
-1. Angle_L_M_N - Angle_X_Y_Z & Angle_L_M_N - 17*pi/60 => Angle_X_Y_Z - 17*pi/60
-2. Angle_M_L_N - Angle_X_Z_Y & Angle_M_L_N - 13*pi/36 => Angle_X_Z_Y - 13*pi/36
-3. Angle_X_Y_Z - 17*pi/60 & Angle_X_Y_Z + Angle_X_Z_Y + Angle_Y_X_Z - pi & Angle_X_Z_Y - 13*pi/36 => Angle_Y_X_Z - 16*pi/45
-4. Angle_Y_X_Z - pi*Variable_x/45 & Angle_Y_X_Z - 16*pi/45 => Variable_x - 16
+1. Variable_x - 16 => Variable_x - 16

@@ -1,11 +1,11 @@
 Solution:
 1. Collinear(A,C,D) & Collinear(B,C,E) & Parallel(A,B,D,E) => Length_A_C/Length_B_C - Length_A_D/Length_B_E
-2. Length_A_C/Length_B_C - Length_A_D/Length_B_E => Length_A_C/Length_A_D - Length_B_C/Length_B_E
-3. Length_A_C - 10 & Length_A_C/Length_A_D - Length_B_C/Length_B_E => Length_A_D - 10*Length_B_E/Length_B_C
-4. Collinear(B,C,E) => Length_B_C - Length_B_E - Length_C_E
-5. Length_C_E - Variable_t + 2 & Length_B_E - Variable_t - 1 & Length_B_C - Length_B_E - Length_C_E => Length_B_C - 2*Variable_t + 1
-6. Length_C_D - 2 & Length_A_C - 10 => Length_A_C - 5*Length_C_D
-7. Collinear(A,C,D) => Length_A_C - Length_A_D - Length_C_D
-8. Length_A_C - 10 & Length_A_C - 5*Length_C_D & Length_A_C - Length_A_D - Length_C_D => Length_A_D - 8
-9. Length_A_D - 10*Length_B_E/Length_B_C & Length_B_C - 2*Variable_t + 1 & Length_B_E - Variable_t - 1 & Length_A_D - 8 => Variable_t - 3
-10. Length_C_E - Variable_t + 2 & Variable_t - 3 => Length_C_E - 1
+2. Length_A_C/Length_B_C - Length_A_D/Length_B_E => Length_B_E/Length_A_D - Length_B_C/Length_A_C
+3. Length_B_E/Length_A_D - Length_B_C/Length_A_C & Length_A_C - 10 => Length_A_D - 10*Length_B_E/Length_B_C
+4. Length_A_C - 10 & Length_C_D - 2 => Length_A_C - 5*Length_C_D
+5. Collinear(A,C,D) => Length_A_C - Length_A_D - Length_C_D
+6. Length_A_C - 5*Length_C_D & Length_A_C - Length_A_D - Length_C_D & Length_C_D - 2 => Length_A_D - 8
+7. Collinear(B,C,E) => Length_B_C - Length_B_E - Length_C_E
+8. Length_B_E - Variable_t - 1 & Length_B_C - Length_B_E - Length_C_E & Length_C_E - Variable_t + 2 => Length_B_C - 2*Variable_t + 1
+9. Length_A_D - 10*Length_B_E/Length_B_C & Length_A_D - 8 & Length_B_E - Variable_t - 1 & Length_B_C - 2*Variable_t + 1 => Variable_t - 3
+10. Variable_t - 3 & Length_C_E - Variable_t + 2 => Length_C_E - 1

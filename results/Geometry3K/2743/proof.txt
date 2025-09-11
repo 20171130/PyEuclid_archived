@@ -1,6 +1,6 @@
 Solution:
-1. Collinear(A,C,D) => Length_A_C - Length_A_D - Length_C_D & Parallel(A,D,C,D) & Angle_A_C_B - Angle_B_C_D
-2. Angle_A_D_B - pi/2 => Perpendicular(A,D,B,D)
+1. Angle_A_D_B - pi/2 => Perpendicular(A,D,B,D)
+2. Collinear(A,C,D) => Parallel(A,D,C,D) & Angle_A_C_B - Angle_B_C_D & Length_A_C - Length_A_D - Length_C_D
 3. Perpendicular(A,D,B,D) & Parallel(A,D,C,D) => Perpendicular(B,D,C,D)
 4. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2
 5. Angle_B_D_C - pi/2 & Angle_A_B_C - pi/2 => Angle_A_B_C - Angle_B_D_C
@@ -9,8 +9,9 @@ Solution:
 8. Length_C_D/Length_B_C - Length_B_C/Length_A_C & Length_B_C - 17/2 => Length_A_C - 289/(4*Length_C_D)
 9. Length_A_C - Length_A_D - Length_C_D & Length_A_D - 44/5 => Length_A_C - Length_C_D - 44/5
 10. Length_A_C - 289/(4*Length_C_D) & Length_A_C - Length_C_D - 44/5 => Length_C_D - sqrt(9161)/10 + 22/5
-11. Length_A_C - Length_A_D - Length_C_D & Length_C_D - sqrt(9161)/10 + 22/5 & Length_A_D - 44/5 => Length_A_C - sqrt(9161)/10 - 22/5
-12. Length_A_B**2 - 2*Length_A_B*Length_B_C*cos(Angle_A_B_C) - Length_A_C**2 + Length_B_C**2 & Length_B_C - 17/2 & Angle_A_B_C - pi/2 & Length_A_C - sqrt(9161)/10 - 22/5 => Length_A_B - sqrt(968 + 22*sqrt(9161))/5
-13. Length_A_B/Length_B_D - Length_B_C/Length_C_D & Length_B_C - 17/2 & Length_C_D - sqrt(9161)/10 + 22/5 => Length_A_B - 1.643683682343675*Length_B_D & 1.0*Length_A_B - 1.643683682343675*Length_B_D
-14. Length_A_B - sqrt(968 + 22*sqrt(9161))/5 & Length_A_B - 1.643683682343675*Length_B_D & 1.0*Length_A_B - 1.643683682343675*Length_B_D => Length_B_D - 6.7459276188903
-15. Length_B_D - 6.7459276188903 => Length_B_D - 6.74592761889028
+11. Length_C_D - sqrt(9161)/10 + 22/5 & Length_A_C - Length_A_D - Length_C_D & Length_A_D - 44/5 => Length_A_C - sqrt(9161)/10 - 22/5
+12. Length_A_B/Length_B_D - Length_B_C/Length_C_D => Length_C_D/Length_B_D - Length_B_C/Length_A_B
+13. Length_C_D - sqrt(9161)/10 + 22/5 & Length_C_D/Length_B_D - Length_B_C/Length_A_B & Length_B_C - 17/2 => 1.0*Length_A_B - 1.643683682343675*Length_B_D
+14. 1.0*Length_A_B - 1.643683682343675*Length_B_D => Length_A_B - Length_B_D*(44 + sqrt(9161))/85
+15. Length_A_B**2 - 2*Length_A_B*Length_B_C*cos(Angle_A_B_C) - Length_A_C**2 + Length_B_C**2 & Length_A_C - sqrt(9161)/10 - 22/5 & Length_B_C - 17/2 & Length_A_B - Length_B_D*(44 + sqrt(9161))/85 & Angle_A_B_C - pi/2 => Length_B_D - 6.7459276188903
+16. Length_B_D - 6.7459276188903 => Length_B_D - 6.74592761889028

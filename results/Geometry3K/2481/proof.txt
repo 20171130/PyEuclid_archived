@@ -1,5 +1,5 @@
 Solution:
-1. Perpendicular(B,F,C,F) => Angle_B_F_C - pi/2
-2. Perpendicular(B,C,B,D) => Angle_C_B_D - pi/2
-3. Angle_B_F_C - pi/2 & Angle_C_B_D - Angle_C_B_F - Angle_D_B_F & Angle_B_C_F - 7*pi/36 & Angle_C_B_D - pi/2 & Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi => Angle_D_B_F - 7*pi/36
-4. Angle_D_B_F - Variable_angle_6 & Angle_D_B_F - 7*pi/36 => Variable_angle_6 - 7*pi/36
+1. Perpendicular(B,C,B,D) => Angle_C_B_D - pi/2
+2. Perpendicular(B,F,C,F) => Angle_B_F_C - pi/2
+3. Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi & Angle_C_B_D - pi/2 & Angle_C_B_D - Angle_C_B_F - Angle_D_B_F & Angle_B_F_C - pi/2 & Angle_B_C_F - 7*pi/36 => Angle_D_B_F - 7*pi/36
+4. Angle_D_B_F - 7*pi/36 & Angle_D_B_F - Variable_angle_6 => Variable_angle_6 - 7*pi/36

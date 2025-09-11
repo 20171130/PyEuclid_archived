@@ -1,4 +1,4 @@
 Solution:
 1. Collinear(N,Q,R) => Angle_M_N_Q - Angle_M_N_R & Angle_M_R_N - Angle_M_R_Q
-2. Parallelogram(M,N,P,R) => Angle_M_R_N - Angle_P_N_R
-3. Angle_M_N_Q - Angle_M_N_R & Angle_M_R_Q - 19*pi/90 & Angle_M_R_N - Angle_M_R_Q & Angle_M_N_Q - 11*pi/60 & Angle_M_R_N - Angle_P_N_R & Angle_M_N_P - Angle_M_N_R - Angle_P_N_R => Angle_M_N_P - 71*pi/180
+2. Parallelogram(M,N,P,R) => Angle_M_N_P + Angle_N_M_R - pi
+3. Angle_M_R_Q - 19*pi/90 & Angle_M_N_Q - Angle_M_N_R & Angle_M_N_R + Angle_M_R_N + Angle_N_M_R - pi & Angle_M_N_Q - 11*pi/60 & Angle_M_R_N - Angle_M_R_Q & Angle_M_N_P + Angle_N_M_R - pi => Angle_M_N_P - 71*pi/180

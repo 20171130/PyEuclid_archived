@@ -1,2 +1,2 @@
 Solution:
-1. Angle_R_Q_T - pi*(Variable_x/45 - 7/90) & Angle_R_Q_S - pi*(Variable_x/30 + 2/45) & Angle_R_Q_S - Angle_R_Q_T - Angle_S_Q_T & Angle_R_Q_T - Angle_S_Q_T => Angle_S_Q_T - 29*pi/90
+1. Angle_R_Q_S - pi*(Variable_x/30 + 2/45) & Angle_R_Q_T - pi*(Variable_x/45 - 7/90) & Angle_R_Q_T - Angle_S_Q_T & Angle_R_Q_S - Angle_R_Q_T - Angle_S_Q_T => Angle_S_Q_T - 29*pi/90

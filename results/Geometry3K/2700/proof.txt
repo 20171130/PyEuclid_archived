@@ -7,4 +7,4 @@ Solution:
 6. Perpendicular(D,N,N,X) & Parallel(C,D,D,N) => Perpendicular(C,D,N,X)
 7. IsoscelesTriangle(C,D,X) & Length_C_X - Length_D_X & Collinear(C,D,N) & Perpendicular(C,D,N,X) => Midpoint(N,C,D)
 8. Midpoint(N,C,D) => Length_C_D - 2*Length_D_N
-9. Length_C_D - 2*Length_D_N & Length_C_D - 30 => Length_D_N - 15
+9. Length_C_D - 30 & Length_C_D - 2*Length_D_N => Length_D_N - 15

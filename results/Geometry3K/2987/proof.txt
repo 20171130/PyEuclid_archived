@@ -1,11 +1,10 @@
 Solution:
-1. Length_S_T - 5 & Length_R_S - 9 => Length_R_S - 9*Length_S_T/5 & Length_R_S/Length_S_T - 9/5 & -5/9 + Length_S_T/Length_R_S
-2. Length_A_U - Variable_radius_A & Length_A_T - Variable_radius_A => Length_A_T - Length_A_U
-3. Length_A_R - Variable_radius_A & Length_A_T - Variable_radius_A => Length_A_R - Length_A_T
-4. Length_A_T - Length_A_U & -Length_A_R + Length_A_T & Angle_A_R_S - pi/2 & Collinear(S,T,U) => Length_R_S/Length_S_U - Length_S_T/Length_R_S
-5. Length_R_S - 9*Length_S_T/5 & Length_R_S/Length_S_U - Length_S_T/Length_R_S & Length_R_S/Length_S_T - 9/5 => Length_R_S/Length_S_U - 5/9 & Length_R_S - 5*Length_S_U/9
-6. Length_R_S - 9*Length_S_T/5 & Length_R_S/Length_S_U - Length_S_T/Length_R_S & -5/9 + Length_S_T/Length_R_S => -9/5 + Length_S_U/Length_R_S
-7. Length_R_S/Length_S_U - 5/9 & Length_R_S - 9 & Length_R_S - 5*Length_S_U/9 & -9/5 + Length_S_U/Length_R_S => Length_S_U - 81/5
-8. Collinear(S,T,U) => Length_S_T - Length_S_U + Length_T_U
-9. Length_T_U - Variable_x & Length_S_T - Length_S_U + Length_T_U & Length_S_T - 5 => Length_S_U - Variable_x - 5
-10. Length_S_U - 81/5 & Length_S_U - Variable_x - 5 => Variable_x - 56/5
+1. Length_A_T - Variable_radius_A & Length_A_U - Variable_radius_A => Length_A_T - Length_A_U
+2. Length_A_T - Variable_radius_A & Length_A_R - Variable_radius_A => Length_A_R - Length_A_T
+3. Length_A_T - Length_A_U & -Length_A_R + Length_A_T & Angle_A_R_S - pi/2 & Collinear(S,T,U) => Length_R_S/Length_S_U - Length_S_T/Length_R_S
+4. Length_S_T - 5 & Length_R_S - 9 => Length_R_S/Length_S_T - 9/5
+5. Length_R_S/Length_S_U - Length_S_T/Length_R_S & Length_R_S/Length_S_T - 9/5 => -81/25 + Length_S_U/Length_S_T
+6. -81/25 + Length_S_U/Length_S_T & Length_S_T - 5 => Length_S_U - 81/5
+7. Collinear(S,T,U) => Length_S_T - Length_S_U + Length_T_U
+8. Length_T_U - Variable_x & Length_S_T - Length_S_U + Length_T_U & Length_S_T - 5 => Length_S_U - Variable_x - 5
+9. Length_S_U - 81/5 & Length_S_U - Variable_x - 5 => Variable_x - 56/5

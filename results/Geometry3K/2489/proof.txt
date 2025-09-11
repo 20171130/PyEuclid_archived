@@ -1,5 +1,4 @@
 Solution:
 1. Collinear(F,W,Wprime) => Length_F_W - Length_F_Wprime - Length_W_Wprime
-2. Length_F_W - 12 & Length_W_Wprime - 8 => Length_F_W - 3*Length_W_Wprime/2
-3. Length_F_W - 12 & Length_F_W - Length_F_Wprime - Length_W_Wprime & Length_F_W - 3*Length_W_Wprime/2 => Length_F_Wprime - 4
-4. Length_F_W - 12 & Length_F_Wprime - 4 => -1/3 + Length_F_Wprime/Length_F_W
+2. Length_W_Wprime - 8 & Length_F_W - 12 & Length_F_W - Length_F_Wprime - Length_W_Wprime => Length_F_Wprime - 4
+3. Length_F_W - 12 & Length_F_Wprime - 4 => -1/3 + Length_F_Wprime/Length_F_W

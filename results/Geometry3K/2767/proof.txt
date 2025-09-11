@@ -4,5 +4,5 @@ Solution:
 3. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
 4. Length_B_C - Length_B_D & Collinear(B,C,D) => Midpoint(B,C,D)
 5. Midpoint(B,C,D) => Length_B_C - Length_C_D/2
-6. Length_B_C - Length_C_D/2 & Length_C_D - 16 => Length_B_C - 8
-7. Length_A_B**2 - 2*Length_A_B*Length_B_C*cos(Angle_A_B_C) - Length_A_C**2 + Length_B_C**2 & Length_A_B - 15 & Angle_A_B_C - pi/2 & Length_A_C - Variable_x & Length_B_C - 8 => Variable_x - 17
+6. Length_C_D - 16 & Length_B_C - Length_C_D/2 => Length_B_C - 8
+7. Length_A_B**2 - 2*Length_A_B*Length_B_C*cos(Angle_A_B_C) - Length_A_C**2 + Length_B_C**2 & Angle_A_B_C - pi/2 & Length_A_C - Variable_x & Length_B_C - 8 & Length_A_B - 15 => Variable_x - 17

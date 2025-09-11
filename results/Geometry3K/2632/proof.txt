@@ -4,4 +4,5 @@ Solution:
 3. Parallel(B,F,D,F) & Parallel(C,E,D,F) => Parallel(B,F,C,E)
 4. Parallel(A,C,C,E) & Parallel(B,F,C,E) => Parallel(A,C,B,F)
 5. Parallel(A,C,B,F) => Angle_A_B_F + Angle_B_A_C - pi
-6. Angle_B_A_C - pi*(2*Variable_x/45 + 1/180) & Angle_A_B_F + Angle_B_A_C - pi & Angle_A_B_F - pi*(Variable_x/45 + 11/180) => Variable_x - 14
+6. Angle_A_B_F + Angle_B_A_C - pi & Angle_B_A_C - pi*(2*Variable_x/45 + 1/180) & Angle_A_B_F - pi*(Variable_x/45 + 11/180) => Angle_B_A_C - 113*pi/180
+7. Angle_B_A_C - pi*(2*Variable_x/45 + 1/180) & Angle_B_A_C - 113*pi/180 => Variable_x - 14

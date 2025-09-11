@@ -1,15 +1,15 @@
 Solution:
 1. Length_B_E - Variable_radius_E & Length_A_E - Variable_radius_E => Length_A_E - Length_B_E
-2. Length_A_E - Variable_radius_E & Length_C_E - Variable_radius_E => Length_A_E - Length_C_E
-3. Length_A_E - Variable_radius_E & Length_E_F - Variable_radius_E => Length_A_E - Length_E_F
+2. Length_C_E - Variable_radius_E & Length_A_E - Variable_radius_E => Length_A_E - Length_C_E
+3. Length_E_F - Variable_radius_E & Length_A_E - Variable_radius_E => Length_A_E - Length_E_F
 4. Length_A_E - Length_B_E & Length_A_E - Length_C_E & Length_A_E - Length_E_F => Concyclic(A,B,C,F)
 5. Concyclic(A,B,C,F) & Collinear(A,C,D) & Collinear(B,D,F) => Length_A_D/Length_B_D - Length_D_F/Length_C_D
 6. Length_A_D/Length_B_D - Length_D_F/Length_C_D => Length_A_D/Length_D_F - Length_B_D/Length_C_D
-7. Length_A_D - Variable_x & Length_A_D/Length_D_F - Length_B_D/Length_C_D & Length_A_D/Length_B_D - Length_D_F/Length_C_D & Length_D_F - 8 => Length_B_D - Length_C_D*Variable_x/8
-8. Collinear(B,D,F) => Length_B_D - Length_B_F - Length_D_F
-9. Length_B_F - Variable_x - 2 & Length_D_F - 8 & Length_B_D - Length_B_F - Length_D_F => Length_B_D - Variable_x - 10
-10. Length_A_D - Variable_x & Length_A_C - 3*Variable_x => Length_A_C - 3*Length_A_D
-11. Collinear(A,C,D) => Length_A_C + Length_A_D - Length_C_D
-12. Length_A_C - 3*Length_A_D & Length_A_C + Length_A_D - Length_C_D => Length_A_D - Length_C_D/4
-13. Length_A_D - Variable_x & Length_A_D - Length_C_D/4 => Length_C_D - 4*Variable_x
-14. Length_B_D - Length_C_D*Variable_x/8 & Length_B_D - Variable_x - 10 & Length_C_D - 4*Variable_x => Variable_x - sqrt(21) - 1
+7. Length_A_D/Length_D_F - Length_B_D/Length_C_D & Length_A_D - Variable_x & Length_D_F - 8 => Length_B_D - Length_C_D*Variable_x/8
+8. Collinear(A,C,D) => Length_A_C + Length_A_D - Length_C_D
+9. Length_A_C - 3*Variable_x & Length_A_D - Variable_x => Length_A_C - 3*Length_A_D
+10. Length_A_C + Length_A_D - Length_C_D & Length_A_C - 3*Length_A_D => Length_A_C - 3*Length_C_D/4
+11. Length_A_C - 3*Variable_x & Length_A_C - 3*Length_C_D/4 => Length_C_D - 4*Variable_x
+12. Collinear(B,D,F) => Length_B_D - Length_B_F - Length_D_F
+13. Length_B_D - Length_B_F - Length_D_F & Length_D_F - 8 & Length_B_F - Variable_x - 2 => Length_B_D - Variable_x - 10
+14. Length_B_D - Length_C_D*Variable_x/8 & Length_C_D - 4*Variable_x & Length_B_D - Variable_x - 10 => Variable_x - sqrt(21) - 1

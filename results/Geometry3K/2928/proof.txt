@@ -1,4 +1,4 @@
 Solution:
-1. Similar4(J,K,L,M,Q,T,S,R) => Area_J_K_L_M/Area_Q_R_S_T - Length_J_K**2/Length_Q_T**2
-2. Area_J_K_L_M/Area_Q_R_S_T - Length_J_K**2/Length_Q_T**2 & Area_J_K_L_M - 138 & Area_Q_R_S_T - 138/25 => Length_J_K/Length_Q_T - 5 & Length_J_K - 5*Length_Q_T
-3. Length_J_K - 5 & Length_J_K/Length_Q_T - 5 & Length_Q_T - Variable_x & Length_J_K - 5*Length_Q_T => Variable_x - 1
+1. Similar4(J,K,L,M,Q,T,S,R) => Length_Q_T**2/Length_J_K**2 - Area_Q_R_S_T/Area_J_K_L_M
+2. Area_Q_R_S_T - 138/25 & Length_Q_T**2/Length_J_K**2 - Area_Q_R_S_T/Area_J_K_L_M & Area_J_K_L_M - 138 => -1/5 + Length_Q_T/Length_J_K
+3. -1/5 + Length_Q_T/Length_J_K & Length_Q_T - Variable_x & Length_J_K - 5 => Variable_x - 1

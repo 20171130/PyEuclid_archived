@@ -1,6 +1,6 @@
 Solution:
-1. Collinear(A,G,H) => Angle_E_A_G - Angle_E_A_H
+1. Parallel(A,E,D,H) => Angle_A_H_D + Angle_E_A_H - pi
 2. Collinear(A,F,H) => Angle_A_H_D - Angle_D_H_F
-3. Parallel(A,E,D,H) => Angle_A_H_D + Angle_E_A_H - pi
-4. Angle_E_A_G - Angle_E_A_H & Angle_D_H_F - Variable_angle_4 & Variable_angle_5 - pi*(7*Variable_x/180 - 1/36) & Angle_E_A_G - Variable_angle_5 & Angle_A_H_D - Angle_D_H_F & Variable_angle_4 - pi*(Variable_x/90 + 23/180) & Angle_A_H_D + Angle_E_A_H - pi => Angle_E_A_G - 121*pi/180
-5. Variable_angle_5 - pi*(7*Variable_x/180 - 1/36) & Angle_E_A_G - Variable_angle_5 & Angle_E_A_G - 121*pi/180 => Variable_x - 18
+3. Collinear(A,G,H) => Angle_E_A_G - Angle_E_A_H
+4. Angle_E_A_G - Variable_angle_5 & Angle_A_H_D + Angle_E_A_H - pi & Angle_A_H_D - Angle_D_H_F & Angle_E_A_G - Angle_E_A_H & Variable_angle_5 - pi*(7*Variable_x/180 - 1/36) & Angle_D_H_F - Variable_angle_4 & Variable_angle_4 - pi*(Variable_x/90 + 23/180) => Angle_E_A_G - 121*pi/180
+5. Angle_E_A_G - 121*pi/180 & Angle_E_A_G - Variable_angle_5 & Variable_angle_5 - pi*(7*Variable_x/180 - 1/36) => Variable_x - 18

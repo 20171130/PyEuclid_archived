@@ -1,9 +1,9 @@
 Solution:
-1. Collinear(I,J,Y) & Collinear(H,I,Z) => Angle_H_I_J - Angle_Y_I_Z
-2. Collinear(X,Y,Z) => Angle_J_X_Y - Angle_J_X_Z
-3. Collinear(W,X,Z) => Angle_J_X_W + Angle_J_X_Z - pi
-4. Angle_J_X_Y - Angle_J_X_Z & Angle_J_X_W - 13*pi/18 & Angle_J_X_W + Angle_J_X_Z - pi => Angle_J_X_Y - 5*pi/18
-5. Collinear(I,J,Y) & Collinear(H,J,X) => Angle_H_J_I - Angle_X_J_Y
-6. Length_H_J/Length_J_Y - Length_I_J/Length_J_X & Angle_H_J_I - Angle_X_J_Y => Similar3(H,I,J,Y,X,J)
-7. Similar3(H,I,J,Y,X,J) => Angle_H_I_J - Angle_J_X_Y
-8. Angle_H_I_J - Angle_Y_I_Z & Angle_J_X_Y - 5*pi/18 & Angle_H_I_J - Angle_J_X_Y => Angle_Y_I_Z - 5*pi/18
+1. Collinear(I,J,Y) & Collinear(H,J,X) => Angle_H_J_I - Angle_X_J_Y
+2. Length_H_J/Length_J_Y - Length_I_J/Length_J_X & Angle_H_J_I - Angle_X_J_Y => Similar3(H,I,J,Y,X,J)
+3. Similar3(H,I,J,Y,X,J) => Angle_H_I_J - Angle_J_X_Y
+4. Collinear(I,J,Y) & Collinear(H,I,Z) => Angle_H_I_J - Angle_Y_I_Z
+5. Collinear(W,X,Z) => Angle_J_X_W + Angle_J_X_Z - pi
+6. Collinear(X,Y,Z) => Angle_J_X_Y - Angle_J_X_Z
+7. Angle_J_X_W - 13*pi/18 & Angle_J_X_W + Angle_J_X_Z - pi & Angle_J_X_Y - Angle_J_X_Z => Angle_J_X_Y - 5*pi/18
+8. Angle_H_I_J - Angle_J_X_Y & Angle_H_I_J - Angle_Y_I_Z & Angle_J_X_Y - 5*pi/18 => Angle_Y_I_Z - 5*pi/18

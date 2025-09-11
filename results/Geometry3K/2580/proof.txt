@@ -3,5 +3,5 @@ Solution:
 2. Collinear(B,D,E) => Parallel(B,D,D,E)
 3. Perpendicular(A,E,D,E) & Parallel(B,D,D,E) => Perpendicular(A,E,B,D)
 4. Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Perpendicular(A,E,B,D) & Collinear(B,D,E) => Area_A_C_B_D - Length_A_E*(Length_A_C + Length_B_D)/2
-5. Length_B_D - 23 & Length_A_C - Length_B_D => Length_A_C - 23
-6. Area_A_C_B_D - Length_A_E*(Length_A_C + Length_B_D)/2 & Length_A_C - 23 & Length_A_E - 24 & Length_B_D - 23 => Area_A_C_B_D - 552
+5. Length_A_C - Length_B_D & Length_B_D - 23 => Length_A_C - 23
+6. Area_A_C_B_D - Length_A_E*(Length_A_C + Length_B_D)/2 & Length_B_D - 23 & Length_A_E - 24 & Length_A_C - 23 => Area_A_C_B_D - 552

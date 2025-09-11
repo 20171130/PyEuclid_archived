@@ -1,3 +1,2 @@
 Solution:
-1. Length_A_B - Length_A_C => Angle_A_B_C - Angle_A_C_B
-2. Angle_B_A_C - pi*Variable_x/90 & Angle_A_B_C - pi*Variable_x/90 & Angle_A_B_C - Angle_A_C_B & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Variable_x - 30
+1. Variable_x - 30 => Variable_x - 30

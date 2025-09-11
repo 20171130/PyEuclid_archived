@@ -3,4 +3,4 @@ Solution:
 2. Collinear(K,L,N) => Parallel(K,L,L,N)
 3. Perpendicular(J,N,L,N) & Parallel(K,L,L,N) => Perpendicular(J,N,K,L)
 4. Midpoint(N,K,L) & Perpendicular(J,N,K,L) => Length_J_K - Length_J_L
-5. Length_J_K - Length_J_L & Length_J_L - 9*Variable_x + 5 & Length_J_K - 6*Variable_x - 7 => Length_J_K - 31
+5. Length_J_K - 6*Variable_x - 7 & Length_J_L - 9*Variable_x + 5 & Length_J_K - Length_J_L => Length_J_K - 31

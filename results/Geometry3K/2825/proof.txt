@@ -3,5 +3,4 @@ Solution:
 2. Length_B_T - Length_C_T & Collinear(B,C,T) => Midpoint(T,B,C)
 3. Midpoint(S,A,B) & Midpoint(T,B,C) & Collinear(C,M,S) & Collinear(A,M,T) => Centroid(M,A,B,C)
 4. Centroid(M,A,B,C) & Collinear(A,B,S) & Collinear(C,M,S) => -0.5 + Length_M_S/Length_C_M
-5. -0.5 + Length_M_S/Length_C_M => 1.0*Length_C_M - 2.0*Length_M_S
-6. 1.0*Length_C_M - 2.0*Length_M_S & Length_C_M - 7 => Length_M_S - 3.5
+5. -0.5 + Length_M_S/Length_C_M & Length_C_M - 7 => Length_M_S - 3.5

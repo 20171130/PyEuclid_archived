@@ -1,2 +1,2 @@
 Solution:
-1. Length_A_C - 369*Variable_x/5 & Length_A_B - 150*Variable_x - 91 & Length_B_C - 110*Variable_x - 53 & Length_A_B + Length_A_C + Length_B_C - 3482 => Length_A_B - 1591
+1. Length_A_B + Length_A_C + Length_B_C - 3482 & Length_A_B - 150*Variable_x - 91 & Length_A_C - 369*Variable_x/5 & Length_B_C - 110*Variable_x - 53 => Length_A_B - 1591

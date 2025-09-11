@@ -1,4 +1,4 @@
 Solution:
 1. Length_K_L - Length_L_N => Angle_K_N_L - Angle_L_K_N
-2. Angle_J_L_K - 5*pi/36 & Angle_K_N_L - Angle_L_K_N & Angle_J_K_N - 13*pi/18 & Angle_J_K_L + Angle_J_L_K + Angle_K_J_L - pi & Angle_K_J_L - Angle_K_J_M - Angle_L_J_M & Angle_J_K_L - Angle_J_K_N + Angle_L_K_N & Angle_K_L_N + Angle_K_N_L + Angle_L_K_N - pi & Angle_K_L_N - pi/10 => Angle_K_J_M + Angle_L_J_M - 53*pi/90
+2. Angle_K_N_L - Angle_L_K_N & Angle_J_K_L - Angle_J_K_N + Angle_L_K_N & Angle_J_K_N - 13*pi/18 & Angle_J_K_L + Angle_J_L_K + Angle_K_J_L - pi & Angle_J_L_K - 5*pi/36 & Angle_K_L_N + Angle_K_N_L + Angle_L_K_N - pi & Angle_K_J_L - Angle_K_J_M - Angle_L_J_M & Angle_K_L_N - pi/10 => Angle_K_J_M + Angle_L_J_M - 53*pi/90
 3. Angle_K_J_M + Angle_L_J_M - 53*pi/90 & Angle_K_J_L - Angle_K_J_M - Angle_L_J_M => Angle_K_J_L - 53*pi/90

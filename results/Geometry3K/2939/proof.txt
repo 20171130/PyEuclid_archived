@@ -1,10 +1,2 @@
 Solution:
-1. Collinear(C,F,O) => Angle_C_F_E - Angle_E_F_O & Angle_C_O_E + Angle_E_O_F - pi
-2. Collinear(B,I,J) => Angle_D_B_I + Angle_D_B_J - pi & Angle_B_I_O - Angle_J_I_O
-3. Collinear(B,D,K) => Angle_B_D_E + Angle_E_D_K - pi
-4. Collinear(G,I,O) => Angle_G_I_J + Angle_J_I_O - pi
-5. Collinear(E,F,M) => Angle_C_F_E + Angle_C_F_M - pi
-6. Collinear(D,H,L) => Angle_D_H_E + Angle_E_H_L - pi & Angle_H_D_K - Angle_K_D_L
-7. Collinear(E,H,P) => Angle_F_E_H + Angle_F_E_P - pi
-8. Angle_C_O_E - Angle_C_O_I - Angle_E_O_I & Angle_C_F_E - Angle_E_F_O & Angle_D_B_I + Angle_D_B_J - pi & Angle_B_D_E + Angle_E_D_K - pi & Angle_D_B_E - Angle_D_B_I + Angle_E_B_I & Angle_G_I_J + Angle_J_I_O - pi & Angle_E_I_O + Angle_E_O_I + Angle_I_E_O - pi & Angle_D_E_I - Angle_D_E_O + Angle_I_E_O & Angle_B_I_E - Angle_B_I_O + Angle_E_I_O & Angle_C_O_E + Angle_E_O_F - pi & Angle_C_F_E + Angle_C_F_M - pi & Angle_C_F_M - 7*pi/60 & Angle_B_D_E + Angle_B_E_D + Angle_D_B_E - pi & Angle_D_E_H + Angle_D_E_O - Angle_H_E_O & Angle_C_O_I - 7*pi/30 & Angle_D_H_E + Angle_E_H_L - pi & Angle_E_H_L - pi*(Variable_x/180 - 1/18) & Angle_E_F_O + Angle_E_O_F + Angle_F_E_O - pi & Angle_G_I_J - 29*pi/180 & Angle_F_E_H + Angle_F_E_P - pi & Angle_B_E_D + Angle_B_E_I - Angle_D_E_I & Angle_H_D_K - Angle_K_D_L & Angle_E_D_H - Angle_E_D_K + Angle_H_D_K & Angle_B_I_O - Angle_J_I_O & Angle_K_D_L - pi*Variable_x/180 & Angle_D_E_H + Angle_D_H_E + Angle_E_D_H - pi & Angle_D_B_J - pi*(Variable_x/180 + 7/90) & Angle_F_E_H - Angle_F_E_O - Angle_H_E_O & Angle_B_E_I + Angle_B_I_E + Angle_E_B_I - pi & Angle_F_E_P - pi*(Variable_x/180 - 1/9) => Angle_F_E_P - 17*pi/60
-9. Angle_F_E_P - 17*pi/60 & Angle_F_E_P - pi*(Variable_x/180 - 1/9) => Variable_x - 71
+1. Variable_x - 71 => Variable_x - 71

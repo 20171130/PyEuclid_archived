@@ -1,9 +1,10 @@
 Solution:
-1. Collinear(A,B,C) => Angle_B_A_D - Angle_C_A_D & Angle_A_B_D - Angle_C_B_D
-2. Length_C_D - Variable_radius_C & Length_A_C - Variable_radius_C => Length_A_C - Length_C_D
-3. Length_A_C - Length_C_D => Angle_A_D_C - Angle_C_A_D
-4. Angle_B_A_D - Angle_C_A_D & Angle_A_D_C - Angle_C_A_D => Angle_A_D_C - Angle_B_A_D
-5. Length_C_D - Variable_radius_C & Length_B_C - Variable_radius_C => Length_B_C - Length_C_D
-6. Length_B_C - Length_C_D => Angle_B_D_C - Angle_C_B_D
-7. Angle_A_B_D - Angle_C_B_D & Angle_B_D_C - Angle_C_B_D => Angle_A_B_D - Angle_B_D_C
-8. Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_D_B - Angle_A_D_C - Angle_B_D_C & Angle_A_D_C - Angle_B_A_D & Angle_A_D_B - Variable_angle_2 & Angle_A_B_D - Angle_B_D_C => Variable_angle_2 - pi/2
+1. Length_B_C - Variable_radius_C & Length_C_D - Variable_radius_C => Length_B_C - Length_C_D
+2. Length_B_C - Length_C_D => Angle_B_D_C - Angle_C_B_D
+3. Length_B_C - Variable_radius_C & Length_A_C - Variable_radius_C => Length_A_C - Length_B_C
+4. -Length_A_C + Length_B_C & Length_B_C - Length_C_D => Angle_A_B_D - Angle_A_C_D/2
+5. Length_A_C - Variable_radius_C & Length_C_D - Variable_radius_C => Length_A_C - Length_C_D
+6. Length_A_C - Length_C_D => Angle_A_D_C - Angle_C_A_D
+7. Collinear(A,B,C) => Angle_A_B_D - Angle_C_B_D
+8. Angle_B_D_C - Angle_C_B_D & Angle_A_B_D - Angle_A_C_D/2 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_D_C - Angle_C_A_D & Angle_A_B_D - Angle_C_B_D => Angle_A_D_C + Angle_B_D_C - pi/2
+9. Angle_A_D_B - Angle_A_D_C - Angle_B_D_C & Angle_A_D_B - Variable_angle_2 & Angle_A_D_C + Angle_B_D_C - pi/2 => Variable_angle_2 - pi/2

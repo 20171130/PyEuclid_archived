@@ -1,9 +1,9 @@
 Solution:
 1. Length_W_Z - 4 & Length_W_X - 4 => Length_W_X - Length_W_Z
 2. Perpendicular(W,X,X,Y) => Angle_W_X_Y - pi/2
-3. Perpendicular(W,Z,Y,Z) => Angle_W_Z_Y - pi/2
-4. Length_W_X - Length_W_Z => Angle_W_X_Z - Angle_W_Z_X
-5. Angle_W_X_Y - pi/2 & Angle_W_Z_X - Angle_W_Z_Y + Angle_X_Z_Y & Angle_W_Z_Y - pi/2 & Angle_W_X_Y - Angle_W_X_Z - Angle_Y_X_Z & Angle_W_X_Z - Angle_W_Z_X => Angle_X_Z_Y - Angle_Y_X_Z
+3. Length_W_X - Length_W_Z => Angle_W_X_Z - Angle_W_Z_X
+4. Perpendicular(W,Z,Y,Z) => Angle_W_Z_Y - pi/2
+5. Angle_W_X_Y - pi/2 & Angle_W_X_Y - Angle_W_X_Z - Angle_Y_X_Z & Angle_W_Z_X - Angle_W_Z_Y + Angle_X_Z_Y & Angle_W_X_Z - Angle_W_Z_X & Angle_W_Z_Y - pi/2 => Angle_X_Z_Y - Angle_Y_X_Z
 6. -Angle_X_Z_Y + Angle_Y_X_Z => Length_X_Y - Length_Y_Z
 7. Length_W_X - Length_W_Z & -Length_X_Y + Length_Y_Z => Kite(W,X,Y,Z)
 8. Kite(W,X,Y,Z) & Length_W_X - Length_W_Z & -Length_X_Y + Length_Y_Z => Angle_W_Y_X - Angle_W_Y_Z
