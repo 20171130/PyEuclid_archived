@@ -1,5 +1,2 @@
 Solution:
-1. Square(A,C,B,D) => Perpendicular(A,B,C,D) & Length_A_B - Length_C_D & Length_A_C - Length_B_C & Area_A_C_B_D - Length_A_C*Length_B_C
-2. Perpendicular(A,B,C,D) => Area_A_C_B_D - Length_A_B*Length_C_D/2
-3. Area_A_C_B_D - Length_A_B*Length_C_D/2 & Length_A_B - Length_C_D & Length_A_C - Length_B_C & Area_A_C_B_D - Length_A_C*Length_B_C & Length_A_C - 12 => Length_A_B - 12*sqrt(2)
-4. Length_A_B - Variable_y & Length_A_B - 12*sqrt(2) => Variable_y - 12*sqrt(2)
+1. Variable_x - 120 => Variable_x - 120

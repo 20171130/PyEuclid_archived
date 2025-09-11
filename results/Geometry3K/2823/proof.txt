@@ -1,7 +1,4 @@
 Solution:
-1. Midpoint(M,T,V) => Length_M_T - Length_M_V
-2. Midpoint(N,R,S) => Length_N_R - Length_N_S & Length_N_S - Length_R_S/2 & Length_N_R - Length_R_S/2
-3. Length_M_T - Length_M_V & Length_N_R - Length_N_S => Length_M_T/Length_M_V - Length_N_R/Length_N_S
-4. Collinear(N,R,S) & Parallel(R,T,S,V) & Collinear(M,T,V) & -Length_M_T/Length_M_V + Length_N_R/Length_N_S => Parallel(M,N,R,T)
-5. Parallel(R,T,S,V) & Parallel(M,N,R,T) & Collinear(N,R,S) & Collinear(M,T,V) => Length_M_N - Length_N_R*Length_S_V/Length_R_S - Length_N_S*Length_R_T/Length_R_S
-6. Length_M_N - Length_N_R*Length_S_V/Length_R_S - Length_N_S*Length_R_T/Length_R_S & Length_N_S - Length_R_S/2 & Length_R_T - 32 & Length_N_R - Length_R_S/2 & Length_M_N - 25 => Length_S_V - 18
+1. Angle_T_U_V - pi/2 [AreaRightTriangle(T,U,V)] => Area_T_U_V - Length_T_U*Length_U_V/2
+2. Length_U_V - 7 & Area_T_U_V - Length_T_U*Length_U_V/2 & Length_T_U - Variable_x => Area_T_U_V - 7*Variable_x/2
+3. Area_T_U_V**2 - (-Length_T_U/2 + Length_T_V/2 + Length_U_V/2)*(Length_T_U/2 - Length_T_V/2 + Length_U_V/2)*(Length_T_U/2 + Length_T_V/2 - Length_U_V/2)*(Length_T_U/2 + Length_T_V/2 + Length_U_V/2) & Area_T_U_V - 7*Variable_x/2 & Length_U_V - 7 & Length_T_V - 11 & Length_T_U - Variable_x => Variable_x - 6*sqrt(2)

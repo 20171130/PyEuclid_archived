@@ -1,6 +1,3 @@
 Solution:
-1. Length_X_Y - Length_Y_Z & Collinear(X,Y,Z) => Midpoint(Y,X,Z)
-2. Collinear(X,Y,Z) => Parallel(X,Y,X,Z)
-3. Perpendicular(W,Y,X,Y) & Parallel(X,Y,X,Z) => Perpendicular(W,Y,X,Z)
-4. Midpoint(Y,X,Z) & Perpendicular(W,Y,X,Z) => Length_W_X - Length_W_Z
-5. Length_W_X - Length_W_Z & Length_W_Z - 149/10 => Length_W_X - 149/10
+1. Midpoint(G,P,R) [PropertyOfMidpoint(G,P,R)] => Length_G_P - Length_G_R
+2. Length_G_P - Length_G_R & Length_G_R - 7 & Length_G_P - Variable_z - 4 => Variable_z - 3

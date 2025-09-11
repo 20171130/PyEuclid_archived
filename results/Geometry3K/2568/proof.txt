@@ -1,3 +1,2 @@
 Solution:
-1. Rectangle(E,F,G,H) => Angle_F_G_H - pi/2
-2. Angle_E_G_H - 13*pi/180 & Angle_E_G_F + Angle_E_G_H - Angle_F_G_H & Angle_F_G_H - pi/2 => Angle_E_G_F - 77*pi/180
+1. Variable_x - 37 => Variable_x - 37

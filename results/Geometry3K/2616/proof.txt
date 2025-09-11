@@ -1,4 +1,10 @@
 Solution:
-1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 & Angle_B_A_C - pi/3 => Angle_A_B_C - pi/6
-3. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_B_C - pi/6 & Length_A_C - Variable_y & Length_A_B - 16*sqrt(3) & Angle_A_C_B - pi/2 => Variable_y - 8*sqrt(3)
+1. Length_A_H - Variable_radius_A & Length_A_G - Variable_radius_A => Length_A_G - Length_A_H
+2. Length_A_K - Variable_radius_A & Length_A_G - Variable_radius_A => Length_A_G - Length_A_K
+3. Length_A_G - Length_A_H & Length_A_G - Length_A_K & Angle_A_K_J - pi/2 & Collinear(G,H,J) [IntersectingChordsTheorem2(G,H,K,A,J)] => Length_G_J/Length_J_K - Length_J_K/Length_H_J
+4. Length_H_J - 4 & Length_J_K - 6 => Length_H_J - 2*Length_J_K/3
+5. Length_G_J/Length_J_K - Length_J_K/Length_H_J & Length_H_J - 2*Length_J_K/3 => Length_G_J/Length_H_J - 9/4
+6. Length_G_J/Length_H_J - 9/4 & Length_H_J - 4 => Length_G_J - 9
+7. Collinear(G,H,J) [BetweenLength(G,H,J)] => Length_G_H - Length_G_J + Length_H_J
+8. Length_G_H - Variable_x & Length_H_J - 4 & Length_G_H - Length_G_J + Length_H_J => Length_G_J - Variable_x - 4
+9. Length_G_J - 9 & Length_G_J - Variable_x - 4 => Variable_x - 5

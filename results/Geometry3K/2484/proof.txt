@@ -1,5 +1,3 @@
 Solution:
-1. Length_M_Q - 5 & Length_M_N - 6 => Length_M_N/Length_M_Q - 6/5
-2. Collinear(M,N,O) & Collinear(M,P,Q) & Parallel(N,Q,O,P) => Length_M_N/Length_M_Q - Length_N_O/Length_P_Q
-3. Length_M_N/Length_M_Q - 6/5 & Length_M_N/Length_M_Q - Length_N_O/Length_P_Q => Length_N_O/Length_P_Q - 6/5
-4. Length_N_O/Length_P_Q - 6/5 & Length_N_O - 18/5 => Length_P_Q - 3
+1. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+2. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Length_A_B - 42 & Length_A_C - Variable_x & Angle_A_C_B - pi/2 & Length_B_C - 38 => Variable_x - 8*sqrt(5)

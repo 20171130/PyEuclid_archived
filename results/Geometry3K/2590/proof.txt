@@ -1,8 +1,7 @@
 Solution:
-1. Collinear(B,C,D) => Angle_A_B_C - Angle_A_B_D
-2. Perpendicular(A,B,A,C) => Angle_B_A_C - pi/2
-3. Perpendicular(A,D,B,D) => Angle_A_D_B - pi/2
-4. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_B_A_C - pi/2 & Angle_A_D_B - pi/2 & Angle_A_B_C - Angle_A_B_D => Angle_A_C_B - Angle_B_A_D
-5. Angle_A_B_C - Angle_A_B_D & Angle_A_C_B - Angle_B_A_D => Similar3(A,B,C,D,B,A)
-6. Similar3(A,B,C,D,B,A) => Length_A_B/Length_B_C - Length_B_D/Length_A_B
-7. Length_A_B - Variable_x & Length_B_C - 12 & Length_B_D - 8 & Length_A_B/Length_B_C - Length_B_D/Length_A_B => Variable_x - 4*sqrt(6)
+1. Collinear(G,H,I) [BetweenLength(G,H,I)] => Length_G_H - Length_G_I + Length_H_I
+2. Length_G_H - Length_G_I + Length_H_I & Length_G_H - 9 => Length_G_I - Length_H_I - 9
+3. Length_G_K - 6 & Length_J_K - 4 => Length_G_K - 3*Length_J_K/2
+4. Collinear(G,H,I) & Collinear(G,J,K) & Parallel(H,K,I,J) [AlphaGeometry8(H,K,I,J,G)] => Length_G_H/Length_G_K - Length_H_I/Length_J_K
+5. Length_G_K - 3*Length_J_K/2 & Length_G_H/Length_G_K - Length_H_I/Length_J_K & Length_G_H - 9 => Length_H_I - 6
+6. Length_G_I - Length_H_I - 9 & Length_H_I - 6 => Length_G_I - 15

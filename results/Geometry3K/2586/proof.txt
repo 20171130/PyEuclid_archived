@@ -1,5 +1,4 @@
 Solution:
-1. Perpendicular(P,R,Q,R) => Angle_P_R_Q - pi/2
-2. Angle_P_R_Q - pi/2 & Angle_P_Q_R + Angle_P_R_Q + Angle_Q_P_R - pi => Angle_P_Q_R + Angle_Q_P_R - pi/2
-3. sin(Angle_Q_P_R)/Length_Q_R - sin(Angle_P_Q_R)/Length_P_R & Length_Q_R - 15 & Angle_P_Q_R + Angle_Q_P_R - pi/2 & Length_P_R - 8 => Angle_Q_P_R - atan(15/8)
-4. Angle_Q_P_R - atan(15/8) => sin(Angle_Q_P_R) - 15/17
+1. Angle_L_M_P - pi/3 & Angle_L_P_M - pi/3 [DefinitionOfEquilateralTriangle4(M,P,L)] => EquilateralTriangle(L,M,P)
+2. EquilateralTriangle(L,M,P) [PropertyOfEquilateralTriangle(L,M,P)] => Length_L_P - Length_M_P
+3. Length_M_P - 4 & Length_L_P - 5*Variable_x + 3 & Length_L_P - Length_M_P => Variable_x - 7/5

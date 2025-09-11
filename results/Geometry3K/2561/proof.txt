@@ -1,10 +1,8 @@
 Solution:
-1. Length_U_V - 8 & Length_R_V - 4 => Length_R_V - Length_U_V/2
-2. Length_U_V - 8 & Length_T_V - 4 => Length_T_V - Length_U_V/2
-3. Length_A_R - Variable_radius_A & Length_A_S - Variable_radius_A => Length_A_R - Length_A_S
-4. Length_A_R - Variable_radius_A & Length_A_T - Variable_radius_A => Length_A_R - Length_A_T
-5. Length_A_R - Variable_radius_A & Length_A_U - Variable_radius_A => Length_A_R - Length_A_U
-6. Length_A_R - Length_A_S & Length_A_R - Length_A_T & Length_A_R - Length_A_U => Concyclic(R,S,T,U)
-7. Concyclic(R,S,T,U) & Collinear(R,T,V) & Collinear(S,U,V) => Length_R_V/Length_S_V - Length_U_V/Length_T_V
-8. Length_R_V - Length_U_V/2 & Length_T_V - Length_U_V/2 & Length_R_V/Length_S_V - Length_U_V/Length_T_V => Length_S_V - Length_U_V/4
-9. Length_U_V - 8 & Length_S_V - Length_U_V/4 & Length_S_V - Variable_x => Variable_x - 2
+1. Rectangle(A,B,E,D) => Trapezoid(A,B,E,D) & Length_A_D - Length_B_E
+2. Perpendicular(A,B,B,E) & Perpendicular(B,E,D,E) [AlphaGeometry1(A,B,B,E,D,E)] => Parallel(A,B,D,E)
+3. Trapezoid(A,B,E,D) & Parallel(A,B,D,E) & Perpendicular(A,B,B,E) [RightTrapezoidArea(A,B,E,D)] => Area_A_B_E_D - Length_B_E*(Length_A_B + Length_D_E)/2
+4. Length_A_D - 5 & Length_A_D - Length_B_E => Length_B_E - 5
+5. Area_A_B_E_D - Length_B_E*(Length_A_B + Length_D_E)/2 & Length_D_E - 6 & Length_A_B - 6 & Length_B_E - 5 => Area_A_B_E_D - 30
+6. Area_A_B_C**2 - (-Length_A_B/2 + Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 - Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 - Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 + Length_B_C/2) & Length_A_C - 4 & Length_A_B - 6 & Length_B_C - 4 => Area_A_B_C - 3*sqrt(7)
+7. Area_A_B_E_D - 30 & Area_A_B_C - 3*sqrt(7) => Area_A_B_C - Area_A_B_E_D - 3*sqrt(7) + 30

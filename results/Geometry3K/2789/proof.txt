@@ -1,4 +1,20 @@
 Solution:
-1. Collinear(B,C,E) => Angle_C_B_D - Angle_D_B_E
-2. Angle_C_B_D - Angle_D_B_E & Angle_B_D_E + Angle_B_E_D + Angle_D_B_E - pi & Angle_C_B_D - 7*pi/36 & Angle_B_D_E - 5*pi/12 => Angle_B_E_D - 7*pi/18
-3. Angle_B_E_D - 7*pi/18 & Angle_B_E_D - Variable_angle_1 => Variable_angle_1 - 7*pi/18
+1. Length_T_X - Variable_radius_T & Length_T_W - Variable_radius_T => Length_T_W - Length_T_X
+2. Length_T_W - Variable_radius_T & Length_T_Y - Variable_radius_T => Length_T_W - Length_T_Y
+3. Length_T_W - Variable_radius_T & Length_T_Z - Variable_radius_T => Length_T_W - Length_T_Z
+4. Length_T_W - Length_T_X & Length_T_W - Length_T_Y & Length_T_W - Length_T_Z [AlphaGeometry2(T,W,X,Y,Z)] => Concyclic(W,X,Y,Z)
+5. Concyclic(W,X,Y,Z) & Collinear(V,W,Z) & Collinear(V,X,Y) [IntersectingChordsTheorem(W,Z,X,Y,V)] => Length_V_W/Length_V_X - Length_V_Y/Length_V_Z
+6. Length_T_X - Variable_radius_T & Length_T_Y - Variable_radius_T => Length_T_X - Length_T_Y
+7. Length_T_X - Length_T_Y [DefinitionOfIsoscelesTriangle(T,X,Y)] => IsoscelesTriangle(T,X,Y)
+8. Collinear(V,X,Y) [CollinearParallel(V,X,Y)] => Parallel(V,X,X,Y)
+9. Perpendicular(T,V,V,X) & Parallel(V,X,X,Y) [AlphaGeometry1b(V,X,T,V,X,Y)] => Perpendicular(T,V,X,Y)
+10. IsoscelesTriangle(T,X,Y) & Length_T_X - Length_T_Y & Perpendicular(T,V,X,Y) [PropertyOfIsoscelesTriangle3(T,X,Y,V)] => Length_V_X - Length_V_Y
+11. Length_V_W/Length_V_X - Length_V_Y/Length_V_Z & Length_V_X - Length_V_Y => Length_V_W/Length_V_X - Length_V_X/Length_V_Z
+12. IsoscelesTriangle(T,X,Y) & Length_T_X - Length_T_Y & Collinear(V,X,Y) & Perpendicular(T,V,X,Y) [PropertyOfIsoscelesTriangle1(T,X,Y,V)] => Midpoint(V,X,Y)
+13. Midpoint(V,X,Y) [PropertyOfMidpoint(V,X,Y)] => Length_V_X - Length_X_Y/2
+14. Length_V_W/Length_V_X - Length_V_X/Length_V_Z & Length_V_X - Length_X_Y/2 & Length_V_Z - 1 => Length_V_W - Length_X_Y**2/4
+15. Collinear(V,W,Z) [BetweenLength(W,V,Z)] => Length_V_W + Length_V_Z - Length_W_Z
+16. Length_T_W - Length_T_Z & Collinear(T,W,Z) [DefinitionOfMidpoint(T,W,Z)] => Midpoint(T,W,Z)
+17. Midpoint(T,W,Z) [PropertyOfMidpoint(T,W,Z)] => Length_T_W - Length_W_Z/2
+18. Length_V_W + Length_V_Z - Length_W_Z & Length_T_W - Length_W_Z/2 & Length_V_Z - 1 & Length_T_W - 13 => Length_V_W - 25
+19. Length_V_W - Length_X_Y**2/4 & Length_V_W - 25 => Length_X_Y - 10

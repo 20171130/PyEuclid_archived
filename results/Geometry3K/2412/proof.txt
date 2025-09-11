@@ -1,6 +1,3 @@
 Solution:
-1. Length_B_C - 5 & Length_A_B - 5 => Length_A_B - Length_B_C
-2. Length_A_B - Length_B_C & Collinear(A,B,C) => Midpoint(B,A,C)
-3. Midpoint(B,A,C) => Length_A_C - 2*Length_B_C
-4. Length_A_C - 2*Length_B_C & Length_B_C - 5 => Length_A_C - 10
-5. Length_A_C - 10 & Length_B_C - 5 => (pi*(Length_A_C**2 - 2*Length_B_C**2) - 50*pi)/pi
+1. Rectangle(J,K,L,M) => Angle_J_M_L - pi/2
+2. Angle_J_M_K - 11*pi/36 & Angle_J_M_L - pi/2 & Angle_J_M_K - Angle_J_M_L + Angle_K_M_L => Angle_K_M_L - 7*pi/36

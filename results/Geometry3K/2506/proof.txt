@@ -1,10 +1,3 @@
 Solution:
-1. Length_C_E - Length_D_E & Collinear(C,D,E) => Midpoint(E,C,D)
-2. Midpoint(E,C,D) => Length_C_D - 2*Length_D_E
-3. Length_C_D - 2*Length_D_E & Length_D_E - 12 => Length_C_D - 24
-4. Rhombus(A,C,B,D) => Perpendicular(A,B,C,D)
-5. Perpendicular(A,B,C,D) => Area_A_C_B_D - Length_A_B*Length_C_D/2
-6. Length_A_E - Length_B_E & Collinear(A,B,E) => Midpoint(E,A,B)
-7. Midpoint(E,A,B) => Length_A_B - 2*Length_A_E
-8. Length_A_E - 7 & Length_A_B - 2*Length_A_E => Length_A_B - 14
-9. Length_C_D - 24 & Area_A_C_B_D - Length_A_B*Length_C_D/2 & Length_A_B - 14 => Area_A_C_B_D - 168
+1. Parallelogram(J,K,L,M) => Angle_J_L_M - Angle_K_J_L
+2. Angle_J_L_M - pi/6 & Angle_J_L_M - Angle_K_J_L => Angle_K_J_L - pi/6

@@ -1,10 +1,4 @@
 Solution:
-1. Length_C_D - Variable_radius_D & Length_A_D - Variable_radius_D => Length_A_D - Length_C_D
-2. Length_D_E - Variable_radius_D & Length_C_D - Variable_radius_D => Length_C_D - Length_D_E
-3. -Length_A_D + Length_C_D & Length_C_D - Length_D_E => Angle_A_C_E - Angle_A_D_E/2
-4. Length_B_D - Variable_radius_D & Length_A_D - Variable_radius_D => Length_A_D - Length_B_D
-5. Length_A_D - Length_B_D & Length_A_D - Length_C_D => Angle_B_A_C - Angle_B_D_C/2
-6. Collinear(C,E,J) => Angle_A_C_E - Angle_A_C_J
-7. Collinear(A,B,J) => Angle_B_A_C - Angle_C_A_J
-8. Angle_A_C_E - Angle_A_D_E/2 & Angle_A_C_J + Angle_A_J_C + Angle_C_A_J - pi & Angle_B_A_C - Angle_B_D_C/2 & Angle_A_C_E - Angle_A_C_J & Angle_B_D_C - 5*pi/6 & Angle_B_A_C - Angle_C_A_J & Angle_A_D_E - 11*pi/18 => Angle_A_J_C - 5*pi/18
-9. Angle_A_J_C - Variable_angle_5 & Angle_A_J_C - 5*pi/18 => Variable_angle_5 - 5*pi/18
+1. Collinear(A,L,M) [BetweenLength(L,A,M)] => Length_A_L + Length_A_M - Length_L_M
+2. Length_A_M - Variable_x & Length_A_L + Length_A_M - Length_L_M & Length_A_L - 10 => Length_L_M - Variable_x - 10
+3. Length_K_L**2 - 2*Length_K_L*Length_K_M*cos(Angle_L_K_M) + Length_K_M**2 - Length_L_M**2 & Length_K_L - 17 & Angle_L_K_M - pi/2 & Length_K_M - Variable_x & Length_L_M - Variable_x - 10 => Variable_x - 189/20

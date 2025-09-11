@@ -1,6 +1,11 @@
 Solution:
-1. Collinear(B,O,X) => Parallel(B,O,O,X)
-2. Perpendicular(B,O,C,D) & Parallel(B,O,O,X) => Perpendicular(C,D,O,X)
-3. Perpendicular(C,D,O,X) & Collinear(C,D,X) => Area_C_D_O - Length_C_D*Length_O_X/2
-4. Length_C_D - 24 & Area_C_D_O - Length_C_D*Length_O_X/2 => Area_C_D_O - 12*Length_O_X
-5. Area_C_D_O**2 - (-Length_C_D/2 + Length_C_O/2 + Length_D_O/2)*(Length_C_D/2 - Length_C_O/2 + Length_D_O/2)*(Length_C_D/2 + Length_C_O/2 - Length_D_O/2)*(Length_C_D/2 + Length_C_O/2 + Length_D_O/2) & Length_D_O - 13 & Length_C_D - 24 & Length_C_O - 13 & Area_C_D_O - 12*Length_O_X => Length_O_X - 5
+1. Length_B_C - Length_B_D [DefinitionOfIsoscelesTriangle(B,C,D)] => IsoscelesTriangle(B,C,D) & Angle_B_C_D - Angle_B_D_C
+2. Collinear(A,C,D) [CollinearParallel(A,C,D)] => Parallel(A,C,C,D)
+3. Perpendicular(A,B,A,C) & Parallel(A,C,C,D) [AlphaGeometry1b(A,C,A,B,C,D)] => Perpendicular(A,B,C,D)
+4. IsoscelesTriangle(B,C,D) & Length_B_C - Length_B_D & Collinear(A,C,D) & Perpendicular(A,B,C,D) [PropertyOfIsoscelesTriangle1(B,C,D,A)] => Midpoint(A,C,D)
+5. Midpoint(A,C,D) [PropertyOfMidpoint(A,C,D)] => Length_A_D - Length_C_D/2
+6. Length_A_D - Length_C_D/2 => Length_A_D/Length_C_D - 1/2
+7. Length_A_D/Length_C_D - 1/2 & Length_A_D - Variable_x => Length_C_D - 2*Variable_x
+8. Length_B_C - Length_B_D & Length_B_D - 32 => Length_B_C - 32
+9. Angle_B_C_D - Angle_B_D_C & Angle_B_C_D - 3*pi/10 => Angle_B_D_C - 3*pi/10
+10. Length_B_C**2 - Length_B_D**2 + 2*Length_B_D*Length_C_D*cos(Angle_B_D_C) - Length_C_D**2 & Length_C_D - 2*Variable_x & Length_B_C - 32 & Length_B_D - 32 & Angle_B_D_C - 3*pi/10 => Variable_x - 18.8091280733591

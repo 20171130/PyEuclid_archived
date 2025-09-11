@@ -1,6 +1,2 @@
 Solution:
-1. Perpendicular(C,J,H,J) => Angle_C_J_H - pi/2
-2. Length_C_K - Variable_radius_C & Length_C_J - Variable_radius_C => Length_C_J - Length_C_K
-3. Length_C_J - Length_C_K => Angle_C_J_K - Angle_C_K_J
-4. Angle_H_J_K - 29*pi/45 & Angle_C_J_K + Angle_C_K_J + Angle_J_C_K - pi & Angle_B_C_J + Angle_B_C_K - Angle_J_C_K & Angle_C_J_H - pi/2 & Angle_C_J_K - Angle_C_K_J & Angle_C_J_H + Angle_C_J_K - Angle_H_J_K => Angle_B_C_J + Angle_B_C_K - 32*pi/45
-5. Angle_B_C_J + Angle_B_C_K - Angle_J_C_K & Angle_B_C_J + Angle_B_C_K - 32*pi/45 => Angle_J_C_K - 32*pi/45
+1. Length_I_P + 3*Variable_y - 12 & Length_D_P + 5*Variable_y - 16 & Length_D_P - Length_I_P => Variable_y - 2

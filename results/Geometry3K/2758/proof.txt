@@ -1,4 +1,3 @@
 Solution:
-1. Collinear(A,B,E) => Angle_B_A_J - Angle_E_A_J
-2. Parallel(A,J,B,H) => Angle_A_B_H + Angle_B_A_J - pi
-3. Angle_B_A_J - Angle_E_A_J & Variable_angle_1 - pi*(Variable_p/45 + 1/12) & Angle_E_A_J - Variable_angle_1 & Variable_angle_3 - pi*(Variable_p/60 - 1/18) & Angle_A_B_H + Angle_B_A_J - pi & Angle_A_B_H - Variable_angle_3 => Variable_p - 25
+1. Trapezoid(G,H,J,K) & Parallel(G,H,J,K) & Perpendicular(A,J,G,H) & Collinear(A,G,H) [TrapezoidArea(J,K,G,H,A)] => Area_G_H_J_K - Length_A_J*(Length_G_H + Length_J_K)/2
+2. Area_G_H_J_K - Length_A_J*(Length_G_H + Length_J_K)/2 & Length_G_H - 17 & Length_J_K - 13 & Area_G_H_J_K - 75 => Length_A_J - 5

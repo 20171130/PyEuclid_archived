@@ -1,3 +1,17 @@
 Solution:
-1. Length_D_F**2 - Length_D_G**2 + 2*Length_D_G*Length_F_G*cos(Angle_D_G_F) - Length_F_G**2 & Length_D_G - 15 & Angle_D_G_F - 25*pi/36 & Length_D_F - Variable_x & Length_F_G - 19 => Variable_x - 30.2148733030621
-2. Variable_x - 30.2148733030621 => Variable_x - 30.2148733030621
+1. Perpendicular(R,S,R,T) [Perp2Angle(S,R,T)] => Angle_S_R_T - pi/2
+2. Angle_S_R_T - pi/2 [AreaRightTriangle(S,R,T)] => Area_R_S_T - Length_R_S*Length_R_T/2
+3. Length_R_T - Variable_x & Length_R_S - 10 & Area_R_S_T - Length_R_S*Length_R_T/2 => Area_R_S_T - 5*Variable_x
+4. Length_R_S - 10 & Length_Q_S - 5 => Length_Q_S - Length_R_S/2 & Length_Q_S/Length_R_S - 1/2
+5. Collinear(Q,R,S) [BetweenLength(Q,S,R)] => Length_Q_R - Length_Q_S - Length_R_S
+6. Length_Q_S - Length_R_S/2 & Length_R_S - 10 & Length_Q_R - Length_Q_S - Length_R_S => Length_Q_R - 15
+7. Collinear(P,R,T) & Collinear(Q,R,S) & Parallel(P,Q,S,T) [AlphaGeometry8(P,Q,T,S,R)] => Similar3(P,Q,R,T,S,R) & Length_P_R/Length_Q_R - Length_P_T/Length_Q_S
+8. Similar3(P,Q,R,T,S,R) [PropertyOfSimilar3(R,S,T,R,Q,P)] => Length_R_S/Length_Q_R - Length_S_T/Length_P_Q
+9. Length_Q_R - 15 & Length_R_S/Length_Q_R - Length_S_T/Length_P_Q & Length_Q_S/Length_R_S - 1/2 & Length_P_Q - 25 => Length_Q_S/Length_S_T - 3/10
+10. Length_Q_S - 5 & Length_Q_S/Length_S_T - 3/10 => Length_S_T - 50/3
+11. Area_R_S_T**2 - (-Length_R_S/2 + Length_R_T/2 + Length_S_T/2)*(Length_R_S/2 - Length_R_T/2 + Length_S_T/2)*(Length_R_S/2 + Length_R_T/2 - Length_S_T/2)*(Length_R_S/2 + Length_R_T/2 + Length_S_T/2) & Length_R_T - Variable_x & Length_R_S - 10 & Area_R_S_T - 5*Variable_x & Length_S_T - 50/3 => Variable_x - 40/3
+12. Length_P_R/Length_Q_R - Length_P_T/Length_Q_S & Length_Q_S - 5 => Length_P_R - Length_P_T*Length_Q_R/5
+13. Collinear(P,R,T) [BetweenLength(P,T,R)] => Length_P_R - Length_P_T - Length_R_T
+14. Length_R_T - Variable_x & Length_P_R - Length_P_T - Length_R_T => Length_P_R - Length_P_T - Variable_x
+15. Length_P_R - Length_P_T*Length_Q_R/5 & Length_Q_R - 15 & Length_P_R - Length_P_T - Variable_x => Length_P_T - Variable_x/2
+16. Variable_x - 40/3 & Length_P_T - Variable_x/2 => Length_P_T - 20/3

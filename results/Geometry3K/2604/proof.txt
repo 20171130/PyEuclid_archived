@@ -1,6 +1,3 @@
 Solution:
-1. Parallel(H,S,K,Q) & Parallel(K,Q,L,P) => Parallel(H,S,L,P)
-2. Collinear(H,K,L) & Collinear(P,Q,S) & Parallel(H,S,L,P) & Parallel(H,S,K,Q) => Length_H_L/Length_K_L - Length_P_S/Length_P_Q
-3. Length_P_Q - 6 & Length_K_L - 4 => Length_K_L - 2*Length_P_Q/3
-4. Parallel(H,S,L,P) & Parallel(H,S,J,R) & Collinear(H,J,L) & Collinear(P,R,S) => Length_H_J/Length_R_S - Length_H_L/Length_P_S
-5. Length_H_L/Length_K_L - Length_P_S/Length_P_Q & Length_K_L - 2*Length_P_Q/3 & Length_H_J/Length_R_S - Length_H_L/Length_P_S & Length_R_S - 6 => Length_H_J - 4
+1. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+2. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Angle_A_C_B - pi/2 & Length_A_B - Variable_x & Length_B_C - 9 & Length_A_C - Variable_x + 3 => Variable_x - 15

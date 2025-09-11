@@ -1,8 +1,3 @@
 Solution:
-1. Rectangle(A,B,E,D) => Trapezoid(A,B,E,D) & Length_A_D - Length_B_E
-2. Perpendicular(A,B,B,E) & Perpendicular(B,E,D,E) => Parallel(A,B,D,E)
-3. Trapezoid(A,B,E,D) & Parallel(A,B,D,E) & Perpendicular(A,B,B,E) => Area_A_B_E_D - Length_B_E*(Length_A_B + Length_D_E)/2
-4. Length_A_D - 5 & Length_A_D - Length_B_E => Length_B_E - 5
-5. Area_A_B_E_D - Length_B_E*(Length_A_B + Length_D_E)/2 & Length_B_E - 5 & Length_D_E - 6 & Length_A_B - 6 => Area_A_B_E_D - 30
-6. Area_A_B_C**2 - (-Length_A_B/2 + Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 - Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 - Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 + Length_B_C/2) & Length_A_B - 6 & Length_A_C - 4 & Length_B_C - 4 => Area_A_B_C - 3*sqrt(7)
-7. Area_A_B_E_D - 30 & Area_A_B_C - 3*sqrt(7) => Area_A_B_C - Area_A_B_E_D - 3*sqrt(7) + 30
+1. Length_A_B - 3 & Length_A_B - Variable_radius_A => Variable_radius_A - 3
+2. Variable_radius_A - 3 => (pi*Variable_radius_A**2 - 9*pi)/pi

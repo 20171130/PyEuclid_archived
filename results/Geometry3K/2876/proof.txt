@@ -1,7 +1,8 @@
 Solution:
-1. Length_Q_R - 7 & Length_R_S - 7 => Length_Q_R - Length_R_S
-2. Length_Q_R - Length_R_S & Collinear(Q,R,S) => Midpoint(R,Q,S)
-3. Collinear(Q,R,S) => Parallel(Q,R,Q,S)
-4. Perpendicular(P,R,Q,R) & Parallel(Q,R,Q,S) => Perpendicular(P,R,Q,S)
-5. Midpoint(R,Q,S) & Perpendicular(P,R,Q,S) => Length_P_Q - Length_P_S
-6. Length_P_Q - 9 & Length_P_Q - Length_P_S => Length_P_S - 9
+1. Length_B_C + Length_B_F + Length_C_F - 27 & Length_C_F - 8 => Length_B_C + Length_B_F - 19
+2. Length_D_F - 6 & Length_C_F - 8 => -3/4 + Length_D_F/Length_C_F
+3. Similar3(B,C,F,E,D,F) [PropertyOfSimilar3(B,C,F,E,D,F)] => Length_B_C/Length_D_E - Length_C_F/Length_D_F & Length_D_F/Length_E_F - Length_C_F/Length_B_F
+4. -3/4 + Length_D_F/Length_C_F & Length_B_C/Length_D_E - Length_C_F/Length_D_F => Length_B_C - 4*Length_D_E/3
+5. Length_D_F/Length_E_F - Length_C_F/Length_B_F & -3/4 + Length_D_F/Length_C_F => Length_B_F - 4*Length_E_F/3
+6. Length_B_C + Length_B_F - 19 & Length_B_C - 4*Length_D_E/3 & Length_B_F - 4*Length_E_F/3 => Length_D_E + Length_E_F - 57/4
+7. Length_D_E + Length_E_F - 57/4 & Length_D_F - 6 => Length_D_E + Length_D_F + Length_E_F - 81/4

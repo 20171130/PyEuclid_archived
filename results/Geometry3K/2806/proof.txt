@@ -1,4 +1,2 @@
 Solution:
-1. Collinear(C,E,O) => Parallel(C,O,E,O)
-2. Perpendicular(A,O,C,O) & Parallel(C,O,E,O) => Perpendicular(A,O,E,O)
-3. Perpendicular(A,O,E,O) => Angle_A_O_E - pi/2
+1. Perpendicular(B,C,C,D) [Perp2Angle(B,C,D)] => Angle_B_C_D - pi/2

@@ -1,3 +1,6 @@
 Solution:
-1. Parallelogram(A,B,D,C) & Collinear(A,D,E) & Collinear(B,C,E) => Length_A_E - Length_D_E
-2. Length_A_E - Length_D_E & Length_A_E - 3*Variable_x + 6 & Length_D_E - Variable_x - 4 => Variable_x - 5
+1. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+2. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 => Angle_A_B_C + Angle_B_A_C - pi/2
+3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_B_C)/Length_A_C & Length_A_C - 24 & Length_B_C - 10 & Angle_A_B_C + Angle_B_A_C - pi/2 => Angle_B_A_C - atan(5/12)
+4. Angle_A_B_C + Angle_B_A_C - pi/2 & Angle_B_A_C - atan(5/12) => Angle_A_B_C - pi/2 + atan(5/12)
+5. Angle_A_B_C - pi/2 + atan(5/12) => cos(Angle_A_B_C) - 5/13

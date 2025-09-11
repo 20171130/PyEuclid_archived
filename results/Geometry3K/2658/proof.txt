@@ -1,3 +1,6 @@
 Solution:
-1. Perpendicular(A,H,B,C) & Collinear(B,C,H) => Area_A_B_C - Length_A_H*Length_B_C/2
-2. Area_A_B_C - Length_A_H*Length_B_C/2 & Length_A_H - 7 & Length_B_C - 51/5 => Area_A_B_C - 357/10
+1. Length_F_G - Variable_radius_G & Length_D_G - Variable_radius_G => Length_D_G - Length_F_G
+2. Length_D_G - Length_F_G & Length_F_G - Variable_x => Length_D_G - Variable_x
+3. Collinear(E,F,G) [BetweenLength(E,F,G)] => Length_E_F - Length_E_G + Length_F_G
+4. Length_E_F - 12 & Length_E_F - Length_E_G + Length_F_G & Length_F_G - Variable_x => Length_E_G - Variable_x - 12
+5. Length_D_E**2 - 2*Length_D_E*Length_D_G*cos(Angle_E_D_G) + Length_D_G**2 - Length_E_G**2 & Length_D_G - Variable_x & Angle_E_D_G - pi/2 & Length_E_G - Variable_x - 12 & Length_D_E - 16 => Variable_x - 14/3

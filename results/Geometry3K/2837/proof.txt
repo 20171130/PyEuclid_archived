@@ -1,6 +1,3 @@
 Solution:
-1. Length_J_L - Variable_radius_J & Length_G_J - Variable_radius_J => Length_G_J - Length_J_L
-2. Length_G_J - Length_J_L & Collinear(G,J,L) => Midpoint(J,G,L)
-3. Midpoint(J,G,L) => Length_G_L - 2*Length_J_L
-4. Length_G_H - Variable_radius_G & Length_G_H - 10 & Length_G_L - Variable_radius_G => Length_G_L - 10
-5. Length_G_L - 2*Length_J_L & Length_G_L - 10 => Length_J_L - 5
+1. Parallelogram(W,X,Z,Y) & Collinear(A,W,Z) & Collinear(A,X,Y) [PropertyOfParallelogram1(W,X,Z,Y,A)] => Length_A_X - Length_A_Y
+2. Length_A_Y - 2 & Length_A_X - Variable_a + 7 & Length_A_X - Length_A_Y => Variable_a - 9

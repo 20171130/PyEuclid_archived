@@ -1,21 +1,6 @@
 Solution:
-1. Collinear(A,D,E) => Parallel(A,D,A,E) & Parallel(A,D,D,E) & Parallel(A,E,D,E) & Angle_A_D_B - Angle_B_D_E
-2. Perpendicular(A,E,B,E) & Parallel(A,D,A,E) => Perpendicular(A,D,B,E)
-3. Parallelogram(A,C,B,D) => Parallel(A,D,B,C) & Area_A_C_B_D - Length_A_D*Length_B_D*sin(Angle_A_D_B) & Length_A_D - Length_B_C & Trapezoid(A,C,B,D)
-4. Perpendicular(A,D,B,E) & Parallel(A,D,B,C) => Perpendicular(B,C,B,E)
-5. Perpendicular(B,C,B,E) => Angle_C_B_E - pi/2
-6. Angle_C_B_E - pi/2 & Angle_A_B_C + Angle_A_B_E - Angle_C_B_E => Angle_A_B_C + Angle_A_B_E - pi/2
-7. Parallel(A,D,B,C) & Parallel(A,D,D,E) => Parallel(B,C,D,E)
-8. Parallel(B,C,D,E) => Angle_B_D_E + Angle_C_B_D - pi
-9. Angle_B_D_E - pi/3 & Angle_A_B_C + Angle_A_B_D - Angle_C_B_D & Angle_B_D_E + Angle_C_B_D - pi => Angle_A_B_C + Angle_A_B_D - 2*pi/3
-10. Angle_A_B_C + Angle_A_B_E - pi/2 & Angle_A_B_C + Angle_A_B_D - 2*pi/3 & Angle_A_B_D - Angle_A_B_E - Angle_D_B_E => Angle_D_B_E - pi/6
-11. Perpendicular(A,E,B,E) & Parallel(A,E,D,E) => Perpendicular(B,E,D,E)
-12. Perpendicular(B,E,D,E) => Angle_B_E_D - pi/2
-13. sin(Angle_D_B_E)/Length_D_E - sin(Angle_B_E_D)/Length_B_D & Length_D_E - 7 & Angle_D_B_E - pi/6 & Angle_B_E_D - pi/2 => Length_B_D - 14
-14. Length_B_C - 14 & Length_A_D - Length_B_C => Length_A_D - 14
-15. Angle_A_D_B - Angle_B_D_E & Angle_B_D_E - pi/3 => Angle_A_D_B - pi/3
-16. Area_A_C_B_D - Length_A_D*Length_B_D*sin(Angle_A_D_B) & Length_A_D - 14 & Angle_A_D_B - pi/3 => sqrt(3)*Area_A_C_B_D - 21*Length_B_D
-17. sin(Angle_D_B_E)/Length_D_E - sin(Angle_B_D_E)/Length_B_E & Length_D_E - 7 & Angle_D_B_E - pi/6 & Angle_B_D_E - pi/3 => Length_B_E - 7*sqrt(3)
-18. Trapezoid(A,C,B,D) & Parallel(A,D,B,C) & Perpendicular(A,D,B,E) & Collinear(A,D,E) => Area_A_C_B_D - Length_B_E*(Length_A_D + Length_B_C)/2
-19. Area_A_C_B_D - Length_B_E*(Length_A_D + Length_B_C)/2 & Length_B_C - 14 & Length_A_D - 14 => Area_A_C_B_D - 14*Length_B_E
-20. Length_B_D - 14 & sqrt(3)*Area_A_C_B_D - 21*Length_B_D & Length_B_E - 7*sqrt(3) & Area_A_C_B_D - 14*Length_B_E => Area_A_C_B_D - 98*sqrt(3)
+1. Length_W_Y - Length_W_Z & Collinear(W,Y,Z) [DefinitionOfMidpoint(W,Y,Z)] => Midpoint(W,Y,Z)
+2. Collinear(W,Y,Z) [CollinearParallel(W,Y,Z)] => Parallel(W,Z,Y,Z)
+3. Perpendicular(W,X,W,Z) & Parallel(W,Z,Y,Z) [AlphaGeometry1b(W,Z,W,X,Y,Z)] => Perpendicular(W,X,Y,Z)
+4. Midpoint(W,Y,Z) & Perpendicular(W,X,Y,Z) [AlphaGeometry23(W,X,Y,Z)] => Length_X_Y - Length_X_Z
+5. Length_X_Y - 2*Variable_y - 18 & Length_X_Y - Length_X_Z & Length_X_Z - 5*Variable_y + 6 => Length_X_Z - 34

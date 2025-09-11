@@ -1,8 +1,3 @@
 Solution:
-1. Length_B_E - Variable_radius_B & Length_B_C - Variable_radius_B => Length_B_C - Length_B_E
-2. Length_B_F - Variable_radius_B & Length_B_C - Variable_radius_B => Length_B_C - Length_B_F
-3. Length_B_C - Length_B_E & Length_B_C - Length_B_F & Angle_A_F_B - pi/2 & Collinear(A,C,E) => Length_A_C/Length_A_F - Length_A_F/Length_A_E
-4. Length_A_C/Length_A_F - Length_A_F/Length_A_E & Length_A_F - sqrt(174) & Length_A_E - Variable_x => Length_A_C - 174/Variable_x
-5. Collinear(A,C,E) => Length_A_C - Length_A_E - Length_C_E
-6. Length_A_C - Length_A_E - Length_C_E & Length_A_E - Variable_x & Length_C_E - 3*Variable_x - 5 => Length_A_C - 4*Variable_x - 5
-7. Length_A_C - 174/Variable_x & Length_A_C - 4*Variable_x - 5 => Variable_x - 6
+1. Parallelogram(P,Q,R,S) & Collinear(P,R,T) & Collinear(Q,S,T) [PropertyOfParallelogram1(P,Q,R,S,T)] => Length_Q_T - Length_S_T
+2. Length_S_T - 2*Variable_y - 12 & Length_Q_T - Length_S_T & Length_Q_T - 5*Variable_y => Variable_y - 4

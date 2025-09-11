@@ -1,13 +1,13 @@
 Solution:
-1. Collinear(A,C,D) => Angle_A_C_B - Angle_B_C_D & Parallel(A,C,C,D)
-2. Perpendicular(A,B,A,C) => Angle_B_A_C - pi/2
-3. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - Angle_B_C_D & Angle_B_C_D - 3*pi/10 & Angle_B_A_C - pi/2 => Angle_A_B_C - pi/5
-4. Length_B_C - Length_B_D => IsoscelesTriangle(B,C,D) & Angle_B_C_D - Angle_B_D_C
-5. Perpendicular(A,B,A,C) & Parallel(A,C,C,D) => Perpendicular(A,B,C,D)
-6. IsoscelesTriangle(B,C,D) & Length_B_C - Length_B_D & Collinear(A,C,D) & Perpendicular(A,B,C,D) => Angle_A_B_C - Angle_A_B_D & Midpoint(A,C,D)
-7. Angle_B_C_D - 3*pi/10 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_A_B_C + Angle_A_B_D - Angle_C_B_D & Angle_A_B_C - Angle_A_B_D & Angle_B_C_D - Angle_B_D_C => Angle_A_B_D - pi/5
-8. Angle_A_B_C + Angle_A_B_D - Angle_C_B_D & Angle_A_B_C - pi/5 & Angle_A_B_D - pi/5 => Angle_C_B_D - 2*pi/5
-9. Length_B_D - 32 & Length_B_C - Length_B_D => Length_B_C - 32
-10. Midpoint(A,C,D) => Length_A_D - Length_C_D/2
-11. Length_A_D - Length_C_D/2 & Length_A_D - Variable_x => Length_C_D - 2*Variable_x
-12. Length_B_C**2 - 2*Length_B_C*Length_B_D*cos(Angle_C_B_D) + Length_B_D**2 - Length_C_D**2 & Angle_C_B_D - 2*pi/5 & Length_B_C - 32 & Length_C_D - 2*Variable_x & Length_B_D - 32 => Variable_x - 18.8091280733591
+1. Collinear(A,C,D) [DiagramAngle4b(A,C,M,D)] => Angle_C_A_M - Angle_D_A_M
+2. Collinear(B,N,T) [CollinearParallel(B,N,T)] => Parallel(B,N,B,T) & Angle_B_N_M - Angle_M_N_T & Angle_B_T_M - Angle_M_T_N
+3. Perpendicular(B,M,B,T) & Parallel(B,N,B,T) [AlphaGeometry1b(B,T,B,M,B,N)] => Perpendicular(B,M,B,N)
+4. Perpendicular(B,M,B,N) [Perp2Angle(M,B,N)] => Angle_M_B_N - pi/2
+5. Perpendicular(A,D,D,M) [Perp2Angle(A,D,M)] => Angle_A_D_M - pi/2
+6. Length_A_M - Variable_radius_M & Length_M_N - Variable_radius_M => Length_A_M - Length_M_N
+7. Angle_M_B_N - pi/2 & Angle_A_D_M - pi/2 & Length_B_M - Length_D_M & -Length_A_M + Length_M_N [RTSSA(M,B,N,M,D,A)] => Congruent3(A,D,M,N,B,M)
+8. Congruent3(A,D,M,N,B,M) [PropertyOfCongruent(A,D,M,N,B,M)] => Angle_B_N_M - Angle_D_A_M
+9. Length_M_T - Variable_radius_M & Length_M_N - Variable_radius_M => Length_M_N - Length_M_T
+10. Length_M_N - Length_M_T [DefinitionOfIsoscelesTriangle(M,N,T)] => Angle_M_N_T - Angle_M_T_N
+11. Angle_B_N_M - Angle_M_N_T & Angle_M_N_T - Angle_M_T_N & Angle_B_T_M - 7*pi/45 & Angle_B_T_M - Angle_M_T_N => Angle_B_N_M - 7*pi/45
+12. Angle_C_A_M - Angle_D_A_M & Angle_B_N_M - Angle_D_A_M & Angle_B_N_M - 7*pi/45 => Angle_C_A_M - 7*pi/45

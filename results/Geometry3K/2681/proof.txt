@@ -1,10 +1,12 @@
 Solution:
-1. Collinear(F,R,T) => Angle_R_F_U + Angle_T_F_U - pi & Angle_F_T_U - Angle_R_T_U
-2. Collinear(F,S,U) => Angle_F_U_T - Angle_S_U_T
-3. Length_B_T - Variable_radius_B & Length_B_R - Variable_radius_B => Length_B_R - Length_B_T
-4. Length_B_T - Variable_radius_B & Length_B_U - Variable_radius_B => Length_B_T - Length_B_U
-5. -Length_B_R + Length_B_T & Length_B_T - Length_B_U => Angle_R_B_U - 2*Angle_R_T_U
-6. Length_B_S - Variable_radius_B & Length_B_U - Variable_radius_B => Length_B_S - Length_B_U
-7. -Length_B_S + Length_B_U & -Length_B_T + Length_B_U => Angle_S_B_T - 2*Angle_S_U_T
-8. Angle_R_B_U - 23*pi/45 & Angle_R_F_U + Angle_T_F_U - pi & Angle_S_B_T - 17*pi/60 & Angle_F_U_T - Angle_S_U_T & Angle_F_T_U + Angle_F_U_T + Angle_T_F_U - pi & Angle_R_B_U - 2*Angle_R_T_U & Angle_F_T_U - Angle_R_T_U & Angle_S_B_T - 2*Angle_S_U_T => Angle_R_F_U - 143*pi/360
-9. Angle_R_F_U - 143*pi/360 & Angle_R_F_U - Variable_angle_4 => Variable_angle_4 - 143*pi/360
+1. Perpendicular(B,C,B,D) [Perp2Angle(C,B,D)] => Angle_C_B_D - pi/2
+2. Collinear(A,C,D) [CollinearParallel(A,C,D)] => Parallel(A,D,C,D) & Parallel(A,C,C,D)
+3. Perpendicular(A,B,C,D) & Parallel(A,D,C,D) [AlphaGeometry1b(C,D,A,B,A,D)] => Perpendicular(A,B,A,D)
+4. Perpendicular(A,B,A,D) [Perp2Angle(B,A,D)] => Angle_B_A_D - pi/2
+5. Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_C_B_D - pi/2 & Angle_B_A_D - pi/2 & Angle_A_B_C + Angle_A_B_D - Angle_C_B_D => Angle_A_B_C - Angle_A_D_B
+6. Perpendicular(A,B,C,D) & Parallel(A,C,C,D) [AlphaGeometry1b(C,D,A,B,A,C)] => Perpendicular(A,B,A,C)
+7. Perpendicular(A,B,A,C) [Perp2Angle(B,A,C)] => Angle_B_A_C - pi/2
+8. Angle_B_A_C - pi/2 & Angle_C_B_D - pi/2 & Angle_A_B_C + Angle_A_B_D - Angle_C_B_D & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_A_B_D - Angle_A_C_B
+9. Angle_A_B_C - Angle_A_D_B & -Angle_A_B_D + Angle_A_C_B [AlphaGeometry3536(A,B,C,A,D,B)] => Similar3(A,B,C,A,D,B)
+10. Similar3(A,B,C,A,D,B) [PropertyOfSimilar3(A,B,C,A,D,B)] => Length_A_B/Length_A_D - Length_A_C/Length_A_B
+11. Length_A_C - 6 & Length_A_B - Variable_y & Length_A_B/Length_A_D - Length_A_C/Length_A_B & Length_A_D - 4 => Variable_y - 2*sqrt(6)

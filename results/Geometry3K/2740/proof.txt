@@ -1,10 +1,9 @@
 Solution:
-1. Perpendicular(A,E,C,E) => Angle_A_E_C - pi/2
-2. Length_A_C**2 - Length_A_E**2 + 2*Length_A_E*Length_C_E*cos(Angle_A_E_C) - Length_C_E**2 & Length_A_C - 17 & Angle_A_E_C - pi/2 & Length_C_E - 8 => Length_A_E - 15
-3. Parallelogram(A,B,D,C) => Trapezoid(A,B,D,C) & Parallel(A,B,C,D) & Length_A_B - Length_C_D
-4. Collinear(C,D,E) => Parallel(C,D,C,E)
-5. Perpendicular(A,E,C,E) & Parallel(C,D,C,E) => Perpendicular(A,E,C,D)
-6. Trapezoid(A,B,D,C) & Parallel(A,B,C,D) & Perpendicular(A,E,C,D) & Collinear(C,D,E) => Area_A_B_D_C - Length_A_E*(Length_A_B + Length_C_D)/2
-7. Length_A_B - Length_C_D & Length_A_B - 21 => Length_C_D - 21
-8. Area_A_B_D_C - Length_A_E*(Length_A_B + Length_C_D)/2 & Length_C_D - 21 & Length_A_B - 21 => Area_A_B_D_C - 21*Length_A_E
-9. Length_A_E - 15 & Area_A_B_D_C - 21*Length_A_E => Area_A_B_D_C - 315
+1. Length_R_S - Variable_radius_S & Length_P_S - Variable_radius_S => Length_P_S - Length_R_S
+2. Length_P_S - Length_R_S [DefinitionOfIsoscelesTriangle(S,P,R)] => IsoscelesTriangle(P,R,S)
+3. Collinear(Q,S,T) [CollinearParallel(Q,S,T)] => Parallel(Q,S,Q,T)
+4. Perpendicular(P,T,Q,T) & Parallel(Q,S,Q,T) [AlphaGeometry1b(Q,T,P,T,Q,S)] => Perpendicular(P,T,Q,S)
+5. Collinear(P,R,T) [CollinearParallel(P,R,T)] => Parallel(P,R,P,T)
+6. Perpendicular(P,T,Q,S) & Parallel(P,R,P,T) [AlphaGeometry1b(P,T,Q,S,P,R)] => Perpendicular(P,R,Q,S)
+7. IsoscelesTriangle(P,R,S) & Length_P_S - Length_R_S & Perpendicular(P,R,Q,S) [PropertyOfIsoscelesTriangle3(S,P,R,Q)] => Angle_P_S_Q - Angle_Q_S_R
+8. Angle_P_S_Q - Angle_P_S_R + Angle_Q_S_R & Angle_P_S_Q - Angle_Q_S_R & Angle_P_S_R - 49*pi/90 => Angle_P_S_Q - 49*pi/180

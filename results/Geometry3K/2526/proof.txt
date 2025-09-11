@@ -1,7 +1,4 @@
 Solution:
-1. Length_C_E - Variable_radius_E & Length_A_E - Variable_radius_E => Length_A_E - Length_C_E
-2. Length_A_E - Length_C_E => Angle_A_C_E - Angle_C_A_E
-3. Angle_B_A_E - pi/2 & Angle_B_C_E - pi/2 => Angle_B_A_E - Angle_B_C_E
-4. Angle_A_C_B + Angle_A_C_E - Angle_B_C_E & Angle_A_C_E - Angle_C_A_E & Angle_B_A_C - Angle_B_A_E + Angle_C_A_E & Angle_B_A_E - Angle_B_C_E => Angle_A_C_B - Angle_B_A_C
-5. -Angle_A_C_B + Angle_B_A_C => Length_A_B - Length_B_C
-6. Length_A_C - 7 & Length_A_B + Length_A_C + Length_B_C - 25 & Length_A_B - 3*Variable_x & Length_A_B - Length_B_C => Variable_x - 3
+1. Collinear(D,E,G) [FlatAngle2(D,G,E,A)] => Angle_A_G_D + Angle_A_G_E - pi
+2. Angle_A_D_G - pi/5 & Angle_A_G_D + Angle_A_G_E - pi & Angle_A_D_G + Angle_A_G_D + Angle_D_A_G - pi & Angle_A_G_E - 26*pi/45 => Angle_D_A_G - 17*pi/45
+3. Angle_D_A_G - 17*pi/45 & Angle_D_A_G - Variable_angle_2 => Variable_angle_2 - 17*pi/45

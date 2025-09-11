@@ -1,10 +1,4 @@
 Solution:
-1. Length_B_C - Variable_radius_C & Length_C_D - Variable_radius_C => Length_B_C - Length_C_D
-2. Length_B_C - Length_C_D => Angle_B_D_C - Angle_C_B_D
-3. Length_B_C - Variable_radius_C & Length_A_C - Variable_radius_C => Length_A_C - Length_B_C
-4. -Length_A_C + Length_B_C & Length_B_C - Length_C_D => Angle_A_B_D - Angle_A_C_D/2
-5. Length_A_C - Variable_radius_C & Length_C_D - Variable_radius_C => Length_A_C - Length_C_D
-6. Length_A_C - Length_C_D => Angle_A_D_C - Angle_C_A_D
-7. Collinear(A,B,C) => Angle_A_B_D - Angle_C_B_D
-8. Angle_B_D_C - Angle_C_B_D & Angle_A_B_D - Angle_A_C_D/2 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_D_C - Angle_C_A_D & Angle_A_B_D - Angle_C_B_D => Angle_A_D_C + Angle_B_D_C - pi/2
-9. Angle_A_D_B - Angle_A_D_C - Angle_B_D_C & Angle_A_D_B - Variable_angle_2 & Angle_A_D_C + Angle_B_D_C - pi/2 => Variable_angle_2 - pi/2
+1. Collinear(B,C,D) [FlatAngle2(C,B,D,A)] => Angle_A_B_C + Angle_A_B_D - pi
+2. Variable_angle_6 - pi/4 & Angle_C_B_E - Variable_angle_6 & Angle_A_B_C - Angle_A_B_E - Angle_C_B_E & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi & Variable_angle_8 - 47*pi/180 & Angle_A_B_D - Variable_angle_8 & Angle_A_B_C + Angle_A_B_D - pi => Angle_A_E_B + Angle_B_A_E - 23*pi/45
+3. Angle_A_B_E - Variable_angle_7 & Angle_A_E_B + Angle_B_A_E - 23*pi/45 & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi => Variable_angle_7 - 22*pi/45

@@ -1,9 +1,7 @@
 Solution:
-1. Angle_B_A_C - Angle_E_D_F & Angle_D_E_F + Angle_D_F_E + Angle_E_D_F - pi & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - Angle_D_E_F => Angle_A_C_B - Angle_D_F_E
-2. Angle_A_B_C - Angle_D_E_F & Angle_A_C_B - Angle_D_F_E => Similar3(A,B,C,D,E,F)
-3. Similar3(A,B,C,D,E,F) => Length_A_B/Length_D_E - Length_B_C/Length_E_F
-4. Length_B_C - 5 & Length_E_F - 3 => Length_B_C - 5*Length_E_F/3
-5. Length_A_B/Length_D_E - Length_B_C/Length_E_F & Length_B_C - 5*Length_E_F/3 => Length_A_B - 5*Length_D_E/3
-6. Length_A_B - 5*Length_D_E/3 & Length_A_B - Variable_x => Length_D_E - 3*Variable_x/5
-7. Length_D_E - 3*Variable_x/5 & Length_D_E - Variable_x + 4 => Variable_x - 10
-8. Variable_x - 10 & Length_A_B - Variable_x => Length_A_B - 10
+1. Rhombus(P,Q,R,S) => Perpendicular(P,R,Q,S)
+2. Collinear(C,Q,S) [CollinearParallel(C,Q,S)] => Parallel(C,S,Q,S)
+3. Perpendicular(P,R,Q,S) & Parallel(C,S,Q,S) [AlphaGeometry1b(Q,S,P,R,C,S)] => Perpendicular(C,S,P,R)
+4. Collinear(C,P,R) [CollinearParallel(C,P,R)] => Parallel(C,P,P,R)
+5. Perpendicular(C,S,P,R) & Parallel(C,P,P,R) [AlphaGeometry1b(P,R,C,S,C,P)] => Perpendicular(C,P,C,S)
+6. Perpendicular(C,P,C,S) [Perp2Angle(P,C,S)] => Angle_P_C_S - pi/2

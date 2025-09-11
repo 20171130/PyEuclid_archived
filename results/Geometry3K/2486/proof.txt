@@ -1,7 +1,5 @@
 Solution:
-1. Rhombus(A,B,C,D) => Perpendicular(A,C,B,D)
-2. Collinear(B,D,E) => Parallel(B,D,B,E)
-3. Perpendicular(A,C,B,D) & Parallel(B,D,B,E) => Perpendicular(A,C,B,E)
-4. Collinear(A,C,E) => Parallel(A,C,A,E)
-5. Perpendicular(A,C,B,E) & Parallel(A,C,A,E) => Perpendicular(A,E,B,E)
-6. Perpendicular(A,E,B,E) => Angle_A_E_B - pi/2
+1. Length_D_O - 13 & Length_C_O - 13 => Length_C_O - Length_D_O
+2. Length_C_O - Length_D_O [DefinitionOfIsoscelesTriangle(O,C,D)] => IsoscelesTriangle(C,D,O)
+3. IsoscelesTriangle(C,D,O) & Length_C_O - Length_D_O & Perpendicular(B,O,C,D) [PropertyOfIsoscelesTriangle3(O,C,D,B)] => Angle_B_O_C - Angle_B_O_D
+4. Angle_C_O_D - 67*pi/90 & Angle_B_O_C - Angle_B_O_D & Angle_B_O_C + Angle_B_O_D - Angle_C_O_D => Angle_B_O_C - 67*pi/180

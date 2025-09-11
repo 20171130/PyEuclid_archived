@@ -1,9 +1,6 @@
 Solution:
-1. Length_B_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_B_G
-2. Length_C_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_C_G
-3. Length_D_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_D_G
-4. Length_A_G - Length_B_G & Length_A_G - Length_C_G & Length_A_G - Length_D_G => Concyclic(A,B,C,D)
-5. Concyclic(A,B,C,D) & Collinear(A,B,E) & Collinear(C,D,E) => Length_A_E/Length_C_E - Length_D_E/Length_B_E
-6. Length_B_E - Variable_x & Length_A_E - Variable_x => Length_A_E - Length_B_E
-7. Length_C_E - 9 & Length_D_E - 4 & Length_A_E/Length_C_E - Length_D_E/Length_B_E & Length_A_E - Length_B_E => Length_B_E - 6
-8. Length_B_E - 6 & Length_B_E - Variable_x => Variable_x - 6
+1. Collinear(L,M,P) [CollinearParallel(L,M,P)] => Parallel(L,M,M,P)
+2. Perpendicular(H,P,M,P) & Parallel(L,M,M,P) [AlphaGeometry1b(M,P,H,P,L,M)] => Perpendicular(H,P,L,M)
+3. Perpendicular(H,P,L,M) & Collinear(L,M,P) [AreaEqualsBaseTimesHeight(H,L,M,P)] => Area_H_L_M - Length_H_P*Length_L_M/2
+4. Length_L_M - 12 & Area_H_L_M - Length_H_P*Length_L_M/2 => Area_H_L_M - 6*Length_H_P
+5. Area_H_L_M**2 - (-Length_H_L/2 + Length_H_M/2 + Length_L_M/2)*(Length_H_L/2 - Length_H_M/2 + Length_L_M/2)*(Length_H_L/2 + Length_H_M/2 - Length_L_M/2)*(Length_H_L/2 + Length_H_M/2 + Length_L_M/2) & Length_L_M - 12 & Length_H_M - 9 & Area_H_L_M - 6*Length_H_P & Length_H_L - 9 => Length_H_P - 3*sqrt(5)

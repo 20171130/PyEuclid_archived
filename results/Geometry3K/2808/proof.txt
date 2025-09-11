@@ -1,9 +1,8 @@
 Solution:
-1. Length_B_F - Variable_radius_F & Length_A_F - Variable_radius_F => Length_A_F - Length_B_F
-2. Length_A_F - Variable_radius_F & Length_C_F - Variable_radius_F => Length_A_F - Length_C_F
-3. Length_D_F - Variable_radius_F & Length_A_F - Variable_radius_F => Length_A_F - Length_D_F
-4. Length_A_F - Length_B_F & Length_A_F - Length_C_F & Length_A_F - Length_D_F => Concyclic(A,B,C,D)
-5. Concyclic(A,B,C,D) & Collinear(A,B,E) & Collinear(C,D,E) => Length_A_E/Length_C_E - Length_D_E/Length_B_E
-6. Length_D_E - 4 & Length_B_E - 6 => Length_B_E - 3*Length_D_E/2
-7. Length_A_E/Length_C_E - Length_D_E/Length_B_E & Length_B_E - 3*Length_D_E/2 => Length_A_E/Length_C_E - 2/3
-8. Length_A_E/Length_C_E - 2/3 & Length_C_E - 3 & Length_A_E - Variable_x => Variable_x - 2
+1. Collinear(B,E,F) [CollinearParallel(B,E,F)] => Parallel(B,E,B,F)
+2. Perpendicular(A,D,B,E) & Parallel(B,E,B,F) [AlphaGeometry1b(B,E,A,D,B,F)] => Perpendicular(A,D,B,F)
+3. Collinear(A,D,F) [CollinearParallel(A,D,F)] => Parallel(A,D,D,F)
+4. Perpendicular(A,D,B,F) & Parallel(A,D,D,F) [AlphaGeometry1b(A,D,B,F,D,F)] => Perpendicular(B,F,D,F)
+5. Perpendicular(B,F,D,F) [Perp2Angle(B,F,D)] => Angle_B_F_D - pi/2
+6. Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi & Angle_B_F_D - pi/2 & Angle_B_F_C - Angle_B_F_D + Angle_C_F_D & Angle_B_F_C - pi*Variable_x/30 & Angle_C_F_D - pi*Variable_x/60 => Angle_B_C_F + Angle_C_B_F - 2*pi/3
+7. Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi & Angle_B_C_F + Angle_C_B_F - 2*pi/3 & Angle_B_F_C - pi*Variable_x/30 => Variable_x - 10

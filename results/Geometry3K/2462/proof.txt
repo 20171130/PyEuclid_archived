@@ -1,7 +1,11 @@
 Solution:
-1. Centroid(Q,A,B,C) & Collinear(A,C,E) & Collinear(B,E,Q) => -0.5 + Length_E_Q/Length_B_Q
-2. -0.5 + Length_E_Q/Length_B_Q => Length_B_Q - 2.0*Length_E_Q
-3. Collinear(B,E,Q) => Length_B_E - Length_B_Q - Length_E_Q
-4. Length_B_E - Length_B_Q - Length_E_Q & Length_B_E - 9 => Length_B_Q + Length_E_Q - 9
-5. Length_B_Q - 2.0*Length_E_Q & Length_B_Q + Length_E_Q - 9 => Length_E_Q - 3.0
-6. Length_B_Q - 2.0*Length_E_Q & Length_E_Q - 3.0 => Length_B_Q - 6.0
+1. Length_B_D - Variable_radius_D & Length_A_D - Variable_radius_D => Length_A_D - Length_B_D
+2. Length_A_D - Variable_radius_D & Length_C_D - Variable_radius_D => Length_A_D - Length_C_D
+3. Length_A_D - Length_B_D & Length_A_D - Length_C_D [InscribedAngle1(D,A,B,C)] => Angle_B_A_C - Angle_B_D_C/2
+4. Collinear(A,B,D) [FlatAngle2(A,D,B,C)] => Angle_A_D_C + Angle_B_D_C - pi
+5. Length_B_D - Variable_radius_D & Length_C_D - Variable_radius_D => Length_B_D - Length_C_D
+6. -Length_A_D + Length_B_D & Length_B_D - Length_C_D [InscribedAngle1(D,B,A,C)] => Angle_A_B_C - Angle_A_D_C/2
+7. Angle_B_A_C - Angle_B_D_C/2 & Angle_A_D_C + Angle_B_D_C - pi & Angle_A_B_C - Angle_A_D_C/2 => Angle_A_B_C + Angle_B_A_C - pi/2
+8. Angle_A_B_C + Angle_B_A_C - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_A_C_B - pi/2
+9. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Length_B_C - 15 & Angle_A_C_B - pi/2 & Length_A_B - 2*Variable_radius_D & Length_A_C - 8 => Variable_radius_D - 17/2
+10. Length_A_D - Variable_radius_D & Variable_radius_D - 17/2 => Length_A_D - 17/2

@@ -1,4 +1,4 @@
 Solution:
-1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. Angle_B_A_C - pi/3 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 => Angle_A_B_C - pi/6
-3. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Length_A_B - 10 & Length_A_C - Variable_x & Angle_A_B_C - pi/6 & Angle_A_C_B - pi/2 => Variable_x - 5
+1. Collinear(N,Q,R) [DiagramAngle4b(N,Q,M,R)] => Angle_M_N_Q - Angle_M_N_R & Angle_M_R_N - Angle_M_R_Q
+2. Parallelogram(M,N,P,R) => Angle_M_N_P + Angle_N_M_R - pi
+3. Angle_M_N_R + Angle_M_R_N + Angle_N_M_R - pi & Angle_M_N_Q - 11*pi/60 & Angle_M_N_Q - Angle_M_N_R & Angle_M_N_P + Angle_N_M_R - pi & Angle_M_R_Q - 19*pi/90 & Angle_M_R_N - Angle_M_R_Q => Angle_M_N_P - 71*pi/180

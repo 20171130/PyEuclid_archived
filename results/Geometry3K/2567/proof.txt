@@ -1,7 +1,3 @@
 Solution:
-1. Parallelogram(A,B,C,D) => Trapezoid(A,B,C,D) & Parallel(A,D,B,C) & Length_A_D - Length_B_C
-2. Collinear(A,D,E) => Parallel(A,D,D,E)
-3. Perpendicular(B,E,D,E) & Parallel(A,D,D,E) => Perpendicular(A,D,B,E)
-4. Trapezoid(A,B,C,D) & Parallel(A,D,B,C) & Perpendicular(A,D,B,E) & Collinear(A,D,E) => Area_A_B_C_D - Length_B_E*(Length_A_D + Length_B_C)/2
-5. Length_B_C - Variable_x - 10 & Length_A_D - Length_B_C => Length_A_D - Variable_x - 10
-6. Area_A_B_C_D - Length_B_E*(Length_A_D + Length_B_C)/2 & Length_B_E - Variable_x & Area_A_B_C_D - 2000 & Length_B_C - Variable_x - 10 & Length_A_D - Variable_x - 10 => Variable_x - 40
+1. Rectangle(E,F,G,H) => Angle_F_G_H - pi/2
+2. Angle_E_G_H - 13*pi/180 & Angle_E_G_F + Angle_E_G_H - Angle_F_G_H & Angle_F_G_H - pi/2 => Angle_E_G_F - 77*pi/180

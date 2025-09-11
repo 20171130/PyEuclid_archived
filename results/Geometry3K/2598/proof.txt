@@ -1,17 +1,7 @@
 Solution:
-1. Length_Q_U - Variable_radius_U & Length_S_U - Variable_radius_U => Length_Q_U - Length_S_U
-2. Length_T_U - Variable_radius_U & Length_Q_U - Variable_radius_U => Length_Q_U - Length_T_U
-3. Length_Q_U - Length_S_U & Length_Q_U - Length_T_U => Angle_S_Q_T - Angle_S_U_T/2
-4. Length_R_U - Variable_radius_U & Length_T_U - Variable_radius_U => Length_R_U - Length_T_U
-5. Length_R_S - Length_S_T & -Length_R_U + Length_T_U => Kite(R,S,T,U)
-6. Kite(R,S,T,U) & Length_R_S - Length_S_T & -Length_R_U + Length_T_U => Angle_R_U_S - Angle_S_U_T
-7. Length_P_Q - Length_P_T & -Length_Q_U + Length_T_U => Kite(P,Q,U,T)
-8. Kite(P,Q,U,T) & Length_P_Q - Length_P_T & -Length_Q_U + Length_T_U => Perpendicular(P,U,Q,T)
-9. Perpendicular(P,U,Q,T) => Angle_P_U_Q + Angle_T_Q_U - pi/2
-10. Length_R_U - Variable_radius_U & Length_P_U - Variable_radius_U => Length_P_U - Length_R_U
-11. Length_P_Q - Length_Q_R & -Length_P_U + Length_R_U => Kite(P,Q,R,U)
-12. Kite(P,Q,R,U) & Length_P_Q - Length_Q_R & -Length_P_U + Length_R_U => Angle_P_U_Q - Angle_Q_U_R
-13. Length_Q_R - Length_R_S & -Length_Q_U + Length_S_U => Kite(Q,R,S,U)
-14. Kite(Q,R,S,U) & Length_Q_R - Length_R_S & -Length_Q_U + Length_S_U => Perpendicular(Q,S,R,U) & Angle_Q_U_R - Angle_R_U_S
-15. Perpendicular(Q,S,R,U) => Angle_Q_U_R + Angle_S_Q_U - pi/2
-16. Angle_S_Q_T - Angle_S_U_T/2 & Angle_R_U_S - Angle_S_U_T & Angle_P_U_Q + Angle_T_Q_U - pi/2 & Angle_P_U_Q - Angle_Q_U_R & Angle_Q_U_R + Angle_S_Q_U - pi/2 & Angle_Q_U_R - Angle_R_U_S & Angle_S_Q_T - Angle_S_Q_U - Angle_T_Q_U => Angle_Q_U_R - 2*pi/5
+1. Similar3(R,U,W,S,T,V) [PropertyOfSimilar3(R,U,W,S,T,V)] => Length_R_U/Length_U_W - Length_S_T/Length_T_V & Length_R_W/Length_S_V - Length_U_W/Length_T_V
+2. Length_T_V - 18 & Length_S_T - 24 => Length_S_T - 4*Length_T_V/3
+3. Length_R_U/Length_U_W - Length_S_T/Length_T_V & Length_S_T - 4*Length_T_V/3 => Length_R_U - 4*Length_U_W/3
+4. Length_T_V - 18 & Length_S_V - 12 => -3/2 + Length_T_V/Length_S_V
+5. -3/2 + Length_T_V/Length_S_V & Length_R_W/Length_S_V - Length_U_W/Length_T_V => Length_R_W - 2*Length_U_W/3
+6. Length_U_W - 21 & Length_R_U - 4*Length_U_W/3 & Length_R_W - 2*Length_U_W/3 => Length_R_U + Length_R_W + Length_U_W - 63

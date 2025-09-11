@@ -1,3 +1,6 @@
 Solution:
-1. Angle_X_Y_Z - pi*(Variable_a/180 - 7/45) & Angle_W_Z_X - Angle_W_Z_Y + Angle_X_Z_Y & Angle_X_W_Z - pi*(Variable_a/360 + 2/45) & Angle_W_Z_Y - pi*(Variable_a/180 + 1/90) & Angle_W_X_Y - Angle_W_X_Z - Angle_Y_X_Z & Angle_W_X_Y - pi*Variable_a/180 & Angle_W_X_Z + Angle_W_Z_X + Angle_X_W_Z - pi & Angle_X_Y_Z + Angle_X_Z_Y + Angle_Y_X_Z - pi => Angle_X_Z_Y + Angle_Y_X_Z - 5*pi/9
-2. Angle_X_Z_Y + Angle_Y_X_Z - 5*pi/9 & Angle_X_Y_Z + Angle_X_Z_Y + Angle_Y_X_Z - pi => Angle_X_Y_Z - 4*pi/9
+1. Similar3(A,B,C,E,D,C) [PropertyOfSimilar3(C,D,E,C,B,A)] => Length_C_D/Length_B_C - Length_C_E/Length_A_C
+2. Length_C_D - 6 & Length_B_C - 4 => Length_B_C - 2*Length_C_D/3
+3. Length_C_D/Length_B_C - Length_C_E/Length_A_C & Length_B_C - 2*Length_C_D/3 => Length_A_C - 2*Length_C_E/3
+4. Length_A_C - 2*Length_C_E/3 & Length_C_E + Variable_x - 12 & Length_A_C - Variable_x - 7 => Variable_x - 3/5
+5. Length_A_C - Variable_x - 7 & Variable_x - 3/5 => Length_A_C - 38/5

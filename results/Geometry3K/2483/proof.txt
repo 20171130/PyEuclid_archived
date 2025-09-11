@@ -1,3 +1,6 @@
 Solution:
-1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Length_B_C - 4 & Angle_A_C_B - pi/2 & Angle_B_A_C - pi/4 & Length_A_B - Variable_x => Variable_x - 4*sqrt(2)
+1. Length_M_N - 6 & Length_M_Q - 5 => Length_M_N/Length_M_Q - 6/5
+2. Length_N_O - 18/5 & Length_M_N - 6 => Length_M_N/Length_N_O - 5/3
+3. Collinear(M,N,O) & Collinear(M,P,Q) & Parallel(N,Q,O,P) [AlphaGeometry8(N,Q,O,P,M)] => Length_M_N/Length_M_Q - Length_N_O/Length_P_Q
+4. Length_M_N/Length_M_Q - 6/5 & Length_M_N/Length_N_O - 5/3 & Length_M_N/Length_M_Q - Length_N_O/Length_P_Q => Length_M_N/Length_P_Q - 2
+5. Length_M_N/Length_P_Q - 2 & Length_M_N - 6 => Length_P_Q - 3

@@ -1,5 +1,9 @@
 Solution:
-1. Length_B_C - Variable_x & Length_A_X - 2*Variable_x => Length_A_X - 2*Length_B_C
-2. Rhombus(A,B,X,C) => Perpendicular(A,X,B,C)
-3. Perpendicular(A,X,B,C) => Area_A_B_X_C - Length_A_X*Length_B_C/2
-4. Length_A_X - 2*Length_B_C & Area_A_B_X_C - 169 & Area_A_B_X_C - Length_A_X*Length_B_C/2 => Length_A_X - 26
+1. Midpoint(V,Q,U) [PropertyOfMidpoint(V,Q,U)] => Length_Q_U - 2*Length_U_V & Length_Q_U - 2*Length_Q_V & Length_Q_V - Length_U_V
+2. Midpoint(S,R,T) [PropertyOfMidpoint(S,R,T)] => Length_R_T - 2*Length_S_T & Length_R_S - Length_R_T/2
+3. Length_Q_U - 2*Length_U_V & Length_R_T - 2*Length_S_T => Length_Q_U/Length_R_T - Length_U_V/Length_S_T
+4. Length_R_S - Length_R_T/2 & Length_Q_U - 2*Length_Q_V => Length_R_S/Length_Q_V - Length_R_T/Length_Q_U
+5. Length_Q_U/Length_R_T - Length_U_V/Length_S_T & Length_R_S/Length_Q_V - Length_R_T/Length_Q_U => Length_Q_V/Length_U_V - Length_R_S/Length_S_T
+6. Collinear(Q,U,V) & Parallel(Q,R,T,U) & Collinear(R,S,T) & Length_Q_V/Length_U_V - Length_R_S/Length_S_T [AlphaGeometry42(Q,R,T,U,V,S)] => Parallel(Q,R,S,V)
+7. Parallel(Q,R,T,U) & Parallel(Q,R,S,V) & Collinear(Q,U,V) & Collinear(R,S,T) [AlphaGeometry8b(Q,R,U,T,V,S)] => Length_Q_R*Length_U_V/Length_Q_U - Length_S_V + Length_Q_V*Length_T_U/Length_Q_U
+8. Length_Q_R*Length_U_V/Length_Q_U - Length_S_V + Length_Q_V*Length_T_U/Length_Q_U & Length_Q_U - 2*Length_U_V & Length_Q_R - 4 & Length_T_U - 16 & Length_Q_V - Length_U_V => Length_S_V - 10

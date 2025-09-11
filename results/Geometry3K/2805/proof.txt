@@ -1,6 +1,4 @@
 Solution:
-1. Length_A_D - 17 & Length_A_C - 21 => Length_A_C/Length_A_D - 21/17
-2. Parallelogram(A,C,B,D) => Length_A_C - Length_B_D & Length_A_D - Length_B_C
-3. Length_A_C/Length_A_D - 21/17 & Length_A_C - Length_B_D & Length_A_D - Length_B_C => Length_B_C - 17*Length_B_D/21
-4. Length_A_C/Length_A_D - 21/17 & Length_A_D - Length_B_C => Length_A_C - 21*Length_B_C/17
-5. Length_B_C - 17*Length_B_D/21 & Length_A_D - 17 & Length_A_C - 21*Length_B_C/17 & Length_A_D - Length_B_C => Length_A_C + Length_A_D + Length_B_C + Length_B_D - 76
+1. Collinear(C,E,O) [CollinearParallel(C,E,O)] => Parallel(C,O,E,O)
+2. Perpendicular(A,O,C,O) & Parallel(C,O,E,O) [AlphaGeometry1b(C,O,A,O,E,O)] => Perpendicular(A,O,E,O)
+3. Perpendicular(A,O,E,O) [Perp2Angle(A,O,E)] => Angle_A_O_E - pi/2

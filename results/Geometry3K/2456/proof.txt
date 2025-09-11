@@ -1,6 +1,11 @@
 Solution:
-1. Length_A_B - Variable_radius_A & Length_A_C - Variable_radius_A => Length_A_B - Length_A_C
-2. Length_A_B - Length_A_C & Collinear(A,B,C) => Midpoint(A,B,C)
-3. Midpoint(A,B,C) => Length_A_B - Length_B_C/2
-4. Length_A_B - Variable_radius_A & Length_A_B - Length_B_C/2 & Length_B_C - 31/5 => Variable_radius_A - 31/10
-5. Variable_radius_A - 31/10 => pi*Variable_radius_A - 31*pi/10
+1. Length_C_O - Variable_radius_O & Length_B_O - Variable_radius_O => Length_B_O - Length_C_O
+2. Length_B_O - Variable_radius_O & Length_F_O - Variable_radius_O => Length_B_O - Length_F_O
+3. Length_B_O - Length_C_O & Length_B_O - Length_F_O [InscribedAngle1(O,B,C,F)] => Angle_C_B_F - Angle_C_O_F/2
+4. Length_B_O - Variable_radius_O & Length_E_O - Variable_radius_O => Length_B_O - Length_E_O
+5. Length_B_O - Length_C_O & Length_B_O - Length_E_O & Length_B_O - Length_F_O [AlphaGeometry2(O,B,C,E,F)] => Concyclic(B,C,E,F)
+6. Concyclic(B,C,E,F) [AlphaGeometry4a(C,F,B,E)] => Angle_C_B_F - Angle_C_E_F
+7. Collinear(B,F,G) [FlatAngle2(B,G,F,E)] => Angle_B_G_E + Angle_E_G_F - pi & Angle_B_F_E - Angle_E_F_G
+8. Collinear(C,E,G) [DiagramAngle4b(E,C,F,G)] => Angle_C_E_F - Angle_F_E_G
+9. Angle_B_G_E - 13*pi/45 & Angle_B_F_E - pi/6 & Angle_C_B_F - Angle_C_E_F & Angle_B_G_E + Angle_E_G_F - pi & Angle_E_F_G + Angle_E_G_F + Angle_F_E_G - pi & Angle_C_E_F - Angle_F_E_G & Angle_B_F_E - Angle_E_F_G => Angle_C_B_F - 11*pi/90
+10. Angle_C_B_F - Angle_C_O_F/2 & Angle_C_B_F - 11*pi/90 => Angle_C_O_F - 11*pi/45

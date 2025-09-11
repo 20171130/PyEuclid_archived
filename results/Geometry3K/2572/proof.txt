@@ -1,8 +1,4 @@
 Solution:
-1. Length_C_E - Variable_radius_C & Length_C_F - Variable_radius_C => Length_C_E - Length_C_F
-2. Length_C_E - Variable_radius_C & Length_C_G - Variable_radius_C => Length_C_E - Length_C_G
-3. Length_C_E - Variable_radius_C & Length_C_H - Variable_radius_C => Length_C_E - Length_C_H
-4. Length_C_E - Length_C_F & Length_C_E - Length_C_G & Length_C_E - Length_C_H => Concyclic(E,F,G,H)
-5. Concyclic(E,F,G,H) => Angle_G_E_H - Angle_G_F_H
-6. Angle_G_F_H - pi*(Variable_x/18 - 1/45) & Angle_G_E_H - Angle_G_F_H & Angle_G_E_H - pi*(2*Variable_x/45 + 1/30) => Angle_G_F_H - 23*pi/90
-7. Angle_G_F_H - 23*pi/90 & Angle_G_F_H - pi*(Variable_x/18 - 1/45) => Variable_x - 5
+1. Collinear(N,P,Q) [DiagramAngle4b(Q,N,M,P)] => Angle_M_Q_N - Angle_M_Q_P
+2. Angle_M_N_Q + Angle_M_Q_N + Angle_N_M_Q - pi & Angle_M_Q_N - Angle_M_Q_P & Angle_N_M_P - 14*pi/45 & Angle_M_N_Q - pi/4 & Angle_N_M_P - Angle_N_M_Q + Angle_P_M_Q => Angle_M_Q_P + Angle_P_M_Q - 79*pi/180
+3. Angle_M_Q_P + Angle_P_M_Q - 79*pi/180 & Angle_M_P_Q + Angle_M_Q_P + Angle_P_M_Q - pi => Angle_M_P_Q - 101*pi/180

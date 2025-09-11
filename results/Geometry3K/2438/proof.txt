@@ -1,4 +1,10 @@
 Solution:
-1. Collinear(V,X,Y) => Angle_V_X_W + Angle_W_X_Y - pi
-2. Collinear(W,X,Z) => Angle_V_X_W + Angle_V_X_Z - pi
-3. Angle_W_X_Y - pi*(Variable_x/45 + 1/12) & Angle_V_X_W + Angle_W_X_Y - pi & Angle_V_X_Z - pi*(Variable_x/90 + 13/36) & Angle_V_X_W + Angle_V_X_Z - pi => Angle_V_X_W - 13*pi/36
+1. Length_T_V - 10 & Length_S_W - 8 => Length_S_W/Length_T_V - 4/5
+2. Collinear(R,T,W) [DiagramAngle4b(T,R,V,W)] => Angle_R_T_V - Angle_V_T_W
+3. Angle_R_T_V - Angle_V_T_W & Angle_R_T_V - Angle_S_W_T & Angle_T_V_W + Angle_T_W_V + Angle_V_T_W - pi & Angle_S_W_T - Angle_S_W_V + Angle_T_W_V => Angle_S_W_V + Angle_T_V_W - pi
+4. Angle_S_W_V + Angle_T_V_W - pi [AlphaGeometry3c1(T,V,S,W)] => Parallel(S,W,T,V)
+5. Collinear(R,S,V) & Collinear(R,T,W) & Parallel(S,W,T,V) [AlphaGeometry8(S,W,V,T,R)] => Similar3(R,S,W,R,V,T)
+6. Similar3(R,S,W,R,V,T) [PropertyOfSimilar3(R,S,W,R,V,T)] => Length_S_W/Length_T_V - Length_R_W/Length_R_T
+7. Length_S_W/Length_T_V - 4/5 & Length_S_W/Length_T_V - Length_R_W/Length_R_T => Length_R_T - 5*Length_R_W/4
+8. Length_R_T - 5*Length_R_W/4 & Length_R_T - 2*Variable_x - 6 & Length_R_W - Variable_x - 6 => Variable_x - 2
+9. Length_R_W - Variable_x - 6 & Variable_x - 2 => Length_R_W - 8

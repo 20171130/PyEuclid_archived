@@ -1,8 +1,12 @@
 Solution:
-1. Length_B_D - Variable_radius_D & Length_A_D - Variable_radius_D => Length_A_D - Length_B_D
-2. Length_B_D - Variable_radius_D & Length_D_J - Variable_radius_D => Length_B_D - Length_D_J
-3. -Length_A_D + Length_B_D & Length_B_D - Length_D_J => Angle_A_B_J + Angle_A_D_J/2 - pi
-4. Length_B_D - Variable_radius_D & Length_C_D - Variable_radius_D => Length_B_D - Length_C_D
-5. Length_B_D - Length_C_D & Length_B_D - Length_D_J => Angle_C_B_J - Angle_C_D_J/2
-6. Collinear(A,C,D) => Angle_A_D_J + Angle_C_D_J - pi
-7. Angle_A_B_J + Angle_A_D_J/2 - pi & Angle_A_B_C - Angle_A_B_J + Angle_C_B_J & Angle_C_B_J - Angle_C_D_J/2 & Angle_A_D_J + Angle_C_D_J - pi => Angle_A_B_C - pi/2
+1. Length_A_C - 8 & Length_B_C - 10 => Length_A_C - 4*Length_B_C/5
+2. Parallel(A,D,B,C) [Para2Angle(B,C,D,A)] => Angle_A_D_B + Angle_C_B_D - pi
+3. Angle_A_D_B + Angle_C_B_D - pi & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_B_C + Angle_A_B_D - Angle_C_B_D => Angle_A_B_C - Angle_B_A_D
+4. Perpendicular(A,C,A,D) [Perp2Angle(C,A,D)] => Angle_C_A_D - pi/2
+5. Angle_C_A_D - pi/2 & Angle_B_A_C + Angle_B_A_D - Angle_C_A_D => Angle_B_A_C + Angle_B_A_D - pi/2
+6. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_B_C)/Length_A_C & Length_A_C - 8 & Length_B_C - 10 & Angle_A_B_C - Angle_B_A_D & Angle_B_A_C + Angle_B_A_D - pi/2 => Angle_B_A_D - atan(4/5)
+7. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+8. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Length_A_C - 8 & Angle_A_C_B - pi/2 & Length_B_C - 10 => Length_A_B - 2*sqrt(41)
+9. Length_A_B**2 - 2*Length_A_B*Length_A_D*cos(Angle_B_A_D) + Length_A_D**2 - Length_B_D**2 & Angle_B_A_D - atan(4/5) & Length_A_D - 4 & Length_A_B - 2*sqrt(41) => Length_B_D - 10
+10. Length_A_D - 4 & Length_B_D - 10 => Length_A_D - 2*Length_B_D/5
+11. Length_A_D - 4 & Length_A_C - 4*Length_B_C/5 & Length_A_D - 2*Length_B_D/5 & Length_B_C - 10 => Length_A_C + Length_A_D + Length_B_C + Length_B_D - 32

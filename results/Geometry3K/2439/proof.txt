@@ -1,10 +1,3 @@
 Solution:
-1. Length_S_W - 8 & Length_T_V - 10 => -5/4 + Length_T_V/Length_S_W
-2. Collinear(R,T,W) => Angle_R_T_V - Angle_V_T_W
-3. Angle_S_W_T - Angle_S_W_V + Angle_T_W_V & Angle_R_T_V - Angle_S_W_T & Angle_R_T_V - Angle_V_T_W & Angle_T_V_W + Angle_T_W_V + Angle_V_T_W - pi => Angle_S_W_V + Angle_T_V_W - pi
-4. Angle_S_W_V + Angle_T_V_W - pi => Parallel(S,W,T,V)
-5. Collinear(R,S,V) & Collinear(R,T,W) & Parallel(S,W,T,V) => Similar3(R,S,W,R,V,T)
-6. Similar3(R,S,W,R,V,T) => Length_R_T/Length_T_V - Length_R_W/Length_S_W
-7. -5/4 + Length_T_V/Length_S_W & Length_R_T/Length_T_V - Length_R_W/Length_S_W => Length_R_T - 5*Length_R_W/4
-8. Length_R_T - 2*Variable_x - 6 & Length_R_T - 5*Length_R_W/4 => Length_R_W - 8*Variable_x/5 - 24/5
-9. Length_R_W - Variable_x - 6 & Length_R_W - 8*Variable_x/5 - 24/5 => Length_R_W - 8
+1. Length_R_S - Length_R_T [DefinitionOfIsoscelesTriangle(R,S,T)] => Angle_R_S_T - Angle_R_T_S
+2. Angle_R_S_T + Angle_R_T_S + Angle_S_R_T - pi & Angle_R_S_T - Angle_R_T_S & Angle_S_R_T - 7*pi/18 => Angle_R_S_T - 11*pi/36

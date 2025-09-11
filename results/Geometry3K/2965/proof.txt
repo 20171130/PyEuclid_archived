@@ -1,9 +1,2 @@
 Solution:
-1. Collinear(A,B,E) => Parallel(A,B,B,E)
-2. Perpendicular(B,E,C,E) & Parallel(A,B,B,E) => Perpendicular(A,B,C,E)
-3. Collinear(A,B,F) => Parallel(A,B,A,F)
-4. Perpendicular(A,F,D,F) & Parallel(A,B,A,F) => Perpendicular(A,B,D,F)
-5. Perpendicular(A,B,C,E) & Perpendicular(A,B,D,F) => Parallel(C,E,D,F)
-6. Parallel(C,D,E,F) & Parallel(C,E,D,F) => Parallelogram(C,D,F,E)
-7. Parallelogram(C,D,F,E) => Length_C_D - Length_E_F
-8. Length_C_D - Length_E_F & Length_C_D - Variable_z & Length_E_F - 6 => Variable_z - 6
+1. Length_W_Y - 6*Variable_x - 3 & Length_W_Y - Length_X_Y & Length_X_Y - 4*Variable_x - 5 => Variable_x - 1

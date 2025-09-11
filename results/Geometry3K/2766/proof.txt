@@ -1,2 +1,8 @@
 Solution:
-1. Length_B_Q - 6 & Length_Bprime_Q - 8 => -4/3 + Length_Bprime_Q/Length_B_Q
+1. Length_B_C - Length_B_D & Collinear(B,C,D) [DefinitionOfMidpoint(B,C,D)] => Midpoint(B,C,D)
+2. Midpoint(B,C,D) [PropertyOfMidpoint(B,C,D)] => Length_B_C - Length_C_D/2
+3. Length_C_D - 16 & Length_B_C - Length_C_D/2 => Length_B_C - 8
+4. Collinear(B,C,D) [CollinearParallel(B,C,D)] => Parallel(B,C,B,D)
+5. Perpendicular(A,B,B,D) & Parallel(B,C,B,D) [AlphaGeometry1b(B,D,A,B,B,C)] => Perpendicular(A,B,B,C)
+6. Perpendicular(A,B,B,C) [Perp2Angle(A,B,C)] => Angle_A_B_C - pi/2
+7. Length_A_B**2 - 2*Length_A_B*Length_B_C*cos(Angle_A_B_C) - Length_A_C**2 + Length_B_C**2 & Length_A_B - 15 & Length_A_C - Variable_x & Length_B_C - 8 & Angle_A_B_C - pi/2 => Variable_x - 17

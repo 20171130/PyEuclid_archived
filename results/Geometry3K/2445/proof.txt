@@ -1,14 +1,6 @@
 Solution:
-1. Perpendicular(A,D,B,D) => Angle_A_D_B - pi/2
-2. Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_D_B - pi/2 => Angle_A_B_D + Angle_B_A_D - pi/2
-3. Angle_A_B_D + Angle_B_A_D - pi/2 & Angle_A_B_D - pi*Variable_x/180 => Angle_B_A_D - pi*(90 - Variable_x)/180
-4. Collinear(A,C,D) => Parallel(A,D,C,D)
-5. Perpendicular(A,D,B,D) & Parallel(A,D,C,D) => Perpendicular(B,D,C,D)
-6. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2
-7. Length_B_C**2 - Length_B_D**2 + 2*Length_B_D*Length_C_D*cos(Angle_B_D_C) - Length_C_D**2 & Angle_B_D_C - pi/2 & Length_B_D - 22 & Length_B_C - 40 => Length_C_D - 6*sqrt(31)
-8. Length_A_C - Length_A_D & Collinear(A,C,D) => Midpoint(A,C,D)
-9. Midpoint(A,C,D) => Length_A_D - Length_C_D/2
-10. Length_A_D - Length_C_D/2 => Length_A_D/Length_C_D - 1/2
-11. Length_C_D - 6*sqrt(31) & Length_A_D/Length_C_D - 1/2 => Length_A_D - 3*sqrt(31)
-12. Angle_A_B_D - pi*Variable_x/180 => Angle_A_B_D + pi*(90 - Variable_x)/180 - pi/2
-13. sin(Angle_B_A_D)/Length_B_D - sin(Angle_A_B_D)/Length_A_D & Angle_B_A_D - pi*(90 - Variable_x)/180 & Length_B_D - 22 & Length_A_D - 3*sqrt(31) & Angle_A_B_D + pi*(90 - Variable_x)/180 - pi/2 => Variable_x - 180*atan(3*sqrt(31)/22)/pi
+1. Collinear(D,E,G) [CollinearParallel(D,E,G)] => Parallel(D,G,E,G) & Angle_A_E_D - Angle_A_E_G
+2. Perpendicular(A,G,D,G) & Parallel(D,G,E,G) [AlphaGeometry1b(D,G,A,G,E,G)] => Perpendicular(A,G,E,G)
+3. Perpendicular(A,G,E,G) [Perp2Angle(A,G,E)] => Angle_A_G_E - pi/2
+4. Angle_A_E_D - Angle_A_E_G & Angle_A_E_D - pi/4 => Angle_A_E_G - pi/4
+5. sin(Angle_A_E_G)/Length_A_G - sin(Angle_A_G_E)/Length_A_E & Length_A_G - Variable_x & Length_A_E - 8 & Angle_A_G_E - pi/2 & Angle_A_E_G - pi/4 => Variable_x - 4*sqrt(2)

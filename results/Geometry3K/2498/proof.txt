@@ -1,11 +1,4 @@
 Solution:
-1. Collinear(L,M,P) => Parallel(L,P,M,P) & Parallel(L,M,M,P)
-2. Perpendicular(H,P,M,P) & Parallel(L,P,M,P) => Perpendicular(H,P,L,P)
-3. Perpendicular(H,P,L,P) => Angle_H_P_L - pi/2
-4. Length_H_M - 9 & Length_H_L - 9 => Length_H_L - Length_H_M
-5. Length_H_L - Length_H_M => IsoscelesTriangle(H,L,M)
-6. Perpendicular(H,P,M,P) & Parallel(L,M,M,P) => Perpendicular(H,P,L,M)
-7. IsoscelesTriangle(H,L,M) & Length_H_L - Length_H_M & Collinear(L,M,P) & Perpendicular(H,P,L,M) => Midpoint(P,L,M)
-8. Midpoint(P,L,M) => Length_L_M - 2*Length_L_P
-9. Length_L_M - 2*Length_L_P & Length_L_M - 12 => Length_L_P - 6
-10. Length_H_L**2 - Length_H_P**2 + 2*Length_H_P*Length_L_P*cos(Angle_H_P_L) - Length_L_P**2 & Angle_H_P_L - pi/2 & Length_L_P - 6 & Length_H_L - 9 => Length_H_P - 3*sqrt(5)
+1. Collinear(B,C,D) [DiagramAngle4b(C,B,A,D)] => Angle_A_C_B - Angle_A_C_D
+2. Angle_A_B_C - 3*pi/20 & Angle_B_A_D - 13*pi/45 & Angle_A_C_B - Angle_A_C_D & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_A_C_D + Angle_C_A_D - 101*pi/180
+3. Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_D_C - Variable_angle_1 & Angle_A_C_D + Angle_C_A_D - 101*pi/180 => Variable_angle_1 - 79*pi/180

@@ -1,7 +1,3 @@
 Solution:
-1. Similar3(J,L,M,Q,S,T) => Length_S_T/Length_Q_T - Length_L_M/Length_J_M
-2. Length_Q_T - 2 & Length_J_M - 4 => Length_J_M/Length_Q_T - 2
-3. Length_Q_T - 2 & Length_S_T - 3 => Length_Q_T/Length_S_T - 2/3
-4. Length_S_T/Length_Q_T - Length_L_M/Length_J_M & Length_J_M/Length_Q_T - 2 & Length_Q_T/Length_S_T - 2/3 => -1/3 + Length_Q_T/Length_L_M
-5. Length_Q_T - 2 & -1/3 + Length_Q_T/Length_L_M => Length_L_M - 6
-6. Length_L_M - 6 & Length_L_M - 6*Variable_x + 3 => Variable_x - 3/2
+1. Angle_A_B_C - Angle_A_C_B [DefinitionOfIsoscelesTriangle1(A,B,C)] => Length_A_B - Length_A_C
+2. Length_A_B - Length_A_C & Length_A_C - 6*Variable_x + 9 & Length_A_B - 2*Variable_x - 11 => Variable_x - 5

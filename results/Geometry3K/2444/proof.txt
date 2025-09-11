@@ -1,5 +1,14 @@
 Solution:
-1. Collinear(P,R,S) => Angle_Q_P_R - Angle_Q_P_S & Angle_P_S_Q + Angle_Q_S_R - pi
-2. Perpendicular(P,Q,Q,R) => Angle_P_Q_R - pi/2
-3. Angle_Q_P_R - Angle_Q_P_S & Angle_P_Q_R + Angle_P_R_Q + Angle_Q_P_R - pi & Angle_P_R_Q - 11*pi/60 & Angle_P_Q_R - pi/2 => Angle_Q_P_S - 19*pi/60
-4. Angle_Q_S_R - Variable_angle_1 & Angle_Q_P_S - 19*pi/60 & Angle_P_S_Q + Angle_Q_S_R - pi & Angle_P_Q_S + Angle_P_S_Q + Angle_Q_P_S - pi & Angle_P_Q_S - 17*pi/60 => Variable_angle_1 - 3*pi/5
+1. Perpendicular(A,D,B,D) [Perp2Angle(A,D,B)] => Angle_A_D_B - pi/2
+2. Angle_A_D_B - pi/2 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi => Angle_A_B_D + Angle_B_A_D - pi/2
+3. Angle_A_B_D - pi*Variable_x/180 & Angle_A_B_D + Angle_B_A_D - pi/2 => Angle_B_A_D - pi*(90 - Variable_x)/180
+4. Length_A_C - Length_A_D & Collinear(A,C,D) [DefinitionOfMidpoint(A,C,D)] => Midpoint(A,C,D)
+5. Midpoint(A,C,D) [PropertyOfMidpoint(A,C,D)] => Length_A_D - Length_C_D/2
+6. Length_A_D - Length_C_D/2 => Length_A_D/Length_C_D - 1/2
+7. Collinear(A,C,D) [CollinearParallel(A,C,D)] => Parallel(A,D,C,D)
+8. Perpendicular(A,D,B,D) & Parallel(A,D,C,D) [AlphaGeometry1b(A,D,B,D,C,D)] => Perpendicular(B,D,C,D)
+9. Perpendicular(B,D,C,D) [Perp2Angle(B,D,C)] => Angle_B_D_C - pi/2
+10. Length_B_C**2 - Length_B_D**2 + 2*Length_B_D*Length_C_D*cos(Angle_B_D_C) - Length_C_D**2 & Angle_B_D_C - pi/2 & Length_B_D - 22 & Length_B_C - 40 => Length_C_D - 6*sqrt(31)
+11. Length_A_D/Length_C_D - 1/2 & Length_C_D - 6*sqrt(31) => Length_A_D - 3*sqrt(31)
+12. Angle_A_B_D - pi*Variable_x/180 => Angle_A_B_D + pi*(90 - Variable_x)/180 - pi/2
+13. sin(Angle_B_A_D)/Length_B_D - sin(Angle_A_B_D)/Length_A_D & Angle_B_A_D - pi*(90 - Variable_x)/180 & Length_A_D - 3*sqrt(31) & Angle_A_B_D + pi*(90 - Variable_x)/180 - pi/2 & Length_B_D - 22 => Variable_x - 180*atan(3*sqrt(31)/22)/pi

@@ -1,5 +1,6 @@
 Solution:
-1. Length_E_F - 45/4 & Length_R_T - 15 => -4/3 + Length_R_T/Length_E_F
-2. Similar3(E,F,G,R,T,S) => Length_E_F/Length_F_G - Length_R_T/Length_S_T
-3. -4/3 + Length_R_T/Length_E_F & Length_E_F/Length_F_G - Length_R_T/Length_S_T => Length_F_G - 3*Length_S_T/4
-4. Length_F_G - 3*Length_S_T/4 & Length_S_T - 10 => Length_F_G - 15/2
+1. Parallelogram(A,C,B,D) => Length_A_C - Length_B_D & Length_A_D - Length_B_C
+2. Length_B_C - 13 & Length_A_C - 12 => Length_A_C/Length_B_C - 12/13
+3. Length_A_C/Length_B_C - 12/13 & Length_A_C - Length_B_D => Length_B_C - 13*Length_B_D/12
+4. Length_A_C/Length_B_C - 12/13 & Length_A_D - Length_B_C => Length_A_C - 12*Length_A_D/13
+5. Length_A_C - Length_B_D & Length_B_C - 13*Length_B_D/12 & Length_A_C - 12*Length_A_D/13 & Length_A_C - 12 => Length_A_C + Length_A_D + Length_B_C + Length_B_D - 50

@@ -1,11 +1,2 @@
 Solution:
-1. Collinear(A,B,C) & Collinear(B,D,E) & Parallel(A,E,C,D) => Length_A_B/Length_B_E - Length_A_C/Length_D_E
-2. Length_A_B/Length_B_E - Length_A_C/Length_D_E => Length_A_B/Length_A_C - Length_B_E/Length_D_E
-3. Length_A_B/Length_A_C - Length_B_E/Length_D_E & Length_B_E - 5 => Length_A_B - 5*Length_A_C/Length_D_E
-4. Length_B_D - 3 & Length_B_E - 5 => Length_B_D - 3*Length_B_E/5
-5. Collinear(B,D,E) => Length_B_D + Length_B_E - Length_D_E
-6. Length_B_D - 3*Length_B_E/5 & Length_B_D + Length_B_E - Length_D_E & Length_B_E - 5 => Length_D_E - 8
-7. Collinear(A,B,C) => Length_A_B - Length_A_C + Length_B_C
-8. Length_A_B - Variable_x - 3 & Length_B_C - 2*Variable_x + 8 & Length_A_B - Length_A_C + Length_B_C => Length_A_C - 3*Variable_x + 5
-9. Length_A_B - 5*Length_A_C/Length_D_E & Length_D_E - 8 & Length_A_C - 3*Variable_x + 5 & Length_A_B - Variable_x - 3 => Variable_x - 7
-10. Variable_x - 7 & Length_B_C - 2*Variable_x + 8 => Length_B_C - 6
+1. Variable_y - 18 => Variable_y - 18

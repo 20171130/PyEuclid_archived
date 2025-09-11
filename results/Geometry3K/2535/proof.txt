@@ -1,8 +1,12 @@
 Solution:
-1. Length_D_E - 4 & Length_B_C - 5 => -4/5 + Length_D_E/Length_B_C
-2. Collinear(A,B,C) & Collinear(A,D,E) & Parallel(B,E,C,D) => Length_A_B/Length_A_E - Length_B_C/Length_D_E
-3. -4/5 + Length_D_E/Length_B_C & Length_A_B/Length_A_E - Length_B_C/Length_D_E => Length_A_B - 5*Length_A_E/4
-4. Collinear(A,D,E) => Length_A_D - Length_A_E - Length_D_E
-5. Length_D_E - 4 & Length_A_D - 10 => Length_A_D - 5*Length_D_E/2
-6. Length_A_D - Length_A_E - Length_D_E & Length_A_D - 5*Length_D_E/2 & Length_A_D - 10 => Length_A_E - 6
-7. Length_A_B - 5*Length_A_E/4 & Length_A_E - 6 & Length_A_B - Variable_x + 2 => Variable_x - 19/2
+1. Collinear(A,B,D) [BetweenLength(A,D,B)] => Length_A_B - Length_A_D - Length_B_D & Angle_A_B_C - Angle_C_B_D & Parallel(A,D,B,D)
+2. Length_B_D - 25/2 & Length_A_B - Length_A_D - Length_B_D & Length_A_D - 8 => Length_A_B - 41/2
+3. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+4. Perpendicular(B,D,C,D) [Perp2Angle(B,D,C)] => Angle_B_D_C - pi/2
+5. Angle_A_C_B - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_B_D_C - pi/2 & Angle_A_C_B - Angle_A_C_D - Angle_B_C_D & Angle_A_B_C - Angle_C_B_D => Angle_A_B_C - Angle_A_C_D
+6. Perpendicular(B,D,C,D) & Parallel(A,D,B,D) [AlphaGeometry1b(B,D,C,D,A,D)] => Perpendicular(A,D,C,D)
+7. Perpendicular(A,D,C,D) [Perp2Angle(A,D,C)] => Angle_A_D_C - pi/2
+8. Angle_A_C_B - pi/2 & Angle_A_D_C - pi/2 => Angle_A_C_B - Angle_A_D_C
+9. Angle_A_B_C - Angle_A_C_D & Angle_A_C_B - Angle_A_D_C [AlphaGeometry3536(A,B,C,A,C,D)] => Similar3(A,B,C,A,C,D)
+10. Similar3(A,B,C,A,C,D) [PropertyOfSimilar3(A,C,D,A,B,C)] => Length_A_D/Length_A_C - Length_A_C/Length_A_B
+11. Length_A_B - 41/2 & Length_A_C - Variable_y & Length_A_D/Length_A_C - Length_A_C/Length_A_B & Length_A_D - 8 => Variable_y - 2*sqrt(41)

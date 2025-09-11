@@ -1,4 +1,8 @@
 Solution:
-1. Collinear(A,L,M) => Length_A_L + Length_A_M - Length_L_M
-2. Length_A_M - Variable_x & Length_A_L - 10 & Length_A_L + Length_A_M - Length_L_M => Length_L_M - Variable_x - 10
-3. Length_K_L**2 - 2*Length_K_L*Length_K_M*cos(Angle_L_K_M) + Length_K_M**2 - Length_L_M**2 & Length_L_M - Variable_x - 10 & Angle_L_K_M - pi/2 & Length_K_M - Variable_x & Length_K_L - 17 => Variable_x - 189/20
+1. Length_C_E - Variable_radius_C & Length_C_F - Variable_radius_C => Length_C_E - Length_C_F
+2. Length_C_E - Variable_radius_C & Length_C_G - Variable_radius_C => Length_C_E - Length_C_G
+3. Length_C_E - Variable_radius_C & Length_C_H - Variable_radius_C => Length_C_E - Length_C_H
+4. Length_C_E - Length_C_F & Length_C_E - Length_C_G & Length_C_E - Length_C_H [AlphaGeometry2(C,E,F,G,H)] => Concyclic(E,F,G,H)
+5. Concyclic(E,F,G,H) [AlphaGeometry4a(G,H,E,F)] => Angle_G_E_H - Angle_G_F_H
+6. Angle_G_E_H - pi*(2*Variable_x/45 + 1/30) & Angle_G_E_H - Angle_G_F_H & Angle_G_F_H - pi*(Variable_x/18 - 1/45) => Angle_G_F_H - 23*pi/90
+7. Angle_G_F_H - 23*pi/90 & Angle_G_F_H - pi*(Variable_x/18 - 1/45) => Variable_x - 5

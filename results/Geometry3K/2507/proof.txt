@@ -1,3 +1,7 @@
 Solution:
-1. Parallelogram(J,K,L,M) => Angle_J_L_M - Angle_K_J_L
-2. Angle_J_L_M - Angle_K_J_L & Angle_J_L_M - pi/6 => Angle_K_J_L - pi/6
+1. Length_J_M - 4 & Length_Q_T - 2 => Length_J_M - 2*Length_Q_T
+2. Similar3(J,L,M,Q,S,T) [PropertyOfSimilar3(J,L,M,Q,S,T)] => Length_J_M/Length_Q_T - Length_L_M/Length_S_T
+3. Length_S_T - 3 & Length_Q_T - 2 => Length_Q_T - 2*Length_S_T/3
+4. Length_J_M - 2*Length_Q_T & Length_J_M/Length_Q_T - Length_L_M/Length_S_T & Length_Q_T - 2*Length_S_T/3 => Length_L_M - 3*Length_Q_T
+5. Length_Q_T - 2 & Length_L_M - 3*Length_Q_T => Length_L_M - 6
+6. Length_L_M - 6 & Length_L_M - 6*Variable_x + 3 => Variable_x - 3/2

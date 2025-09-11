@@ -1,10 +1,3 @@
 Solution:
-1. Collinear(A,G,H) => Angle_F_A_G + Angle_F_A_H - pi
-2. Collinear(A,E,F) & Collinear(A,D,H) => Angle_D_A_E - Angle_F_A_H
-3. Collinear(A,E,F) => Parallel(A,E,A,F)
-4. Collinear(B,C,G) => Parallel(B,G,C,G)
-5. Parallel(A,E,C,G) & Parallel(B,G,C,G) => Parallel(A,E,B,G)
-6. Parallel(A,E,A,F) & Parallel(A,E,B,G) => Parallel(A,F,B,G)
-7. Parallel(A,F,B,G) => Angle_A_G_B + Angle_F_A_G - pi
-8. Angle_A_G_B - Variable_angle_4 & Angle_F_A_G + Angle_F_A_H - pi & Angle_D_A_E - Angle_F_A_H & Angle_A_G_B + Angle_F_A_G - pi & Variable_angle_4 - 101*pi/180 => Angle_D_A_E - 101*pi/180
-9. Angle_D_A_E - 101*pi/180 & Angle_D_A_E - Variable_angle_6 => Variable_angle_6 - 101*pi/180
+1. Length_P_Q**2 - 2*Length_P_Q*Length_P_R*cos(Angle_Q_P_R) + Length_P_R**2 - Length_Q_R**2 & Length_Q_R - 15 & Length_P_R - 8 & Length_P_Q - 17 => Angle_Q_P_R - acos(8/17)
+2. Angle_Q_P_R - acos(8/17) => sin(Angle_Q_P_R) - 15/17

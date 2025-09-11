@@ -1,4 +1,4 @@
 Solution:
-1. Collinear(C,E,F) & Collinear(B,F,G) => Angle_B_F_C - Angle_E_F_G
-2. Angle_D_F_E + Angle_D_F_G - Angle_E_F_G & Angle_D_F_G - 47*pi/180 & Angle_B_F_C - Angle_E_F_G & Angle_D_F_E - 23*pi/60 => Angle_B_F_C - 29*pi/45
-3. Angle_B_F_C - Variable_angle_3 & Angle_B_F_C - 29*pi/45 => Variable_angle_3 - 29*pi/45
+1. Parallelogram(A,B,D,C) => Angle_A_B_D - Angle_A_C_D
+2. Angle_A_B_D - Angle_A_C_D & Angle_A_C_D - pi*(7*Variable_y/180 + 1/90) & Angle_A_B_D - pi*(Variable_y/30 + 4/45) => Angle_A_C_D - 5*pi/9
+3. Angle_A_C_D - 5*pi/9 & Angle_A_C_D - pi*(7*Variable_y/180 + 1/90) => Variable_y - 14

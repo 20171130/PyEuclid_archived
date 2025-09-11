@@ -1,2 +1,11 @@
 Solution:
-1. Area_A_B_C**2 - (-Length_A_B/2 + Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 - Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 - Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 + Length_B_C/2) & Length_B_C - 13 & Length_A_B - 13 & Length_A_C - 10 => Area_A_B_C - 60
+1. Length_C_O - 13 & Length_D_O - 13 => Length_C_O - Length_D_O
+2. Length_C_O - Length_D_O [DefinitionOfIsoscelesTriangle(O,C,D)] => IsoscelesTriangle(C,D,O)
+3. Collinear(B,O,X) [CollinearParallel(B,O,X)] => Parallel(B,O,O,X) & Parallel(B,X,O,X)
+4. Perpendicular(B,O,C,D) & Parallel(B,O,O,X) [AlphaGeometry1b(B,O,C,D,O,X)] => Perpendicular(C,D,O,X)
+5. IsoscelesTriangle(C,D,O) & Length_C_O - Length_D_O & Collinear(C,D,X) & Perpendicular(C,D,O,X) [PropertyOfIsoscelesTriangle1(O,C,D,X)] => Midpoint(X,C,D)
+6. Midpoint(X,C,D) [PropertyOfMidpoint(X,C,D)] => Length_C_D - 2*Length_D_X
+7. Length_C_D - 2*Length_D_X & Length_C_D - 24 => Length_D_X - 12
+8. Perpendicular(B,X,D,X) & Parallel(B,X,O,X) [AlphaGeometry1b(B,X,D,X,O,X)] => Perpendicular(D,X,O,X)
+9. Perpendicular(D,X,O,X) [Perp2Angle(D,X,O)] => Angle_D_X_O - pi/2
+10. Length_D_O**2 - Length_D_X**2 + 2*Length_D_X*Length_O_X*cos(Angle_D_X_O) - Length_O_X**2 & Length_D_X - 12 & Length_D_O - 13 & Angle_D_X_O - pi/2 => Length_O_X - 5

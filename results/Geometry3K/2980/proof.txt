@@ -1,6 +1,3 @@
 Solution:
-1. Length_A_B - Length_B_C & Angle_A_B_C - pi/3 => EquilateralTriangle(A,B,C)
-2. EquilateralTriangle(A,B,C) => Length_A_C - Length_B_C & Length_A_B - Length_A_C
-3. Length_A_C - Length_B_C & Length_A_C - 3 => Length_B_C - 3
-4. Length_A_C - 3 & Length_A_B - Length_A_C => Length_A_B - 3
-5. Area_A_B_C**2 - (-Length_A_B/2 + Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 - Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 - Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 + Length_B_C/2) & Length_B_C - 3 & Length_A_C - 3 & Length_A_B - 3 => Area_A_B_C - 9*sqrt(3)/4
+1. Length_X_Y - Variable_radius_X & Length_X_Y - 6 => Variable_radius_X - 6
+2. Variable_radius_X - 6 & Angle_Y_X_Z - 5*pi/12 => Angle_Y_X_Z*Variable_radius_X - 5*pi/2

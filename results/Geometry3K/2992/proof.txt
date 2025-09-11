@@ -1,18 +1,10 @@
 Solution:
-1. Collinear(A,D,E) & Collinear(A,C,G) => Angle_C_A_D - Angle_E_A_G
-2. Collinear(A,D,E) => Parallel(A,D,D,E)
-3. Perpendicular(C,D,D,E) & Parallel(A,D,D,E) => Perpendicular(A,D,C,D)
-4. Perpendicular(A,D,C,D) => Angle_A_D_C - pi/2
-5. Angle_A_D_C - pi/2 & Angle_C_A_D - Angle_E_A_G & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi => Angle_A_C_D + Angle_E_A_G - pi/2
-6. Collinear(A,B,F) => Parallel(A,B,B,F)
-7. Perpendicular(B,C,B,F) & Parallel(A,B,B,F) => Perpendicular(A,B,B,C)
-8. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
-9. Length_C_D - 5 & Length_B_C - 5 => Length_B_C - Length_C_D
-10. Length_B_C - Length_C_D => Angle_B_D_C - Angle_C_B_D
-11. Angle_A_D_C - pi/2 & Angle_A_D_B - Angle_A_D_C + Angle_B_D_C & Angle_A_B_C - pi/2 & Angle_B_D_C - Angle_C_B_D & Angle_A_B_C - Angle_A_B_D - Angle_C_B_D => Angle_A_B_D - Angle_A_D_B
-12. Angle_A_B_D - Angle_A_D_B => Length_A_B - Length_A_D
-13. Angle_A_B_C - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_B_A_C - 19*pi/90 => Angle_A_C_B - 13*pi/45
-14. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Length_B_C - 5 & Angle_B_A_C - 19*pi/90 & Angle_A_C_B - 13*pi/45 => Length_A_B - 6.39970816096539
-15. Length_A_B - Length_A_D & Length_A_B - 6.39970816096539 => Length_A_D - 6.39970816096537
-16. sin(Angle_C_A_D)/Length_C_D - sin(Angle_A_C_D)/Length_A_D & Angle_A_C_D + Angle_E_A_G - pi/2 & Length_C_D - 5 & Angle_C_A_D - Angle_E_A_G & Length_A_D - 6.39970816096537 => Angle_E_A_G - 0.663225115757847
-17. Angle_C_A_D - Angle_E_A_G & Angle_E_A_G - 0.663225115757847 => Angle_C_A_D - 0.663225115757847
+1. Collinear(C,H,J) [DiagramAngle4b(J,C,F,H)] => Angle_C_J_F - Angle_F_J_H
+2. Collinear(C,D,F) [DiagramAngle4b(F,C,J,D)] => Angle_C_F_J - Angle_D_F_J & Angle_D_C_J + Angle_F_C_J - pi
+3. Length_F_G - Variable_radius_G & Length_D_G - Variable_radius_G => Length_D_G - Length_F_G
+4. Length_F_G - Variable_radius_G & Length_G_J - Variable_radius_G => Length_F_G - Length_G_J
+5. -Length_D_G + Length_F_G & Length_F_G - Length_G_J [InscribedAngle1(G,F,D,J)] => Angle_D_F_J - Angle_D_G_J/2
+6. Length_G_H - Variable_radius_G & Length_G_J - Variable_radius_G => Length_G_H - Length_G_J
+7. -Length_F_G + Length_G_J & -Length_G_H + Length_G_J [InscribedAngle2(G,J,F,H)] => Angle_F_G_H + 2*Angle_F_J_H - 2*pi
+8. Angle_D_G_J - 17*pi/36 & Angle_C_J_F - Angle_F_J_H & Angle_C_F_J - Angle_D_F_J & Angle_D_C_J + Angle_F_C_J - pi & Angle_C_F_J + Angle_C_J_F + Angle_F_C_J - pi & Angle_D_F_J - Angle_D_G_J/2 & Angle_F_G_H - 13*pi/18 & Angle_F_G_H + 2*Angle_F_J_H - 2*pi => Angle_D_C_J - 7*pi/8
+9. Angle_D_C_J - Variable_angle_2 & Angle_D_C_J - 7*pi/8 => Variable_angle_2 - 7*pi/8

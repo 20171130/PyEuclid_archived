@@ -1,8 +1,8 @@
 Solution:
-1. Rectangle(C,E,D,F) => Area_C_E_D_F - Length_C_E*Length_D_E
-2. Area_C_E_D_F - Length_C_E*Length_D_E & Length_C_E - 8 & Length_D_E - 3 => Area_C_E_D_F - 24
-3. Length_A_D - Variable_radius_A & Length_A_E - Variable_radius_A => Length_A_D - Length_A_E
-4. Length_A_D - Length_A_E & Collinear(A,D,E) => Midpoint(A,D,E)
-5. Midpoint(A,D,E) => Length_A_D - Length_D_E/2
-6. Length_A_D - Length_D_E/2 & Length_D_E - 3 => Length_A_D - 3/2
-7. Area_C_E_D_F - 24 & Length_A_D - 3/2 => Area_C_E_D_F + pi*Length_A_D**2 - 24 - 9*pi/4
+1. Length_E_W - Variable_radius_W & Length_D_W - Variable_radius_W => Length_D_W - Length_E_W
+2. Length_D_W - Length_E_W [DefinitionOfIsoscelesTriangle(W,D,E)] => IsoscelesTriangle(D,E,W)
+3. Collinear(D,E,F) [CollinearParallel(D,E,F)] => Parallel(D,E,D,F)
+4. Perpendicular(D,F,F,W) & Parallel(D,E,D,F) [AlphaGeometry1b(D,F,F,W,D,E)] => Perpendicular(D,E,F,W)
+5. IsoscelesTriangle(D,E,W) & Length_D_W - Length_E_W & Collinear(D,E,F) & Perpendicular(D,E,F,W) [PropertyOfIsoscelesTriangle1(W,D,E,F)] => Midpoint(F,D,E)
+6. Midpoint(F,D,E) [PropertyOfMidpoint(F,D,E)] => Length_D_E - 2*Length_D_F
+7. Length_D_E - 2*Length_D_F & Length_D_E - 30 => Length_D_F - 15

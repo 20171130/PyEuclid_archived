@@ -1,4 +1,13 @@
 Solution:
-1. Collinear(N,Q,R) => Angle_M_N_Q - Angle_M_N_R & Angle_M_R_N - Angle_M_R_Q
-2. Parallelogram(M,N,P,R) => Angle_M_N_P + Angle_N_M_R - pi
-3. Angle_M_R_Q - 19*pi/90 & Angle_M_N_Q - Angle_M_N_R & Angle_M_N_R + Angle_M_R_N + Angle_N_M_R - pi & Angle_M_N_Q - 11*pi/60 & Angle_M_R_N - Angle_M_R_Q & Angle_M_N_P + Angle_N_M_R - pi => Angle_M_N_P - 71*pi/180
+1. Length_B_P - Variable_radius_B & Length_B_L - Variable_radius_B => Length_B_L - Length_B_P
+2. Length_B_L - Length_B_P [DefinitionOfIsoscelesTriangle(B,L,P)] => Angle_B_L_P - Angle_B_P_L
+3. Length_B_P - Variable_radius_B & Length_B_N - Variable_radius_B => Length_B_N - Length_B_P
+4. -Length_B_L + Length_B_P & -Length_B_N + Length_B_P [InscribedAngle1(B,P,L,N)] => Angle_L_B_N - 2*Angle_L_P_N
+5. Collinear(M,N,P) [FlatAngle2(M,N,P,L)] => Angle_L_N_M + Angle_L_N_P - pi & Angle_L_M_N - Angle_L_M_P & Angle_L_P_M - Angle_L_P_N
+6. Length_B_N - Variable_radius_B & Length_B_L - Variable_radius_B => Length_B_L - Length_B_N
+7. Length_B_L - Length_B_N & Length_B_L - Length_B_P & Perpendicular(B,L,L,M) [AlphaGeometry16b(B,L,N,P,M)] => Angle_L_P_N - Angle_M_L_N
+8. -Length_B_L + Length_B_N & Length_B_N - Length_B_P [InscribedAngle1(B,N,L,P)] => Angle_L_B_P - 2*Angle_L_N_P
+9. Angle_B_L_P - Angle_B_P_L & Angle_L_B_N - 13*pi/30 & Angle_L_B_N - 2*Angle_L_P_N & Angle_L_M_N + Angle_L_N_M + Angle_M_L_N - pi & Angle_B_L_P + Angle_B_P_L + Angle_L_B_P - pi & Angle_L_N_M + Angle_L_N_P - pi & Angle_L_P_N - Angle_M_L_N & Angle_L_B_P - 2*Angle_L_N_P & Angle_L_M_N - pi/5 => Angle_B_P_L - pi/12
+10. Perpendicular(B,L,L,M) [Perp2Angle(B,L,M)] => Angle_B_L_M - pi/2
+11. Angle_B_L_M - pi/2 & Angle_L_B_N - 13*pi/30 & Angle_L_M_N - Angle_L_M_P & Angle_L_B_N - 2*Angle_L_P_N & Angle_L_M_P + Angle_L_P_M + Angle_M_L_P - pi & Angle_L_P_M - Angle_L_P_N & Angle_B_L_M + Angle_B_L_P - Angle_M_L_P & Angle_L_M_N - pi/5 => Angle_B_L_P - pi/12
+12. Angle_B_P_L - pi/12 & Angle_B_L_P - pi/12 & Angle_B_L_P + Angle_B_P_L + Angle_L_B_P - pi => Angle_L_B_P - 5*pi/6

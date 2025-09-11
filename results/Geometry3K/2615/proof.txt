@@ -1,5 +1,4 @@
 Solution:
-1. Length_E_F - Length_E_G & Length_E_F - Length_F_G => EquilateralTriangle(E,F,G)
-2. EquilateralTriangle(E,F,G) => Angle_F_E_G - pi/3
-3. Angle_F_E_G - Angle_F_E_H - Angle_G_E_H & Angle_F_E_G - pi/3 & Angle_F_E_H - Angle_G_E_H => Angle_G_E_H - pi/6
-4. Angle_G_E_H - Variable_angle_2 & Angle_G_E_H - pi/6 => Variable_angle_2 - pi/6
+1. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+2. Angle_B_A_C - pi/3 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 => Angle_A_B_C - pi/6
+3. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Length_A_B - 16*sqrt(3) & Angle_A_C_B - pi/2 & Length_A_C - Variable_y & Angle_A_B_C - pi/6 => Variable_y - 8*sqrt(3)

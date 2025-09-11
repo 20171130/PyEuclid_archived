@@ -1,9 +1,5 @@
 Solution:
-1. Collinear(M,N,O) => Angle_G_N_M - Angle_G_N_O & Angle_K_O_M + Angle_K_O_N - pi
-2. Collinear(G,J,N) => Parallel(G,J,G,N)
-3. Parallel(C,K,G,J) & Parallel(G,J,G,N) => Parallel(C,K,G,N)
-4. Collinear(C,K,O) => Parallel(C,K,K,O)
-5. Parallel(C,K,G,N) & Parallel(C,K,K,O) => Parallel(G,N,K,O)
-6. Parallel(G,N,K,O) => Angle_G_N_O + Angle_K_O_N - pi
-7. Variable_angle_3 - 43*pi/180 & Angle_G_N_M - Angle_G_N_O & Angle_K_O_M + Angle_K_O_N - pi & Angle_G_N_O + Angle_K_O_N - pi & Angle_K_O_M - Variable_angle_3 => Angle_G_N_M - 43*pi/180
-8. Angle_G_N_M - Variable_angle_11 & Angle_G_N_M - 43*pi/180 => Variable_angle_11 - 43*pi/180
+1. Collinear(E,F,G) [DiagramAngle4b(E,F,D,G)] => Angle_D_E_F - Angle_D_E_G
+2. Perpendicular(D,G,E,G) [Perp2Angle(D,G,E)] => Angle_D_G_E - pi/2
+3. Angle_D_E_F - Angle_D_E_G & Angle_D_G_E - pi/2 & Angle_D_E_F - 5*pi/36 & Angle_D_E_G + Angle_D_G_E + Angle_E_D_G - pi => Angle_E_D_G - 13*pi/36
+4. Angle_E_D_G - 13*pi/36 & Angle_E_D_G - Variable_angle_1 => Variable_angle_1 - 13*pi/36

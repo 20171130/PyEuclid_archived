@@ -1,2 +1,8 @@
 Solution:
-1. Angle_P_R_Z - pi*(Variable_b/45 - 17/180) & Angle_P_R_Z - Angle_Q_R_Z & Angle_Q_R_Z - pi*(Variable_b/60 - 1/45) => Angle_P_R_Z - 7*pi/36
+1. Length_A_B - 14 & Length_A_C - 10 => -5/7 + Length_A_C/Length_A_B
+2. Collinear(B,C,D) & Angle_B_A_D - Angle_C_A_D [AlphaGeometry13(A,B,C,D)] => Length_A_B/Length_A_C - Length_B_D/Length_C_D
+3. -5/7 + Length_A_C/Length_A_B & Length_A_B/Length_A_C - Length_B_D/Length_C_D => Length_B_D - 7*Length_C_D/5
+4. Length_B_D - 7*Length_C_D/5 & Length_B_D - Variable_x => Length_C_D - 5*Variable_x/7
+5. Collinear(B,C,D) [BetweenLength(B,D,C)] => Length_B_C - Length_B_D - Length_C_D
+6. Length_B_C - 18 & Length_B_D - Variable_x & Length_B_C - Length_B_D - Length_C_D => Length_C_D + Variable_x - 18
+7. Length_C_D - 5*Variable_x/7 & Length_C_D + Variable_x - 18 => Variable_x - 21/2

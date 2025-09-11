@@ -1,7 +1,4 @@
 Solution:
-1. Parallelogram(A,B,C,N) => Trapezoid(A,B,C,N) & Parallel(A,B,C,N) & Length_A_B - Length_C_N
-2. Collinear(A,B,L) => Parallel(A,B,A,L)
-3. Perpendicular(A,L,L,N) & Parallel(A,B,A,L) => Perpendicular(A,B,L,N)
-4. Trapezoid(A,B,C,N) & Parallel(A,B,C,N) & Perpendicular(A,B,L,N) & Collinear(A,B,L) => Area_A_B_C_N - Length_L_N*(Length_A_B + Length_C_N)/2
-5. Length_A_B - 40 & Length_A_B - Length_C_N => Length_C_N - 40
-6. Area_A_B_C_N - Length_L_N*(Length_A_B + Length_C_N)/2 & Length_C_N - 40 & Length_A_B - 40 & Length_L_N - 36 => Area_A_B_C_N - 1440
+1. Collinear(A,C,F) [DiagramAngle4b(A,C,B,F)] => Angle_B_A_C - Angle_B_A_F & Angle_A_F_B + Angle_B_F_C - pi
+2. Parallelogram(A,B,C,D) => Angle_A_C_D - Angle_B_A_C
+3. Angle_B_A_C - Angle_B_A_F & Angle_A_B_F + Angle_A_F_B + Angle_B_A_F - pi & Angle_A_B_F - pi/9 & Angle_B_F_C - 49*pi/180 & Angle_A_F_B + Angle_B_F_C - pi & Angle_A_C_D - Angle_B_A_C => Angle_A_C_D - 29*pi/180

@@ -1,10 +1,11 @@
 Solution:
-1. Length_J_M - Variable_radius_M & Length_H_M - Variable_radius_M => Length_H_M - Length_J_M
-2. Length_H_M - Length_J_M => IsoscelesTriangle(H,J,M)
-3. Collinear(M,N,P) => Parallel(M,N,N,P)
-4. Perpendicular(J,N,N,P) & Parallel(M,N,N,P) => Perpendicular(J,N,M,N)
-5. Collinear(H,J,N) => Parallel(H,J,J,N)
-6. Perpendicular(J,N,M,N) & Parallel(H,J,J,N) => Perpendicular(H,J,M,N)
-7. IsoscelesTriangle(H,J,M) & Length_H_M - Length_J_M & Collinear(H,J,N) & Perpendicular(H,J,M,N) => Midpoint(N,H,J)
-8. Midpoint(N,H,J) => Length_H_J - 2*Length_J_N
-9. Length_H_J - 48 & Length_H_J - 2*Length_J_N => Length_J_N - 24
+1. Collinear(F,J,T) [DiagramAngle4b(F,J,M,T)] => Angle_J_F_M - Angle_M_F_T
+2. Collinear(B,F,J) [DiagramAngle4b(J,B,E,F)] => Angle_B_J_E - Angle_E_J_F
+3. Collinear(C,E,J) [CollinearParallel(C,E,J)] => Parallel(C,E,E,J)
+4. Parallel(C,E,D,G) & Parallel(D,G,I,M) [ParaTrans(D,G,C,E,I,M)] => Parallel(C,E,I,M)
+5. Collinear(F,I,M) [CollinearParallel(F,I,M)] => Parallel(F,M,I,M)
+6. Parallel(C,E,I,M) & Parallel(F,M,I,M) [ParaTrans(I,M,C,E,F,M)] => Parallel(C,E,F,M)
+7. Parallel(C,E,E,J) & Parallel(C,E,F,M) [ParaTrans(C,E,E,J,F,M)] => Parallel(E,J,F,M)
+8. Parallel(E,J,F,M) [Para2Angle(F,M,J,E)] => Angle_E_J_F + Angle_J_F_M - pi
+9. Angle_J_F_M - Angle_M_F_T & Angle_B_J_E - Angle_E_J_F & Variable_angle_9 - 5*pi/12 & Angle_B_J_E - Variable_angle_9 & Angle_E_J_F + Angle_J_F_M - pi => Angle_M_F_T - 7*pi/12
+10. Angle_M_F_T - Variable_angle_6 & Angle_M_F_T - 7*pi/12 => Variable_angle_6 - 7*pi/12

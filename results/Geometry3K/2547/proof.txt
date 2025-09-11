@@ -1,3 +1,13 @@
 Solution:
-1. Length_W_X - 2 & Length_W_X - Variable_radius_X => Variable_radius_X - 2
-2. Angle_W_X_Y - 13*pi/45 & Variable_radius_X - 2 => Angle_W_X_Y*Variable_radius_X - 26*pi/45
+1. Length_U_W - Variable_radius_W & Length_T_W - Variable_radius_W => Length_T_W - Length_U_W
+2. Length_V_W - Variable_radius_W & Length_U_W - Variable_radius_W => Length_U_W - Length_V_W
+3. Collinear(Q,R,U) [CollinearParallel(Q,R,U)] => Parallel(Q,R,Q,U)
+4. Perpendicular(Q,R,U,W) & Parallel(Q,R,Q,U) [AlphaGeometry1b(Q,R,U,W,Q,U)] => Perpendicular(Q,U,U,W)
+5. -Length_T_W + Length_U_W & Length_U_W - Length_V_W & Perpendicular(Q,U,U,W) [AlphaGeometry16b(W,U,T,V,Q)] => Angle_Q_U_T - Angle_T_V_U
+6. Length_V_W - Variable_radius_W & Length_T_W - Variable_radius_W => Length_T_W - Length_V_W
+7. Collinear(Q,S,T) [CollinearParallel(Q,S,T)] => Parallel(Q,S,Q,T)
+8. Perpendicular(Q,S,T,W) & Parallel(Q,S,Q,T) [AlphaGeometry1b(Q,S,T,W,Q,T)] => Perpendicular(Q,T,T,W)
+9. Length_T_W - Length_U_W & Length_T_W - Length_V_W & Perpendicular(Q,T,T,W) [AlphaGeometry16b(W,T,U,V,Q)] => Angle_Q_T_U - Angle_T_V_U
+10. Angle_Q_U_T - Angle_T_V_U & Angle_Q_T_U - Angle_T_V_U => Angle_Q_T_U - Angle_Q_U_T
+11. Angle_Q_T_U - Angle_Q_U_T [DefinitionOfIsoscelesTriangle1(Q,T,U)] => Length_Q_T - Length_Q_U
+12. Length_Q_T - 2*Variable_x & Length_Q_T - Length_Q_U & Length_Q_U - 14 => Variable_x - 7

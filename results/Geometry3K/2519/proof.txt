@@ -1,6 +1,7 @@
 Solution:
-1. Perpendicular(V,W,W,X) => Angle_V_W_X - pi/2
-2. Angle_V_W_X + Angle_V_X_W + Angle_W_V_X - pi & Angle_V_W_X - pi/2 => Angle_V_X_W + Angle_W_V_X - pi/2
-3. sin(Angle_W_V_X)/Length_W_X - sin(Angle_V_X_W)/Length_V_W & Length_W_X - 21 & Angle_V_X_W + Angle_W_V_X - pi/2 & Length_V_W - 72 => Angle_W_V_X - atan(7/24)
-4. Angle_W_V_X - atan(7/24) & Angle_V_X_W + Angle_W_V_X - pi/2 => Angle_V_X_W - pi/2 + atan(7/24)
-5. Angle_V_X_W - pi/2 + atan(7/24) => cos(Angle_V_X_W) - 7/25
+1. Collinear(C,L,M) [FlatAngle2(L,C,M,R)] => Angle_L_C_R + Angle_M_C_R - pi
+2. Length_C_M - Variable_radius_C & Length_C_L - Variable_radius_C => Length_C_L - Length_C_M
+3. Length_C_L - Variable_radius_C & Length_C_R - Variable_radius_C => Length_C_L - Length_C_R
+4. Length_C_L - Length_C_M & Length_C_L - Length_C_R [InscribedAngle1(C,L,M,R)] => Angle_M_C_R - 2*Angle_M_L_R
+5. Angle_L_C_R + Angle_M_C_R - pi & Angle_M_C_R - pi*(Variable_x/180 - 1/180) & Angle_M_C_R - 2*Angle_M_L_R & Angle_L_C_R - pi*(Variable_x/60 + 1/36) => Angle_M_L_R - 43*pi/360
+6. Angle_M_L_R - 43*pi/360 & Angle_M_C_R - 2*Angle_M_L_R => Angle_M_C_R - 43*pi/180

@@ -1,7 +1,4 @@
 Solution:
-1. Variable_b - 48 & Length_A_C - Variable_b => Length_A_C - 48
-2. Length_A_B - Variable_c & Variable_c - 50 => Length_A_B - 50
-3. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-4. Angle_A_C_B - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_A_B_C + Angle_B_A_C - pi/2
-5. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Length_A_C - 48 & Length_A_B - 50 & Angle_A_C_B - pi/2 & Angle_A_B_C + Angle_B_A_C - pi/2 => Angle_B_A_C - acos(24/25)
-6. Angle_B_A_C - acos(24/25) => cos(Angle_B_A_C) - 24/25
+1. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+2. Angle_A_B_C - pi/3 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 => Angle_B_A_C - pi/6
+3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_B_A_C - pi/6 & Angle_A_C_B - pi/2 & Length_B_C - 4 & Length_A_B - Variable_h => Variable_h - 8

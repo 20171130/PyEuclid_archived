@@ -1,2 +1,15 @@
 Solution:
-1. Length_A_B**2 - 2*Length_A_B*Length_A_C*cos(Angle_B_A_C) + Length_A_C**2 - Length_B_C**2 & Length_B_C - 18*sqrt(3) & Length_A_C - 18*sqrt(3) & Length_A_B - Variable_x & Angle_B_A_C - pi/4 => Variable_x - 18*sqrt(6)
+1. Collinear(B,C,D) [CollinearParallel(B,C,D)] => Parallel(B,C,C,D) & Parallel(B,C,B,D)
+2. Perpendicular(A,D,B,C) & Parallel(B,C,C,D) [AlphaGeometry1b(B,C,A,D,C,D)] => Perpendicular(A,D,C,D)
+3. Perpendicular(A,D,C,D) [Perp2Angle(A,D,C)] => Angle_A_D_C - pi/2
+4. Angle_A_D_C - pi/2 [RightTriangleTrigonometry(A,D,C)] => cos(Angle_C_A_D) - Length_A_D/Length_A_C
+5. Perpendicular(A,B,A,C) [Perp2Angle(B,A,C)] => Angle_B_A_C - pi/2
+6. Angle_B_A_C - pi/2 [AreaRightTriangle(B,A,C)] => Area_A_B_C - Length_A_B*Length_A_C/2
+7. Perpendicular(A,D,B,C) & Parallel(B,C,B,D) [AlphaGeometry1b(B,C,A,D,B,D)] => Perpendicular(A,D,B,D)
+8. Perpendicular(A,D,B,D) [Perp2Angle(A,D,B)] => Angle_A_D_B - pi/2
+9. Length_A_B**2 - Length_A_D**2 + 2*Length_A_D*Length_B_D*cos(Angle_A_D_B) - Length_B_D**2 & Length_B_D - 5 & Length_A_B - 10 & Angle_A_D_B - pi/2 => Length_A_D - 5*sqrt(3)
+10. Perpendicular(A,D,B,C) & Collinear(B,C,D) [AreaEqualsBaseTimesHeight(A,B,C,D)] => Area_A_B_C - Length_A_D*Length_B_C/2
+11. Length_A_B - 10 & Area_A_B_C - Length_A_B*Length_A_C/2 & Length_A_D - 5*sqrt(3) & Area_A_B_C - Length_A_D*Length_B_C/2 => Length_A_C - sqrt(3)*Length_B_C/2
+12. Angle_B_A_C - Angle_B_A_D - Angle_C_A_D & Angle_B_A_C - pi/2 => Angle_B_A_D + Angle_C_A_D - pi/2
+13. sin(Angle_B_A_D)/Length_B_D - sin(Angle_A_D_B)/Length_A_B & Length_A_B - 10 & Angle_A_D_B - pi/2 & Length_B_D - 5 & Angle_B_A_D + Angle_C_A_D - pi/2 => Angle_C_A_D - pi/3
+14. cos(Angle_C_A_D) - Length_A_D/Length_A_C & Length_A_C - sqrt(3)*Length_B_C/2 & Length_A_D - 5*sqrt(3) & Angle_C_A_D - pi/3 => Length_B_C - 20

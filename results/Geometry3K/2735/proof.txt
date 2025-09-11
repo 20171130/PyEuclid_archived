@@ -1,2 +1,5 @@
 Solution:
-1. Variable_x - 120 => Variable_x - 120
+1. Collinear(A,C,E) [CollinearParallel(A,C,E)] => Parallel(A,C,A,E)
+2. Perpendicular(A,E,B,E) & Parallel(A,C,A,E) [AlphaGeometry1b(A,E,B,E,A,C)] => Perpendicular(A,C,B,E)
+3. Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Perpendicular(A,C,B,E) & Collinear(A,C,E) [TrapezoidArea(B,D,A,C,E)] => Area_A_C_B_D - Length_B_E*(Length_A_C + Length_B_D)/2
+4. Area_A_C_B_D - Length_B_E*(Length_A_C + Length_B_D)/2 & Length_A_C - 16 & Length_B_D - 6 & Length_B_E - 12 => Area_A_C_B_D - 132

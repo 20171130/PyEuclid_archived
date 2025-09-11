@@ -1,6 +1,8 @@
 Solution:
-1. Collinear(B,C,F) & Collinear(A,D,F) => Angle_A_F_B - Angle_C_F_D
-2. Collinear(B,C,F) => Angle_B_C_D - Angle_D_C_F
-3. Collinear(A,D,F) => Angle_A_D_C - Angle_C_D_F
-4. Angle_B_A_F - 11*pi/90 & Angle_B_C_D - 23*pi/180 & Angle_A_F_B - Angle_C_F_D & Angle_B_C_D - Angle_D_C_F & Angle_A_D_C - Angle_C_D_F & Angle_A_B_F + Angle_A_F_B + Angle_B_A_F - pi & Angle_A_D_C - 8*pi/45 & Angle_C_D_F + Angle_C_F_D + Angle_D_C_F - pi => Angle_A_B_F - 11*pi/60
-5. Angle_A_B_F - Variable_angle_2 & Angle_A_B_F - 11*pi/60 => Variable_angle_2 - 11*pi/60
+1. Collinear(D,G,J) [DiagramAngle4b(G,D,H,J)] => Angle_D_G_H - Angle_H_G_J
+2. Angle_G_H_J + Angle_G_J_H + Angle_H_G_J - pi & Angle_D_G_H - Angle_H_G_J & Angle_G_D_H - Angle_G_H_J & Angle_D_G_H + Angle_D_H_G + Angle_G_D_H - pi => Angle_D_H_G - Angle_G_J_H
+3. Angle_D_G_H - Angle_H_G_J & Angle_D_H_G - Angle_G_J_H [AlphaGeometry3536(D,G,H,H,G,J)] => Similar3(D,G,H,H,G,J)
+4. Similar3(D,G,H,H,G,J) [PropertyOfSimilar3(G,H,J,G,D,H)] => Length_H_J/Length_D_H - Length_G_H/Length_D_G
+5. Length_H_J - 10 & Length_G_H - 7 => Length_G_H/Length_H_J - 7/10
+6. Length_H_J/Length_D_H - Length_G_H/Length_D_G & Length_G_H/Length_H_J - 7/10 => Length_D_G - 7*Length_D_H/10
+7. Length_D_G - 2*Variable_x + 2 & Length_D_H - 2*Variable_x - 4 & Length_D_G - 7*Length_D_H/10 => Length_D_G - 14

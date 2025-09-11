@@ -1,8 +1,6 @@
 Solution:
-1. Length_D_O - Variable_radius_O & Length_C_O - Variable_radius_O => Length_C_O - Length_D_O
-2. Length_C_O - Length_D_O & Collinear(C,D,O) => Midpoint(O,C,D)
-3. Midpoint(O,C,D) => Length_C_D - 2*Length_C_O
-4. Square(B,C,E,D) => Perpendicular(B,E,C,D) & Length_B_E - Length_C_D & Area_B_C_E_D - Length_B_C*Length_B_D & Length_B_C - Length_B_D
-5. Perpendicular(B,E,C,D) => Area_B_C_E_D - Length_B_E*Length_C_D/2
-6. Length_E_O - 3*sqrt(2) & Length_C_O - Variable_radius_O & Length_E_O - Variable_radius_O => Length_C_O - 3*sqrt(2)
-7. Length_C_D - 2*Length_C_O & Area_B_C_E_D - Length_B_E*Length_C_D/2 & Length_B_E - Length_C_D & Length_C_O - 3*sqrt(2) & Area_B_C_E_D - Length_B_C*Length_B_D & Length_B_C - Length_B_D => Length_B_D - 6
+1. Length_G_H - 10 & Length_G_H - Variable_radius_G & Length_G_L - Variable_radius_G => Length_G_L - 10
+2. Length_J_L - Variable_radius_J & Length_G_J - Variable_radius_J => Length_G_J - Length_J_L
+3. Length_G_J - Length_J_L & Collinear(G,J,L) [DefinitionOfMidpoint(J,G,L)] => Midpoint(J,G,L)
+4. Midpoint(J,G,L) [PropertyOfMidpoint(J,G,L)] => Length_G_L - 2*Length_J_L
+5. Length_G_L - 10 & Length_G_L - 2*Length_J_L => Length_J_L - 5

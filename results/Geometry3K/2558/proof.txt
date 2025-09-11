@@ -1,9 +1,2 @@
 Solution:
-1. Collinear(B,C,E) => Angle_C_B_D + Angle_D_B_E - pi
-2. Length_B_E - Variable_radius_B & Length_B_C - Variable_radius_B => Length_B_C - Length_B_E
-3. Length_B_D - Variable_radius_B & Length_B_E - Variable_radius_B => Length_B_D - Length_B_E
-4. -Length_B_C + Length_B_E & -Length_B_D + Length_B_E => Angle_C_B_D - 2*Angle_C_E_D
-5. Length_B_D - Variable_radius_B & Length_B_C - Variable_radius_B => Length_B_C - Length_B_D
-6. Length_B_C - Length_B_D & Length_B_C - Length_B_E => Angle_D_B_E - 2*Angle_D_C_E
-7. Angle_C_B_D + Angle_D_B_E - pi & Angle_C_B_D - 2*Angle_C_E_D & Angle_D_C_E - pi*(Variable_x/36 - 1/15) & Angle_C_E_D - pi*Variable_x/60 & Angle_D_B_E - 2*Angle_D_C_E => Angle_D_C_E - 23*pi/80 & Angle_C_E_D - 17*pi/80
-8. Angle_D_C_E - 23*pi/80 & Angle_C_E_D - 17*pi/80 & Angle_D_C_E - pi*(Variable_x/36 - 1/15) & Angle_C_E_D - pi*Variable_x/60 => Variable_x - 51/4
+1. Length_R_S - 2*Variable_x - 1 & Length_Q_S - 6*Variable_x + 1 & Length_Q_S - Length_R_S => Length_R_S - 2

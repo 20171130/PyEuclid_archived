@@ -1,3 +1,10 @@
 Solution:
-1. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
-2. Length_A_B**2 - 2*Length_A_B*Length_B_C*cos(Angle_A_B_C) - Length_A_C**2 + Length_B_C**2 & Length_B_C - Variable_x & Length_A_B - 13 & Length_A_C - 22 & Angle_A_B_C - pi/2 => Variable_x - 3*sqrt(35)
+1. Collinear(A,B,D) [CollinearParallel(A,B,D)] => Parallel(A,D,B,D) & Angle_A_D_C + Angle_B_D_C - pi
+2. Perpendicular(A,D,C,D) & Parallel(A,D,B,D) [AlphaGeometry1b(A,D,C,D,B,D)] => Perpendicular(B,D,C,D)
+3. Perpendicular(B,D,C,D) [Perp2Angle(B,D,C)] => Angle_B_D_C - pi/2
+4. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+5. Angle_B_D_C - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_A_C_B - Angle_A_C_D - Angle_B_C_D & Angle_A_C_B - pi/2 => Angle_A_C_D - Angle_C_B_D
+6. Angle_A_D_C + Angle_B_D_C - pi & Angle_B_D_C - pi/2 => Angle_A_D_C - Angle_B_D_C
+7. Angle_A_C_D - Angle_C_B_D & Angle_A_D_C - Angle_B_D_C [AlphaGeometry3536(A,C,D,C,B,D)] => Similar3(A,C,D,C,B,D)
+8. Similar3(A,C,D,C,B,D) [PropertyOfSimilar3(A,C,D,C,B,D)] => Length_B_D/Length_C_D - Length_C_D/Length_A_D
+9. Length_B_D/Length_C_D - Length_C_D/Length_A_D & Length_B_D - 14 & Length_A_D - 24 => Length_C_D - 4*sqrt(21)

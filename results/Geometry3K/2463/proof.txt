@@ -1,12 +1,13 @@
 Solution:
-1. Length_A_D - Variable_radius_D & Length_B_D - Variable_radius_D => Length_A_D - Length_B_D
-2. Length_B_D - Variable_radius_D & Length_C_D - Variable_radius_D => Length_B_D - Length_C_D
-3. -Length_A_D + Length_B_D & Length_B_D - Length_C_D => Angle_A_B_C - Angle_A_D_C/2
-4. Collinear(A,B,D) => Angle_A_B_C - Angle_C_B_D
-5. Length_B_D - Length_C_D => Angle_B_C_D - Angle_C_B_D
-6. Length_A_D - Variable_radius_D & Length_C_D - Variable_radius_D => Length_A_D - Length_C_D
-7. Length_A_D - Length_C_D => Angle_A_C_D - Angle_C_A_D
-8. Angle_A_B_C - Angle_A_D_C/2 & Angle_A_B_C - Angle_C_B_D & Angle_B_C_D - Angle_C_B_D & Angle_A_C_D - Angle_C_A_D & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi => Angle_A_C_D + Angle_B_C_D - pi/2
-9. Angle_A_C_B - Angle_A_C_D - Angle_B_C_D & Angle_A_C_D + Angle_B_C_D - pi/2 => Angle_A_C_B - pi/2
-10. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Length_A_B - 2*Variable_radius_D & Angle_A_C_B - pi/2 & Length_A_C - 8 & Length_B_C - 15 => Variable_radius_D - 17/2
-11. Length_A_D - Variable_radius_D & Variable_radius_D - 17/2 => Length_A_D - 17/2
+1. Collinear(B,C,D) [CollinearParallel(B,C,D)] => Parallel(B,D,C,D) & Length_B_C - Length_B_D - Length_C_D
+2. Perpendicular(A,D,C,D) & Parallel(B,D,C,D) [AlphaGeometry1b(C,D,A,D,B,D)] => Perpendicular(A,D,B,D)
+3. Perpendicular(A,D,B,D) [Perp2Angle(A,D,B)] => Angle_A_D_B - pi/2
+4. Perpendicular(A,B,A,C) [Perp2Angle(B,A,C)] => Angle_B_A_C - pi/2
+5. Angle_B_A_C - Angle_B_A_D - Angle_C_A_D & Angle_A_D_B - pi/2 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_B_A_C - pi/2 => Angle_A_B_D - Angle_C_A_D
+6. Perpendicular(A,D,C,D) [Perp2Angle(A,D,C)] => Angle_A_D_C - pi/2
+7. Angle_A_D_B - pi/2 & Angle_A_D_C - pi/2 => Angle_A_D_B - Angle_A_D_C
+8. Angle_A_B_D - Angle_C_A_D & Angle_A_D_B - Angle_A_D_C [AlphaGeometry3536(A,B,D,C,A,D)] => Similar3(A,B,D,C,A,D)
+9. Similar3(A,B,D,C,A,D) [PropertyOfSimilar3(A,C,D,B,A,D)] => Length_A_D/Length_B_D - Length_C_D/Length_A_D
+10. Length_B_C - 12 & Length_B_D - 8 => Length_B_C - 3*Length_B_D/2
+11. Length_B_C - 3*Length_B_D/2 & Length_B_C - Length_B_D - Length_C_D & Length_B_D - 8 => Length_C_D - 4
+12. Length_B_D - 8 & Length_A_D/Length_B_D - Length_C_D/Length_A_D & Length_A_D - Variable_y & Length_C_D - 4 => Variable_y - 4*sqrt(2)

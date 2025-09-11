@@ -1,17 +1,6 @@
 Solution:
-1. Collinear(B,F,G) => Angle_C_B_F - Angle_C_B_G & Angle_B_G_C + Angle_C_G_F - pi
-2. Length_G_I - Variable_radius_I & Length_C_I - Variable_radius_I => Length_C_I - Length_G_I
-3. Length_G_I - Variable_radius_I & Length_F_I - Variable_radius_I => Length_F_I - Length_G_I
-4. -Length_C_I + Length_G_I & -Length_F_I + Length_G_I => Angle_C_G_F - Angle_C_I_F/2
-5. Length_E_I - Variable_radius_I & Length_D_I - Variable_radius_I => Length_D_I - Length_E_I
-6. Length_D_I - Variable_radius_I & Length_I_J - Variable_radius_I => Length_D_I - Length_I_J
-7. Length_D_I - Length_E_I & Length_D_I - Length_I_J => Angle_E_D_J - Angle_E_I_J/2
-8. Collinear(A,D,E) => Angle_A_D_J - Angle_E_D_J
-9. Collinear(B,C,D) => Angle_B_C_G - Angle_D_C_G
-10. Collinear(A,G,J) => Angle_A_J_D + Angle_D_J_G - pi
-11. Length_C_I - Variable_radius_I & Length_D_I - Variable_radius_I => Length_C_I - Length_D_I
-12. Length_C_I - Variable_radius_I & Length_I_J - Variable_radius_I => Length_C_I - Length_I_J
-13. Length_C_I - Length_D_I & Length_C_I - Length_G_I & Length_C_I - Length_I_J => Concyclic(C,D,G,J)
-14. Concyclic(C,D,G,J) => Angle_D_C_G - Angle_D_J_G
-15. Angle_C_B_F - Angle_C_B_G & Angle_B_G_C + Angle_C_G_F - pi & Angle_C_G_F - Angle_C_I_F/2 & Angle_A_D_J + Angle_A_J_D + Angle_D_A_J - pi & Angle_E_I_J - pi/12 & Angle_B_C_G + Angle_B_G_C + Angle_C_B_G - pi & Angle_E_D_J - Angle_E_I_J/2 & Angle_A_D_J - Angle_E_D_J & Angle_B_C_G - Angle_D_C_G & Angle_C_I_F - 19*pi/36 & Variable_angle_A - pi/18 & Angle_A_J_D + Angle_D_J_G - pi & Angle_D_C_G - Angle_D_J_G & Angle_D_A_J - Variable_angle_A => Angle_C_B_F - pi/6
-16. Angle_C_B_F - Variable_angle_B & Angle_C_B_F - pi/6 => Variable_angle_B - pi/6
+1. Similar3(A,B,C,E,F,G) [PropertyOfSimilar3(A,B,C,E,F,G)] => Length_A_B/Length_B_C - Length_E_F/Length_F_G
+2. Length_E_F - 12 & Length_F_G - 15 => -5/4 + Length_F_G/Length_E_F
+3. Length_A_C - 12 & Length_B_C - 20 => Length_A_C - 3*Length_B_C/5
+4. Length_A_B/Length_B_C - Length_E_F/Length_F_G & -5/4 + Length_F_G/Length_E_F & Length_A_C - 3*Length_B_C/5 => -3/4 + Length_A_C/Length_A_B
+5. -3/4 + Length_A_C/Length_A_B & Length_A_C - 12 & Length_A_B - 2*Variable_x => Variable_x - 8

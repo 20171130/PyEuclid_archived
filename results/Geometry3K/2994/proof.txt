@@ -1,2 +1,13 @@
 Solution:
-1. Perpendicular(A,O,C,O) => Angle_A_O_C - pi/2
+1. Length_A_H - Variable_radius_A & Length_A_D - Variable_radius_A => Length_A_D - Length_A_H
+2. Length_A_E - Variable_radius_A & Length_A_H - Variable_radius_A => Length_A_E - Length_A_H
+3. Angle_A_H_C - pi/2 [Angle2Perp(A,H,C)] => Perpendicular(A,H,C,H)
+4. -Length_A_D + Length_A_H & -Length_A_E + Length_A_H & Perpendicular(A,H,C,H) [AlphaGeometry16b(A,H,D,E,C)] => Angle_C_H_D - Angle_D_E_H
+5. Length_A_E - Variable_radius_A & Length_A_D - Variable_radius_A => Length_A_D - Length_A_E
+6. Angle_A_D_B - pi/2 [Angle2Perp(A,D,B)] => Perpendicular(A,D,B,D)
+7. Collinear(B,C,D) [CollinearParallel(B,C,D)] => Parallel(B,D,C,D)
+8. Perpendicular(A,D,B,D) & Parallel(B,D,C,D) [AlphaGeometry1b(B,D,A,D,C,D)] => Perpendicular(A,D,C,D)
+9. Length_A_D - Length_A_H & Length_A_D - Length_A_E & Perpendicular(A,D,C,D) [AlphaGeometry16b(A,D,H,E,C)] => Angle_C_D_H - Angle_D_E_H
+10. Angle_C_H_D - Angle_D_E_H & Angle_C_D_H - Angle_D_E_H => Angle_C_D_H - Angle_C_H_D
+11. Angle_C_D_H - Angle_C_H_D [DefinitionOfIsoscelesTriangle1(C,D,H)] => Length_C_D - Length_C_H
+12. Length_C_D + 3*Variable_x - 72 & Length_C_D - Length_C_H & Length_C_H - 5*Variable_x + 8 => Variable_x - 10

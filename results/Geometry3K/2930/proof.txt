@@ -1,13 +1,6 @@
 Solution:
-1. Collinear(W,X,Z) & Collinear(G,I,Z) => Angle_G_Z_W - Angle_I_Z_X
-2. Collinear(H,I,Z) => Angle_H_I_J - Angle_H_I_Z + Angle_J_I_Z & Angle_H_I_X - Angle_H_I_Z + Angle_X_I_Z
-3. Collinear(I,J,Y) => Angle_I_J_X - Angle_X_J_Y
-4. Collinear(W,X,Z) => Angle_I_X_W + Angle_I_X_Z - pi & Angle_J_X_W + Angle_J_X_Z - pi
-5. Angle_G_Z_W - Angle_I_Z_X & Angle_G_Z_W - pi/9 & Angle_I_J_Z + Angle_I_Z_J + Angle_J_I_Z - pi & Angle_I_J_X + Angle_I_X_J + Angle_J_I_X - pi & Angle_J_X_W - 13*pi/18 & Angle_H_I_J - Angle_H_I_Z + Angle_J_I_Z & Angle_H_I_J + Angle_H_I_X - Angle_J_I_X & Angle_H_I_X - Angle_H_I_Z + Angle_X_I_Z & Angle_J_X_Z + Angle_J_Z_X + Angle_X_J_Z - pi & Angle_I_Z_J + Angle_I_Z_X - Angle_J_Z_X & Angle_I_J_X - Angle_X_J_Y & Angle_I_J_X + Angle_I_J_Z - Angle_X_J_Z & Angle_I_X_W + Angle_I_X_Z - pi & Angle_I_X_J - Angle_I_X_W + Angle_J_X_W & Angle_I_X_Z + Angle_I_Z_X + Angle_X_I_Z - pi & Angle_J_X_W + Angle_J_X_Z - pi => Angle_H_I_J + Angle_X_J_Y - 11*pi/18
-6. Collinear(X,Y,Z) => Angle_J_X_Y - Angle_J_X_Z
-7. Angle_J_X_W - 13*pi/18 & Angle_J_X_Y - Angle_J_X_Z & Angle_J_X_W + Angle_J_X_Z - pi => Angle_J_X_Y - 5*pi/18
-8. Collinear(I,J,Y) & Collinear(H,J,X) => Angle_H_J_I - Angle_X_J_Y
-9. Length_H_J/Length_J_Y - Length_I_J/Length_J_X & Angle_H_J_I - Angle_X_J_Y => Similar3(H,I,J,Y,X,J)
-10. Similar3(H,I,J,Y,X,J) => Angle_H_I_J - Angle_J_X_Y
-11. Angle_H_I_J + Angle_X_J_Y - 11*pi/18 & Angle_J_X_Y - 5*pi/18 & Angle_H_I_J - Angle_J_X_Y => Angle_X_J_Y - pi/3
-12. Angle_X_J_Y - pi/3 & Angle_X_J_Y - Variable_angle_J => Variable_angle_J - pi/3
+1. Perpendicular(J,L,K,L) [Perp2Angle(J,L,K)] => Angle_J_L_K - pi/2
+2. Angle_J_L_K - pi/2 [RightTriangleTrigonometry(K,L,J)] => sin(Angle_J_K_L) - Length_J_L/Length_J_K
+3. Angle_J_L_K - pi/2 & Angle_J_K_L + Angle_J_L_K + Angle_K_J_L - pi => Angle_J_K_L + Angle_K_J_L - pi/2
+4. Length_J_K**2 - Length_J_L**2 + 2*Length_J_L*Length_K_L*cos(Angle_J_L_K) - Length_K_L**2 & Length_K_L - 9 & Length_J_K - 14 & Angle_J_L_K - pi/2 => Length_J_L - sqrt(115)
+5. sin(Angle_J_K_L) - Length_J_L/Length_J_K & Angle_J_K_L + Angle_K_J_L - pi/2 & Length_J_K - 14 & Length_J_L - sqrt(115) => Angle_K_J_L - acos(sqrt(115)/14)

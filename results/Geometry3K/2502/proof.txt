@@ -1,9 +1,6 @@
 Solution:
-1. Collinear(P,Q,T) & Collinear(P,R,S) & Parallel(Q,R,S,T) => Length_P_Q/Length_P_R - Length_Q_T/Length_R_S
-2. Length_P_Q/Length_P_R - Length_Q_T/Length_R_S => Length_R_S/Length_P_R - Length_Q_T/Length_P_Q
-3. Length_R_S - 5 & Length_R_S/Length_P_R - Length_Q_T/Length_P_Q => Length_P_Q - Length_P_R*Length_Q_T/5
-4. Collinear(P,R,S) => Length_P_R - Length_P_S - Length_R_S
-5. Length_R_S - 5 & Length_P_S - 25/2 & Length_P_R - Length_P_S - Length_R_S => Length_P_R - 35/2
-6. Collinear(P,Q,T) => Length_P_Q - Length_P_T - Length_Q_T
-7. Length_P_T - 15 & Length_P_Q - Length_P_T - Length_Q_T => Length_P_Q - Length_Q_T - 15
-8. Length_P_Q - Length_P_R*Length_Q_T/5 & Length_P_R - 35/2 & Length_P_Q - Length_Q_T - 15 => Length_Q_T - 6
+1. Perpendicular(B,C,C,D) [Perp2Angle(B,C,D)] => Angle_B_C_D - pi/2
+2. Angle_B_C_D - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_B_D_C + Angle_C_B_D - pi/2
+3. Collinear(A,C,D) [DiagramAngle4b(D,A,B,C)] => Angle_A_D_B - Angle_B_D_C
+4. Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_D_B - Angle_B_D_C & Angle_B_A_D - 41*pi/60 => Angle_A_B_D + Angle_B_D_C - 19*pi/60
+5. Angle_A_B_C - Variable_angle_4 & Angle_A_B_C + Angle_A_B_D - Angle_C_B_D & Angle_B_D_C + Angle_C_B_D - pi/2 & Angle_A_B_D + Angle_B_D_C - 19*pi/60 => Variable_angle_4 - 11*pi/60

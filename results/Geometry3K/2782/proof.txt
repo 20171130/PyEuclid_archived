@@ -1,5 +1,4 @@
 Solution:
-1. Collinear(A,C,E) => Angle_B_A_C - Angle_B_A_E
-2. Rhombus(A,B,C,D) => Angle_A_C_B - Angle_B_A_C
-3. Angle_A_B_C - 7*pi/18 & Angle_B_A_C - Angle_B_A_E & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - Angle_B_A_C => Angle_B_A_E - 11*pi/36
-4. Angle_B_A_E - 11*pi/36 & Angle_B_A_E - Variable_angle_1 => Variable_angle_1 - 11*pi/36
+1. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+2. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 & Angle_A_B_C - pi/6 => Angle_B_A_C - pi/3
+3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_B_C)/Length_A_C & Angle_A_B_C - pi/6 & Length_B_C - 14*sqrt(3) & Angle_B_A_C - pi/3 & Length_A_C - Variable_x => Variable_x - 14

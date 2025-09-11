@@ -1,9 +1,5 @@
 Solution:
-1. Length_A_B - Variable_radius_A & Length_A_C - Variable_radius_A => Length_A_B - Length_A_C
-2. Length_A_D - Variable_radius_A & Length_A_B - Variable_radius_A => Length_A_B - Length_A_D
-3. Length_A_B - Variable_radius_A & Length_A_E - Variable_radius_A => Length_A_B - Length_A_E
-4. Length_A_B - Length_A_C & Length_A_B - Length_A_D & Length_A_B - Length_A_E => Concyclic(B,C,D,E)
-5. Concyclic(B,C,D,E) & Collinear(B,C,F) & Collinear(D,E,F) => Length_B_F/Length_D_F - Length_E_F/Length_C_F
-6. Length_B_F/Length_D_F - Length_E_F/Length_C_F => Length_C_F/Length_D_F - Length_E_F/Length_B_F
-7. Length_C_F/Length_D_F - Length_E_F/Length_B_F & Length_E_F - 4 & Length_B_F - Variable_x & Length_D_F - 5 => Length_C_F - 20/Variable_x
-8. Length_C_F - 20/Variable_x & Length_C_F - Variable_x - 8 => Variable_x - 2
+1. Parallel(A,G,B,D) [Para2Angle(A,G,D,B)] => Angle_A_D_B + Angle_D_A_G - pi
+2. Parallel(B,D,F,H) [Para2Angle(D,B,F,H)] => Angle_B_D_F + Angle_D_F_H - pi
+3. Angle_D_F_H - pi*(7*Variable_x/180 + 1/20) & Angle_A_D_B + Angle_D_A_G - pi & Angle_A_D_B - pi*(11*Variable_x/180 - 1/180) & Angle_D_A_G - pi*(Variable_y/90 + 1/36) & Angle_B_D_F + Angle_D_F_H - pi & Angle_B_D_F - pi*(7*Variable_y/180 - 1/45) => Angle_A_D_B - 17*pi/20
+4. Angle_A_D_B - 17*pi/20 & Angle_A_D_B - pi*(11*Variable_x/180 - 1/180) => Variable_x - 14

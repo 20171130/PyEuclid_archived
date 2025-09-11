@@ -1,5 +1,2 @@
 Solution:
-1. Collinear(D,H,I) => Angle_D_H_F - Angle_F_H_I & Angle_C_I_D + Angle_C_I_H - pi
-2. Parallel(C,I,F,H) => Angle_C_I_H + Angle_F_H_I - pi
-3. Variable_angle_3 - 11*pi/18 & Angle_D_H_F - Angle_F_H_I & Angle_D_H_F - Variable_angle_3 & Angle_C_I_D + Angle_C_I_H - pi & Angle_C_I_H + Angle_F_H_I - pi => Angle_C_I_D - 11*pi/18
-4. Angle_C_I_D - 11*pi/18 & Angle_C_I_D - Variable_angle_1 => Variable_angle_1 - 11*pi/18
+1. Variable_x - 90 => Variable_x - 90

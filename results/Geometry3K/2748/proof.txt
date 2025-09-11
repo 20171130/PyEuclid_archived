@@ -1,10 +1,4 @@
 Solution:
-1. Rectangle(A,B,N,D) => Trapezoid(A,B,N,D) & Parallel(A,B,D,N) & Parallel(A,D,B,N) & Angle_A_N_B - Angle_D_B_N & Angle_B_N_D - pi/2
-2. Perpendicular(A,B,B,N) & Parallel(A,D,B,N) => Perpendicular(A,B,A,D)
-3. Trapezoid(A,B,N,D) & Parallel(A,B,D,N) & Perpendicular(A,B,A,D) => Area_A_B_N_D - Length_A_D*(Length_A_B + Length_D_N)/2
-4. Length_A_B - Length_D_N & Length_A_B - 3 => Length_D_N - 3
-5. Area_A_B_N_D - Length_A_D*(Length_A_B + Length_D_N)/2 & Length_A_D - Length_B_N & Length_D_N - 3 & Length_A_B - 3 => Area_A_B_N_D - 3*Length_B_N
-6. Angle_A_N_B - Angle_D_B_N & Angle_A_N_B - 31*pi/90 => Angle_D_B_N - 31*pi/90
-7. Angle_A_N_B - Angle_D_B_N & Angle_B_N_D - pi/2 & Angle_B_D_N + Angle_B_N_D + Angle_D_B_N - pi & Angle_A_N_B - 31*pi/90 => Angle_B_D_N - 7*pi/45
-8. sin(Angle_D_B_N)/Length_D_N - sin(Angle_B_D_N)/Length_B_N & Length_D_N - 3 & Angle_D_B_N - 31*pi/90 & Angle_B_D_N - 7*pi/45 => Length_B_N - 1.59512829498444
-9. Area_A_B_N_D - 3*Length_B_N & Length_B_N - 1.59512829498444 => Area_A_B_N_D - 4.7853848849533
+1. Collinear(A,B,Y) [CollinearParallel(A,B,Y)] => Parallel(A,B,A,Y)
+2. Angle_A_Y_Z - Angle_X_Z_Y [AlphaGeometry3c2(A,Y,X,Z)] => Parallel(A,Y,X,Z)
+3. Parallel(A,B,A,Y) & Parallel(A,Y,X,Z) [ParaTrans(A,Y,A,B,X,Z)] => Parallel(A,B,X,Z)

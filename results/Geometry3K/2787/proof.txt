@@ -1,8 +1,10 @@
 Solution:
-1. Length_W_Z - Length_Y_Z & Collinear(W,Y,Z) => Midpoint(Z,W,Y)
-2. Collinear(W,Y,Z) => Parallel(W,Y,Y,Z)
-3. Perpendicular(B,Z,Y,Z) & Parallel(W,Y,Y,Z) => Perpendicular(B,Z,W,Y)
-4. Collinear(B,X,Z) => Parallel(B,Z,X,Z)
-5. Perpendicular(B,Z,W,Y) & Parallel(B,Z,X,Z) => Perpendicular(W,Y,X,Z)
-6. Midpoint(Z,W,Y) & Perpendicular(W,Y,X,Z) => Length_W_X - Length_X_Y
-7. Length_W_X - Length_X_Y & Length_X_Y - 12 => Length_W_X - 12
+1. Length_A_B - Variable_radius_B & Length_B_S - Variable_radius_B => Length_A_B - Length_B_S
+2. Length_B_S - Variable_radius_B & Length_B_Q - Variable_radius_B => Length_B_Q - Length_B_S
+3. -Length_A_B + Length_B_S & -Length_B_Q + Length_B_S & Perpendicular(B,S,R,S) [AlphaGeometry16b(B,S,A,Q,R)] => Angle_A_Q_S - Angle_A_S_R
+4. Collinear(A,Q,R) [FlatAngle2(Q,A,R,S)] => Angle_Q_A_S + Angle_R_A_S - pi
+5. Length_A_B - Variable_radius_B & Length_B_Q - Variable_radius_B => Length_A_B - Length_B_Q
+6. -Length_A_B + Length_B_Q & Length_B_Q - Length_B_S [InscribedAngle1(B,Q,A,S)] => Angle_A_B_S - 2*Angle_A_Q_S
+7. Length_A_B - Length_B_Q & Length_A_B - Length_B_S [InscribedAngle2(B,A,Q,S)] => Angle_Q_A_S + Angle_Q_B_S/2 - pi
+8. Angle_A_R_S + Angle_A_S_R + Angle_R_A_S - pi & Angle_A_B_S - 53*pi/90 & Angle_A_R_S - 71*pi/180 & Angle_Q_B_R - Angle_Q_B_S + Angle_R_B_S & Angle_A_Q_S - Angle_A_S_R & Angle_Q_A_S + Angle_R_A_S - pi & Angle_A_B_S - 2*Angle_A_Q_S & Angle_Q_A_S + Angle_Q_B_S/2 - pi => Angle_Q_B_R + Angle_R_B_S - 28*pi/45
+9. Angle_Q_B_R + Angle_R_B_S - 28*pi/45 & Angle_Q_B_R - Angle_Q_B_S + Angle_R_B_S => Angle_Q_B_S - 28*pi/45

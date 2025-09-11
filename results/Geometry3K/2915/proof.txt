@@ -1,7 +1,11 @@
 Solution:
-1. Parallelogram(A,C,B,D) => Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Length_A_C - Length_B_D
-2. Collinear(B,D,E) => Parallel(B,D,B,E)
-3. Perpendicular(B,E,C,E) & Parallel(B,D,B,E) => Perpendicular(B,D,C,E)
-4. Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Perpendicular(B,D,C,E) & Collinear(B,D,E) => Area_A_C_B_D - Length_C_E*(Length_A_C + Length_B_D)/2
-5. Length_A_C - Length_B_D & Length_B_D - 22 => Length_A_C - 22
-6. Area_A_C_B_D - Length_C_E*(Length_A_C + Length_B_D)/2 & Length_A_C - 22 & Length_C_E - 24 & Length_B_D - 22 => Area_A_C_B_D - 528
+1. Length_F_O - Variable_radius_O & Length_D_O - Variable_radius_O => Length_D_O - Length_F_O
+2. Length_D_O - Length_F_O [DefinitionOfIsoscelesTriangle(O,D,F)] => IsoscelesTriangle(D,F,O)
+3. IsoscelesTriangle(D,F,O) & Length_D_O - Length_F_O & Angle_D_O_E - Angle_E_O_F [PropertyOfIsoscelesTriangle4(O,D,F,E)] => Perpendicular(D,F,E,O)
+4. Perpendicular(D,F,E,O) [Perp2Angle3(D,F,E,O)] => Angle_D_O_E + Angle_F_D_O - pi/2
+5. Collinear(A,B,O) [FlatAngle2(A,O,B,D)] => Angle_A_O_D + Angle_B_O_D - pi
+6. Collinear(C,E,O) [CollinearParallel(C,E,O)] => Parallel(C,O,E,O)
+7. Perpendicular(A,O,C,O) & Parallel(C,O,E,O) [AlphaGeometry1b(C,O,A,O,E,O)] => Perpendicular(A,O,E,O)
+8. Perpendicular(A,O,E,O) & Perpendicular(D,F,E,O) [AlphaGeometry1(A,O,E,O,D,F)] => Parallel(A,O,D,F)
+9. Parallel(A,O,D,F) [Para2Angle(D,F,O,A)] => Angle_A_O_D + Angle_F_D_O - pi
+10. Angle_D_O_E + Angle_F_D_O - pi/2 & Angle_A_O_D + Angle_B_O_D - pi & Angle_A_O_D + Angle_F_D_O - pi & Angle_B_O_D - Angle_D_O_E => Angle_A_O_D - 3*pi/4

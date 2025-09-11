@@ -1,2 +1,3 @@
 Solution:
-1. Variable_x - 12 => Variable_x - 12
+1. Collinear(A,B,C) [FlatAngle2(A,B,C,F)] => Angle_A_B_F + Angle_C_B_F - pi
+2. Angle_A_B_D - Angle_A_B_F + Angle_D_B_F & Angle_A_B_F + Angle_C_B_F - pi & Angle_A_B_D - Angle_D_B_F & Angle_A_B_F - pi*(Variable_x/18 - 1/180) & Angle_C_B_F - pi*(Variable_x/90 + 5/36) => Angle_D_B_F - 43*pi/120

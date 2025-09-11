@@ -1,12 +1,6 @@
 Solution:
-1. Length_A_E - Length_B_E & Collinear(A,B,E) => Midpoint(E,A,B)
-2. Midpoint(E,A,B) => Length_A_B - 2*Length_B_E
-3. Length_A_E - 12 & Length_A_E - Length_B_E => Length_B_E - 12
-4. Length_A_B - 2*Length_B_E & Length_B_E - 12 => Length_A_B - 24
-5. Rhombus(A,C,B,D) => Perpendicular(A,B,C,D)
-6. Perpendicular(A,B,C,D) => Area_A_C_B_D - Length_A_B*Length_C_D/2
-7. Length_D_E - 11 & Length_C_E - Length_D_E => Length_C_E - 11
-8. Length_C_E - Length_D_E & Collinear(C,D,E) => Midpoint(E,C,D)
-9. Midpoint(E,C,D) => Length_C_D - 2*Length_C_E
-10. Length_C_E - 11 & Length_C_D - 2*Length_C_E => Length_C_D - 22
-11. Length_A_B - 24 & Area_A_C_B_D - Length_A_B*Length_C_D/2 & Length_C_D - 22 => Area_A_C_B_D - 264
+1. Perpendicular(R,T,S,T) [Perp2Angle(R,T,S)] => Angle_R_T_S - pi/2
+2. Angle_R_S_T + Angle_R_T_S + Angle_S_R_T - pi & Angle_R_T_S - pi/2 => Angle_R_S_T + Angle_S_R_T - pi/2
+3. sin(Angle_R_S_T)/Length_R_T - sin(Angle_R_T_S)/Length_R_S & Length_R_T - 3 & Length_R_S - 5 & Angle_R_S_T + Angle_S_R_T - pi/2 & Angle_R_T_S - pi/2 => Angle_S_R_T - acos(3/5)
+4. Angle_S_R_T - acos(3/5) & Angle_R_S_T + Angle_S_R_T - pi/2 => Angle_R_S_T - pi/2 + acos(3/5)
+5. Angle_R_S_T - pi/2 + acos(3/5) => sin(Angle_R_S_T) - 3/5

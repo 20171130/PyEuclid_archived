@@ -1,2 +1,5 @@
 Solution:
-1. Variable_x - 90 => Variable_x - 90
+1. Rectangle(A,B,D,C) => Angle_A_D_C - Angle_B_A_D
+2. Collinear(A,D,E) [DiagramAngle4b(A,D,B,E)] => Angle_B_A_D - Angle_B_A_E
+3. Angle_A_D_C - Angle_B_A_D & Angle_B_A_E - Variable_angle_2 & Angle_B_A_D - Angle_B_A_E & Variable_angle_2 - 2*pi/9 => Angle_A_D_C - 2*pi/9
+4. Angle_A_D_C - 2*pi/9 & Angle_A_D_C - Variable_angle_3 => Variable_angle_3 - 2*pi/9

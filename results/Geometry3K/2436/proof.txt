@@ -1,2 +1,10 @@
 Solution:
-1. Variable_x - 115 => Variable_x - 115
+1. Length_A_F - Variable_radius_F & Length_B_F - Variable_radius_F => Length_A_F - Length_B_F
+2. Length_B_F - Variable_radius_F & Length_D_F - Variable_radius_F => Length_B_F - Length_D_F
+3. -Length_A_F + Length_B_F & Length_B_F - Length_D_F [InscribedAngle1(F,B,A,D)] => Angle_A_B_D - Angle_A_F_D/2
+4. Collinear(B,D,E) [DiagramAngle4b(B,D,A,E)] => Angle_A_B_D - Angle_A_B_E
+5. Collinear(A,C,E) [DiagramAngle4b(A,C,B,E)] => Angle_B_A_C - Angle_B_A_E
+6. Length_C_F - Variable_radius_F & Length_A_F - Variable_radius_F => Length_A_F - Length_C_F
+7. Length_A_F - Length_B_F & Length_A_F - Length_C_F [InscribedAngle1(F,A,B,C)] => Angle_B_A_C - Angle_B_F_C/2
+8. Angle_A_B_D - Angle_A_F_D/2 & Angle_A_B_D - Angle_A_B_E & Angle_B_F_C - pi/6 & Angle_B_A_C - Angle_B_A_E & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi & Angle_A_F_D - pi/9 & Angle_B_A_C - Angle_B_F_C/2 => Angle_A_E_B - 31*pi/36
+9. Angle_A_E_B - 31*pi/36 & Angle_A_E_B - Variable_angle_2 => Variable_angle_2 - 31*pi/36

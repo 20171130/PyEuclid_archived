@@ -1,10 +1,2 @@
 Solution:
-1. Length_G_M - Variable_radius_M & Length_F_M - Variable_radius_M => Length_F_M - Length_G_M
-2. Length_F_M - Length_G_M => IsoscelesTriangle(F,G,M)
-3. Collinear(K,L,M) => Parallel(K,L,L,M)
-4. Perpendicular(G,L,K,L) & Parallel(K,L,L,M) => Perpendicular(G,L,L,M)
-5. Collinear(F,G,L) => Parallel(F,G,G,L)
-6. Perpendicular(G,L,L,M) & Parallel(F,G,G,L) => Perpendicular(F,G,L,M)
-7. IsoscelesTriangle(F,G,M) & Length_F_M - Length_G_M & Collinear(F,G,L) & Perpendicular(F,G,L,M) => Midpoint(L,F,G)
-8. Midpoint(L,F,G) => Length_F_G - 2*Length_F_L
-9. Length_F_L - 24 & Length_F_G - 2*Length_F_L => Length_F_G - 48
+1. Length_B_J + Variable_x - 6 & Length_J_L - 2*Variable_x - 3 & Length_B_J - Length_J_L => Variable_x - 1

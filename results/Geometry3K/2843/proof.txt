@@ -1,4 +1,3 @@
 Solution:
-1. Collinear(A,C,F) => Angle_C_A_D - Angle_D_A_F
-2. Collinear(B,D,F) & Collinear(A,C,F) => Angle_A_F_D - Angle_B_F_C
-3. Angle_B_F_C - 49*pi/180 & Angle_C_A_D - Angle_D_A_F & Angle_A_D_F + Angle_A_F_D + Angle_D_A_F - pi & Angle_A_D_F - 59*pi/180 & Angle_A_F_D - Angle_B_F_C => Angle_C_A_D - 2*pi/5
+1. Congruent3(L,M,N,Q,R,S) [PropertyOfCongruent(L,M,N,Q,R,S)] => Length_L_N - Length_Q_S
+2. Length_L_N - Length_Q_S & Length_Q_S - 2*Variable_x - 10 & Length_L_N - 3*Variable_x - 5 => Variable_x - 5

@@ -1,4 +1,9 @@
 Solution:
-1. Rhombus(A,B,C,D) => Perpendicular(A,C,B,D)
-2. Perpendicular(A,C,B,D) => Area_A_B_C_D - Length_A_C*Length_B_D/2
-3. Length_A_C - 22 & Area_A_B_C_D - Length_A_C*Length_B_D/2 & Length_B_D - 12 => Area_A_B_C_D - 132
+1. Collinear(D,E,G) & Collinear(A,E,F) [DiagramAngle4(E,A,D,F,G)] => Angle_A_E_D - Angle_F_E_G
+2. Collinear(A,E,F) [CollinearParallel(A,E,F)] => Parallel(A,E,E,F)
+3. Parallel(A,E,E,F) & Parallel(B,D,E,F) [ParaTrans(E,F,A,E,B,D)] => Parallel(A,E,B,D)
+4. Collinear(B,C,D) [CollinearParallel(B,C,D)] => Parallel(B,D,C,D)
+5. Parallel(A,E,B,D) & Parallel(B,D,C,D) [ParaTrans(B,D,A,E,C,D)] => Parallel(A,E,C,D)
+6. Parallel(A,E,C,D) [Para2Angle(D,C,E,A)] => Angle_A_E_D + Angle_C_D_E - pi
+7. Angle_C_D_E - Variable_angle_4 & Variable_angle_4 - 7*pi/30 & Angle_A_E_D - Angle_F_E_G & Angle_A_E_D + Angle_C_D_E - pi => Angle_F_E_G - 23*pi/30
+8. Angle_F_E_G - Variable_angle_7 & Angle_F_E_G - 23*pi/30 => Variable_angle_7 - 23*pi/30

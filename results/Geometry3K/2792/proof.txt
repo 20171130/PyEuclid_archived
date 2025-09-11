@@ -1,13 +1,4 @@
 Solution:
-1. Length_F_K - 15 & Length_F_G - 18 => -5/6 + Length_F_K/Length_F_G
-2. Length_A_G - Variable_radius_A & Length_A_H - Variable_radius_A => Length_A_G - Length_A_H
-3. Length_A_G - Variable_radius_A & Length_A_J - Variable_radius_A => Length_A_G - Length_A_J
-4. Length_A_K - Variable_radius_A & Length_A_G - Variable_radius_A => Length_A_G - Length_A_K
-5. Length_A_G - Length_A_H & Length_A_G - Length_A_J & Length_A_G - Length_A_K => Concyclic(G,H,J,K)
-6. Concyclic(G,H,J,K) & Collinear(F,G,H) & Collinear(F,J,K) => Length_F_G/Length_F_J - Length_F_K/Length_F_H
-7. -5/6 + Length_F_K/Length_F_G & Length_F_G/Length_F_J - Length_F_K/Length_F_H => Length_F_H - 5*Length_F_J/6
-8. Collinear(F,J,K) => Length_F_J - Length_F_K - Length_J_K
-9. Length_F_K - 15 & Length_F_J - Length_F_K - Length_J_K & Length_J_K - Variable_a => Length_F_J - Variable_a - 15
-10. Collinear(F,G,H) => Length_F_G - Length_F_H + Length_G_H
-11. Length_G_H - 42 & Length_F_G - Length_F_H + Length_G_H & Length_F_G - 18 => Length_F_H - 60
-12. Length_F_H - 5*Length_F_J/6 & Length_F_J - Variable_a - 15 & Length_F_H - 60 => Variable_a - 57
+1. Collinear(C,E,F) & Collinear(B,F,G) [DiagramAngle4(F,B,C,G,E)] => Angle_B_F_C - Angle_E_F_G
+2. Angle_D_F_G - 47*pi/180 & Angle_D_F_E + Angle_D_F_G - Angle_E_F_G & Angle_B_F_C - Angle_E_F_G & Angle_D_F_E - 23*pi/60 => Angle_B_F_C - 29*pi/45
+3. Angle_B_F_C - 29*pi/45 & Angle_B_F_C - Variable_angle_3 => Variable_angle_3 - 29*pi/45

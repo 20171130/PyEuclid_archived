@@ -1,5 +1,6 @@
 Solution:
-1. Collinear(X,Y,Z) => Parallel(X,Y,X,Z)
-2. Perpendicular(W,X,X,Z) & Parallel(X,Y,X,Z) => Perpendicular(W,X,X,Y)
-3. Perpendicular(W,X,X,Y) => Angle_W_X_Y - pi/2
-4. Angle_W_X_Y - pi*(Variable_y/9 + 1/18) & Angle_W_X_Y - pi/2 => Variable_y - 4
+1. Length_K_N - Length_L_N & Collinear(K,L,N) [DefinitionOfMidpoint(N,K,L)] => Midpoint(N,K,L)
+2. Collinear(K,L,N) [CollinearParallel(K,L,N)] => Parallel(K,L,L,N)
+3. Perpendicular(J,N,L,N) & Parallel(K,L,L,N) [AlphaGeometry1b(L,N,J,N,K,L)] => Perpendicular(J,N,K,L)
+4. Midpoint(N,K,L) & Perpendicular(J,N,K,L) [AlphaGeometry23(N,J,K,L)] => Length_J_K - Length_J_L
+5. Length_J_K - Length_J_L & Length_J_K - 6*Variable_x - 7 & Length_J_L - 9*Variable_x + 5 => Length_J_K - 31

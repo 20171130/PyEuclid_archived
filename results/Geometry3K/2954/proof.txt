@@ -1,2 +1,10 @@
 Solution:
-1. Angle_A_B_D - pi/4 & Angle_A_D_B - Variable_angle_3 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_B_A_D - 2*pi/9 => Variable_angle_3 - 19*pi/36
+1. Length_C_D - Variable_radius_C & Length_A_C - Variable_radius_C => Length_A_C - Length_C_D
+2. Length_A_C - Length_C_D [DefinitionOfIsoscelesTriangle(C,A,D)] => Angle_A_D_C - Angle_C_A_D
+3. Collinear(A,B,C) [DiagramAngle4b(B,A,D,C)] => Angle_A_B_D - Angle_C_B_D
+4. Length_B_C - Variable_radius_C & Length_A_C - Variable_radius_C => Length_A_C - Length_B_C
+5. Length_B_C - Variable_radius_C & Length_C_D - Variable_radius_C => Length_B_C - Length_C_D
+6. -Length_A_C + Length_B_C & Length_B_C - Length_C_D [InscribedAngle1(C,B,A,D)] => Angle_A_B_D - Angle_A_C_D/2
+7. Length_B_C - Length_C_D [DefinitionOfIsoscelesTriangle(C,B,D)] => Angle_B_D_C - Angle_C_B_D
+8. Angle_A_D_C - Angle_C_A_D & Angle_A_B_D - Angle_C_B_D & Angle_A_B_D - Angle_A_C_D/2 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_B_D_C - Angle_C_B_D => Angle_A_D_C + Angle_B_D_C - pi/2
+9. Angle_A_D_C + Angle_B_D_C - pi/2 & Angle_A_D_B - Variable_angle_2 & Angle_A_D_B - Angle_A_D_C - Angle_B_D_C => Variable_angle_2 - pi/2

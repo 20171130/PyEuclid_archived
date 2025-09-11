@@ -1,5 +1,4 @@
 Solution:
-1. Collinear(A,X,Y) => Angle_A_X_W - Angle_W_X_Y
-2. Rectangle(W,X,Z,Y) => Angle_W_X_Y - Angle_X_Y_Z
-3. Angle_A_X_W - Variable_angle_1 & Angle_A_X_W - Angle_W_X_Y & Angle_W_X_Y - Angle_X_Y_Z & Variable_angle_1 - pi/6 => Angle_X_Y_Z - pi/6
-4. Angle_X_Y_Z - pi/6 & Angle_X_Y_Z - Variable_angle_5 => Variable_angle_5 - pi/6
+1. Perpendicular(A,B,B,C) [Perp2Angle(A,B,C)] => Angle_A_B_C - pi/2
+2. Angle_A_B_C - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_B_A_C - pi/4 => Angle_A_C_B - pi/4
+3. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_C_B - pi/4 & Length_A_C - 12 & Length_A_B - Variable_y & Angle_A_B_C - pi/2 => Variable_y - 6*sqrt(2)

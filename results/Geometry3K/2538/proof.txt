@@ -1,3 +1,6 @@
 Solution:
-1. Collinear(A,C,F) => Angle_A_F_B + Angle_B_F_C - pi
-2. Angle_B_F_C - 2*pi/5 & Angle_A_F_B + Angle_B_F_C - pi => Angle_A_F_B - 3*pi/5
+1. Collinear(B,C,F) [DiagramAngle4b(C,B,D,F)] => Angle_B_C_D - Angle_D_C_F
+2. Collinear(A,F,G) [FlatAngle2(A,G,F,B)] => Angle_A_G_B + Angle_B_G_F - pi
+3. Collinear(B,D,G) & Collinear(B,C,F) [DiagramAngle4(B,C,D,F,G)] => Angle_C_B_D - Angle_F_B_G
+4. Angle_A_G_B - 2*pi/3 & Angle_D_C_F - 13*pi/30 & Angle_B_C_D - Angle_D_C_F & Angle_B_D_C - 5*pi/18 & Angle_A_G_B + Angle_B_G_F - pi & Angle_C_B_D - Angle_F_B_G & Angle_B_F_G + Angle_B_G_F + Angle_F_B_G - pi & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_B_F_G - 17*pi/45
+5. Angle_B_F_G - 17*pi/45 & Angle_B_F_G - Variable_angle_3 => Variable_angle_3 - 17*pi/45

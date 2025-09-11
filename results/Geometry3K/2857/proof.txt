@@ -1,5 +1,9 @@
 Solution:
-1. Collinear(A,C,D) => Length_A_C - Length_A_D - Length_C_D
-2. Length_A_B - Variable_radius_A & Length_A_D - Variable_radius_A => Length_A_B - Length_A_D
-3. Length_A_C - Length_A_D - Length_C_D & Length_C_D - 18 & Length_A_B - Variable_x & Length_A_B - Length_A_D => Length_A_C - Variable_x - 18
-4. Length_A_B**2 - 2*Length_A_B*Length_B_C*cos(Angle_A_B_C) - Length_A_C**2 + Length_B_C**2 & Length_B_C - 30 & Length_A_B - Variable_x & Angle_A_B_C - pi/2 & Length_A_C - Variable_x - 18 => Variable_x - 16
+1. Kite(F,G,H,J) & Length_F_G - Length_F_J & -Length_G_H + Length_H_J [PropertyOfKite(G,F,J,H)] => Perpendicular(F,H,G,J)
+2. Collinear(A,G,J) [CollinearParallel(A,G,J)] => Parallel(A,G,G,J)
+3. Perpendicular(F,H,G,J) & Parallel(A,G,G,J) [AlphaGeometry1b(G,J,F,H,A,G)] => Perpendicular(A,G,F,H)
+4. Collinear(A,F,H) [CollinearParallel(A,F,H)] => Parallel(A,H,F,H)
+5. Perpendicular(A,G,F,H) & Parallel(A,H,F,H) [AlphaGeometry1b(F,H,A,G,A,H)] => Perpendicular(A,G,A,H)
+6. Perpendicular(A,G,A,H) [Perp2Angle(G,A,H)] => Angle_G_A_H - pi/2
+7. Length_A_G**2 - 2*Length_A_G*Length_A_H*cos(Angle_G_A_H) + Length_A_H**2 - Length_G_H**2 & Length_A_H - 15 & Length_A_G - 12 & Angle_G_A_H - pi/2 & Length_G_H - Length_H_J => Length_H_J - 3*sqrt(41)
+8. Length_H_J - 3*sqrt(41) & Length_G_H - Length_H_J => Length_G_H - 3*sqrt(41)

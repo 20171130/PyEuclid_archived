@@ -1,19 +1,6 @@
 Solution:
-1. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
-2. Collinear(A,C,D) => Parallel(A,D,C,D) & Angle_A_C_B - Angle_B_C_D & Length_A_C - Length_A_D - Length_C_D & Angle_B_A_C - Angle_B_A_D
-3. Perpendicular(A,D,B,D) & Parallel(A,D,C,D) => Perpendicular(B,D,C,D)
-4. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2
-5. Angle_A_B_C - pi/2 & Angle_B_D_C - pi/2 => Angle_A_B_C - Angle_B_D_C
-6. Angle_A_B_C - Angle_B_D_C & Angle_A_C_B - Angle_B_C_D => Similar3(A,B,C,B,D,C)
-7. Similar3(A,B,C,B,D,C) => Length_A_C/Length_B_C - Length_B_C/Length_C_D & Length_C_D/Length_B_C - Length_B_C/Length_A_C
-8. Length_A_D - 44/5 & Length_C_D - Variable_x & Length_A_C - Length_A_D - Length_C_D => Length_A_C - Variable_x - 44/5
-9. Perpendicular(A,D,B,D) => Angle_A_D_B - pi/2
-10. Angle_A_B_C - pi/2 & Angle_A_D_B - pi/2 => Angle_A_B_C - Angle_A_D_B
-11. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - pi/2 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_D_B - pi/2 & Angle_B_A_C - Angle_B_A_D => Angle_A_B_D - Angle_A_C_B
-12. Angle_A_B_C - Angle_A_D_B & -Angle_A_B_D + Angle_A_C_B => Similar3(A,B,C,A,D,B)
-13. Similar3(A,B,C,A,D,B) => Length_A_B/Length_A_D - Length_A_C/Length_A_B & Length_A_B/Length_A_C - Length_A_D/Length_A_B
-14. Length_A_D - 44/5 & Length_A_B - Variable_z & Length_C_D/Length_B_C - Length_B_C/Length_A_C & Length_B_C - 17/2 & Length_A_B/Length_A_D - Length_A_C/Length_A_B & Length_C_D - Variable_x => Variable_x - 3179/(5*Variable_z**2)
-15. Length_A_D - 44/5 & Length_A_B - Variable_z & Length_A_B/Length_A_D - Length_A_C/Length_A_B => Length_A_C - 5*Variable_z**2/44
-16. Length_A_C - Variable_x - 44/5 & Variable_x - 3179/(5*Variable_z**2) & Length_A_C - 5*Variable_z**2/44 => Variable_z - sqrt(968 + 22*sqrt(9161))/5
-17. Length_A_B - Variable_z & Length_B_C - 17/2 & Length_A_C/Length_B_C - Length_B_C/Length_C_D & Variable_z - sqrt(968 + 22*sqrt(9161))/5 & Length_A_B/Length_A_C - Length_A_D/Length_A_B => Length_A_D - 1.701696047602864*Length_C_D
-18. Length_A_D - 44/5 & Length_A_D - 1.701696047602864*Length_C_D & Length_C_D - Variable_x => Variable_x - 15895/(968 + 22*sqrt(9161))
+1. Length_B_Z - Variable_radius_Z & Length_A_Z - Variable_radius_Z => Length_A_Z - Length_B_Z
+2. Length_C_Z - Variable_radius_Z & Length_A_Z - Variable_radius_Z => Length_A_Z - Length_C_Z
+3. Length_A_Z - Length_B_Z & Length_A_Z - Length_C_Z [InscribedAngle1(Z,A,B,C)] => Angle_B_A_C - Angle_B_Z_C/2
+4. Length_A_Z - Length_B_Z [DefinitionOfIsoscelesTriangle(Z,A,B)] => Angle_A_B_Z - Angle_B_A_Z
+5. Angle_B_A_C - Angle_B_Z_C/2 & Angle_A_Z_B - 26*pi/45 & Angle_A_B_Z - Angle_B_A_Z & Angle_B_A_C - Angle_B_A_Z - Angle_C_A_Z & Angle_B_Z_C - 47*pi/90 & Angle_A_B_Z + Angle_A_Z_B + Angle_B_A_Z - pi => Angle_C_A_Z - pi/20

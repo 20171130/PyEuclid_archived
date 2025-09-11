@@ -1,14 +1,14 @@
 Solution:
-1. Collinear(P,R,T) & Collinear(Q,R,S) & Parallel(P,Q,S,T) => Length_P_R/Length_Q_R - Length_P_T/Length_Q_S & Similar3(P,Q,R,T,S,R)
-2. Length_P_R/Length_Q_R - Length_P_T/Length_Q_S & Length_Q_S - 5 => Length_P_R - Length_P_T*Length_Q_R/5
-3. Collinear(Q,R,S) => Length_Q_R - Length_Q_S - Length_R_S
-4. Length_R_S - 10 & Length_Q_S - 5 & Length_Q_R - Length_Q_S - Length_R_S => Length_Q_R - 15
-5. Collinear(P,R,T) => Length_P_R - Length_P_T - Length_R_T
-6. Length_R_T - Variable_x & Length_P_R - Length_P_T - Length_R_T => Length_P_R - Length_P_T - Variable_x
-7. Length_P_R - Length_P_T*Length_Q_R/5 & Length_Q_R - 15 & Length_P_R - Length_P_T - Variable_x => Length_P_T - Variable_x/2
-8. Similar3(P,Q,R,T,S,R) => Length_R_S/Length_Q_R - Length_S_T/Length_P_Q
-9. Length_P_Q - 25 & Length_R_S - 10 & Length_Q_R - 15 & Length_R_S/Length_Q_R - Length_S_T/Length_P_Q => Length_Q_R/Length_S_T - 9/10
-10. Length_Q_R/Length_S_T - 9/10 & Length_Q_R - 15 => Length_S_T - 50/3
-11. Perpendicular(R,S,R,T) => Angle_S_R_T - pi/2
-12. Length_R_S**2 - 2*Length_R_S*Length_R_T*cos(Angle_S_R_T) + Length_R_T**2 - Length_S_T**2 & Length_S_T - 50/3 & Length_R_S - 10 & Angle_S_R_T - pi/2 & Length_R_T - Variable_x => Variable_x - 40/3
-13. Length_P_T - Variable_x/2 & Variable_x - 40/3 => Length_P_T - 20/3
+1. Length_B_C - Variable_radius_B & Length_B_E - Variable_radius_B => Length_B_C - Length_B_E
+2. Length_B_C - Length_B_E [DefinitionOfIsoscelesTriangle(B,C,E)] => IsoscelesTriangle(B,C,E)
+3. Collinear(B,D,F) [CollinearParallel(B,D,F)] => Parallel(B,D,D,F)
+4. Perpendicular(C,D,D,F) & Parallel(B,D,D,F) [AlphaGeometry1b(D,F,C,D,B,D)] => Perpendicular(B,D,C,D)
+5. Collinear(C,D,E) [CollinearParallel(C,D,E)] => Parallel(C,D,C,E) & Parallel(C,D,D,E)
+6. Perpendicular(B,D,C,D) & Parallel(C,D,C,E) [AlphaGeometry1b(C,D,B,D,C,E)] => Perpendicular(B,D,C,E)
+7. IsoscelesTriangle(B,C,E) & Length_B_C - Length_B_E & Collinear(C,D,E) & Perpendicular(B,D,C,E) [PropertyOfIsoscelesTriangle1(B,C,E,D)] => Midpoint(D,C,E)
+8. Midpoint(D,C,E) [PropertyOfMidpoint(D,C,E)] => Length_C_E - 2*Length_D_E
+9. Length_C_E - 2*Length_D_E & Length_C_E - 27/2 => Length_D_E - 27/4
+10. Perpendicular(B,D,C,D) & Parallel(C,D,D,E) [AlphaGeometry1b(C,D,B,D,D,E)] => Perpendicular(B,D,D,E)
+11. Perpendicular(B,D,D,E) [Perp2Angle(B,D,E)] => Angle_B_D_E - pi/2
+12. Length_A_B - 8 & Length_A_B - Variable_radius_B & Length_B_E - Variable_radius_B => Length_B_E - 8
+13. Length_B_D**2 - 2*Length_B_D*Length_D_E*cos(Angle_B_D_E) - Length_B_E**2 + Length_D_E**2 & Length_D_E - 27/4 & Angle_B_D_E - pi/2 & Length_B_E - 8 => Length_B_D - sqrt(295)/4

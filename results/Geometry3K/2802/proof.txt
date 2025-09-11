@@ -1,4 +1,4 @@
 Solution:
-1. Parallelogram(A,B,C,D) => Angle_A_C_D - Angle_B_A_C
-2. Collinear(A,C,F) => Angle_B_A_C - Angle_B_A_F & Angle_A_F_B + Angle_B_F_C - pi
-3. Angle_A_B_F + Angle_A_F_B + Angle_B_A_F - pi & Angle_A_C_D - Angle_B_A_C & Angle_B_A_C - Angle_B_A_F & Angle_B_F_C - 49*pi/180 & Angle_A_F_B + Angle_B_F_C - pi & Angle_A_B_F - pi/9 => Angle_A_C_D - 29*pi/180
+1. Collinear(B,C,D) [DiagramAngle4b(D,B,A,C)] => Angle_A_D_B - Angle_A_D_C
+2. Length_A_D - Length_C_D [DefinitionOfIsoscelesTriangle(D,A,C)] => Angle_A_C_D - Angle_C_A_D
+3. Angle_A_D_B - Angle_A_D_C & Angle_A_D_B - 23*pi/45 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_C_D - Angle_C_A_D => Angle_C_A_D - 11*pi/45

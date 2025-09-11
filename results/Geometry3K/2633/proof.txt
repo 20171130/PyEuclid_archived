@@ -1,16 +1,5 @@
 Solution:
-1. Length_B_G - 15 & Length_B_C - 30 => Length_B_C/Length_B_G - 2
-2. Similar3(A,B,C,D,E,F) => Length_A_C/Length_D_F - Length_B_C/Length_E_F & Angle_A_C_B - Angle_D_F_E
-3. Length_B_G - 15 & Length_E_F - 15 => Length_B_G - Length_E_F
-4. Midpoint(H,D,F) => Length_D_F - 2*Length_F_H
-5. Midpoint(G,A,C) => Length_A_C - 2*Length_C_G
-6. Length_A_C/Length_D_F - Length_B_C/Length_E_F & Length_B_G - Length_E_F & Length_D_F - 2*Length_F_H & Length_A_C - 2*Length_C_G => Length_B_C/Length_C_G - Length_B_G/Length_F_H
-7. Length_A_C/Length_D_F - Length_B_C/Length_E_F & Length_D_F - 2*Length_F_H & Length_A_C - 2*Length_C_G => Length_B_C/Length_C_G - Length_E_F/Length_F_H
-8. Length_B_C/Length_C_G - Length_E_F/Length_F_H => Length_B_C/Length_E_F - Length_C_G/Length_F_H
-9. Collinear(D,F,H) => Angle_D_F_E - Angle_E_F_H
-10. Collinear(A,C,G) => Angle_A_C_B - Angle_B_C_G
-11. Angle_D_F_E - Angle_E_F_H & Angle_A_C_B - Angle_D_F_E & Angle_A_C_B - Angle_B_C_G => Angle_B_C_G - Angle_E_F_H
-12. Length_B_C/Length_E_F - Length_C_G/Length_F_H & Angle_B_C_G - Angle_E_F_H => Similar3(B,C,G,E,F,H)
-13. Similar3(B,C,G,E,F,H) => Length_F_H/Length_E_H - Length_C_G/Length_B_G
-14. Length_B_C/Length_B_G - 2 & Length_B_C/Length_C_G - Length_B_G/Length_F_H & Length_F_H/Length_E_H - Length_C_G/Length_B_G => -1/4 + Length_E_H/Length_B_C
-15. Length_B_C - 30 & -1/4 + Length_E_H/Length_B_C => Length_E_H - 15/2
+1. Collinear(B,G,J) [DiagramAngle4b(G,B,H,J)] => Angle_B_G_H - Angle_H_G_J & Angle_B_J_H - Angle_G_J_H
+2. Perpendicular(G,H,H,J) [Perp2Angle(G,H,J)] => Angle_G_H_J - pi/2
+3. Angle_B_G_H - Variable_angle_2 & Angle_G_H_J + Angle_G_J_H + Angle_H_G_J - pi & Variable_angle_3 - pi*Variable_x/180 & Angle_B_G_H - Angle_H_G_J & Angle_B_J_H - Angle_G_J_H & Angle_G_H_J - pi/2 & Angle_B_J_H - Variable_angle_3 & Variable_angle_2 - pi*Variable_x/90 => Angle_B_J_H - pi/6
+4. Angle_B_J_H - Variable_angle_3 & Angle_B_J_H - pi/6 => Variable_angle_3 - pi/6

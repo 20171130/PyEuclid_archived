@@ -1,7 +1,4 @@
 Solution:
-1. Length_G_H - 12 & Length_H_I - 4 => Length_G_H - 3*Length_H_I
-2. Collinear(G,H,I) & Collinear(G,J,K) & Parallel(H,K,I,J) => Length_G_H/Length_G_K - Length_H_I/Length_J_K
-3. Length_G_H - 3*Length_H_I & Length_G_H/Length_G_K - Length_H_I/Length_J_K => Length_G_K - 3*Length_J_K
-4. Collinear(G,J,K) => Length_G_J - Length_G_K - Length_J_K
-5. Length_G_J - 8 & Length_G_J - Length_G_K - Length_J_K => Length_G_K + Length_J_K - 8
-6. Length_G_K - 3*Length_J_K & Length_G_K + Length_J_K - 8 => Length_J_K - 2
+1. Congruent3(A,B,C,R,S,T) [PropertyOfCongruent(A,B,C,R,S,T)] => Angle_A_B_C - Angle_R_S_T
+2. Angle_R_S_T - pi*(Variable_x/36 + 1/9) & Angle_A_B_C - Angle_R_S_T & Angle_A_B_C - pi*(Variable_x/60 + 2/9) => Angle_R_S_T - 7*pi/18 & Angle_A_B_C - 7*pi/18
+3. Angle_R_S_T - 7*pi/18 & Angle_R_S_T - pi*(Variable_x/36 + 1/9) & Angle_A_B_C - 7*pi/18 & Angle_A_B_C - pi*(Variable_x/60 + 2/9) => Variable_x - 10

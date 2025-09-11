@@ -1,6 +1,5 @@
 Solution:
-1. Length_A_C - Variable_radius_C & Length_C_J - Variable_radius_C => Length_A_C - Length_C_J
-2. Length_A_C - Length_C_J & Collinear(A,C,J) => Midpoint(C,A,J)
-3. Midpoint(C,A,J) => Length_A_J - 2*Length_C_J
-4. Length_C_J - Variable_radius_C & Length_A_J - 15 & Length_A_J - 2*Length_C_J => Variable_radius_C - 15/2
-5. Angle_J_C_K - 7*pi/12 & Variable_radius_C - 15/2 => Angle_J_C_K*Variable_radius_C - 35*pi/8
+1. Collinear(A,C,E) [BetweenLength(A,E,C)] => Length_A_C - Length_A_E - Length_C_E
+2. Length_A_E - Variable_radius_A & Length_A_D - Variable_radius_A & Length_A_D - 9 => Length_A_E - 9
+3. Length_A_C - Length_A_E - Length_C_E & Length_C_E - 6 & Length_A_E - 9 => Length_A_C - 15
+4. Length_A_C**2 - Length_A_D**2 + 2*Length_A_D*Length_C_D*cos(Angle_A_D_C) - Length_C_D**2 & Length_A_C - 15 & Length_A_D - 9 & Length_C_D - Variable_x & Angle_A_D_C - pi/2 => Variable_x - 12

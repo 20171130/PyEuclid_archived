@@ -1,8 +1,13 @@
 Solution:
-1. Collinear(A,D,E) & Collinear(B,C,E) & Parallel(A,B,C,D) => Similar3(A,B,E,D,C,E)
-2. Similar3(A,B,E,D,C,E) => Length_A_B/Length_A_E - Length_C_D/Length_D_E
-3. Length_C_D - 5 & Length_A_B - 2 => -5/2 + Length_C_D/Length_A_B
-4. Length_A_B/Length_A_E - Length_C_D/Length_D_E & -5/2 + Length_C_D/Length_A_B => Length_A_E - 2*Length_D_E/5
-5. Length_A_E - Variable_x + 1 & Length_A_E - 2*Length_D_E/5 => Length_D_E - 5*Variable_x/2 + 5/2
-6. Length_A_E - 2*Length_D_E/5 & Length_A_E - Variable_x + 1 & Length_D_E - Variable_x - 5 => Variable_x - 5
-7. Length_D_E - 5*Variable_x/2 + 5/2 & Variable_x - 5 => Length_D_E - 10
+1. Length_W_X - 6 & Length_W_X - Length_X_Y => Length_X_Y - 6
+2. Length_W_X - Length_X_Y & -Length_W_Z + Length_Y_Z [DefinitionOfKite1(W,X,Y,Z)] => Kite(W,X,Y,Z)
+3. Kite(W,X,Y,Z) & Length_W_X - Length_X_Y & -Length_W_Z + Length_Y_Z [PropertyOfKite(W,X,Y,Z)] => Perpendicular(W,Y,X,Z)
+4. Collinear(P,X,Z) [CollinearParallel(P,X,Z)] => Parallel(P,X,X,Z)
+5. Perpendicular(W,Y,X,Z) & Parallel(P,X,X,Z) [AlphaGeometry1b(X,Z,W,Y,P,X)] => Perpendicular(P,X,W,Y)
+6. Perpendicular(P,X,W,Y) & Collinear(P,W,Y) [AreaEqualsBaseTimesHeight(X,W,Y,P)] => Area_W_X_Y - Length_P_X*Length_W_Y/2
+7. Length_P_X - 4 & Area_W_X_Y - Length_P_X*Length_W_Y/2 => Area_W_X_Y - 2*Length_W_Y
+8. Area_W_X_Y**2 - (-Length_W_X/2 + Length_W_Y/2 + Length_X_Y/2)*(Length_W_X/2 - Length_W_Y/2 + Length_X_Y/2)*(Length_W_X/2 + Length_W_Y/2 - Length_X_Y/2)*(Length_W_X/2 + Length_W_Y/2 + Length_X_Y/2) & Length_X_Y - 6 & Area_W_X_Y - 2*Length_W_Y & Length_W_X - 6 => Length_W_Y - 4*sqrt(5)
+9. Length_W_X - Length_X_Y [DefinitionOfIsoscelesTriangle(X,W,Y)] => IsoscelesTriangle(W,X,Y)
+10. IsoscelesTriangle(W,X,Y) & Length_W_X - Length_X_Y & Collinear(P,W,Y) & Perpendicular(P,X,W,Y) [PropertyOfIsoscelesTriangle1(X,W,Y,P)] => Midpoint(P,W,Y)
+11. Midpoint(P,W,Y) [PropertyOfMidpoint(P,W,Y)] => Length_P_W - Length_W_Y/2
+12. Length_W_Y - 4*sqrt(5) & Length_P_W - Length_W_Y/2 => Length_P_W - 2*sqrt(5)

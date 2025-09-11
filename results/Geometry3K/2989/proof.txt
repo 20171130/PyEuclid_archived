@@ -1,4 +1,4 @@
 Solution:
-1. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
-2. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_B_C - pi/2 & Length_A_C - Variable_x & Length_A_B - 11 & Angle_A_C_B - 7*pi/60 => Variable_x - 30.6947092058787
-3. Variable_x - 30.6947092058787 => Variable_x - 30.6947092058787
+1. Similar4(A,C,B,D,E,F,G,H) [Similar4PAreaLengthRatio(E,F,G,H,A,C,B,D)] => Length_F_G**2/Length_B_C**2 - Area_E_F_G_H/Area_A_C_B_D
+2. Length_F_G**2/Length_B_C**2 - Area_E_F_G_H/Area_A_C_B_D & Area_A_C_B_D - 400 & Area_E_F_G_H - 64 => Length_B_C/Length_F_G - 5/2
+3. Length_B_C/Length_F_G - 5/2 & Length_B_C - 40 & Length_F_G - Variable_x => Variable_x - 16

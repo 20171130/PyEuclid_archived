@@ -1,7 +1,9 @@
 Solution:
-1. Length_S_T - 7 & Length_R_S - 7 => Length_R_S - Length_S_T
-2. Length_R_S - Length_S_T & Collinear(R,S,T) => Midpoint(S,R,T)
-3. Collinear(R,S,T) => Parallel(R,T,S,T)
-4. Perpendicular(Q,S,S,T) & Parallel(R,T,S,T) => Perpendicular(Q,S,R,T)
-5. Midpoint(S,R,T) & Perpendicular(Q,S,R,T) => Length_Q_R - Length_Q_T
-6. Length_Q_R - Variable_x - 3 & Length_Q_R - Length_Q_T & Length_Q_T - 2*Variable_x + 6 => Length_Q_T - 12
+1. Collinear(F,G,H) & Collinear(H,J,K) & Parallel(F,K,G,J) [AlphaGeometry8(F,K,G,J,H)] => Length_F_G/Length_J_K - Length_F_H/Length_H_K
+2. Length_F_H - 21 & Length_H_K - 7 => Length_F_H - 3*Length_H_K
+3. Length_F_G/Length_J_K - Length_F_H/Length_H_K & Length_F_H - 3*Length_H_K => Length_F_G - 3*Length_J_K
+4. Collinear(F,G,H) [BetweenLength(F,G,H)] => Length_F_G - Length_F_H + Length_G_H
+5. Length_F_H - 21 & Length_G_H - Variable_x - 7/2 & Length_F_G - Length_F_H + Length_G_H => Length_F_G + Variable_x - 35/2
+6. Collinear(H,J,K) [BetweenLength(H,J,K)] => Length_H_J - Length_H_K + Length_J_K
+7. Length_H_K - 7 & Length_H_J - Length_H_K + Length_J_K & Length_H_J - Variable_x + 17/2 => Length_J_K + Variable_x - 31/2
+8. Length_F_G - 3*Length_J_K & Length_F_G + Variable_x - 35/2 & Length_J_K + Variable_x - 31/2 => Variable_x - 29/2

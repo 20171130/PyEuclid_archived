@@ -1,2 +1,3 @@
 Solution:
-1. Variable_x - 115 => Variable_x - 115
+1. Congruent3(T,X,Y,W,X,Y) [PropertyOfCongruent(T,X,Y,W,X,Y)] => Length_T_Y - Length_W_Y
+2. Length_W_Y - 2*Variable_x - 10 & Length_T_Y - 4*Variable_x & Length_T_Y - Length_W_Y => Variable_x - 5

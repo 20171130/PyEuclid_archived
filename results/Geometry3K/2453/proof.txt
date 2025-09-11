@@ -1,4 +1,3 @@
 Solution:
-1. Parallel(A,B,C,E) => Angle_A_E_C + Angle_B_A_E - pi
-2. Variable_angle_2 - 47*pi/180 & Angle_A_B_E - Variable_angle_2 & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi & Angle_A_E_B - Angle_A_E_C + Angle_B_E_C & Angle_A_E_C + Angle_B_A_E - pi => Angle_B_E_C - 47*pi/180
-3. Angle_B_E_C - Variable_angle_5 & Angle_B_E_C - 47*pi/180 => Variable_angle_5 - 47*pi/180
+1. Rhombus(F,G,H,J) => Length_G_H - Length_H_J
+2. Length_G_H - Variable_x - 9 & Length_G_H - Length_H_J & Length_H_J - 5*Variable_x + 2 => Variable_x - 11/4

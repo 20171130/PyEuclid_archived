@@ -1,2 +1,3 @@
 Solution:
-1. Length_B_C - 4*Variable_x + 21 & Length_A_B - Length_B_C & Length_A_B - 2*Variable_x + 7 => Length_A_B - 7
+1. Collinear(C,E,G) & Collinear(A,B,G) [DiagramAngle4(G,A,C,B,E)] => Angle_A_G_C - Angle_B_G_E
+2. Angle_A_G_C - Angle_B_G_E & Angle_A_G_C - pi/3 => Angle_B_G_E - pi/3

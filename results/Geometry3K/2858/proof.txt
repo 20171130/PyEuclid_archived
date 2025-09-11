@@ -1,13 +1,2 @@
 Solution:
-1. Kite(F,G,H,J) & Length_F_G - Length_F_J & -Length_G_H + Length_H_J => Perpendicular(F,H,G,J)
-2. Collinear(A,G,J) => Parallel(A,J,G,J)
-3. Perpendicular(F,H,G,J) & Parallel(A,J,G,J) => Perpendicular(A,J,F,H)
-4. Collinear(A,F,H) => Parallel(A,H,F,H) & Parallel(A,F,F,H)
-5. Perpendicular(A,J,F,H) & Parallel(A,H,F,H) => Perpendicular(A,H,A,J)
-6. Perpendicular(A,H,A,J) => Angle_H_A_J - pi/2
-7. Length_F_G - Length_F_J => IsoscelesTriangle(F,G,J)
-8. Perpendicular(F,H,G,J) & Parallel(A,F,F,H) => Perpendicular(A,F,G,J)
-9. IsoscelesTriangle(F,G,J) & Length_F_G - Length_F_J & Perpendicular(A,F,G,J) => Length_A_G - Length_A_J
-10. Length_A_G - Length_A_J & Length_A_G - 12 => Length_A_J - 12
-11. Length_A_H**2 - 2*Length_A_H*Length_A_J*cos(Angle_H_A_J) + Length_A_J**2 - Length_H_J**2 & Angle_H_A_J - pi/2 & Length_A_H - 15 & Length_A_J - 12 => Length_H_J - 3*sqrt(41)
-12. Length_H_J - 3*sqrt(41) & Length_G_H - Length_H_J => Length_G_H - 3*sqrt(41)
+1. Variable_x - 34 => Variable_x - 34

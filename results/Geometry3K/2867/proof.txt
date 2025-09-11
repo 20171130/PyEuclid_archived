@@ -1,14 +1,3 @@
 Solution:
-1. Collinear(A,E,J) => Angle_E_A_K + Angle_J_A_K - pi
-2. Collinear(A,C,K) => Parallel(A,C,A,K)
-3. Collinear(A,C,I) => Parallel(A,C,C,I)
-4. Parallel(A,C,C,I) & Parallel(C,I,F,H) => Parallel(A,C,F,H)
-5. Collinear(E,F,G) => Parallel(E,F,E,G)
-6. Collinear(E,F,H) => Parallel(E,F,F,H)
-7. Parallel(E,F,E,G) & Parallel(E,F,F,H) => Parallel(E,G,F,H)
-8. Parallel(A,C,F,H) & Parallel(E,G,F,H) => Parallel(A,C,E,G)
-9. Parallel(A,C,A,K) & Parallel(A,C,E,G) => Parallel(A,K,E,G)
-10. Parallel(A,K,E,G) => Angle_A_E_G + Angle_E_A_K - pi
-11. Collinear(E,F,G) & Collinear(A,E,L) => Angle_A_E_G - Angle_F_E_L
-12. Angle_E_A_K + Angle_J_A_K - pi & Angle_A_E_G + Angle_E_A_K - pi & Variable_angle_12 - 11*pi/36 & Angle_F_E_L - Variable_angle_12 & Angle_A_E_G - Angle_F_E_L => Angle_J_A_K - 11*pi/36
-13. Angle_J_A_K - Variable_angle_13 & Angle_J_A_K - 11*pi/36 => Variable_angle_13 - 11*pi/36
+1. Collinear(B,C,G) & Collinear(A,B,D) [DiagramAngle4(B,A,G,D,C)] => Angle_A_B_G - Angle_C_B_D
+2. Angle_C_B_D - 11*pi/36 & Angle_A_B_G - Angle_C_B_D => Angle_A_B_G - 11*pi/36

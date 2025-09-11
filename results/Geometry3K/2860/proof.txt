@@ -1,5 +1,14 @@
 Solution:
-1. Parallelogram(A,B,C,D) => Length_A_B - Length_C_D & Length_A_D - Length_B_C
-2. Length_A_B - Length_C_D & Length_C_D - 10 => Length_A_B - 10
-3. Length_A_D - Length_B_C & Length_A_D - 12 => Length_B_C - 12
-4. Length_A_B - 10 & Length_B_C - 12 & Length_C_D - 10 & Length_A_D - 12 => Length_A_B + Length_A_D + Length_B_C + Length_C_D - 44
+1. Collinear(B,C,D) [BetweenLength(B,D,C)] => Length_B_C - Length_B_D - Length_C_D & Parallel(B,D,C,D) & Angle_A_C_B - Angle_A_C_D
+2. Length_B_D - 24 & Length_C_D - Variable_t - 1 & Length_B_C - Length_B_D - Length_C_D => Length_B_C - Variable_t - 25
+3. Perpendicular(A,B,A,C) [Perp2Angle(B,A,C)] => Angle_B_A_C - pi/2
+4. Perpendicular(A,D,B,D) [Perp2Angle(A,D,B)] => Angle_A_D_B - pi/2
+5. Length_A_B**2 - Length_A_D**2 + 2*Length_A_D*Length_B_D*cos(Angle_A_D_B) - Length_B_D**2 & Length_A_D - 12 & Angle_A_D_B - pi/2 & Length_B_D - 24 => Length_A_B - 12*sqrt(5)
+6. Angle_B_A_C - pi/2 & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D => Angle_B_A_D + Angle_C_A_D - pi/2
+7. Angle_A_D_B - pi/2 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_B_A_C - pi/2 & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D => Angle_A_B_D - Angle_C_A_D
+8. sin(Angle_B_A_D)/Length_B_D - sin(Angle_A_B_D)/Length_A_D & Angle_B_A_D + Angle_C_A_D - pi/2 & Length_B_D - 24 & Angle_A_B_D - Angle_C_A_D & Length_A_D - 12 => Angle_C_A_D - atan(1/2)
+9. Perpendicular(A,D,B,D) & Parallel(B,D,C,D) [AlphaGeometry1b(B,D,A,D,C,D)] => Perpendicular(A,D,C,D)
+10. Perpendicular(A,D,C,D) [Perp2Angle(A,D,C)] => Angle_A_D_C - pi/2
+11. Angle_A_D_C - pi/2 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_C_B - Angle_A_C_D => Angle_A_C_B + Angle_C_A_D - pi/2
+12. Angle_C_A_D - atan(1/2) & Angle_A_C_B + Angle_C_A_D - pi/2 => Angle_A_C_B - pi/2 + atan(1/2)
+13. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Length_B_C - Variable_t - 25 & Angle_B_A_C - pi/2 & Length_A_B - 12*sqrt(5) & Angle_A_C_B - pi/2 + atan(1/2) => Variable_t - 5

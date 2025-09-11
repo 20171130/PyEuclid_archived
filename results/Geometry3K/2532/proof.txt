@@ -1,5 +1,2 @@
 Solution:
-1. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Angle_A_C_B - 4*pi/15 & Length_A_B - Length_A_C & Length_B_C - 7/2 => Length_A_C - 2.61533396226307
-2. Length_A_B - Length_A_C & Length_A_C - 2.61533396226307 => Length_A_B - 2.61533396226307
-3. Length_A_C - 2.61533396226307 => Length_A_C - 2.61533396226307
-4. Length_B_C - 7/2 & Length_A_B - 2.61533396226307 & Length_A_C - 2.61533396226307 => Length_A_B + Length_A_C + Length_B_C - 8.73066792452613
+1. Variable_x - 35 => Variable_x - 35

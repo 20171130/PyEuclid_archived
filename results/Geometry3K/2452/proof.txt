@@ -1,4 +1,4 @@
 Solution:
-1. Length_Q_R**2 - 2*Length_Q_R*Length_Q_S*cos(Angle_R_Q_S) + Length_Q_S**2 - Length_R_S**2 & Length_Q_S - 23 & Length_Q_R - 18 & Length_R_S - 37 => Angle_R_Q_S - acos(-43/69)
-2. Length_Q_R**2 - Length_Q_S**2 + 2*Length_Q_S*Length_R_S*cos(Angle_Q_S_R) - Length_R_S**2 & Length_Q_S - 23 & Length_Q_R - 18 & Length_R_S - 37 => Angle_Q_S_R - acos(787/851)
-3. Angle_Q_R_S + Angle_Q_S_R + Angle_R_Q_S - pi & Angle_R_Q_S - acos(-43/69) & Angle_Q_S_R - acos(787/851) => Angle_Q_R_S - pi + acos(787/851) + acos(-43/69)
+1. Parallel(A,B,C,E) [Para2Angle(B,A,C,E)] => Angle_A_B_C + Angle_B_C_E - pi
+2. Angle_A_B_E - Variable_angle_2 & Angle_A_B_C - Angle_A_B_E - Angle_C_B_E & Angle_B_C_E + Angle_B_E_C + Angle_C_B_E - pi & Variable_angle_2 - 47*pi/180 & Angle_A_B_C + Angle_B_C_E - pi => Angle_B_E_C - 47*pi/180
+3. Angle_B_E_C - 47*pi/180 & Angle_B_E_C - Variable_angle_5 => Variable_angle_5 - 47*pi/180

@@ -1,21 +1,5 @@
 Solution:
-1. Collinear(N,Q,U) & Collinear(H,K,U) => Angle_H_U_N - Angle_K_U_Q
-2. Collinear(A,G,M) => Parallel(A,G,G,M)
-3. Parallel(A,G,G,M) & Parallel(E,N,G,M) => Parallel(A,G,E,N)
-4. Collinear(E,N,Q) => Parallel(E,N,E,Q)
-5. Collinear(E,Q,U) => Parallel(E,Q,Q,U)
-6. Parallel(E,N,E,Q) & Parallel(E,Q,Q,U) => Parallel(E,N,Q,U)
-7. Parallel(A,G,E,N) & Parallel(E,N,Q,U) => Parallel(A,G,Q,U)
-8. Parallel(A,G,Q,U) => Angle_A_Q_U + Angle_G_A_Q - pi
-9. Collinear(A,I,Q) => Parallel(A,I,A,Q)
-10. Collinear(A,I,J) => Parallel(A,I,I,J)
-11. Parallel(A,I,I,J) & Parallel(F,H,I,J) => Parallel(A,I,F,H)
-12. Collinear(F,H,K) => Parallel(F,H,F,K)
-13. Collinear(F,K,U) => Parallel(F,K,K,U)
-14. Parallel(F,H,F,K) & Parallel(F,K,K,U) => Parallel(F,H,K,U)
-15. Parallel(A,I,F,H) & Parallel(F,H,K,U) => Parallel(A,I,K,U)
-16. Parallel(A,I,A,Q) & Parallel(A,I,K,U) => Parallel(A,Q,K,U)
-17. Parallel(A,Q,K,U) => Angle_A_Q_U + Angle_K_U_Q - pi
-18. Collinear(A,J,Q) => Angle_G_A_J + Angle_G_A_Q - pi
-19. Angle_H_U_N - Angle_K_U_Q & Angle_H_U_N - Variable_angle_1 & Angle_A_Q_U + Angle_G_A_Q - pi & Angle_A_Q_U + Angle_K_U_Q - pi & Variable_angle_1 - 41*pi/60 & Angle_G_A_J + Angle_G_A_Q - pi => Angle_G_A_J - 19*pi/60
-20. Angle_G_A_J - 19*pi/60 & Angle_G_A_J - Variable_angle_14 => Variable_angle_14 - 19*pi/60
+1. Length_B_K - 8 & Length_B_C - 27/5 => Length_B_C - 27*Length_B_K/40
+2. Collinear(B,J,K) [BetweenLength(J,B,K)] => Length_B_J + Length_B_K - Length_J_K
+3. Collinear(B,C,J) [BetweenLength(C,B,J)] => Length_B_C + Length_B_J - Length_C_J
+4. Length_B_K - 8 & Length_B_C - 27*Length_B_K/40 & Length_C_J - 10 & Length_B_J + Length_B_K - Length_J_K & Length_B_C + Length_B_J - Length_C_J => Length_J_K - 63/5

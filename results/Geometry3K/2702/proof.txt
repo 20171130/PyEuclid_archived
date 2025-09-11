@@ -1,3 +1,2 @@
 Solution:
-1. Parallelogram(W,X,Y,Z) => Angle_X_W_Z - Angle_X_Y_Z
-2. Angle_X_W_Z - 7*pi/12 & Angle_X_W_Z - Angle_X_Y_Z => Angle_X_Y_Z - 7*pi/12
+1. Angle_P_R_Z - pi*(Variable_b/45 - 17/180) & Angle_Q_R_Z - pi*(Variable_b/60 - 1/45) & Angle_P_R_Z - Angle_Q_R_Z => Angle_P_R_Z - 7*pi/36

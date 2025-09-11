@@ -1,3 +1,23 @@
 Solution:
-1. Angle_A_B_C - Angle_A_C_B => Length_A_B - Length_A_C
-2. Length_A_B - 2*Variable_x - 11 & Length_A_C - 6*Variable_x + 9 & Length_A_B - Length_A_C => Variable_x - 5
+1. Collinear(A,J,Q) [FlatAngle2(J,A,Q,K)] => Angle_J_A_K + Angle_K_A_Q - pi
+2. Collinear(N,Q,U) & Collinear(H,K,U) [DiagramAngle4(U,H,N,K,Q)] => Angle_H_U_N - Angle_K_U_Q
+3. Collinear(A,G,K) [CollinearParallel(A,G,K)] => Parallel(A,G,A,K) & Angle_G_A_J - Angle_J_A_K
+4. Collinear(A,G,M) [CollinearParallel(A,G,M)] => Parallel(A,G,G,M)
+5. Parallel(A,G,G,M) & Parallel(E,N,G,M) [ParaTrans(G,M,A,G,E,N)] => Parallel(A,G,E,N)
+6. Collinear(E,N,Q) [CollinearParallel(E,N,Q)] => Parallel(E,N,E,Q)
+7. Collinear(E,Q,U) [CollinearParallel(E,Q,U)] => Parallel(E,Q,Q,U)
+8. Parallel(E,N,E,Q) & Parallel(E,Q,Q,U) [ParaTrans(E,Q,E,N,Q,U)] => Parallel(E,N,Q,U)
+9. Parallel(A,G,E,N) & Parallel(E,N,Q,U) [ParaTrans(E,N,A,G,Q,U)] => Parallel(A,G,Q,U)
+10. Parallel(A,G,A,K) & Parallel(A,G,Q,U) [ParaTrans(A,G,A,K,Q,U)] => Parallel(A,K,Q,U)
+11. Collinear(A,I,Q) [CollinearParallel(A,I,Q)] => Parallel(A,I,A,Q)
+12. Collinear(A,I,J) [CollinearParallel(A,I,J)] => Parallel(A,I,I,J)
+13. Parallel(A,I,I,J) & Parallel(F,H,I,J) [ParaTrans(I,J,A,I,F,H)] => Parallel(A,I,F,H)
+14. Collinear(F,H,K) [CollinearParallel(F,H,K)] => Parallel(F,H,F,K)
+15. Collinear(F,K,U) [CollinearParallel(F,K,U)] => Parallel(F,K,K,U)
+16. Parallel(F,H,F,K) & Parallel(F,K,K,U) [ParaTrans(F,K,F,H,K,U)] => Parallel(F,H,K,U)
+17. Parallel(A,I,F,H) & Parallel(F,H,K,U) [ParaTrans(F,H,A,I,K,U)] => Parallel(A,I,K,U)
+18. Parallel(A,I,A,Q) & Parallel(A,I,K,U) [ParaTrans(A,I,A,Q,K,U)] => Parallel(A,Q,K,U)
+19. Parallel(A,K,Q,U) & Parallel(A,Q,K,U) [DefinitionOfParallelogram1(A,K,U,Q)] => Parallelogram(A,K,U,Q)
+20. Parallelogram(A,K,U,Q) => Angle_K_A_Q - Angle_K_U_Q
+21. Angle_J_A_K + Angle_K_A_Q - pi & Angle_H_U_N - Angle_K_U_Q & Angle_K_A_Q - Angle_K_U_Q & Angle_H_U_N - Variable_angle_1 & Angle_G_A_J - Angle_J_A_K & Variable_angle_1 - 41*pi/60 => Angle_G_A_J - 19*pi/60
+22. Angle_G_A_J - 19*pi/60 & Angle_G_A_J - Variable_angle_14 => Variable_angle_14 - 19*pi/60

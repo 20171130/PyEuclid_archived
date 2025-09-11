@@ -1,7 +1,4 @@
 Solution:
-1. Length_N_Z - 9 & Length_N_X - 6 => Length_N_X - 2*Length_N_Z/3
-2. Collinear(M,X,Y) & Collinear(N,X,Z) & Parallel(M,N,Y,Z) => Length_M_X/Length_N_X - Length_M_Y/Length_N_Z
-3. Length_N_X - 2*Length_N_Z/3 & Length_M_X/Length_N_X - Length_M_Y/Length_N_Z & Length_M_X - 4 => Length_M_Y - 6
-4. Collinear(M,X,Y) => Length_M_X + Length_M_Y - Length_X_Y
-5. Length_M_X - 4 & Length_M_X + Length_M_Y - Length_X_Y => Length_M_Y - Length_X_Y + 4
-6. Length_M_Y - 6 & Length_M_Y - Length_X_Y + 4 => Length_X_Y - 10
+1. Collinear(C,D,E) [DiagramAngle4b(D,C,A,E)] => Angle_A_D_C - Angle_A_D_E
+2. Angle_D_A_E - pi/3 & Angle_A_E_D - 2*pi/9 & Angle_B_E_C - 4*pi/9 & Angle_A_D_E + Angle_A_E_D + Angle_D_A_E - pi & Angle_A_D_C - Angle_A_D_E => Angle_A_D_C - Angle_B_E_C
+3. Angle_A_D_C - Angle_B_E_C & Collinear(C,D,E) [AlphaGeometry3b1(A,D,C,B,E)] => Parallel(A,D,B,E)

@@ -1,13 +1,2 @@
 Solution:
-1. Perpendicular(E,F,E,G) => Angle_F_E_G - pi/2
-2. Perpendicular(E,H,F,H) => Angle_E_H_F - pi/2
-3. Angle_F_E_G - pi/2 & Angle_E_H_F - pi/2 & Angle_E_F_H + Angle_E_H_F + Angle_F_E_H - pi & Angle_F_E_G - Angle_F_E_H - Angle_G_E_H => Angle_E_F_H - Angle_G_E_H
-4. Collinear(F,G,H) => Parallel(F,H,G,H) & Length_F_G - Length_F_H - Length_G_H
-5. Perpendicular(E,H,F,H) & Parallel(F,H,G,H) => Perpendicular(E,H,G,H)
-6. Perpendicular(E,H,G,H) => Angle_E_H_G - pi/2
-7. Angle_E_H_F - pi/2 & Angle_E_H_G - pi/2 => Angle_E_H_F - Angle_E_H_G
-8. Angle_E_F_H - Angle_G_E_H & Angle_E_H_F - Angle_E_H_G => Similar3(E,F,H,G,E,H)
-9. Similar3(E,F,H,G,E,H) => Length_E_H/Length_F_H - Length_G_H/Length_E_H
-10. Length_F_G - 16 & Length_F_H - 12 => Length_F_G - 4*Length_F_H/3
-11. Length_F_G - Length_F_H - Length_G_H & Length_F_G - 4*Length_F_H/3 & Length_F_H - 12 => Length_G_H - 4
-12. Length_E_H/Length_F_H - Length_G_H/Length_E_H & Length_G_H - 4 & Length_F_H - 12 => Length_E_H - 4*sqrt(3)
+1. Variable_x - 30 => Variable_x - 30

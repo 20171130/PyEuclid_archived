@@ -1,5 +1,9 @@
 Solution:
-1. Length_J_U - 9 & Length_J_V - 3 => Length_J_U/Length_J_V - 3
-2. Centroid(J,S,U,Z) & Collinear(U,V,Z) & Collinear(J,S,V) => -0.5 + Length_J_V/Length_J_S
-3. Length_J_U/Length_J_V - 3 & -0.5 + Length_J_V/Length_J_S => Length_J_S - 0.666666666666667*Length_J_U
-4. Length_J_S - 0.666666666666667*Length_J_U & Length_J_U - 9 => Length_J_S - 6.0
+1. Length_E_F - 3 & Length_B_C - 5 => Length_B_C - 5*Length_E_F/3
+2. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - Angle_D_E_F & Angle_D_E_F + Angle_D_F_E + Angle_E_D_F - pi & Angle_B_A_C - Angle_E_D_F => Angle_A_C_B - Angle_D_F_E
+3. Angle_A_B_C - Angle_D_E_F & Angle_A_C_B - Angle_D_F_E [AlphaGeometry3536(A,B,C,D,E,F)] => Similar3(A,B,C,D,E,F)
+4. Similar3(A,B,C,D,E,F) [PropertyOfSimilar3(A,B,C,D,E,F)] => Length_A_B/Length_D_E - Length_B_C/Length_E_F
+5. Length_B_C - 5*Length_E_F/3 & Length_A_B/Length_D_E - Length_B_C/Length_E_F => -3/5 + Length_D_E/Length_A_B
+6. -3/5 + Length_D_E/Length_A_B & Length_A_B - Variable_x => Length_D_E - 3*Variable_x/5
+7. Length_D_E - 3*Variable_x/5 & Length_D_E - Variable_x + 4 => Variable_x - 10
+8. Length_A_B - Variable_x & Variable_x - 10 => Length_A_B - 10

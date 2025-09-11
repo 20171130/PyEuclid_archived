@@ -1,12 +1,6 @@
 Solution:
-1. Collinear(B,C,D) => Length_B_C - Length_B_D - Length_C_D & Parallel(B,D,C,D)
-2. Length_B_C - Length_B_D - Length_C_D & Length_B_D - 8 & Length_B_C - 12 => Length_C_D - 4
-3. Perpendicular(A,D,C,D) & Parallel(B,D,C,D) => Perpendicular(A,D,B,D)
-4. Perpendicular(A,D,B,D) => Angle_A_D_B - pi/2
-5. Perpendicular(A,B,A,C) => Angle_B_A_C - pi/2
-6. Angle_A_D_B - pi/2 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D & Angle_B_A_C - pi/2 => Angle_A_B_D - Angle_C_A_D
-7. Perpendicular(A,D,C,D) => Angle_A_D_C - pi/2
-8. Angle_A_D_C - pi/2 & Angle_A_D_B - pi/2 => Angle_A_D_B - Angle_A_D_C
-9. Angle_A_B_D - Angle_C_A_D & Angle_A_D_B - Angle_A_D_C => Similar3(A,B,D,C,A,D)
-10. Similar3(A,B,D,C,A,D) => Length_A_D/Length_C_D - Length_B_D/Length_A_D
-11. Length_C_D - 4 & Length_A_D/Length_C_D - Length_B_D/Length_A_D & Length_A_D - Variable_y & Length_B_D - 8 => Variable_y - 4*sqrt(2)
+1. Length_X_Y - Length_Y_Z & Collinear(X,Y,Z) [DefinitionOfMidpoint(Y,X,Z)] => Midpoint(Y,X,Z)
+2. Collinear(X,Y,Z) [CollinearParallel(X,Y,Z)] => Parallel(X,Y,X,Z)
+3. Perpendicular(W,Y,X,Y) & Parallel(X,Y,X,Z) [AlphaGeometry1b(X,Y,W,Y,X,Z)] => Perpendicular(W,Y,X,Z)
+4. Midpoint(Y,X,Z) & Perpendicular(W,Y,X,Z) [AlphaGeometry23(Y,W,X,Z)] => Length_W_X - Length_W_Z
+5. Length_W_X - Length_W_Z & Length_W_Z - 149/10 => Length_W_X - 149/10

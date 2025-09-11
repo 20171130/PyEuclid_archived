@@ -1,8 +1,6 @@
 Solution:
-1. Length_A_B - 14 & Length_A_C - 10 => Length_A_B - 7*Length_A_C/5
-2. Collinear(B,C,D) & Angle_B_A_D - Angle_C_A_D => Length_A_B/Length_A_C - Length_B_D/Length_C_D
-3. Length_A_B - 7*Length_A_C/5 & Length_A_B/Length_A_C - Length_B_D/Length_C_D => Length_B_D/Length_C_D - 7/5
-4. Length_B_D/Length_C_D - 7/5 & Length_B_D - Variable_x => Length_C_D - 5*Variable_x/7
-5. Collinear(B,C,D) => Length_B_C - Length_B_D - Length_C_D
-6. Length_B_D - Variable_x & Length_B_C - Length_B_D - Length_C_D & Length_B_C - 18 => Length_C_D + Variable_x - 18
-7. Length_C_D - 5*Variable_x/7 & Length_C_D + Variable_x - 18 => Variable_x - 21/2
+1. Collinear(B,C,D) [CollinearParallel(B,C,D)] => Parallel(B,C,C,D)
+2. Perpendicular(A,D,C,D) & Parallel(B,C,C,D) [AlphaGeometry1b(C,D,A,D,B,C)] => Perpendicular(A,D,B,C)
+3. Perpendicular(A,D,B,C) & Collinear(B,C,D) [AreaEqualsBaseTimesHeight(A,B,C,D)] => Area_A_B_C - Length_A_D*Length_B_C/2
+4. Area_A_B_C - Length_A_D*Length_B_C/2 & Area_A_B_C - 357 & Length_B_C - 34 => Length_A_D - 21*Length_B_C/34
+5. Length_A_D - Variable_x & Length_A_D - 21*Length_B_C/34 & Length_B_C - 34 => Variable_x - 21

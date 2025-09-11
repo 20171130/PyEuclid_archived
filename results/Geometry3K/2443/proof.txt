@@ -1,2 +1,5 @@
 Solution:
-1. Variable_x - 90 => Variable_x - 90
+1. Collinear(P,R,S) [DiagramAngle4b(P,R,Q,S)] => Angle_Q_P_R - Angle_Q_P_S & Angle_P_S_Q + Angle_Q_S_R - pi
+2. Perpendicular(P,Q,Q,R) [Perp2Angle(P,Q,R)] => Angle_P_Q_R - pi/2
+3. Angle_P_R_Q - 11*pi/60 & Angle_P_Q_R + Angle_P_R_Q + Angle_Q_P_R - pi & Angle_Q_P_R - Angle_Q_P_S & Angle_P_Q_R - pi/2 => Angle_Q_P_S - 19*pi/60
+4. Angle_Q_P_S - 19*pi/60 & Angle_P_Q_S + Angle_P_S_Q + Angle_Q_P_S - pi & Angle_Q_S_R - Variable_angle_1 & Angle_P_S_Q + Angle_Q_S_R - pi & Angle_P_Q_S - 17*pi/60 => Variable_angle_1 - 3*pi/5

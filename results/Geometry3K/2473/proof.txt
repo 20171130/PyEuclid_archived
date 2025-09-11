@@ -1,2 +1,5 @@
 Solution:
-1. Length_L_M - Length_M_N & Length_M_N - 4*Variable_x + 2 & Length_L_M - 3*Variable_x - 1 => Length_L_M - 10
+1. Length_B_C - 10 & Length_C_D - 8 => Length_B_C/Length_C_D - 5/4
+2. Collinear(A,C,D) & Angle_A_B_D - Angle_C_B_D [AlphaGeometry13(B,A,C,D)] => Length_A_B/Length_B_C - Length_A_D/Length_C_D
+3. Length_B_C/Length_C_D - 5/4 & Length_A_B/Length_B_C - Length_A_D/Length_C_D => Length_A_B - 5*Length_A_D/4
+4. Length_A_B - 5*Length_A_D/4 & Length_A_D - 6*Variable_x - 2 & Length_A_B - 9*Variable_x + 2 => Variable_x - 3

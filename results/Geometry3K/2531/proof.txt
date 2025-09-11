@@ -1,6 +1,8 @@
 Solution:
-1. Parallel(J,K,L,M) => Angle_J_M_L + Angle_K_J_M - pi
-2. Length_K_L - 6 & Length_J_M - 6 => Length_J_M - Length_K_L
-3. Trapezoid(J,K,L,M) & Parallel(J,K,L,M) & Length_J_M - Length_K_L => EquilateralTrapezoid(J,K,L,M)
-4. EquilateralTrapezoid(J,K,L,M) & Parallel(J,K,L,M) => Angle_J_K_L - Angle_K_J_M
-5. Angle_J_M_L + Angle_K_J_M - pi & Angle_J_K_L - Angle_K_J_M & Angle_J_M_L - 4*pi/9 => Angle_J_K_L - 5*pi/9
+1. Length_A_B - Length_A_C [DefinitionOfIsoscelesTriangle(A,B,C)] => Angle_A_B_C - Angle_A_C_B
+2. Angle_A_B_C - Angle_A_C_B & Angle_A_C_B - 4*pi/15 => Angle_A_B_C - 4*pi/15
+3. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - 4*pi/15 & Angle_A_B_C - 4*pi/15 => Angle_B_A_C - 7*pi/15
+4. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_C_B - 4*pi/15 & Angle_B_A_C - 7*pi/15 & Length_A_B - Length_A_C & Length_B_C - 7/2 => Length_A_C - 2.61533396226307
+5. Length_A_C - 2.61533396226307 & Length_A_B - Length_A_C => Length_A_B - 2.61533396226307
+6. Length_A_C - 2.61533396226307 => Length_A_C - 2.61533396226307
+7. Length_A_B - 2.61533396226307 & Length_B_C - 7/2 & Length_A_C - 2.61533396226307 => Length_A_B + Length_A_C + Length_B_C - 8.73066792452613

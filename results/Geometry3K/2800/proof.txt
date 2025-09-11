@@ -1,12 +1,7 @@
 Solution:
-1. Length_C_G - 26 & Length_A_G - 26 => Length_A_G - Length_C_G
-2. Length_A_G - Length_C_G => IsoscelesTriangle(A,C,G)
-3. Collinear(A,B,C) => Parallel(A,C,B,C) & Parallel(A,B,B,C)
-4. Perpendicular(B,C,B,G) & Parallel(A,C,B,C) => Perpendicular(A,C,B,G)
-5. IsoscelesTriangle(A,C,G) & Length_A_G - Length_C_G & Collinear(A,B,C) & Perpendicular(A,C,B,G) => Midpoint(B,A,C)
-6. Midpoint(B,A,C) => Length_A_C - 2*Length_B_C
-7. Perpendicular(B,C,B,G) & Parallel(A,B,B,C) => Perpendicular(A,B,B,G)
-8. Perpendicular(A,B,B,G) => Angle_A_B_G - pi/2
-9. IsoscelesTriangle(A,C,G) & Length_A_G - Length_C_G & Perpendicular(A,C,B,G) => Length_A_B - Length_B_C
-10. Length_A_B**2 - 2*Length_A_B*Length_B_G*cos(Angle_A_B_G) - Length_A_G**2 + Length_B_G**2 & Length_B_G - 10 & Angle_A_B_G - pi/2 & Length_A_B - Length_B_C & Length_A_G - 26 => Length_B_C - 24
-11. Length_A_C - 2*Length_B_C & Length_B_C - 24 => Length_A_C - 48
+1. Parallelogram(A,B,C,N) => Trapezoid(A,B,C,N) & Parallel(A,B,C,N) & Length_A_B - Length_C_N
+2. Collinear(A,B,L) [CollinearParallel(A,B,L)] => Parallel(A,B,A,L)
+3. Perpendicular(A,L,L,N) & Parallel(A,B,A,L) [AlphaGeometry1b(A,L,L,N,A,B)] => Perpendicular(A,B,L,N)
+4. Trapezoid(A,B,C,N) & Parallel(A,B,C,N) & Perpendicular(A,B,L,N) & Collinear(A,B,L) [TrapezoidArea(N,C,B,A,L)] => Area_A_B_C_N - Length_L_N*(Length_A_B + Length_C_N)/2
+5. Length_A_B - 40 & Length_A_B - Length_C_N => Length_C_N - 40
+6. Area_A_B_C_N - Length_L_N*(Length_A_B + Length_C_N)/2 & Length_L_N - 36 & Length_A_B - 40 & Length_C_N - 40 => Area_A_B_C_N - 1440

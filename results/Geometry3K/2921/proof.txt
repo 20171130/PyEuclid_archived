@@ -1,7 +1,5 @@
 Solution:
-1. Midpoint(V,Q,U) => Length_Q_V - Length_U_V & Length_Q_U - 2*Length_U_V
-2. Midpoint(S,R,T) => Length_R_S - Length_S_T
-3. Length_Q_V - Length_U_V & Length_R_S - Length_S_T => Length_Q_V/Length_U_V - Length_R_S/Length_S_T
-4. Collinear(Q,U,V) & Parallel(Q,R,T,U) & Collinear(R,S,T) & Length_Q_V/Length_U_V - Length_R_S/Length_S_T => Parallel(Q,R,S,V)
-5. Parallel(Q,R,T,U) & Parallel(Q,R,S,V) & Collinear(Q,U,V) & Collinear(R,S,T) => Length_Q_R*Length_U_V/Length_Q_U - Length_S_V + Length_Q_V*Length_T_U/Length_Q_U
-6. Length_Q_R*Length_U_V/Length_Q_U - Length_S_V + Length_Q_V*Length_T_U/Length_Q_U & Length_T_U - 16 & Length_Q_U - 2*Length_U_V & Length_Q_V - Length_U_V & Length_Q_R - 4 => Length_S_V - 10
+1. Perpendicular(R,S,S,T) [Perp2Angle(R,S,T)] => Angle_R_S_T - pi/2
+2. Angle_R_S_T - pi/2 & Angle_R_S_T + Angle_R_T_S + Angle_S_R_T - pi => Angle_R_T_S + Angle_S_R_T - pi/2
+3. sin(Angle_S_R_T)/Length_S_T - sin(Angle_R_T_S)/Length_R_S & Length_S_T - 10*sqrt(3) & Length_R_S - 4*sqrt(3) & Angle_R_T_S + Angle_S_R_T - pi/2 => Angle_S_R_T - atan(5/2)
+4. Angle_S_R_T - atan(5/2) & Angle_R_T_S + Angle_S_R_T - pi/2 => Angle_R_T_S - pi/2 + atan(5/2)

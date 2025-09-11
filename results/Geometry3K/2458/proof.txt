@@ -1,3 +1,7 @@
 Solution:
-1. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
-2. Length_A_B**2 - 2*Length_A_B*Length_B_C*cos(Angle_A_B_C) - Length_A_C**2 + Length_B_C**2 & Length_B_C - 24 & Length_A_B - Variable_x & Angle_A_B_C - pi/2 & Length_A_C - 74 => Variable_x - 70
+1. Length_A_F - Variable_radius_F & Length_C_F - Variable_radius_F => Length_A_F - Length_C_F
+2. Length_A_F - Variable_radius_F & Length_D_F - Variable_radius_F => Length_A_F - Length_D_F
+3. Length_A_F - Length_C_F & Length_A_F - Length_D_F [InscribedAngle1(F,A,C,D)] => Angle_C_A_D - Angle_C_F_D/2
+4. Collinear(A,C,F) [FlatAngle2(A,F,C,D)] => Angle_A_F_D + Angle_C_F_D - pi
+5. Angle_C_F_D - pi*(Variable_a/45 - 1/180) & Angle_C_A_D - Angle_C_F_D/2 & Angle_A_F_D - pi*(Variable_a/90 - 1/36) & Angle_A_F_D + Angle_C_F_D - pi => Angle_C_A_D - 41*pi/120
+6. Angle_C_A_D - Angle_C_F_D/2 & Angle_C_A_D - 41*pi/120 => Angle_C_F_D - 41*pi/60

@@ -1,13 +1,4 @@
 Solution:
-1. Length_A_H - Variable_radius_A & Length_A_D - Variable_radius_A => Length_A_D - Length_A_H
-2. Length_A_D - Variable_radius_A & Length_A_E - Variable_radius_A => Length_A_D - Length_A_E
-3. Angle_A_D_B - pi/2 => Perpendicular(A,D,B,D)
-4. Collinear(B,C,D) => Parallel(B,D,C,D)
-5. Perpendicular(A,D,B,D) & Parallel(B,D,C,D) => Perpendicular(A,D,C,D)
-6. Length_A_D - Length_A_H & Length_A_D - Length_A_E & Perpendicular(A,D,C,D) => Angle_C_D_H - Angle_D_E_H
-7. Length_A_H - Variable_radius_A & Length_A_E - Variable_radius_A => Length_A_E - Length_A_H
-8. Angle_A_H_C - pi/2 => Perpendicular(A,H,C,H)
-9. -Length_A_D + Length_A_H & -Length_A_E + Length_A_H & Perpendicular(A,H,C,H) => Angle_C_H_D - Angle_D_E_H
-10. Angle_C_D_H - Angle_D_E_H & Angle_C_H_D - Angle_D_E_H => Angle_C_D_H - Angle_C_H_D
-11. Angle_C_D_H - Angle_C_H_D => Length_C_D - Length_C_H
-12. Length_C_D + 3*Variable_x - 72 & Length_C_D - Length_C_H & Length_C_H - 5*Variable_x + 8 => Variable_x - 10
+1. Congruent3(B,C,D,W,X,Y) [PropertyOfCongruent(B,C,D,W,X,Y)] => Angle_C_B_D - Angle_X_W_Y
+2. Angle_X_W_Y - 77*pi/180 & Angle_C_B_D - Angle_X_W_Y => Angle_C_B_D - 77*pi/180
+3. Angle_C_B_D - pi*(2*Variable_x/15 + 1/36) & Angle_C_B_D - 77*pi/180 => Variable_x - 3

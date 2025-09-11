@@ -1,11 +1,3 @@
 Solution:
-1. Collinear(A,E,U) => Angle_A_E_N - Angle_N_E_U
-2. Collinear(B,E,N) => Parallel(B,E,B,N) & Angle_B_E_U + Angle_N_E_U - pi
-3. Parallel(B,E,B,N) & Parallel(B,N,I,L) => Parallel(B,E,I,L)
-4. Collinear(D,I,U) => Parallel(D,I,D,U)
-5. Collinear(D,I,L) => Parallel(D,I,I,L)
-6. Parallel(D,I,D,U) & Parallel(D,I,I,L) => Parallel(D,U,I,L)
-7. Parallel(B,E,I,L) & Parallel(D,U,I,L) => Parallel(B,E,D,U)
-8. Parallel(B,E,D,U) => Angle_B_E_U + Angle_D_U_E - pi
-9. Variable_angle_12 - 16*pi/45 & Angle_A_E_N - Angle_N_E_U & Angle_B_E_U + Angle_D_U_E - pi & Angle_B_E_U + Angle_N_E_U - pi & Angle_A_E_N - Variable_angle_12 => Angle_D_U_E - 16*pi/45
-10. Angle_D_U_E - 16*pi/45 & Angle_D_U_E - Variable_angle_7 => Variable_angle_7 - 16*pi/45
+1. Perpendicular(B,C,C,D) [Perp2Angle(B,C,D)] => Angle_B_C_D - pi/2
+2. Length_B_C**2 - 2*Length_B_C*Length_C_D*cos(Angle_B_C_D) - Length_B_D**2 + Length_C_D**2 & Length_B_D - 14 & Angle_B_C_D - pi/2 & Length_B_C - 10 & Length_C_D - Variable_x => Variable_x - 4*sqrt(6)

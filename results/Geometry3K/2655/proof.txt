@@ -1,8 +1,2 @@
 Solution:
-1. Length_I_J - 6 & Length_F_J - 6 => Length_F_J - Length_I_J
-2. Length_F_J - Length_I_J => Angle_F_I_J - Angle_I_F_J
-3. Angle_F_J_I - pi/4 & Angle_F_I_J - Angle_I_F_J & Angle_F_I_J + Angle_F_J_I + Angle_I_F_J - pi => Angle_F_I_J - 3*pi/8
-4. Length_F_I**2 - 2*Length_F_I*Length_I_J*cos(Angle_F_I_J) - Length_F_J**2 + Length_I_J**2 & Length_I_J - 6 & Angle_F_I_J - 3*pi/8 & Length_F_J - 6 => Length_F_I - 4.59220118838108
-5. Length_F_I - 4.59220118838108 => Length_F_I - 4.59220118838107
-6. Area_F_I_J**2 - (-Length_F_I/2 + Length_F_J/2 + Length_I_J/2)*(Length_F_I/2 - Length_F_J/2 + Length_I_J/2)*(Length_F_I/2 + Length_F_J/2 - Length_I_J/2)*(Length_F_I/2 + Length_F_J/2 + Length_I_J/2) & Length_F_J - 6 & Length_I_J - 6 & Length_F_I - 4.59220118838107 => Area_F_I_J - 12.7279220613579
-7. Area_F_I_J - 12.7279220613579 => Area_F_I_J - 12.7279220613579
+1. Variable_y - 45 => Variable_y - 45

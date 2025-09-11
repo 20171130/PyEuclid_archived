@@ -1,3 +1,10 @@
 Solution:
-1. Rectangle(D,E,F,G) => Angle_D_F_G - Angle_E_D_F
-2. Angle_E_D_F - pi*(Variable_x/36 - 1/60) & Angle_D_F_G - pi*(Variable_x/60 + 7/180) & Angle_D_F_G - Angle_E_D_F => Angle_E_D_F - 11*pi/90
+1. Collinear(A,B,D) & Collinear(A,C,E) & Parallel(B,C,D,E) [AlphaGeometry8(B,C,D,E,A)] => Length_A_B/Length_A_C - Length_B_D/Length_C_E
+2. Length_A_B/Length_A_C - Length_B_D/Length_C_E => Length_C_E/Length_B_D - Length_A_C/Length_A_B
+3. Length_A_B - 20 & Length_C_E/Length_B_D - Length_A_C/Length_A_B => Length_A_C - 20*Length_C_E/Length_B_D
+4. Length_A_D - 4 & Length_A_B - 20 => Length_A_B - 5*Length_A_D
+5. Collinear(A,B,D) [BetweenLength(A,D,B)] => Length_A_B - Length_A_D - Length_B_D
+6. Length_A_D - 4 & Length_A_B - 5*Length_A_D & Length_A_B - Length_A_D - Length_B_D => Length_B_D - 16
+7. Collinear(A,C,E) [BetweenLength(A,E,C)] => Length_A_C - Length_A_E - Length_C_E
+8. Length_A_C - Length_A_E - Length_C_E & Length_A_E - Variable_m + 2 & Length_C_E - Variable_m - 4 => Length_A_C - 2*Variable_m - 2
+9. Length_A_C - 20*Length_C_E/Length_B_D & Length_C_E - Variable_m - 4 & Length_B_D - 16 & Length_A_C - 2*Variable_m - 2 => Variable_m - 4

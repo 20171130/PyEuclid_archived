@@ -1,17 +1,4 @@
 Solution:
-1. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
-2. Angle_A_B_C - pi/2 => sin(Angle_B_A_C) - Length_B_C/Length_A_C & Area_A_B_C - Length_A_B*Length_B_C/2
-3. Collinear(A,C,D) => Parallel(A,C,A,D) & Parallel(A,D,C,D) & Angle_A_C_B - Angle_B_C_D
-4. Perpendicular(A,D,B,D) & Parallel(A,C,A,D) => Perpendicular(A,C,B,D)
-5. Perpendicular(A,C,B,D) & Collinear(A,C,D) => Area_A_B_C - Length_A_C*Length_B_D/2
-6. Area_A_B_C - Length_A_C*Length_B_D/2 & Area_A_B_C - Length_A_B*Length_B_C/2 => Length_B_C/Length_A_C - Length_B_D/Length_A_B
-7. Perpendicular(A,D,B,D) & Parallel(A,D,C,D) => Perpendicular(B,D,C,D)
-8. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2
-9. Length_B_C**2 - Length_B_D**2 + 2*Length_B_D*Length_C_D*cos(Angle_B_D_C) - Length_C_D**2 & Length_B_C - Variable_z & Length_B_D - 16 & Length_C_D - 8 & Angle_B_D_C - pi/2 => Variable_z - 8*sqrt(5)
-10. Length_B_C - Variable_z & Variable_z - 8*sqrt(5) => Length_B_C - 8*sqrt(5)
-11. Length_A_B - Variable_y & Length_B_C/Length_A_C - Length_B_D/Length_A_B & Length_B_C - 8*sqrt(5) & Length_B_D - 16 => Length_A_C - sqrt(5)*Variable_y/2
-12. Angle_A_C_B - Angle_B_C_D & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - pi/2 & Angle_B_D_C - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_B_A_C - Angle_C_B_D
-13. Angle_B_D_C - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_B_C_D + Angle_C_B_D - pi/2
-14. sin(Angle_C_B_D)/Length_C_D - sin(Angle_B_C_D)/Length_B_D & Angle_B_C_D + Angle_C_B_D - pi/2 & Length_B_D - 16 & Length_C_D - 8 => Angle_C_B_D - atan(1/2)
-15. Angle_B_A_C - Angle_C_B_D & Angle_C_B_D - atan(1/2) => Angle_B_A_C - atan(1/2)
-16. sin(Angle_B_A_C) - Length_B_C/Length_A_C & Length_A_C - sqrt(5)*Variable_y/2 & Length_B_C - 8*sqrt(5) & Angle_B_A_C - atan(1/2) => Variable_y - 16*sqrt(5)
+1. Parallelogram(J,K,L,M) => Angle_J_K_L + Angle_K_L_M - pi
+2. Collinear(J,L,R) [DiagramAngle4b(L,J,M,R)] => Angle_J_L_M - Angle_M_L_R
+3. Angle_K_L_M - Angle_K_L_R - Angle_M_L_R & Angle_J_K_L + Angle_K_L_M - pi & Angle_J_L_M - Angle_M_L_R & Angle_K_L_R - 7*pi/18 & Angle_J_L_M - pi/6 => Angle_J_K_L - 4*pi/9

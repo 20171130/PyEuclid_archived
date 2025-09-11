@@ -1,8 +1,3 @@
 Solution:
-1. Collinear(C,W,Z) => Length_C_W - Length_C_Z + Length_W_Z
-2. Length_B_W - 15 & Length_B_Z - 15 => Length_B_W - Length_B_Z
-3. Length_B_W - Length_B_Z & Collinear(B,W,Z) => Midpoint(B,W,Z)
-4. Midpoint(B,W,Z) => Length_B_Z - Length_W_Z/2
-5. Length_A_Z - Length_C_W & Length_C_W - 2 => Length_A_Z - 2
-6. Collinear(A,C,Z) => Length_A_C - Length_A_Z - Length_C_Z
-7. Length_C_W - Length_C_Z + Length_W_Z & Length_B_Z - Length_W_Z/2 & Length_A_Z - Length_C_W & Length_A_Z - 2 & Length_A_C - Length_A_Z - Length_C_Z & Length_B_Z - 15 => Length_A_C - 34
+1. Parallelogram(W,X,Z,Y) & Collinear(B,W,Z) & Collinear(B,X,Y) [PropertyOfParallelogram1(W,X,Z,Y,B)] => Length_B_W - Length_B_Z
+2. Length_B_W - Length_B_Z & Length_B_Z - 2*Variable_t + 6 & Length_B_W - 8 => Variable_t - 7

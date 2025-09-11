@@ -1,5 +1,3 @@
 Solution:
-1. Parallelogram(A,C,B,D) => Area_A_C_B_D - Length_A_C*Length_B_C*sin(Angle_A_C_B) & Angle_A_C_B + Angle_C_B_D - pi & Length_A_D - Length_B_C
-2. Angle_A_C_B + Angle_C_B_D - pi & Angle_C_B_D - pi/4 => Angle_A_C_B - 3*pi/4
-3. Length_A_D - Length_B_C & Length_A_D - 13 => Length_B_C - 13
-4. Area_A_C_B_D - Length_A_C*Length_B_C*sin(Angle_A_C_B) & Length_A_C - 10 & Angle_A_C_B - 3*pi/4 & Length_B_C - 13 => Area_A_C_B_D - 65*sqrt(2)
+1. Perpendicular(A,H,B,C) & Collinear(B,C,H) [AreaEqualsBaseTimesHeight(A,B,C,H)] => Area_A_B_C - Length_A_H*Length_B_C/2
+2. Length_A_H - 7 & Area_A_B_C - Length_A_H*Length_B_C/2 & Length_B_C - 51/5 => Area_A_B_C - 357/10

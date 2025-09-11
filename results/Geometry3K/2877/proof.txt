@@ -1,8 +1,6 @@
 Solution:
-1. Length_C_F - 8 & Length_B_C + Length_B_F + Length_C_F - 27 => Length_B_C + Length_B_F - 19
-2. Length_C_F - 8 & Length_D_F - 6 => Length_C_F - 4*Length_D_F/3
-3. Similar3(B,C,F,E,D,F) => Length_B_C/Length_C_F - Length_D_E/Length_D_F & Length_B_F/Length_E_F - Length_C_F/Length_D_F
-4. Length_C_F - 4*Length_D_F/3 & Length_B_C/Length_C_F - Length_D_E/Length_D_F => Length_B_C - 4*Length_D_E/3
-5. Length_B_F/Length_E_F - Length_C_F/Length_D_F & Length_C_F - 4*Length_D_F/3 => Length_B_F - 4*Length_E_F/3
-6. Length_B_C + Length_B_F - 19 & Length_B_C - 4*Length_D_E/3 & Length_B_F - 4*Length_E_F/3 => Length_D_E + Length_E_F - 57/4
-7. Length_D_F - 6 & Length_D_E + Length_E_F - 57/4 => Length_D_E + Length_D_F + Length_E_F - 81/4
+1. Length_G_H - 5 & Length_E_H - 5 => Length_E_H - Length_G_H
+2. Length_E_H - Length_G_H & Angle_E_H_G - pi/3 [DefinitionOfEquilateralTriangle2(H,E,G)] => EquilateralTriangle(E,G,H)
+3. EquilateralTriangle(E,G,H) [PropertyOfEquilateralTriangle(E,G,H)] => Length_E_G - Length_G_H
+4. Length_G_H - 5 & Length_E_G - Length_G_H => Length_E_G - 5
+5. Area_E_G_H**2 - (-Length_E_G/2 + Length_E_H/2 + Length_G_H/2)*(Length_E_G/2 - Length_E_H/2 + Length_G_H/2)*(Length_E_G/2 + Length_E_H/2 - Length_G_H/2)*(Length_E_G/2 + Length_E_H/2 + Length_G_H/2) & Length_E_H - 5 & Length_G_H - 5 & Length_E_G - 5 => Area_E_G_H - 25*sqrt(3)/4

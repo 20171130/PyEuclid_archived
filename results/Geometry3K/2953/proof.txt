@@ -1,4 +1,2 @@
 Solution:
-1. Parallel(Q,R,S,T) => Angle_Q_R_S + Angle_R_S_T - pi
-2. Collinear(B,R,S) => Angle_B_S_T - Angle_R_S_T
-3. Angle_Q_R_S - pi/4 & Angle_Q_R_S + Angle_R_S_T - pi & Angle_B_S_T - Angle_R_S_T => Angle_B_S_T - 3*pi/4
+1. Angle_B_A_D - 2*pi/9 & Angle_A_B_D - pi/4 & Angle_A_D_B - Variable_angle_3 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi => Variable_angle_3 - 19*pi/36

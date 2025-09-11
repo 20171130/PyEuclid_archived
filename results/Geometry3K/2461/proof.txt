@@ -1,2 +1,7 @@
 Solution:
-1. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Length_B_C - 50 & Length_A_B - 61 & Length_A_C - 29 & Angle_A_C_B - pi*Variable_x/180 => Variable_x - 180*acos(-19/145)/pi
+1. Centroid(Q,A,B,C) & Collinear(A,C,E) & Collinear(B,E,Q) [PropertyOfCentroid(Q,A,C,B,E)] => -0.5 + Length_E_Q/Length_B_Q
+2. -0.5 + Length_E_Q/Length_B_Q => Length_B_Q - 2.0*Length_E_Q
+3. Collinear(B,E,Q) [BetweenLength(B,Q,E)] => Length_B_E - Length_B_Q - Length_E_Q
+4. Length_B_E - 9 & Length_B_E - Length_B_Q - Length_E_Q => Length_B_Q + Length_E_Q - 9
+5. Length_B_Q - 2.0*Length_E_Q & Length_B_Q + Length_E_Q - 9 => Length_E_Q - 3.0
+6. Length_B_Q - 2.0*Length_E_Q & Length_E_Q - 3.0 => Length_B_Q - 6.0

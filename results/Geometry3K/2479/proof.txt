@@ -1,7 +1,5 @@
 Solution:
-1. Length_Q_R - 35 & Length_Q_S - 12 => -12/35 + Length_Q_S/Length_Q_R
-2. Similar3(L,M,N,Q,R,S) => Length_L_M/Length_Q_R - Length_L_N/Length_Q_S & Length_L_M/Length_M_N - Length_Q_R/Length_R_S
-3. -12/35 + Length_Q_S/Length_Q_R & Length_L_M/Length_Q_R - Length_L_N/Length_Q_S => Length_L_M - 35*Length_L_N/12
-4. Length_R_S - 37 & Length_Q_R - 35 => Length_Q_R - 35*Length_R_S/37
-5. Length_L_M/Length_M_N - Length_Q_R/Length_R_S & Length_Q_R - 35*Length_R_S/37 => Length_L_M - 35*Length_M_N/37
-6. Length_L_M - 35*Length_L_N/12 & Length_L_M - 35*Length_M_N/37 & Length_L_N - 5 => Length_L_M + Length_L_N + Length_M_N - 35
+1. Similar5(A,B,C,D,E,R,S,T,U,V) [PropertyOfSimilar5(A,B,C,D,E,R,S,T,U,V)] => Length_B_C/Length_S_T - Length_C_D/Length_T_U
+2. Length_C_D - 5 & Length_B_C - 4 => -5/4 + Length_C_D/Length_B_C
+3. Length_B_C/Length_S_T - Length_C_D/Length_T_U & -5/4 + Length_C_D/Length_B_C => Length_S_T - 4*Length_T_U/5
+4. Length_S_T - 4*Length_T_U/5 & Length_S_T - 18 => Length_T_U - 45/2

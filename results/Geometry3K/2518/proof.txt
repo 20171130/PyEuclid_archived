@@ -1,3 +1,6 @@
 Solution:
-1. Collinear(A,B,C) => Angle_A_B_F + Angle_C_B_F - pi
-2. Angle_C_B_F - pi*(Variable_x/90 + 5/36) & Angle_A_B_D - Angle_A_B_F + Angle_D_B_F & Angle_A_B_D - Angle_D_B_F & Angle_A_B_F + Angle_C_B_F - pi & Angle_A_B_F - pi*(Variable_x/18 - 1/180) => Angle_D_B_F - 43*pi/120
+1. Perpendicular(V,W,W,X) [Perp2Angle(V,W,X)] => Angle_V_W_X - pi/2
+2. Angle_V_W_X + Angle_V_X_W + Angle_W_V_X - pi & Angle_V_W_X - pi/2 => Angle_V_X_W + Angle_W_V_X - pi/2
+3. sin(Angle_V_W_X)/Length_V_X - sin(Angle_V_X_W)/Length_V_W & Length_V_W - 72 & Angle_V_W_X - pi/2 & Length_V_X - 75 & Angle_V_X_W + Angle_W_V_X - pi/2 => Angle_W_V_X - acos(24/25)
+4. Angle_V_X_W + Angle_W_V_X - pi/2 & Angle_W_V_X - acos(24/25) => Angle_V_X_W - pi/2 + acos(24/25)
+5. Angle_V_X_W - pi/2 + acos(24/25) => cos(Angle_V_X_W) - 7/25

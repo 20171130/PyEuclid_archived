@@ -1,6 +1,8 @@
 Solution:
-1. Collinear(D,E,G) => Parallel(D,G,E,G) & Angle_A_E_D - Angle_A_E_G
-2. Perpendicular(A,G,D,G) & Parallel(D,G,E,G) => Perpendicular(A,G,E,G)
-3. Perpendicular(A,G,E,G) => Angle_A_G_E - pi/2
-4. Angle_A_E_D - pi/4 & Angle_A_E_D - Angle_A_E_G => Angle_A_E_G - pi/4
-5. sin(Angle_A_E_G)/Length_A_G - sin(Angle_A_G_E)/Length_A_E & Angle_A_G_E - pi/2 & Length_A_G - Variable_x & Angle_A_E_G - pi/4 & Length_A_E - 8 => Variable_x - 4*sqrt(2)
+1. Length_M_R - 4 & Length_A_T - 16 => Length_A_T - 4*Length_M_R
+2. Length_A_S - Length_B_S & Collinear(A,B,S) [DefinitionOfMidpoint(S,A,B)] => Midpoint(S,A,B)
+3. Length_B_T - Length_C_T & Collinear(B,C,T) [DefinitionOfMidpoint(T,B,C)] => Midpoint(T,B,C)
+4. Midpoint(S,A,B) & Midpoint(T,B,C) & Collinear(C,M,S) & Collinear(A,M,T) [DefinitionOfCentroid1(M,A,B,C,S,T)] => Centroid(M,A,B,C)
+5. Centroid(M,A,B,C) & Collinear(A,C,R) & Collinear(B,M,R) [PropertyOfCentroid(M,A,C,B,R)] => -0.5 + Length_M_R/Length_B_M
+6. Length_A_T - 4*Length_M_R & -0.5 + Length_M_R/Length_B_M => Length_A_T - 2.0*Length_B_M
+7. Length_A_T - 2.0*Length_B_M & Length_A_T - 16 => Length_B_M - 8.0

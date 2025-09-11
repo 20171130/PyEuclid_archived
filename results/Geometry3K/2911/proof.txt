@@ -1,13 +1,4 @@
 Solution:
-1. Length_C_D - Variable_x & Length_B_C - 7*Variable_x => Length_B_C - 7*Length_C_D
-2. Collinear(B,C,D) => Length_B_C - Length_B_D - Length_C_D & Parallel(B,D,C,D)
-3. Length_B_C - 7*Length_C_D & Length_B_C - Length_B_D - Length_C_D => Length_B_D - 6*Length_C_D
-4. Perpendicular(A,D,B,D) => Angle_A_D_B - pi/2
-5. Perpendicular(A,B,A,C) => Angle_B_A_C - pi/2
-6. Angle_A_D_B - pi/2 & Angle_B_A_C - pi/2 & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi => Angle_A_B_D - Angle_C_A_D
-7. Perpendicular(A,D,B,D) & Parallel(B,D,C,D) => Perpendicular(A,D,C,D)
-8. Perpendicular(A,D,C,D) => Angle_A_D_C - pi/2
-9. Angle_A_D_C - pi/2 & Angle_A_D_B - pi/2 => Angle_A_D_B - Angle_A_D_C
-10. Angle_A_B_D - Angle_C_A_D & Angle_A_D_B - Angle_A_D_C => Similar3(A,B,D,C,A,D)
-11. Similar3(A,B,D,C,A,D) => Length_A_D/Length_B_D - Length_C_D/Length_A_D
-12. Length_C_D - Variable_x & Length_B_D - 6*Length_C_D & Length_A_D - 36 & Length_A_D/Length_B_D - Length_C_D/Length_A_D => Variable_x - 6*sqrt(6)
+1. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+2. Length_A_B - Variable_c & Variable_c - 5 => Length_A_B - 5
+3. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_C_B - pi/2 & Length_A_C - Variable_b & Length_A_B - 5 & Angle_A_B_C - pi/3 => Variable_b - 5*sqrt(3)/2

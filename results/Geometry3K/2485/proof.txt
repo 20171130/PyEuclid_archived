@@ -1,3 +1,7 @@
 Solution:
-1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Length_A_C - Variable_x & Length_B_C - 38 & Angle_A_C_B - pi/2 & Length_A_B - 42 => Variable_x - 8*sqrt(5)
+1. Rhombus(A,B,C,D) => Perpendicular(A,C,B,D)
+2. Collinear(B,D,E) [CollinearParallel(B,D,E)] => Parallel(B,D,B,E)
+3. Perpendicular(A,C,B,D) & Parallel(B,D,B,E) [AlphaGeometry1b(B,D,A,C,B,E)] => Perpendicular(A,C,B,E)
+4. Collinear(A,C,E) [CollinearParallel(A,C,E)] => Parallel(A,C,A,E)
+5. Perpendicular(A,C,B,E) & Parallel(A,C,A,E) [AlphaGeometry1b(A,C,B,E,A,E)] => Perpendicular(A,E,B,E)
+6. Perpendicular(A,E,B,E) [Perp2Angle(A,E,B)] => Angle_A_E_B - pi/2

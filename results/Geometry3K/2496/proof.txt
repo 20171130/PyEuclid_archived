@@ -1,12 +1,9 @@
 Solution:
-1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. Angle_A_C_B - pi/2 => cos(Angle_A_B_C) - Length_B_C/Length_A_B
-3. Perpendicular(A,B,B,D) => Angle_A_B_D - pi/2
-4. Angle_A_B_D - pi/2 & Angle_A_B_C - Angle_A_B_D + Angle_C_B_D => Angle_A_B_C + Angle_C_B_D - pi/2
-5. Collinear(A,C,D) => Parallel(A,C,C,D)
-6. Perpendicular(A,C,B,C) & Parallel(A,C,C,D) => Perpendicular(B,C,C,D)
-7. Perpendicular(B,C,C,D) => Angle_B_C_D - pi/2
-8. Angle_B_C_D - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_B_D_C + Angle_C_B_D - pi/2
-9. sin(Angle_C_B_D)/Length_C_D - sin(Angle_B_D_C)/Length_B_C & Length_C_D - 6 & Angle_B_D_C + Angle_C_B_D - pi/2 & Length_B_C - 8 => Angle_C_B_D - atan(3/4)
-10. Angle_A_B_C + Angle_C_B_D - pi/2 & Angle_C_B_D - atan(3/4) => Angle_A_B_C - pi/2 + atan(3/4)
-11. cos(Angle_A_B_C) - Length_B_C/Length_A_B & Length_A_B - Variable_z & Length_B_C - 8 & Angle_A_B_C - pi/2 + atan(3/4) => Variable_z - 40/3
+1. Length_B_E - Variable_x & Length_A_E - Variable_x => Length_A_E - Length_B_E
+2. Length_A_G - Variable_radius_G & Length_B_G - Variable_radius_G => Length_A_G - Length_B_G
+3. Length_C_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_C_G
+4. Length_D_G - Variable_radius_G & Length_A_G - Variable_radius_G => Length_A_G - Length_D_G
+5. Length_A_G - Length_B_G & Length_A_G - Length_C_G & Length_A_G - Length_D_G [AlphaGeometry2(G,A,B,C,D)] => Concyclic(A,B,C,D)
+6. Concyclic(A,B,C,D) & Collinear(A,B,E) & Collinear(C,D,E) [IntersectingChordsTheorem(A,B,C,D,E)] => Length_A_E/Length_C_E - Length_D_E/Length_B_E
+7. Length_A_E - Length_B_E & Length_D_E - 4 & Length_A_E/Length_C_E - Length_D_E/Length_B_E & Length_C_E - 9 => Length_B_E - 6
+8. Length_B_E - 6 & Length_B_E - Variable_x => Variable_x - 6

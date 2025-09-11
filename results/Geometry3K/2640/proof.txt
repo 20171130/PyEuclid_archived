@@ -1,7 +1,17 @@
 Solution:
-1. Perpendicular(M,N,M,Q) => Angle_N_M_Q - pi/2
-2. Perpendicular(N,P,P,Q) => Angle_N_P_Q - pi/2
-3. Angle_N_M_Q - pi/2 & Angle_M_N_Q - Angle_P_N_Q & Angle_N_P_Q + Angle_N_Q_P + Angle_P_N_Q - pi & Angle_M_N_Q + Angle_M_Q_N + Angle_N_M_Q - pi & Angle_N_P_Q - pi/2 => Angle_M_Q_N - Angle_N_Q_P
-4. Angle_M_N_Q - Angle_P_N_Q & Angle_M_Q_N - Angle_N_Q_P => Congruent3(M,N,Q,P,N,Q)
-5. Congruent3(M,N,Q,P,N,Q) => Length_M_Q - Length_P_Q
-6. Length_M_Q - Length_P_Q & Length_M_Q - 2*Variable_x - 2 & Length_P_Q - 4*Variable_x + 8 => Length_M_Q - 12
+1. Collinear(B,D,E) [DiagramAngle4b(B,D,A,E)] => Angle_A_B_D - Angle_A_B_E & Angle_A_D_B - Angle_A_D_E & Angle_B_E_C + Angle_C_E_D - pi
+2. Collinear(A,C,D) [FlatAngle2(C,A,D,B)] => Angle_B_A_C + Angle_B_A_D - pi & Angle_A_D_E - Angle_C_D_E & Angle_A_C_E - Angle_D_C_E
+3. Length_C_F - Variable_radius_F & Length_B_F - Variable_radius_F => Length_B_F - Length_C_F
+4. Length_B_F - Length_C_F [DefinitionOfIsoscelesTriangle(F,B,C)] => Angle_B_C_F - Angle_C_B_F
+5. Length_A_F - Variable_radius_F & Length_B_F - Variable_radius_F => Length_A_F - Length_B_F
+6. Length_E_F - Variable_radius_F & Length_B_F - Variable_radius_F => Length_B_F - Length_E_F
+7. -Length_A_F + Length_B_F & Length_B_F - Length_E_F [InscribedAngle1(F,B,A,E)] => Angle_A_B_E - Angle_A_F_E/2
+8. Length_A_F - Variable_radius_F & Length_C_F - Variable_radius_F => Length_A_F - Length_C_F
+9. Length_A_F - Length_B_F & Length_A_F - Length_C_F [InscribedAngle1(F,A,B,C)] => Angle_B_A_C - Angle_B_F_C/2
+10. Angle_A_B_D - Angle_A_B_E & Angle_A_D_E - pi*Variable_x/60 & Angle_A_F_E - pi/6 & Angle_B_A_C + Angle_B_A_D - pi & Angle_B_C_F - Angle_C_B_F & Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi & Angle_A_B_E - Angle_A_F_E/2 & Angle_A_D_B - Angle_A_D_E & Angle_B_F_C - pi*(Variable_x/45 + 5/18) & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_B_A_C - Angle_B_F_C/2 => Angle_C_B_F - pi/4
+11. Angle_A_B_D - Angle_A_B_E & Angle_A_D_E - pi*Variable_x/60 & Angle_A_F_E - pi/6 & Angle_B_A_C + Angle_B_A_D - pi & Angle_A_B_E - Angle_A_F_E/2 & Angle_A_D_B - Angle_A_D_E & Angle_B_F_C - pi*(Variable_x/45 + 5/18) & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_B_A_C - Angle_B_F_C/2 => Angle_A_D_E - pi/6
+12. Length_E_F - Variable_radius_F & Length_C_F - Variable_radius_F => Length_C_F - Length_E_F
+13. -Length_B_F + Length_E_F & -Length_C_F + Length_E_F [InscribedAngle1(F,E,B,C)] => Angle_B_E_C - Angle_B_F_C/2
+14. -Length_A_F + Length_C_F & Length_C_F - Length_E_F [InscribedAngle1(F,C,A,E)] => Angle_A_C_E - Angle_A_F_E/2
+15. Angle_A_D_E - pi*Variable_x/60 & Angle_B_E_C + Angle_C_E_D - pi & Angle_B_E_C - Angle_B_F_C/2 & Angle_A_C_E - Angle_A_F_E/2 & Angle_A_D_E - Angle_C_D_E & Angle_A_F_E - pi/6 & Angle_A_C_E - Angle_D_C_E & Angle_C_D_E + Angle_C_E_D + Angle_D_C_E - pi & Angle_B_C_F - Angle_C_B_F & Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi & Angle_B_F_C - pi*(Variable_x/45 + 5/18) => Angle_B_C_F - pi/4
+16. Angle_A_D_E - pi*Variable_x/60 & Angle_C_B_F - pi/4 & Angle_A_D_E - pi/6 & Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi & Angle_B_F_C - pi*(Variable_x/45 + 5/18) & Angle_B_C_F - pi/4 => Variable_x - 10

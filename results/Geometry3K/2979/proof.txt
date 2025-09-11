@@ -1,7 +1,6 @@
 Solution:
-1. Perpendicular(L,P,N,P) => Angle_L_P_N - pi/2
-2. Length_J_P - Variable_radius_P & Length_M_P - Variable_radius_P => Length_J_P - Length_M_P
-3. Length_N_P - Variable_radius_P & Length_J_P - Variable_radius_P => Length_J_P - Length_N_P
-4. Length_J_P - Length_M_P & Length_J_P - Length_N_P => Angle_M_J_N - Angle_M_P_N/2
-5. Angle_L_P_N - pi/2 & Angle_L_P_M - 13*pi/36 & Angle_L_P_M - Angle_L_P_N + Angle_M_P_N & Angle_M_J_N - Angle_M_P_N/2 => Angle_M_J_N - 5*pi/72
-6. Angle_M_J_N - 5*pi/72 & Angle_M_J_N - Angle_M_P_N/2 => Angle_M_P_N - 5*pi/36
+1. Length_A_B - Length_B_C & Angle_A_B_C - pi/3 [DefinitionOfEquilateralTriangle2(B,A,C)] => EquilateralTriangle(A,B,C)
+2. EquilateralTriangle(A,B,C) [PropertyOfEquilateralTriangle(A,B,C)] => Length_A_B - Length_A_C & Length_A_C - Length_B_C
+3. Length_A_C - 3 & Length_A_B - Length_A_C => Length_A_B - 3
+4. Length_A_C - 3 & Length_A_C - Length_B_C => Length_B_C - 3
+5. Area_A_B_C**2 - (-Length_A_B/2 + Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 - Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 - Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 + Length_B_C/2) & Length_A_C - 3 & Length_A_B - 3 & Length_B_C - 3 => Area_A_B_C - 9*sqrt(3)/4

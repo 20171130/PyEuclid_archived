@@ -1,5 +1,4 @@
 Solution:
-1. Rectangle(A,B,D,C) => Angle_B_A_C - pi/2
-2. Collinear(A,D,G) => Angle_B_A_D - Angle_B_A_G
-3. Variable_angle_1 - 19*pi/90 & Angle_B_A_C - pi/2 & Angle_B_A_D - Angle_B_A_G & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D & Angle_C_A_D - Variable_angle_1 => Angle_B_A_G - 13*pi/45
-4. Angle_B_A_G - Variable_angle_2 & Angle_B_A_G - 13*pi/45 => Variable_angle_2 - 13*pi/45
+1. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+2. Angle_A_C_B - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - pi*Variable_x/180 => Angle_B_A_C - pi*(90 - Variable_x)/180
+3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_B_C)/Length_A_C & Length_B_C - 10 & Length_A_C - 16 & Angle_B_A_C - pi*(90 - Variable_x)/180 & Angle_A_B_C - pi*Variable_x/180 => Variable_x - 180*atan(8/5)/pi

@@ -1,2 +1,8 @@
 Solution:
-1. Variable_x - 123 => Variable_x - 123
+1. Length_W_Z - Length_Y_Z & Collinear(W,Y,Z) [DefinitionOfMidpoint(Z,W,Y)] => Midpoint(Z,W,Y)
+2. Collinear(W,Y,Z) [CollinearParallel(W,Y,Z)] => Parallel(W,Y,Y,Z)
+3. Perpendicular(B,Z,Y,Z) & Parallel(W,Y,Y,Z) [AlphaGeometry1b(Y,Z,B,Z,W,Y)] => Perpendicular(B,Z,W,Y)
+4. Collinear(B,X,Z) [CollinearParallel(B,X,Z)] => Parallel(B,Z,X,Z)
+5. Perpendicular(B,Z,W,Y) & Parallel(B,Z,X,Z) [AlphaGeometry1b(B,Z,W,Y,X,Z)] => Perpendicular(W,Y,X,Z)
+6. Midpoint(Z,W,Y) & Perpendicular(W,Y,X,Z) [AlphaGeometry23(Z,X,W,Y)] => Length_W_X - Length_X_Y
+7. Length_X_Y - 12 & Length_W_X - Length_X_Y => Length_W_X - 12

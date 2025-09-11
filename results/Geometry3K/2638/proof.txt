@@ -1,3 +1,4 @@
 Solution:
-1. Perpendicular(A,B,A,C) => Angle_B_A_C - pi/2
-2. Length_A_B**2 - 2*Length_A_B*Length_A_C*cos(Angle_B_A_C) + Length_A_C**2 - Length_B_C**2 & Angle_B_A_C - pi/2 & Length_A_B - Variable_x & Length_A_C - 12 & Length_B_C - 51/2 => Variable_x - 45/2
+1. Length_K_L - Length_L_N [DefinitionOfIsoscelesTriangle(L,K,N)] => Angle_K_N_L - Angle_L_K_N
+2. Angle_K_L_N - pi/10 & Angle_K_L_N + Angle_K_N_L + Angle_L_K_N - pi & Angle_K_N_L - Angle_L_K_N & Angle_J_L_K - 5*pi/36 & Angle_J_K_L + Angle_J_L_K + Angle_K_J_L - pi & Angle_J_K_N - 13*pi/18 & Angle_K_J_L - Angle_K_J_N - Angle_L_J_N & Angle_J_K_L - Angle_J_K_N + Angle_L_K_N => Angle_K_J_N + Angle_L_J_N - 53*pi/90
+3. Angle_K_J_N + Angle_L_J_N - 53*pi/90 & Angle_K_J_L - Angle_K_J_N - Angle_L_J_N => Angle_K_J_L - 53*pi/90

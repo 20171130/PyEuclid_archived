@@ -1,11 +1,7 @@
 Solution:
-1. Length_B_E - 5 & Length_D_G - 15/2 => Length_B_E - 2*Length_D_G/3
-2. Similar4(A,B,C,D,A,E,F,G) => Length_B_C/Length_E_F - Length_C_D/Length_F_G & Angle_B_C_D - Angle_E_F_G & Angle_A_D_C - Angle_A_G_F
-3. Length_B_C/Length_E_F - Length_C_D/Length_F_G & Angle_B_C_D - Angle_E_F_G => Similar3(B,C,D,E,F,G)
-4. Similar3(B,C,D,E,F,G) => Angle_B_D_C - Angle_E_G_F
-5. Angle_A_D_C - Angle_A_G_F & Collinear(A,D,G) => Parallel(C,D,F,G)
-6. Angle_B_D_C - Angle_E_G_F & Parallel(C,D,F,G) => Parallel(B,D,E,G)
-7. Collinear(A,B,E) & Collinear(A,D,G) & Parallel(B,D,E,G) => Length_A_B/Length_A_D - Length_B_E/Length_D_G
-8. Length_B_E - 2*Length_D_G/3 & Length_A_B/Length_A_D - Length_B_E/Length_D_G => Length_A_B - 2*Length_A_D/3
-9. Length_A_D - Variable_x & Length_A_B - 2*Length_A_D/3 => Length_A_B - 2*Variable_x/3
-10. Length_A_B - 2*Variable_x/3 & Length_A_B - Variable_x + 2 => Variable_x - 6
+1. Collinear(V,Y,Z) & Collinear(U,W,Z) [DiagramAngle4(Z,U,V,W,Y)] => Angle_U_Z_V - Angle_W_Z_Y
+2. Collinear(U,W,Z) [FlatAngle2(U,Z,W,Y)] => Angle_U_Z_Y + Angle_W_Z_Y - pi
+3. Length_W_Z - Variable_radius_Z & Length_U_Z - Variable_radius_Z => Length_U_Z - Length_W_Z
+4. Length_X_Z - Variable_radius_Z & Length_U_Z - Variable_radius_Z => Length_U_Z - Length_X_Z
+5. Length_U_Z - Length_W_Z & Length_U_Z - Length_X_Z [InscribedAngle1(Z,U,W,X)] => Angle_W_U_X - Angle_W_Z_X/2
+6. Angle_U_Z_V - Angle_W_Z_Y & Angle_W_Z_X - Angle_W_Z_Y + Angle_X_Z_Y & Angle_U_Z_V - pi*Variable_x/45 & Angle_W_Z_X - Angle_X_Z_Y & Angle_U_Z_Y + Angle_W_Z_Y - pi & Angle_U_Z_Y - pi*(Variable_x/90 + 2/15) & Angle_W_U_X - Angle_W_Z_X/2 => Angle_W_U_X - 13*pi/90

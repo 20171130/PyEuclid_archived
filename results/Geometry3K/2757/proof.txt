@@ -1,8 +1,6 @@
 Solution:
-1. Length_R_S + Length_R_T + Length_S_T - 15 & Length_S_T - 6 => Length_R_S + Length_R_T - 9
-2. Length_W_X - 5 & Length_S_T - 6 => -5/6 + Length_W_X/Length_S_T
-3. Similar3(R,S,T,Z,W,X) => Length_R_S/Length_W_Z - Length_S_T/Length_W_X & Length_W_X/Length_X_Z - Length_S_T/Length_R_T
-4. -5/6 + Length_W_X/Length_S_T & Length_R_S/Length_W_Z - Length_S_T/Length_W_X => Length_R_S - 6*Length_W_Z/5
-5. Length_W_X/Length_X_Z - Length_S_T/Length_R_T & -5/6 + Length_W_X/Length_S_T => Length_R_T - 6*Length_X_Z/5
-6. Length_R_S + Length_R_T - 9 & Length_R_S - 6*Length_W_Z/5 & Length_R_T - 6*Length_X_Z/5 => Length_W_Z + Length_X_Z - 15/2
-7. Length_W_X - 5 & Length_W_Z + Length_X_Z - 15/2 => Length_W_X + Length_W_Z + Length_X_Z - 25/2
+1. Collinear(A,E,L) [FlatAngle2(E,A,L,J)] => Angle_E_A_J + Angle_J_A_L - pi
+2. Parallel(A,J,B,H) [Para2Angle(A,J,B,H)] => Angle_A_B_H + Angle_B_A_J - pi
+3. Collinear(A,B,L) [FlatAngle2(B,A,L,J)] => Angle_B_A_J + Angle_J_A_L - pi
+4. Angle_A_B_H + Angle_B_A_J - pi & Angle_B_A_J + Angle_J_A_L - pi => Angle_A_B_H - Angle_J_A_L
+5. Angle_A_B_H - Variable_angle_3 & Variable_angle_1 - pi*(Variable_p/45 + 1/12) & Angle_E_A_J + Angle_J_A_L - pi & Angle_E_A_J - Variable_angle_1 & Angle_A_B_H - Angle_J_A_L & Variable_angle_3 - pi*(Variable_p/60 - 1/18) => Variable_p - 25

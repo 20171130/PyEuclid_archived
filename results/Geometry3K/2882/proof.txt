@@ -1,4 +1,2 @@
 Solution:
-1. Perpendicular(C,F,F,G) => Angle_C_F_G - pi/2
-2. Length_C_F**2 - 2*Length_C_F*Length_F_G*cos(Angle_C_F_G) - Length_C_G**2 + Length_F_G**2 & Length_C_F - 12 & Angle_C_F_G - pi/2 & Length_C_G - 13 => Length_F_G - 5
-3. Length_E_G - Length_F_G & Length_F_G - 5 => Length_E_G - 5
+1. Variable_x - 55 => Variable_x - 55

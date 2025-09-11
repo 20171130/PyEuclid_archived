@@ -1,2 +1,5 @@
 Solution:
-1. Angle_A_B_C - 3*Angle_B_A_C & Angle_A_C_B - 2*Angle_B_A_C & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_B_A_C - pi/6
+1. Rectangle(A,B,D,C) => Angle_B_A_C - pi/2
+2. Collinear(A,D,G) [DiagramAngle4b(A,D,B,G)] => Angle_B_A_D - Angle_B_A_G
+3. Angle_B_A_C - pi/2 & Angle_B_A_D - Angle_B_A_G & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D & Variable_angle_1 - 19*pi/90 & Angle_C_A_D - Variable_angle_1 => Angle_B_A_G - 13*pi/45
+4. Angle_B_A_G - 13*pi/45 & Angle_B_A_G - Variable_angle_2 => Variable_angle_2 - 13*pi/45

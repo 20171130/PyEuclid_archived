@@ -1,13 +1,9 @@
 Solution:
-1. Perpendicular(A,B,A,C) => Angle_B_A_C - pi/2
-2. Angle_B_A_C - pi/2 => Length_A_B/Length_B_C - cos(Angle_A_B_C)
-3. Collinear(B,C,D) => Angle_A_B_C - Angle_A_B_D & Length_B_C - Length_B_D - Length_C_D
-4. Perpendicular(A,D,B,D) => Angle_A_D_B - pi/2
-5. Angle_B_A_C - pi/2 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_B_C - Angle_A_B_D & Angle_A_D_B - pi/2 & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D => Angle_A_B_C - Angle_C_A_D
-6. Angle_B_A_C - pi/2 & Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_D_B - pi/2 & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D => Angle_A_B_D - Angle_C_A_D
-7. Angle_B_A_C - pi/2 & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D => Angle_B_A_D + Angle_C_A_D - pi/2
-8. sin(Angle_B_A_D)/Length_B_D - sin(Angle_A_B_D)/Length_A_D & Angle_A_B_D - Angle_C_A_D & Length_A_D - 12 & Length_B_D - 24 & Angle_B_A_D + Angle_C_A_D - pi/2 => Angle_C_A_D - atan(1/2)
-9. Angle_A_B_C - Angle_C_A_D & Angle_C_A_D - atan(1/2) => Angle_A_B_C - atan(1/2)
-10. Length_A_B**2 - Length_A_D**2 + 2*Length_A_D*Length_B_D*cos(Angle_A_D_B) - Length_B_D**2 & Angle_A_D_B - pi/2 & Length_B_D - 24 & Length_A_D - 12 => Length_A_B - 12*sqrt(5)
-11. Length_C_D - Variable_t - 1 & Length_B_D - 24 & Length_B_C - Length_B_D - Length_C_D => Length_B_C - Variable_t - 25
-12. Length_A_B/Length_B_C - cos(Angle_A_B_C) & Angle_A_B_C - atan(1/2) & Length_A_B - 12*sqrt(5) & Length_B_C - Variable_t - 25 => Variable_t - 5
+1. Collinear(C,D,N) [DiagramAngle4b(C,D,F,N)] => Angle_D_C_F - Angle_F_C_N
+2. Collinear(C,D,N) & Collinear(B,D,E) [DiagramAngle4(D,B,C,E,N)] => Angle_B_D_C - Angle_E_D_N
+3. Collinear(B,D,E) [CollinearParallel(B,D,E)] => Parallel(B,D,B,E)
+4. Parallel(A,F,B,E) & Parallel(B,D,B,E) [ParaTrans(B,E,A,F,B,D)] => Parallel(A,F,B,D)
+5. Collinear(A,C,F) [CollinearParallel(A,C,F)] => Parallel(A,F,C,F)
+6. Parallel(A,F,B,D) & Parallel(A,F,C,F) [ParaTrans(A,F,B,D,C,F)] => Parallel(B,D,C,F)
+7. Parallel(B,D,C,F) [Para2Angle(C,F,D,B)] => Angle_B_D_C + Angle_D_C_F - pi
+8. Angle_D_C_F - Angle_F_C_N & Angle_B_D_C - Angle_E_D_N & Angle_B_D_C + Angle_D_C_F - pi => Angle_E_D_N + Angle_F_C_N - pi

@@ -1,11 +1,2 @@
 Solution:
-1. Length_T_Y - Length_V_X & Length_R_X - Length_S_Y & Length_R_X - 2*Length_V_X => -1/2 + Length_T_Y/Length_S_Y
-2. Length_R_X - 2*Length_V_X => Length_R_X/Length_V_X - 2
-3. -1/2 + Length_T_Y/Length_S_Y & Length_R_X/Length_V_X - 2 => Length_R_X/Length_V_X - Length_S_Y/Length_T_Y
-4. Collinear(R,V,X) & Parallel(R,S,T,V) & Collinear(S,T,Y) & Length_R_X/Length_V_X - Length_S_Y/Length_T_Y => Parallel(R,S,X,Y)
-5. Parallel(R,S,T,V) & Parallel(R,S,X,Y) & Collinear(R,V,X) & Collinear(S,T,Y) => Length_R_S*Length_V_X/Length_R_V - Length_X_Y + Length_R_X*Length_T_V/Length_R_V
-6. Collinear(R,V,X) => Length_R_V - Length_R_X - Length_V_X
-7. Length_R_X - Length_S_Y & Length_R_X - 2*Length_V_X => Length_S_Y - 2*Length_V_X
-8. Length_R_V - Length_R_X - Length_V_X & Length_S_Y - 2*Length_V_X & Length_R_X - Length_S_Y => Length_R_V - 3*Length_S_Y/2
-9. Length_R_V - 3*Length_S_Y/2 & Length_S_Y - 2*Length_V_X => Length_R_V - 3*Length_V_X
-10. Length_R_S*Length_V_X/Length_R_V - Length_X_Y + Length_R_X*Length_T_V/Length_R_V & Length_T_V - 3 & Length_R_X - 2*Length_V_X & Length_R_V - 3*Length_V_X & Length_R_S - 6 => Length_X_Y - 4
+1. Area_A_B_C**2 - (-Length_A_B/2 + Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 - Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 - Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 + Length_B_C/2) & Length_A_B - 15 & Length_B_C - 12 & Length_A_C - 9 => Area_A_B_C - 54

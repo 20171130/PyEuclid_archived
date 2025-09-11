@@ -1,8 +1,7 @@
 Solution:
-1. Collinear(D,G,J) => Angle_D_G_H - Angle_H_G_J
-2. Angle_D_G_H + Angle_D_H_G + Angle_G_D_H - pi & Angle_G_H_J + Angle_G_J_H + Angle_H_G_J - pi & Angle_D_G_H - Angle_H_G_J & Angle_G_D_H - Angle_G_H_J => Angle_D_H_G - Angle_G_J_H
-3. Angle_D_G_H - Angle_H_G_J & Angle_D_H_G - Angle_G_J_H => Similar3(D,G,H,H,G,J)
-4. Similar3(D,G,H,H,G,J) => Length_D_G/Length_G_H - Length_D_H/Length_H_J
-5. Length_H_J - 10 & Length_G_H - 7 => Length_G_H - 7*Length_H_J/10
-6. Length_D_G/Length_G_H - Length_D_H/Length_H_J & Length_G_H - 7*Length_H_J/10 => Length_D_G - 7*Length_D_H/10
-7. Length_D_G - 7*Length_D_H/10 & Length_D_H - 2*Variable_x - 4 & Length_D_G - 2*Variable_x + 2 => Length_D_G - 14
+1. Length_K_P - Variable_radius_P & Length_M_P - Variable_radius_P => Length_K_P - Length_M_P
+2. Length_K_P - Variable_radius_P & Length_N_P - Variable_radius_P => Length_K_P - Length_N_P
+3. Length_K_P - Length_M_P & Length_K_P - Length_N_P [InscribedAngle1(P,K,M,N)] => Angle_M_K_N - Angle_M_P_N/2
+4. Perpendicular(L,P,N,P) [Perp2Angle(L,P,N)] => Angle_L_P_N - pi/2
+5. Angle_L_P_M - Angle_L_P_N + Angle_M_P_N & Angle_M_K_N - Angle_M_P_N/2 & Angle_L_P_M - 13*pi/36 & Angle_L_P_N - pi/2 => Angle_M_K_N - 5*pi/72
+6. Angle_M_K_N - Angle_M_P_N/2 & Angle_M_K_N - 5*pi/72 => Angle_M_P_N - 5*pi/36

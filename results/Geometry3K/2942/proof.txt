@@ -1,7 +1,5 @@
 Solution:
-1. Length_A_F - Variable_radius_F & Length_C_F - Variable_radius_F => Length_A_F - Length_C_F
-2. Length_A_F - Variable_radius_F & Length_D_F - Variable_radius_F => Length_A_F - Length_D_F
-3. Length_A_F - Length_C_F & Length_A_F - Length_D_F => Angle_C_A_D - Angle_C_F_D/2
-4. Square(A,B,D,C) => Perpendicular(A,D,B,C) & Angle_A_C_B - Angle_C_A_D
-5. Perpendicular(A,D,B,C) => Angle_A_C_B + Angle_C_A_D - pi/2
-6. Angle_C_A_D - Angle_C_F_D/2 & Angle_A_C_B + Angle_C_A_D - pi/2 & Angle_A_C_B - Angle_C_A_D => Angle_C_F_D - pi/2
+1. Length_A_B - 9 & Length_A_C - 9 => Length_A_B - Length_A_C
+2. Length_A_B - Length_A_C & Angle_B_A_C - pi/3 [DefinitionOfEquilateralTriangle2(A,B,C)] => EquilateralTriangle(A,B,C)
+3. EquilateralTriangle(A,B,C) [PropertyOfEquilateralTriangle(A,B,C)] => Length_A_C - Length_B_C
+4. Length_A_C - Length_B_C & Length_A_C - 9 => Length_B_C - 9

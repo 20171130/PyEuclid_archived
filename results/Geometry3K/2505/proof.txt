@@ -1,4 +1,11 @@
 Solution:
-1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. Angle_A_C_B - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - 7*pi/18 => Angle_B_A_C - pi/9
-3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_C_B - pi/2 & Length_A_B - Variable_x & Angle_B_A_C - pi/9 & Length_B_C - 15 => Variable_x - 15/sin(pi/9)
+1. Rhombus(A,C,B,D) => Perpendicular(A,B,C,D)
+2. Perpendicular(A,B,C,D) [RhombusArea(A,C,B,D)] => Area_A_C_B_D - Length_A_B*Length_C_D/2
+3. Length_A_E - Length_B_E & Collinear(A,B,E) [DefinitionOfMidpoint(E,A,B)] => Midpoint(E,A,B)
+4. Midpoint(E,A,B) [PropertyOfMidpoint(E,A,B)] => Length_A_B - 2*Length_A_E
+5. Length_A_E - 7 & Length_A_B - 2*Length_A_E => Length_A_B - 14
+6. Length_C_E - Length_D_E & Length_D_E - 12 => Length_C_E - 12
+7. Length_C_E - Length_D_E & Collinear(C,D,E) [DefinitionOfMidpoint(E,C,D)] => Midpoint(E,C,D)
+8. Midpoint(E,C,D) [PropertyOfMidpoint(E,C,D)] => Length_C_D - 2*Length_C_E
+9. Length_C_E - 12 & Length_C_D - 2*Length_C_E => Length_C_D - 24
+10. Area_A_C_B_D - Length_A_B*Length_C_D/2 & Length_A_B - 14 & Length_C_D - 24 => Area_A_C_B_D - 168

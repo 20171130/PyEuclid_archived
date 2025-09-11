@@ -1,3 +1,2 @@
 Solution:
-1. Length_S_T - 15 & Length_S_T - Variable_radius_S => Variable_radius_S - 15
-2. Angle_R_S_T - 31*pi/60 & Variable_radius_S - 15 => Angle_R_S_T*Variable_radius_S**2 - 465*pi/4
+1. Angle_A_C_Q - Angle_B_C_Q & Angle_A_C_B - Angle_A_C_Q - Angle_B_C_Q & Angle_B_C_Q - pi*(Variable_x/180 + 7/30) & Angle_A_C_B - pi*(41/60 - Variable_x/180) => Angle_A_C_Q - 11*pi/36

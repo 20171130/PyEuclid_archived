@@ -1,15 +1,3 @@
 Solution:
-1. Length_R_V - Variable_radius_R & Length_R_T - Variable_radius_R => Length_R_T - Length_R_V
-2. Length_R_T - Length_R_V => IsoscelesTriangle(R,T,V)
-3. Collinear(S,T,V) => Parallel(S,V,T,V) & Parallel(S,T,S,V)
-4. Perpendicular(S,U,S,V) & Parallel(S,V,T,V) => Perpendicular(S,U,T,V)
-5. Collinear(R,S,U) => Parallel(R,S,S,U) & Length_R_S - Length_R_U + Length_S_U
-6. Perpendicular(S,U,T,V) & Parallel(R,S,S,U) => Perpendicular(R,S,T,V)
-7. IsoscelesTriangle(R,T,V) & Length_R_T - Length_R_V & Collinear(S,T,V) & Perpendicular(R,S,T,V) => Midpoint(S,T,V)
-8. Midpoint(S,T,V) => Length_S_T - Length_T_V/2
-9. Length_R_U - Variable_radius_R & Length_R_T - Variable_radius_R => Length_R_T - Length_R_U
-10. Length_R_T - Length_R_U & Length_S_U - 5 & Length_R_S - Length_R_U + Length_S_U & Length_R_S - 6 => Length_R_T - 11
-11. Perpendicular(S,U,S,V) & Parallel(S,T,S,V) => Perpendicular(S,T,S,U)
-12. Perpendicular(S,T,S,U) & Parallel(R,S,S,U) => Perpendicular(R,S,S,T)
-13. Perpendicular(R,S,S,T) => Angle_R_S_T - pi/2
-14. Length_R_S**2 - 2*Length_R_S*Length_S_T*cos(Angle_R_S_T) - Length_R_T**2 + Length_S_T**2 & Length_S_T - Length_T_V/2 & Length_R_S - 6 & Length_R_T - 11 & Angle_R_S_T - pi/2 => Length_T_V - 2*sqrt(85)
+1. Collinear(D,E,F) [FlatAngle2(D,F,E,A)] => Angle_A_F_D + Angle_A_F_E - pi
+2. Angle_A_F_D + Angle_A_F_E - pi & Angle_A_F_D - 5*pi/18 => Angle_A_F_E - 13*pi/18

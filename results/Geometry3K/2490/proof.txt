@@ -1,3 +1,3 @@
 Solution:
-1. Angle_Q_T_S - pi*Variable_x/180 & Angle_Q_R_S - pi*Variable_x/180 => Angle_Q_R_S - Angle_Q_T_S
-2. Angle_Q_R_S - Angle_Q_T_S & Angle_R_Q_S - Angle_R_Q_T + Angle_S_Q_T & Angle_R_Q_T - pi*(Variable_x/90 + 1/36) & Angle_Q_S_T + Angle_Q_T_S + Angle_S_Q_T - pi & Angle_Q_S_R + Angle_Q_S_T - Angle_R_S_T & Angle_Q_R_S + Angle_Q_S_R + Angle_R_Q_S - pi & Angle_R_S_T - pi*(Variable_x/90 + 7/180) & Angle_Q_R_S - pi*Variable_x/180 => Angle_Q_R_S - 29*pi/90
+1. Parallelogram(A,B,D,C) & Collinear(A,D,E) & Collinear(B,C,E) [PropertyOfParallelogram1(A,B,D,C,E)] => Length_A_E - Length_D_E
+2. Length_A_E - Length_D_E & Length_A_E - 3*Variable_x + 6 & Length_D_E - Variable_x - 4 => Variable_x - 5

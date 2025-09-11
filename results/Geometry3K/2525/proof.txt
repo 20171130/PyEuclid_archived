@@ -1,7 +1,7 @@
 Solution:
-1. Collinear(U,W,Z) => Angle_U_Z_Y + Angle_W_Z_Y - pi
-2. Collinear(V,Y,Z) & Collinear(U,W,Z) => Angle_U_Z_V - Angle_W_Z_Y
-3. Length_U_Z - Variable_radius_Z & Length_W_Z - Variable_radius_Z => Length_U_Z - Length_W_Z
-4. Length_U_Z - Variable_radius_Z & Length_X_Z - Variable_radius_Z => Length_U_Z - Length_X_Z
-5. Length_U_Z - Length_W_Z & Length_U_Z - Length_X_Z => Angle_W_U_X - Angle_W_Z_X/2
-6. Angle_U_Z_V - pi*Variable_x/45 & Angle_U_Z_Y + Angle_W_Z_Y - pi & Angle_U_Z_V - Angle_W_Z_Y & Angle_W_U_X - Angle_W_Z_X/2 & Angle_W_Z_X - Angle_W_Z_Y + Angle_X_Z_Y & Angle_W_Z_X - Angle_X_Z_Y & Angle_U_Z_Y - pi*(Variable_x/90 + 2/15) => Angle_W_U_X - 13*pi/90
+1. Angle_B_C_E - pi/2 & Angle_B_A_E - pi/2 => Angle_B_A_E - Angle_B_C_E
+2. Length_C_E - Variable_radius_E & Length_A_E - Variable_radius_E => Length_A_E - Length_C_E
+3. Length_A_E - Length_C_E [DefinitionOfIsoscelesTriangle(E,A,C)] => Angle_A_C_E - Angle_C_A_E
+4. Angle_B_A_E - Angle_B_C_E & Angle_A_C_E - Angle_C_A_E & Angle_B_A_C - Angle_B_A_E + Angle_C_A_E & Angle_A_C_B + Angle_A_C_E - Angle_B_C_E => Angle_A_C_B - Angle_B_A_C
+5. -Angle_A_C_B + Angle_B_A_C [DefinitionOfIsoscelesTriangle1(B,A,C)] => Length_A_B - Length_B_C
+6. Length_A_B + Length_A_C + Length_B_C - 25 & Length_A_B - 3*Variable_x & Length_A_B - Length_B_C & Length_A_C - 7 => Variable_x - 3

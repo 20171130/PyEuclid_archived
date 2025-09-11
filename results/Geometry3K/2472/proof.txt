@@ -1,5 +1,2 @@
 Solution:
-1. Collinear(B,C,E) => Parallel(B,C,C,E)
-2. Perpendicular(A,E,C,E) & Parallel(B,C,C,E) => Perpendicular(A,E,B,C)
-3. Trapezoid(A,C,B,D) & Parallel(A,D,B,C) & Perpendicular(A,E,B,C) & Collinear(B,C,E) => Area_A_C_B_D - Length_A_E*(Length_A_D + Length_B_C)/2
-4. Area_A_C_B_D - Length_A_E*(Length_A_D + Length_B_C)/2 & Length_B_C - 37 & Length_A_E - 23 & Length_A_D - 22 => Area_A_C_B_D - 1357/2
+1. Length_L_M - Length_M_N & Length_M_N - 4*Variable_x + 2 & Length_L_M - 3*Variable_x - 1 => Length_L_M - 10

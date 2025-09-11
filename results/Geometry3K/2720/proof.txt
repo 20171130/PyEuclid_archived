@@ -1,5 +1,5 @@
 Solution:
-1. Parallel(B,D,C,E) => Angle_B_C_E + Angle_C_B_D - pi
-2. Collinear(B,C,F) => Angle_B_C_E + Angle_E_C_F - pi
-3. Collinear(A,B,C) => Angle_A_B_D + Angle_C_B_D - pi
-4. Angle_A_B_D - pi*(Variable_x/60 - 1/3) & Angle_B_C_E + Angle_C_B_D - pi & Angle_E_C_F - pi*(Variable_x/90 + 1/12) & Angle_B_C_E + Angle_E_C_F - pi & Angle_A_B_D + Angle_C_B_D - pi => Angle_E_C_F - 7*pi/12
+1. Collinear(J,L,N) [BetweenLength(L,J,N)] => Length_J_L + Length_J_N - Length_L_N
+2. Rectangle(L,M,N,P) => Parallelogram(L,M,N,P)
+3. Parallelogram(L,M,N,P) & Collinear(J,L,N) & Collinear(J,M,P) [PropertyOfParallelogram1(L,M,N,P,J)] => Length_J_L - Length_J_N
+4. Length_J_L + Length_J_N - Length_L_N & Length_J_L - 2*Variable_x - 1 & Length_L_N - 10 & Length_J_L - Length_J_N => Variable_x - 2

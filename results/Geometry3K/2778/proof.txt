@@ -1,3 +1,13 @@
 Solution:
-1. Perpendicular(A,F,A,L) => Angle_F_A_L - pi/2
-2. Length_A_F**2 - 2*Length_A_F*Length_A_L*cos(Angle_F_A_L) + Length_A_L**2 - Length_F_L**2 & Angle_F_A_L - pi/2 & Length_A_L - sqrt(3) & Length_A_F - Variable_z & Length_F_L - 2*sqrt(3) => Variable_z - 3
+1. Length_T_W - 7 & Length_T_Y - 6 => Length_T_W/Length_T_Y - 7/6
+2. Length_A_W - Variable_radius_A & Length_A_X - Variable_radius_A => Length_A_W - Length_A_X
+3. Length_A_W - Variable_radius_A & Length_A_Y - Variable_radius_A => Length_A_W - Length_A_Y
+4. Length_A_Z - Variable_radius_A & Length_A_W - Variable_radius_A => Length_A_W - Length_A_Z
+5. Length_A_W - Length_A_X & Length_A_W - Length_A_Y & Length_A_W - Length_A_Z [AlphaGeometry2(A,W,X,Y,Z)] => Concyclic(W,X,Y,Z)
+6. Concyclic(W,X,Y,Z) & Collinear(T,W,X) & Collinear(T,Y,Z) [IntersectingChordsTheorem(W,X,Y,Z,T)] => Length_T_W/Length_T_Y - Length_T_Z/Length_T_X
+7. Length_T_W/Length_T_Y - 7/6 & Length_T_W/Length_T_Y - Length_T_Z/Length_T_X => Length_T_X - 6*Length_T_Z/7
+8. Collinear(T,W,X) [BetweenLength(T,W,X)] => Length_T_W - Length_T_X + Length_W_X
+9. Length_T_W - 7 & Length_W_X - 12 & Length_T_W - Length_T_X + Length_W_X => Length_T_X - 19
+10. Collinear(T,Y,Z) [BetweenLength(T,Y,Z)] => Length_T_Y - Length_T_Z + Length_Y_Z
+11. Length_T_Y - Length_T_Z + Length_Y_Z & Length_T_Y - 6 & Length_Y_Z - Variable_x => Length_T_Z - Variable_x - 6
+12. Length_T_X - 6*Length_T_Z/7 & Length_T_X - 19 & Length_T_Z - Variable_x - 6 => Variable_x - 97/6

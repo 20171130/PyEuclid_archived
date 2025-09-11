@@ -1,4 +1,5 @@
 Solution:
-1. Collinear(B,C,K) => Length_B_C - Length_B_K + Length_C_K
-2. Length_B_K - 8 & Length_B_C - 27/5 => Length_B_C - 27*Length_B_K/40
-3. Length_B_C - Length_B_K + Length_C_K & Length_B_K - 8 & Length_B_C - 27*Length_B_K/40 => Length_C_K - 13/5
+1. Rectangle(W,X,Z,Y) => Angle_W_X_Y - Angle_X_Y_Z
+2. Collinear(A,X,Y) [DiagramAngle4b(X,A,W,Y)] => Angle_A_X_W - Angle_W_X_Y
+3. Variable_angle_1 - pi/6 & Angle_W_X_Y - Angle_X_Y_Z & Angle_A_X_W - Angle_W_X_Y & Angle_A_X_W - Variable_angle_1 => Angle_X_Y_Z - pi/6
+4. Angle_X_Y_Z - pi/6 & Angle_X_Y_Z - Variable_angle_5 => Variable_angle_5 - pi/6

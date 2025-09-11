@@ -1,6 +1,14 @@
 Solution:
-1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. Angle_A_C_B - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_A_B_C + Angle_B_A_C - pi/2
-3. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_B_C + Angle_B_A_C - pi/2 & Angle_A_C_B - pi/2 & Length_A_B - 26 & Length_A_C - 24 => Angle_B_A_C - acos(12/13)
-4. Angle_B_A_C - acos(12/13) & Angle_A_B_C + Angle_B_A_C - pi/2 => Angle_A_B_C - pi/2 + acos(12/13)
-5. Angle_A_B_C - pi/2 + acos(12/13) => cos(Angle_A_B_C) - 5/13
+1. Length_A_L - Variable_radius_L & Length_B_L - Variable_radius_L => Length_A_L - Length_B_L
+2. Length_A_L - Length_B_L [DefinitionOfIsoscelesTriangle(L,A,B)] => IsoscelesTriangle(A,B,L)
+3. Collinear(A,B,C) [CollinearParallel(A,B,C)] => Parallel(A,B,B,C)
+4. Perpendicular(B,C,C,L) & Parallel(A,B,B,C) [AlphaGeometry1b(B,C,C,L,A,B)] => Perpendicular(A,B,C,L)
+5. IsoscelesTriangle(A,B,L) & Length_A_L - Length_B_L & Collinear(A,B,C) & Perpendicular(A,B,C,L) [PropertyOfIsoscelesTriangle1(L,A,B,C)] => Midpoint(C,A,B)
+6. Midpoint(C,A,B) [PropertyOfMidpoint(C,A,B)] => Length_A_B - 2*Length_B_C
+7. Length_D_L - Variable_radius_L & Length_F_L - Variable_radius_L => Length_D_L - Length_F_L
+8. Length_D_L - Length_F_L [DefinitionOfIsoscelesTriangle(L,D,F)] => IsoscelesTriangle(D,F,L)
+9. Collinear(D,E,F) [CollinearParallel(D,E,F)] => Parallel(D,F,E,F)
+10. Perpendicular(E,F,E,L) & Parallel(D,F,E,F) [AlphaGeometry1b(E,F,E,L,D,F)] => Perpendicular(D,F,E,L)
+11. IsoscelesTriangle(D,F,L) & Length_D_L - Length_F_L & Collinear(D,E,F) & Perpendicular(D,F,E,L) [PropertyOfIsoscelesTriangle1(L,D,F,E)] => Midpoint(E,D,F)
+12. Midpoint(E,D,F) [PropertyOfMidpoint(E,D,F)] => Length_D_E - Length_D_F/2
+13. Length_A_B - 2*Length_B_C & Length_B_C - 9*Variable_x & Length_D_E - Length_D_F/2 & Length_A_B - Length_D_F & Length_D_E - 2*Variable_x - 14 => Variable_x - 2

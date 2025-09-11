@@ -1,3 +1,4 @@
 Solution:
-1. Angle_W_X_Y - Angle_W_X_Z - Angle_Y_X_Z & Angle_X_W_Z - pi*Variable_x/60 & Angle_W_X_Z + Angle_W_Z_X + Angle_X_W_Z - pi & Angle_W_Z_X - Angle_W_Z_Y + Angle_X_Z_Y & Angle_X_Y_Z + Angle_X_Z_Y + Angle_Y_X_Z - pi & Angle_W_Z_Y - pi*Variable_x/45 & Angle_W_X_Y - pi*Variable_x/180 & Angle_X_Y_Z - pi*Variable_x/90 => Angle_W_X_Z + Angle_W_Z_X - 2*pi/5
-2. Angle_W_X_Z + Angle_W_Z_X + Angle_X_W_Z - pi & Angle_W_X_Z + Angle_W_Z_X - 2*pi/5 => Angle_X_W_Z - 3*pi/5
+1. Collinear(A,B,G) [FlatAngle2(B,A,G,E)] => Angle_B_A_E + Angle_E_A_G - pi & Angle_A_B_E - Angle_E_B_G
+2. Angle_A_E_B - Angle_A_E_D - Angle_B_E_D & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi & Angle_B_A_E + Angle_E_A_G - pi & Angle_E_A_G - 34*pi/45 & Angle_A_B_E - Angle_E_B_G & Angle_E_B_G - 47*pi/180 => Angle_A_E_D + Angle_B_E_D - 89*pi/180
+3. Angle_A_E_D + Angle_B_E_D - 89*pi/180 & Angle_A_E_B - Angle_A_E_D - Angle_B_E_D & Angle_A_E_B - Variable_angle_7 => Variable_angle_7 - 89*pi/180

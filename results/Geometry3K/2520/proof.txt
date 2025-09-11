@@ -1,7 +1,15 @@
 Solution:
-1. Collinear(C,L,M) => Angle_L_C_R + Angle_M_C_R - pi
-2. Length_C_M - Variable_radius_C & Length_C_N - Variable_radius_C => Length_C_M - Length_C_N
-3. Length_C_R - Variable_radius_C & Length_C_N - Variable_radius_C => Length_C_N - Length_C_R
-4. -Length_C_M + Length_C_N & Length_C_N - Length_C_R => Angle_M_C_R - 2*Angle_M_N_R
-5. Angle_L_C_R - pi*(Variable_x/60 + 1/36) & Angle_M_C_R - pi*(Variable_x/180 - 1/180) & Angle_L_C_R + Angle_M_C_R - pi & Angle_M_C_R - 2*Angle_M_N_R => Angle_M_N_R - 43*pi/360
-6. Angle_M_N_R - 43*pi/360 & Angle_M_C_R - 2*Angle_M_N_R => Angle_M_C_R - 43*pi/180
+1. Collinear(E,F,H) [CollinearParallel(E,F,H)] => Parallel(E,F,E,H) & Angle_F_E_G - Angle_G_E_H
+2. Perpendicular(E,F,G,H) & Parallel(E,F,E,H) [AlphaGeometry1b(E,F,G,H,E,H)] => Perpendicular(E,H,G,H)
+3. Perpendicular(E,H,G,H) [Perp2Angle(E,H,G)] => Angle_E_H_G - pi/2
+4. Collinear(B,C,D) [CollinearParallel(B,C,D)] => Parallel(B,C,C,D) & Angle_A_C_B - Angle_A_C_D
+5. Perpendicular(A,B,C,D) & Parallel(B,C,C,D) [AlphaGeometry1b(C,D,A,B,B,C)] => Perpendicular(A,B,B,C)
+6. Perpendicular(A,B,B,C) [Perp2Angle(A,B,C)] => Angle_A_B_C - pi/2
+7. Angle_E_H_G - pi/2 & Angle_A_B_C - pi/2 => Angle_A_B_C - Angle_E_H_G
+8. Similar3(A,C,D,G,E,F) [PropertyOfSimilar3(A,C,D,G,E,F)] => Angle_A_C_D - Angle_F_E_G
+9. Angle_A_C_D - Angle_F_E_G & Angle_F_E_G - Angle_G_E_H & Angle_A_C_B - Angle_A_C_D => Angle_A_C_B - Angle_G_E_H
+10. Angle_A_B_C - Angle_E_H_G & Angle_A_C_B - Angle_G_E_H [AlphaGeometry3536(A,B,C,G,H,E)] => Similar3(A,B,C,G,H,E)
+11. Similar3(A,B,C,G,H,E) [PropertyOfSimilar3(A,B,C,G,H,E)] => Length_A_B/Length_A_C - Length_G_H/Length_E_G
+12. Length_A_C - 22/5 & Length_E_G - 63/10 => Length_A_C - 44*Length_E_G/63
+13. Length_A_B/Length_A_C - Length_G_H/Length_E_G & Length_A_C - 44*Length_E_G/63 => Length_A_B - 44*Length_G_H/63
+14. Length_G_H - 63/20 & Length_A_B - 44*Length_G_H/63 => Length_A_B - 11/5

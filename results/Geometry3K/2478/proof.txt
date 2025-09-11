@@ -1,5 +1,7 @@
 Solution:
-1. Length_A_D - Variable_radius_D & Length_B_D - Variable_radius_D => Length_A_D - Length_B_D
-2. Length_B_D - Variable_radius_D & Length_C_D - Variable_radius_D => Length_B_D - Length_C_D
-3. -Length_A_D + Length_B_D & Length_B_D - Length_C_D => Angle_A_B_C - Angle_A_D_C/2
-4. Angle_A_B_C - Angle_A_D_C/2 & Angle_A_D_C - 61*pi/90 => Angle_A_B_C - 61*pi/180
+1. Length_R_S - 37 & Length_Q_S - 12 => -37/12 + Length_R_S/Length_Q_S
+2. Similar3(L,M,N,Q,R,S) [PropertyOfSimilar3(L,M,N,Q,R,S)] => Length_R_S/Length_Q_S - Length_M_N/Length_L_N & Length_L_M/Length_Q_R - Length_M_N/Length_R_S
+3. -37/12 + Length_R_S/Length_Q_S & Length_R_S/Length_Q_S - Length_M_N/Length_L_N => Length_L_N - 12*Length_M_N/37
+4. Length_R_S - 37 & Length_Q_R - 35 => Length_Q_R - 35*Length_R_S/37
+5. Length_Q_R - 35*Length_R_S/37 & Length_L_M/Length_Q_R - Length_M_N/Length_R_S => Length_L_M - 35*Length_M_N/37
+6. Length_L_N - 12*Length_M_N/37 & Length_L_M - 35*Length_M_N/37 & Length_L_N - 5 => Length_L_M + Length_L_N + Length_M_N - 35

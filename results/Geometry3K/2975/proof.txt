@@ -1,7 +1,3 @@
 Solution:
-1. Rhombus(P,Q,R,S) => Perpendicular(P,R,Q,S)
-2. Collinear(C,Q,S) => Parallel(C,S,Q,S)
-3. Perpendicular(P,R,Q,S) & Parallel(C,S,Q,S) => Perpendicular(C,S,P,R)
-4. Collinear(C,P,R) => Parallel(C,P,P,R)
-5. Perpendicular(C,S,P,R) & Parallel(C,P,P,R) => Perpendicular(C,P,C,S)
-6. Perpendicular(C,P,C,S) => Angle_P_C_S - pi/2
+1. Perpendicular(A,P,M,P) [Perp2Angle(A,P,M)] => Angle_A_P_M - pi/2
+2. Length_A_M**2 - Length_A_P**2 + 2*Length_A_P*Length_M_P*cos(Angle_A_P_M) - Length_M_P**2 & Angle_A_P_M - pi/2 & Length_A_P - Variable_x & Length_A_M - 20 & Length_M_P - 16 => Variable_x - 12

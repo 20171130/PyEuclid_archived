@@ -1,3 +1,5 @@
 Solution:
-1. Parallelogram(P,Q,R,S) & Collinear(P,R,T) & Collinear(Q,S,T) => Length_Q_T - Length_S_T
-2. Length_Q_T - 5*Variable_y & Length_S_T - 2*Variable_y - 12 & Length_Q_T - Length_S_T => Variable_y - 4
+1. Collinear(B,C,D) [DiagramAngle4b(D,B,A,C)] => Angle_A_D_B - Angle_A_D_C & Angle_A_C_B + Angle_A_C_D - pi
+2. Length_A_C - Length_B_C [DefinitionOfIsoscelesTriangle(C,A,B)] => Angle_A_B_C - Angle_B_A_C
+3. Length_A_D - Length_C_D [DefinitionOfIsoscelesTriangle(D,A,C)] => Angle_A_C_D - Angle_C_A_D
+4. Angle_A_D_B - 23*pi/45 & Angle_A_D_B - Angle_A_D_C & Angle_A_C_B + Angle_A_C_D - pi & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_B_C - Angle_B_A_C & Angle_A_C_D - Angle_C_A_D => Angle_A_B_C - 11*pi/90

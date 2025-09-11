@@ -1,7 +1,4 @@
 Solution:
-1. Collinear(A,B,C) => Parallel(A,B,B,C)
-2. Perpendicular(B,C,B,D) & Parallel(A,B,B,C) => Perpendicular(A,B,B,D)
-3. Perpendicular(A,B,B,D) => Angle_A_B_D - pi/2
-4. Collinear(B,F,G) & Collinear(A,B,C) => Angle_A_B_G - Angle_C_B_F
-5. Angle_A_B_D - Angle_A_B_G - Angle_D_B_G & Angle_A_B_D - pi/2 & Angle_A_B_G - Angle_C_B_F & Angle_C_B_F - 37*pi/180 => Angle_D_B_G - 53*pi/180
-6. Angle_D_B_G - Variable_angle_1 & Angle_D_B_G - 53*pi/180 => Variable_angle_1 - 53*pi/180
+1. Perpendicular(A,B,A,C) [Perp2Angle(B,A,C)] => Angle_B_A_C - pi/2
+2. Angle_A_B_C - pi/6 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_B_A_C - pi/2 => Angle_A_C_B - pi/3
+3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_B_A_C - pi/2 & Length_B_C - Variable_y & Angle_A_C_B - pi/3 & Length_A_B - 14*sqrt(3) => Variable_y - 28

@@ -1,7 +1,12 @@
 Solution:
-1. Parallelogram(A,C,B,D) => Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Length_A_C - Length_B_D
-2. Collinear(B,D,E) => Parallel(B,D,D,E)
-3. Perpendicular(A,E,D,E) & Parallel(B,D,D,E) => Perpendicular(A,E,B,D)
-4. Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Perpendicular(A,E,B,D) & Collinear(B,D,E) => Area_A_C_B_D - Length_A_E*(Length_A_C + Length_B_D)/2
-5. Length_A_C - Length_B_D & Length_B_D - 23 => Length_A_C - 23
-6. Area_A_C_B_D - Length_A_E*(Length_A_C + Length_B_D)/2 & Length_B_D - 23 & Length_A_E - 24 & Length_A_C - 23 => Area_A_C_B_D - 552
+1. Length_A_D - Variable_radius_D & Length_B_D - Variable_radius_D => Length_A_D - Length_B_D
+2. Length_A_D - Variable_radius_D & Length_C_D - Variable_radius_D => Length_A_D - Length_C_D
+3. Length_A_D - Length_B_D & Length_A_D - Length_C_D [InscribedAngle1(D,A,B,C)] => Angle_B_A_C - Angle_B_D_C/2
+4. Collinear(A,B,D) [DiagramAngle4b(A,B,C,D)] => Angle_B_A_C - Angle_C_A_D
+5. Length_B_D - Variable_radius_D & Length_C_D - Variable_radius_D => Length_B_D - Length_C_D
+6. Length_B_D - Length_C_D [DefinitionOfIsoscelesTriangle(D,B,C)] => Angle_B_C_D - Angle_C_B_D
+7. Length_A_D - Length_C_D [DefinitionOfIsoscelesTriangle(D,A,C)] => Angle_A_C_D - Angle_C_A_D
+8. Angle_B_A_C - Angle_B_D_C/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_B_A_C - Angle_C_A_D & Angle_B_C_D - Angle_C_B_D & Angle_A_C_D - Angle_C_A_D => Angle_A_C_D + Angle_B_C_D - pi/2
+9. Angle_A_C_B - Angle_A_C_D - Angle_B_C_D & Angle_A_C_D + Angle_B_C_D - pi/2 => Angle_A_C_B - pi/2
+10. Length_A_B**2 - Length_A_C**2 + 2*Length_A_C*Length_B_C*cos(Angle_A_C_B) - Length_B_C**2 & Length_B_C - 15 & Length_A_C - 8 & Angle_A_C_B - pi/2 & Length_A_B - 2*Variable_radius_D => Variable_radius_D - 17/2
+11. Variable_radius_D - 17/2 => pi*Variable_radius_D - 17*pi/2
