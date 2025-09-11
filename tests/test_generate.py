@@ -15,21 +15,41 @@ from pyeuclid.engine.inference_rule import *
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
-from pyeuclid.formalization.construction_q import ConstructionQ, construct_segment_q, construct_point_on_circle, construct_point_on_line, construct_angle_clockwise, construct_angle_counterclockwise
+from pyeuclid.formalization.construction_q import ConstructionQ, construct_point_on_circle, construct_angle_clockwise, construct_angle_counterclockwise
+
+# import logging
+# Configure basic logging to console
+# logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# # Get a logger
+# logger = logging.getLogger(__name__)
+
+from datetime import datetime
+
+def printt(s):
+    # Get the current date and time
+    now = datetime.now()
+    # Format the time as a string (e.g., HH:MM:SS)
+    current_time_str = now.strftime("%H:%M:%S")
+    # Print the formatted time
+    s = f"{current_time_str} " + s
+    print(s)
 
 
 debug = True
 
+rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
 def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
     """Generate a single problem with timeout checking at key points"""
     
     problem_output_dir = os.path.join(output_dir, f'rank_{rank}', f'problem_{problem_id}')
     os.makedirs(problem_output_dir, exist_ok=True)
 
-    seed = random.randinit(0, int(1e9))
+    seed = random.randint(0, int(1e9))
+    seed = 463454205
     random.seed(seed)
     np.random.seed(seed)
     sympy.core.random.seed(seed)
+    printt(f"Seed: {seed}")
 
     state = State()
     state.silent = True
@@ -44,7 +64,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     attempt = 0
     points = 0
 
-    # print(f"Rank {rank}: Starting problem {problem_id}")
+    # printt(f"Rank {rank}: Starting problem {problem_id}")
 
     max_steps = random.uniform(4, 10) # 4 - 10
     max_attempts = 100
@@ -54,8 +74,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     index = 0
     
     if debug:
-        state.silent = False
-        max_steps = 4
+        max_points = 5
     # Construction phase with timeout checks
     while (step < max_steps and attempt < max_attempts and points < max_points):
         
@@ -151,10 +170,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             constructions.append(construction)
 
         attempt += 1
-        for construction in constructions:
-            print(construction, end=' ')
-        print(random.randint(0, 65536))
-        
+
         try:
             diagram.add_constructions(constructions)
         except MaxAttemptsError:
@@ -171,11 +187,12 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             point2constructions[p] = constructions
         
         diagram.draw_diagram(save=True)
-    
+
     with open(os.path.join(problem_output_dir, f'constructions_list.json'), 'w') as f:
-        f.write(', '.join([str(construction) for constructions in constructions_list for construction in constructions])) 
-    print("finished sampling, starting inference")
-    deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets["basic"]+inference_rule_sets['complex'])
+        s = ', '.join([str(construction) for constructions in constructions_list for construction in constructions])
+        f.write(s)
+    printt(s)
+    deductive_database = DeductiveDatabase(state, outer_theorems=rule_set)
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
     proof_generator = ProofGenerator(state)
@@ -224,13 +241,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         if state.condition2depth[key] <= 2:
             continue 
         filtered_conclusions.append(relation)
-    print(f"Amount of filtered conclusions {len(filtered_conclusions)}")
-    print(filtered_conclusions)
+    printt("Determining if auxiliary constructions are needed")
     
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
-    filtered_conclusions.sort(key=lambda x: state.condition2depth[x] if x in state.condition2depth else state.condition2depth[x.expr])
-    filtered_conclusions = filtered_conclusions[-1:]
+    filtered_conclusions.sort(key=lambda x: -state.condition2depth[x] if x in state.condition2depth else -state.condition2depth[x.expr])
     
     def get_sufficient_constructions(points):
         res = []
@@ -270,7 +285,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         new_state.goal = relation.expr if isinstance(relation, Traced) else relation
         new_state.diagram = diagram
         new_state.add_constructions(sufficient_constructions)
-        new_deductive_database = DeductiveDatabase(new_state)
+        new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
         new_algebraic_system = AlgebraicSystem(new_state)
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
         new_engine.run()
@@ -293,7 +308,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
                         sufficient_auxiliary_constructions.append(construction)
             sufficient_auxiliary_constructions = sorted(sufficient_auxiliary_constructions, key=lambda c: c.index)
             auxiliary_constructions = sufficient_auxiliary_constructions.copy()
-            
+            printt("Pruning auxiliary constructions")
             for auxiliary_construction in sufficient_auxiliary_constructions[::-1]:
                 new_auxiliary_constructions = auxiliary_constructions.copy()
                 new_auxiliary_constructions.remove(auxiliary_construction)
@@ -303,7 +318,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
                 new_state.goal = relation.expr if isinstance(relation, Traced) else relation
                 new_state.diagram = diagram
                 new_state.add_constructions(new_constructions)
-                new_deductive_database = DeductiveDatabase(new_state)
+                new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
                 new_algebraic_system = AlgebraicSystem(new_state)
                 new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
                 new_engine.run()
@@ -316,17 +331,16 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             new_state.goal = relation.expr if isinstance(relation, Traced) else relation
             new_state.diagram = diagram
             new_state.add_constructions(sorted(sufficient_constructions+auxiliary_constructions, key=lambda c: c.index))
-            new_deductive_database = DeductiveDatabase(new_state)
+            new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
             new_algebraic_system = AlgebraicSystem(new_state)
             new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
             new_engine.run()
-            if new_state.complete() is None:
-                breakpoint()
             assert new_state.complete() is not None
             new_proof_generator = ProofGenerator(new_state)
             new_proof_generator.run()
             new_proof = new_proof_generator.get_proof()
             new_proof_str = new_proof_generator.get_proof_str()
+            break
         
         necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
         
@@ -430,6 +444,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         
         conclusions2dir[relation] = sample_dir
         i += 1
+        break
     
     for relation, sample_dir in conclusions2dir.items():
         if os.path.exists(os.path.join(sample_dir, "data.json")):
@@ -439,7 +454,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             with open(os.path.join(sample_dir, "data.json"), "w") as f:
                 json.dump(data, f, indent=2)
                 
-    print(f"Rank {rank}: Problem {problem_id} - Generated {i} samples ({samples_with_auxiliary} with auxiliary)")
+    printt(f"Rank {rank}: Problem {problem_id} - Generated {i} samples ({samples_with_auxiliary} with auxiliary)")
 
 def main():
     max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "100"))

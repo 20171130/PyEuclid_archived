@@ -153,7 +153,7 @@ class construct_rectangle_q(ConstructionQ):
     
 
 @register("nondeterministic")
-class construct_angle_clockwise(ConstructionQ):
+class construct_angle_counterclockwise(ConstructionQ):
     def __init__(self, a: Point, b:Point, xab:float=None, diagram=None):
         self.inputs = [a, b]
         self.a = a
@@ -198,7 +198,7 @@ class construct_angle_clockwise(ConstructionQ):
         
     
 @register("nondeterministic")
-class construct_angle_counterclockwise(ConstructionQ):
+class construct_angle_clockwise(ConstructionQ):
     def __init__(self, a: Point, b:Point, xab:float=None, diagram=None):
         self.inputs = [a, b]
         self.a = a
