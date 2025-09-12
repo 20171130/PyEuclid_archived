@@ -212,7 +212,7 @@ class construct_angle_clockwise(ConstructionQ):
     
     def sample(self, angle_values=[], length_values=[]):
         self.xab = sample_angle(special_values=angle_values)
-        self.parmas = [self.xab]
+        self.params = [self.xab]
         return [], [self.xab]
 
     def conditions(self):

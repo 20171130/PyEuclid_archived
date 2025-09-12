@@ -24,18 +24,22 @@ from pyeuclid.formalization.construction_q import ConstructionQ, construct_point
 # logger = logging.getLogger(__name__)
 
 from datetime import datetime
+from mpi4py import MPI
 
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+    
 def printt(s):
     # Get the current date and time
     now = datetime.now()
     # Format the time as a string (e.g., HH:MM:SS)
     current_time_str = now.strftime("%H:%M:%S")
     # Print the formatted time
-    s = f"{current_time_str} " + s
+    s = f"Rank {rank} {current_time_str} {s}"
     print(s)
 
 
-debug = True
+debug = False
 
 rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
 def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
@@ -45,7 +49,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     os.makedirs(problem_output_dir, exist_ok=True)
 
     seed = random.randint(0, int(1e9))
-    seed = 463454205
     random.seed(seed)
     np.random.seed(seed)
     sympy.core.random.seed(seed)
@@ -75,6 +78,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     
     if debug:
         max_points = 5
+        state.silent = False
     # Construction phase with timeout checks
     while (step < max_steps and attempt < max_attempts and points < max_points):
         
@@ -459,10 +463,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 def main():
     max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "100"))
     base_output_dir = os.environ.get('OUTPUT_DIR', 'new_samples')
-    from mpi4py import MPI
 
-    comm = MPI.COMM_WORLD
-    rank = comm.Get_rank()
     os.makedirs(base_output_dir, exist_ok=True)
     for problem_id in range(max_problem_id):
         generate_single_problem(rank=rank, problem_id=problem_id, output_dir=base_output_dir)

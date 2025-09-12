@@ -295,7 +295,7 @@ class Diagram:
                 self.numerical_cache[relation] = close_enough(float(evaluated_expr.evalf()), 0)
                 if not self.numerical_cache[relation]:
                     breakpoint()
-            
+                assert self.numerical_cache[relation]
             return self.numerical_cache[relation]
 
     def sketch(self, construction):

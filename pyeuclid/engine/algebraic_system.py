@@ -79,6 +79,7 @@ class AlgebraicSystem:
                         for sol in solutions if abs(sympy.im(sol)) < 1e-3]
             try:
                 if str(var).startswith("Angle"):
+                    solutions = {j%(2*math.pi) for j in solutions}
                     solutions = {j for j in solutions if j >= 0 and j <= math.pi+eps}
                     # Prioitize non-zero and non-flat angle
                     if len(solutions) > 1:
@@ -290,42 +291,37 @@ class AlgebraicSystem:
                 symbol2sources = {}
                 for symbol in symbols:
                     symbol2sources[symbol] = symbol - solved[symbol]
-                combs = [symbols]
-                # for i in range(0, min(3, len(eqn.free_symbols))):
-                #     combs += combinations(symbols, len(eqn.free_symbols)-i)
-                for comb in combs:
-                    eqn = raw_eqn
-                    sources = [raw_eqn]
-                    for symbol in comb:
+                eqn = raw_eqn
+                sources = [raw_eqn]
+                for symbol in symbols:
+                    try:
+                        with TT(0.1):
+                            eqn = eqn.subs(symbol, solved[symbol])
+                    except:
+                        continue
+                    sources.append(symbol2sources[symbol])
+                expr = self.process_equation(eqn.expr)
+                if len(expr.free_symbols) > 0:
+                    if len(expr.free_symbols) <= 2:
+                        symbol = list(expr.free_symbols)[0]
+                        solutions = []
                         try:
                             with TT(0.1):
-                                eqn = eqn.subs(symbol, solved[symbol])
+                                solutions = sympy.solve(expr, symbol)
                         except:
                             continue
-                        sources.append(symbol2sources[symbol])
-                    expr = self.process_equation(eqn.expr)
-                    if len(expr.free_symbols) > 0:
-                        if len(expr.free_symbols) <= 2:
-                            symbol = list(expr.free_symbols)[0]
-                            solutions = []
-                            try:
-                                with TT(0.1):
-                                    solutions = sympy.solve(expr, symbol)
-                            except:
-                                continue
-                            solution = self.process_solutions(symbol, expr, solutions, var_types)
-                            if solution is None:
-                                continue
-                            expr = symbol - solution
-
-                        traced = Traced(expr)
-                        kinds = classify_equations([traced], var_types)
-                        if kinds[-1]:
+                        solution = self.process_solutions(symbol, expr, solutions, var_types)
+                        if solution is None:
                             continue
-                        eqn = Traced(expr, depth=self.state.current_depth, sources=sources)
-                        if eqn not in self.state.equations:
-                            self.state.add_conditions(eqn)
-                            closure = False
+                        expr = symbol - solution
+                    traced = Traced(expr)
+                    kinds = classify_equations([traced], var_types)
+                    if kinds[-1]:
+                        continue
+                    eqn = Traced(expr, depth=self.state.current_depth, sources=sources)
+                    if eqn not in self.state.equations:
+                        self.state.add_conditions(eqn)
+                        closure = False
         
         return closure
         
