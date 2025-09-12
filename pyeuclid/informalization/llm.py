@@ -94,7 +94,5 @@ class GeminiProvider:
             resp = self.model.generate_content(parts, generation_config=kwargs)
         else:
             resp = self.model.generate_content(parts)
-        
-        print(resp)
 
         return (getattr(resp, "text", "") or "").strip()

@@ -106,14 +106,16 @@ def pretty_print_expr(expr):
 
 
 class ProofGenerator:
-    def __init__(self, state, max_equation_length_perstep=6):
+    def __init__(self, state, norm=1, max_equation_length_perstep=6):
         self.state = state
+        self.norm = norm
+        self.max_equation_length_perstep = max_equation_length_perstep
+
         self.visited = set()
         self.proof_dict = {}
         self.cache_conditions = {}
         self.cache_source = {}
         self.source_constructions = defaultdict(list)
-        self.max_equation_length_perstep = max_equation_length_perstep
     
     def run(self, node=None, depth=None, root=True):
         if isinstance(node, ConstructionRule):
@@ -427,8 +429,8 @@ class ProofGenerator:
                     s = pretty_print_expr(item)
                 else:
                     s = str(item)
-                if verbose and hasattr(item, 'depth'):
-                    s += f"@{item.depth}"
+                # if verbose and hasattr(item, 'depth'):
+                #     s += f"@{item.depth}"
                 formatted_items.append(s)
             return ' & '.join(formatted_items)
 
@@ -638,7 +640,11 @@ class ProofGenerator:
                 eq = self.vectorize([conclusion], variables, source)
             except:
                 return None
-            deps = self.traceback_l1(mat, eq)
+            if self.norm == 1:
+                deps = self.traceback_l1(mat, eq)
+            else:
+                assert self.norm == 0
+                deps = self.traceback_l0(mat, eq)
             if deps:
                 return [equations[i] for i in deps]
             else:
