@@ -69,18 +69,16 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
     # printt(f"Rank {rank}: Starting problem {problem_id}")
 
-    max_steps = random.uniform(4, 10) # 4 - 10
+    max_steps = random.uniform(3, 6) # 4 - 10
     max_attempts = 100
-    max_points = random.uniform(8, 15) # 8 - 15
     constructions_list = []
     length_values, angle_values = set(), set()
     index = 0
     
     if debug:
-        max_points = 5
         state.silent = False
     # Construction phase with timeout checks
-    while (step < max_steps and attempt < max_attempts and points < max_points):
+    while (step < max_steps and attempt < max_attempts):
         
         constructions = []
         multiconstructions = False
@@ -98,7 +96,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
                 multiconstructions = False if rand < 0.1 else True
                 candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
                                if rule.num_inputs <= len(state.points)]
-        candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
+        # candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
         # remove construct_s_angle if mixing q and non-q construction rules
         picked = random.choice(candidate_set)
         all_points = list(state.points.copy())
@@ -138,7 +136,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
                            if rule.num_inputs <= len(state.points) and 
                            rule.num_outputs == picked.num_outputs]
-            candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
+            # candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
             num_points = len(all_points)
