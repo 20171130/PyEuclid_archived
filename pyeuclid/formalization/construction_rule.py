@@ -54,7 +54,7 @@ class register:
         return cls
 
 
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_free(ConstructionRule):
     def __init__(self):
         self.inputs = []
@@ -64,7 +64,7 @@ class construct_free(ConstructionRule):
         self.outputs = [a]
 
 
-@register("independent")
+@register("independent", "auxiliary_construction")
 class construct_segment(ConstructionRule):
     def __init__(self):
         self.inputs = []
@@ -75,6 +75,23 @@ class construct_segment(ConstructionRule):
 
 
 @register("independent")
+class construct_s_segment(ConstructionRule):
+    def __init__(self, alpha: float):
+        self.inputs = [alpha]
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point):
+        self.outputs = [a, b]
+
+    def conclusions(self):
+        alpha, = self.inputs
+        a, b = self.outputs
+        return [
+            Length(a, b) - sympy.simplify(alpha)
+        ]
+
+
+@register("independent", "auxiliary_construction")
 class construct_triangle(ConstructionRule):
     def __init__(self):
         self.inputs = []
@@ -346,7 +363,7 @@ class construct_pentagon(ConstructionRule):
         ]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_angle_bisector(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -434,7 +451,7 @@ class construct_angle_mirror(ConstructionRule):
 #         ]
 
 
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_circumcenter(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -480,7 +497,7 @@ class construct_eq_triangle(ConstructionRule):
         ]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_eqangle2(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -499,7 +516,7 @@ class construct_eqangle2(ConstructionRule):
         return [Angle(b, a, x) - Angle(x, c, b)]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_eqdistance(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -552,7 +569,7 @@ class construct_eqdistance(ConstructionRule):
 #         return [Length(x, a) - sympy.simplify(alpha)]
 
 
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_foot(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -571,7 +588,7 @@ class construct_foot(ConstructionRule):
         return [Perpendicular(x, a, b, c), Collinear(x, b, c)]
 
 
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_incenter(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -733,7 +750,7 @@ class construct_centroid2(ConstructionRule):
         ]
 
 
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_intersection_cc(ConstructionRule):
     def __init__(self, o: Point, w: Point, a: Point):
         self.inputs = [o, w, a]
@@ -755,7 +772,7 @@ class construct_intersection_cc(ConstructionRule):
         ]
 
 
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_intersection_lc(ConstructionRule):
     def __init__(self, a: Point, o: Point, b: Point):
         self.inputs = [a, o, b]
@@ -781,7 +798,7 @@ class construct_intersection_lc(ConstructionRule):
         ]
 
 # TODO
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_intersection_ll(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point):
         self.inputs = [a, b, c, d]
@@ -800,7 +817,7 @@ class construct_intersection_ll(ConstructionRule):
         return [Collinear(x, a, b), Collinear(x, c, d)]
 
 # TODO
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_intersection_lp(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point, m: Point, n: Point):
         self.inputs = [a, b, c, m, n]
@@ -824,7 +841,7 @@ class construct_intersection_lp(ConstructionRule):
 
 
 # TODO
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_intersection_lt(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
         self.inputs = [a, b, c, d, e]
@@ -847,7 +864,7 @@ class construct_intersection_lt(ConstructionRule):
         return [Collinear(x, a, b), Perpendicular(x, c, d, e)]
 
 # TODO
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_intersection_pp(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         self.inputs = [a, b, c, d, e, f]
@@ -872,7 +889,7 @@ class construct_intersection_pp(ConstructionRule):
         ]
 
 # TODO
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_intersection_tt(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point, f: Point):
         self.inputs = [a, b, c, d, e, f]
@@ -897,7 +914,7 @@ class construct_intersection_tt(ConstructionRule):
         ]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_lc_tangent(ConstructionRule):
     def __init__(self, a: Point, o: Point):
         self.inputs = [a, o]
@@ -916,7 +933,7 @@ class construct_lc_tangent(ConstructionRule):
         return [Perpendicular(a, x, a, o)]
 
 
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_midpoint(ConstructionRule):
     def __init__(self, a: Point, b: Point):
         self.inputs = [a, b]
@@ -939,7 +956,7 @@ class construct_midpoint(ConstructionRule):
         ]
 
 
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_mirror(ConstructionRule):
     def __init__(self, a: Point, b: Point):
         self.inputs = [a, b]
@@ -983,7 +1000,7 @@ class construct_nsquare(ConstructionRule):
         ]
 
 # TODO
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_on_aline(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point, d: Point, e: Point):
         self.inputs = [a, b, c, d, e]
@@ -1047,7 +1064,7 @@ class construct_on_aline2(ConstructionRule):
 #         return [Angle(self.x, self.a, self.b) + Angle(self.c, self.d, self.e) - pi]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_on_bline(ConstructionRule):
     def __init__(self, a: Point, b: Point):
         self.inputs = [a, b]
@@ -1069,7 +1086,7 @@ class construct_on_bline(ConstructionRule):
         ]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_on_circle(ConstructionRule):
     def __init__(self, o: Point, a: Point):
         self.inputs = [o, a]
@@ -1088,7 +1105,7 @@ class construct_on_circle(ConstructionRule):
         return [Length(o, x) - Length(o, a)]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_on_line(ConstructionRule):
     def __init__(self, a: Point, b: Point):
         self.inputs = [a, b]
@@ -1107,7 +1124,7 @@ class construct_on_line(ConstructionRule):
         return [Collinear(x, a, b)]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_on_pline(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -1126,7 +1143,7 @@ class construct_on_pline(ConstructionRule):
         return [Parallel(x, a, b, c)]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_on_tline(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -1145,7 +1162,7 @@ class construct_on_tline(ConstructionRule):
         return [Perpendicular(x, a, b, c)]
 
 
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_orthocenter(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -1216,7 +1233,7 @@ class construct_psquare(ConstructionRule):
         ]
 
 
-@register("deterministic")
+@register("deterministic", "auxiliary_construction")
 class construct_reflect(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -1443,7 +1460,7 @@ class construct_trisegment(ConstructionRule):
         ]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_on_dia(ConstructionRule):
     def __init__(self, a: Point, b: Point):
         self.inputs = [a, b]
@@ -1537,7 +1554,7 @@ class construct_cc_tangent(ConstructionRule):
         ]
 
 
-@register("nondeterministic")
+@register("nondeterministic", "auxiliary_construction")
 class construct_eqangle3(ConstructionRule):
     def __init__(self, a: Point, b: Point, d: Point, e: Point, f: Point):
         self.inputs = [a, b, d, e, f]

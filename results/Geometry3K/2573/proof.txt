@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(C,E,F) & Collinear(B,C,H) [DiagramAngle4(C,B,F,H,E)] => Angle_B_C_F - Angle_E_C_H
+2. Collinear(A,D,G) & Collinear(A,B,I) [DiagramAngle4(A,B,D,I,G)] => Angle_B_A_D - Angle_G_A_I
+3. Collinear(A,D,G) [CollinearParallel(A,D,G)] => Parallel(A,D,D,G)
+4. Collinear(C,E,F) [CollinearParallel(C,E,F)] => Parallel(C,F,E,F)
+5. Parallel(C,F,E,F) & Parallel(D,G,E,F) [ParaTrans(E,F,C,F,D,G)] => Parallel(C,F,D,G)
+6. Parallel(A,D,D,G) & Parallel(C,F,D,G) [ParaTrans(D,G,A,D,C,F)] => Parallel(A,D,C,F)
+7. Parallel(A,D,C,F) [Para2Angle(A,D,C,F)] => Angle_A_C_F + Angle_C_A_D - pi
+8. Angle_B_C_F - Angle_E_C_H & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_B_A_D - Angle_G_A_I & Angle_A_C_F + Angle_C_A_D - pi & Angle_G_A_I - 157*pi/180 & Angle_A_B_C - pi/2 & Angle_B_A_C - Angle_B_A_D + Angle_C_A_D & Angle_A_C_B + Angle_A_C_F - Angle_B_C_F => Angle_E_C_H - 113*pi/180
+9. Angle_E_C_H - Variable_angle_1 & Angle_E_C_H - 113*pi/180 => Variable_angle_1 - 113*pi/180

@@ -1,0 +1,4 @@
+Solution:
+1. Collinear(A,B,Y) [CollinearParallel(A,B,Y)] => Parallel(A,B,A,Y)
+2. Angle_A_Y_Z - Angle_X_Z_Y [AlphaGeometry3c2(A,Y,X,Z)] => Parallel(A,Y,X,Z)
+3. Parallel(A,B,A,Y) & Parallel(A,Y,X,Z) [ParaTrans(A,Y,A,B,X,Z)] => Parallel(A,B,X,Z)

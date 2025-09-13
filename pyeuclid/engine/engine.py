@@ -14,6 +14,7 @@ class Engine:
     def search(self, depth=9999):
         self.algebraic_system.run()
         while self.state.current_depth < depth:
+            self.state.reasoning_depth += 1
             if self.state.complete() is not None:
                 break
                         

@@ -1,0 +1,10 @@
+Solution:
+1. Length_R_X - 2*Length_V_X & Length_T_Y - Length_V_X & Length_R_X - Length_S_Y => Length_S_Y/Length_T_Y - 2
+2. Length_R_X - 2*Length_V_X & Length_S_Y/Length_T_Y - 2 => Length_R_X/Length_V_X - Length_S_Y/Length_T_Y
+3. Collinear(R,V,X) & Parallel(R,S,T,V) & Collinear(S,T,Y) & Length_R_X/Length_V_X - Length_S_Y/Length_T_Y [AlphaGeometry42(R,S,T,V,X,Y)] => Parallel(R,S,X,Y)
+4. Parallel(R,S,T,V) & Parallel(R,S,X,Y) & Collinear(R,V,X) & Collinear(S,T,Y) [AlphaGeometry8b(R,S,V,T,X,Y)] => Length_R_S*Length_V_X/Length_R_V - Length_X_Y + Length_R_X*Length_T_V/Length_R_V
+5. Length_R_X - 2*Length_V_X => -1/2 + Length_V_X/Length_R_X
+6. Collinear(R,V,X) [BetweenLength(R,X,V)] => Length_R_V - Length_R_X - Length_V_X
+7. Length_R_X - 2*Length_V_X & Length_R_V - Length_R_X - Length_V_X => Length_R_V - 3*Length_R_X/2
+8. -1/2 + Length_V_X/Length_R_X & Length_R_V - 3*Length_R_X/2 => Length_R_V - 3*Length_V_X
+9. Length_R_S*Length_V_X/Length_R_V - Length_X_Y + Length_R_X*Length_T_V/Length_R_V & Length_R_V - 3*Length_V_X & Length_T_V - 3 & Length_R_X - 2*Length_V_X & Length_R_S - 6 => Length_X_Y - 4

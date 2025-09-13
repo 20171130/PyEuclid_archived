@@ -1,0 +1,7 @@
+Solution:
+1. Collinear(C,L,M) [FlatAngle2(L,C,M,R)] => Angle_L_C_R + Angle_M_C_R - pi
+2. Length_C_M - Variable_radius_C & Length_C_L - Variable_radius_C => Length_C_L - Length_C_M
+3. Length_C_L - Variable_radius_C & Length_C_R - Variable_radius_C => Length_C_L - Length_C_R
+4. Length_C_L - Length_C_M & Length_C_L - Length_C_R [InscribedAngle1(C,L,M,R)] => Angle_M_C_R - 2*Angle_M_L_R
+5. Angle_L_C_R + Angle_M_C_R - pi & Angle_M_C_R - pi*(Variable_x/180 - 1/180) & Angle_M_C_R - 2*Angle_M_L_R & Angle_L_C_R - pi*(Variable_x/60 + 1/36) => Angle_M_L_R - 43*pi/360
+6. Angle_M_L_R - 43*pi/360 & Angle_M_C_R - 2*Angle_M_L_R => Angle_M_C_R - 43*pi/180

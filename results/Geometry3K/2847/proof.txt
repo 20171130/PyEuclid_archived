@@ -1,0 +1,6 @@
+Solution:
+1. Length_C_K - Variable_radius_C & Length_C_J - Variable_radius_C => Length_C_J - Length_C_K
+2. Length_C_J - Length_C_K [DefinitionOfIsoscelesTriangle(C,J,K)] => Angle_C_J_K - Angle_C_K_J
+3. Perpendicular(C,J,H,J) [Perp2Angle(C,J,H)] => Angle_C_J_H - pi/2
+4. Angle_C_J_K + Angle_C_K_J + Angle_J_C_K - pi & Angle_B_C_J + Angle_B_C_K - Angle_J_C_K & Angle_C_J_K - Angle_C_K_J & Angle_H_J_K - 29*pi/45 & Angle_C_J_H - pi/2 & Angle_C_J_H + Angle_C_J_K - Angle_H_J_K => Angle_B_C_J + Angle_B_C_K - 32*pi/45
+5. Angle_B_C_J + Angle_B_C_K - 32*pi/45 & Angle_B_C_J + Angle_B_C_K - Angle_J_C_K => Angle_J_C_K - 32*pi/45

@@ -1,0 +1,11 @@
+Solution:
+1. Length_A_B - 15 & Length_D_F - 12 => -4/5 + Length_D_F/Length_A_B
+2. Similar3(A,B,C,F,D,G) [PropertyOfSimilar3(A,B,C,F,D,G)] => Angle_A_B_C - Angle_F_D_G & Angle_B_A_C - Angle_D_F_G
+3. Collinear(B,C,P) [DiagramAngle4b(B,C,A,P)] => Angle_A_B_C - Angle_A_B_P
+4. Collinear(D,G,Q) [DiagramAngle4b(D,G,F,Q)] => Angle_F_D_G - Angle_F_D_Q
+5. Angle_A_B_C - Angle_F_D_G & Angle_A_B_C - Angle_A_B_P & Angle_F_D_G - Angle_F_D_Q => Angle_A_B_P - Angle_F_D_Q
+6. Angle_A_B_C - Angle_F_D_G & Angle_B_A_C - Angle_B_A_P - Angle_C_A_P & Angle_B_A_P - Angle_C_A_P & Angle_A_B_C - Angle_A_B_P & Angle_D_F_Q + Angle_D_Q_F + Angle_F_D_Q - pi & Angle_A_B_P + Angle_A_P_B + Angle_B_A_P - pi & Angle_D_F_G - Angle_D_F_Q - Angle_G_F_Q & Angle_D_F_Q - Angle_G_F_Q & Angle_F_D_G - Angle_F_D_Q & Angle_B_A_C - Angle_D_F_G => Angle_A_P_B - Angle_D_Q_F
+7. Angle_A_B_P - Angle_F_D_Q & Angle_A_P_B - Angle_D_Q_F [AlphaGeometry3536(A,B,P,F,D,Q)] => Similar3(A,B,P,F,D,Q)
+8. Similar3(A,B,P,F,D,Q) [PropertyOfSimilar3(A,B,P,F,D,Q)] => Length_A_B/Length_D_F - Length_A_P/Length_F_Q
+9. -4/5 + Length_D_F/Length_A_B & Length_A_B/Length_D_F - Length_A_P/Length_F_Q => Length_A_P/Length_F_Q - 5/4
+10. Length_A_P - Variable_x & Length_A_P/Length_F_Q - 5/4 & Length_F_Q - 8 => Variable_x - 10

@@ -1,0 +1,17 @@
+Solution:
+1. Collinear(K,L,N) [BetweenLength(K,N,L)] => Length_K_L - Length_K_N - Length_L_N & Parallel(K,N,L,N)
+2. Length_K_N - 9 & Length_L_N - 16 & Length_K_L - Length_K_N - Length_L_N => Length_K_L - 25
+3. Length_K_L - 25 & Length_K_N - 9 => Length_K_L/Length_K_N - 25/9
+4. Length_K_L - 25 & Length_L_N - 16 => Length_K_L/Length_L_N - 25/16
+5. Perpendicular(K,N,M,N) & Parallel(K,N,L,N) [AlphaGeometry1b(K,N,M,N,L,N)] => Perpendicular(L,N,M,N)
+6. Perpendicular(L,N,M,N) [Perp2Angle(L,N,M)] => Angle_L_N_M - pi/2
+7. Collinear(L,M,R) [CollinearParallel(L,M,R)] => Parallel(L,M,M,R)
+8. Perpendicular(K,M,M,R) & Parallel(L,M,M,R) [AlphaGeometry1b(M,R,K,M,L,M)] => Perpendicular(K,M,L,M)
+9. Perpendicular(K,M,L,M) [Perp2Angle(K,M,L)] => Angle_K_M_L - pi/2
+10. Angle_L_N_M - pi/2 & Angle_K_M_L - Angle_K_M_N - Angle_L_M_N & Angle_K_M_L - pi/2 & Angle_L_M_N + Angle_L_N_M + Angle_M_L_N - pi => Angle_K_M_N - Angle_M_L_N
+11. Perpendicular(K,N,M,N) [Perp2Angle(K,N,M)] => Angle_K_N_M - pi/2
+12. Angle_K_N_M - pi/2 & Angle_L_N_M - pi/2 => Angle_K_N_M - Angle_L_N_M
+13. Angle_K_M_N - Angle_M_L_N & Angle_K_N_M - Angle_L_N_M [AlphaGeometry3536(K,M,N,M,L,N)] => Similar3(K,M,N,M,L,N)
+14. Similar3(K,M,N,M,L,N) [PropertyOfSimilar3(K,M,N,M,L,N)] => Length_K_N/Length_M_N - Length_M_N/Length_L_N
+15. Length_K_L/Length_K_N - 25/9 & Length_K_L/Length_L_N - 25/16 & Length_K_N/Length_M_N - Length_M_N/Length_L_N => -12/25 + Length_M_N/Length_K_L
+16. Length_K_L - 25 & -12/25 + Length_M_N/Length_K_L => Length_M_N - 12

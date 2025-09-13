@@ -1,0 +1,2 @@
+Solution:
+1. Angle_P_R_Z - pi*(Variable_b/45 - 17/180) & Angle_Q_R_Z - pi*(Variable_b/60 - 1/45) & Angle_P_R_Z - Angle_Q_R_Z => Angle_P_R_Z - 7*pi/36

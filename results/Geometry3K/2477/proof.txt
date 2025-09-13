@@ -1,0 +1,5 @@
+Solution:
+1. Length_B_D - Variable_radius_D & Length_A_D - Variable_radius_D => Length_A_D - Length_B_D
+2. Length_B_D - Variable_radius_D & Length_C_D - Variable_radius_D => Length_B_D - Length_C_D
+3. -Length_A_D + Length_B_D & Length_B_D - Length_C_D [InscribedAngle1(D,B,A,C)] => Angle_A_B_C - Angle_A_D_C/2
+4. Angle_A_B_C - Angle_A_D_C/2 & Angle_A_D_C - 61*pi/90 => Angle_A_B_C - 61*pi/180

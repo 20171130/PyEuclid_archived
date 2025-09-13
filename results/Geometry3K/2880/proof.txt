@@ -1,0 +1,8 @@
+Solution:
+1. Collinear(K,M,P) [FlatAngle2(K,P,M,N)] => Angle_K_P_N + Angle_M_P_N - pi
+2. Perpendicular(L,P,N,P) [Perp2Angle(L,P,N)] => Angle_L_P_N - pi/2
+3. Length_K_P - Variable_radius_P & Length_L_P - Variable_radius_P => Length_K_P - Length_L_P
+4. Length_L_P - Variable_radius_P & Length_N_P - Variable_radius_P => Length_L_P - Length_N_P
+5. -Length_K_P + Length_L_P & Length_L_P - Length_N_P [InscribedAngle1(P,L,K,N)] => Angle_K_L_N - Angle_K_P_N/2
+6. Angle_K_P_N + Angle_M_P_N - pi & Angle_L_P_M - Angle_L_P_N + Angle_M_P_N & Angle_L_P_N - pi/2 & Angle_K_L_N - Angle_K_P_N/2 & Angle_L_P_M - 13*pi/36 => Angle_K_L_N - 31*pi/72
+7. Angle_K_L_N - 31*pi/72 & Angle_K_L_N - Angle_K_P_N/2 => Angle_K_P_N - 31*pi/36

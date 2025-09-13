@@ -1,0 +1,9 @@
+Solution:
+1. Collinear(A,C,Z) [BetweenLength(A,Z,C)] => Length_A_C - Length_A_Z - Length_C_Z
+2. Collinear(C,W,Z) [BetweenLength(C,W,Z)] => Length_C_W - Length_C_Z + Length_W_Z
+3. Length_B_Z - 15 & Length_B_W - 15 => Length_B_W - Length_B_Z
+4. Length_B_W - Length_B_Z & Collinear(B,W,Z) [DefinitionOfMidpoint(B,W,Z)] => Midpoint(B,W,Z)
+5. Midpoint(B,W,Z) [PropertyOfMidpoint(B,W,Z)] => Length_B_W - Length_W_Z/2
+6. Length_C_W - 2 & Length_B_W - 15 => Length_B_W - 15*Length_C_W/2
+7. Length_A_Z - Length_C_W & Length_C_W - 2 => Length_A_Z - 2
+8. Length_A_C - Length_A_Z - Length_C_Z & Length_C_W - Length_C_Z + Length_W_Z & Length_B_W - Length_W_Z/2 & Length_B_W - 15*Length_C_W/2 & Length_A_Z - 2 & Length_B_W - 15 => Length_A_C - 34

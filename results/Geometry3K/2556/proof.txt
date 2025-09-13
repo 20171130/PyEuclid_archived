@@ -1,0 +1,5 @@
+Solution:
+1. Collinear(A,C,F) [BetweenLength(A,F,C)] => Length_A_C - Length_A_F - Length_C_F
+2. Length_A_F - Variable_x & Length_C_F - 6 & Length_A_C - Length_A_F - Length_C_F => Length_A_C - Variable_x - 6
+3. Length_C_E - Variable_radius_C & Length_C_F - 6 & Length_C_F - Variable_radius_C => Length_C_E - 6
+4. Length_A_C**2 - Length_A_E**2 + 2*Length_A_E*Length_C_E*cos(Angle_A_E_C) - Length_C_E**2 & Length_A_C - Variable_x - 6 & Length_C_E - 6 & Angle_A_E_C - pi/2 & Length_A_E - 8 => Variable_x - 4

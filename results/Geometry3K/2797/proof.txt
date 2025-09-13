@@ -1,0 +1,10 @@
+Solution:
+1. Length_B_X - Variable_radius_B & Length_B_Z - Variable_radius_B => Length_B_X - Length_B_Z
+2. Length_B_Y - Variable_radius_B & Length_B_Z - Variable_radius_B => Length_B_Y - Length_B_Z
+3. -Length_B_X + Length_B_Z & -Length_B_Y + Length_B_Z => Angle_X_B_Y - 2*Angle_X_Z_Y
+4. Collinear(W,X,Z) => Angle_W_X_Y + Angle_Y_X_Z - pi
+5. Length_B_Y - Variable_radius_B & Length_B_X - Variable_radius_B => Length_B_X - Length_B_Y
+6. Length_B_X - Length_B_Y & Length_B_X - Length_B_Z => Angle_Y_B_Z + 2*Angle_Y_X_Z - 2*pi
+7. -Length_B_X + Length_B_Y & Length_B_Y - Length_B_Z & Perpendicular(B,Y,W,Y) => Angle_W_Y_X - Angle_X_Z_Y
+8. Angle_X_W_Y - 49*pi/180 & Angle_X_B_Y - 8*pi/15 & Angle_X_B_Y - 2*Angle_X_Z_Y & Angle_W_B_Y + Angle_W_B_Z - Angle_Y_B_Z & Angle_W_X_Y + Angle_Y_X_Z - pi & Angle_Y_B_Z + 2*Angle_Y_X_Z - 2*pi & Angle_W_X_Y + Angle_W_Y_X + Angle_X_W_Y - pi & Angle_W_Y_X - Angle_X_Z_Y => Angle_W_B_Y + Angle_W_B_Z - 83*pi/90
+9. Angle_W_B_Y + Angle_W_B_Z - Angle_Y_B_Z & Angle_W_B_Y + Angle_W_B_Z - 83*pi/90 => Angle_Y_B_Z - 83*pi/90

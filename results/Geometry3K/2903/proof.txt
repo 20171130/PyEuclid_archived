@@ -1,0 +1,6 @@
+Solution:
+1. Perpendicular(M,P,N,P) [Perp2Angle(M,P,N)] => Angle_M_P_N - pi/2
+2. Angle_M_P_N - pi/2 & Angle_M_N_P + Angle_M_P_N + Angle_N_M_P - pi => Angle_M_N_P + Angle_N_M_P - pi/2
+3. sin(Angle_M_N_P)/Length_M_P - sin(Angle_M_P_N)/Length_M_N & Angle_M_N_P + Angle_N_M_P - pi/2 & Length_M_N - 39 & Angle_M_P_N - pi/2 & Length_M_P - 36 => Angle_N_M_P - acos(12/13)
+4. Angle_M_N_P + Angle_N_M_P - pi/2 & Angle_N_M_P - acos(12/13) => Angle_M_N_P - pi/2 + acos(12/13)
+5. Angle_M_N_P - pi/2 + acos(12/13) => sin(Angle_M_N_P) - 12/13

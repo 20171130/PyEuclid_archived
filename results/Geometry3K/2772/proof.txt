@@ -1,0 +1,10 @@
+Solution:
+1. Length_C_E - Variable_radius_C & Length_C_X - Variable_radius_C => Length_C_E - Length_C_X
+2. Length_C_E - Variable_radius_C & Length_C_Z - Variable_radius_C => Length_C_E - Length_C_Z
+3. Length_C_E - Length_C_X & Length_C_E - Length_C_Z [InscribedAngle1(C,E,X,Z)] => Angle_X_C_Z - 2*Angle_X_E_Z
+4. Length_C_X - Variable_radius_C & Length_C_Z - Variable_radius_C => Length_C_X - Length_C_Z
+5. -Length_C_E + Length_C_Z & -Length_C_X + Length_C_Z [InscribedAngle2(C,Z,E,X)] => Angle_E_C_X + 2*Angle_E_Z_X - 2*pi
+6. Collinear(E,Y,Z) [FlatAngle2(E,Z,Y,X)] => Angle_E_Z_X + Angle_X_Z_Y - pi
+7. Length_C_X - Length_C_Z & -Length_C_E + Length_C_X & Perpendicular(C,X,X,Y) [AlphaGeometry16b(C,X,Z,E,Y)] => Angle_X_E_Z - Angle_Y_X_Z
+8. Angle_X_Y_Z - 17*pi/45 & Angle_E_C_X - 34*pi/45 & Angle_X_C_Z - 2*Angle_X_E_Z & Angle_E_C_X + 2*Angle_E_Z_X - 2*pi & Angle_E_Z_X + Angle_X_Z_Y - pi & Angle_X_E_Z - Angle_Y_X_Z & Angle_X_Y_Z + Angle_X_Z_Y + Angle_Y_X_Z - pi & Angle_X_C_Y - Angle_X_C_Z + Angle_Y_C_Z => Angle_X_C_Y + Angle_Y_C_Z - 22*pi/45
+9. Angle_X_C_Y - Angle_X_C_Z + Angle_Y_C_Z & Angle_X_C_Y + Angle_Y_C_Z - 22*pi/45 => Angle_X_C_Z - 22*pi/45

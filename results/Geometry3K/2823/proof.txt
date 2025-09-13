@@ -1,0 +1,4 @@
+Solution:
+1. Angle_T_U_V - pi/2 [AreaRightTriangle(T,U,V)] => Area_T_U_V - Length_T_U*Length_U_V/2
+2. Length_U_V - 7 & Area_T_U_V - Length_T_U*Length_U_V/2 & Length_T_U - Variable_x => Area_T_U_V - 7*Variable_x/2
+3. Area_T_U_V**2 - (-Length_T_U/2 + Length_T_V/2 + Length_U_V/2)*(Length_T_U/2 - Length_T_V/2 + Length_U_V/2)*(Length_T_U/2 + Length_T_V/2 - Length_U_V/2)*(Length_T_U/2 + Length_T_V/2 + Length_U_V/2) & Area_T_U_V - 7*Variable_x/2 & Length_U_V - 7 & Length_T_V - 11 & Length_T_U - Variable_x => Variable_x - 6*sqrt(2)

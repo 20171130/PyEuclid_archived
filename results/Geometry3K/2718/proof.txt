@@ -1,0 +1,5 @@
+Solution:
+1. Collinear(E,F,G) [DiagramAngle4b(E,F,D,G)] => Angle_D_E_F - Angle_D_E_G
+2. Perpendicular(D,G,E,G) [Perp2Angle(D,G,E)] => Angle_D_G_E - pi/2
+3. Angle_D_E_F - Angle_D_E_G & Angle_D_G_E - pi/2 & Angle_D_E_F - 5*pi/36 & Angle_D_E_G + Angle_D_G_E + Angle_E_D_G - pi => Angle_E_D_G - 13*pi/36
+4. Angle_E_D_G - 13*pi/36 & Angle_E_D_G - Variable_angle_1 => Variable_angle_1 - 13*pi/36

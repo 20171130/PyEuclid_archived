@@ -1,0 +1,7 @@
+Solution:
+1. Length_T_Z - 10 & Length_X_Y - 16 => Length_T_Z/Length_X_Y - 5/8
+2. Length_W_Y - 20 & Length_X_Y - 16 => Length_W_Y/Length_X_Y - 5/4
+3. Collinear(T,W,Y) & Collinear(W,X,Z) & Parallel(T,Z,X,Y) [AlphaGeometry8(T,Z,Y,X,W)] => Similar3(T,W,Z,Y,W,X)
+4. Similar3(T,W,Z,Y,W,X) [PropertyOfSimilar3(W,X,Y,W,Z,T)] => Length_X_Y/Length_T_Z - Length_W_Y/Length_T_W
+5. Length_T_Z/Length_X_Y - 5/8 & Length_W_Y/Length_X_Y - 5/4 & Length_X_Y/Length_T_Z - Length_W_Y/Length_T_W => Length_T_W/Length_X_Y - 25/32
+6. Length_T_W - Variable_x & Length_T_W/Length_X_Y - 25/32 & Length_X_Y - 16 => Variable_x - 25/2

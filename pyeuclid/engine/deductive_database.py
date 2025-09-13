@@ -15,6 +15,7 @@ class DeductiveDatabase():
         self.name = id(self)
         self.inner_theorems = list(inference_rule_sets["ex"]) + list(inference_rule_sets["shape"]) if inner_theorems is None else inner_theorems
         self.outer_theorems = list(inference_rule_sets["basic"]) if outer_theorems is None else outer_theorems
+        os.makedirs("cache", exist_ok=True)
         self.sqliteConnection = sqlite3.connect(f"cache/{self.name}.db")
         self.cursor = self.sqliteConnection.cursor()
         points = """ CREATE TABLE points (
@@ -34,7 +35,7 @@ class DeductiveDatabase():
     def __del__(self):
         self.sqliteConnection.close()
         os.remove(f"cache/{self.name}.db")
-
+    
     def _create_table(self, name, n_points, equivalence=False):
         query = ", ".join([f"p{i} CHAR(10) NOT NULL" for i in range(n_points)])
         if equivalence:

@@ -1,0 +1,9 @@
+Solution:
+1. Length_P_Q - 6 & Length_K_L - 4 => Length_K_L - 2*Length_P_Q/3
+2. Collinear(K,L,M) & Collinear(M,P,Q) & Parallel(K,Q,L,P) [AlphaGeometry8(K,Q,L,P,M)] => Length_K_L/Length_P_Q - Length_K_M/Length_M_Q
+3. Length_K_L - 2*Length_P_Q/3 & Length_K_L/Length_P_Q - Length_K_M/Length_M_Q => Length_K_M - 2*Length_M_Q/3
+4. Collinear(K,L,M) [BetweenLength(K,L,M)] => Length_K_L - Length_K_M + Length_L_M
+5. Length_K_L - Length_K_M + Length_L_M & Length_K_L - 4 => Length_K_M - Length_L_M - 4
+6. Collinear(M,P,Q) [BetweenLength(M,P,Q)] => Length_M_P - Length_M_Q + Length_P_Q
+7. Length_P_Q - 6 & Length_M_P - Length_M_Q + Length_P_Q & Length_M_P - 3 => Length_M_Q - 9
+8. Length_K_M - 2*Length_M_Q/3 & Length_K_M - Length_L_M - 4 & Length_M_Q - 9 => Length_L_M - 2

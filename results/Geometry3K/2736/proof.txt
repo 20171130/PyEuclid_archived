@@ -1,0 +1,7 @@
+Solution:
+1. Length_W_Z - Variable_radius_Z & Length_Y_Z - Variable_radius_Z => Length_W_Z - Length_Y_Z
+2. Length_W_Z - Length_Y_Z [DefinitionOfIsoscelesTriangle(Z,W,Y)] => Angle_W_Y_Z - Angle_Y_W_Z
+3. Angle_X_Y_Z - pi/2 & Angle_X_W_Z - pi/2 => Angle_X_W_Z - Angle_X_Y_Z
+4. Angle_X_W_Y - Angle_X_W_Z + Angle_Y_W_Z & Angle_W_Y_X + Angle_W_Y_Z - Angle_X_Y_Z & Angle_W_Y_Z - Angle_Y_W_Z & Angle_X_W_Z - Angle_X_Y_Z => Angle_W_Y_X - Angle_X_W_Y
+5. -Angle_W_Y_X + Angle_X_W_Y [DefinitionOfIsoscelesTriangle1(X,W,Y)] => Length_W_X - Length_X_Y
+6. Length_W_X - Length_X_Y & Length_W_X - 2*Variable_x - 9 & Length_X_Y - 3*Variable_x - 6 => Variable_x - 3

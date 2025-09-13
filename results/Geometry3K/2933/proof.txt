@@ -1,0 +1,5 @@
+Solution:
+1. Perpendicular(B,C,B,D) [Perp2Angle(C,B,D)] => Angle_C_B_D - pi/2
+2. Collinear(B,F,G) [FlatAngle2(F,B,G,D)] => Angle_D_B_F + Angle_D_B_G - pi
+3. Angle_C_B_D - pi/2 & Angle_C_B_F - 37*pi/180 & Angle_C_B_D + Angle_C_B_F - Angle_D_B_F & Angle_D_B_F + Angle_D_B_G - pi => Angle_D_B_G - 53*pi/180
+4. Angle_D_B_G - Variable_angle_1 & Angle_D_B_G - 53*pi/180 => Variable_angle_1 - 53*pi/180

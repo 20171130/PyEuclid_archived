@@ -1,0 +1,3 @@
+Solution:
+1. Parallelogram(M,N,P,Q) => Angle_M_N_P + Angle_N_M_Q - pi
+2. Angle_N_M_Q - pi*Variable_x/18 & Angle_M_N_P - pi*Variable_x/9 & Angle_M_N_P + Angle_N_M_Q - pi => Angle_N_M_Q - pi/3

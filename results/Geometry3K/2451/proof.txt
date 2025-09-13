@@ -1,0 +1,4 @@
+Solution:
+1. Length_Q_R**2 - Length_Q_S**2 + 2*Length_Q_S*Length_R_S*cos(Angle_Q_S_R) - Length_R_S**2 & Length_Q_R - 18 & Length_Q_S - 23 & Length_R_S - 37 => Angle_Q_S_R - acos(787/851)
+2. Length_Q_R**2 - 2*Length_Q_R*Length_Q_S*cos(Angle_R_Q_S) + Length_Q_S**2 - Length_R_S**2 & Length_Q_R - 18 & Length_Q_S - 23 & Length_R_S - 37 => Angle_R_Q_S - acos(-43/69)
+3. Angle_Q_R_S + Angle_Q_S_R + Angle_R_Q_S - pi & Angle_Q_S_R - acos(787/851) & Angle_R_Q_S - acos(-43/69) => Angle_Q_R_S - pi + acos(787/851) + acos(-43/69)

@@ -1,0 +1,8 @@
+Solution:
+1. Length_C_Q - Variable_radius_C & Length_C_R - Variable_radius_C => Length_C_Q - Length_C_R
+2. Length_C_S - Variable_radius_C & Length_C_Q - Variable_radius_C => Length_C_Q - Length_C_S
+3. Length_C_Q - Variable_radius_C & Length_C_T - Variable_radius_C => Length_C_Q - Length_C_T
+4. Length_C_Q - Length_C_R & Length_C_Q - Length_C_S & Length_C_Q - Length_C_T [AlphaGeometry2(C,Q,R,S,T)] => Concyclic(Q,R,S,T)
+5. Concyclic(Q,R,S,T) [AlphaGeometry4a(Q,R,S,T)] => Angle_Q_S_R - Angle_Q_T_R
+6. Angle_Q_S_R - Angle_Q_T_R & Angle_Q_S_R - pi*(Variable_x/36 + 1/45) & Angle_Q_T_R - pi*(Variable_x/30 - 1/90) => Angle_Q_S_R - 17*pi/90
+7. Angle_Q_S_R - Variable_angle_S & Angle_Q_S_R - 17*pi/90 => Variable_angle_S - 17*pi/90

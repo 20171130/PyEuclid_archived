@@ -1,0 +1,4 @@
+Solution:
+1. Centroid(K,C,D,F) & Collinear(C,D,G) & Collinear(F,G,K) [PropertyOfCentroid(K,C,D,F,G)] => Midpoint(G,C,D)
+2. Midpoint(G,C,D) [PropertyOfMidpoint(G,C,D)] => Length_C_D - 2*Length_D_G
+3. Length_D_G - 9 & Length_C_D - 2*Length_D_G => Length_C_D - 18.0

@@ -4,13 +4,13 @@
 #SBATCH --mem=8G
 #SBATCH -t 2:00:00
 #SBATCH --array=0-31
-#SBATCH -o %A_%a.out
+#SBATCH -o new_logs/%A_%a.out
 
 set -eo pipefail
 
 MODEL="saves/qwen2_5-math-7b"
 PORT="${PORT:-8000}"
-SHARED_DIR=".vllm1"
+SHARED_DIR=".vllm"
 
 module load cuda/12.1
 source ~/.bashrc && conda activate euclidea
@@ -34,8 +34,8 @@ fi
 export VLLM_BASE_URL="http://${SERVER_HOST}:${SERVER_PORT}"
 export MODEL="${MODEL}"
 
-export TOTAL_BEAMS="${TOTAL_BEAMS:-32}"
-export N_PER_CALL="${N_PER_CALL:-32}"
+export TOTAL_BEAMS="${TOTAL_BEAMS:-512}"
+export N_PER_CALL="${N_PER_CALL:-512}"
 export CPU_WORKERS="${CPU_WORKERS:-32}"
 export ENGINE_TIMEOUT="${ENGINE_TIMEOUT:-1200}"
 export PROOF_TIMEOUT="${PROOF_TIMEOUT:-1200}"
@@ -48,7 +48,7 @@ for i in {1..60}; do
   sleep 2
 done
 
-python -u eval.py \
+python -u scripts/eval.py \
   --base-url "http://${SERVER_HOST}:${SERVER_PORT}" \
   --model "${MODEL}" \
   --total-beams "${TOTAL_BEAMS}" \

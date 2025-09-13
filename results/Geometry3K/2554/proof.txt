@@ -1,0 +1,17 @@
+Solution:
+1. Perpendicular(A,B,B,C) [Perp2Angle(A,B,C)] => Angle_A_B_C - pi/2
+2. Angle_A_B_C - pi/2 [RightTriangleTrigonometry(A,B,C)] => sin(Angle_B_A_C) - Length_B_C/Length_A_C & Area_A_B_C - Length_A_B*Length_B_C/2
+3. Collinear(A,C,D) [CollinearParallel(A,C,D)] => Parallel(A,D,C,D) & Angle_A_C_B - Angle_B_C_D & Parallel(A,C,A,D)
+4. Perpendicular(A,D,B,D) & Parallel(A,D,C,D) [AlphaGeometry1b(A,D,B,D,C,D)] => Perpendicular(B,D,C,D)
+5. Perpendicular(B,D,C,D) [Perp2Angle(B,D,C)] => Angle_B_D_C - pi/2
+6. Angle_B_D_C - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_B_C_D + Angle_C_B_D - pi/2
+7. sin(Angle_C_B_D)/Length_C_D - sin(Angle_B_C_D)/Length_B_D & Angle_B_C_D + Angle_C_B_D - pi/2 & Length_B_D - 16 & Length_C_D - 8 => Angle_C_B_D - atan(1/2)
+8. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_B_D_C - pi/2 & Angle_A_B_C - pi/2 & Angle_A_C_B - Angle_B_C_D & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_B_A_C - Angle_C_B_D
+9. Angle_C_B_D - atan(1/2) & Angle_B_A_C - Angle_C_B_D => Angle_B_A_C - atan(1/2)
+10. Length_B_C**2 - Length_B_D**2 + 2*Length_B_D*Length_C_D*cos(Angle_B_D_C) - Length_C_D**2 & Angle_B_D_C - pi/2 & Length_B_C - Variable_z & Length_C_D - 8 & Length_B_D - 16 => Variable_z - 8*sqrt(5)
+11. Variable_z - 8*sqrt(5) & Length_B_C - Variable_z => Length_B_C - 8*sqrt(5)
+12. Perpendicular(A,D,B,D) & Parallel(A,C,A,D) [AlphaGeometry1b(A,D,B,D,A,C)] => Perpendicular(A,C,B,D)
+13. Perpendicular(A,C,B,D) & Collinear(A,C,D) [AreaEqualsBaseTimesHeight(B,A,C,D)] => Area_A_B_C - Length_A_C*Length_B_D/2
+14. Area_A_B_C - Length_A_B*Length_B_C/2 & Area_A_B_C - Length_A_C*Length_B_D/2 => Length_B_C/Length_A_C - Length_B_D/Length_A_B
+15. Length_A_B - Variable_y & Length_B_C - 8*sqrt(5) & Length_B_D - 16 & Length_B_C/Length_A_C - Length_B_D/Length_A_B => Length_A_C - sqrt(5)*Variable_y/2
+16. sin(Angle_B_A_C) - Length_B_C/Length_A_C & Angle_B_A_C - atan(1/2) & Length_B_C - 8*sqrt(5) & Length_A_C - sqrt(5)*Variable_y/2 => Variable_y - 16*sqrt(5)

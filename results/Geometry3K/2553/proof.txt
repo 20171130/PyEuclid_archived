@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(B,C,J) [FlatAngle2(B,C,J,N)] => Angle_B_C_N + Angle_J_C_N - pi
+2. Collinear(B,H,M) & Collinear(B,C,F) [DiagramAngle4(B,C,M,F,H)] => Angle_C_B_M - Angle_F_B_H
+3. Collinear(B,H,M) [CollinearParallel(B,H,M)] => Parallel(B,M,H,M)
+4. Collinear(C,N,O) [CollinearParallel(C,N,O)] => Parallel(C,N,N,O)
+5. Parallel(C,N,N,O) & Parallel(H,M,N,O) [ParaTrans(N,O,C,N,H,M)] => Parallel(C,N,H,M)
+6. Parallel(B,M,H,M) & Parallel(C,N,H,M) [ParaTrans(H,M,B,M,C,N)] => Parallel(B,M,C,N)
+7. Parallel(B,M,C,N) [Para2Angle(B,M,C,N)] => Angle_B_C_N + Angle_C_B_M - pi
+8. Angle_F_B_H - Variable_angle_14 & Variable_angle_14 - 19*pi/90 & Angle_B_C_N + Angle_J_C_N - pi & Angle_C_B_M - Angle_F_B_H & Angle_B_C_N + Angle_C_B_M - pi => Angle_J_C_N - 19*pi/90
+9. Angle_J_C_N - Variable_angle_1 & Angle_J_C_N - 19*pi/90 => Variable_angle_1 - 19*pi/90

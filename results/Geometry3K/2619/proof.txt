@@ -1,0 +1,5 @@
+Solution:
+1. Collinear(F,H,K) [BetweenLength(F,K,H)] => Length_F_H - Length_F_K - Length_H_K
+2. Rectangle(E,F,G,H) => Length_E_G - Length_F_H & Parallelogram(E,F,G,H)
+3. Parallelogram(E,F,G,H) & Collinear(E,G,K) & Collinear(F,H,K) [PropertyOfParallelogram1(E,F,G,H,K)] => Length_F_K - Length_H_K
+4. Length_F_H - Length_F_K - Length_H_K & Length_E_G - Length_F_H & Length_F_K - 32 & Length_F_K - Length_H_K => Length_E_G - 64

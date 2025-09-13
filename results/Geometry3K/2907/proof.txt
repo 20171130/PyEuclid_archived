@@ -1,0 +1,13 @@
+Solution:
+1. Perpendicular(J,K,J,L) [Perp2Angle(K,J,L)] => Angle_K_J_L - pi/2
+2. Collinear(B,K,M) [CollinearParallel(B,K,M)] => Parallel(B,M,K,M)
+3. Perpendicular(B,M,L,M) & Parallel(B,M,K,M) [AlphaGeometry1b(B,M,L,M,K,M)] => Perpendicular(K,M,L,M)
+4. Perpendicular(K,M,L,M) [Perp2Angle(K,M,L)] => Angle_K_M_L - pi/2
+5. Length_J_L - Length_L_M [DefinitionOfIsoscelesTriangle(L,J,M)] => Angle_J_M_L - Angle_L_J_M
+6. Angle_K_J_L - Angle_K_J_M - Angle_L_J_M & Angle_J_M_K + Angle_J_M_L - Angle_K_M_L & Angle_K_J_L - pi/2 & Angle_K_M_L - pi/2 & Angle_J_M_L - Angle_L_J_M => Angle_J_M_K - Angle_K_J_M
+7. -Angle_J_M_K + Angle_K_J_M [DefinitionOfIsoscelesTriangle1(K,J,M)] => Length_J_K - Length_K_M
+8. Length_J_K - Length_K_M & -Length_J_L + Length_L_M [DefinitionOfKite1(J,K,M,L)] => Kite(J,K,M,L)
+9. Kite(J,K,M,L) & Length_J_K - Length_K_M & -Length_J_L + Length_L_M [PropertyOfKite(J,K,M,L)] => Angle_J_K_L - Angle_L_K_M
+10. Collinear(C,K,L) & Collinear(B,K,M) [DiagramAngle4a(K,B,C,M,L)] => Angle_B_K_C - Angle_L_K_M
+11. Angle_B_K_C - 37*pi/180 & Angle_B_K_C - Angle_L_K_M => Angle_L_K_M - 37*pi/180
+12. Angle_J_K_L - Angle_L_K_M & Angle_L_K_M - 37*pi/180 => Angle_J_K_L - 37*pi/180

@@ -1,0 +1,10 @@
+Solution:
+1. Length_A_B - Length_A_C & Length_A_C - 16/5 => Length_A_B - 16/5
+2. Length_A_B - Length_C_D & Length_B_D - Length_C_D => Length_A_B - Length_B_D
+3. Length_A_B - Length_C_D & Length_A_B - Length_A_C => Length_A_C - Length_C_D
+4. Length_A_B - Length_B_D & Length_B_D - Length_C_D & -Length_A_C + Length_C_D => Rhombus(A,B,D,C)
+5. Rhombus(A,B,D,C) => Perpendicular(A,D,B,C)
+6. Perpendicular(A,D,B,C) => Area_A_B_D_C - Length_A_D*Length_B_C/2
+7. Square(A,B,D,C) => Area_A_B_D_C - Length_A_B*Length_A_C & Length_A_D - Length_B_C
+8. Length_A_B - 16/5 & Area_A_B_D_C - Length_A_D*Length_B_C/2 & Area_A_B_D_C - Length_A_B*Length_A_C & Length_A_C - 16/5 & Length_A_D - Length_B_C => Length_A_D - 16*sqrt(2)/5 & Length_B_C - 16*sqrt(2)/5
+9. Length_A_D - 16*sqrt(2)/5 & Area_A_B_D_C - Length_A_D*Length_B_C/2 & Length_B_C - 16*sqrt(2)/5 => Area_A_B_D_C - 256/25

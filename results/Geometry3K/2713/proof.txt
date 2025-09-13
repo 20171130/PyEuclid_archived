@@ -1,0 +1,3 @@
+Solution:
+1. Collinear(B,D,F) [DiagramAngle4b(D,B,C,F)] => Angle_B_D_C - Angle_C_D_F
+2. Angle_B_D_C - Angle_C_D_F & Angle_C_A_D - 49*pi/180 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_C_D - 3*pi/10 & Angle_A_D_B - 17*pi/90 & Angle_A_D_B - Angle_A_D_C + Angle_B_D_C => Angle_C_D_F - 43*pi/180

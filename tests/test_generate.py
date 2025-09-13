@@ -15,7 +15,9 @@ from pyeuclid.engine.inference_rule import *
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
+
 from pyeuclid.formalization.construction_q import ConstructionQ, construct_point_on_circle, construct_angle_clockwise, construct_angle_counterclockwise
+
 
 # import logging
 # Configure basic logging to console
@@ -58,7 +60,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     state.silent = True
     point2constructions = {}
 
-    diagram_path = os.path.join(problem_output_dir, f'diagram_rank_{rank}_problem_{problem_id}.jpg')
+    diagram_path = os.path.join(problem_output_dir, f'diagram_rank_{rank}_problem_{problem_id}.pdf')
     
     diagram = Diagram(cache_folder=None, save_path=diagram_path)
     state.diagram = diagram
@@ -74,7 +76,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     constructions_list = []
     length_values, angle_values = set(), set()
     index = 0
-    
+        
     if debug:
         state.silent = False
     # Construction phase with timeout checks
@@ -96,7 +98,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
                 multiconstructions = False if rand < 0.1 else True
                 candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
                                if rule.num_inputs <= len(state.points)]
-        # candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
+        candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ) or item in construction_rule_sets["auxiliary_construction"]]
         # remove construct_s_angle if mixing q and non-q construction rules
         picked = random.choice(candidate_set)
         all_points = list(state.points.copy())
@@ -136,7 +138,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
                            if rule.num_inputs <= len(state.points) and 
                            rule.num_outputs == picked.num_outputs]
-            # candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
+            candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ) or item in construction_rule_sets["auxiliary_construction"]]
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
             num_points = len(all_points)

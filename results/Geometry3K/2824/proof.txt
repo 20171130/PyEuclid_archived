@@ -1,0 +1,8 @@
+Solution:
+1. Length_A_S - Length_B_S & Collinear(A,B,S) [DefinitionOfMidpoint(S,A,B)] => Midpoint(S,A,B)
+2. Length_B_T - Length_C_T & Collinear(B,C,T) [DefinitionOfMidpoint(T,B,C)] => Midpoint(T,B,C)
+3. Midpoint(S,A,B) & Midpoint(T,B,C) & Collinear(C,M,S) & Collinear(A,M,T) [DefinitionOfCentroid1(M,A,B,C,S,T)] => Centroid(M,A,B,C)
+4. Centroid(M,A,B,C) & Collinear(A,B,S) & Collinear(C,M,S) [PropertyOfCentroid(M,A,B,C,S)] => -0.5 + Length_M_S/Length_C_M
+5. Length_C_M - 7 & Length_M_R - 4 => Length_C_M - 7*Length_M_R/4
+6. -0.5 + Length_M_S/Length_C_M & Length_C_M - 7*Length_M_R/4 => -0.875 + Length_M_S/Length_M_R
+7. -0.875 + Length_M_S/Length_M_R & Length_M_R - 4 => Length_M_S - 3.5

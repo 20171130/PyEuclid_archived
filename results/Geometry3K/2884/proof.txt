@@ -1,0 +1,9 @@
+Solution:
+1. Length_A_F - 8 & Length_A_B - 6 => Length_A_B/Length_A_F - 3/4
+2. Collinear(C,D,E) [CollinearParallel(C,D,E)] => Parallel(C,D,C,E)
+3. Parallel(B,F,C,D) & Parallel(C,D,C,E) [ParaTrans(C,D,B,F,C,E)] => Parallel(B,F,C,E)
+4. Collinear(A,B,C) & Collinear(A,E,F) & Parallel(B,F,C,E) [AlphaGeometry8(B,F,C,E,A)] => Length_A_B/Length_A_F - Length_B_C/Length_E_F
+5. Length_A_B/Length_A_F - 3/4 & Length_A_B/Length_A_F - Length_B_C/Length_E_F => Length_B_C - 3*Length_E_F/4
+6. Length_B_C - Variable_x & Length_B_C - 3*Length_E_F/4 => Length_E_F - 4*Variable_x/3
+7. Length_E_F - 4*Variable_x/3 & Length_E_F - Variable_x - 10/3 => Variable_x - 10
+8. Length_B_C - Variable_x & Variable_x - 10 => Length_B_C - 10

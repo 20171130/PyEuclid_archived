@@ -1,0 +1,5 @@
+Solution:
+1. Incenter(P,A,C,E) [PropertyOfIncenter1(P,A,C,E)] => Angle_A_C_P - Angle_E_C_P & Angle_C_A_P - Angle_E_A_P & Angle_A_E_P - Angle_C_E_P
+2. Collinear(C,D,E) [DiagramAngle4b(E,C,P,D)] => Angle_C_E_P - Angle_D_E_P & Angle_D_C_P - Angle_E_C_P
+3. Collinear(A,E,F) [DiagramAngle4b(A,E,P,F)] => Angle_E_A_P - Angle_F_A_P
+4. Angle_A_E_C - Angle_A_E_P - Angle_C_E_P & Angle_A_C_P - Angle_E_C_P & Angle_C_E_P - Angle_D_E_P & Angle_D_C_P - 19*pi/120 & Angle_C_A_P - Angle_E_A_P & Angle_A_C_E - Angle_A_C_P - Angle_E_C_P & Angle_D_C_P - Angle_E_C_P & Angle_C_A_E - Angle_C_A_P - Angle_E_A_P & Angle_E_A_P - Angle_F_A_P & Angle_F_A_P - 11*pi/60 & Angle_A_C_E + Angle_A_E_C + Angle_C_A_E - pi & Angle_A_E_P - Angle_C_E_P => Angle_D_E_P - 19*pi/120

@@ -1,0 +1,5 @@
+Solution:
+1. Length_E_F - Variable_radius_E & Length_D_E - Variable_radius_E => Length_D_E - Length_E_F
+2. Length_D_E - Length_E_F [DefinitionOfIsoscelesTriangle(E,D,F)] => Angle_D_F_E - Angle_E_D_F
+3. Angle_D_E_F + Angle_D_F_E + Angle_E_D_F - pi & Angle_C_F_E - pi/2 & Angle_D_F_E - Angle_E_D_F & Angle_C_F_D - Angle_C_F_E - Angle_D_F_E & Angle_D_E_F - 17*pi/30 => Angle_C_F_D - 43*pi/60
+4. Angle_C_F_D - 43*pi/60 & Angle_C_F_D - Variable_angle_1 => Variable_angle_1 - 43*pi/60

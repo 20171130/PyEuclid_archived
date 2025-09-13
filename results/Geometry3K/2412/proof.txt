@@ -1,0 +1,3 @@
+Solution:
+1. Rectangle(J,K,L,M) => Angle_J_M_L - pi/2
+2. Angle_J_M_K - 11*pi/36 & Angle_J_M_L - pi/2 & Angle_J_M_K - Angle_J_M_L + Angle_K_M_L => Angle_K_M_L - 7*pi/36

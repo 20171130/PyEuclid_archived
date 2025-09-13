@@ -1,0 +1,13 @@
+Solution:
+1. Length_D_X - Variable_radius_X & Length_C_X - Variable_radius_X => Length_C_X - Length_D_X
+2. Length_C_X - Length_D_X => IsoscelesTriangle(C,D,X)
+3. Collinear(N,X,Z) => Parallel(N,Z,X,Z)
+4. Perpendicular(D,N,N,Z) & Parallel(N,Z,X,Z) => Perpendicular(D,N,X,Z)
+5. Collinear(C,D,N) => Parallel(C,D,D,N)
+6. Perpendicular(D,N,X,Z) & Parallel(C,D,D,N) => Perpendicular(C,D,X,Z)
+7. IsoscelesTriangle(C,D,X) & Length_C_X - Length_D_X & Perpendicular(C,D,X,Z) => Angle_C_X_Z - Angle_D_X_Z
+8. Length_B_X - Variable_radius_X & Length_C_X - Variable_radius_X => Length_B_X - Length_C_X
+9. Length_D_X - Variable_radius_X & Length_B_X - Variable_radius_X => Length_B_X - Length_D_X
+10. Length_B_X - Length_C_X & Length_B_X - Length_D_X => Angle_C_B_D - Angle_C_X_D/2
+11. Angle_C_X_D - Angle_C_X_Z - Angle_D_X_Z & Angle_C_X_Z - Angle_D_X_Z & Angle_C_X_Z - 2*pi/9 & Angle_C_B_D - Angle_C_X_D/2 => Angle_C_B_D - 2*pi/9
+12. Angle_C_B_D - 2*pi/9 & Angle_C_B_D - Angle_C_X_D/2 => Angle_C_X_D - 4*pi/9

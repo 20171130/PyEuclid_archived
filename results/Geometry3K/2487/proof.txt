@@ -1,0 +1,6 @@
+Solution:
+1. Length_F_G - Variable_radius_G & Length_G_H - 10 & Length_G_H - Variable_radius_G => Length_F_G - 10
+2. Length_F_G - Variable_radius_G & Length_G_H - Variable_radius_G => Length_F_G - Length_G_H
+3. Length_F_G - Length_G_H & Collinear(F,G,H) [DefinitionOfMidpoint(G,F,H)] => Midpoint(G,F,H)
+4. Midpoint(G,F,H) [PropertyOfMidpoint(G,F,H)] => Length_F_G - Length_F_H/2
+5. Length_F_G - 10 & Length_F_G - Length_F_H/2 => Length_F_H - 20

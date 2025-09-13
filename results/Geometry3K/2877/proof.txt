@@ -1,0 +1,6 @@
+Solution:
+1. Length_G_H - 5 & Length_E_H - 5 => Length_E_H - Length_G_H
+2. Length_E_H - Length_G_H & Angle_E_H_G - pi/3 [DefinitionOfEquilateralTriangle2(H,E,G)] => EquilateralTriangle(E,G,H)
+3. EquilateralTriangle(E,G,H) [PropertyOfEquilateralTriangle(E,G,H)] => Length_E_G - Length_G_H
+4. Length_G_H - 5 & Length_E_G - Length_G_H => Length_E_G - 5
+5. Area_E_G_H**2 - (-Length_E_G/2 + Length_E_H/2 + Length_G_H/2)*(Length_E_G/2 - Length_E_H/2 + Length_G_H/2)*(Length_E_G/2 + Length_E_H/2 - Length_G_H/2)*(Length_E_G/2 + Length_E_H/2 + Length_G_H/2) & Length_E_H - 5 & Length_G_H - 5 & Length_E_G - 5 => Area_E_G_H - 25*sqrt(3)/4

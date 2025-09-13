@@ -1,0 +1,6 @@
+Solution:
+1. Perpendicular(B,C,C,D) [Perp2Angle(B,C,D)] => Angle_B_C_D - pi/2
+2. Angle_B_C_D - pi/2 & Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi => Angle_B_D_C + Angle_C_B_D - pi/2
+3. Collinear(A,C,D) [DiagramAngle4b(D,A,B,C)] => Angle_A_D_B - Angle_B_D_C
+4. Angle_A_B_D + Angle_A_D_B + Angle_B_A_D - pi & Angle_A_D_B - Angle_B_D_C & Angle_B_A_D - 41*pi/60 => Angle_A_B_D + Angle_B_D_C - 19*pi/60
+5. Angle_A_B_C - Variable_angle_4 & Angle_A_B_C + Angle_A_B_D - Angle_C_B_D & Angle_B_D_C + Angle_C_B_D - pi/2 & Angle_A_B_D + Angle_B_D_C - 19*pi/60 => Variable_angle_4 - 11*pi/60

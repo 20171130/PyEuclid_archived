@@ -33,7 +33,6 @@ SYSTEM_PROMPT = (
 )
 
 DATA_TXT = Path("data/JGEX-AG-231.txt")
-DIAGRAMS_DIR = Path("diagrams/JGEX-AG-231")
 RESULTS_DIR = Path("results/JGEX-AG-231")
 
 MAX_DIAGRAM_ATTEMPTS = None
@@ -173,7 +172,7 @@ def format_proof_with_aux(aux, proof_str):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--base-url", type=str, default="http://127.0.0.1:8000")
-    parser.add_argument("--model", type=str, default="saves/qwen2_5-math-7b/full/sft")
+    parser.add_argument("--model", type=str, default="saves/qwen2_5-math-7b/")
     parser.add_argument("--total-beams", type=int, default=32)
     parser.add_argument("--n-per-call", type=int, default=32)
     parser.add_argument("--cpu-workers", type=int, default=32)
@@ -182,6 +181,7 @@ def main():
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--engine-timeout", type=int, default=1200)
     parser.add_argument("--proof-timeout", type=int, default=1200)
+    parser.add_argument("--problem-idx", type=int, default=None)
     args = parser.parse_args()
     utils.MAX_DIAGRAM_ATTEMPTS = MAX_DIAGRAM_ATTEMPTS
 
@@ -192,13 +192,18 @@ def main():
     )
 
     texts = parse_texts_from_file(str(DATA_TXT))
+    if args.problem_idx:
+        texts = [texts[args.problem_idx]]
     tot = 0
     solved_cnt = 0
 
     for idx, text in enumerate(texts):
         if not is_my_index(idx, task_id, task_count):
             continue
-        problem_id = idx + 1
+        if args.problem_idx:
+            problem_id = args.problem_idx
+        else:
+            problem_id = idx + 1
         result_dir = RESULTS_DIR / f"{problem_id}"
         ensure_dir(result_dir)
         proof_path = result_dir / "proof.txt"

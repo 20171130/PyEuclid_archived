@@ -1,0 +1,7 @@
+Solution:
+1. Length_A_C - Variable_b & Variable_b - 48 => Length_A_C - 48
+2. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
+3. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 => Angle_A_B_C + Angle_B_A_C - pi/2
+4. Variable_a - 14 & Length_B_C - Variable_a => Length_B_C - 14
+5. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_B_C)/Length_A_C & Length_A_C - 48 & Angle_A_B_C + Angle_B_A_C - pi/2 & Length_B_C - 14 => Angle_B_A_C - atan(7/24)
+6. Angle_B_A_C - atan(7/24) => sin(Angle_B_A_C) - 7/25

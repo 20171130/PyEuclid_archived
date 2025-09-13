@@ -1,0 +1,6 @@
+Solution:
+1. Perpendicular(J,L,K,L) [Perp2Angle(J,L,K)] => Angle_J_L_K - pi/2
+2. Angle_J_L_K - pi/2 [RightTriangleTrigonometry(K,L,J)] => sin(Angle_J_K_L) - Length_J_L/Length_J_K
+3. Angle_J_L_K - pi/2 & Angle_J_K_L + Angle_J_L_K + Angle_K_J_L - pi => Angle_J_K_L + Angle_K_J_L - pi/2
+4. Length_J_K**2 - Length_J_L**2 + 2*Length_J_L*Length_K_L*cos(Angle_J_L_K) - Length_K_L**2 & Length_K_L - 9 & Length_J_K - 14 & Angle_J_L_K - pi/2 => Length_J_L - sqrt(115)
+5. sin(Angle_J_K_L) - Length_J_L/Length_J_K & Angle_J_K_L + Angle_K_J_L - pi/2 & Length_J_K - 14 & Length_J_L - sqrt(115) => Angle_K_J_L - acos(sqrt(115)/14)

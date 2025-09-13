@@ -313,6 +313,270 @@ class Diagram:
         else:
             return [result]
         
+    
+    def reduce(self, objs: List[Any], existing_points) -> List[Point]:
+        choices = []
+        for obj in objs:
+            if isinstance(obj, tuple):
+                choices.append(obj)
+            else:
+                choices.append((obj,))
+        
+        for combo in product(*choices):
+            try:
+                new_points = self._reduce(list(combo), existing_points)
+                return new_points
+            except:
+                continue
+        raise SamplingError()
+    
+    def _reduce(self, objs, existing_points) -> list[Point]:
+        essential_objs = [i for i in objs if not isinstance(i, HalfPlane)]
+        halfplane_objs = [i for i in objs if isinstance(i, HalfPlane)]
+  
+        if all(isinstance(o, Point) for o in objs):
+            return objs
+        elif len(essential_objs) == 1:
+            if not halfplane_objs:
+                return objs[0].sample_within(existing_points)
+            else:
+                return objs[0].sample_within_halfplanes(existing_points,halfplane_objs)
+  
+        elif len(essential_objs) == 2:
+            a, b = essential_objs
+            result = intersect(a, b)
+            if isinstance(result, Point):
+                if halfplane_objs and not all(i.contains(result) for i in halfplane_objs):
+                    raise SamplingError()
+                return [result]
+            
+            a, b = result
+            if halfplane_objs:
+                a_correct_side = all(i.contains(a) for i in halfplane_objs)
+                b_correct_side = all(i.contains(b) for i in halfplane_objs)
+                
+                if a_correct_side and not b_correct_side:
+                    return [a]
+                elif b_correct_side and not a_correct_side:
+                    return [b]
+                elif not a_correct_side and not b_correct_side:
+                    raise SamplingError()
+                        
+            a_close = any([a.close(x) for x in existing_points])
+            b_close = any([b.close(x) for x in existing_points])
+            
+            if a_close and b_close:
+                raise SamplingError()
+            elif a_close and not b_close:
+                return [b]
+            elif b_close and not a_close:
+                return [a]
+            else:
+                return [np.random.choice([a, b])]
+    
+    def draw(self, new_points, constructions, auxiliary=False):
+        for construction in constructions:
+            len_s = len(self.segments)
+            len_c = len(self.circles)
+            len_hs = len(self.highlight_segments)
+            len_ha = len(self.highlight_angles)
+            if hasattr(construction, "draw"):
+                new_segments, new_circles = construction.draw()
+                self.segments += new_segments
+                self.circles += new_circles
+            else:
+                func = getattr(self, 'draw_' + construction.__class__.__name__[10:])
+                args = [arg if isinstance(arg, (int, float, sympy.core.expr.Expr)) else self.name2point[arg.name] for arg in construction.inputs]
+                func(*new_points, *args)
+            self.construction2diagram[construction] = (
+                new_points,
+                self.segments[len_s:],
+                self.circles[len_c:],
+                self.highlight_segments[len_hs:],
+                self.highlight_angles[len_ha:]
+            )
+            if auxiliary:
+                self.auxiliary_constructions.append(construction)
+                
+    def draw_diagram(self, constructions=None, show=False, save=True):
+        imsize = 512 / 100
+        self.fig, self.ax = plt.subplots(figsize=(imsize, imsize), dpi=300)
+        self.ax.set_facecolor((1.0, 1.0, 1.0))
+        
+        if constructions is None:
+            constructions = [c for constructions in self.constructions_list for c in constructions]
+
+        points = set()
+        segments = set()
+        circles = set()
+        required_points = set()
+        highlight_segments = []
+        highlight_angles = []
+        
+        for construction in constructions:
+            new_points, new_segments, new_circles, new_highlight_segments, new_highlight_angles = self.construction2diagram[construction]
+            required_points.update(set(self.name2point[p.name] for p in construction.inputs if not isinstance(p, float)))
+            points.update(new_points)
+            segments.update(new_segments)
+            circles.update(new_circles)
+            highlight_segments.extend(new_highlight_segments)
+            highlight_angles.extend(new_highlight_angles)
+
+            for point in new_points:
+                self.ax.scatter(point.x, point.y, color='black', s=15)
+
+            for segment in new_segments:
+                p1, p2 = segment.p1, segment.p2
+                lx, ly = (p1.x, p2.x), (p1.y, p2.y)
+                self.ax.plot(lx, ly, color='black', lw=1.2, alpha=0.8, 
+                             ls='-' if construction not in self.auxiliary_constructions else '--')
+                
+            for circle in new_circles:
+                self.ax.add_patch(
+                    plt.Circle(
+                        (circle.center.x, circle.center.y),
+                        circle.radius,
+                        color='red',
+                        alpha=0.8,
+                        fill=False,
+                        lw=1.2,
+                        ls='-' if construction not in self.auxiliary_constructions else '--'
+                    )
+                )
+        
+        for p in required_points:
+            if p not in points:
+                points.add(p)
+        
+        xmin = min([p.x for p in points])
+        xmax = max([p.x for p in points])
+        ymin = min([p.y for p in points])
+        ymax = max([p.y for p in points])
+
+        for c in circles:
+            r = c.radius
+            cx, cy = c.center.x, c.center.y
+            xmin = min(xmin, cx - r)
+            xmax = max(xmax, cx + r)
+            ymin = min(ymin, cy - r)
+            ymax = max(ymax, cy + r)
+
+        xspan = xmax - xmin
+        yspan = ymax - ymin
+        span = max(xspan, yspan)
+        
+        for segments in new_highlight_segments:
+            for segment in segments:
+                p1, p2 = segment.p1, segment.p2
+                ang = ang_of(p1, p2)
+                leaned_ang = ang + np.pi / 2 + np.pi / 12
+                mid = Point((p1.x + p2.x) / 2, (p1.y + p2.y) / 2)
+                start = head_from(mid, leaned_ang + np.pi, span / 60)
+                end = head_from(mid, leaned_ang, span / 60)
+                self.ax.plot([start.x, end.x], [start.y, end.y], color='black', lw=1.2, alpha=0.8, ls='-')
+
+        for angles in highlight_angles:
+            if len(angles) == 1:
+                a, b, c = angles[0]
+                assert close_enough(calculate_angle(a, b, c), np.pi/2)
+                v1 = (a - b) / a.distance(b)
+                v2 = (c - b) / c.distance(b)
+                p1 = b + v1 * span / 30
+                p2 = p1 + v2 * span / 30
+                p3 = b + v2 * span / 30
+                self.ax.plot([p1.x, p2.x], [p1.y, p2.y], color='black', lw=1.2, alpha=0.8, ls='-')
+                self.ax.plot([p2.x, p3.x], [p2.y, p3.y], color='black', lw=1.2, alpha=0.8, ls='-')
+                segments.add(Segment(p1, p2))
+                segments.add(Segment(p2, p3))
+            else:
+                for angle in angles:
+                    a, b, c = angle
+                    angle_ba = ang_of(b, a) * 180 / np.pi
+                    angle_bc = ang_of(b, c) * 180 / np.pi
+                    
+                    diff = (angle_bc - angle_ba) % 360
+                    
+                    if diff <= 180:
+                        theta1 = angle_ba
+                        sweep = diff
+                    else:
+                        theta1 = angle_bc
+                        sweep = 360 - diff
+                    
+                    self.ax.add_patch(
+                        patches.Arc(
+                            (b.x, b.y), span / 10, span / 10,
+                            angle=0,
+                            theta1=theta1,
+                            theta2=theta1 + sweep,
+                            color='black', lw=1.2, alpha=0.8
+                        )
+                    )
+
+        def annotation_position(p):
+            r = span / 20
+            c = Circle(p, r)
+            avoids = []
+            for segment in segments:
+                try:
+                    avoids.extend(circle_segment_intersection(c, segment))
+                except:
+                    continue
+            
+            for circle in circles:
+                try:
+                    avoids.extend(intersect(c, circle))
+                except:
+                    continue
+            
+            if not avoids:
+                return p.x + r / np.sqrt(2), p.y + r / np.sqrt(2)
+            
+            angs = sorted([ang_of(p, a) for a in avoids])
+            angs += [angs[0] + 2 * np.pi]
+            angs = [(angs[i + 1] - a, a) for i, a in enumerate(angs[:-1])]
+            
+            d, a = max(angs)
+            ang = a + d / 2
+            
+            point_position = p + Point(np.cos(ang), np.sin(ang)) * r
+            return point_position.x, point_position.y
+            
+        for p in points:
+            x_pos, y_pos = annotation_position(p)
+            
+            xmax = max(xmax, x_pos)
+            xmin = min(xmin, x_pos)
+            ymax = max(ymax, y_pos)
+            ymin = min(ymin, y_pos)
+            
+            self.ax.annotate(self.point2name[p].upper(), (x_pos, y_pos), color='black', ha='center', va='center', fontsize=12)
+        
+        self.ax.set_aspect('equal')
+        self.ax.set_axis_off()
+        
+        x_margin = (xmax - xmin) * 0.1
+        y_margin = (ymax - ymin) * 0.1
+
+        self.ax.set_xlim(xmin - x_margin, xmax + x_margin)
+        self.ax.set_ylim(ymin - y_margin, ymax + y_margin)
+        
+        if save:
+            # print(f'Save diagram to {self.save_path}...')
+            self.save_diagram()
+        
+        if show:
+            plt.show()
+            
+        plt.close(self.fig)
+    
+    def save_diagram(self):
+        if self.save_path is not None:
+            parent_dir = os.path.dirname(self.save_path)
+            if parent_dir and not os.path.exists(parent_dir):
+                os.makedirs(parent_dir)
+            self.fig.savefig(self.save_path)
+        
     def sketch_angle_bisector(self, *args: list[Point]) -> Ray:
         a, b, c = args
         dist_ab = a.distance(b)
@@ -936,90 +1200,6 @@ class Diagram:
     def sketch_opposingsides(self, *args) -> HalfPlane:
         a, b, c = args
         return HalfPlane(a, b, c, opposingsides=True)
-    
-    def reduce(self, objs: List[Any], existing_points) -> List[Point]:
-        choices = []
-        for obj in objs:
-            if isinstance(obj, tuple):
-                choices.append(obj)
-            else:
-                choices.append((obj,))
-        
-        for combo in product(*choices):
-            try:
-                new_points = self._reduce(list(combo), existing_points)
-                return new_points
-            except:
-                continue
-        raise SamplingError()
-    
-    def _reduce(self, objs, existing_points) -> list[Point]:
-        essential_objs = [i for i in objs if not isinstance(i, HalfPlane)]
-        halfplane_objs = [i for i in objs if isinstance(i, HalfPlane)]
-  
-        if all(isinstance(o, Point) for o in objs):
-            return objs
-        elif len(essential_objs) == 1:
-            if not halfplane_objs:
-                return objs[0].sample_within(existing_points)
-            else:
-                return objs[0].sample_within_halfplanes(existing_points,halfplane_objs)
-  
-        elif len(essential_objs) == 2:
-            a, b = essential_objs
-            result = intersect(a, b)
-            if isinstance(result, Point):
-                if halfplane_objs and not all(i.contains(result) for i in halfplane_objs):
-                    raise SamplingError()
-                return [result]
-            
-            a, b = result
-            if halfplane_objs:
-                a_correct_side = all(i.contains(a) for i in halfplane_objs)
-                b_correct_side = all(i.contains(b) for i in halfplane_objs)
-                
-                if a_correct_side and not b_correct_side:
-                    return [a]
-                elif b_correct_side and not a_correct_side:
-                    return [b]
-                elif not a_correct_side and not b_correct_side:
-                    raise SamplingError()
-                        
-            a_close = any([a.close(x) for x in existing_points])
-            b_close = any([b.close(x) for x in existing_points])
-            
-            if a_close and b_close:
-                raise SamplingError()
-            elif a_close and not b_close:
-                return [b]
-            elif b_close and not a_close:
-                return [a]
-            else:
-                return [np.random.choice([a, b])]
-    
-    def draw(self, new_points, constructions, auxiliary=False):
-        for construction in constructions:
-            len_s = len(self.segments)
-            len_c = len(self.circles)
-            len_hs = len(self.highlight_segments)
-            len_ha = len(self.highlight_angles)
-            if hasattr(construction, "draw"):
-                new_segments, new_circles = construction.draw()
-                self.segments += new_segments
-                self.circles += new_circles
-            else:
-                func = getattr(self, 'draw_' + construction.__class__.__name__[10:])
-                args = [arg if isinstance(arg, (int, float, sympy.core.expr.Expr)) else self.name2point[arg.name] for arg in construction.inputs]
-                func(*new_points, *args)
-            self.construction2diagram[construction] = (
-                new_points,
-                self.segments[len_s:],
-                self.circles[len_c:],
-                self.highlight_segments[len_hs:],
-                self.highlight_angles[len_ha:]
-            )
-            if auxiliary:
-                self.auxiliary_constructions.append(construction)
             
     def draw_angle_bisector(self, *args):
         x, a, b, c = args
@@ -1578,185 +1758,3 @@ class Diagram:
     
     def draw_opposingsides(self, *args):
         x, a, b, c = args
-
-    
-    def draw_diagram(self, constructions=None, show=False, save=True):
-        imsize = 512 / 100
-        self.fig, self.ax = plt.subplots(figsize=(imsize, imsize), dpi=300)
-        self.ax.set_facecolor((1.0, 1.0, 1.0))
-        
-        if constructions is None:
-            constructions = [c for constructions in self.constructions_list for c in constructions]
-
-        points = set()
-        segments = set()
-        circles = set()
-        required_points = set()
-        highlight_segments = []
-        highlight_angles = []
-        
-        for construction in constructions:
-            new_points, new_segments, new_circles, new_highlight_segments, new_highlight_angles = self.construction2diagram[construction]
-            required_points.update(set(self.name2point[p.name] for p in construction.inputs if not isinstance(p, float)))
-            points.update(new_points)
-            segments.update(new_segments)
-            circles.update(new_circles)
-            highlight_segments.extend(new_highlight_segments)
-            highlight_angles.extend(new_highlight_angles)
-
-            for point in new_points:
-                self.ax.scatter(point.x, point.y, color='black', s=15)
-
-            for segment in new_segments:
-                p1, p2 = segment.p1, segment.p2
-                lx, ly = (p1.x, p2.x), (p1.y, p2.y)
-                self.ax.plot(lx, ly, color='black', lw=1.2, alpha=0.8, 
-                             ls='-' if construction not in self.auxiliary_constructions else '--')
-                
-            for circle in new_circles:
-                self.ax.add_patch(
-                    plt.Circle(
-                        (circle.center.x, circle.center.y),
-                        circle.radius,
-                        color='red',
-                        alpha=0.8,
-                        fill=False,
-                        lw=1.2,
-                        ls='-' if construction not in self.auxiliary_constructions else '--'
-                    )
-                )
-        
-        for p in required_points:
-            if p not in points:
-                points.add(p)
-        
-        xmin = min([p.x for p in points])
-        xmax = max([p.x for p in points])
-        ymin = min([p.y for p in points])
-        ymax = max([p.y for p in points])
-
-        for c in circles:
-            r = c.radius
-            cx, cy = c.center.x, c.center.y
-            xmin = min(xmin, cx - r)
-            xmax = max(xmax, cx + r)
-            ymin = min(ymin, cy - r)
-            ymax = max(ymax, cy + r)
-
-        xspan = xmax - xmin
-        yspan = ymax - ymin
-        span = max(xspan, yspan)
-        
-        for segments in new_highlight_segments:
-            for segment in segments:
-                p1, p2 = segment.p1, segment.p2
-                ang = ang_of(p1, p2)
-                leaned_ang = ang + np.pi / 2 + np.pi / 12
-                mid = Point((p1.x + p2.x) / 2, (p1.y + p2.y) / 2)
-                start = head_from(mid, leaned_ang + np.pi, span / 60)
-                end = head_from(mid, leaned_ang, span / 60)
-                self.ax.plot([start.x, end.x], [start.y, end.y], color='black', lw=1.2, alpha=0.8, ls='-')
-
-        for angles in highlight_angles:
-            if len(angles) == 1:
-                a, b, c = angles[0]
-                assert close_enough(calculate_angle(a, b, c), np.pi/2)
-                v1 = (a - b) / a.distance(b)
-                v2 = (c - b) / c.distance(b)
-                p1 = b + v1 * span / 30
-                p2 = p1 + v2 * span / 30
-                p3 = b + v2 * span / 30
-                self.ax.plot([p1.x, p2.x], [p1.y, p2.y], color='black', lw=1.2, alpha=0.8, ls='-')
-                self.ax.plot([p2.x, p3.x], [p2.y, p3.y], color='black', lw=1.2, alpha=0.8, ls='-')
-                segments.add(Segment(p1, p2))
-                segments.add(Segment(p2, p3))
-            else:
-                for angle in angles:
-                    a, b, c = angle
-                    angle_ba = ang_of(b, a) * 180 / np.pi
-                    angle_bc = ang_of(b, c) * 180 / np.pi
-                    
-                    diff = (angle_bc - angle_ba) % 360
-                    
-                    if diff <= 180:
-                        theta1 = angle_ba
-                        sweep = diff
-                    else:
-                        theta1 = angle_bc
-                        sweep = 360 - diff
-                    
-                    self.ax.add_patch(
-                        patches.Arc(
-                            (b.x, b.y), span / 10, span / 10,
-                            angle=0,
-                            theta1=theta1,
-                            theta2=theta1 + sweep,
-                            color='black', lw=1.2, alpha=0.8
-                        )
-                    )
-
-        def annotation_position(p):
-            r = span / 20
-            c = Circle(p, r)
-            avoids = []
-            for segment in segments:
-                try:
-                    avoids.extend(circle_segment_intersection(c, segment))
-                except:
-                    continue
-            
-            for circle in circles:
-                try:
-                    avoids.extend(intersect(c, circle))
-                except:
-                    continue
-            
-            if not avoids:
-                return p.x + r / np.sqrt(2), p.y + r / np.sqrt(2)
-            
-            angs = sorted([ang_of(p, a) for a in avoids])
-            angs += [angs[0] + 2 * np.pi]
-            angs = [(angs[i + 1] - a, a) for i, a in enumerate(angs[:-1])]
-            
-            d, a = max(angs)
-            ang = a + d / 2
-            
-            point_position = p + Point(np.cos(ang), np.sin(ang)) * r
-            return point_position.x, point_position.y
-            
-        for p in points:
-            x_pos, y_pos = annotation_position(p)
-            
-            xmax = max(xmax, x_pos)
-            xmin = min(xmin, x_pos)
-            ymax = max(ymax, y_pos)
-            ymin = min(ymin, y_pos)
-            
-            self.ax.annotate(self.point2name[p].upper(), (x_pos, y_pos), color='black', ha='center', va='center', fontsize=12)
-        
-        self.ax.set_aspect('equal')
-        self.ax.set_axis_off()
-        
-        x_margin = (xmax - xmin) * 0.1
-        y_margin = (ymax - ymin) * 0.1
-
-        self.ax.set_xlim(xmin - x_margin, xmax + x_margin)
-        self.ax.set_ylim(ymin - y_margin, ymax + y_margin)
-        
-        if save:
-            # print(f'Save diagram to {self.save_path}...')
-            self.save_diagram()
-        
-        if show:
-            plt.show()
-            
-        plt.close(self.fig)
-    
-    def save_diagram(self):
-        if self.save_path is not None:
-            parent_dir = os.path.dirname(self.save_path)
-            if parent_dir and not os.path.exists(parent_dir):
-                os.makedirs(parent_dir)
-            self.fig.savefig(self.save_path)
-
-        

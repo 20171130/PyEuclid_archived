@@ -1,0 +1,7 @@
+Solution:
+1. Similar3(R,U,W,S,T,V) [PropertyOfSimilar3(R,U,W,S,T,V)] => Length_R_U/Length_U_W - Length_S_T/Length_T_V & Length_R_W/Length_S_V - Length_U_W/Length_T_V
+2. Length_T_V - 18 & Length_S_T - 24 => Length_S_T - 4*Length_T_V/3
+3. Length_R_U/Length_U_W - Length_S_T/Length_T_V & Length_S_T - 4*Length_T_V/3 => Length_R_U - 4*Length_U_W/3
+4. Length_T_V - 18 & Length_S_V - 12 => -3/2 + Length_T_V/Length_S_V
+5. -3/2 + Length_T_V/Length_S_V & Length_R_W/Length_S_V - Length_U_W/Length_T_V => Length_R_W - 2*Length_U_W/3
+6. Length_U_W - 21 & Length_R_U - 4*Length_U_W/3 & Length_R_W - 2*Length_U_W/3 => Length_R_U + Length_R_W + Length_U_W - 63

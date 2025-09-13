@@ -1,0 +1,15 @@
+Solution:
+1. Length_B_C - 30 & Length_B_G - 15 => Length_B_C - 2*Length_B_G
+2. Similar3(A,B,C,D,E,F) [PropertyOfSimilar3(A,B,C,D,E,F)] => Length_A_C/Length_D_F - Length_B_C/Length_E_F & Angle_A_C_B - Angle_D_F_E
+3. Midpoint(H,D,F) [PropertyOfMidpoint(H,D,F)] => Length_D_F - 2*Length_F_H
+4. Midpoint(G,A,C) [PropertyOfMidpoint(G,A,C)] => Length_A_C - 2*Length_C_G
+5. Length_A_C/Length_D_F - Length_B_C/Length_E_F & Length_D_F - 2*Length_F_H & Length_A_C - 2*Length_C_G => Length_B_C/Length_C_G - Length_E_F/Length_F_H
+6. Length_B_C/Length_C_G - Length_E_F/Length_F_H => Length_B_C/Length_E_F - Length_C_G/Length_F_H
+7. Collinear(A,C,G) [DiagramAngle4b(C,A,B,G)] => Angle_A_C_B - Angle_B_C_G
+8. Collinear(D,F,H) [DiagramAngle4b(F,D,E,H)] => Angle_D_F_E - Angle_E_F_H
+9. Angle_A_C_B - Angle_B_C_G & Angle_D_F_E - Angle_E_F_H & Angle_A_C_B - Angle_D_F_E => Angle_B_C_G - Angle_E_F_H
+10. Length_B_C/Length_E_F - Length_C_G/Length_F_H & Angle_B_C_G - Angle_E_F_H [AlphaGeometry40(B,C,G,E,F,H)] => Similar3(B,C,G,E,F,H)
+11. Similar3(B,C,G,E,F,H) [PropertyOfSimilar3(B,C,G,E,F,H)] => Length_B_C/Length_B_G - Length_E_F/Length_E_H
+12. Length_B_C - 30 & Length_E_F - 15 => Length_B_C/Length_E_F - 2
+13. Length_B_C - 2*Length_B_G & Length_B_C/Length_B_G - Length_E_F/Length_E_H & Length_B_C/Length_E_F - 2 => Length_B_C - 4*Length_E_H
+14. Length_B_C - 30 & Length_B_C - 4*Length_E_H => Length_E_H - 15/2

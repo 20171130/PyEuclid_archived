@@ -1,0 +1,10 @@
+Solution:
+1. Length_F_M - Variable_radius_M & Length_G_M - Variable_radius_M => Length_F_M - Length_G_M
+2. Length_F_M - Length_G_M [DefinitionOfIsoscelesTriangle(M,F,G)] => IsoscelesTriangle(F,G,M)
+3. Collinear(K,L,M) [CollinearParallel(K,L,M)] => Parallel(K,L,L,M)
+4. Perpendicular(G,L,K,L) & Parallel(K,L,L,M) [AlphaGeometry1b(K,L,G,L,L,M)] => Perpendicular(G,L,L,M)
+5. Collinear(F,G,L) [CollinearParallel(F,G,L)] => Parallel(F,G,G,L)
+6. Perpendicular(G,L,L,M) & Parallel(F,G,G,L) [AlphaGeometry1b(G,L,L,M,F,G)] => Perpendicular(F,G,L,M)
+7. IsoscelesTriangle(F,G,M) & Length_F_M - Length_G_M & Collinear(F,G,L) & Perpendicular(F,G,L,M) [PropertyOfIsoscelesTriangle1(M,F,G,L)] => Midpoint(L,F,G)
+8. Midpoint(L,F,G) [PropertyOfMidpoint(L,F,G)] => Length_F_G - 2*Length_F_L
+9. Length_F_L - 24 & Length_F_G - 2*Length_F_L => Length_F_G - 48

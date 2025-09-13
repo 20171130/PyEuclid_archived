@@ -1,0 +1,4 @@
+Solution:
+1. Collinear(B,C,D) [FlatAngle2(C,B,D,A)] => Angle_A_B_C + Angle_A_B_D - pi
+2. Variable_angle_6 - pi/4 & Angle_C_B_E - Variable_angle_6 & Angle_A_B_C - Angle_A_B_E - Angle_C_B_E & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi & Variable_angle_8 - 47*pi/180 & Angle_A_B_D - Variable_angle_8 & Angle_A_B_C + Angle_A_B_D - pi => Angle_A_E_B + Angle_B_A_E - 23*pi/45
+3. Angle_A_B_E - Variable_angle_7 & Angle_A_E_B + Angle_B_A_E - 23*pi/45 & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi => Variable_angle_7 - 22*pi/45

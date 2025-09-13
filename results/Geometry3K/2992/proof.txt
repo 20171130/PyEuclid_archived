@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(C,H,J) [DiagramAngle4b(J,C,F,H)] => Angle_C_J_F - Angle_F_J_H
+2. Collinear(C,D,F) [DiagramAngle4b(F,C,J,D)] => Angle_C_F_J - Angle_D_F_J & Angle_D_C_J + Angle_F_C_J - pi
+3. Length_F_G - Variable_radius_G & Length_D_G - Variable_radius_G => Length_D_G - Length_F_G
+4. Length_F_G - Variable_radius_G & Length_G_J - Variable_radius_G => Length_F_G - Length_G_J
+5. -Length_D_G + Length_F_G & Length_F_G - Length_G_J [InscribedAngle1(G,F,D,J)] => Angle_D_F_J - Angle_D_G_J/2
+6. Length_G_H - Variable_radius_G & Length_G_J - Variable_radius_G => Length_G_H - Length_G_J
+7. -Length_F_G + Length_G_J & -Length_G_H + Length_G_J [InscribedAngle2(G,J,F,H)] => Angle_F_G_H + 2*Angle_F_J_H - 2*pi
+8. Angle_D_G_J - 17*pi/36 & Angle_C_J_F - Angle_F_J_H & Angle_C_F_J - Angle_D_F_J & Angle_D_C_J + Angle_F_C_J - pi & Angle_C_F_J + Angle_C_J_F + Angle_F_C_J - pi & Angle_D_F_J - Angle_D_G_J/2 & Angle_F_G_H - 13*pi/18 & Angle_F_G_H + 2*Angle_F_J_H - 2*pi => Angle_D_C_J - 7*pi/8
+9. Angle_D_C_J - Variable_angle_2 & Angle_D_C_J - 7*pi/8 => Variable_angle_2 - 7*pi/8

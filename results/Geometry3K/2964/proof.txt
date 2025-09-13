@@ -1,0 +1,2 @@
+Solution:
+1. Angle_A_C_B - Angle_A_C_Q - Angle_B_C_Q & Angle_A_C_B - pi*(41/60 - Variable_x/180) & Angle_A_C_Q - Angle_B_C_Q & Angle_B_C_Q - pi*(Variable_x/180 + 7/30) => Angle_A_C_Q - 11*pi/36

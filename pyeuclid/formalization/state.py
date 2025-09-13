@@ -29,6 +29,7 @@ class State:
         self.condition2depth = defaultdict(int)
 
         self.current_depth = 0
+        self.reasoning_depth = 0
         self.solutions = {}
         self.silent = False
         self.logger = logging.getLogger(__name__)
@@ -100,8 +101,8 @@ class State:
             self.add_point(p)
         
         self.relations.add(relation)
-        self.depth2conditions[self.current_depth].append(relation)
-        self.condition2depth[relation] = self.current_depth
+        self.depth2conditions[self.reasoning_depth].append(relation)
+        self.condition2depth[relation] = self.reasoning_depth
         
     def add_point(self, *ps):
         for p in ps:
@@ -138,8 +139,8 @@ class State:
                 self.add_point(p)
         
         self.equations.add(equation)
-        self.depth2conditions[self.current_depth].append(equation)
-        self.condition2depth[equation.expr] = self.current_depth
+        self.depth2conditions[self.reasoning_depth].append(equation)
+        self.condition2depth[equation.expr] = self.reasoning_depth
 
     
     def categorize_variable(self): 

@@ -1,0 +1,7 @@
+Solution:
+1. Centroid(Q,A,B,C) & Collinear(A,C,E) & Collinear(B,E,Q) [PropertyOfCentroid(Q,A,C,B,E)] => -0.5 + Length_E_Q/Length_B_Q
+2. -0.5 + Length_E_Q/Length_B_Q => Length_B_Q - 2.0*Length_E_Q
+3. Collinear(B,E,Q) [BetweenLength(B,Q,E)] => Length_B_E - Length_B_Q - Length_E_Q
+4. Length_B_E - 9 & Length_B_E - Length_B_Q - Length_E_Q => Length_B_Q + Length_E_Q - 9
+5. Length_B_Q - 2.0*Length_E_Q & Length_B_Q + Length_E_Q - 9 => Length_E_Q - 3.0
+6. Length_B_Q - 2.0*Length_E_Q & Length_E_Q - 3.0 => Length_B_Q - 6.0

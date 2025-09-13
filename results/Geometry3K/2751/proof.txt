@@ -1,0 +1,9 @@
+Solution:
+1. Collinear(I,J,Y) & Collinear(H,I,Z) [DiagramAngle4(I,H,J,Z,Y)] => Angle_H_I_J - Angle_Y_I_Z
+2. Collinear(X,Y,Z) [DiagramAngle4b(X,Z,J,Y)] => Angle_J_X_Y - Angle_J_X_Z
+3. Collinear(W,X,Z) [FlatAngle2(W,X,Z,J)] => Angle_J_X_W + Angle_J_X_Z - pi
+4. Angle_J_X_W - 13*pi/18 & Angle_J_X_Y - Angle_J_X_Z & Angle_J_X_W + Angle_J_X_Z - pi => Angle_J_X_Y - 5*pi/18
+5. Collinear(I,J,Y) & Collinear(H,J,X) [DiagramAngle4a(J,H,I,X,Y)] => Angle_H_J_I - Angle_X_J_Y
+6. Length_H_J/Length_J_Y - Length_I_J/Length_J_X & Angle_H_J_I - Angle_X_J_Y [AlphaGeometry40(H,J,I,Y,J,X)] => Similar3(H,I,J,Y,X,J)
+7. Similar3(H,I,J,Y,X,J) [PropertyOfSimilar3(H,I,J,Y,X,J)] => Angle_H_I_J - Angle_J_X_Y
+8. Angle_H_I_J - Angle_Y_I_Z & Angle_J_X_Y - 5*pi/18 & Angle_H_I_J - Angle_J_X_Y => Angle_Y_I_Z - 5*pi/18

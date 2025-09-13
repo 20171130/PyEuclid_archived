@@ -1,0 +1,5 @@
+Solution:
+1. Similar5(A,B,C,D,E,R,S,T,U,V) [PropertyOfSimilar5(A,B,C,D,E,R,S,T,U,V)] => Length_B_C/Length_S_T - Length_C_D/Length_T_U
+2. Length_C_D - 5 & Length_B_C - 4 => -5/4 + Length_C_D/Length_B_C
+3. Length_B_C/Length_S_T - Length_C_D/Length_T_U & -5/4 + Length_C_D/Length_B_C => Length_S_T - 4*Length_T_U/5
+4. Length_S_T - 4*Length_T_U/5 & Length_S_T - 18 => Length_T_U - 45/2

@@ -1,0 +1,6 @@
+Solution:
+1. Collinear(A,C,E) [CollinearParallel(A,C,E)] => Parallel(A,E,C,E)
+2. Perpendicular(A,E,D,E) & Parallel(A,E,C,E) [AlphaGeometry1b(A,E,D,E,C,E)] => Perpendicular(C,E,D,E)
+3. Perpendicular(C,E,D,E) [Perp2Angle(C,E,D)] => Angle_C_E_D - pi/2
+4. Length_C_D**2 - Length_C_E**2 + 2*Length_C_E*Length_D_E*cos(Angle_C_E_D) - Length_D_E**2 & Angle_C_E_D - pi/2 & Length_C_E - 12 & Length_D_E - 5 => Length_C_D - 13
+5. Length_B_C - Length_C_D & Length_C_D - 13 => Length_B_C - 13

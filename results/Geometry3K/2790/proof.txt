@@ -1,0 +1,8 @@
+Solution:
+1. Length_J_U - 9 & Length_J_V - 3 => Length_J_U/Length_J_V - 3
+2. Centroid(J,S,U,Z) & Collinear(U,V,Z) & Collinear(J,S,V) [PropertyOfCentroid(J,U,Z,S,V)] => -0.5 + Length_J_V/Length_J_S
+3. Length_J_U/Length_J_V - 3 & -0.5 + Length_J_V/Length_J_S => Length_J_S/Length_J_U - 0.666666666666667
+4. Length_J_S/Length_J_U - 0.666666666666667 & Length_J_U - 9 => Length_J_S - 6.0
+5. Collinear(J,S,V) [BetweenLength(S,J,V)] => Length_J_S + Length_J_V - Length_S_V
+6. Length_J_S + Length_J_V - Length_S_V & Length_J_V - 3 => Length_J_S - Length_S_V + 3
+7. Length_J_S - 6.0 & Length_J_S - Length_S_V + 3 => Length_S_V - 9.0

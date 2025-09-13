@@ -1,0 +1,4 @@
+Solution:
+1. Collinear(W,X,Z) [FlatAngle2(W,X,Z,V)] => Angle_V_X_W + Angle_V_X_Z - pi
+2. Collinear(V,X,Y) [FlatAngle2(V,X,Y,W)] => Angle_V_X_W + Angle_W_X_Y - pi
+3. Angle_W_X_Y - pi*(Variable_x/45 + 1/12) & Angle_V_X_W + Angle_V_X_Z - pi & Angle_V_X_Z - pi*(Variable_x/90 + 13/36) & Angle_V_X_W + Angle_W_X_Y - pi => Angle_V_X_W - 13*pi/36

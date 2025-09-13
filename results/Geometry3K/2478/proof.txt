@@ -1,0 +1,7 @@
+Solution:
+1. Length_R_S - 37 & Length_Q_S - 12 => -37/12 + Length_R_S/Length_Q_S
+2. Similar3(L,M,N,Q,R,S) [PropertyOfSimilar3(L,M,N,Q,R,S)] => Length_R_S/Length_Q_S - Length_M_N/Length_L_N & Length_L_M/Length_Q_R - Length_M_N/Length_R_S
+3. -37/12 + Length_R_S/Length_Q_S & Length_R_S/Length_Q_S - Length_M_N/Length_L_N => Length_L_N - 12*Length_M_N/37
+4. Length_R_S - 37 & Length_Q_R - 35 => Length_Q_R - 35*Length_R_S/37
+5. Length_Q_R - 35*Length_R_S/37 & Length_L_M/Length_Q_R - Length_M_N/Length_R_S => Length_L_M - 35*Length_M_N/37
+6. Length_L_N - 12*Length_M_N/37 & Length_L_M - 35*Length_M_N/37 & Length_L_N - 5 => Length_L_M + Length_L_N + Length_M_N - 35

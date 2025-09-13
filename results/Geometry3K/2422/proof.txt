@@ -1,0 +1,6 @@
+Solution:
+1. Length_A_O - Variable_radius_O & Length_D_O - Variable_radius_O => Length_A_O - Length_D_O
+2. Length_A_O - Length_D_O & Collinear(A,D,O) [DefinitionOfMidpoint(O,A,D)] => Midpoint(O,A,D)
+3. Midpoint(O,A,D) [PropertyOfMidpoint(O,A,D)] => Length_A_D - 2*Length_A_O
+4. Length_A_D - 2*Length_A_O & Length_A_O - Variable_radius_O & Length_A_D - 14 => Variable_radius_O - 7
+5. Variable_radius_O - 7 & Angle_A_O_B - 4*pi/9 => Angle_A_O_B*Variable_radius_O - 28*pi/9

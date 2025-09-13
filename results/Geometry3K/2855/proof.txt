@@ -1,0 +1,6 @@
+Solution:
+1. Perpendicular(A,B,B,C) [Perp2Angle(A,B,C)] => Angle_A_B_C - pi/2
+2. Collinear(B,C,D) [DiagramAngle4b(C,B,A,D)] => Angle_A_C_B - Angle_A_C_D & Angle_A_D_B - Angle_A_D_C
+3. Perpendicular(A,C,A,D) [Perp2Angle(C,A,D)] => Angle_C_A_D - pi/2
+4. Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_C_B - Angle_A_C_D & Angle_A_D_B - Angle_A_D_C & Angle_C_A_D - pi/2 & Angle_A_D_B - pi/4 => Angle_A_C_B - pi/4
+5. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_B_C - pi/2 & Angle_A_C_B - pi/4 & Length_A_C - 5 & Length_A_B - Variable_y => Variable_y - 5*sqrt(2)/2

@@ -1,0 +1,15 @@
+Solution:
+1. Length_W_X - Length_X_Y => IsoscelesTriangle(W,X,Y)
+2. Length_W_X - Length_X_Y & -Length_W_Z + Length_Y_Z => Kite(W,X,Y,Z)
+3. Kite(W,X,Y,Z) & Length_W_X - Length_X_Y & -Length_W_Z + Length_Y_Z => Perpendicular(W,Y,X,Z)
+4. Collinear(P,X,Z) => Parallel(P,X,X,Z)
+5. Perpendicular(W,Y,X,Z) & Parallel(P,X,X,Z) => Perpendicular(P,X,W,Y)
+6. IsoscelesTriangle(W,X,Y) & Length_W_X - Length_X_Y & Collinear(P,W,Y) & Perpendicular(P,X,W,Y) => Midpoint(P,W,Y)
+7. Midpoint(P,W,Y) => Length_P_W - Length_W_Y/2 & Length_P_Y - Length_W_Y/2
+8. Length_P_W - Length_W_Y/2 => Length_P_W/Length_W_Y - 1/2
+9. Length_W_X - 6 & Length_W_X - Length_X_Y => Length_X_Y - 6
+10. Collinear(P,W,Y) => Parallel(P,Y,W,Y)
+11. Perpendicular(P,X,W,Y) & Parallel(P,Y,W,Y) => Perpendicular(P,X,P,Y)
+12. Perpendicular(P,X,P,Y) => Angle_X_P_Y - pi/2
+13. Length_P_X**2 - 2*Length_P_X*Length_P_Y*cos(Angle_X_P_Y) + Length_P_Y**2 - Length_X_Y**2 & Length_P_X - 4 & Length_X_Y - 6 & Length_P_Y - Length_W_Y/2 & Angle_X_P_Y - pi/2 => Length_W_Y - 4*sqrt(5)
+14. Length_P_W/Length_W_Y - 1/2 & Length_W_Y - 4*sqrt(5) => Length_P_W - 2*sqrt(5)

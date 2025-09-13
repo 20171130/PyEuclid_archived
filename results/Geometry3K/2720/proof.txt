@@ -1,0 +1,5 @@
+Solution:
+1. Collinear(J,L,N) [BetweenLength(L,J,N)] => Length_J_L + Length_J_N - Length_L_N
+2. Rectangle(L,M,N,P) => Parallelogram(L,M,N,P)
+3. Parallelogram(L,M,N,P) & Collinear(J,L,N) & Collinear(J,M,P) [PropertyOfParallelogram1(L,M,N,P,J)] => Length_J_L - Length_J_N
+4. Length_J_L + Length_J_N - Length_L_N & Length_J_L - 2*Variable_x - 1 & Length_L_N - 10 & Length_J_L - Length_J_N => Variable_x - 2

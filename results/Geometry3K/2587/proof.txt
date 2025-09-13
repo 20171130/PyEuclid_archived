@@ -1,0 +1,5 @@
+Solution:
+1. Collinear(C,D,E) & Collinear(A,B,E) [DiagramAngle4(E,A,D,B,C)] => Angle_A_E_D - Angle_B_E_C
+2. Collinear(A,B,E) [DiagramAngle4b(A,B,D,E)] => Angle_B_A_D - Angle_D_A_E
+3. Angle_A_D_E - 47*pi/180 & Angle_A_D_E + Angle_A_E_D + Angle_D_A_E - pi & Angle_A_E_D - Angle_B_E_C & Angle_B_A_D - Angle_D_A_E & Angle_B_A_D - 19*pi/60 => Angle_B_E_C - 19*pi/45
+4. Angle_B_E_C - Variable_angle_2 & Angle_B_E_C - 19*pi/45 => Variable_angle_2 - 19*pi/45

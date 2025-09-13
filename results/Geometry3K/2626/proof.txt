@@ -1,0 +1,10 @@
+Solution:
+1. Parallelogram(A,B,C,D) => Area_A_B_C_D - Length_B_C*Length_C_D*sin(Angle_B_C_D) & Length_A_D - Length_B_C & Length_A_B - Length_C_D
+2. Length_A_D - Length_B_C & Length_A_D - 10 => Length_B_C - 10
+3. Perpendicular(B,D,C,D) [Perp2Angle(B,D,C)] => Angle_B_D_C - pi/2
+4. Angle_B_C_D + Angle_B_D_C + Angle_C_B_D - pi & Angle_B_D_C - pi/2 => Angle_B_C_D + Angle_C_B_D - pi/2
+5. sin(Angle_B_C_D)/Length_B_D - sin(Angle_B_D_C)/Length_B_C & Angle_B_D_C - pi/2 & Angle_B_C_D + Angle_C_B_D - pi/2 & Length_B_C - 10 & Length_B_D - 6 => Angle_C_B_D - acos(3/5)
+6. Angle_B_C_D + Angle_C_B_D - pi/2 & Angle_C_B_D - acos(3/5) => Angle_B_C_D - pi/2 + acos(3/5)
+7. Perpendicular(A,B,B,D) [Perp2Angle(A,B,D)] => Angle_A_B_D - pi/2
+8. Length_A_B**2 - 2*Length_A_B*Length_B_D*cos(Angle_A_B_D) - Length_A_D**2 + Length_B_D**2 & Angle_A_B_D - pi/2 & Length_B_D - 6 & Length_A_B - Length_C_D & Length_A_D - 10 => Length_C_D - 8
+9. Area_A_B_C_D - Length_B_C*Length_C_D*sin(Angle_B_C_D) & Length_B_C - 10 & Angle_B_C_D - pi/2 + acos(3/5) & Length_C_D - 8 => Area_A_B_C_D - 48

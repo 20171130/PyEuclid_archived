@@ -1,0 +1,7 @@
+Solution:
+1. Length_K_P - Variable_radius_P & Length_M_P - Variable_radius_P => Length_K_P - Length_M_P
+2. Length_K_P - Variable_radius_P & Length_N_P - Variable_radius_P => Length_K_P - Length_N_P
+3. Length_K_P - Length_M_P & Length_K_P - Length_N_P [InscribedAngle1(P,K,M,N)] => Angle_M_K_N - Angle_M_P_N/2
+4. Perpendicular(L,P,N,P) [Perp2Angle(L,P,N)] => Angle_L_P_N - pi/2
+5. Angle_L_P_M - Angle_L_P_N + Angle_M_P_N & Angle_M_K_N - Angle_M_P_N/2 & Angle_L_P_M - 13*pi/36 & Angle_L_P_N - pi/2 => Angle_M_K_N - 5*pi/72
+6. Angle_M_K_N - Angle_M_P_N/2 & Angle_M_K_N - 5*pi/72 => Angle_M_P_N - 5*pi/36

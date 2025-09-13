@@ -1,0 +1,3 @@
+Solution:
+1. Length_C_D - 5 & Length_F_G - 2 => Length_C_D - 5*Length_F_G/2
+2. Length_A_B - 2 & Length_C_D - 5 & Length_C_D - 5*Length_F_G/2 & Length_C_E - 5 & Length_E_H - 5 & Length_A_H + Length_B_G + Length_D_F - 5 => Length_A_B + Length_A_H + Length_B_G + Length_C_D + Length_C_E + Length_D_F + Length_E_H + Length_F_G - 24

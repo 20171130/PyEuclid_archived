@@ -1,0 +1,7 @@
+Solution:
+1. Length_A_Q - Length_A_R & Length_B_S - Length_B_T => Length_A_Q/Length_A_R - Length_B_T/Length_B_S
+2. Collinear(A,Q,R) & Parallel(Q,T,R,S) & Collinear(B,S,T) & Length_A_Q/Length_A_R - Length_B_T/Length_B_S [AlphaGeometry42(Q,T,S,R,A,B)] => Parallel(A,B,Q,T)
+3. Parallel(Q,T,R,S) & Parallel(A,B,Q,T) & Collinear(A,Q,R) & Collinear(B,S,T) [AlphaGeometry8b(Q,T,R,S,A,B)] => Length_A_B - Length_A_Q*Length_R_S/Length_Q_R - Length_A_R*Length_Q_T/Length_Q_R
+4. Length_A_Q - Length_A_R & Collinear(A,Q,R) [DefinitionOfMidpoint(A,Q,R)] => Midpoint(A,Q,R)
+5. Midpoint(A,Q,R) [PropertyOfMidpoint(A,Q,R)] => Length_A_Q - Length_Q_R/2 & Length_A_R - Length_Q_R/2
+6. Length_A_B - Length_A_Q*Length_R_S/Length_Q_R - Length_A_R*Length_Q_T/Length_Q_R & Length_A_Q - Length_Q_R/2 & Length_Q_T - 86 & Length_A_R - Length_Q_R/2 & Length_R_S - 54 => Length_A_B - 70

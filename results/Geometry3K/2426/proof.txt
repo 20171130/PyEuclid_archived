@@ -1,0 +1,4 @@
+Solution:
+1. Similar4(A,B,D,C,E,F,G,H) [Similar4PAreaLengthRatio(A,B,D,C,E,F,G,H)] => Area_A_B_D_C/Area_E_F_G_H - Length_A_B**2/Length_E_F**2
+2. Length_A_B - Variable_x & Area_E_F_G_H - 8 & Area_A_B_D_C/Area_E_F_G_H - Length_A_B**2/Length_E_F**2 & Length_E_F - 4 => Area_A_B_D_C - Variable_x**2/2
+3. Area_A_B_D_C - Variable_x**2/2 & Area_A_B_D_C - 32 => Variable_x - 8

@@ -1,0 +1,6 @@
+Solution:
+1. Collinear(B,C,D) [CollinearParallel(B,C,D)] => Parallel(B,C,C,D)
+2. Perpendicular(A,D,C,D) & Parallel(B,C,C,D) [AlphaGeometry1b(C,D,A,D,B,C)] => Perpendicular(A,D,B,C)
+3. Perpendicular(A,D,B,C) & Collinear(B,C,D) [AreaEqualsBaseTimesHeight(A,B,C,D)] => Area_A_B_C - Length_A_D*Length_B_C/2
+4. Area_A_B_C - Length_A_D*Length_B_C/2 & Area_A_B_C - 357 & Length_B_C - 34 => Length_A_D - 21*Length_B_C/34
+5. Length_A_D - Variable_x & Length_A_D - 21*Length_B_C/34 & Length_B_C - 34 => Variable_x - 21

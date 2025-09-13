@@ -1,0 +1,11 @@
+Solution:
+1. Length_A_G - 26 & Length_C_G - 26 => Length_A_G - Length_C_G
+2. Length_A_G - Length_C_G [DefinitionOfIsoscelesTriangle(G,A,C)] => IsoscelesTriangle(A,C,G)
+3. Collinear(A,B,C) [CollinearParallel(A,B,C)] => Parallel(A,C,B,C)
+4. Perpendicular(B,C,B,G) & Parallel(A,C,B,C) [AlphaGeometry1b(B,C,B,G,A,C)] => Perpendicular(A,C,B,G)
+5. IsoscelesTriangle(A,C,G) & Length_A_G - Length_C_G & Collinear(A,B,C) & Perpendicular(A,C,B,G) [PropertyOfIsoscelesTriangle1(G,A,C,B)] => Midpoint(B,A,C)
+6. Midpoint(B,A,C) [PropertyOfMidpoint(B,A,C)] => Length_A_C - 2*Length_B_C
+7. Perpendicular(A,C,B,G) & Collinear(A,B,C) [AreaEqualsBaseTimesHeight(G,A,C,B)] => Area_A_C_G - Length_A_C*Length_B_G/2
+8. Length_A_C - 2*Length_B_C & Length_B_G - 10 & Area_A_C_G - Length_A_C*Length_B_G/2 => Area_A_C_G - 10*Length_B_C
+9. Area_A_C_G**2 - (-Length_A_C/2 + Length_A_G/2 + Length_C_G/2)*(Length_A_C/2 - Length_A_G/2 + Length_C_G/2)*(Length_A_C/2 + Length_A_G/2 - Length_C_G/2)*(Length_A_C/2 + Length_A_G/2 + Length_C_G/2) & Length_C_G - 26 & Length_A_G - 26 & Length_A_C - 2*Length_B_C & Area_A_C_G - 10*Length_B_C => Length_B_C - 24
+10. Length_A_C - 2*Length_B_C & Length_B_C - 24 => Length_A_C - 48

@@ -1,0 +1,6 @@
+Solution:
+1. Length_A_E - 11 & Length_C_D - 8 => Length_A_E - 11*Length_C_D/8
+2. Length_A_E - 11 & Length_P_T - 6 => Length_A_E/Length_P_T - 11/6
+3. Similar5(A,B,C,D,E,P,Q,R,S,T) [PropertyOfSimilar5(A,B,C,D,E,P,Q,R,S,T)] => Length_A_E/Length_P_T - Length_C_D/Length_R_S
+4. Length_A_E - 11*Length_C_D/8 & Length_A_E/Length_P_T - 11/6 & Length_A_E/Length_P_T - Length_C_D/Length_R_S => -48/121 + Length_R_S/Length_A_E
+5. Length_A_E - 11 & -48/121 + Length_R_S/Length_A_E => Length_R_S - 48/11

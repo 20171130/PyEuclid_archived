@@ -1,0 +1,10 @@
+Solution:
+1. Collinear(K,L,N) [BetweenLength(K,N,L)] => Length_K_L - Length_K_N - Length_L_N
+2. Length_K_N - 9 & Length_K_L - Length_K_N - Length_L_N & Length_L_N - 16 => Length_K_L - 25
+3. Collinear(K,M,P) & Collinear(L,M,R) & Parallel(K,L,P,R) [AlphaGeometry8(K,L,P,R,M)] => Similar3(K,L,M,P,R,M)
+4. Similar3(K,L,M,P,R,M) [PropertyOfSimilar3(M,P,R,M,K,L)] => Length_M_P/Length_P_R - Length_K_M/Length_K_L
+5. Length_K_P - Length_M_P/2 => Length_K_P/Length_M_P - 1/2
+6. Collinear(K,M,P) [BetweenLength(K,P,M)] => Length_K_M - Length_K_P - Length_M_P
+7. Length_K_M - Length_K_P - Length_M_P & Length_K_P - Length_M_P/2 => Length_K_M - 3*Length_K_P
+8. Length_K_L - 25 & Length_M_P/Length_P_R - Length_K_M/Length_K_L & Length_K_P/Length_M_P - 1/2 & Length_K_N - 9 & Length_K_M - 3*Length_K_P => Length_K_N/Length_P_R - 27/50
+9. Length_K_N - 9 & Length_K_N/Length_P_R - 27/50 => Length_P_R - 50/3

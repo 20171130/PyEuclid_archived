@@ -1,0 +1,8 @@
+Solution:
+1. Collinear(A,C,D) & Angle_A_B_C - Angle_A_B_D [AlphaGeometry13(B,C,D,A)] => Length_A_C/Length_A_D - Length_B_C/Length_B_D
+2. Length_A_C/Length_A_D - Length_B_C/Length_B_D => Length_A_C/Length_B_C - Length_A_D/Length_B_D
+3. Length_B_D - Variable_y & Length_A_D - 8 & Length_A_C/Length_B_C - Length_A_D/Length_B_D & Length_B_C - 30 => Length_A_C - 240/Variable_y
+4. Length_A_D - 8 & Length_C_D - 28 => Length_A_D - 2*Length_C_D/7
+5. Collinear(A,C,D) [BetweenLength(C,A,D)] => Length_A_C + Length_A_D - Length_C_D
+6. Length_A_D - 2*Length_C_D/7 & Length_A_C + Length_A_D - Length_C_D & Length_C_D - 28 => Length_A_C - 20
+7. Length_A_C - 240/Variable_y & Length_A_C - 20 => Variable_y - 12

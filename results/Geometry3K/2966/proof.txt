@@ -1,0 +1,3 @@
+Solution:
+1. Parallelogram(A,C,B,D) & Collinear(A,B,F) & Collinear(C,D,F) [PropertyOfParallelogram1(A,C,B,D,F)] => Length_C_F - Length_D_F
+2. Length_C_F - Length_D_F & Length_D_F - Variable_z - 5 & Length_C_F - 3*Variable_z + 4 => Variable_z - 9/2

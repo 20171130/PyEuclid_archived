@@ -1,0 +1,7 @@
+Solution:
+1. Length_A_B - 6 & Length_B_C - 15/2 => Length_A_B - 4*Length_B_C/5 & Length_A_B/Length_B_C - 4/5
+2. Collinear(A,C,F) & Angle_A_B_F - Angle_C_B_F => Length_A_B/Length_B_C - Length_A_F/Length_C_F
+3. Length_A_B - 4*Length_B_C/5 & Length_A_B/Length_B_C - 4/5 & Length_A_B/Length_B_C - Length_A_F/Length_C_F => Length_A_F - 4*Length_C_F/5
+4. Collinear(A,C,F) => Length_A_C - Length_A_F - Length_C_F
+5. Length_A_C - 9 & Length_A_C - Length_A_F - Length_C_F => Length_A_F + Length_C_F - 9
+6. Length_A_F - 4*Length_C_F/5 & Length_A_F + Length_C_F - 9 => Length_C_F - 5

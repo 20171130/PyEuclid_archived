@@ -1,0 +1,8 @@
+Solution:
+1. Square(B,C,E,D) [PropertyOfSquare(B,C,E,D)] => Perpendicular(B,E,C,D) & Length_B_D - Length_D_E & Length_B_E - Length_C_D & Area_B_C_E_D - Length_B_D*Length_D_E
+2. Perpendicular(B,E,C,D) [RhombusArea(B,C,E,D)] => Area_B_C_E_D - Length_B_E*Length_C_D/2
+3. Length_D_O - Variable_radius_O & Length_C_O - Variable_radius_O => Length_C_O - Length_D_O
+4. Length_C_O - Length_D_O & Collinear(C,D,O) [DefinitionOfMidpoint(O,C,D)] => Midpoint(O,C,D)
+5. Midpoint(O,C,D) [PropertyOfMidpoint(O,C,D)] => Length_C_D - 2*Length_C_O
+6. Length_E_O - Variable_radius_O & Length_E_O - 3*sqrt(2) & Length_C_O - Variable_radius_O => Length_C_O - 3*sqrt(2)
+7. Area_B_C_E_D - Length_B_E*Length_C_D/2 & Length_B_D - Length_D_E & Length_B_E - Length_C_D & Area_B_C_E_D - Length_B_D*Length_D_E & Length_C_D - 2*Length_C_O & Length_C_O - 3*sqrt(2) => Length_B_D - 6

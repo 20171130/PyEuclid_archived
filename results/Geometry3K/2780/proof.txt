@@ -1,0 +1,7 @@
+Solution:
+1. Length_D_E - Variable_radius_D & Length_B_D - Variable_radius_D => Length_B_D - Length_D_E
+2. Length_B_D - Length_D_E [DefinitionOfIsoscelesTriangle(D,B,E)] => Angle_B_E_D - Angle_D_B_E
+3. Collinear(A,B,E) [DiagramAngle4b(B,A,D,E)] => Angle_A_B_D - Angle_D_B_E
+4. Perpendicular(B,C,B,D) [Perp2Angle(C,B,D)] => Angle_C_B_D - pi/2
+5. Angle_B_E_D - Angle_D_B_E & Angle_A_B_D - Angle_D_B_E & Angle_B_D_E + Angle_B_E_D + Angle_D_B_E - pi & Angle_C_B_D - pi/2 & Angle_B_D_E - 2*pi/3 & Angle_A_B_C - Angle_A_B_D - Angle_C_B_D => Angle_A_B_C - 2*pi/3
+6. Angle_A_B_C - 2*pi/3 & Angle_A_B_C - Variable_angle_9 => Variable_angle_9 - 2*pi/3

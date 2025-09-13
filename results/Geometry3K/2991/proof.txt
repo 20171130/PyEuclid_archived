@@ -1,0 +1,20 @@
+Solution:
+1. Collinear(A,D,E) & Collinear(A,C,G) [DiagramAngle4a(A,C,D,G,E)] => Angle_C_A_D - Angle_E_A_G
+2. Collinear(A,D,E) [CollinearParallel(A,D,E)] => Parallel(A,D,D,E) & Angle_C_A_D - Angle_C_A_E
+3. Perpendicular(C,D,D,E) & Parallel(A,D,D,E) [AlphaGeometry1b(D,E,C,D,A,D)] => Perpendicular(A,D,C,D)
+4. Perpendicular(A,D,C,D) [Perp2Angle(A,D,C)] => Angle_A_D_C - pi/2
+5. Angle_A_D_C - pi/2 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_C_A_D - Angle_E_A_G => Angle_A_C_D + Angle_E_A_G - pi/2
+6. Length_B_C - 5 & Length_C_D - 5 => Length_B_C - Length_C_D
+7. Length_B_C - Length_C_D [DefinitionOfIsoscelesTriangle(C,B,D)] => Angle_B_D_C - Angle_C_B_D
+8. Collinear(A,B,F) [CollinearParallel(A,B,F)] => Parallel(A,B,B,F)
+9. Perpendicular(B,C,B,F) & Parallel(A,B,B,F) [AlphaGeometry1b(B,F,B,C,A,B)] => Perpendicular(A,B,B,C)
+10. Perpendicular(A,B,B,C) [Perp2Angle(A,B,C)] => Angle_A_B_C - pi/2
+11. Angle_A_D_B - Angle_A_D_C + Angle_B_D_C & Angle_B_D_C - Angle_C_B_D & Angle_A_B_C - Angle_A_B_D - Angle_C_B_D & Angle_A_D_C - pi/2 & Angle_A_B_C - pi/2 => Angle_A_B_D - Angle_A_D_B
+12. Angle_A_B_D - Angle_A_D_B [DefinitionOfIsoscelesTriangle1(A,B,D)] => Length_A_B - Length_A_D
+13. Angle_C_A_D - Angle_C_A_E & Angle_B_A_C - 19*pi/90 & Angle_A_D_C - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - pi/2 & Angle_A_C_B + Angle_A_C_D - Angle_B_C_D & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi => Angle_B_C_D + Angle_C_A_E - 71*pi/90
+14. Angle_C_A_D - Angle_C_A_E & Angle_A_D_C - pi/2 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi => Angle_A_C_D + Angle_C_A_E - pi/2
+15. Angle_B_C_D + Angle_C_A_E - 71*pi/90 & Angle_A_C_D + Angle_C_A_E - pi/2 & Angle_A_C_B + Angle_A_C_D - Angle_B_C_D => Angle_A_C_B - 13*pi/45
+16. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_C_B - 13*pi/45 & Length_B_C - 5 & Angle_B_A_C - 19*pi/90 => Length_A_B - 6.39970816096539
+17. Length_A_B - Length_A_D & Length_A_B - 6.39970816096539 => Length_A_D - 6.39970816096539
+18. sin(Angle_C_A_D)/Length_C_D - sin(Angle_A_C_D)/Length_A_D & Angle_C_A_D - Angle_E_A_G & Angle_A_C_D + Angle_E_A_G - pi/2 & Length_A_D - 6.39970816096539 & Length_C_D - 5 => Angle_E_A_G - 0.663225115757845
+19. Angle_E_A_G - 0.663225115757845 & Angle_C_A_D - Angle_E_A_G => Angle_C_A_D - 0.663225115757845

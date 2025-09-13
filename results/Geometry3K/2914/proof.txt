@@ -1,0 +1,7 @@
+Solution:
+1. Parallelogram(A,C,B,D) => Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Length_A_C - Length_B_D
+2. Collinear(B,D,E) [CollinearParallel(B,D,E)] => Parallel(B,D,B,E)
+3. Perpendicular(B,E,C,E) & Parallel(B,D,B,E) [AlphaGeometry1b(B,E,C,E,B,D)] => Perpendicular(B,D,C,E)
+4. Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Perpendicular(B,D,C,E) & Collinear(B,D,E) [TrapezoidArea(C,A,D,B,E)] => Area_A_C_B_D - Length_C_E*(Length_A_C + Length_B_D)/2
+5. Length_A_C - Length_B_D & Length_B_D - 22 => Length_A_C - 22
+6. Area_A_C_B_D - Length_C_E*(Length_A_C + Length_B_D)/2 & Length_A_C - 22 & Length_C_E - 24 & Length_B_D - 22 => Area_A_C_B_D - 528

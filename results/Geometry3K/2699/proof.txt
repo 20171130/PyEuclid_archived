@@ -1,0 +1,10 @@
+Solution:
+1. Length_C_X - Variable_radius_X & Length_D_X - Variable_radius_X => Length_C_X - Length_D_X
+2. Length_C_X - Length_D_X [DefinitionOfIsoscelesTriangle(X,C,D)] => IsoscelesTriangle(C,D,X)
+3. Collinear(N,X,Z) [CollinearParallel(N,X,Z)] => Parallel(N,X,N,Z)
+4. Perpendicular(D,N,N,Z) & Parallel(N,X,N,Z) [AlphaGeometry1b(N,Z,D,N,N,X)] => Perpendicular(D,N,N,X)
+5. Collinear(C,D,N) [CollinearParallel(C,D,N)] => Parallel(C,D,D,N)
+6. Perpendicular(D,N,N,X) & Parallel(C,D,D,N) [AlphaGeometry1b(D,N,N,X,C,D)] => Perpendicular(C,D,N,X)
+7. IsoscelesTriangle(C,D,X) & Length_C_X - Length_D_X & Collinear(C,D,N) & Perpendicular(C,D,N,X) [PropertyOfIsoscelesTriangle1(X,C,D,N)] => Midpoint(N,C,D)
+8. Midpoint(N,C,D) [PropertyOfMidpoint(N,C,D)] => Length_C_D - 2*Length_D_N
+9. Length_C_D - 2*Length_D_N & Length_C_D - 30 => Length_D_N - 15

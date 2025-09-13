@@ -1,0 +1,3 @@
+Solution:
+1. Collinear(B,C,G) & Collinear(A,B,D) [DiagramAngle4(B,A,G,D,C)] => Angle_A_B_G - Angle_C_B_D
+2. Angle_C_B_D - 11*pi/36 & Angle_A_B_G - Angle_C_B_D => Angle_A_B_G - 11*pi/36

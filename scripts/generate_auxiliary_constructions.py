@@ -21,6 +21,49 @@ from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
+independent_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["independent"]]
+deterministic_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["deterministic"]]
+nondeterministic_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["nondeterministic"]]
+
+def is_angle_sum_minus_pi(expr: sympy.Expr) -> bool:
+    if not isinstance(expr, sympy.Add):
+        return False
+    terms = list(expr.args)
+    if -sympy.pi not in terms:
+        return False
+    terms.remove(-sympy.pi)
+    if len(terms) != 2:
+        return False
+    a, b = terms
+    return isinstance(a, sympy.Symbol) and isinstance(b, sympy.Symbol) and a.name.startswith("Angle_") and b.name.startswith("Angle_")
+
+def is_angle_diff(expr: sympy.Expr) -> bool:
+    # Angle_X_Y_Z - Angle_Y_Z_W
+    if not isinstance(expr, sympy.Add) or len(expr.args) != 2:
+        return False
+    a, b = expr.args
+    return isinstance(a, sympy.Symbol) and isinstance(b, sympy.Mul) and b.args[0] == -1 and isinstance(b.args[1], sympy.Symbol) and a.name.startswith("Angle_") and b.args[1].name.startswith("Angle_")
+
+def is_length_diff(expr: sympy.Expr) -> bool:
+    # Length_A_B - Length_C_D
+    if not isinstance(expr, sympy.Add) or len(expr.args) != 2:
+        return False
+    a, b = expr.args
+    return isinstance(a, sympy.Symbol) and isinstance(b, sympy.Mul) and b.args[0] == -1 and isinstance(b.args[1], sympy.Symbol) and a.name.startswith("Length_") and b.args[1].name.startswith("Length_")
+
+def is_length_ratio_diff(expr: sympy.Expr) -> bool:
+    # Length/Length - Length/Length
+    if not isinstance(expr, sympy.Add) or len(expr.args) != 2:
+        return False
+    def is_len_ratio(term):
+        if not isinstance(term, sympy.Mul) or len(term.args) != 2:
+            return False
+        a, b = term.args
+        return isinstance(a, sympy.Symbol) and a.name.startswith("Length_") and isinstance(b, sympy.Pow) and b.exp == -1 and isinstance(b.base, sympy.Symbol) and b.base.name.startswith("Length_")
+    a, b = expr.args
+    return is_len_ratio(a) and b.could_extract_minus_sign() and is_len_ratio(-b)
+
+
 class TimeoutHandler:
     def __init__(self, timeout_seconds: Optional[int] = None):
         self.timeout_occurred = False
@@ -112,9 +155,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     attempt = 0
     points = 0
 
-    max_steps = random.uniform(8, 16)
+    max_steps = random.uniform(6, 12)
     max_attempts = 100
-    max_points = random.uniform(8, 16)
+    max_points = random.uniform(10, 20)
     constructions_list = []
     index = 0
     old_relations = []
@@ -129,16 +172,16 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         multiconstructions = False
 
         if step == 0:
-            candidate_set = list(construction_rule_sets["independent"])
+            candidate_set = independent_rules
         else:
             rand = random.random()
-            if rand < 0.25:
-                candidate_set = [rule for rule in list(construction_rule_sets['deterministic'])
+            if rand < 0.2:
+                candidate_set = [rule for rule in deterministic_rules
                                  if rule.num_inputs <= len(state.points)]
             else:
                 rand = random.random()
-                multiconstructions = False if rand < 0.25 else True
-                candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic'])
+                multiconstructions = False if rand < 0.2 else True
+                candidate_set = [rule for rule in nondeterministic_rules
                                  if rule.num_inputs <= len(state.points)]
 
         picked = random.choice(candidate_set)
@@ -148,26 +191,15 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         valid_constructions = []
 
         # Generate candidate input combinations
-        if all(typ == Point for typ in picked.input_types):
-            # For input types that are all points
-            candidates = itertools.permutations(all_points, len(picked.input_types))
-            for candidate in candidates:
-                construction = picked(*candidate)
-                conditions = construction.conditions()
-                if all(diagram.numerical_check(cond) for cond in conditions):
-                    valid_constructions.append(construction)
-        else:
-            # For special cases like construct_s_angle
-            if picked == construct_s_angle:
-                candidates = itertools.permutations(all_points, 2)
-                for p1, p2 in candidates:
-                    for angle in range(15, 180, 15):
-                        angle = float(angle)
-                        construction = picked(p1, p2, angle)
-                        conditions = construction.conditions()
-                        if all(diagram.numerical_check(cond) for cond in conditions):
-                            valid_constructions.append(construction)
-
+        assert all(typ == Point for typ in picked.input_types)
+        # For input types that are all points
+        candidates = itertools.permutations(all_points, len(picked.input_types))
+        for candidate in candidates:
+            construction = picked(*candidate)
+            conditions = construction.conditions()
+            if all(diagram.numerical_check(cond) for cond in conditions):
+                valid_constructions.append(construction)
+        
         if not valid_constructions:
             attempt += 1
             continue
@@ -178,7 +210,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         constructions.append(construction)
 
         if multiconstructions:
-            candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic'])
+            candidate_set = [rule for rule in nondeterministic_rules
                              if rule.num_inputs <= len(state.points) and
                              rule.num_outputs == picked.num_outputs]
             picked = random.choice(candidate_set)
@@ -187,28 +219,20 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
             valid_constructions = []
 
-            if all(typ == Point for typ in picked.input_types):
-                candidates = itertools.product(all_points, repeat=len(picked.input_types))
-                for candidate in candidates:
-                    construction = picked(*candidate)
-                    conditions = construction.conditions()
-                    if all(diagram.numerical_check(cond) for cond in conditions):
-                        valid_constructions.append(construction)
-            else:
-                # For special cases like construct_s_angle
-                if picked == construct_s_angle:
-                    candidates = itertools.permutations(all_points, 2)
-                    for p1, p2 in candidates:
-                        for angle in range(15, 180, 15):
-                            angle = float(angle)
-                            construction = picked(p1, p2, angle)
-                            conditions = construction.conditions()
-                            if all(diagram.numerical_check(cond) for cond in conditions):
-                                valid_constructions.append(construction)
+            assert all(typ == Point for typ in picked.input_types)
+            candidates = itertools.product(all_points, repeat=len(picked.input_types))
+            for candidate in candidates:
+                construction = picked(*candidate)
+                conditions = construction.conditions()
+                if all(diagram.numerical_check(cond) for cond in conditions):
+                    valid_constructions.append(construction)
 
             if not valid_constructions:
                 attempt += 1
                 continue
+
+            if constructions[0] in valid_constructions:
+                valid_constructions.remove(constructions[0])
 
             construction = random.choice(valid_constructions)
             construction.construct(*outputs)
@@ -244,7 +268,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
                 if all([p not in outputs for p in ps]) and equation.sources and isinstance(equation.sources[0], InferenceRule) and not isinstance(equation.sources[0], (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2)):
                     conclusions.append(equation)
                 old_equations.append(equation)
-
+        
     if timeout_handler.check_timeout():
         return {"samples_generated": 0, "samples_with_auxiliary": 0, "timeout": True}
 
@@ -276,8 +300,13 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
                 continue
             elif diagram.numerical_check(Collinear(*points[:3])):
                 continue
+        elif isinstance(relation, Traced):
+            # length_a - length_b, length_a/length_b - length_c/length_d, angle_a - angle_b, angle_a + angle_b - pi
+            expr = relation.expr
+            if not is_angle_diff(expr) and not is_angle_sum_minus_pi(expr) and not is_length_diff(expr) and not is_length_ratio_diff(expr):
+                continue
         filtered_conclusions.append(relation)
-
+    
     if not filtered_conclusions:
         return {"samples_generated": 0, "samples_with_auxiliary": 0}
 
@@ -305,9 +334,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             key = relation.expr
         else:
             key = relation
-
-        if state.condition2depth[key] <= 2:
-            continue
 
         if isinstance(relation, Relation):
             points = relation.get_points()
@@ -355,6 +381,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
         new_engine.run()
         assert new_state.complete() is not None
+
+        if new_state.condition2depth[key] <= 2:
+            continue
+
         new_proof_generator = ProofGenerator(new_state, max_equation_length_perstep=None)
         new_proof_generator.run()
         new_proof = new_proof_generator.get_proof()
@@ -554,8 +584,6 @@ def main():
     base_output_dir = os.environ.get('OUTPUT_DIR', 'dataset')
 
     os.makedirs(base_output_dir, exist_ok=True)
-
-    print(base_output_dir)
 
     with timeout_context(timeout_seconds if timeout_seconds > 0 else None) as timeout_handler:
         result = generate_until_timeout(
