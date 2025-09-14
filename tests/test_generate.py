@@ -235,7 +235,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
-    conclusions.sort(key=lambda x: -state.condition2depth[x] if x in state.condition2depth else -state.condition2depth[x.expr])
+    # for conclusion in conclusions:
+    #     if not conclusion in state.condition2depth:
+    #         breakpoint()
+    conclusions.sort(key=lambda x: -state.condition2depth[x] if x in state.condition2depth else 0)
     
     def get_sufficient_constructions(points):
         res = []
@@ -275,7 +278,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
         new_algebraic_system = AlgebraicSystem(new_state)
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-        equations = new_state.equations
         new_engine.run()
         
         if new_state.complete() is not None:
@@ -322,7 +324,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
             new_algebraic_system = AlgebraicSystem(new_state)
             new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-            equations = new_state.equations
             new_engine.run()
             assert new_state.complete() is not None
             new_proof_generator = ProofGenerator(new_state)
@@ -404,7 +405,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
         goal_constructions = get_constructions_from_goal(relation)
         diagram.draw([], goal_constructions)
-        annotated_equations = diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=equations)
+        state = State()
+        state.diagram = diagram
+        state.add_constructions(necessary_constructions+auxiliary_constructions)
+        annotated_equations = diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=state.equations)
         diagram.restore()
 
         problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
