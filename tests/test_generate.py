@@ -72,6 +72,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     # printt(f"Rank {rank}: Starting problem {problem_id}")
 
     max_steps = random.uniform(3, 6) # 4 - 10
+    max_points = 8
     max_attempts = 100
     constructions_list = []
     length_values, angle_values = set(), set()
@@ -80,25 +81,35 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     if debug:
         state.silent = False
     # Construction phase with timeout checks
-    while (step < max_steps and attempt < max_attempts):
+    while (step < max_steps and attempt < max_attempts and len(state.points)<max_points):
         
         constructions = []
         multiconstructions = False
 
         if step == 0:
             candidate_set = [rule for rule in list(construction_rule_sets['independent']) 
-                               if rule.num_inputs <= len(state.points)]
+                               if rule.num_inputs <= len(state.points) and not rule in (construct_triangle12, construct_s_segment)]
         else:
             rand = random.random()
             if rand < 0.3:
                 candidate_set = [rule for rule in list(construction_rule_sets['deterministic']) 
                                if rule.num_inputs <= len(state.points)]
+                rand = random.random()
+                if rand < 0.5:
+                    candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
+                else:
+                    candidate_set = [item for item in candidate_set if item in construction_rule_sets["auxiliary_construction"]]
             else:
                 rand = random.random()
                 multiconstructions = False if rand < 0.1 else True
                 candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
                                if rule.num_inputs <= len(state.points)]
-        candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ) or item in construction_rule_sets["auxiliary_construction"]]
+                rand = random.random()
+                if rand < 0.5:
+                    candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
+                else:
+                    candidate_set = [item for item in candidate_set if item in construction_rule_sets["auxiliary_construction"]]
+            
         # remove construct_s_angle if mixing q and non-q construction rules
         picked = random.choice(candidate_set)
         all_points = list(state.points.copy())
@@ -138,7 +149,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
                            if rule.num_inputs <= len(state.points) and 
                            rule.num_outputs == picked.num_outputs]
-            candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ) or item in construction_rule_sets["auxiliary_construction"]]
+            rand = random.random()
+            if rand < 0.5:
+                candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
+            else:
+                candidate_set = [item for item in candidate_set if item in construction_rule_sets["auxiliary_construction"]]
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
             num_points = len(all_points)
@@ -190,7 +205,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         for p in outputs:
             point2constructions[p] = constructions
         
-        diagram.draw_diagram(save=True)
+        annotated_equations = diagram.draw_diagram(save=True, equations=state.equations)
 
     with open(os.path.join(problem_output_dir, f'constructions_list.json'), 'w') as f:
         s = ', '.join([str(construction) for constructions in constructions_list for construction in constructions])
@@ -212,44 +227,15 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     samples_with_auxiliary = 0
     sub_conclusions = set()
     conclusions2dir = {}
-    # filter conclusions
-    conclusions = list([relation for relation in state.relations if not trivial_condition(relation) and hasattr(relation, "source")]) + [eq for eq in state.equations 
-                        if eq.sources and isinstance(eq.sources[0], InferenceRule) and not isinstance(eq.sources[0], (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2)) and not type(eq.sources[0]) in inference_rule_sets["complex"]+inference_rule_sets["shape"]]
+    conclusions = []
     conclusions += [symbol - solution for symbol, solution in state.solutions["angle_linear"].items() if len(solution.free_symbols)==0]
     conclusions += [symbol - solution for symbol, solution in state.solutions["length_ratio"].items() if len(solution.free_symbols)==0]
     conclusions += [symbol - solution for symbol, solution in state.solutions["length_linear"].items() if len(solution.free_symbols)==0]
-    filtered_conclusions = []
-    for relation in conclusions:
-        # degenerated cases
-        if isinstance(relation, Congruent3):
-            points = relation.get_points()
-            if len(set(points)) == 3:
-                continue
-        elif isinstance(relation, Similar3):
-            points = relation.get_points()
-            if len(set(points)) == 3:
-                continue
-            if Congruent3(*points) in state.relations:
-                continue
-        elif isinstance(relation, Parallel):
-            points = relation.get_points()
-            if len(set(points)) == 3:
-                continue
-            elif diagram.numerical_check(Collinear(*points[:3])):
-                continue
-        if isinstance(relation, Traced):
-            key = relation.expr
-        else:
-            key = relation
-        
-        if state.condition2depth[key] <= 2:
-            continue 
-        filtered_conclusions.append(relation)
     printt("Determining if auxiliary constructions are needed")
     
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
-    filtered_conclusions.sort(key=lambda x: -state.condition2depth[x] if x in state.condition2depth else -state.condition2depth[x.expr])
+    conclusions.sort(key=lambda x: -state.condition2depth[x] if x in state.condition2depth else -state.condition2depth[x.expr])
     
     def get_sufficient_constructions(points):
         res = []
@@ -268,14 +254,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             mark_sufficient(point)
         return sorted(res, key=lambda c: c.index)
     
-    for relation in filtered_conclusions:
+    for relation in conclusions:
         if isinstance(relation, Traced):
             key = relation.expr
         else:
             key = relation
-        
-        if state.condition2depth[key] <= 2:
-            continue 
 
         if isinstance(relation, Relation):
             points = relation.get_points()
@@ -292,6 +275,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
         new_algebraic_system = AlgebraicSystem(new_state)
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+        equations = new_state.equations
         new_engine.run()
         
         if new_state.complete() is not None:
@@ -338,6 +322,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
             new_algebraic_system = AlgebraicSystem(new_state)
             new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+            equations = new_state.equations
             new_engine.run()
             assert new_state.complete() is not None
             new_proof_generator = ProofGenerator(new_state)
@@ -347,9 +332,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             break
         
         necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
-        
-        if len(necessary_constructions) <= 2:
-            continue
         
         input_points = set()
         output_points = set()
@@ -417,12 +399,12 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
         os.makedirs(sample_dir, exist_ok=True)
 
-        diagram_sample_path = os.path.join(sample_dir, 'diagram.jpg')
+        diagram_sample_path = os.path.join(sample_dir, 'diagram.pdf')
         diagram.save_path = diagram_sample_path
 
         goal_constructions = get_constructions_from_goal(relation)
         diagram.draw([], goal_constructions)
-        diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True)
+        annotated_equations = diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=equations)
         diagram.restore()
 
         problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
@@ -439,6 +421,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             "problem_id": problem_id,
             "sample_id": i,
             "seed": seed,
+            "annotated_equations": [str(item) for item in annotated_equations],
             "has_auxiliary_constructions": has_auxiliary,
             "num_auxiliary_constructions": len(auxiliary_constructions)
         }

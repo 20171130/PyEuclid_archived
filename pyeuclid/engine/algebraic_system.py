@@ -8,6 +8,8 @@ from tqdm import tqdm
 from pyeuclid.formalization.utils import *
 from stopit import ThreadingTimeout as TT, SignalTimeout as ST
 
+remove_redundant = True
+
 class AlgebraicSystem:
     def __init__(self, state):
         self.state = state
@@ -115,9 +117,11 @@ class AlgebraicSystem:
             return solutions.pop()
         return None
 
-    def elim(self, eq_type, equations, var_types):        
-        # raw_equations = [eq for eq in equations if eq_type not in eq.redundant]
-        raw_equations = equations
+    def elim(self, eq_type, equations, var_types):
+        if remove_redundant:    
+            raw_equations = [eq for eq in equations if eq_type not in eq.redundant]
+        else:
+            raw_equations = equations
         equations = [item.expr for item in raw_equations]
         free_vars = []
         for eqn in equations:
@@ -130,7 +134,7 @@ class AlgebraicSystem:
         for i, eqn in enumerate(equations):
             eqn = self.process_equation(eqn, check=True)
             if eqn == 0:
-                # raw_equations[i].redundant.add(eq_type)
+                raw_equations[i].redundant.add(eq_type)
                 continue
             symbols = list(eqn.free_symbols)
             symbols.sort(key=lambda x: str(x))
@@ -158,7 +162,7 @@ class AlgebraicSystem:
                 exprs[var] = expr
             elif check_equalities(expr-exprs[var]):  # redundant equation
                 equations[i] = sympy.sympify(0)
-                # raw_equations[i].redundant.add(eq_type)
+                raw_equations[i].redundant.add(eq_type)
                 continue
             else:
                 breakpoint()  # contradiction
@@ -282,10 +286,10 @@ class AlgebraicSystem:
             pbar = others if self.state.silent else tqdm(others)
             for eqn in pbar:
                 if len(self.state.simplify_equation(eqn, solved).free_symbols) == 0:
-                    # eqn.redundant.add('others')
+                    eqn.redundant.add('others')
                     continue
-                # if 'others' in eqn.redundant:
-                #     continue
+                if 'others' in eqn.redundant and remove_redundant:
+                    continue
                 raw_eqn = eqn
                 symbols = [symbol for symbol in raw_eqn.free_symbols if symbol in solved]
                 symbol2sources = {}

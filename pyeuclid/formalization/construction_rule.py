@@ -64,7 +64,7 @@ class construct_free(ConstructionRule):
         self.outputs = [a]
 
 
-@register("independent", "auxiliary_construction")
+@register("independent")
 class construct_segment(ConstructionRule):
     def __init__(self):
         self.inputs = []
@@ -72,6 +72,25 @@ class construct_segment(ConstructionRule):
 
     def construct(self, a: Point, b: Point):
         self.outputs = [a, b]
+        
+        
+@register("independent")
+class construct_free_parallelogram(ConstructionRule):
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point):
+        self.outputs = [a, b, c, d]
+
+    def conditions(self):
+        return []
+
+    def conclusions(self):
+        a, b, c, d = self.outputs
+        return [
+            Parallelogram(a, b, c, d)
+        ]
 
 
 @register("independent")
@@ -497,7 +516,7 @@ class construct_eq_triangle(ConstructionRule):
         ]
 
 
-@register("nondeterministic", "auxiliary_construction")
+@register("deterministic")
 class construct_eqangle2(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -1554,7 +1573,7 @@ class construct_cc_tangent(ConstructionRule):
         ]
 
 
-@register("nondeterministic", "auxiliary_construction")
+@register("nondeterministic")
 class construct_eqangle3(ConstructionRule):
     def __init__(self, a: Point, b: Point, d: Point, e: Point, f: Point):
         self.inputs = [a, b, d, e, f]

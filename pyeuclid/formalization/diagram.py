@@ -81,6 +81,7 @@ class Diagram:
         self.circles = []
         self.highlight_angles = []
         self.highlight_segments = []
+        self.conclusions = []
         
         self.name2point = {}
         self.point2name = {}
@@ -175,6 +176,8 @@ class Diagram:
                 self.draw(new_points, constructions, auxiliary)
                 self.constructions_list.append(constructions)
                 self.coordinates_list.append(coordinates)
+                for construction in constructions:
+                    self.conclusions += construction.conclusions()
                 return
             except (NumericalCheckingError, SamplingError, DistanceError):
                 self.restore()
@@ -246,7 +249,7 @@ class Diagram:
             return
         
         if check_too_close(self.points, new_points, self.min_tol):
-            self.min_tol = max(1e-2, self.min_tol - 0.01)
+            self.min_tol = max(5e-2, self.min_tol - 0.01)
             raise DistanceError()
         
         if check_too_far(self.points, new_points, self.max_tol):
@@ -398,7 +401,7 @@ class Diagram:
             if auxiliary:
                 self.auxiliary_constructions.append(construction)
                 
-    def draw_diagram(self, constructions=None, show=False, save=True):
+    def draw_diagram(self, constructions=None, show=False, save=True, equations=[]):
         imsize = 512 / 100
         self.fig, self.ax = plt.subplots(figsize=(imsize, imsize), dpi=300)
         self.ax.set_facecolor((1.0, 1.0, 1.0))
@@ -475,44 +478,6 @@ class Diagram:
                 end = head_from(mid, leaned_ang, span / 60)
                 self.ax.plot([start.x, end.x], [start.y, end.y], color='black', lw=1.2, alpha=0.8, ls='-')
 
-        for angles in highlight_angles:
-            if len(angles) == 1:
-                a, b, c = angles[0]
-                assert close_enough(calculate_angle(a, b, c), np.pi/2)
-                v1 = (a - b) / a.distance(b)
-                v2 = (c - b) / c.distance(b)
-                p1 = b + v1 * span / 30
-                p2 = p1 + v2 * span / 30
-                p3 = b + v2 * span / 30
-                self.ax.plot([p1.x, p2.x], [p1.y, p2.y], color='black', lw=1.2, alpha=0.8, ls='-')
-                self.ax.plot([p2.x, p3.x], [p2.y, p3.y], color='black', lw=1.2, alpha=0.8, ls='-')
-                segments.add(Segment(p1, p2))
-                segments.add(Segment(p2, p3))
-            else:
-                for angle in angles:
-                    a, b, c = angle
-                    angle_ba = ang_of(b, a) * 180 / np.pi
-                    angle_bc = ang_of(b, c) * 180 / np.pi
-                    
-                    diff = (angle_bc - angle_ba) % 360
-                    
-                    if diff <= 180:
-                        theta1 = angle_ba
-                        sweep = diff
-                    else:
-                        theta1 = angle_bc
-                        sweep = 360 - diff
-                    
-                    self.ax.add_patch(
-                        patches.Arc(
-                            (b.x, b.y), span / 10, span / 10,
-                            angle=0,
-                            theta1=theta1,
-                            theta2=theta1 + sweep,
-                            color='black', lw=1.2, alpha=0.8
-                        )
-                    )
-
         def annotation_position(p):
             r = span / 20
             c = Circle(p, r)
@@ -552,6 +517,92 @@ class Diagram:
             
             self.ax.annotate(self.point2name[p].upper(), (x_pos, y_pos), color='black', ha='center', va='center', fontsize=12)
         
+        annotated_equations = []
+        for eqn in equations:
+            if "Length" in str(eqn):
+                if not len(eqn.args) == 2 or "/" in str(eqn) or "**" in str(eqn):
+                    continue
+                if len(eqn.args[0].free_symbols)==0:
+                    value, symbol = eqn.args
+                elif len(eqn.args[1].free_symbols)==0:
+                    symbol, value = eqn.args
+                else:
+                    continue
+                value = - value
+                a, b = str(symbol).split("_")[1:]
+                a, b = self.name2point[a], self.name2point[b]
+                x, y = (a.x+b.x)/2, (a.y+b.y)/2
+                xmax = max(xmax, x)
+                xmin = min(xmin, x)
+                ymax = max(ymax, y)
+                ymin = min(ymin, y)
+                self.ax.annotate(value, (x, y), color="black", ha="center", va="center", fontsize=12)
+            else:
+                if not len(eqn.args) == 2:
+                    continue
+                if len(eqn.args[0].free_symbols)==0:
+                    value, symbol = eqn.args
+                elif len(eqn.args[1].free_symbols)==0:
+                    symbol, value = eqn.args
+                else:
+                    continue
+                norm = span/20
+                value = - value
+                a, b, c = str(symbol).split("_")[1:]
+                a, b, c = self.name2point[a], self.name2point[b], self.name2point[c]
+                highlight_angles.append([(a, b, c)])
+                a, b, c = np.array([a.x, a.y]), np.array([b.x, b.y]), np.array([c.x, c.y])
+                vec = (a-b)/np.linalg.norm(a-b) + (c-b)/np.linalg.norm(c-b)
+                p = b + norm*vec
+                x, y = p[0], p[1]
+                xmax = max(xmax, x)
+                xmin = min(xmin, x)
+                ymax = max(ymax, y)
+                ymin = min(ymin, y)
+                value = f"{value/pi*180}°"
+                if value == "90°":
+                    continue
+                self.ax.annotate(value, (x, y), color="black", ha="center", va="center", fontsize=12)
+            annotated_equations.append(eqn)
+            
+        for angles in highlight_angles:
+            if len(angles) == 1:
+                a, b, c = angles[0]
+                if close_enough(calculate_angle(a, b, c), np.pi/2):
+                    v1 = (a - b) / a.distance(b)
+                    v2 = (c - b) / c.distance(b)
+                    p1 = b + v1 * span / 30
+                    p2 = p1 + v2 * span / 30
+                    p3 = b + v2 * span / 30
+                    self.ax.plot([p1.x, p2.x], [p1.y, p2.y], color='black', lw=1.2, alpha=0.8, ls='-')
+                    self.ax.plot([p2.x, p3.x], [p2.y, p3.y], color='black', lw=1.2, alpha=0.8, ls='-')
+                    segments.add(Segment(p1, p2))
+                    segments.add(Segment(p2, p3))
+                    continue
+            for angle in angles:
+                a, b, c = angle
+                angle_ba = ang_of(b, a) * 180 / np.pi
+                angle_bc = ang_of(b, c) * 180 / np.pi
+                
+                diff = (angle_bc - angle_ba) % 360
+                
+                if diff <= 180:
+                    theta1 = angle_ba
+                    sweep = diff
+                else:
+                    theta1 = angle_bc
+                    sweep = 360 - diff
+                
+                self.ax.add_patch(
+                    patches.Arc(
+                        (b.x, b.y), span / 10, span / 10,
+                        angle=0,
+                        theta1=theta1,
+                        theta2=theta1 + sweep,
+                        color='black', lw=1.2, alpha=0.8
+                    )
+                )
+
         self.ax.set_aspect('equal')
         self.ax.set_axis_off()
         
@@ -569,6 +620,9 @@ class Diagram:
             plt.show()
             
         plt.close(self.fig)
+        return annotated_equations
+        
+
     
     def save_diagram(self):
         if self.save_path is not None:
@@ -915,6 +969,22 @@ class Diagram:
         l1 = self.sketch_on_pline(a, b, c)
         l2 = self.sketch_on_pline(c, a, b)
         return intersect(l1, l2)
+    
+    def sketch_free_parallelogram(self, *args) -> Point:
+        points = [Point(1.0, 0.0)]
+        ang = 0.0
+
+        for i in range(2):
+            ang += (2 * np.pi - ang) / (5 - i) * unif(0.5, 1.5)
+            point = Point(np.cos(ang), np.sin(ang))
+            points.append(point)
+
+        a, b, c = points  # pylint: disable=unbalanced-tuple-unpacking
+        l1 = self.sketch_on_pline(a, b, c)
+        l2 = self.sketch_on_pline(c, a, b)
+        d = intersect(l1, l2)
+        a, b, c, d = random_rfss(a, b, c, d)
+        return [a, b, c, d]
     
     def sketch_pentagon(self, *args) -> list[Point]:
         points = [Point(1.0, 0.0)]
@@ -1492,6 +1562,13 @@ class Diagram:
         self.segments.append(Segment(c, a))
     
     def draw_parallelogram(self, *args):
+        x, a, b, c = args
+        self.segments.append(Segment(x, a))
+        self.segments.append(Segment(a, b))
+        self.segments.append(Segment(b, c))
+        self.segments.append(Segment(c, x))
+        
+    def draw_free_parallelogram(self, *args):
         x, a, b, c = args
         self.segments.append(Segment(x, a))
         self.segments.append(Segment(a, b))

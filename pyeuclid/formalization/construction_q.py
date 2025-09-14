@@ -35,8 +35,6 @@ class ConstructionQ(ConstructionRule):
         outputs = ",".join(str(out) for out in self.outputs)
         return f"{outputs} = {class_name}({inputs})"
         
-
-        
 @register("independent")
 class construct_segment_q(ConstructionQ):
     def __init__(self, ab:float = None, diagram=None):
@@ -267,7 +265,7 @@ class construct_point_on_circle(ConstructionQ):
         return Circle(self.point2coord(self.o), self.r)
     
     def draw(self):
-        return [], [Circle(self.point2coord(self.o), self.r)]
+        return [Segment(self.point2coord(self.o), self.point2coord(self.x))], [Circle(self.point2coord(self.o), self.r)]
 
 @register("deterministic")
 class construct_point_on_line(ConstructionQ):

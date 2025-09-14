@@ -667,7 +667,7 @@ def random_rfss(*points: list[Point], scale=None) -> list[Point]:
     sin, cos = np.sin(ang), np.cos(ang)
     # scale and shift
     if scale is None:
-        scale = unif(0.5, 2.0)
+        scale = unif(2, 10.0)
     shift = Point(unif(-1, 1), unif(-1, 1))
     points = [p.rotate(sin, cos) * scale + shift for p in points]
 
