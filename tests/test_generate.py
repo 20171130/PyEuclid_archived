@@ -16,7 +16,7 @@ from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
-from pyeuclid.formalization.construction_q import ConstructionQ, construct_point_on_circle, construct_angle_clockwise, construct_angle_counterclockwise
+from pyeuclid.formalization.construction_q import ConstructionQ, construct_segment_q, construct_square_q, construct_rectangle_q, construct_angle_counterclockwise, construct_angle_clockwise, construct_point_on_circle, construct_point_on_line
 
 
 # import logging
@@ -41,7 +41,7 @@ def printt(s):
     print(s)
 
 
-debug = False
+debug = True
 
 rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
 def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
@@ -51,6 +51,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     os.makedirs(problem_output_dir, exist_ok=True)
 
     seed = random.randint(0, int(1e9))
+   # seed = 51123107 # wrong necessary conditions
     random.seed(seed)
     np.random.seed(seed)
     sympy.core.random.seed(seed)
@@ -78,6 +79,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     length_values, angle_values = set(), set()
     index = 0
         
+    construction_rule_set = [construct_segment_q, construct_square_q, construct_rectangle_q, construct_angle_counterclockwise, construct_angle_clockwise, construct_point_on_circle, construct_point_on_line, construct_on_dia, construct_angle_bisector, construct_circumcenter, construct_eqdistance, construct_foot, construct_incenter, construct_intersection_cc, construct_intersection_lc, construct_intersection_ll, construct_intersection_lp, construct_intersection_lt, construct_intersection_pp, construct_intersection_tt, construct_lc_tangent, construct_midpoint, construct_mirror, construct_on_aline, construct_on_bline, construct_on_circle, construct_on_line, construct_on_pline, construct_on_tline, construct_orthocenter, construct_reflect]
+    # the diagram is fully determined
     if debug:
         state.silent = False
     # Construction phase with timeout checks
@@ -87,28 +90,16 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         multiconstructions = False
 
         if step == 0:
-            candidate_set = [rule for rule in list(construction_rule_sets['independent']) 
-                               if rule.num_inputs <= len(state.points) and not rule in (construct_triangle12, construct_s_segment)]
+            candidate_set = [rule for rule in construction_rule_set if rule in construction_rule_sets["independent"]]
         else:
             rand = random.random()
             if rand < 0.3:
                 candidate_set = [rule for rule in list(construction_rule_sets['deterministic']) 
-                               if rule.num_inputs <= len(state.points)]
-                rand = random.random()
-                if rand < 0.5:
-                    candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
-                else:
-                    candidate_set = [item for item in candidate_set if item in construction_rule_sets["auxiliary_construction"]]
+                               if rule.num_inputs <= len(state.points) and rule in construction_rule_set]
             else:
-                rand = random.random()
-                multiconstructions = False if rand < 0.1 else True
+                multiconstructions = True
                 candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
-                               if rule.num_inputs <= len(state.points)]
-                rand = random.random()
-                if rand < 0.5:
-                    candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
-                else:
-                    candidate_set = [item for item in candidate_set if item in construction_rule_sets["auxiliary_construction"]]
+                               if rule.num_inputs <= len(state.points) and rule in construction_rule_set]
             
         # remove construct_s_angle if mixing q and non-q construction rules
         picked = random.choice(candidate_set)
@@ -148,12 +139,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             to_intersect = picked
             candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
                            if rule.num_inputs <= len(state.points) and 
-                           rule.num_outputs == picked.num_outputs]
+                           rule.num_outputs == picked.num_outputs and rule in construction_rule_set]
             rand = random.random()
-            if rand < 0.5:
-                candidate_set = [item for item in candidate_set if issubclass(item, ConstructionQ)]
-            else:
-                candidate_set = [item for item in candidate_set if item in construction_rule_sets["auxiliary_construction"]]
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
             num_points = len(all_points)
@@ -215,13 +202,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
     proof_generator = ProofGenerator(state)
-    try:
-        engine.run()
-    except:
-        return
-
-    if state.current_depth <= 2:
-        return {"samples_generated": 0, "samples_with_auxiliary": 0}
+    engine.run()
 
     i = 0
     samples_with_auxiliary = 0
@@ -235,11 +216,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
-    # for conclusion in conclusions:
-    #     if not conclusion in state.condition2depth:
-    #         breakpoint()
-    conclusions.sort(key=lambda x: -state.condition2depth[x] if x in state.condition2depth else 0)
-    
+    conclusions.sort(key=lambda x: -state.condition2depth[x])
     def get_sufficient_constructions(points):
         res = []
         target_points = set(points)
@@ -256,7 +233,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         for point in target_points:
             mark_sufficient(point)
         return sorted(res, key=lambda c: c.index)
-    
     for relation in conclusions:
         if isinstance(relation, Traced):
             key = relation.expr
@@ -405,10 +381,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
         goal_constructions = get_constructions_from_goal(relation)
         diagram.draw([], goal_constructions)
-        state = State()
-        state.diagram = diagram
-        state.add_constructions(necessary_constructions+auxiliary_constructions)
-        annotated_equations = diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=state.equations)
+        new_state = State()
+        new_state.diagram = diagram
+        new_state.add_constructions(necessary_constructions+auxiliary_constructions)
+        annotated_equations = diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=new_state.equations)
         diagram.restore()
 
         problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
@@ -419,6 +395,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             "unused_constructions": ', '.join([str(construction) for construction in sufficient_constructions if construction not in necessary_constructions]),
             "auxiliary_constructions": ', '.join([str(construction) for construction in auxiliary_constructions]),
             "goal": str(relation),
+            "depth": state.condition2depth[relation],
             "diagram": diagram_sample_path,
             "proof": new_proof_str,
             "rank": rank,

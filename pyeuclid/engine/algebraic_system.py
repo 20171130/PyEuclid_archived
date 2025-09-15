@@ -199,7 +199,14 @@ class AlgebraicSystem:
         self.state.solutions['angle_linear'] = angle_linear_solved
         self.state.solutions['length_ratio'] = length_ratio_solved
         self.state.solutions['length_linear'] = length_linear_solved
-
+        solutions = angle_linear_solved.copy()
+        solutions.update(length_linear_solved)
+        solutions.update(length_ratio_solved)
+        for key, value in solutions.items():
+            eqn = key - value
+            if not eqn in self.state.condition2depth:
+                self.state.condition2depth[eqn] = self.state.reasoning_depth
+            
         # extract equivalence relations and store in union find
         dic = {}
         eqns = []
@@ -235,7 +242,11 @@ class AlgebraicSystem:
             else:
                 for l2, v2 in length_linear_solved.items():
                     if len((v2/v1).free_symbols) == 0:
-                        eqn = Traced(l1*(v2/v1)-l2, depth=self.state.current_depth, sources=["length_linear"])
+                        eqn = l1*(v2/v1)-l2
+                        eqn = self.process_equation(eqn)
+                        if eqn == 0:
+                            continue
+                        eqn = Traced(eqn, depth=self.state.current_depth, sources=["length_linear"])
                         self.state.add_conditions(eqn)
         
         self.state.current_depth += 1
@@ -261,8 +272,7 @@ class AlgebraicSystem:
                         symbol = list(expr.free_symbols)[0]
                         solutions = []
                         try:
-                            with ST(1):
-                                with TT(0.1):
+                            with ST(1), TT(0.1):
                                     solutions = sympy.solve(expr, symbol)
                         except:
                             continue
@@ -299,7 +309,7 @@ class AlgebraicSystem:
                 sources = [raw_eqn]
                 for symbol in symbols:
                     try:
-                        with TT(0.1):
+                        with ST(1), TT(0.1):
                             eqn = eqn.subs(symbol, solved[symbol])
                     except:
                         continue
@@ -310,7 +320,7 @@ class AlgebraicSystem:
                         symbol = list(expr.free_symbols)[0]
                         solutions = []
                         try:
-                            with TT(0.1):
+                            with ST(1), TT(0.1):
                                 solutions = sympy.solve(expr, symbol)
                         except:
                             continue

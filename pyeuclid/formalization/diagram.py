@@ -296,8 +296,6 @@ class Diagram:
                 
                 evaluated_expr = relation.subs(symbol2value)
                 self.numerical_cache[relation] = close_enough(float(evaluated_expr.evalf()), 0)
-                if not self.numerical_cache[relation]:
-                    breakpoint()
                 assert self.numerical_cache[relation]
             return self.numerical_cache[relation]
 
