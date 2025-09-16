@@ -1,4 +1,1 @@
 Solution:
-1. Similar3(J,K,L,W,Y,Z) => Angle_K_J_L - Angle_Y_W_Z
-2. Angle_Y_W_Z - 71*pi/180 & Angle_K_J_L - Angle_Y_W_Z => Angle_K_J_L - 71*pi/180
-3. Angle_K_J_L - pi*(Variable_x/45 - 13/180) & Angle_K_J_L - 71*pi/180 => Variable_x - 21

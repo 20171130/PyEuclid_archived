@@ -1,0 +1,4 @@
+{
+  "problem": "a,b,c = construct_triangle(), o = construct_midpoint(b,c), m = construct_on_circle(o,b), m = construct_on_line(a,b), n = construct_on_circle(o,b), n = construct_on_line(a,c), r = construct_angle_bisector(b,a,c), r = construct_angle_bisector(m,o,n), o1 = construct_circumcenter(b,m,r), o2 = construct_circumcenter(c,n,r), p = construct_on_circle(o1,r), p = construct_on_circle(o2,r)",
+  "goal": "Collinear(b,c,p)"
+}

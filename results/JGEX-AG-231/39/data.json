@@ -1,0 +1,4 @@
+{
+    "problem": "c,a = construct_segment(), b = construct_on_tline(c,c,a), d = construct_foot(c,a,b)",
+    "goal": "-Angle_b_c_d + Angle_c_a_d"
+}

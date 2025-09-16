@@ -1,0 +1,4 @@
+{
+    "problem": "c,a,b = construct_iso_triangle(), d = construct_on_line(a,c), e = construct_on_line(b,c), e = construct_eqdistance(b,d,a), f = construct_on_line(a,b), f = construct_on_line(d,e), g = construct_on_pline(f,a,c), g = construct_on_line(b,c)",
+    "goal": "Midpoint(f,d,e)"
+}

@@ -1,0 +1,4 @@
+{
+    "problem": "a,b = construct_segment(), c = construct_s_angle(b,a,30.0), d = construct_mirror(b,c), e = construct_foot(d,a,b)",
+    "goal": "-Length_a_c + Length_d_e"
+}

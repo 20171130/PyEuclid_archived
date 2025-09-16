@@ -1,0 +1,39 @@
+Auxiliary constructions:
+h = construct_on_circle(o, a), h = construct_on_circle(a, d), i = construct_on_circle(o, a), i = construct_on_circle(a, d)
+Solution:
+1. Length_a_d - Length_a_e & Length_a_d - Length_a_i => Length_a_e - Length_a_i
+2. Length_a_e - Length_a_i => Angle_a_e_i - Angle_a_i_e
+3. Length_a_o - Length_c_o & Length_a_o - Length_g_o & Length_a_o - Length_i_o => Concyclic(a,c,g,i)
+4. Concyclic(a,c,g,i) => Angle_a_c_g + Angle_a_i_g - pi
+5. Collinear(a,c,e) => Angle_a_c_g - Angle_e_c_g & Angle_a_e_i + Angle_c_e_i - pi & Angle_a_e_d + Angle_c_e_d - pi
+6. Angle_c_e_g - Angle_c_e_i + Angle_g_e_i & Angle_a_e_i - Angle_a_i_e & Angle_a_c_g + Angle_a_i_g - pi & Angle_c_e_g - Angle_e_c_g & Angle_a_c_g - Angle_e_c_g & Angle_a_e_i + Angle_c_e_i - pi & Angle_a_i_e - Angle_a_i_g + Angle_e_i_g => Angle_e_i_g - Angle_g_e_i
+7. -Angle_e_i_g + Angle_g_e_i => Length_e_g - Length_g_i
+8. Length_a_e - Length_a_i & -Length_e_g + Length_g_i => Kite(a,e,g,i)
+9. Kite(a,e,g,i) & Length_a_e - Length_a_i & -Length_e_g + Length_g_i => Angle_a_g_e - Angle_a_g_i
+10. Collinear(a,b,d) => Angle_a_d_h + Angle_b_d_h - pi & Angle_a_b_f - Angle_d_b_f & Angle_a_d_e + Angle_b_d_e - pi
+11. Length_a_o - Length_b_o & Length_a_o - Length_f_o & Length_a_o - Length_h_o => Concyclic(a,b,f,h)
+12. Concyclic(a,b,f,h) => Angle_a_b_f + Angle_a_h_f - pi
+13. Length_a_d - Length_a_h => Angle_a_d_h - Angle_a_h_d
+14. Angle_a_d_h + Angle_b_d_h - pi & Angle_a_b_f + Angle_a_h_f - pi & Angle_a_d_h - Angle_a_h_d & Angle_a_b_f - Angle_d_b_f & Angle_a_h_d - Angle_a_h_f + Angle_d_h_f & Angle_b_d_f - Angle_d_b_f & Angle_b_d_f - Angle_b_d_h + Angle_f_d_h => Angle_d_h_f - Angle_f_d_h
+15. -Angle_d_h_f + Angle_f_d_h => Length_d_f - Length_f_h
+16. Length_a_d - Length_a_h & -Length_d_f + Length_f_h => Kite(a,d,f,h)
+17. Kite(a,d,f,h) & Length_a_d - Length_a_h & -Length_d_f + Length_f_h => Angle_a_f_d - Angle_a_f_h
+18. Length_a_d - Length_a_e => Angle_a_d_e - Angle_a_e_d
+19. Angle_a_e_d + Angle_c_e_d - pi & Angle_a_d_e + Angle_b_d_e - pi & Angle_a_d_e - Angle_a_e_d => Angle_b_d_e - Angle_c_e_d
+20. Length_a_o - Length_c_o & Length_a_o - Length_f_o & Length_a_o - Length_g_o => Concyclic(a,c,f,g)
+21. Concyclic(a,c,f,g) => Angle_a_c_g - Angle_a_f_g
+22. Angle_a_c_g - Angle_a_f_g & Angle_c_e_g - Angle_e_c_g & Angle_a_c_g - Angle_e_c_g => Angle_a_f_g - Angle_c_e_g
+23. Length_a_o - Length_i_o & Length_a_o - Length_g_o => Length_g_o - Length_i_o
+24. -Length_a_o + Length_g_o & Length_g_o - Length_i_o => Angle_a_g_i - Angle_a_o_i/2
+25. Length_a_d - Length_a_i & Length_a_d - Length_a_h => Length_a_h - Length_a_i
+26. Length_a_o - Length_i_o & Length_a_o - Length_h_o => Length_h_o - Length_i_o
+27. Length_a_h - Length_a_i & -Length_h_o + Length_i_o => Kite(a,h,o,i)
+28. Kite(a,h,o,i) & Length_a_h - Length_a_i & -Length_h_o + Length_i_o => Angle_a_o_h - Angle_a_o_i
+29. Length_a_o - Length_h_o & Length_a_o - Length_f_o => Length_f_o - Length_h_o
+30. -Length_a_o + Length_f_o & Length_f_o - Length_h_o => Angle_a_f_h - Angle_a_o_h/2
+31. Angle_a_g_i - Angle_a_o_i/2 & Angle_a_o_h - Angle_a_o_i & Angle_a_f_h - Angle_a_o_h/2 => Angle_a_f_h - Angle_a_g_i
+32. Length_a_o - Length_b_o & Length_a_o - Length_f_o & Length_a_o - Length_g_o => Concyclic(a,b,f,g)
+33. Concyclic(a,b,f,g) => Angle_a_b_f - Angle_a_g_f
+34. Angle_a_b_f - Angle_a_g_f & Angle_a_b_f - Angle_d_b_f & Angle_b_d_f - Angle_d_b_f => Angle_a_g_f - Angle_b_d_f
+35. Angle_a_f_d - Angle_a_f_e + Angle_d_f_e & Angle_d_e_f - Angle_d_e_g + Angle_f_e_g & Angle_a_g_e - Angle_a_g_f + Angle_e_g_f & Angle_a_g_e - Angle_a_g_i & Angle_d_e_f + Angle_d_f_e + Angle_e_d_f - pi & Angle_a_f_d - Angle_a_f_h & Angle_b_d_e - Angle_c_e_d & Angle_b_d_e + Angle_b_d_f - Angle_e_d_f & Angle_a_f_g - Angle_c_e_g & Angle_c_e_d + Angle_c_e_g - Angle_d_e_g & Angle_a_f_h - Angle_a_g_i & Angle_a_f_e - Angle_a_f_g + Angle_e_f_g & Angle_e_f_g + Angle_e_g_f + Angle_f_e_g - pi & Angle_a_g_f - Angle_b_d_f => Angle_d_e_g + Angle_e_g_f - pi
+36. Angle_d_e_g + Angle_e_g_f - pi => Parallel(d,e,f,g)

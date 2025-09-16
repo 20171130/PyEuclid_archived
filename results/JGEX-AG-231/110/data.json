@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), o = construct_circumcenter(a,b,c), d = construct_on_circle(o,a), a1 = construct_on_tline(a,a,b), a1 = construct_on_line(c,d), c1 = construct_on_tline(c,c,d), c1 = construct_on_line(a,b)",
+    "goal": "Parallel(a1,c1,b,d)"
+}

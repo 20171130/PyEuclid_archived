@@ -1,0 +1,4 @@
+{
+    "problem": "a,b = construct_segment(), m = construct_midpoint(a,b), c = construct_on_circle(m,a), d = construct_angle_mirror(a,b,c), e = construct_midpoint(a,d), f = construct_on_line(b,d), f = construct_on_line(a,c)",
+    "goal": "Parallel(b,d,c,e)"
+}

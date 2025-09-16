@@ -16,6 +16,6 @@ Solution:
 15. Parallel(b,c,b,f) & Parallel(b,c,d,e) => Parallel(b,f,d,e)
 16. Parallel(b,e,d,f) & Parallel(b,f,d,e) => Parallelogram(b,e,d,f)
 17. Parallelogram(b,e,d,f) => Length_b_e - Length_d_f
-18. Length_c_g - Length_d_f & Length_b_e - Length_d_f => Length_b_e - Length_c_g
+18. Length_b_e - Length_d_f & Length_c_g - Length_d_f => Length_b_e - Length_c_g
 19. Parallel(b,e,c,g) & Length_b_e - Length_c_g => Parallelogram(b,e,c,g)
 20. Parallelogram(b,e,c,g) => Parallel(b,g,c,e)

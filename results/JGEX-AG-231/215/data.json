@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_midpoint(a,b), e = construct_midpoint(c,a), f = construct_on_line(d,e), f = construct_angle_bisector(c,b,a)",
+    "goal": "Perpendicular(a,f,b,f)"
+}

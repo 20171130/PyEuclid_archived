@@ -1,2 +1,5 @@
 Solution:
-1. Variable_y - 45 => Variable_y - 45
+1. Parallelogram(A,C,B,D) => Area_A_C_B_D - Length_A_D*Length_B_D*sin(Angle_A_D_B) & Angle_A_D_B + Angle_C_B_D - pi & Length_A_C - Length_B_D
+2. Angle_A_D_B + Angle_C_B_D - pi & Angle_C_B_D - pi/4 => Angle_A_D_B - 3*pi/4
+3. Length_A_C - Length_B_D & Length_A_C - 10 => Length_B_D - 10
+4. Area_A_C_B_D - Length_A_D*Length_B_D*sin(Angle_A_D_B) & Angle_A_D_B - 3*pi/4 & Length_A_D - 13 & Length_B_D - 10 => Area_A_C_B_D - 65*sqrt(2)

@@ -1,0 +1,4 @@
+{
+    "problem": "a,b = construct_segment(), c = construct_on_circle(a,b), d = construct_on_circle(a,b), e = construct_circumcenter(c,a,d), f = construct_on_line(b,c), f = construct_on_circle(e,a)",
+    "goal": "-Length_b_f + Length_d_f"
+}

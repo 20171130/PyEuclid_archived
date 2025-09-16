@@ -1,0 +1,10 @@
+Auxiliary constructions:
+k = construct_on_pline(e, a, b), k = construct_on_line(a, c)
+Solution:
+1. Collinear(a,c,d) & Collinear(a,c,k) => Collinear(a,d,k)
+2. Collinear(a,b,f) => Parallel(a,b,a,f)
+3. Parallel(a,b,a,f) & Parallel(a,b,e,k) => Parallel(a,f,e,k)
+4. Collinear(a,d,k) & Collinear(d,e,f) & Parallel(a,f,e,k) => Length_a_d/Length_d_f - Length_a_k/Length_e_f
+5. Collinear(a,c,k) & Collinear(b,c,e) & Parallel(a,b,e,k) => Length_a_c/Length_b_c - Length_a_k/Length_b_e
+6. Length_a_d/Length_d_f - Length_a_k/Length_e_f & Length_a_c - Length_b_c & Length_a_d - Length_b_e & Length_a_c/Length_b_c - Length_a_k/Length_b_e => Length_d_f - Length_e_f
+7. Length_d_f - Length_e_f & Collinear(d,e,f) => Midpoint(f,d,e)

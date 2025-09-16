@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_foot(c,a,b), e = construct_on_line(c,d), f = construct_on_line(b,e), f = construct_on_line(a,c), g = construct_on_line(a,e), g = construct_on_line(b,c)",
+    "goal": "Angle_c_d_f + Angle_c_d_g - pi"
+}

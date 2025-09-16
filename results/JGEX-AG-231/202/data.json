@@ -1,0 +1,4 @@
+{
+    "problem": "a,b = construct_segment(), c = construct_on_tline(a,a,b), d = construct_foot(a,b,c), e = construct_midpoint(d,a), f = construct_on_line(b,e), f = construct_on_line(a,c), g = construct_foot(f,b,c), h = construct_midpoint(c,a), i = construct_on_tline(f,a,c), i = construct_on_circle(h,a)",
+    "goal": "-Length_f_g + Length_f_i"
+}

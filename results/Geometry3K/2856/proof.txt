@@ -1,6 +1,5 @@
 Solution:
-1. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
-2. Collinear(B,C,D) => Angle_A_D_B - Angle_A_D_C & Angle_A_C_B - Angle_A_C_D
-3. Perpendicular(A,C,A,D) => Angle_C_A_D - pi/2
-4. Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_D_B - pi/4 & Angle_A_D_B - Angle_A_D_C & Angle_A_C_B - Angle_A_C_D & Angle_C_A_D - pi/2 => Angle_A_C_B - pi/4
-5. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_B_C - pi/2 & Length_A_B - Variable_y & Length_A_C - 5 & Angle_A_C_B - pi/4 => Variable_y - 5*sqrt(2)/2
+1. Collinear(A,C,D) [BetweenLength(A,D,C)] => Length_A_C - Length_A_D - Length_C_D
+2. Length_A_B - Variable_radius_A & Length_A_D - Variable_radius_A => Length_A_B - Length_A_D
+3. Length_A_C - Length_A_D - Length_C_D & Length_A_B - Variable_x & Length_C_D - 18 & Length_A_B - Length_A_D => Length_A_C - Variable_x - 18
+4. Length_A_B**2 - 2*Length_A_B*Length_B_C*cos(Angle_A_B_C) - Length_A_C**2 + Length_B_C**2 & Length_A_C - Variable_x - 18 & Length_A_B - Variable_x & Length_B_C - 30 & Angle_A_B_C - pi/2 => Variable_x - 16

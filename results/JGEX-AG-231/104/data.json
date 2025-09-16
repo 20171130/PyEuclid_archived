@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), m = construct_free(), n = construct_on_aline(a,c,b,a,m), q = construct_foot(m,a,b), p = construct_foot(m,a,c)",
+    "goal": "Perpendicular(a,n,p,q)"
+}

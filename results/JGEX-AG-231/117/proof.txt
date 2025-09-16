@@ -7,8 +7,8 @@ Solution:
 6. Perpendicular(c,e,d,e) => Angle_c_e_d - pi/2
 7. Angle_a_c_d - pi/2 & Angle_c_e_d - pi/2 => Angle_a_c_d - Angle_c_e_d
 8. Angle_a_c_d - Angle_c_e_d & Angle_a_d_c - Angle_c_d_e => Similar3(a,c,d,c,e,d)
-9. Similar3(a,c,d,c,e,d) => Length_a_d/Length_c_d - Length_c_d/Length_d_e
-10. Length_b_d - Length_c_d & Length_a_d/Length_c_d - Length_c_d/Length_d_e => Length_a_d/Length_b_d - Length_b_d/Length_d_e
+9. Similar3(a,c,d,c,e,d) => Length_d_e/Length_c_d - Length_c_d/Length_a_d
+10. Length_b_d - Length_c_d & Length_d_e/Length_c_d - Length_c_d/Length_a_d => Length_a_d/Length_b_d - Length_b_d/Length_d_e
 11. Length_a_d/Length_b_d - Length_b_d/Length_d_e & Angle_a_d_b - Angle_b_d_e => Similar3(a,b,d,b,e,d)
 12. Similar3(a,b,d,b,e,d) => Angle_a_b_d - Angle_b_e_d
 13. Angle_a_b_d - Angle_b_e_d & Angle_a_b_c - Angle_a_b_d => Angle_a_b_c - Angle_b_e_d

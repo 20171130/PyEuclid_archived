@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_on_circle(a,b), d = construct_on_circle(c,b), e = construct_on_line(d,a), e = construct_on_circle(a,d), f = construct_on_line(d,c), f = construct_on_circle(c,d)",
+    "goal": "Collinear(b,e,f)"
+}

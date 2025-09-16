@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_midpoint(c,b), e = construct_midpoint(a,c), f = construct_midpoint(b,a), g = construct_foot(a,b,c)",
+    "goal": "Angle_e_d_f - Angle_e_g_f"
+}

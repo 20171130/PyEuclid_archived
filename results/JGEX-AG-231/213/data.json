@@ -1,0 +1,4 @@
+{
+    "problem": "a,b = construct_segment(), c = construct_on_bline(a,b), e = construct_midpoint(a,c), f = construct_mirror(b,e), d = construct_on_circle(a,c), d = construct_on_line(a,c)",
+    "goal": "-Length_b_d + Length_b_f"
+}

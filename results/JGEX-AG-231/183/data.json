@@ -1,0 +1,4 @@
+{
+    "problem": "c,d = construct_segment(), e = construct_midpoint(c,d), b = construct_free(), f = construct_midpoint(b,c), a = construct_eqdistance(d,c,b), a = construct_on_pline(b,d,c), g = construct_midpoint(a,b), h = construct_midpoint(d,a)",
+    "goal": "-Length_e_f + Length_e_h"
+}

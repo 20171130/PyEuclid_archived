@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), h = construct_orthocenter(a,b,c), o = construct_circumcenter(a,b,c), c1 = construct_on_circle(o,c), c1 = construct_on_line(c,h), a1 = construct_on_circle(o,a), a1 = construct_on_line(a,h)",
+    "goal": "Length_a1_b - Length_b_c1"
+}

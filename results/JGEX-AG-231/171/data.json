@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_circumcenter(b,a,c), e = construct_lc_tangent(a,d), e = construct_on_line(b,c), f = construct_angle_bisector(b,e,a), f = construct_on_line(a,b), g = construct_on_line(a,c), g = construct_on_line(e,f), h = construct_angle_bisector(b,a,c), h = construct_on_line(b,c)",
+    "goal": "Perpendicular(a,h,e,f)"
+}

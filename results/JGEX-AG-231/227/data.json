@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_circumcenter(a,b,c), e = construct_on_line(b,c), f,g,h,i = construct_2l1c(a,b,e,d), j,k,l,m = construct_2l1c(a,c,e,d), n = construct_incenter(a,b,c)",
+    "goal": "Collinear(i,m,n)"
+}

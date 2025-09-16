@@ -1,3 +1,4 @@
 Solution:
-1. Length_X_Y - 6 & Length_X_Y - Variable_radius_X => Variable_radius_X - 6
-2. Angle_Y_X_Z - 5*pi/12 & Variable_radius_X - 6 => Angle_Y_X_Z*Variable_radius_X - 5*pi/2
+1. Rhombus(A,B,C,D) => Perpendicular(A,C,B,D)
+2. Perpendicular(A,C,B,D) [RhombusArea(A,B,C,D)] => Area_A_B_C_D - Length_A_C*Length_B_D/2
+3. Length_B_D - 12 & Length_A_C - 22 & Area_A_B_C_D - Length_A_C*Length_B_D/2 => Area_A_B_C_D - 132

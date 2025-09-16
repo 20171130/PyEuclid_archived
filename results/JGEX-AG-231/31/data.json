@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_foot(c,a,b), e = construct_on_tline(a,b,c), e = construct_on_line(c,d), f = construct_midpoint(a,e), g = construct_midpoint(c,b)",
+    "goal": "Perpendicular(d,f,d,g)"
+}

@@ -1,3 +1,8 @@
 Solution:
-1. Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Perpendicular(A,C,B,H) & Collinear(A,C,H) => Area_A_C_B_D - Length_B_H*(Length_A_C + Length_B_D)/2
-2. Area_A_C_B_D - Length_B_H*(Length_A_C + Length_B_D)/2 & Length_B_H - 10 & Length_A_C - 11 & Length_B_D - 8 => Area_A_C_B_D - 95
+1. Length_C_D - Variable_radius_D & Length_B_D - Variable_radius_D => Length_B_D - Length_C_D
+2. Length_D_J - Variable_radius_D & Length_B_D - Variable_radius_D => Length_B_D - Length_D_J
+3. Length_B_D - Length_C_D & Length_B_D - Length_D_J [InscribedAngle1(D,B,C,J)] => Angle_C_B_J - Angle_C_D_J/2
+4. Collinear(A,C,D) [FlatAngle2(A,D,C,J)] => Angle_A_D_J + Angle_C_D_J - pi
+5. Length_B_D - Variable_radius_D & Length_A_D - Variable_radius_D => Length_A_D - Length_B_D
+6. -Length_A_D + Length_B_D & Length_B_D - Length_D_J [InscribedAngle2(D,B,A,J)] => Angle_A_B_J + Angle_A_D_J/2 - pi
+7. Angle_C_B_J - Angle_C_D_J/2 & Angle_A_B_C - Angle_A_B_J + Angle_C_B_J & Angle_A_D_J + Angle_C_D_J - pi & Angle_A_B_J + Angle_A_D_J/2 - pi => Angle_A_B_C - pi/2

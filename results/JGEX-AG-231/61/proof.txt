@@ -1,4 +1,4 @@
 Solution:
-1. Collinear(a,d,e) & Collinear(b,c,f) & Parallel(a,b,e,f) & Parallel(a,b,c,d) => Length_a_e/Length_d_e - Length_b_f/Length_c_f
-2. Length_a_e - Length_d_e & Length_a_e/Length_d_e - Length_b_f/Length_c_f => Length_b_f - Length_c_f
+1. Parallel(a,b,c,d) & Parallel(a,b,e,f) & Collinear(a,d,e) & Collinear(b,c,f) => Length_a_e/Length_b_f - Length_d_e/Length_c_f
+2. Length_a_e - Length_d_e & Length_a_e/Length_b_f - Length_d_e/Length_c_f => Length_b_f - Length_c_f
 3. Length_b_f - Length_c_f & Collinear(b,c,f) => Midpoint(f,b,c)

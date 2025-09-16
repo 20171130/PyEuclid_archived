@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_intersection_pp(a,b,c,c,a,b), e = construct_intersection_ll(a,c,b,d)",
+    "goal": "Length_a_e - Length_c_e"
+}

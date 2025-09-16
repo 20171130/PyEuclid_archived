@@ -1,4 +1,14 @@
 Solution:
-1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. Variable_c - 5 & Length_A_B - Variable_c => Length_A_B - 5
-3. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_B_C - pi/3 & Length_A_C - Variable_b & Angle_A_C_B - pi/2 & Length_A_B - 5 => Variable_b - 5*sqrt(3)/2
+1. Collinear(E,K,U) [FlatAngle2(K,E,U,H)] => Angle_H_E_K + Angle_H_E_U - pi
+2. Collinear(B,E,N) [CollinearParallel(B,E,N)] => Parallel(B,E,B,N)
+3. Parallel(B,E,B,N) & Parallel(B,N,I,L) [ParaTrans(B,N,B,E,I,L)] => Parallel(B,E,I,L)
+4. Collinear(D,I,U) [CollinearParallel(D,I,U)] => Parallel(D,I,D,U)
+5. Collinear(D,I,L) [CollinearParallel(D,I,L)] => Parallel(D,I,I,L)
+6. Parallel(D,I,D,U) & Parallel(D,I,I,L) [ParaTrans(D,I,D,U,I,L)] => Parallel(D,U,I,L)
+7. Parallel(B,E,I,L) & Parallel(D,U,I,L) [ParaTrans(I,L,B,E,D,U)] => Parallel(B,E,D,U)
+8. Collinear(B,E,H) [CollinearParallel(B,E,H)] => Parallel(B,E,E,H)
+9. Parallel(B,E,D,U) & Parallel(B,E,E,H) [ParaTrans(B,E,D,U,E,H)] => Parallel(D,U,E,H)
+10. Parallel(D,U,E,H) [Para2Angle(E,H,U,D)] => Angle_D_U_E + Angle_H_E_U - pi
+11. Collinear(E,H,N) & Collinear(A,E,K) [DiagramAngle4(E,A,N,K,H)] => Angle_A_E_N - Angle_H_E_K
+12. Angle_H_E_K + Angle_H_E_U - pi & Angle_D_U_E + Angle_H_E_U - pi & Angle_A_E_N - Variable_angle_12 & Angle_A_E_N - Angle_H_E_K & Variable_angle_12 - 16*pi/45 => Angle_D_U_E - 16*pi/45
+13. Angle_D_U_E - Variable_angle_7 & Angle_D_U_E - 16*pi/45 => Variable_angle_7 - 16*pi/45

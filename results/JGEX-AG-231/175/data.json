@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), i = construct_incenter(a,b,c), e = construct_on_pline(i,a,b), e = construct_on_line(a,c)",
+    "goal": "-Length_a_e + Length_e_i"
+}

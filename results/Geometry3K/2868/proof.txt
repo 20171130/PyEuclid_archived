@@ -1,3 +1,5 @@
 Solution:
-1. Collinear(B,C,G) & Collinear(A,B,D) => Angle_A_B_G - Angle_C_B_D
-2. Angle_C_B_D - 11*pi/36 & Angle_A_B_G - Angle_C_B_D => Angle_A_B_G - 11*pi/36
+1. Length_C_E - 5 & Length_A_D - 4 => Length_A_D - 4*Length_C_E/5
+2. Collinear(A,B,D) & Collinear(B,C,E) & Parallel(A,E,C,D) [AlphaGeometry8(A,E,D,C,B)] => Length_A_B/Length_B_E - Length_A_D/Length_C_E
+3. Length_A_D - 4*Length_C_E/5 & Length_A_B/Length_B_E - Length_A_D/Length_C_E => Length_A_B/Length_B_E - 4/5
+4. Length_A_B/Length_B_E - 4/5 & Length_A_B - Variable_x & Length_B_E - 12 => Variable_x - 48/5

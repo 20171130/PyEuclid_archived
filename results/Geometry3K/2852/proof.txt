@@ -1,2 +1,6 @@
 Solution:
-1. Variable_x - 93 => Variable_x - 93
+1. Length_B_C - Length_C_D & Collinear(B,C,D) [DefinitionOfMidpoint(C,B,D)] => Midpoint(C,B,D)
+2. Collinear(B,C,D) [CollinearParallel(B,C,D)] => Parallel(B,D,C,D)
+3. Perpendicular(A,C,C,D) & Parallel(B,D,C,D) [AlphaGeometry1b(C,D,A,C,B,D)] => Perpendicular(A,C,B,D)
+4. Midpoint(C,B,D) & Perpendicular(A,C,B,D) [AlphaGeometry23(C,A,B,D)] => Length_A_B - Length_A_D
+5. Length_A_D - 41/10 & Length_A_B - Length_A_D => Length_A_B - 41/10

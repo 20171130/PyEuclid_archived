@@ -1,0 +1,4 @@
+{
+    "problem": "a,b = construct_segment(), c = construct_mirror(a,b), d = construct_mirror(b,c), e = construct_midpoint(c,b), f = construct_on_circle(e,c), f = construct_on_dia(a,e), g = construct_on_line(a,f)",
+    "goal": "Angle_a_f_b - Angle_c_f_e"
+}

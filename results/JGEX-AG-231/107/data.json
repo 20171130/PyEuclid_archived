@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), i = construct_incenter(a,b,c), y = construct_foot(i,a,c), l = construct_foot(i,b,c), x = construct_foot(b,a,i)",
+    "goal": "Collinear(l,x,y)"
+}

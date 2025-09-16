@@ -1,0 +1,4 @@
+{
+    "problem": "a,o = construct_segment(), b = construct_on_circle(o,a), c = construct_on_line(a,b), e = construct_intersection_tt(b,b,o,c,c,o), d = construct_intersection_lt(c,e,a,a,o)",
+    "goal": "-Length_d_o + Length_e_o"
+}

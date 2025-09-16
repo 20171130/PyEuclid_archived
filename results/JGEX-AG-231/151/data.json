@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), e = construct_midpoint(b,a), d = construct_circumcenter(a,b,c), f = construct_on_line(d,e), g = construct_on_line(b,c), g = construct_on_circle(f,a)",
+    "goal": "Similar3(a,c,g,a,d,f)"
+}

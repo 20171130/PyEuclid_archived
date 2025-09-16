@@ -1,7 +1,12 @@
 Solution:
-1. Length_A_B - 6 & Length_B_C - 15/2 => Length_A_B - 4*Length_B_C/5 & Length_A_B/Length_B_C - 4/5
-2. Collinear(A,C,F) & Angle_A_B_F - Angle_C_B_F => Length_A_B/Length_B_C - Length_A_F/Length_C_F
-3. Length_A_B - 4*Length_B_C/5 & Length_A_B/Length_B_C - 4/5 & Length_A_B/Length_B_C - Length_A_F/Length_C_F => Length_A_F - 4*Length_C_F/5
-4. Collinear(A,C,F) => Length_A_C - Length_A_F - Length_C_F
-5. Length_A_C - 9 & Length_A_C - Length_A_F - Length_C_F => Length_A_F + Length_C_F - 9
-6. Length_A_F - 4*Length_C_F/5 & Length_A_F + Length_C_F - 9 => Length_C_F - 5
+1. Collinear(I,J,Y) & Collinear(H,J,X) [DiagramAngle4a(J,H,I,X,Y)] => Angle_H_J_I - Angle_X_J_Y
+2. Length_H_J/Length_J_Y - Length_I_J/Length_J_X & Angle_H_J_I - Angle_X_J_Y [AlphaGeometry40(H,J,I,Y,J,X)] => Similar3(H,I,J,Y,X,J)
+3. Similar3(H,I,J,Y,X,J) [PropertyOfSimilar3(H,I,J,Y,X,J)] => Angle_H_I_J - Angle_J_X_Y
+4. Collinear(W,X,Z) [FlatAngle2(W,X,Z,J)] => Angle_J_X_W + Angle_J_X_Z - pi
+5. Collinear(X,Y,Z) [DiagramAngle4b(Z,X,I,Y)] => Angle_I_Z_X - Angle_I_Z_Y & Angle_J_X_Y - Angle_J_X_Z
+6. Collinear(I,J,Y) [DiagramAngle4b(J,I,X,Y)] => Angle_I_J_X - Angle_X_J_Y
+7. Collinear(H,I,Z) [FlatAngle2(H,I,Z,J)] => Angle_H_I_J + Angle_J_I_Z - pi
+8. Angle_J_X_W + Angle_J_X_Z - pi & Angle_J_X_Z + Angle_J_Z_X + Angle_X_J_Z - pi & Angle_I_J_Z + Angle_I_Z_J + Angle_J_I_Z - pi & Angle_I_J_X + Angle_I_J_Z - Angle_X_J_Z & Angle_I_Z_J + Angle_I_Z_X - Angle_J_Z_X & Angle_I_Z_X - Angle_I_Z_Y & Angle_I_Z_Y - pi/9 & Angle_J_X_W - 13*pi/18 & Angle_I_J_X - Angle_X_J_Y & Angle_H_I_J + Angle_J_I_Z - pi => Angle_H_I_J + Angle_X_J_Y - 11*pi/18
+9. Angle_J_X_W + Angle_J_X_Z - pi & Angle_J_X_Y - Angle_J_X_Z & Angle_J_X_W - 13*pi/18 => Angle_J_X_Y - 5*pi/18
+10. Angle_H_I_J - Angle_J_X_Y & Angle_H_I_J + Angle_X_J_Y - 11*pi/18 & Angle_J_X_Y - 5*pi/18 => Angle_X_J_Y - pi/3
+11. Angle_X_J_Y - Variable_angle_J & Angle_X_J_Y - pi/3 => Variable_angle_J - pi/3

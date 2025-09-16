@@ -1,0 +1,4 @@
+{
+  "problem": "m,l,k = construct_triangle(), w = construct_circumcenter(m,l,k), q = construct_on_tline(m,w,m), p = construct_mirror(q,m), b = construct_mirror(p,k), c = construct_mirror(q,l), a = construct_on_line(b,q), a = construct_on_line(c,p), o = construct_circumcenter(a,b,c)",
+  "goal": "Length_o_p - Length_o_q"
+}

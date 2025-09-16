@@ -1,0 +1,4 @@
+{
+    "problem": "o,x,l = construct_triangle(), a = construct_foot(l,o,x), y = construct_free(), b = construct_foot(l,o,y), p = construct_mirror(l,a), q = construct_mirror(l,b), q1 = construct_on_line(l,a), q1 = construct_on_line(o,y), p1 = construct_on_line(o,x), p1 = construct_on_line(l,b)",
+    "goal": "Concyclic(o,p,p1,q)"
+}

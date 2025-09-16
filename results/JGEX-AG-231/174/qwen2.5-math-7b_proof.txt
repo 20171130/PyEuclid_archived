@@ -1,0 +1,25 @@
+Auxiliary constructions:
+h = construct_on_bline(b, a), h = construct_on_bline(c, a), i = construct_foot(c, b, a)
+Solution:
+1. Collinear(a,b,i) => Parallel(a,b,b,i) & Angle_a_b_c - Angle_c_b_i & Parallel(a,b,a,i) & Angle_b_a_c + Angle_c_a_i - pi
+2. Perpendicular(a,b,c,i) & Parallel(a,b,b,i) => Perpendicular(b,i,c,i)
+3. Perpendicular(b,i,c,i) => Angle_b_i_c - pi/2
+4. Perpendicular(b,d,c,d) => Angle_b_d_c - pi/2
+5. Angle_b_i_c - pi/2 & Angle_b_d_c - pi/2 => Angle_b_d_c - Angle_b_i_c
+6. Angle_b_d_c - Angle_b_i_c => Concyclic(b,c,d,i)
+7. Concyclic(b,c,d,i) => Angle_c_b_d - Angle_c_i_d
+8. Angle_a_b_c - Angle_c_b_i & Angle_a_b_c - 2*Angle_c_b_d & Angle_b_c_d - Angle_b_c_i - Angle_d_c_i & Angle_b_i_c - pi/2 & Angle_b_c_i + Angle_b_i_c + Angle_c_b_i - pi & Angle_b_d_c - pi/2 & Angle_b_c_d + Angle_b_d_c + Angle_c_b_d - pi => Angle_c_b_d - Angle_d_c_i
+9. Angle_c_b_d - Angle_c_i_d & Angle_c_b_d - Angle_d_c_i => Angle_c_i_d - Angle_d_c_i
+10. -Angle_c_i_d + Angle_d_c_i => Length_c_d - Length_d_i
+11. Perpendicular(a,b,c,i) & Parallel(a,b,a,i) => Perpendicular(a,i,c,i)
+12. Perpendicular(a,i,c,i) => Angle_a_i_c - pi/2
+13. Perpendicular(a,e,c,e) => Angle_a_e_c - pi/2
+14. Angle_a_i_c - pi/2 & Angle_a_e_c - pi/2 => Angle_a_e_c + Angle_a_i_c - pi
+15. Angle_a_e_c + Angle_a_i_c - pi => Concyclic(a,c,e,i)
+16. Concyclic(a,c,e,i) => Angle_c_a_e - Angle_c_i_e
+17. Angle_b_a_c - 2*Angle_c_a_e & Angle_a_i_c - pi/2 & Angle_a_e_c - pi/2 & Angle_a_c_e + Angle_a_c_i - Angle_e_c_i & Angle_b_a_c + Angle_c_a_i - pi & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_a_c_i + Angle_a_i_c + Angle_c_a_i - pi => Angle_c_a_e - Angle_e_c_i
+18. Angle_c_a_e - Angle_c_i_e & Angle_c_a_e - Angle_e_c_i => Angle_c_i_e - Angle_e_c_i
+19. -Angle_c_i_e + Angle_e_c_i => Length_c_e - Length_e_i
+20. Length_c_d - Length_d_i & -Length_c_e + Length_e_i => Kite(c,d,i,e)
+21. Kite(c,d,i,e) & Length_c_d - Length_d_i & -Length_c_e + Length_e_i => Perpendicular(c,i,d,e)
+22. Perpendicular(a,b,c,i) & Perpendicular(c,i,d,e) => Parallel(a,b,d,e)

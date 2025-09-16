@@ -1,0 +1,4 @@
+{
+    "problem": "c,a,b = construct_iso_triangle(), d,e,f = construct_3peq(c,a,b)",
+    "goal": "Length_a_d - Length_b_e"
+}

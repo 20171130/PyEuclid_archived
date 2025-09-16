@@ -1,16 +1,11 @@
 Solution:
-1. Collinear(A,C,X) => Parallel(A,X,C,X) & Angle_A_C_B - Angle_B_C_X
-2. Perpendicular(A,X,B,X) & Parallel(A,X,C,X) => Perpendicular(B,X,C,X)
-3. Perpendicular(B,X,C,X) => Angle_B_X_C - pi/2
-4. Perpendicular(A,B,B,C) => Angle_A_B_C - pi/2
-5. Angle_B_X_C - pi/2 & Angle_A_B_C - pi/2 & Angle_A_B_C - Angle_A_B_X - Angle_C_B_X & Angle_B_C_X + Angle_B_X_C + Angle_C_B_X - pi => Angle_A_B_X - Angle_B_C_X
-6. Perpendicular(A,X,B,X) => Angle_A_X_B - pi/2
-7. Angle_B_X_C - pi/2 & Angle_A_X_B - pi/2 => Angle_A_X_B - Angle_B_X_C
-8. Angle_A_B_X - Angle_B_C_X & Angle_A_X_B - Angle_B_X_C => Similar3(A,B,X,B,C,X)
-9. Similar3(A,B,X,B,C,X) => Length_A_X/Length_B_X - Length_B_X/Length_C_X
-10. Angle_A_B_C - pi/2 & Angle_A_X_B - pi/2 => Angle_A_B_C - Angle_A_X_B
-11. Angle_B_X_C - pi/2 & Angle_A_C_B - Angle_B_C_X & Angle_A_B_C - pi/2 & Angle_A_B_C - Angle_A_B_X - Angle_C_B_X & Angle_B_C_X + Angle_B_X_C + Angle_C_B_X - pi => Angle_A_B_X - Angle_A_C_B
-12. Angle_A_B_C - Angle_A_X_B & -Angle_A_B_X + Angle_A_C_B => Similar3(A,B,C,A,X,B)
-13. Similar3(A,B,C,A,X,B) => Length_A_B/Length_A_X - Length_A_C/Length_A_B
-14. Length_C_X - Variable_x & Length_A_C - 7*Variable_x => Length_A_C - 7*Length_C_X
-15. Length_A_X/Length_B_X - Length_B_X/Length_C_X & Length_A_B/Length_A_X - Length_A_C/Length_A_B & Length_B_X - 36 & Length_A_C - 7*Length_C_X & Length_A_B - Variable_z => Variable_z - 36*sqrt(7)
+1. Length_A_E - Length_B_E & Length_A_E - 12 => Length_B_E - 12
+2. Length_A_E - Length_B_E & Collinear(A,B,E) [DefinitionOfMidpoint(E,A,B)] => Midpoint(E,A,B)
+3. Midpoint(E,A,B) [PropertyOfMidpoint(E,A,B)] => Length_A_B - 2*Length_B_E
+4. Length_B_E - 12 & Length_A_B - 2*Length_B_E => Length_A_B - 24
+5. Rhombus(A,C,B,D) => Perpendicular(A,B,C,D)
+6. Perpendicular(A,B,C,D) [RhombusArea(A,C,B,D)] => Area_A_C_B_D - Length_A_B*Length_C_D/2
+7. Length_C_E - Length_D_E & Collinear(C,D,E) [DefinitionOfMidpoint(E,C,D)] => Midpoint(E,C,D)
+8. Midpoint(E,C,D) [PropertyOfMidpoint(E,C,D)] => Length_C_D - 2*Length_D_E
+9. Length_C_D - 2*Length_D_E & Length_D_E - 11 => Length_C_D - 22
+10. Length_A_B - 24 & Area_A_C_B_D - Length_A_B*Length_C_D/2 & Length_C_D - 22 => Area_A_C_B_D - 264

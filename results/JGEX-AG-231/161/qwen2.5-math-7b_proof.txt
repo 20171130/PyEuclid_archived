@@ -1,0 +1,27 @@
+Auxiliary constructions:
+k = construct_reflect(d, b, a)
+Solution:
+1. Collinear(a,b,f) => Parallel(a,b,b,f) & Parallel(a,b,a,f)
+2. Collinear(a,c,d) => Angle_b_a_c - Angle_b_a_d
+3. Collinear(b,c,e) => Angle_a_b_c + Angle_a_b_e - pi
+4. Length_a_d - Length_a_k => IsoscelesTriangle(a,d,k)
+5. IsoscelesTriangle(a,d,k) & Length_a_d - Length_a_k & Perpendicular(a,b,d,k) => Angle_b_a_d - Angle_b_a_k
+6. Angle_b_a_c - Angle_b_a_d & Angle_a_e_k + Angle_a_k_e + Angle_e_a_k - pi & Angle_a_b_c + Angle_a_b_e - pi & Angle_b_a_e - Angle_b_a_k + Angle_e_a_k & Angle_a_b_e + Angle_a_e_b + Angle_b_a_e - pi & Angle_b_a_d - Angle_b_a_k & Angle_a_b_c - Angle_b_a_c & Angle_a_e_b + Angle_a_e_k - Angle_b_e_k => Angle_a_k_e + Angle_b_e_k - pi
+7. Angle_a_k_e + Angle_b_e_k - pi => Parallel(a,k,b,e)
+8. Length_a_d - Length_b_e & Length_a_d - Length_a_k => Length_a_k - Length_b_e
+9. Parallel(a,k,b,e) & Length_a_k - Length_b_e => Parallelogram(a,b,e,k)
+10. Parallelogram(a,b,e,k) => Parallel(a,b,e,k)
+11. Parallel(a,b,b,f) & Parallel(a,b,e,k) => Parallel(b,f,e,k)
+12. Parallel(b,f,e,k) => Angle_b_f_k + Angle_e_k_f - pi
+13. Parallel(a,b,a,f) & Parallel(a,b,e,k) => Parallel(a,f,e,k)
+14. Parallel(a,f,e,k) => Angle_a_f_e + Angle_f_e_k - pi
+15. Collinear(d,e,f) & Collinear(a,b,f) => Angle_a_f_e - Angle_b_f_d
+16. Perpendicular(a,b,d,k) & Parallel(a,b,a,f) => Perpendicular(a,f,d,k)
+17. IsoscelesTriangle(a,d,k) & Length_a_d - Length_a_k & Perpendicular(a,f,d,k) => Length_d_f - Length_f_k
+18. Length_d_f - Length_f_k => IsoscelesTriangle(d,f,k)
+19. Perpendicular(a,b,d,k) & Parallel(a,b,b,f) => Perpendicular(b,f,d,k)
+20. IsoscelesTriangle(d,f,k) & Length_d_f - Length_f_k & Perpendicular(b,f,d,k) => Angle_b_f_d - Angle_b_f_k
+21. Angle_b_f_k + Angle_e_k_f - pi & Angle_a_f_e + Angle_f_e_k - pi & Angle_a_f_e - Angle_b_f_d & Angle_b_f_d - Angle_b_f_k => Angle_e_k_f - Angle_f_e_k
+22. -Angle_e_k_f + Angle_f_e_k => Length_e_f - Length_f_k
+23. Length_e_f - Length_f_k & Length_d_f - Length_f_k => Length_d_f - Length_e_f
+24. Length_d_f - Length_e_f & Collinear(d,e,f) => Midpoint(f,d,e)

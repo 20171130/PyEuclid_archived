@@ -1,0 +1,30 @@
+Auxiliary constructions:
+j = construct_midpoint(a, c)
+Solution:
+1. Collinear(b,c,e) => Angle_a_b_c - Angle_a_b_e & Parallel(b,c,b,e)
+2. Midpoint(j,a,c) & Midpoint(h,b,c) => Similar3(a,b,c,j,h,c) & Parallel(a,b,h,j)
+3. Similar3(a,b,c,j,h,c) => Angle_a_b_c - Angle_c_h_j
+4. Angle_a_b_c - Angle_a_b_e & Angle_a_b_c - Angle_c_h_j => Angle_a_b_e - Angle_c_h_j
+5. Perpendicular(a,e,b,c) & Parallel(b,c,b,e) => Perpendicular(a,e,b,e)
+6. Perpendicular(a,e,b,e) => Angle_a_e_b - pi/2
+7. Collinear(a,d,f) => Parallel(a,d,a,f)
+8. Perpendicular(a,d,b,f) & Parallel(a,d,a,f) => Perpendicular(a,f,b,f)
+9. Perpendicular(a,f,b,f) => Angle_a_f_b - pi/2
+10. Angle_a_e_b - pi/2 & Angle_a_f_b - pi/2 => Angle_a_e_b - Angle_a_f_b
+11. Angle_a_e_b - Angle_a_f_b => Concyclic(a,b,e,f)
+12. Concyclic(a,b,e,f) => Angle_a_b_e - Angle_a_f_e
+13. Collinear(a,d,f) & Collinear(a,d,g) => Collinear(a,f,g)
+14. Collinear(a,f,g) => Angle_a_f_e - Angle_e_f_g
+15. Collinear(a,d,g) & Collinear(a,c,j) => Angle_c_a_d - Angle_g_a_j
+16. Collinear(a,d,g) => Angle_b_a_d - Angle_b_a_g & Parallel(a,d,a,g)
+17. Angle_b_a_d - Angle_c_a_d & Angle_c_a_d - Angle_g_a_j & Angle_b_a_d - Angle_b_a_g => Angle_b_a_g - Angle_g_a_j
+18. Perpendicular(a,d,c,g) & Parallel(a,d,a,g) => Perpendicular(a,g,c,g)
+19. Midpoint(j,a,c) & Perpendicular(a,g,c,g) => Length_a_j - Length_g_j
+20. Length_a_j - Length_g_j => Angle_a_g_j - Angle_g_a_j
+21. Parallel(a,b,h,j) => Angle_a_j_h + Angle_b_a_j - pi
+22. Angle_b_a_g - Angle_g_a_j & Angle_a_g_j + Angle_a_j_g + Angle_g_a_j - pi & Angle_a_g_j - Angle_g_a_j & Angle_a_j_h + Angle_b_a_j - pi & Angle_b_a_g - Angle_b_a_j + Angle_g_a_j => Angle_a_j_g - Angle_a_j_h
+23. Angle_a_j_g - Angle_a_j_h => Collinear(g,h,j)
+24. Collinear(b,c,e) & Collinear(b,c,h) => Collinear(c,e,h)
+25. Collinear(g,h,j) & Collinear(c,e,h) => Angle_c_h_j - Angle_e_h_g
+26. Angle_a_b_e - Angle_c_h_j & Angle_a_b_e - Angle_a_f_e & Angle_a_f_e - Angle_e_f_g & Angle_c_h_j - Angle_e_h_g => Angle_e_f_g - Angle_e_h_g
+27. Angle_e_f_g - Angle_e_h_g => Concyclic(e,f,g,h)

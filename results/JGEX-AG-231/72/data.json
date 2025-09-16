@@ -1,0 +1,4 @@
+{
+    "problem": "a,b = construct_segment(), c = construct_on_circle(a,b), d = construct_on_circle(a,b), d = construct_on_circle(c,b), e = construct_mirror(d,c), f = construct_on_circle(a,b), f = construct_on_line(b,e)",
+    "goal": "Collinear(a,d,f)"
+}

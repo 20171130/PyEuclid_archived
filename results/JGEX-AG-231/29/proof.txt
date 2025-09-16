@@ -1,10 +1,10 @@
 Solution:
-1. Collinear(a,b,d) => Parallel(a,b,b,d)
-2. Perpendicular(a,b,c,d) & Parallel(a,b,b,d) => Perpendicular(b,d,c,d)
-3. Midpoint(f,b,c) & Perpendicular(b,d,c,d) => Length_b_f - Length_d_f
-4. Collinear(a,c,e) => Parallel(a,c,c,e)
-5. Perpendicular(a,c,b,e) & Parallel(a,c,c,e) => Perpendicular(b,e,c,e)
-6. Midpoint(f,b,c) & Perpendicular(b,e,c,e) => Length_b_f - Length_e_f
-7. Length_b_f - Length_d_f & Length_b_f - Length_e_f => Length_d_f - Length_e_f
+1. Collinear(a,c,e) => Parallel(a,c,c,e)
+2. Perpendicular(a,c,b,e) & Parallel(a,c,c,e) => Perpendicular(b,e,c,e)
+3. Midpoint(f,b,c) & Perpendicular(b,e,c,e) => Length_c_f - Length_e_f
+4. Collinear(a,b,d) => Parallel(a,b,b,d)
+5. Perpendicular(a,b,c,d) & Parallel(a,b,b,d) => Perpendicular(b,d,c,d)
+6. Midpoint(f,b,c) & Perpendicular(b,d,c,d) => Length_c_f - Length_d_f
+7. Length_c_f - Length_e_f & Length_c_f - Length_d_f => Length_d_f - Length_e_f
 8. Length_d_f - Length_e_f => IsoscelesTriangle(d,e,f)
 9. IsoscelesTriangle(d,e,f) & Length_d_f - Length_e_f & Collinear(d,e,g) & Midpoint(g,d,e) => Perpendicular(d,e,f,g)

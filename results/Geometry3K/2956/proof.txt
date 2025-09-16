@@ -1,4 +1,12 @@
 Solution:
-1. Collinear(B,C,D) => Angle_A_B_C + Angle_A_B_D - pi
-2. Variable_angle_8 - 47*pi/180 & Angle_C_B_E - Variable_angle_6 & Angle_A_B_C + Angle_A_B_D - pi & Angle_A_B_D - Variable_angle_8 & Angle_A_B_C - Angle_A_B_E - Angle_C_B_E & Variable_angle_6 - pi/4 & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi => Angle_A_E_B + Angle_B_A_E - 23*pi/45
-3. Angle_A_E_B + Angle_B_A_E - 23*pi/45 & Angle_A_B_E - Variable_angle_7 & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi => Variable_angle_7 - 22*pi/45
+1. Collinear(A,C,E) & Collinear(B,D,E) & Parallel(A,B,C,D) [AlphaGeometry8(A,B,C,D,E)] => Length_A_C/Length_B_D - Length_A_E/Length_B_E & Similar3(A,B,E,C,D,E)
+2. Length_A_C/Length_B_D - Length_A_E/Length_B_E => Length_A_C/Length_A_E - Length_B_D/Length_B_E
+3. Length_A_E - 5 & Length_A_C/Length_A_E - Length_B_D/Length_B_E => Length_A_C - 5*Length_B_D/Length_B_E
+4. Collinear(A,C,E) [BetweenLength(A,E,C)] => Length_A_C - Length_A_E - Length_C_E
+5. Length_A_E - 5 & Length_A_C - Length_A_E - Length_C_E & Length_C_E - 8 => Length_A_C - 13
+6. Collinear(B,D,E) [BetweenLength(B,E,D)] => Length_B_D - Length_B_E - Length_D_E
+7. Length_A_C - 5*Length_B_D/Length_B_E & Length_A_C - 13 & Length_B_D - Length_B_E - Length_D_E => Length_B_E - 5*Length_D_E/8
+8. Similar3(A,B,E,C,D,E) [PropertyOfSimilar3(A,B,E,C,D,E)] => Length_A_B/Length_C_D - Length_B_E/Length_D_E
+9. Length_C_D - 10 & Length_C_E - 8 => Length_C_D - 5*Length_C_E/4
+10. Length_B_E - 5*Length_D_E/8 & Length_A_B/Length_C_D - Length_B_E/Length_D_E & Length_C_D - 5*Length_C_E/4 => Length_A_B - 25*Length_C_E/32
+11. Length_A_B - 25*Length_C_E/32 & Length_C_E - 8 => Length_A_B - 25/4

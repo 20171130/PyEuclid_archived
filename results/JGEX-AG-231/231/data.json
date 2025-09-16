@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d,e = construct_trisect(b,a,c), f,g = construct_trisect(c,b,a), h,i = construct_trisect(a,c,b), j = construct_intersection_ll(b,f,c,i), k = construct_intersection_ll(a,e,c,h), l = construct_intersection_ll(a,d,b,g)",
+    "goal": "-Length_j_k + Length_j_l"
+}

@@ -1,0 +1,13 @@
+Auxiliary constructions:
+f = construct_midpoint(e, b)
+Solution:
+1. Midpoint(f,b,e) & Perpendicular(a,b,a,e) => Length_a_f - Length_b_f
+2. Length_a_c - Length_b_c & Length_a_f - Length_b_f => Perpendicular(a,b,c,f)
+3. Perpendicular(a,b,b,d) & Perpendicular(a,b,c,f) => Parallel(b,d,c,f)
+4. Collinear(b,e,f) & Collinear(c,d,e) & Parallel(b,d,c,f) => Similar3(b,d,e,f,c,e)
+5. Similar3(b,d,e,f,c,e) => Length_c_e/Length_e_f - Length_d_e/Length_b_e & Length_b_e/Length_e_f - Length_d_e/Length_c_e
+6. Midpoint(f,b,e) => Length_b_e - 2*Length_e_f
+7. Length_b_e - 2*Length_e_f => Length_b_e/Length_e_f - 2
+8. Length_c_e/Length_e_f - Length_d_e/Length_b_e & Length_b_e/Length_e_f - Length_d_e/Length_c_e & Length_b_e - 2*Length_e_f & Length_b_e/Length_e_f - 2 => Length_c_e/Length_d_e - 1/2
+9. Length_c_e/Length_d_e - 1/2 & Collinear(c,d,e) => Midpoint(c,d,e)
+10. Midpoint(c,d,e) => Length_c_d - Length_c_e

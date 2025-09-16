@@ -1,0 +1,29 @@
+Auxiliary constructions:
+f = construct_intersection_ll(a, c, d, e), g = construct_midpoint(a, c), h = construct_midpoint(d, e), i = construct_midpoint(a, f), j = construct_midpoint(d, f)
+Solution:
+1. Collinear(d,e,f) => Parallel(d,e,e,f) & Parallel(d,e,d,f)
+2. Perpendicular(a,b,d,e) & Parallel(d,e,e,f) => Perpendicular(a,b,e,f)
+3. Collinear(a,b,e) => Parallel(a,b,a,e) & Parallel(a,e,b,e)
+4. Perpendicular(a,b,e,f) & Parallel(a,b,a,e) => Perpendicular(a,e,e,f)
+5. Midpoint(i,a,f) & Perpendicular(a,e,e,f) => Length_e_i - Length_f_i
+6. Midpoint(i,a,f) => Length_a_f - 2*Length_f_i
+7. Midpoint(h,d,e) => Length_d_e - 2*Length_e_h
+8. Length_e_i - Length_f_i & Length_a_f - 2*Length_f_i & Length_d_e - 2*Length_e_h => Length_a_f/Length_d_e - Length_e_i/Length_e_h
+9. Collinear(d,e,f) & Collinear(d,e,h) => Collinear(e,f,h) & Collinear(d,f,h)
+10. Length_b_c - Length_c_d & Collinear(b,c,d) => Midpoint(c,b,d)
+11. Midpoint(c,b,d) & Midpoint(h,d,e) => Parallel(b,e,c,h)
+12. Parallel(a,e,b,e) & Parallel(b,e,c,h) => Parallel(a,e,c,h)
+13. Collinear(a,c,f) & Collinear(e,f,h) & Parallel(a,e,c,h) => Length_a_c/Length_e_h - Length_a_f/Length_e_f
+14. Perpendicular(a,b,d,e) & Parallel(d,e,d,f) => Perpendicular(a,b,d,f)
+15. Collinear(d,f,h) => Parallel(d,f,f,h)
+16. Perpendicular(a,b,d,f) & Parallel(d,f,f,h) => Perpendicular(a,b,f,h)
+17. Perpendicular(a,b,f,h) => Angle_a_f_h - Angle_b_a_f - pi/2
+18. Collinear(d,f,h) & Collinear(d,f,j) => Collinear(f,h,j)
+19. Collinear(f,h,j) & Collinear(a,f,i) => Angle_a_f_h - Angle_i_f_j
+20. Collinear(a,c,f) => Angle_b_a_c - Angle_b_a_f
+21. Collinear(d,e,f) & Collinear(d,f,j) => Collinear(e,f,j)
+22. Collinear(e,f,j) => Angle_e_f_i + Angle_i_f_j - pi
+23. Angle_a_f_h - Angle_b_a_f - pi/2 & Angle_b_a_c - pi/6 & Angle_a_f_h - Angle_i_f_j & Angle_b_a_c - Angle_b_a_f & Angle_e_f_i + Angle_i_f_j - pi => Angle_e_f_i - pi/3
+24. -Length_e_i + Length_f_i & Angle_e_f_i - pi/3 => EquilateralTriangle(e,f,i)
+25. EquilateralTriangle(e,f,i) => Length_e_f - Length_e_i
+26. Length_a_f/Length_d_e - Length_e_i/Length_e_h & Length_a_c/Length_e_h - Length_a_f/Length_e_f & Length_e_f - Length_e_i => Length_a_c - Length_d_e

@@ -1,14 +1,14 @@
 Solution:
-1. Collinear(b,c,f) => Angle_a_c_b - Angle_a_c_f & Angle_b_f_d + Angle_c_f_d - pi
-2. Length_a_d - Length_d_f & Length_a_d - Length_b_d => Length_b_d - Length_d_f
+1. Length_a_b - Length_b_c => Angle_a_c_b - Angle_b_a_c
+2. Length_a_d - Length_b_d & Length_a_d - Length_d_f => Length_b_d - Length_d_f
 3. Length_b_d - Length_d_f => Angle_b_f_d - Angle_d_b_f
-4. Length_a_b - Length_b_c => Angle_a_c_b - Angle_b_a_c
-5. Collinear(a,c,e) => Angle_c_a_f - Angle_e_a_f
-6. Length_a_d - Length_d_f & Length_a_d - Length_d_e => Length_d_e - Length_d_f
-7. -Length_a_d + Length_d_f & -Length_d_e + Length_d_f => Angle_a_d_e - 2*Angle_a_f_e
-8. Collinear(a,c,e) & Collinear(a,b,d) => Angle_b_a_c - Angle_d_a_e
-9. Length_a_d - Length_d_f => Angle_a_f_d - Angle_d_a_f
-10. Collinear(b,c,f) & Collinear(a,b,d) => Angle_a_b_c - Angle_d_b_f
-11. Length_a_d - Length_d_e => Angle_a_e_d - Angle_d_a_e
-12. Angle_d_a_e - Angle_d_a_f - Angle_e_a_f & Angle_a_c_b - Angle_a_c_f & Angle_b_f_d + Angle_c_f_d - pi & Angle_b_f_d - Angle_d_b_f & Angle_a_c_b - Angle_b_a_c & Angle_c_a_f - Angle_e_a_f & Angle_a_f_c + Angle_a_f_d - Angle_c_f_d & Angle_a_d_e + Angle_a_e_d + Angle_d_a_e - pi & Angle_a_d_e - 2*Angle_a_f_e & Angle_b_a_c - Angle_d_a_e & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_f_d - Angle_d_a_f & Angle_a_c_f + Angle_a_f_c + Angle_c_a_f - pi & Angle_a_b_c - Angle_d_b_f & Angle_a_e_d - Angle_d_a_e => Angle_a_f_e - Angle_e_a_f
+4. Collinear(a,c,e) & Collinear(a,b,d) => Angle_b_a_c - Angle_d_a_e
+5. Length_a_d - Length_d_e => Angle_a_e_d - Angle_d_a_e
+6. Collinear(b,c,f) & Collinear(a,b,d) => Angle_a_b_c - Angle_d_b_f
+7. Collinear(a,c,e) => Angle_c_a_f - Angle_e_a_f
+8. Length_a_d - Length_d_f => Angle_a_f_d - Angle_d_a_f
+9. Collinear(b,c,f) => Angle_b_f_d + Angle_c_f_d - pi & Angle_a_c_b - Angle_a_c_f
+10. Length_a_d - Length_d_e & Length_a_d - Length_d_f => Length_d_e - Length_d_f
+11. -Length_a_d + Length_d_f & -Length_d_e + Length_d_f => Angle_a_d_e - 2*Angle_a_f_e
+12. Angle_a_c_b - Angle_b_a_c & Angle_b_f_d - Angle_d_b_f & Angle_b_a_c - Angle_d_a_e & Angle_a_e_d - Angle_d_a_e & Angle_a_c_f + Angle_a_f_c + Angle_c_a_f - pi & Angle_a_d_e + Angle_a_e_d + Angle_d_a_e - pi & Angle_a_b_c - Angle_d_b_f & Angle_d_a_e - Angle_d_a_f - Angle_e_a_f & Angle_a_f_c + Angle_a_f_d - Angle_c_f_d & Angle_c_a_f - Angle_e_a_f & Angle_a_f_d - Angle_d_a_f & Angle_b_f_d + Angle_c_f_d - pi & Angle_a_c_b - Angle_a_c_f & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_d_e - 2*Angle_a_f_e => Angle_a_f_e - Angle_e_a_f
 13. -Angle_a_f_e + Angle_e_a_f => Length_a_e - Length_e_f

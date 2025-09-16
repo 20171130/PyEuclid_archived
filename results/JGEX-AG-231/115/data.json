@@ -1,0 +1,4 @@
+{
+    "problem": "a,b = construct_segment(), d = construct_midpoint(a,b), c = construct_on_tline(b,a,b), e = construct_on_line(a,c), e = construct_on_circle(d,b), f = construct_lc_tangent(e,d), f = construct_on_line(b,c)",
+    "goal": "-Length_b_f + Length_c_f"
+}

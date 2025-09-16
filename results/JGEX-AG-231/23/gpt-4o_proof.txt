@@ -1,0 +1,14 @@
+Auxiliary constructions:
+f = construct_intersection_ll(c, e, a, b), g = construct_foot(c, a, b)
+Solution:
+1. Length_a_c - Length_b_c => IsoscelesTriangle(a,b,c)
+2. IsoscelesTriangle(a,b,c) & Length_a_c - Length_b_c & Collinear(a,b,g) & Perpendicular(a,b,c,g) => Midpoint(g,a,b)
+3. Midpoint(g,a,b) => Length_a_b - 2*Length_a_g
+4. Perpendicular(a,b,a,e) & Perpendicular(a,b,b,d) => Parallel(a,e,b,d)
+5. Perpendicular(a,b,a,e) & Perpendicular(a,b,c,g) => Parallel(a,e,c,g)
+6. Parallel(a,e,b,d) & Parallel(a,e,c,g) & Collinear(a,b,g) & Collinear(c,d,e) => Length_a_b/Length_d_e - Length_a_g/Length_c_e
+7. Perpendicular(a,b,b,d) & Perpendicular(a,b,c,g) => Parallel(b,d,c,g)
+8. Collinear(c,d,e) & Collinear(a,b,g) & Parallel(a,e,c,g) & Parallel(b,d,c,g) => Length_c_e/Length_d_e - Length_a_g/Length_a_b
+9. Length_a_b - 2*Length_a_g & Length_a_b/Length_d_e - Length_a_g/Length_c_e & Length_c_e/Length_d_e - Length_a_g/Length_a_b => Length_c_e/Length_d_e - 1/2
+10. Length_c_e/Length_d_e - 1/2 & Collinear(c,d,e) => Midpoint(c,d,e)
+11. Midpoint(c,d,e) => Length_c_d - Length_c_e

@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), m = construct_midpoint(b,a), o = construct_circumcenter(a,b,c), n = construct_on_line(o,m), n = construct_on_circle(o,a)",
+    "goal": "Angle_a_c_n + Angle_b_c_n - pi"
+}

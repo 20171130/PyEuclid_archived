@@ -1,3 +1,2 @@
 Solution:
-1. Parallelogram(J,K,L,M) => Angle_J_K_L - Angle_J_M_L
-2. Angle_J_K_L - Angle_J_M_L & Angle_J_K_L - 109*pi/180 => Angle_J_M_L - 109*pi/180
+1. Variable_x - 38 => Variable_x - 38

@@ -1,0 +1,4 @@
+{
+    "problem": "p,a,b = construct_triangle(), o = construct_midpoint(b,a), a1 = construct_on_line(p,a), a1 = construct_on_circle(o,a), b1 = construct_on_line(p,b), b1 = construct_on_circle(o,a), o1 = construct_circumcenter(p,a1,b1)",
+    "goal": "Perpendicular(a1,o,a1,o1)"
+}

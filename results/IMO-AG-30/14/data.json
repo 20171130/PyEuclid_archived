@@ -1,0 +1,4 @@
+{
+  "problem": "a,b,c = construct_triangle(), o = construct_circumcenter(a,b,c), i = construct_incenter(a,b,c), d = construct_on_line(a,i), d = construct_on_circle(o,a), f = construct_on_line(b,c), e = construct_on_aline(a,c,b,a,f), e = construct_on_circle(o,a), g = construct_midpoint(i,f), k = construct_on_line(d,g), k = construct_on_line(e,i)",
+  "goal": "Length_a_o - Length_k_o"
+}

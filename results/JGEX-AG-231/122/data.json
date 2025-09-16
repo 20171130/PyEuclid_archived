@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_foot(a,b,c), o = construct_midpoint(a,d), e = construct_on_line(a,b), e = construct_on_circle(o,d), f = construct_on_line(a,c), f = construct_on_circle(o,d)",
+    "goal": "Concyclic(b,c,e,f)"
+}

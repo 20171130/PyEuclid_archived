@@ -1,4 +1,7 @@
 Solution:
-1. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2
-2. Angle_A_B_C - pi/6 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 => Angle_B_A_C - pi/3
-3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_B_C)/Length_A_C & Angle_A_B_C - pi/6 & Length_B_C - 10*sqrt(3) & Angle_B_A_C - pi/3 & Length_A_C - Variable_x => Variable_x - 10
+1. Rhombus(A,B,D,C) => Perpendicular(A,D,B,C)
+2. Perpendicular(A,D,B,C) [RhombusArea(A,B,D,C)] => Area_A_B_D_C - Length_A_D*Length_B_C/2
+3. Length_A_E - Length_D_E & Collinear(A,D,E) [DefinitionOfMidpoint(E,A,D)] => Midpoint(E,A,D)
+4. Midpoint(E,A,D) [PropertyOfMidpoint(E,A,D)] => Length_A_D - 2*Length_D_E
+5. Length_A_D - 2*Length_D_E & Length_D_E - 8 => Length_A_D - 16
+6. Area_A_B_D_C - Length_A_D*Length_B_C/2 & Length_B_C - 17 & Length_A_D - 16 => Area_A_B_D_C - 136

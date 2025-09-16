@@ -1,8 +1,2 @@
 Solution:
-1. Collinear(B,E,F) => Parallel(B,E,B,F)
-2. Perpendicular(A,D,B,E) & Parallel(B,E,B,F) => Perpendicular(A,D,B,F)
-3. Collinear(A,D,F) => Parallel(A,D,D,F)
-4. Perpendicular(A,D,B,F) & Parallel(A,D,D,F) => Perpendicular(B,F,D,F)
-5. Perpendicular(B,F,D,F) => Angle_B_F_D - pi/2
-6. Angle_B_F_D - pi/2 & Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi & Angle_B_F_C - Angle_B_F_D + Angle_C_F_D & Angle_B_F_C - pi*Variable_x/30 & Angle_C_F_D - pi*Variable_x/60 => Angle_B_C_F + Angle_C_B_F - 2*pi/3
-7. Angle_B_C_F + Angle_C_B_F - 2*pi/3 & Angle_B_C_F + Angle_B_F_C + Angle_C_B_F - pi & Angle_B_F_C - pi*Variable_x/30 => Variable_x - 10
+1. Angle_A_C_B - 2*Angle_B_A_C & Angle_A_B_C - 3*Angle_B_A_C & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_B_A_C - pi/6

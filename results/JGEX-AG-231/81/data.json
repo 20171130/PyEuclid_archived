@@ -1,0 +1,4 @@
+{
+    "problem": "a,c = construct_segment(), b = construct_on_tline(c,c,a), e = construct_on_circle(b,c), d = construct_on_circle(a,c), d = construct_on_circle(b,c), f = construct_on_line(c,e), f = construct_on_circle(a,c), g = construct_on_line(e,b), g = construct_on_circle(b,e)",
+    "goal": "Collinear(d,f,g)"
+}

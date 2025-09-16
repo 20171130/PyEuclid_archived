@@ -1,12 +1,14 @@
 Solution:
-1. Midpoint(f,b,d) => Length_b_d - 2*Length_b_f
-2. Length_a_c - Length_a_d & Collinear(a,c,d) => Midpoint(a,c,d)
-3. Midpoint(a,c,d) => Length_a_c - Length_c_d/2
-4. Length_a_c - Length_b_c & Length_b_d - 2*Length_b_f & Length_a_c - Length_c_d/2 => Length_b_d/Length_c_d - Length_b_f/Length_b_c
-5. Midpoint(e,a,c) => Length_a_c - 2*Length_c_e
-6. Length_a_c - Length_b_c & Length_a_c - 2*Length_c_e & Length_a_c - Length_c_d/2 => Length_b_c/Length_c_e - Length_c_d/Length_b_c
-7. Collinear(a,c,d) & Collinear(a,c,e) => Collinear(c,d,e)
-8. Collinear(c,d,e) => Angle_b_c_d - Angle_b_c_e
-9. Length_b_c/Length_c_e - Length_c_d/Length_b_c & Angle_b_c_d - Angle_b_c_e => Similar3(b,c,d,e,c,b)
-10. Similar3(b,c,d,e,c,b) => Length_b_d/Length_b_e - Length_c_d/Length_b_c
-11. Length_b_d/Length_c_d - Length_b_f/Length_b_c & Length_b_d/Length_b_e - Length_c_d/Length_b_c => Length_b_e - Length_b_f
+1. Length_a_c - Length_a_d & Collinear(a,c,d) => Midpoint(a,c,d)
+2. Midpoint(f,b,d) & Midpoint(a,c,d) => Similar3(a,d,f,c,d,b) & Parallel(a,f,b,c)
+3. Similar3(a,d,f,c,d,b) => Length_b_d/Length_d_f - Length_b_c/Length_a_f
+4. Midpoint(f,b,d) => Length_b_d - 2*Length_d_f
+5. Midpoint(e,a,c) => Length_a_c - 2*Length_a_e
+6. Length_b_d - 2*Length_d_f & Length_a_c - Length_b_c & Length_a_c - 2*Length_a_e => Length_b_d/Length_b_c - Length_d_f/Length_a_e
+7. Length_b_d/Length_d_f - Length_b_c/Length_a_f & Length_b_d/Length_b_c - Length_d_f/Length_a_e => Length_a_e - Length_a_f
+8. Length_a_e - Length_a_f => IsoscelesTriangle(a,e,f)
+9. Collinear(a,c,e) => Angle_b_a_c - Angle_b_a_e
+10. Angle_b_a_c - Angle_b_a_e & Angle_a_b_c - Angle_b_a_c => Angle_a_b_c - Angle_b_a_e
+11. Parallel(a,f,b,c) => Angle_a_c_b + Angle_c_a_f - pi
+12. Angle_a_b_c - Angle_b_a_e & Angle_b_a_c + Angle_b_a_f - Angle_c_a_f & Angle_a_c_b + Angle_c_a_f - pi & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi => Angle_b_a_e - Angle_b_a_f
+13. IsoscelesTriangle(a,e,f) & Length_a_e - Length_a_f & Angle_b_a_e - Angle_b_a_f => Length_b_e - Length_b_f

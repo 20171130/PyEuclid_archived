@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c,d = construct_quadrangle(), e = construct_on_line(b,c), e = construct_on_line(a,d), o1 = construct_circumcenter(c,d,e), o = construct_circumcenter(e,b,a), p = construct_on_line(c,d), p = construct_on_line(a,b), q = construct_on_circle(o1,c), q = construct_on_circle(o,a)",
+    "goal": "Concyclic(a,d,p,q)"
+}

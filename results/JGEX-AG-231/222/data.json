@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_midpoint(b,a), e = construct_angle_bisector(c,d,a), e = construct_on_line(a,c), f = construct_angle_bisector(c,d,b), f = construct_on_line(c,b)",
+    "goal": "Parallel(a,b,e,f)"
+}

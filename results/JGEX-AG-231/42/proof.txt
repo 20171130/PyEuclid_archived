@@ -1,7 +1,7 @@
 Solution:
-1. Length_a_m - Length_c_m & Length_a_m - Length_b_m => Length_b_m - Length_c_m
+1. Length_a_m - Length_b_m & Length_a_m - Length_c_m => Length_b_m - Length_c_m
 2. -Length_a_m + Length_b_m & Length_b_m - Length_c_m => Angle_a_b_c - Angle_a_m_c/2
-3. Angle_a_b_c - Angle_c_b_d & Angle_a_b_c - Angle_a_b_d + Angle_c_b_d & Angle_a_b_c - Angle_a_m_c/2 => Angle_a_b_d - Angle_a_m_c
+3. Angle_a_b_c - Angle_a_b_d + Angle_c_b_d & Angle_a_b_c - Angle_a_m_c/2 & Angle_a_b_c - Angle_c_b_d => Angle_a_b_d - Angle_a_m_c
 4. Angle_a_b_d - Angle_a_m_c & Collinear(a,b,m) => Parallel(b,d,c,m)
 5. Midpoint(m,a,b) & Midpoint(e,a,d) => Parallel(b,d,e,m)
 6. Parallel(b,d,c,m) & Parallel(b,d,e,m) => Parallel(c,m,e,m)

@@ -1,16 +1,17 @@
 Solution:
-1. Collinear(a,b,d) => Angle_a_d_o - Angle_b_d_o & Angle_a_b_c - Angle_c_b_d
+1. Collinear(a,b,d) => Angle_b_a_o + Angle_d_a_o - pi & Angle_a_b_o - Angle_d_b_o & Angle_a_d_o - Angle_b_d_o
 2. Length_a_o - Length_c_o => Angle_a_c_o - Angle_c_a_o
-3. -Length_a_o + Length_b_o & Length_b_o - Length_c_o => Angle_a_b_c - Angle_a_o_c/2
+3. Length_a_o - Length_b_o => Angle_a_b_o - Angle_b_a_o
 4. Length_b_o - Length_c_o => IsoscelesTriangle(b,c,o)
 5. IsoscelesTriangle(b,c,o) & Length_b_o - Length_c_o & Collinear(b,c,h) & Midpoint(h,b,c) => Perpendicular(b,c,h,o)
 6. Collinear(d,h,o) => Parallel(d,o,h,o)
 7. Perpendicular(b,c,h,o) & Parallel(d,o,h,o) => Perpendicular(b,c,d,o)
-8. Perpendicular(b,c,d,o) => Angle_b_d_o + Angle_c_b_d - pi/2
-9. Angle_a_d_o - Angle_b_d_o & Angle_a_c_o + Angle_a_o_c + Angle_c_a_o - pi & Angle_a_c_o - Angle_c_a_o & Angle_a_b_c - Angle_a_o_c/2 & Angle_a_b_c - Angle_c_b_d & Angle_b_d_o + Angle_c_b_d - pi/2 => Angle_a_c_o - Angle_a_d_o
+8. IsoscelesTriangle(b,c,o) & Length_b_o - Length_c_o & Perpendicular(b,c,d,o) => Angle_b_o_d - Angle_c_o_d
+9. Angle_a_d_o + Angle_a_o_d + Angle_d_a_o - pi & Angle_b_a_o + Angle_d_a_o - pi & Angle_a_o_c - Angle_a_o_d - Angle_c_o_d & Angle_b_d_o + Angle_b_o_d + Angle_d_b_o - pi & Angle_a_c_o + Angle_a_o_c + Angle_c_a_o - pi & Angle_a_b_o - Angle_d_b_o & Angle_a_c_o - Angle_c_a_o & Angle_a_b_o - Angle_b_a_o & Angle_a_d_o - Angle_b_d_o & Angle_b_o_d - Angle_c_o_d => Angle_a_c_o - Angle_a_d_o
 10. Angle_a_c_o - Angle_a_d_o => Concyclic(a,c,d,o)
-11. -Length_a_o + Length_c_o & -Length_b_o + Length_c_o & Perpendicular(c,e,c,o) => Angle_a_b_c - Angle_a_c_e
-12. Length_a_o - Length_c_o & Length_a_o - Length_b_o & Perpendicular(a,e,a,o) => Angle_a_b_c - Angle_c_a_e
-13. Angle_a_b_c - Angle_a_c_e & Angle_a_b_c - Angle_a_o_c/2 & Angle_a_b_c - Angle_c_a_e & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi => Angle_a_e_c + Angle_a_o_c - pi
-14. Angle_a_e_c + Angle_a_o_c - pi => Concyclic(a,c,e,o)
-15. Concyclic(a,c,d,o) & Concyclic(a,c,e,o) => Concyclic(a,d,e,o)
+11. Length_a_o - Length_c_o & Length_a_o - Length_b_o & Perpendicular(a,e,a,o) => Angle_a_b_c - Angle_c_a_e
+12. -Length_a_o + Length_b_o & Length_b_o - Length_c_o => Angle_a_b_c - Angle_a_o_c/2
+13. -Length_a_o + Length_c_o & -Length_b_o + Length_c_o & Perpendicular(c,e,c,o) => Angle_a_b_c - Angle_a_c_e
+14. Angle_a_b_c - Angle_c_a_e & Angle_a_b_c - Angle_a_o_c/2 & Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_a_b_c - Angle_a_c_e => Angle_a_e_c + Angle_a_o_c - pi
+15. Angle_a_e_c + Angle_a_o_c - pi => Concyclic(a,c,e,o)
+16. Concyclic(a,c,d,o) & Concyclic(a,c,e,o) => Concyclic(a,d,e,o)

@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_eq_triangle(a,b), e = construct_eq_triangle(a,c), f = construct_eq_triangle(c,b)",
+    "goal": "Parallel(c,f,d,e)"
+}

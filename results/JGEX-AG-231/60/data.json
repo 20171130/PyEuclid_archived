@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_foot(a,b,c), e = construct_circumcenter(b,a,c), f = construct_angle_bisector(b,a,c), f = construct_on_circle(e,a)",
+    "goal": "-Angle_d_a_f + Angle_e_a_f"
+}

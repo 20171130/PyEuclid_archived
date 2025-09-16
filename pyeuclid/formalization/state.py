@@ -27,6 +27,7 @@ class State:
 
         self.depth2conditions = defaultdict(list)
         self.condition2depth = defaultdict(int)
+        self.construction_index = 0
 
         self.current_depth = 0
         self.reasoning_depth = 0
@@ -172,6 +173,8 @@ class State:
     
     def add_constructions(self, constructions):
         for construction in constructions:
+            construction.index = self.construction_index
+            self.construction_index += 1
             for p in construction.inputs:
                 if isinstance(p, Point):
                     self.add_point(p)

@@ -1,0 +1,4 @@
+{
+    "problem": "a,b = construct_segment(), c = construct_on_dia(a,b), c = construct_on_bline(a,b), d = construct_midpoint(a,c), e = construct_foot(c,b,d), f = construct_on_line(c,e), f = construct_on_line(a,b)",
+    "goal": "-Angle_a_d_f + Angle_b_d_c"
+}

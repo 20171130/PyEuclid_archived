@@ -5,7 +5,7 @@ Solution:
 4. Collinear(a,c,e) => Parallel(a,e,c,e)
 5. Parallelogram(a,d,g,e) => Parallel(a,e,d,g) & Length_a_e - Length_d_g
 6. Parallel(a,e,c,e) & Parallel(a,e,d,g) => Parallel(c,e,d,g)
-7. Length_a_e - Length_d_g & Length_a_e - Length_c_e => Length_c_e - Length_d_g
+7. Length_a_e - Length_c_e & Length_a_e - Length_d_g => Length_c_e - Length_d_g
 8. Parallel(c,e,d,g) & Length_c_e - Length_d_g => Parallelogram(c,e,d,g)
 9. Parallelogram(c,e,d,g) => Parallel(c,g,d,e) & Length_c_g - Length_d_e
 10. Parallel(b,f,d,e) & Parallel(c,g,d,e) => Parallel(b,f,c,g)

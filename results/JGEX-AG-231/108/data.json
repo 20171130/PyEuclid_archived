@@ -1,0 +1,4 @@
+{
+    "problem": "c,a,b = construct_r_triangle(), f,e = construct_square(a,b), p = construct_on_line(b,e), p = construct_on_line(a,f)",
+    "goal": "Angle_a_c_p - Angle_b_c_p"
+}

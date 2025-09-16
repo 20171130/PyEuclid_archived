@@ -1,0 +1,4 @@
+{
+  "problem": "a,b,c = construct_triangle(), a1 = construct_on_line(b,c), b1 = construct_on_line(a,c), p = construct_on_line(a,a1), q = construct_on_line(b,b1), q = construct_on_pline(p,a,b), p1 = construct_on_line(p,b1), p1 = construct_eqangle3(p,c,a,b,c), q1 = construct_on_line(q,a1), q1 = construct_eqangle3(c,q,b,c,a)",
+  "goal": "Concyclic(p,p1,q,q1)"
+}

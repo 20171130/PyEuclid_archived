@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c,d = construct_trapezoid(), e = construct_midpoint(c,a), f = construct_midpoint(d,b), g = construct_on_line(e,f), g = construct_on_line(a,d)",
+    "goal": "Midpoint(g,a,d)"
+}

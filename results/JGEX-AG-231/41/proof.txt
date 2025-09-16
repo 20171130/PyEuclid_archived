@@ -4,4 +4,4 @@ Solution:
 3. Collinear(a,b,f) => Parallel(a,b,b,f)
 4. Parallel(a,b,b,f) & Parallel(a,b,d,g) => Parallel(b,f,d,g)
 5. Collinear(b,e,g) & Collinear(d,e,f) & Parallel(b,f,d,g) => Length_b_e/Length_e_f - Length_b_g/Length_d_f
-6. Length_a_d - Length_b_e & Length_a_c/Length_b_c - Length_a_d/Length_b_g & Length_a_c - Length_b_c & Length_b_e/Length_e_f - Length_b_g/Length_d_f => Length_d_f - Length_e_f
+6. Length_a_c - Length_b_c & Length_a_c/Length_b_c - Length_a_d/Length_b_g & Length_b_e/Length_e_f - Length_b_g/Length_d_f & Length_a_d - Length_b_e => Length_d_f - Length_e_f

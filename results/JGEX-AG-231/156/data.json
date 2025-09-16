@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_parallelogram(a,b,c), e = construct_on_line(b,d), f = construct_foot(e,a,b), g = construct_foot(e,b,c), h = construct_on_line(e,f), h = construct_on_line(c,d), i = construct_on_line(e,g), i = construct_on_line(a,d)",
+    "goal": "Parallel(f,g,h,i)"
+}

@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_eq_triangle(c,a), e = construct_eq_triangle(b,a)",
+    "goal": "-Length_b_c + Length_d_e"
+}

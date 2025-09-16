@@ -1,3 +1,2 @@
 Solution:
-1. Parallelogram(P,Q,R,S) => Length_P_Q - Length_R_S
-2. Length_R_S - 5 & Length_P_Q - Length_R_S => Length_P_Q - 5
+1. Variable_x - 70 => Variable_x - 70

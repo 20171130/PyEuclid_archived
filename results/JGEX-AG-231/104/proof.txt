@@ -1,14 +1,14 @@
 Solution:
-1. Collinear(a,b,q) => Parallel(a,b,a,q) & Angle_b_a_m - Angle_m_a_q
-2. Perpendicular(a,b,m,q) & Parallel(a,b,a,q) => Perpendicular(a,q,m,q)
-3. Perpendicular(a,q,m,q) => Angle_a_q_m - pi/2
-4. Collinear(a,c,p) => Parallel(a,c,a,p) & Angle_c_a_n + Angle_n_a_p - pi
-5. Perpendicular(a,c,m,p) & Parallel(a,c,a,p) => Perpendicular(a,p,m,p)
-6. Perpendicular(a,p,m,p) => Angle_a_p_m - pi/2
-7. Angle_a_q_m - pi/2 & Angle_a_p_m - pi/2 => Angle_a_p_m + Angle_a_q_m - pi
-8. Angle_a_p_m + Angle_a_q_m - pi => Concyclic(a,m,p,q)
-9. Concyclic(a,m,p,q) => Angle_m_a_q - Angle_m_p_q
-10. Angle_a_p_m - Angle_a_p_q - Angle_m_p_q & Angle_a_p_m - pi/2 => Angle_a_p_q + Angle_m_p_q - pi/2
-11. Angle_b_a_m - Angle_c_a_n & Angle_c_a_n + Angle_n_a_p - pi & Angle_b_a_m - Angle_m_a_q => Angle_m_a_q + Angle_n_a_p - pi
-12. Angle_m_a_q - Angle_m_p_q & Angle_a_p_q + Angle_m_p_q - pi/2 & Angle_m_a_q + Angle_n_a_p - pi & Angle_a_p_n + Angle_a_p_q - Angle_n_p_q & Angle_a_n_p + Angle_a_p_n + Angle_n_a_p - pi => Angle_a_n_p + Angle_n_p_q - pi/2
-13. Angle_a_n_p + Angle_n_p_q - pi/2 => Perpendicular(a,n,p,q)
+1. Collinear(a,c,p) => Parallel(a,c,a,p)
+2. Perpendicular(a,c,m,p) & Parallel(a,c,a,p) => Perpendicular(a,p,m,p)
+3. Perpendicular(a,p,m,p) => Angle_a_p_m - pi/2
+4. Collinear(a,c,p) & Collinear(a,b,q) => Angle_b_a_p - Angle_c_a_q
+5. Angle_c_a_n - Angle_c_a_q - Angle_n_a_q & Angle_b_a_m - Angle_b_a_p - Angle_m_a_p & Angle_a_p_m - pi/2 & Angle_b_a_p - Angle_c_a_q & Angle_b_a_m - Angle_c_a_n & Angle_a_m_p + Angle_a_p_m + Angle_m_a_p - pi => Angle_a_m_p + Angle_n_a_q - pi/2
+6. Collinear(a,b,q) => Parallel(a,b,a,q)
+7. Perpendicular(a,b,m,q) & Parallel(a,b,a,q) => Perpendicular(a,q,m,q)
+8. Perpendicular(a,q,m,q) => Angle_a_q_m - pi/2
+9. Angle_a_p_m - pi/2 & Angle_a_q_m - pi/2 => Angle_a_p_m + Angle_a_q_m - pi
+10. Angle_a_p_m + Angle_a_q_m - pi => Concyclic(a,m,p,q)
+11. Concyclic(a,m,p,q) => Angle_a_m_p - Angle_a_q_p
+12. Angle_a_m_p + Angle_n_a_q - pi/2 & Angle_a_m_p - Angle_a_q_p => Angle_a_q_p + Angle_n_a_q - pi/2
+13. Angle_a_q_p + Angle_n_a_q - pi/2 => Perpendicular(a,n,p,q)

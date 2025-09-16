@@ -1,4 +1,6 @@
 Solution:
-1. Collinear(A,B,G) => Angle_B_A_E + Angle_E_A_G - pi & Angle_A_B_E - Angle_E_B_G
-2. Angle_B_A_E + Angle_E_A_G - pi & Angle_A_B_E - Angle_E_B_G & Angle_E_A_G - 34*pi/45 & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi & Angle_A_E_B - Angle_A_E_D - Angle_B_E_D & Angle_E_B_G - 47*pi/180 => Angle_A_E_D + Angle_B_E_D - 89*pi/180
-3. Angle_A_E_B - Angle_A_E_D - Angle_B_E_D & Angle_A_E_D + Angle_B_E_D - 89*pi/180 & Angle_A_E_B - Variable_angle_7 => Variable_angle_7 - 89*pi/180
+1. Perpendicular(M,P,N,P) [Perp2Angle(M,P,N)] => Angle_M_P_N - pi/2
+2. Angle_M_N_P + Angle_M_P_N + Angle_N_M_P - pi & Angle_M_P_N - pi/2 => Angle_M_N_P + Angle_N_M_P - pi/2
+3. Length_M_N**2 - 2*Length_M_N*Length_M_P*cos(Angle_N_M_P) + Length_M_P**2 - Length_N_P**2 & Length_N_P - 15 & Length_M_P - 36 & Length_M_N - 39 => Angle_N_M_P - acos(12/13)
+4. Angle_M_N_P + Angle_N_M_P - pi/2 & Angle_N_M_P - acos(12/13) => Angle_M_N_P - pi/2 + acos(12/13)
+5. Angle_M_N_P - pi/2 + acos(12/13) => cos(Angle_M_N_P) - 5/13

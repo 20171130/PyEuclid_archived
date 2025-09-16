@@ -1,13 +1,13 @@
 Solution:
-1. Collinear(a,b,g) => Parallel(a,b,a,g)
-2. Collinear(c,d,h) => Parallel(c,d,c,h)
-3. Parallel(a,b,c,d) & Parallel(c,d,c,h) => Parallel(a,b,c,h)
-4. Parallel(a,b,a,g) & Parallel(a,b,c,h) => Parallel(a,g,c,h)
-5. Collinear(a,c,e) & Collinear(e,g,h) & Parallel(a,g,c,h) => Length_a_c/Length_g_h - Length_a_e/Length_e_g
-6. Collinear(a,d,f) => Parallel(a,d,a,f)
-7. Collinear(b,c,i) => Parallel(b,c,c,i)
-8. Parallel(a,d,b,c) & Parallel(b,c,c,i) => Parallel(a,d,c,i)
-9. Parallel(a,d,a,f) & Parallel(a,d,c,i) => Parallel(a,f,c,i)
-10. Collinear(a,c,e) & Collinear(e,f,i) & Parallel(a,f,c,i) => Length_a_c/Length_f_i - Length_a_e/Length_e_f
-11. Length_a_c/Length_g_h - Length_a_e/Length_e_g & Length_a_c/Length_f_i - Length_a_e/Length_e_f => Length_e_f/Length_f_i - Length_e_g/Length_g_h
+1. Collinear(a,d,f) => Parallel(a,d,a,f)
+2. Collinear(b,c,i) => Parallel(b,c,c,i)
+3. Parallel(a,d,b,c) & Parallel(b,c,c,i) => Parallel(a,d,c,i)
+4. Parallel(a,d,a,f) & Parallel(a,d,c,i) => Parallel(a,f,c,i)
+5. Collinear(a,c,e) & Collinear(e,f,i) & Parallel(a,f,c,i) => Length_a_c/Length_f_i - Length_a_e/Length_e_f
+6. Collinear(a,b,g) => Parallel(a,b,a,g)
+7. Collinear(c,d,h) => Parallel(c,d,c,h)
+8. Parallel(a,b,c,d) & Parallel(c,d,c,h) => Parallel(a,b,c,h)
+9. Parallel(a,b,a,g) & Parallel(a,b,c,h) => Parallel(a,g,c,h)
+10. Collinear(a,c,e) & Collinear(e,g,h) & Parallel(a,g,c,h) => Length_a_c/Length_g_h - Length_a_e/Length_e_g
+11. Length_a_c/Length_f_i - Length_a_e/Length_e_f & Length_a_c/Length_g_h - Length_a_e/Length_e_g => Length_e_f/Length_f_i - Length_e_g/Length_g_h
 12. Collinear(e,f,i) & Collinear(e,g,h) & Length_e_f/Length_f_i - Length_e_g/Length_g_h => Parallel(f,g,h,i)

@@ -8,8 +8,8 @@
             "response": "output"
         }
     },
-    "auxiliary_construction": {
-        "file_name": "auxiliary_construction.json",
+    "task3": {
+        "file_name": "task3.json",
         "columns": {
             "system": "system",
             "prompt": "instruction",

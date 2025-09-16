@@ -4,5 +4,4 @@ Solution:
 3. Kite(a,c,b,d) & Length_a_c - Length_b_c & -Length_a_d + Length_b_d => Perpendicular(a,b,c,d)
 4. Collinear(c,d,e) => Parallel(c,d,c,e)
 5. Perpendicular(a,b,c,d) & Parallel(c,d,c,e) => Perpendicular(a,b,c,e)
-6. IsoscelesTriangle(a,b,c) & Length_a_c - Length_b_c & Collinear(a,b,e) & Perpendicular(a,b,c,e) => Midpoint(e,a,b)
-7. Midpoint(e,a,b) => Length_a_e - Length_b_e
+6. IsoscelesTriangle(a,b,c) & Length_a_c - Length_b_c & Perpendicular(a,b,c,e) => Length_a_e - Length_b_e

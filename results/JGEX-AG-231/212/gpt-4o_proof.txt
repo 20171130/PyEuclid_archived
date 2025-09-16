@@ -1,0 +1,13 @@
+Auxiliary constructions:
+h = construct_midpoint(f, g)
+Solution:
+1. Collinear(c,d,f) => Parallel(c,d,c,f)
+2. Perpendicular(a,f,c,d) & Parallel(c,d,c,f) => Perpendicular(a,f,c,f)
+3. Collinear(c,d,f) & Collinear(c,d,g) => Collinear(c,f,g)
+4. Collinear(c,f,g) => Parallel(c,f,f,g)
+5. Perpendicular(a,f,c,f) & Parallel(c,f,f,g) => Perpendicular(a,f,f,g)
+6. Perpendicular(a,f,c,d) & Perpendicular(b,g,c,d) => Parallel(a,f,b,g)
+7. Length_a_e - Length_b_e & Length_f_h - Length_g_h => Length_a_e/Length_b_e - Length_f_h/Length_g_h
+8. Collinear(a,b,e) & Parallel(a,f,b,g) & Collinear(f,g,h) & Length_a_e/Length_b_e - Length_f_h/Length_g_h => Parallel(a,f,e,h)
+9. Perpendicular(a,f,f,g) & Parallel(a,f,e,h) => Perpendicular(e,h,f,g)
+10. Midpoint(h,f,g) & Perpendicular(e,h,f,g) => Length_e_f - Length_e_g

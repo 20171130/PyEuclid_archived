@@ -1,0 +1,11 @@
+Auxiliary constructions:
+m = construct_midpoint(a, b)
+Solution:
+1. Perpendicular(a,b,a,e) & Perpendicular(a,b,b,d) => Parallel(a,e,b,d)
+2. Length_a_c - Length_b_c => IsoscelesTriangle(a,b,c)
+3. IsoscelesTriangle(a,b,c) & Length_a_c - Length_b_c & Collinear(a,b,m) & Midpoint(m,a,b) => Perpendicular(a,b,c,m)
+4. Perpendicular(a,b,a,e) & Perpendicular(a,b,c,m) => Parallel(a,e,c,m)
+5. Parallel(a,e,b,d) & Parallel(a,e,c,m) & Collinear(a,b,m) & Collinear(c,d,e) => Length_a_m/Length_c_e - Length_b_m/Length_c_d
+6. Length_a_m/Length_c_e - Length_b_m/Length_c_d => Length_a_m - Length_b_m*Length_c_e/Length_c_d
+7. Length_a_m - Length_b_m & Length_a_m - Length_b_m*Length_c_e/Length_c_d => Length_b_m*Length_c_d - Length_b_m*Length_c_e
+8. Length_b_m*Length_c_d - Length_b_m*Length_c_e => Length_c_d - Length_c_e

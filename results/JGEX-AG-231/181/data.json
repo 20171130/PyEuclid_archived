@@ -1,0 +1,4 @@
+{
+    "problem": "a,b,c = construct_triangle(), d = construct_incenter(a,b,c), e = construct_foot(a,b,c), f = construct_foot(b,a,d), g = construct_foot(c,a,d), h = construct_midpoint(c,b)",
+    "goal": "Concyclic(e,f,g,h)"
+}
