@@ -9,6 +9,7 @@ import pyeuclid.formalization.utils as utils
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.translation import parse_texts_from_file
+from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.utils import Timeout
 from pyeuclid.engine.inference_rule import inference_rule_sets
 from pyeuclid.engine.deductive_database import DeductiveDatabase
@@ -17,8 +18,20 @@ from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 import traceback
 
+independent_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["independent"]]
+deterministic_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["deterministic"]]
+nondeterministic_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["nondeterministic"]]
 class TestBenchmarks(unittest.TestCase):
     def test_jgex_ag_231(self):
+        d_cnt = 0
+        n_cnt = 0
+        ls = 0
+        min_l = 100
+        max_l = 0
+        min_p = 100
+        max_p = 0
+        ps = 0
+        tot = 0
         utils.MAX_DIAGRAM_ATTEMPTS = None
         rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", 0))
         world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", 1))
@@ -34,7 +47,35 @@ class TestBenchmarks(unittest.TestCase):
                 state.silent = True
             try:
                 diagram_path = os.path.join(result_dir, "diagram.jpg")
-                state.load_problem_from_text(text, str(diagram_path))
+                constructions_list = state.load_problem_from_text(text, str(diagram_path))
+                print(text)
+                l = len(constructions_list)
+                p = 0
+                ls += l
+                if l > max_l: max_l = l
+                if l < min_l: min_l = l
+                tot += 1
+                for constructions in constructions_list:
+                    for i, c in enumerate(constructions):
+                        p += c.num_outputs
+                        if type(c) in nondeterministic_rules:
+                            if i == 0:
+                                if len(constructions) == 2:
+                                    n_cnt += 1
+                                else:
+                                    assert len(constructions) == 1
+                                    d_cnt += 1
+                ps += p
+                if p > max_p: max_p = p
+                if p < min_p: min_p = p
+                print(d_cnt, n_cnt)
+                print('l', ls/tot)
+                print('min_l', min_l)
+                print('max_l', max_l)
+                print('p', ps/tot)
+                print('min_p', min_p)
+                print('max_p', max_p)
+                continue
                 deductive_database = DeductiveDatabase(state)
                 algebraic_system = AlgebraicSystem(state)
                 proof_generator = ProofGenerator(state)
