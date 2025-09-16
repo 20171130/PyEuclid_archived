@@ -15,40 +15,41 @@ class AlgebraicSystem:
         self.state = state
     
     def process_equation(self, eqn, check=False):
-        if isinstance(eqn, sympy.core.add.Add):
-            add_args = []
-            for item in eqn.args:
-                if isinstance(item, sympy.core.mul.Mul) and is_small(item.args[0]):
-                    continue
-                add_args.append(item)
-            eqn = sympy.core.add.Add(*add_args)
-        if is_small(eqn):
-            return sympy.sympify(0)
-        eqn, denominator = eqn.as_numer_denom()
-        factors = None
         try:
-            with Timeout(0.1):
+            with ST(1), TT(0.1):
+                if isinstance(eqn, sympy.core.add.Add):
+                    add_args = []
+                    for item in eqn.args:
+                        if isinstance(item, sympy.core.mul.Mul) and is_small(item.args[0]):
+                            continue
+                        add_args.append(item)
+                    eqn = sympy.core.add.Add(*add_args)
+                if is_small(eqn):
+                    return sympy.sympify(0)
+                eqn, denominator = eqn.as_numer_denom()
+                factors = None
                 factors = factor_list(eqn)
+                if factors is None:
+                    return eqn
+                if is_small(factors[0]):
+                    return sympy.sympify(0)
+                factors = factors[1]  # removes constant coefficient
+                if any([is_small(item[0]) for item in factors]):
+                    return sympy.sympify(0)
+                factors = [item[0] for item in factors if not item[0].is_positive]
+                if len(factors) == 0:
+                    if check:
+                        breakpoint()
+                        assert False
+                    else:
+                        return sympy.sympify(0)
+                eqn = factors[0]
+                for item in factors[1:]:
+                    eqn = eqn*item
+                return eqn.expand()
+            return sympy.sympify(0)
         except:
-            pass
-        if factors is None:
-            return eqn
-        if is_small(factors[0]):
             return sympy.sympify(0)
-        factors = factors[1]  # removes constant coefficient
-        if any([is_small(item[0]) for item in factors]):
-            return sympy.sympify(0)
-        factors = [item[0] for item in factors if not item[0].is_positive]
-        if len(factors) == 0:
-            if check:
-                breakpoint()
-                assert False
-            else:
-                return sympy.sympify(0)
-        eqn = factors[0]
-        for item in factors[1:]:
-            eqn = eqn*item
-        return eqn.expand()
     
     def process_solutions(self, var, eqn, solutions, var_types):
         def _all_terms_have_factor(expr: sympy.Expr, sym: sympy.Symbol) -> bool:
@@ -423,4 +424,7 @@ class AlgebraicSystem:
         self.state.angle_sums = dic
 
     def run(self):
-        return self.solve_equation()
+        closure = False
+        while not closure:
+            closure = self.solve_equation()
+        return closure

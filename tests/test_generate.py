@@ -44,6 +44,7 @@ def printt(s):
 debug = True
 
 rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
+rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
 def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
     """Generate a single problem with timeout checking at key points"""
     
@@ -51,11 +52,12 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     os.makedirs(problem_output_dir, exist_ok=True)
 
     seed = random.randint(0, int(1e9))
-   # seed = 51123107 # wrong necessary conditions
+    hash_seed = os.environ.get("PYTHONHASHSEED", None)
+    assert hash_seed is not None
     random.seed(seed)
     np.random.seed(seed)
     sympy.core.random.seed(seed)
-    printt(f"Seed: {seed}")
+    printt(f"Seed: {seed} Hash Seed: {hash_seed}")
 
     state = State()
     state.silent = True
@@ -111,7 +113,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         if all(typ == Point for typ in picked.input_types):
             # For input types that are all points
             candidates = itertools.permutations(all_points, len(picked.input_types))
-            candidates = sorted(list(candidates), key=lambda x: str(x))
             for candidate in candidates:
                 if issubclass(picked, ConstructionQ):
                     construction = picked(*candidate, diagram=diagram)
@@ -151,7 +152,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             if all(typ == Point for typ in picked.input_types):
                 # For input types that are all points
                 candidates = itertools.product(all_points, repeat=len(picked.input_types))
-                candidates = sorted(list(candidates), key=lambda x: str(x))
                 if picked == to_intersect and picked == construct_point_on_circle:
                     candidates = [item for item in candidates if not item[0] == construction.o]
                 if picked in (construct_angle_clockwise, construct_angle_counterclockwise) and to_intersect in (construct_angle_clockwise, construct_angle_counterclockwise):
@@ -402,6 +402,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             "problem_id": problem_id,
             "sample_id": i,
             "seed": seed,
+            "hash_seed": hash_seed,
             "annotated_equations": [str(item) for item in annotated_equations],
             "has_auxiliary_constructions": has_auxiliary,
             "num_auxiliary_constructions": len(auxiliary_constructions)
