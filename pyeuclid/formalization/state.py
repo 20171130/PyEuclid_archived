@@ -185,7 +185,6 @@ class State:
                     relation.sources = [construction]
                 else:
                     relation.source = construction
-                
                 self.add_conditions(relation)
         
         for perm in permutations(self.points, 3):

@@ -16,7 +16,7 @@ from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
-from pyeuclid.formalization.construction_q import ConstructionQ, construct_segment_q, construct_square_q, construct_rectangle_q, construct_angle_counterclockwise, construct_angle_clockwise, construct_point_on_circle, construct_point_on_line
+from pyeuclid.formalization.construction_q import ConstructionQ, construct_segment_q, construct_square_q, construct_rectangle_q, construct_angle_counterclockwise, construct_angle_clockwise, construct_point_on_circle, construct_point_on_line, construct_parallelogram_q, construct_eq_trapezoid_q, construct_r_triangle_q, construct_eq_triangle_q, construct_ieq_triangle_q, construct_r_trapezoid_q
 
 
 # import logging
@@ -41,7 +41,7 @@ def printt(s):
     print(s)
 
 
-debug = True
+debug = False
 
 rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
 rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
@@ -81,7 +81,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     length_values, angle_values = set(), set()
     index = 0
         
-    construction_rule_set = [construct_segment_q, construct_square_q, construct_rectangle_q, construct_angle_counterclockwise, construct_angle_clockwise, construct_point_on_circle, construct_point_on_line, construct_on_dia, construct_angle_bisector, construct_circumcenter, construct_eqdistance, construct_foot, construct_incenter, construct_intersection_cc, construct_intersection_lc, construct_intersection_ll, construct_intersection_lp, construct_intersection_lt, construct_intersection_pp, construct_intersection_tt, construct_lc_tangent, construct_midpoint, construct_mirror, construct_on_aline, construct_on_bline, construct_on_circle, construct_on_line, construct_on_pline, construct_on_tline, construct_orthocenter, construct_reflect]
+    construction_rule_set = [construct_segment_q, construct_r_triangle_q, construct_eq_triangle_q, construct_ieq_triangle_q, construct_r_trapezoid_q, construct_eq_trapezoid_q, construct_square_q, construct_rectangle_q, construct_parallelogram_q]
+    construction_rule_set += [construct_angle_counterclockwise, construct_angle_clockwise, construct_point_on_circle, construct_point_on_line, construct_on_dia, construct_angle_bisector, construct_circumcenter, construct_eqdistance, construct_incenter, construct_intersection_cc, construct_intersection_lc, construct_intersection_ll, construct_intersection_lp, construct_intersection_lt, construct_intersection_pp, construct_intersection_tt, construct_lc_tangent, construct_midpoint, construct_mirror, construct_on_aline, construct_on_bline, construct_on_circle, construct_on_line, construct_on_pline, construct_on_tline, construct_orthocenter, construct_reflect]
+    construction_rule_set += [construct_foot] * 10
     # the diagram is fully determined
     if debug:
         state.silent = False
@@ -96,12 +98,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         else:
             rand = random.random()
             if rand < 0.3:
-                candidate_set = [rule for rule in list(construction_rule_sets['deterministic']) 
-                               if rule.num_inputs <= len(state.points) and rule in construction_rule_set]
+                candidate_set = [rule for rule in construction_rule_set if rule.num_inputs <= len(state.points) and rule in construction_rule_sets['deterministic']]
             else:
                 multiconstructions = True
-                candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
-                               if rule.num_inputs <= len(state.points) and rule in construction_rule_set]
+                candidate_set = [rule for rule in construction_rule_set if rule.num_inputs <= len(state.points) and rule in construction_rule_sets['nondeterministic']]
             
         # remove construct_s_angle if mixing q and non-q construction rules
         picked = random.choice(candidate_set)
@@ -138,9 +138,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
         if multiconstructions:
             to_intersect = picked
-            candidate_set = [rule for rule in list(construction_rule_sets['nondeterministic']) 
-                           if rule.num_inputs <= len(state.points) and 
-                           rule.num_outputs == picked.num_outputs and rule in construction_rule_set]
+            candidate_set = [rule for rule in  construction_rule_set if rule.num_inputs <= len(state.points) and rule.num_outputs == picked.num_outputs and rule in construction_rule_sets['nondeterministic']]
             rand = random.random()
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
