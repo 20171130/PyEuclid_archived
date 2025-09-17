@@ -564,7 +564,7 @@ class ProofGenerator:
                             div *= arg
                     if div != 1:
                         eqn = eqn / div
-
+                
                 eqn = sympy.expand(eqn)
 
                 probe = eqn.args if eqn.is_Add else (eqn,)

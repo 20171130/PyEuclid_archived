@@ -197,8 +197,12 @@ class UnionFind:
     
 #     def __hash__(self):
 #         return hash(self.expr)
-
-
+import math
+def round_sig(x, sig=3):
+    if x == 0:
+        return 0
+    return round(x, sig - int(math.floor(math.log10(abs(x)))) - 1)
+        
 class Traced:
     def __init__(self, expr, depth=0, sources=None, redundant=None, approx_sig=16):
         if isinstance(expr, Traced):
@@ -219,12 +223,7 @@ class Traced:
         #     expr = self._approximate_numeric_factors(expr, self._approx_sig)
 
         self.expr = expr
-        import math
 
-        def round_sig(x, sig=3):
-            if x == 0:
-                return 0
-            return round(x, sig - int(math.floor(math.log10(abs(x)))) - 1)
         if isinstance(expr, sympy.core.add.Add):
             args = []
             for arg in expr.args:

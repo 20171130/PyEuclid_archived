@@ -168,7 +168,6 @@ class Diagram:
         self.save()
         max_attempts = 100
         attempt = 0
-
         while attempt < max_attempts:
             attempt += 1
             try:
@@ -178,6 +177,18 @@ class Diagram:
                 self.coordinates_list.append(coordinates)
                 for construction in constructions:
                     self.conclusions += construction.conclusions()
+                degree = {point: set() for point in self.name2point}
+                segments = {(segment.p1, segment.p2) for segment in self.segments}
+                for p1, p2 in segments:
+                    n1, n2 = self.point2name[p1], self.point2name[p2]
+                    p1, p2 = np.array([p1.x, p1.y]), np.array([p2.x, p2.y])
+                    p21 = p2 - p1
+                    a21 = round_sig(np.arctan2(p21[1], p21[0]))
+                    degree[n1].add(a21)
+                    degree[n2].add(-a21)
+                    if len(degree[n1]) > 5 or len(degree[n2]) > 5:
+                        attempt = max_attempts
+                        raise SamplingError()
                 return
             except (NumericalCheckingError, SamplingError, DistanceError):
                 self.restore()

@@ -41,7 +41,7 @@ def printt(s):
     print(s)
 
 
-debug = False
+debug = True
 
 rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
 rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
