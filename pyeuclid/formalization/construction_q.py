@@ -328,9 +328,12 @@ class construct_r_triangle_q(ConstructionQ):
         self.outputs = [a, b, c]
     
     def sample(self, angle_values=[], length_values=[]):
+        # while True:
         ab, bc = sample_length(special_values=length_values), sample_length(special_values=length_values)
         self.ab, self.bc = ab, bc
         self.params = [ab, bc]
+            # if ab != bc:
+            #     break
         return [ab, bc], [pi/2]
 
     def conclusions(self):
@@ -406,11 +409,14 @@ class construct_parallelogram_q(ConstructionQ):
         self.outputs = [a, b, c, d]
     
     def sample(self, angle_values=[], length_values=[]):
-        ab = sample_length(special_values=length_values)
-        ad = sample_length(special_values=length_values)
-        bad = sample_angle(special_values=angle_values)
-        self.ab, self.ad, self.bad = ab, ad, bad
-        self.params = [ab, ad, bad]
+        while True:
+            ab = sample_length(special_values=length_values)
+            ad = sample_length(special_values=length_values)
+            bad = sample_angle(special_values=angle_values)
+            self.ab, self.ad, self.bad = ab, ad, bad
+            self.params = [ab, ad, bad]
+            if bad != pi/2:
+                break
         return [ab, ad], [bad, pi-bad]
 
     def conclusions(self):
@@ -447,11 +453,15 @@ class construct_eq_trapezoid_q(ConstructionQ):
         self.outputs = [a, b, c, d]
     
     def sample(self, angle_values=[], length_values=[]):
-        ab = sample_length(special_values=length_values)
-        ad = sample_length(special_values=length_values)
-        bad = sample_angle(special_values=angle_values)
-        self.ab, self.ad, self.bad = ab, ad, bad
-        self.params = [ab, ad, bad]
+        while True:
+            ab = sample_length(special_values=length_values)
+            ad = sample_length(special_values=length_values)
+            bad = sample_angle(special_values=angle_values)
+            self.ab, self.ad, self.bad = ab, ad, bad
+            self.params = [ab, ad, bad]
+            bad = self.bad.evalf()
+            if not self.ad*math.cos(bad) > self.ab - self.ad*math.cos(bad):
+                break
         return [ab, ad], [bad, pi-bad]
 
     def conclusions(self):
@@ -490,11 +500,14 @@ class construct_r_trapezoid_q(ConstructionQ):
         self.outputs = [a, b, c, d]
     
     def sample(self, angle_values=[], length_values=[]):
-        ab = sample_length(special_values=length_values)
-        ad = sample_length(special_values=length_values)
-        cd = sample_length(special_values=length_values)
-        self.ab, self.ad, self.cd = ab, ad, cd
-        self.params = [ab, ad, cd]
+        while True:
+            ab = sample_length(special_values=length_values)
+            ad = sample_length(special_values=length_values)
+            cd = sample_length(special_values=length_values)
+            self.ab, self.ad, self.cd = ab, ad, cd
+            self.params = [ab, ad, cd]
+            if ab != cd:
+                break
         return [ab, ad, cd], []
 
     def conclusions(self):
@@ -573,11 +586,14 @@ class construct_rectangle_q(ConstructionQ):
         self.outputs = [a, b, c, d]
     
     def sample(self, angle_values=[], length_values=[]):
-        h = sample_length()
-        w = sample_length()
-        self.h = h
-        self.w = w
-        self.params = [h, w]
+        while True:
+            h = sample_length()
+            w = sample_length()
+            self.h = h
+            self.w = w
+            self.params = [h, w]
+            if h != w:
+                break
         return [self.h, self.w], [pi/2]
 
     def conclusions(self):
