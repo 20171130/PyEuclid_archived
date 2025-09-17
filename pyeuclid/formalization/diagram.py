@@ -138,19 +138,19 @@ class Diagram:
     
     def restore(self):
         if hasattr(self, '_saved'):
-            self.points = self._saved['points']
-            self.segments = self._saved['segments']
-            self.circles = self._saved['circles']
-            self.highlight_segments = self._saved['highlight_segments']
-            self.highlight_angles = self._saved['highlight_angles']
-            self.name2point = self._saved['name2point']
-            self.point2name = self._saved['point2name']
-            self.auxiliary_constructions = self._saved['auxiliary_constructions']
-            self.construction2diagram = self._saved['construction2diagram']
-            self.constructions_list = self._saved['constructions_list']
-            self.coordinates_list = self._saved['coordinates_list']
-            self.numerical_cache = self._saved['numerical_cache']
-        
+            self.points = self._saved['points'].copy()
+            self.segments = self._saved['segments'].copy()
+            self.circles = self._saved['circles'].copy()
+            self.highlight_segments = self._saved['highlight_segments'].copy()
+            self.highlight_angles = self._saved['highlight_angles'].copy()
+            self.name2point = self._saved['name2point'].copy()
+            self.point2name = self._saved['point2name'].copy()
+            self.auxiliary_constructions = self._saved['auxiliary_constructions'].copy()
+            self.construction2diagram = self._saved['construction2diagram'].copy()
+            self.constructions_list = self._saved['constructions_list'].copy()
+            self.coordinates_list = self._saved['coordinates_list'].copy()
+            self.numerical_cache = self._saved['numerical_cache'].copy()
+            
     def show(self):
         self.draw_diagram(show=True)
         
@@ -173,10 +173,6 @@ class Diagram:
             try:
                 new_points = self.construct(constructions, coordinates)
                 self.draw(new_points, constructions, auxiliary)
-                self.constructions_list.append(constructions)
-                self.coordinates_list.append(coordinates)
-                for construction in constructions:
-                    self.conclusions += construction.conclusions()
                 degree = {point: set() for point in self.name2point}
                 segments = {(segment.p1, segment.p2) for segment in self.segments}
                 for p1, p2 in segments:
@@ -187,13 +183,15 @@ class Diagram:
                     degree[n1].add(a21)
                     degree[n2].add(-a21)
                     if len(degree[n1]) > 5 or len(degree[n2]) > 5:
-                        attempt = max_attempts
-                        raise SamplingError()
+                        self.restore()
+                        raise MaxAttemptsError()
+                self.constructions_list.append(constructions)
+                self.coordinates_list.append(coordinates)
+                for construction in constructions:
+                    self.conclusions += construction.conclusions()
                 return
             except (NumericalCheckingError, SamplingError, DistanceError):
                 self.restore()
-            except Exception:
-                raise
         raise MaxAttemptsError()
             
     def construct_diagram(self, constructions_list, coordinates_list):
