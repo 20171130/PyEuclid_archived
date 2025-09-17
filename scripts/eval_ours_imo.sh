@@ -26,7 +26,7 @@ PYMAIN="scripts/eval.py"
 PROVIDER="vllm"
 
 # vLLM model name (what the server loaded)
-MODEL="saves/task3/qwen2.5-math-7b"
+MODEL="saves/task3/916/qwen2.5-math-7b"
 
 # Shared directory & hostfile written by the vLLM server job
 SHARED_DIR=".vllm"

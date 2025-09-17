@@ -26,7 +26,7 @@ PYMAIN="scripts/eval.py"
 PROVIDER="vllm"
 
 # vLLM model name (what the server loaded)
-MODEL="saves/task3/qwen2.5-math-7b"
+MODEL="saves/task3/916/qwen2.5-math-7b"
 
 # Shared directory & hostfile written by the vLLM server job
 SHARED_DIR=".vllm"
@@ -37,9 +37,9 @@ DATA_TXT="data/JGEX-AG-231.txt"
 RESULTS_DIR="results/JGEX-AG-231"
 
 # Search knobs
-BRANCHING_FACTOR="${BRANCHING_FACTOR:-32}"
+BRANCHING_FACTOR="${BRANCHING_FACTOR:-64}"
 BEAM_SIZE="${BEAM_SIZE:-128}"
-MAX_DEPTH="${MAX_DEPTH:-4}"
+MAX_DEPTH="${MAX_DEPTH:-2}"
 
 # Timeouts & workers
 ENGINE_TIMEOUT="${ENGINE_TIMEOUT:-1200}"

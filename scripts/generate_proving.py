@@ -21,9 +21,10 @@ from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 
-independent_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["independent"]]
-deterministic_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["deterministic"]]
-nondeterministic_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["nondeterministic"]]
+independent_rules = [rule for rule in construction_rule_sets["proving"] if rule in construction_rule_sets["independent"]]
+deterministic_rules = [rule for rule in construction_rule_sets["proving"] if rule in construction_rule_sets["deterministic"]]
+nondeterministic_rules = [rule for rule in construction_rule_sets["proving"] if rule in construction_rule_sets["nondeterministic"]]
+
 
 def is_angle_sum_minus_pi(expr: sympy.Expr) -> bool:
     if not isinstance(expr, sympy.Add):
@@ -141,7 +142,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     np.random.seed(base_seed)
 
     state = State()
-    state.silent = True
+    state.silent = False
     deductive_database = DeductiveDatabase(state)
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
@@ -155,15 +156,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     attempt = 0
     points = 0
 
-    max_steps = random.uniform(6, 12)
+    max_steps = random.uniform(6, 10)
     max_attempts = 100
-    max_points = random.uniform(10, 20)
+    max_points = random.uniform(8, 16)
     constructions_list = []
     index = 0
-    old_relations = []
-    old_equations = []
-    conclusions = []
-
     # Construction phase with timeout checks
     while (step < max_steps and attempt < max_attempts and points < max_points
            and not timeout_handler.check_timeout()):
@@ -254,30 +251,23 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         points += len(outputs)
         for p in outputs:
             point2constructions[p] = constructions
-
-        engine.run()
-        for relation in state.relations:
-            if relation not in old_relations:
-                ps = set(relation.get_points())
-                if all([p not in outputs for p in ps]) and not trivial_condition(relation) and hasattr(relation, "source"):
-                    conclusions.append(relation)
-                old_relations.append(relation)
-        for equation in state.equations:
-            if equation not in old_equations:
-                ps = set([p for points in get_points_and_symbols(equation)[0] for p in points])
-                if all([p not in outputs for p in ps]) and equation.sources and isinstance(equation.sources[0], InferenceRule) and not isinstance(equation.sources[0], (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2)):
-                    conclusions.append(equation)
-                old_equations.append(equation)
+    
+    with open(os.path.join(problem_output_dir, f'constructions_list.json'), 'w') as f:
+        s = ', '.join([str(construction) for constructions in constructions_list for construction in constructions])
+        f.write(s)
+        
+    engine.run()
+    conclusions = list(state.relations) + list(state.equations)
         
     if timeout_handler.check_timeout():
-        return {"samples_generated": 0, "samples_with_auxiliary": 0, "timeout": True}
+        return {"samples_generated": 0, "timeout": True}
 
-    i = 0
-    samples_with_auxiliary = 0
-    sub_conclusions = set()
-    conclusions2dir = {}
+    max_depth = max(state.condition2depth.values())
 
-    proof_generator = ProofGenerator(state, max_equation_length_perstep=None)
+    if max_depth <= 2:
+        return {"samples_generated": 0}
+
+    conclusions = [c for c in conclusions if state.condition2depth.get(c) > 2 and state.condition2depth.get(c) >= max_depth - 1]
     # filter conclusions
     filtered_conclusions = []
     for relation in conclusions:
@@ -308,25 +298,29 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         filtered_conclusions.append(relation)
     
     if not filtered_conclusions:
-        return {"samples_generated": 0, "samples_with_auxiliary": 0}
-    
-    final_conclusions = []
+        return {"samples_generated": 0}
 
     relations = [c for c in filtered_conclusions if isinstance(c, Relation)]
-    if relations:
-        final_conclusions.append(random.choice(relations))
+    random.shuffle(relations)
     angle_diffs = [c for c in filtered_conclusions if isinstance(c, Traced) and is_angle_diff(c.expr)]
-    if angle_diffs:
-        final_conclusions.append(random.choice(angle_diffs))
+    random.shuffle(angle_diffs)
     angle_sums = [c for c in filtered_conclusions if isinstance(c, Traced) and is_angle_sum_minus_pi(c.expr)]
-    if angle_sums:
-        final_conclusions.append(random.choice(angle_sums))
+    random.shuffle(angle_sums)
     length_diffs = [c for c in filtered_conclusions if isinstance(c, Traced) and is_length_diff(c.expr)]
-    if length_diffs:
-        final_conclusions.append(random.choice(length_diffs))
+    random.shuffle(length_diffs)
     ratio_diffs = [c for c in filtered_conclusions if isinstance(c, Traced) and is_length_ratio_diff(c.expr)]
-    if ratio_diffs:
-        final_conclusions.append(random.choice(ratio_diffs))
+    random.shuffle(ratio_diffs)
+
+    traced_groups = [angle_diffs, angle_sums, length_diffs, ratio_diffs]
+    random.shuffle(traced_groups)
+    traced = sum(traced_groups, [])
+
+    if random.random() < 0.5:
+        filtered_conclusions = relations + traced
+    else:
+       filtered_conclusions = traced + relations
+
+    proof_generator = ProofGenerator(state, max_equation_length_perstep=None)
 
     def get_sufficient_constructions(points):
         res = []
@@ -344,8 +338,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         for point in target_points:
             mark_sufficient(point)
         return sorted(res, key=lambda c: c.index)
+    
+    samples_generated = False
 
-    for relation in final_conclusions:
+    for relation in filtered_conclusions:
         if timeout_handler.check_timeout():
             break
         if isinstance(relation, Traced):
@@ -360,45 +356,18 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             points = [p for points in points_list for p in points]
 
         sufficient_constructions = get_sufficient_constructions(points)
-
-        proof_generator.run(relation)
-        auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
-        sufficient_auxiliary_constructions = []
-        for auxiliary_construction in auxiliary_constructions:
-            sufficient_auxiliary_constructions.append(auxiliary_construction)
-            for construction in get_sufficient_constructions([p for p in auxiliary_construction.inputs if isinstance(p, Point)]):
-                if construction not in sufficient_constructions and construction not in sufficient_auxiliary_constructions:
-                    sufficient_auxiliary_constructions.append(construction)
-        sufficient_auxiliary_constructions = sorted(sufficient_auxiliary_constructions, key=lambda c: c.index)
-        auxiliary_constructions = sufficient_auxiliary_constructions.copy()
-
-        for auxiliary_construction in sufficient_auxiliary_constructions[::-1]:
-            new_auxiliary_constructions = auxiliary_constructions.copy()
-            new_auxiliary_constructions.remove(auxiliary_construction)
-            new_constructions = sufficient_constructions + new_auxiliary_constructions
-            new_state = State()
-            new_state.silent = True
-            new_state.goal = relation.expr if isinstance(relation, Traced) else relation
-            new_state.diagram = diagram
-            new_state.add_constructions(new_constructions)
-            new_deductive_database = DeductiveDatabase(new_state)
-            new_algebraic_system = AlgebraicSystem(new_state)
-            new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-            new_engine.run()
-            if new_state.complete() is not None:
-                # the auxiliary construction is not required
-                auxiliary_constructions.remove(auxiliary_construction)
-
+        sufficient_constructions = sorted(sufficient_constructions, key=lambda c: c.index)
         new_state = State()
-        new_state.silent = True
+        new_state.silent = False
         new_state.goal = relation.expr if isinstance(relation, Traced) else relation
         new_state.diagram = diagram
-        new_state.add_constructions(sorted(sufficient_constructions+auxiliary_constructions, key=lambda c: c.index))
+        new_state.add_constructions(sufficient_constructions)
         new_deductive_database = DeductiveDatabase(new_state)
         new_algebraic_system = AlgebraicSystem(new_state)
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
         new_engine.run()
-        assert new_state.complete() is not None
+        if new_state.complete() is None:
+            continue
 
         if new_state.condition2depth[key] <= 2:
             continue
@@ -408,67 +377,17 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         new_proof = new_proof_generator.get_proof()
         new_proof_str = new_proof_generator.get_proof_str()
 
-        necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
+        necessary_constructions = new_proof_generator.source_constructions[key]
 
         if len(necessary_constructions) <= 2:
             continue
 
-        input_points = set()
-        output_points = set()
-        for construction in new_proof_generator.source_constructions[key]:
-            input_points.update([p for p in construction.inputs if isinstance(p, Point)])
-            output_points.update([p for p in construction.outputs])
-
-        added_constructions = []
-        basic_points = []
-        for p in sorted(list(input_points), key=lambda p:p.name):
-            if p not in output_points:
-                if len(point2constructions[p]) == 1 and type(point2constructions[p][0]) in list(construction_rule_sets["independent"]):
-                    basic_points.append(p)
-                else:
-                    c = construct_free()
-                    c.construct(p)
-                    c.index = point2constructions[p][0].index
-                    added_constructions.append(c)
-
-        if len(basic_points) == 1:
-            c = construct_free()
-            c.construct(*basic_points)
-            c.index = 0
-            added_constructions.append(c)
-        elif len(basic_points) == 2:
-            c = construct_segment()
-            c.construct(*basic_points)
-            c.index = 0
-            added_constructions.append(c)
-        elif len(basic_points) == 3:
-            c = construct_triangle()
-            c.construct(*basic_points)
-            c.index = 0
-            added_constructions.append(c)
-        elif len(basic_points) == 4:
-            c = construct_quadrangle()
-            c.construct(*basic_points)
-            c.index = 0
-            added_constructions.append(c)
-        elif len(basic_points) == 5:
-            c = construct_pentagon()
-            c.construct(*basic_points)
-            c.index = 0
-            added_constructions.append(c)
-
-        has_auxiliary = len(auxiliary_constructions) > 0
-        if has_auxiliary:
-            aux_proof = 'Auxilirary Construction:\n' if len(auxiliary_constructions) == 1 else 'Auxilirary Constructions:\n'
-            for construction in auxiliary_constructions:
-                aux_proof = aux_proof + str(construction) + '\n'
-            new_proof_str = aux_proof + new_proof_str
-            samples_with_auxiliary += 1
-        else:
+        input_points  = {p for c in necessary_constructions for p in c.inputs  if isinstance(p, Point)}
+        output_points = {p for c in necessary_constructions for p in c.outputs if isinstance(p, Point)}
+        if not input_points.issubset(output_points):
             continue
 
-        diagram.save()
-        sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
+        sample_dir = os.path.join(problem_output_dir, f'sample_0')
         os.makedirs(sample_dir, exist_ok=True)
 
         diagram_sample_path = os.path.join(sample_dir, 'diagram.jpg')
@@ -476,36 +395,26 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
         goal_constructions = get_constructions_from_goal(relation)
         diagram.draw([], goal_constructions)
-        diagram.draw_diagram(constructions=necessary_constructions+goal_constructions, save=True)
-
-        new_diagram_sample_path = os.path.join(sample_dir, 'diagram_with_auxiliary_constructions.jpg')
-        diagram.save_path = new_diagram_sample_path
-        diagram.auxiliary_constructions.extend(auxiliary_constructions)
-        diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True)
-        
+        diagram.draw_diagram(constructions=necessary_constructions+goal_constructions, save=True)        
         diagram.restore()
 
-        problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
+        problem_constructions = sorted(necessary_constructions, key=lambda c: c.index)
 
         data = {
             "problem": ', '.join([str(construction) for construction in problem_constructions]),
             "goal": str(relation),
             "diagram": diagram_sample_path,
-            "diagram_with_auxiliary_constructions": new_diagram_sample_path,
-            "auxiliary_constructions": ', '.join([str(construction) for construction in auxiliary_constructions]),
-            "num_auxiliary_constructions": len(auxiliary_constructions),
             "proof": new_proof_str,
         }
 
         with open(os.path.join(sample_dir, "data.json"), "w") as f:
             json.dump(data, f, indent=4)
-
-        conclusions2dir[relation] = sample_dir
-        i += 1
+        
+        samples_generated = True
+        break
 
     return {
-        "samples_generated": i,
-        "samples_with_auxiliary": samples_with_auxiliary,
+        "samples_generated": 1 if samples_generated else 0,
         "timeout": timeout_handler.check_timeout()
     }
 
@@ -520,7 +429,6 @@ def generate_until_timeout(rank: int, output_dir: str, timeout_handler: TimeoutH
 
     problem_id = 0
     total_samples = 0
-    total_samples_with_auxiliary = 0
     start_time = time.time()
     problems_with_errors = 0
     problems_with_timeouts = 0
@@ -545,7 +453,6 @@ def generate_until_timeout(rank: int, output_dir: str, timeout_handler: TimeoutH
                 problems_with_errors += 1
 
             total_samples += result["samples_generated"]
-            total_samples_with_auxiliary += result["samples_with_auxiliary"]
 
             if result["samples_generated"] > 0:
                 problem_id += 1
@@ -570,7 +477,6 @@ def generate_until_timeout(rank: int, output_dir: str, timeout_handler: TimeoutH
     result = {
         "total_samples": total_samples,
         "total_problems": problem_id,
-        "samples_with_auxiliary": total_samples_with_auxiliary,
         "problems_with_errors": problems_with_errors,
         "problems_with_timeouts": problems_with_timeouts,
         "termination_reason": termination_reason,

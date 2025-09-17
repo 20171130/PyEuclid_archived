@@ -55,5 +55,5 @@ for data_json in data_json_list:
 
 print(f'Totoal: {len(dataset)} instances.')
 
-with open(f"data/task3.json", "w") as f:
+with open(f"data/task3_train.json", "w") as f:
     json.dump(dataset, f, indent=4)

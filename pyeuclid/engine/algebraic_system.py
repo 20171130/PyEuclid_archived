@@ -403,4 +403,7 @@ class AlgebraicSystem:
         self.state.angle_sums = dic
 
     def run(self):
-        return self.solve_equation()
+        closure = self.solve_equation()
+        while not closure:
+            closure = self.solve_equation()
+        return closure

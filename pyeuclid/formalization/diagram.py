@@ -135,18 +135,18 @@ class Diagram:
     
     def restore(self):
         if hasattr(self, '_saved'):
-            self.points = self._saved['points']
-            self.segments = self._saved['segments']
-            self.circles = self._saved['circles']
-            self.highlight_segments = self._saved['highlight_segments']
-            self.highlight_angles = self._saved['highlight_angles']
-            self.name2point = self._saved['name2point']
-            self.point2name = self._saved['point2name']
-            self.auxiliary_constructions = self._saved['auxiliary_constructions']
-            self.construction2diagram = self._saved['construction2diagram']
-            self.constructions_list = self._saved['constructions_list']
-            self.coordinates_list = self._saved['coordinates_list']
-            self.numerical_cache = self._saved['numerical_cache']
+            self.points = self._saved['points'].copy()
+            self.segments = self._saved['segments'].copy()
+            self.circles = self._saved['circles'].copy()
+            self.highlight_segments = self._saved['highlight_segments'].copy()
+            self.highlight_angles = self._saved['highlight_angles'].copy()
+            self.name2point = self._saved['name2point'].copy()
+            self.point2name = self._saved['point2name'].copy()
+            self.auxiliary_constructions = self._saved['auxiliary_constructions'].copy()
+            self.construction2diagram = self._saved['construction2diagram'].copy()
+            self.constructions_list = self._saved['constructions_list'].copy()
+            self.coordinates_list = self._saved['coordinates_list'].copy()
+            self.numerical_cache = self._saved['numerical_cache'].copy()
         
     def show(self):
         self.draw_diagram(show=True)
@@ -267,7 +267,10 @@ class Diagram:
             if not 'check_' + relation.__class__.__name__.lower() in globals():
                 return True
             func = globals()['check_' + relation.__class__.__name__.lower()]
-            args = [self.name2point[p.name] for p in relation.get_points()]
+            try:
+                args = [self.name2point[p.name] for p in relation.get_points()]
+            except:
+                breakpoint()
             if relation not in self.numerical_cache:
                 if relation.negated:
                     self.numerical_cache[relation] = not func(args)
@@ -1600,7 +1603,7 @@ class Diagram:
                     plt.Circle(
                         (circle.center.x, circle.center.y),
                         circle.radius,
-                        color='red',
+                        color='black',
                         alpha=0.8,
                         fill=False,
                         lw=1.2,

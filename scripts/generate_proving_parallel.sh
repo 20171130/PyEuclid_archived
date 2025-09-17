@@ -1,15 +1,15 @@
 #!/bin/bash
-#SBATCH --job-name=auxiliary_constructions
+#SBATCH --job-name=proving
 #SBATCH --array=0-9999
-#SBATCH --time=72:00:00
+#SBATCH --time=8:00:00
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
 #SBATCH --output=/dev/null
 #SBATCH --error=/dev/null
 #SBATCH --partition=learnfair,learnlab,devlab,scavenge
 
-export OUTPUT_DIR=task3/auxiliary_construction_2
-export TIMEOUT_SECONDS=259200
+export OUTPUT_DIR=task2/proving_917
+export TIMEOUT_SECONDS=28800
 export MAX_PROBLEM_ID=0
 
-python scripts/generate_auxiliary_constructions.py
+python scripts/generate_proving.py

@@ -9,7 +9,7 @@
 
 set -eo pipefail
 
-MODEL="saves/task3/qwen2.5-math-7b"
+MODEL="saves/task3/916/qwen2.5-math-7b"
 PORT="${PORT:-8000}"
 SHARED_DIR=".vllm"
 HOST="0.0.0.0"
