@@ -1,8 +1,8 @@
 Solution:
-1. Length_a_c - Length_a_e & Length_a_b - Length_a_c => Length_a_b - Length_a_e
-2. Length_a_b - Length_a_c & Length_a_b - Length_a_e & Perpendicular(a,b,b,d) => Angle_b_e_c - Angle_c_b_d
-3. -Length_a_b + Length_a_c & Length_a_c - Length_a_e & Perpendicular(a,c,c,d) => Angle_b_c_d - Angle_b_e_c
-4. Angle_b_e_c - Angle_c_b_d & Angle_b_c_d - Angle_b_e_c => Angle_b_c_d - Angle_c_b_d
+1. -Length_a_b + Length_a_c & Length_a_c - Length_a_e & Perpendicular(a,c,c,d) => Angle_b_c_d - Angle_b_e_c
+2. Length_a_c - Length_a_e & Length_a_b - Length_a_c => Length_a_b - Length_a_e
+3. Length_a_b - Length_a_c & Length_a_b - Length_a_e & Perpendicular(a,b,b,d) => Angle_b_e_c - Angle_c_b_d
+4. Angle_b_c_d - Angle_b_e_c & Angle_b_e_c - Angle_c_b_d => Angle_b_c_d - Angle_c_b_d
 5. -Angle_b_c_d + Angle_c_b_d => Length_b_d - Length_c_d
 6. Length_a_b - Length_a_c & -Length_b_d + Length_c_d => Kite(a,b,d,c)
 7. Kite(a,b,d,c) & Length_a_b - Length_a_c & -Length_b_d + Length_c_d => Perpendicular(a,d,b,c)

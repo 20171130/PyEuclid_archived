@@ -1,7 +1,7 @@
 Solution:
-1. Length_a_b - Length_a_c & Length_a_b - Length_a_d => Angle_c_a_d - 2*Angle_c_b_d
-2. Collinear(b,c,f) => Angle_b_f_d - Angle_c_f_d & Angle_c_b_d - Angle_d_b_f
-3. Length_a_e - Length_c_e & Length_a_e - Length_d_e & Length_a_e - Length_e_f => Concyclic(a,c,d,f)
-4. Concyclic(a,c,d,f) => Angle_c_a_d + Angle_c_f_d - pi
-5. Angle_b_d_f + Angle_b_f_d + Angle_d_b_f - pi & Angle_c_a_d - 2*Angle_c_b_d & Angle_b_f_d - Angle_c_f_d & Angle_c_b_d - Angle_d_b_f & Angle_c_a_d + Angle_c_f_d - pi => Angle_b_d_f - Angle_d_b_f
+1. Length_a_e - Length_c_e & Length_a_e - Length_d_e & Length_a_e - Length_e_f => Concyclic(a,c,d,f)
+2. Concyclic(a,c,d,f) => Angle_c_a_d - Angle_c_f_d
+3. Collinear(b,c,f) => Angle_c_b_d - Angle_d_b_f & Angle_b_f_d + Angle_c_f_d - pi
+4. Length_a_b - Length_a_c & Length_a_b - Length_a_d => Angle_c_a_d - 2*Angle_c_b_d
+5. Angle_c_a_d - Angle_c_f_d & Angle_c_b_d - Angle_d_b_f & Angle_c_a_d - 2*Angle_c_b_d & Angle_b_d_f + Angle_b_f_d + Angle_d_b_f - pi & Angle_b_f_d + Angle_c_f_d - pi => Angle_b_d_f - Angle_d_b_f
 6. -Angle_b_d_f + Angle_d_b_f => Length_b_f - Length_d_f

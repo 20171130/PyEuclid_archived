@@ -1,6 +1,6 @@
 Solution:
-1. Collinear(a,b,d) => Parallel(a,b,a,d)
-2. Perpendicular(a,b,c,d) & Parallel(a,b,a,d) => Perpendicular(a,d,c,d)
-3. Perpendicular(a,d,c,d) => Angle_a_d_c - pi/2
-4. Perpendicular(a,c,b,c) => Angle_a_c_b - pi/2
-5. Angle_a_c_d + Angle_a_d_c + Angle_c_a_d - pi & Angle_a_d_c - pi/2 & Angle_a_c_b - Angle_a_c_d - Angle_b_c_d & Angle_a_c_b - pi/2 => Angle_b_c_d - Angle_c_a_d
+1. Perpendicular(a,c,b,c) => Angle_a_c_b - pi/2
+2. Collinear(a,b,d) => Parallel(a,b,a,d)
+3. Perpendicular(a,b,c,d) & Parallel(a,b,a,d) => Perpendicular(a,d,c,d)
+4. Perpendicular(a,d,c,d) => Angle_a_d_c - pi/2
+5. Angle_a_c_d + Angle_a_d_c + Angle_c_a_d - pi & Angle_a_c_b - pi/2 & Angle_a_c_b - Angle_a_c_d - Angle_b_c_d & Angle_a_d_c - pi/2 => Angle_b_c_d - Angle_c_a_d

@@ -1,7 +1,7 @@
 Solution:
 1. Collinear(a,i,x) => Angle_a_i_c + Angle_c_i_x - pi & Angle_a_i_b + Angle_b_i_x - pi & Parallel(a,i,i,x)
-2. Collinear(b,c,l) => Angle_c_b_i - Angle_i_b_l & Parallel(b,c,b,l) & Parallel(b,c,c,l) & Angle_b_c_i - Angle_i_c_l
-3. Angle_a_i_c + Angle_c_i_x - pi & Angle_a_c_i + Angle_a_i_c + Angle_c_a_i - pi & Angle_a_b_i - Angle_c_b_i & Angle_b_c_i + Angle_b_i_c + Angle_c_b_i - pi & Angle_a_i_b + Angle_b_i_x - pi & Angle_c_b_i - Angle_i_b_l & Angle_a_b_i + Angle_a_i_b + Angle_b_a_i - pi & Angle_b_a_i - Angle_c_a_i & Angle_b_i_c - Angle_b_i_x - Angle_c_i_x & Angle_a_c_i - Angle_b_c_i => Angle_c_i_x + Angle_i_b_l - pi/2
+2. Collinear(b,c,l) => Angle_c_b_i - Angle_i_b_l & Parallel(b,c,b,l) & Angle_b_c_i - Angle_i_c_l & Parallel(b,c,c,l)
+3. Angle_a_b_i + Angle_a_i_b + Angle_b_a_i - pi & Angle_a_i_c + Angle_c_i_x - pi & Angle_a_i_b + Angle_b_i_x - pi & Angle_b_i_c - Angle_b_i_x - Angle_c_i_x & Angle_c_b_i - Angle_i_b_l & Angle_b_c_i + Angle_b_i_c + Angle_c_b_i - pi & Angle_b_a_i - Angle_c_a_i & Angle_a_b_i - Angle_c_b_i & Angle_a_c_i + Angle_a_i_c + Angle_c_a_i - pi & Angle_a_c_i - Angle_b_c_i => Angle_c_i_x + Angle_i_b_l - pi/2
 4. Perpendicular(a,i,b,x) & Parallel(a,i,i,x) => Perpendicular(b,x,i,x)
 5. Perpendicular(b,x,i,x) => Angle_b_x_i - pi/2
 6. Perpendicular(b,c,i,l) & Parallel(b,c,b,l) => Perpendicular(b,l,i,l)
@@ -9,16 +9,16 @@ Solution:
 8. Angle_b_x_i - pi/2 & Angle_b_l_i - pi/2 => Angle_b_l_i - Angle_b_x_i
 9. Angle_b_l_i - Angle_b_x_i => Concyclic(b,i,l,x)
 10. Concyclic(b,i,l,x) => Angle_i_b_l - Angle_i_x_l
-11. Angle_c_x_i - Angle_c_x_l - Angle_i_x_l & Angle_c_i_x + Angle_i_b_l - pi/2 & Angle_i_b_l - Angle_i_x_l & Angle_c_i_x + Angle_c_x_i + Angle_i_c_x - pi => Angle_c_x_l + Angle_i_c_x - pi/2
+11. Angle_c_i_x + Angle_i_b_l - pi/2 & Angle_i_b_l - Angle_i_x_l & Angle_c_i_x + Angle_c_x_i + Angle_i_c_x - pi & Angle_c_x_i - Angle_c_x_l - Angle_i_x_l => Angle_c_x_l + Angle_i_c_x - pi/2
 12. Angle_c_x_l + Angle_i_c_x - pi/2 => Perpendicular(c,i,l,x)
 13. Incenter(i,a,b,c) & Collinear(a,c,y) & Collinear(b,c,l) & Perpendicular(a,c,i,y) & Perpendicular(b,c,i,l) => Length_i_l - Length_i_y
 14. Length_i_l - Length_i_y => IsoscelesTriangle(i,l,y)
-15. Collinear(a,c,y) => Parallel(a,c,c,y) & Angle_a_c_i - Angle_i_c_y
+15. Collinear(a,c,y) => Angle_a_c_i - Angle_i_c_y & Parallel(a,c,c,y)
 16. Perpendicular(a,c,i,y) & Parallel(a,c,c,y) => Perpendicular(c,y,i,y)
 17. Perpendicular(c,y,i,y) => Angle_c_y_i - pi/2
 18. Perpendicular(b,c,i,l) & Parallel(b,c,c,l) => Perpendicular(c,l,i,l)
 19. Perpendicular(c,l,i,l) => Angle_c_l_i - pi/2
-20. Angle_c_y_i - pi/2 & Angle_c_l_i - pi/2 & Angle_a_c_i - Angle_i_c_y & Angle_c_i_y + Angle_c_y_i + Angle_i_c_y - pi & Angle_b_c_i - Angle_i_c_l & Angle_c_i_l + Angle_c_l_i + Angle_i_c_l - pi & Angle_a_c_i - Angle_b_c_i => Angle_c_i_l - Angle_c_i_y
+20. Angle_b_c_i - Angle_i_c_l & Angle_a_c_i - Angle_i_c_y & Angle_c_i_y + Angle_c_y_i + Angle_i_c_y - pi & Angle_c_y_i - pi/2 & Angle_c_l_i - pi/2 & Angle_c_i_l + Angle_c_l_i + Angle_i_c_l - pi & Angle_a_c_i - Angle_b_c_i => Angle_c_i_l - Angle_c_i_y
 21. IsoscelesTriangle(i,l,y) & Length_i_l - Length_i_y & Angle_c_i_l - Angle_c_i_y => Perpendicular(c,i,l,y)
 22. Perpendicular(c,i,l,x) & Perpendicular(c,i,l,y) => Parallel(l,x,l,y)
 23. Parallel(l,x,l,y) => Collinear(l,x,y)

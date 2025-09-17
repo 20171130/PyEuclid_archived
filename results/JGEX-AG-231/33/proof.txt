@@ -1,13 +1,13 @@
 Solution:
-1. Collinear(b,d,e) => Angle_c_b_d - Angle_c_b_e & Angle_b_d_c - Angle_c_d_e
-2. Length_a_c - Length_c_d & Length_a_c - Length_b_c => Length_b_c - Length_c_d
-3. Length_b_c - Length_c_d => Angle_b_d_c - Angle_c_b_d
+1. Length_a_c - Length_b_c & Length_a_c - Length_c_d => Length_b_c - Length_c_d
+2. Length_b_c - Length_c_d => Angle_b_d_c - Angle_c_b_d
+3. Collinear(b,d,e) => Angle_b_d_c - Angle_c_d_e & Angle_c_b_d - Angle_c_b_e
 4. Length_c_f - Length_d_f & Length_c_f - Length_e_f & Length_c_f - Length_f_g => Concyclic(c,d,e,g)
 5. Concyclic(c,d,e,g) => Angle_c_d_e - Angle_c_g_e
-6. Angle_c_b_d - Angle_c_b_e & Angle_b_d_c - Angle_c_d_e & Angle_b_d_c - Angle_c_b_d & Angle_c_d_e - Angle_c_g_e => Angle_c_b_e - Angle_c_g_e
+6. Angle_b_d_c - Angle_c_b_d & Angle_b_d_c - Angle_c_d_e & Angle_c_b_d - Angle_c_b_e & Angle_c_d_e - Angle_c_g_e => Angle_c_b_e - Angle_c_g_e
 7. Collinear(a,b,c) => Parallel(a,b,b,c)
 8. Parallel(a,b,b,c) & Parallel(a,b,e,g) => Parallel(b,c,e,g)
 9. Parallel(b,c,e,g) => Angle_b_c_g + Angle_c_g_e - pi & Angle_b_e_g + Angle_c_b_e - pi
-10. Angle_c_b_d - Angle_c_b_e & Angle_b_d_c - Angle_c_d_e & Angle_b_c_g + Angle_c_g_e - pi & Angle_b_e_g + Angle_c_b_e - pi & Angle_b_d_c - Angle_c_b_d & Angle_c_d_e - Angle_c_g_e => Angle_b_c_g - Angle_b_e_g
+10. Angle_b_c_g + Angle_c_g_e - pi & Angle_b_d_c - Angle_c_b_d & Angle_b_d_c - Angle_c_d_e & Angle_b_e_g + Angle_c_b_e - pi & Angle_c_b_d - Angle_c_b_e & Angle_c_d_e - Angle_c_g_e => Angle_b_c_g - Angle_b_e_g
 11. Angle_c_b_e - Angle_c_g_e & Angle_b_c_g - Angle_b_e_g => Parallelogram(b,c,g,e)
 12. Parallelogram(b,c,g,e) => Length_b_c - Length_e_g

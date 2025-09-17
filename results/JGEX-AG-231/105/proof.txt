@@ -1,16 +1,16 @@
 Solution:
 1. Length_a_o - Length_c_o & Length_c_o - Length_k_o => Length_a_o - Length_k_o
 2. Length_a_o - Length_b_o & Length_a_o - Length_c_o & Length_a_o - Length_k_o => Concyclic(a,b,c,k)
-3. Concyclic(a,b,c,k) => Angle_b_a_c - Angle_b_k_c
+3. Concyclic(a,b,c,k) => Angle_b_a_c + Angle_b_k_c - pi
 4. Collinear(c,d,h) & Collinear(c,d,k) => Collinear(c,h,k)
-5. Collinear(c,h,k) => Angle_b_k_c + Angle_b_k_h - pi & Parallel(c,h,h,k)
-6. Collinear(b,e,h) => Parallel(b,e,b,h)
-7. Perpendicular(a,c,b,e) & Parallel(b,e,b,h) => Perpendicular(a,c,b,h)
-8. Perpendicular(a,c,b,h) => Angle_a_b_h - Angle_b_a_c + pi/2
-9. Collinear(c,d,h) => Parallel(c,d,c,h)
-10. Perpendicular(a,b,c,d) & Parallel(c,d,c,h) => Perpendicular(a,b,c,h)
-11. Perpendicular(a,b,c,h) & Parallel(c,h,h,k) => Perpendicular(a,b,h,k)
-12. Perpendicular(a,b,h,k) => Angle_a_b_h + Angle_b_h_k - pi/2
-13. Angle_b_a_c - Angle_b_k_c & Angle_b_k_c + Angle_b_k_h - pi & Angle_a_b_h - Angle_b_a_c + pi/2 & Angle_a_b_h + Angle_b_h_k - pi/2 => Angle_b_h_k - Angle_b_k_h
+5. Collinear(c,h,k) => Angle_b_k_c - Angle_b_k_h & Parallel(c,h,h,k)
+6. Collinear(c,d,h) => Parallel(c,d,c,h)
+7. Perpendicular(a,b,c,d) & Parallel(c,d,c,h) => Perpendicular(a,b,c,h)
+8. Perpendicular(a,b,c,h) & Parallel(c,h,h,k) => Perpendicular(a,b,h,k)
+9. Perpendicular(a,b,h,k) => Angle_a_b_h + Angle_b_h_k - pi/2
+10. Collinear(b,e,h) => Parallel(b,e,b,h)
+11. Perpendicular(a,c,b,e) & Parallel(b,e,b,h) => Perpendicular(a,c,b,h)
+12. Perpendicular(a,c,b,h) => Angle_a_b_h - Angle_b_a_c + pi/2
+13. Angle_b_a_c + Angle_b_k_c - pi & Angle_b_k_c - Angle_b_k_h & Angle_a_b_h + Angle_b_h_k - pi/2 & Angle_a_b_h - Angle_b_a_c + pi/2 => Angle_b_h_k - Angle_b_k_h
 14. Angle_b_h_k - Angle_b_k_h => IsoscelesTriangle(b,h,k) & Length_b_h - Length_b_k
 15. IsoscelesTriangle(b,h,k) & Length_b_h - Length_b_k & Perpendicular(a,b,h,k) => Length_a_h - Length_a_k

@@ -5,8 +5,8 @@ Solution:
 4. Parallelogram(a,b,c,f) => Length_a_f - Length_b_c
 5. Length_a_d - Length_b_c & Length_a_f - Length_b_c => Length_a_d - Length_a_f
 6. Length_a_d - Length_a_f => IsoscelesTriangle(a,d,f)
-7. Collinear(a,c,d) => Angle_b_a_c + Angle_b_a_d - pi
-8. Angle_b_a_c + Angle_b_a_d - pi & Angle_a_b_c - Angle_b_a_c => Angle_a_b_c + Angle_b_a_d - pi
-9. Parallel(a,f,b,c) => Angle_a_b_c + Angle_b_a_f - pi
-10. Angle_a_b_c + Angle_b_a_d - pi & Angle_a_b_c + Angle_b_a_f - pi => Angle_b_a_d - Angle_b_a_f
+7. Parallel(a,f,b,c) => Angle_a_b_c + Angle_b_a_f - pi
+8. Collinear(a,c,d) => Angle_b_a_c + Angle_b_a_d - pi
+9. Angle_b_a_c + Angle_b_a_d - pi & Angle_a_b_c - Angle_b_a_c => Angle_a_b_c + Angle_b_a_d - pi
+10. Angle_a_b_c + Angle_b_a_f - pi & Angle_a_b_c + Angle_b_a_d - pi => Angle_b_a_d - Angle_b_a_f
 11. IsoscelesTriangle(a,d,f) & Length_a_d - Length_a_f & Angle_b_a_d - Angle_b_a_f => Length_b_d - Length_b_f

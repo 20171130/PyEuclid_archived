@@ -9,4 +9,4 @@ Solution:
 8. Midpoint(f,a,b) & Midpoint(x,b,d) => Parallel(a,d,f,x)
 9. Parallel(a,d,d,g) & Parallel(a,d,f,x) => Parallel(d,g,f,x)
 10. Collinear(c,d,x) & Collinear(c,f,g) & Parallel(d,g,f,x) => Length_c_d/Length_c_g - Length_d_x/Length_f_g
-11. Length_c_d - Length_d_x & Length_c_d/Length_c_g - Length_d_x/Length_f_g => Length_c_g - Length_f_g
+11. Length_c_d/Length_c_g - Length_d_x/Length_f_g & Length_c_d - Length_d_x => Length_c_g - Length_f_g

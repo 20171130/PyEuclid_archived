@@ -1,13 +1,12 @@
 Solution:
-1. Collinear(a,b,r) => Angle_b_a_m - Angle_m_a_r
-2. Collinear(b,c,n) => Angle_a_c_b - Angle_a_c_n & Parallel(b,c,c,n)
-3. Length_b_o - Length_c_o & Length_b_o - Length_o_r & Length_b_o - Length_o_s => Concyclic(b,c,r,s)
-4. Concyclic(b,c,r,s) => Angle_b_c_s + Angle_b_r_s - pi
-5. Collinear(m,r,s) & Collinear(a,b,r) => Angle_a_r_m - Angle_b_r_s
-6. Perpendicular(a,n,b,c) & Parallel(b,c,c,n) => Perpendicular(a,n,c,n)
-7. Perpendicular(a,n,c,n) => Angle_a_n_c - pi/2
-8. Collinear(a,c,s) => Angle_a_c_b + Angle_b_c_s - pi
-9. Collinear(m,r,s) => Parallel(m,r,r,s)
-10. Perpendicular(a,m,r,s) & Parallel(m,r,r,s) => Perpendicular(a,m,m,r)
-11. Perpendicular(a,m,m,r) => Angle_a_m_r - pi/2
-12. Angle_b_a_m - Angle_m_a_r & Angle_a_c_b - Angle_a_c_n & Angle_b_c_s + Angle_b_r_s - pi & Angle_a_c_n + Angle_a_n_c + Angle_c_a_n - pi & Angle_a_r_m - Angle_b_r_s & Angle_a_m_r + Angle_a_r_m + Angle_m_a_r - pi & Angle_a_n_c - pi/2 & Angle_a_c_b + Angle_b_c_s - pi & Angle_a_m_r - pi/2 => Angle_b_a_m - Angle_c_a_n
+1. Collinear(m,r,s) => Angle_a_r_m - Angle_a_r_s & Parallel(m,r,r,s)
+2. Collinear(b,c,n) & Collinear(a,c,s) => Angle_a_c_n - Angle_b_c_s
+3. Collinear(a,b,r) => Angle_a_r_s + Angle_b_r_s - pi & Angle_b_a_m - Angle_m_a_r
+4. Length_b_o - Length_c_o & Length_b_o - Length_o_r & Length_b_o - Length_o_s => Concyclic(b,c,r,s)
+5. Concyclic(b,c,r,s) => Angle_b_c_s + Angle_b_r_s - pi
+6. Collinear(b,c,n) => Parallel(b,c,c,n)
+7. Perpendicular(a,n,b,c) & Parallel(b,c,c,n) => Perpendicular(a,n,c,n)
+8. Perpendicular(a,n,c,n) => Angle_a_n_c - pi/2
+9. Perpendicular(a,m,r,s) & Parallel(m,r,r,s) => Perpendicular(a,m,m,r)
+10. Perpendicular(a,m,m,r) => Angle_a_m_r - pi/2
+11. Angle_a_r_m - Angle_a_r_s & Angle_a_c_n - Angle_b_c_s & Angle_a_r_s + Angle_b_r_s - pi & Angle_a_m_r + Angle_a_r_m + Angle_m_a_r - pi & Angle_b_c_s + Angle_b_r_s - pi & Angle_a_n_c - pi/2 & Angle_a_m_r - pi/2 & Angle_a_c_n + Angle_a_n_c + Angle_c_a_n - pi & Angle_b_a_m - Angle_m_a_r => Angle_b_a_m - Angle_c_a_n

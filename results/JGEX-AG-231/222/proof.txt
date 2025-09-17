@@ -1,5 +1,5 @@
 Solution:
 1. Collinear(b,c,f) & Angle_b_d_f - Angle_c_d_f => Length_b_d/Length_c_d - Length_b_f/Length_c_f
 2. Collinear(a,c,e) & Angle_a_d_e - Angle_c_d_e => Length_a_d/Length_c_d - Length_a_e/Length_c_e
-3. Length_b_d/Length_c_d - Length_b_f/Length_c_f & Length_a_d - Length_b_d & Length_a_d/Length_c_d - Length_a_e/Length_c_e => Length_c_f/Length_b_f - Length_c_e/Length_a_e
+3. Length_a_d - Length_b_d & Length_b_d/Length_c_d - Length_b_f/Length_c_f & Length_a_d/Length_c_d - Length_a_e/Length_c_e => Length_c_f/Length_b_f - Length_c_e/Length_a_e
 4. Collinear(a,c,e) & Collinear(b,c,f) & -Length_c_f/Length_b_f + Length_c_e/Length_a_e => Parallel(a,b,e,f)

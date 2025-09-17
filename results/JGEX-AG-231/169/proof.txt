@@ -1,5 +1,5 @@
 Solution:
-1. Length_a_b - Length_a_f & Length_a_b - Length_a_e => Length_a_e - Length_a_f
+1. Length_a_b - Length_a_e & Length_a_b - Length_a_f => Length_a_e - Length_a_f
 2. Collinear(b,c,d) => Parallel(b,c,b,d)
 3. Perpendicular(a,b,b,c) & Parallel(b,c,b,d) => Perpendicular(a,b,b,d)
 4. Perpendicular(a,b,b,d) => Angle_a_b_d - pi/2

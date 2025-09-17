@@ -1,11 +1,11 @@
 Solution:
-1. Collinear(c,d,p) => Angle_d_c_e + Angle_e_c_p - pi
-2. Length_a_o - Length_b_o & Length_a_o - Length_e_o & Length_a_o - Length_o_q => Concyclic(a,b,e,q)
-3. Concyclic(a,b,e,q) => Angle_a_b_e - Angle_a_q_e
-4. Collinear(b,c,e) => Angle_b_c_p - Angle_e_c_p
-5. Collinear(c,d,p) & Collinear(a,b,p) => Angle_a_p_d - Angle_b_p_c
+1. Collinear(c,d,p) & Collinear(a,b,p) => Angle_a_p_d - Angle_b_p_c
+2. Collinear(b,c,e) => Angle_b_c_p - Angle_e_c_p
+3. Length_c_o1 - Length_d_o1 & Length_c_o1 - Length_e_o1 & Length_c_o1 - Length_o1_q => Concyclic(c,d,e,q)
+4. Concyclic(c,d,e,q) => Angle_d_c_e - Angle_d_q_e
+5. Collinear(c,d,p) => Angle_d_c_e + Angle_e_c_p - pi
 6. Collinear(b,c,e) & Collinear(a,b,p) => Angle_a_b_e - Angle_c_b_p
-7. Length_c_o1 - Length_d_o1 & Length_c_o1 - Length_e_o1 & Length_c_o1 - Length_o1_q => Concyclic(c,d,e,q)
-8. Concyclic(c,d,e,q) => Angle_d_c_e - Angle_d_q_e
-9. Angle_d_c_e + Angle_e_c_p - pi & Angle_a_b_e - Angle_a_q_e & Angle_b_c_p - Angle_e_c_p & Angle_a_q_d + Angle_a_q_e - Angle_d_q_e & Angle_b_c_p + Angle_b_p_c + Angle_c_b_p - pi & Angle_a_p_d - Angle_b_p_c & Angle_a_b_e - Angle_c_b_p & Angle_d_c_e - Angle_d_q_e => Angle_a_p_d - Angle_a_q_d
+7. Length_a_o - Length_b_o & Length_a_o - Length_e_o & Length_a_o - Length_o_q => Concyclic(a,b,e,q)
+8. Concyclic(a,b,e,q) => Angle_a_b_e - Angle_a_q_e
+9. Angle_a_p_d - Angle_b_p_c & Angle_a_q_d + Angle_a_q_e - Angle_d_q_e & Angle_b_c_p - Angle_e_c_p & Angle_d_c_e - Angle_d_q_e & Angle_d_c_e + Angle_e_c_p - pi & Angle_a_b_e - Angle_c_b_p & Angle_a_b_e - Angle_a_q_e & Angle_b_c_p + Angle_b_p_c + Angle_c_b_p - pi => Angle_a_p_d - Angle_a_q_d
 10. Angle_a_p_d - Angle_a_q_d => Concyclic(a,d,p,q)

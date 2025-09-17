@@ -1,13 +1,13 @@
 Solution:
-1. Collinear(i,r,s) => Angle_i_s_q + Angle_q_s_r - pi
-2. Length_o1_q - Length_o1_r & Length_o1_q - Length_o1_s => Length_o1_r - Length_o1_s
-3. -Length_o1_q + Length_o1_s & -Length_o1_r + Length_o1_s => Angle_q_o1_r + 2*Angle_q_s_r - 2*pi
-4. Length_o1_p - Length_o1_q & Length_o1_p - Length_o1_r => Angle_q_o1_r - 2*Angle_q_p_r
-5. Collinear(q,s,y) => Angle_i_s_q - Angle_i_s_y
+1. Collinear(i,r,s) => Angle_r_i_x + Angle_s_i_x - pi
+2. Length_o1_q - Length_o1_s & Length_o1_p - Length_o1_q => Length_o1_p - Length_o1_s
+3. Length_o1_p - Length_o1_q & Length_o1_p - Length_o1_r & Length_o1_p - Length_o1_s => Concyclic(p,q,r,s)
+4. Concyclic(p,q,r,s) => Angle_q_p_r - Angle_q_s_r
+5. Collinear(i,x,y) => Angle_s_i_x - Angle_s_i_y
 6. Length_o_p - Length_o_q & Length_o_q - Length_o_x => Length_o_p - Length_o_x
 7. Length_o_p - Length_o_q & Length_o_p - Length_o_x => Angle_q_o_x - 2*Angle_q_p_x
-8. Length_o_q - Length_o_y & Length_o_q - Length_o_x => Length_o_x - Length_o_y
-9. -Length_o_q + Length_o_y & -Length_o_x + Length_o_y => Angle_q_o_x - 2*Angle_q_y_x
-10. Collinear(q,s,y) & Collinear(i,x,y) => Angle_i_y_s - Angle_q_y_x
-11. Collinear(i,x,y) & Collinear(i,r,s) => Angle_r_i_x - Angle_s_i_y
-12. Angle_i_s_q + Angle_q_s_r - pi & Angle_q_o1_r + 2*Angle_q_s_r - 2*pi & Angle_q_o1_r - 2*Angle_q_p_r & Angle_i_s_q - Angle_i_s_y & Angle_q_o_x - 2*Angle_q_p_x & Angle_q_o_x - 2*Angle_q_y_x & Angle_i_y_s - Angle_q_y_x & Angle_i_s_y + Angle_i_y_s + Angle_s_i_y - pi & Angle_q_p_r + Angle_q_p_x - Angle_r_p_x & Angle_r_i_x - Angle_s_i_y => Angle_r_i_x + Angle_r_p_x - pi
+8. Collinear(q,s,y) & Collinear(i,x,y) => Angle_i_y_s - Angle_q_y_x
+9. Length_o_q - Length_o_y & Length_o_q - Length_o_x => Length_o_x - Length_o_y
+10. -Length_o_q + Length_o_y & -Length_o_x + Length_o_y => Angle_q_o_x - 2*Angle_q_y_x
+11. Collinear(q,s,y) & Collinear(i,r,s) => Angle_i_s_y - Angle_q_s_r
+12. Angle_r_i_x + Angle_s_i_x - pi & Angle_q_p_r - Angle_q_s_r & Angle_s_i_x - Angle_s_i_y & Angle_i_s_y + Angle_i_y_s + Angle_s_i_y - pi & Angle_q_o_x - 2*Angle_q_p_x & Angle_i_y_s - Angle_q_y_x & Angle_q_o_x - 2*Angle_q_y_x & Angle_q_p_r + Angle_q_p_x - Angle_r_p_x & Angle_i_s_y - Angle_q_s_r => Angle_r_i_x - Angle_r_p_x

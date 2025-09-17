@@ -1,7 +1,7 @@
 Solution:
-1. Length_o_p - Length_o_r & Length_o_p - Length_o_q => Length_o_q - Length_o_r & Angle_q_o_r + 2*Angle_q_p_r - 2*pi
-2. -Length_o_p + Length_o_q & Length_o_q - Length_o_r => Angle_p_o_r - 2*Angle_p_q_r
-3. Length_a_p - Length_a_q & -Length_a_o + Length_a_p & Perpendicular(a,p,p,r) => Angle_p_o_q + Angle_q_p_r - pi
-4. -Length_o_p + Length_o_r & -Length_o_q + Length_o_r => Angle_p_o_q - 2*Angle_p_r_q
-5. Angle_p_o_r - 2*Angle_p_q_r & Angle_p_o_q + Angle_q_p_r - pi & Angle_p_o_q + Angle_p_o_r - Angle_q_o_r & Angle_p_o_q - 2*Angle_p_r_q & Angle_q_o_r + 2*Angle_q_p_r - 2*pi => Angle_p_q_r - Angle_p_r_q
+1. Length_o_p - Length_o_q & Length_o_p - Length_o_r => Angle_q_o_r + 2*Angle_q_p_r - 2*pi & Length_o_q - Length_o_r
+2. Length_a_p - Length_a_q & -Length_a_o + Length_a_p & Perpendicular(a,p,p,r) => Angle_p_o_q + Angle_q_p_r - pi
+3. -Length_o_p + Length_o_r & -Length_o_q + Length_o_r => Angle_p_o_q - 2*Angle_p_r_q
+4. -Length_o_p + Length_o_q & Length_o_q - Length_o_r => Angle_p_o_r - 2*Angle_p_q_r
+5. Angle_q_o_r + 2*Angle_q_p_r - 2*pi & Angle_p_o_q + Angle_p_o_r - Angle_q_o_r & Angle_p_o_q + Angle_q_p_r - pi & Angle_p_o_q - 2*Angle_p_r_q & Angle_p_o_r - 2*Angle_p_q_r => Angle_p_q_r - Angle_p_r_q
 6. Angle_p_q_r - Angle_p_r_q => Length_p_q - Length_p_r

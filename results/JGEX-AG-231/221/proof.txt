@@ -1,4 +1,4 @@
 Solution:
 1. Collinear(b,c,d) & Collinear(b,c,f) => Collinear(c,d,f)
 2. Collinear(c,d,f) => Angle_a_d_c + Angle_a_d_f - pi & Angle_a_c_d - Angle_a_c_f
-3. Angle_a_c_d + Angle_a_d_c + Angle_c_a_d - pi & Angle_a_d_f - Angle_d_a_f & Angle_b_a_d - Angle_c_a_d & Angle_a_d_c + Angle_a_d_f - pi & Angle_a_c_d - Angle_a_c_f & Angle_b_a_d + Angle_b_a_f - Angle_d_a_f => Angle_a_c_f - Angle_b_a_f
+3. Angle_a_c_d + Angle_a_d_c + Angle_c_a_d - pi & Angle_b_a_d + Angle_b_a_f - Angle_d_a_f & Angle_b_a_c - 2*Angle_c_a_d & Angle_a_d_c + Angle_a_d_f - pi & Angle_b_a_c - 2*Angle_b_a_d & Angle_a_c_d - Angle_a_c_f & Angle_a_d_f - Angle_d_a_f => Angle_a_c_f - Angle_b_a_f

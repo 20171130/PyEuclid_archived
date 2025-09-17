@@ -1,11 +1,13 @@
 Solution:
-1. Length_a_b - Length_a_c & Length_a_b - Length_a_d & Length_a_b - Length_a_g => Concyclic(b,c,d,g)
-2. Concyclic(b,c,d,g) => Angle_b_c_d - Angle_b_g_d
-3. Length_a_b - Length_a_c & Length_a_b - Length_a_e => Angle_c_a_e - 2*Angle_c_b_e
-4. Length_a_b - Length_a_f & Length_a_b - Length_a_c => Length_a_c - Length_a_f
+1. Length_a_b - Length_a_d & Length_a_b - Length_a_f => Length_a_d - Length_a_f
+2. Length_a_b - Length_a_d & Length_a_b - Length_a_g => Length_a_d - Length_a_g
+3. Length_a_d - Length_a_f & Length_a_d - Length_a_g => Angle_f_a_g + 2*Angle_f_d_g - 2*pi
+4. Length_a_b - Length_a_e & Length_a_b - Length_a_d => Length_a_d - Length_a_e
 5. Length_a_b - Length_a_e & Length_a_b - Length_a_f => Length_a_e - Length_a_f
-6. -Length_a_c + Length_a_f & -Length_a_e + Length_a_f => Angle_c_a_e - 2*Angle_c_f_e
-7. Length_a_b - Length_a_c & Length_a_b - Length_a_d & Length_a_b - Length_a_e => Concyclic(b,c,d,e)
-8. Concyclic(b,c,d,e) & Parallel(b,c,d,e) => Angle_b_c_d - Angle_c_b_e
-9. Angle_b_c_d - Angle_b_g_d & Angle_c_a_e - 2*Angle_c_b_e & Angle_c_a_e - 2*Angle_c_f_e & Angle_b_c_d - Angle_c_b_e => Angle_b_g_d - Angle_c_f_e
-10. -Angle_b_g_d + Angle_c_f_e & Parallel(c,f,d,g) => Parallel(b,g,e,f)
+6. -Length_a_d + Length_a_e & Length_a_e - Length_a_f => Angle_d_a_f - 2*Angle_d_e_f
+7. Length_a_b - Length_a_c & Length_a_b - Length_a_g => Angle_c_a_g - 2*Angle_c_b_g
+8. Parallel(c,f,d,g) => Angle_c_f_d + Angle_f_d_g - pi
+9. Length_a_b - Length_a_f & Length_a_b - Length_a_c => Length_a_c - Length_a_f
+10. -Length_a_c + Length_a_f & -Length_a_d + Length_a_f => Angle_c_a_d - 2*Angle_c_f_d
+11. Angle_c_a_d - Angle_c_a_g - Angle_d_a_g & Angle_f_a_g + 2*Angle_f_d_g - 2*pi & Angle_d_a_f - 2*Angle_d_e_f & Angle_c_a_g - 2*Angle_c_b_g & Angle_d_a_f + Angle_d_a_g - Angle_f_a_g & Angle_c_f_d + Angle_f_d_g - pi & Angle_c_a_d - 2*Angle_c_f_d => Angle_c_b_g - Angle_d_e_f
+12. Angle_c_b_g - Angle_d_e_f & Parallel(b,c,d,e) => Parallel(b,g,e,f)

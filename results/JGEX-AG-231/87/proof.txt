@@ -11,7 +11,7 @@ Solution:
 10. Collinear(a,b,g) & Parallel(a,d,b,c) & Collinear(c,d,e) & Length_a_g/Length_b_g - Length_d_e/Length_c_e => Parallel(a,d,e,g)
 11. Perpendicular(a,b,a,d) & Parallel(a,d,e,g) => Perpendicular(a,b,e,g)
 12. Perpendicular(a,b,b,c) & Perpendicular(b,c,c,d) => Parallel(a,b,c,d)
-13. Length_b_f - Length_c_f & Length_a_h - Length_d_h => Length_a_h/Length_d_h - Length_b_f/Length_c_f
+13. Length_a_h - Length_d_h & Length_b_f - Length_c_f => Length_a_h/Length_d_h - Length_b_f/Length_c_f
 14. Collinear(a,d,h) & Parallel(a,b,c,d) & Collinear(b,c,f) & Length_a_h/Length_d_h - Length_b_f/Length_c_f => Parallel(a,b,f,h)
 15. Perpendicular(a,b,e,g) & Parallel(a,b,f,h) => Perpendicular(e,g,f,h)
 16. Parallelogram(e,f,g,h) & Perpendicular(e,g,f,h) => Rhombus(e,f,g,h)

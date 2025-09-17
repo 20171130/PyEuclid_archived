@@ -1,13 +1,13 @@
 Solution:
-1. Midpoint(e,a,c) => Length_a_c - 2*Length_c_e
-2. Midpoint(f,b,d) => Length_b_d - 2*Length_b_f
-3. Length_a_c - 2*Length_c_e & Length_b_d - 2*Length_b_f => Length_a_c/Length_b_d - Length_c_e/Length_b_f
-4. Length_a_e - Length_c_e & Length_b_f - Length_d_f => Length_a_e/Length_c_e - Length_b_f/Length_d_f
-5. Collinear(a,c,e) & Parallel(a,b,c,d) & Collinear(b,d,f) & Length_a_e/Length_c_e - Length_b_f/Length_d_f => Parallel(c,d,e,f) & Parallel(a,b,e,f)
-6. Collinear(e,f,g) => Parallel(e,f,e,g) & Parallel(e,f,f,g)
-7. Parallel(c,d,e,f) & Parallel(e,f,e,g) => Parallel(c,d,e,g)
-8. Collinear(a,c,e) & Collinear(a,d,g) & Parallel(c,d,e,g) => Length_a_c/Length_a_d - Length_c_e/Length_d_g
+1. Length_b_f - Length_d_f & Length_a_e - Length_c_e => Length_a_e/Length_c_e - Length_b_f/Length_d_f
+2. Collinear(a,c,e) & Parallel(a,b,c,d) & Collinear(b,d,f) & Length_a_e/Length_c_e - Length_b_f/Length_d_f => Parallel(c,d,e,f) & Parallel(a,b,e,f)
+3. Collinear(e,f,g) => Parallel(e,f,e,g) & Parallel(e,f,f,g)
+4. Parallel(c,d,e,f) & Parallel(e,f,e,g) => Parallel(c,d,e,g)
+5. Collinear(a,c,e) & Collinear(a,d,g) & Parallel(c,d,e,g) => Length_a_c/Length_a_d - Length_c_e/Length_d_g
+6. Midpoint(e,a,c) => Length_a_c - 2*Length_c_e
+7. Midpoint(f,b,d) => Length_b_d - 2*Length_b_f
+8. Length_a_c - 2*Length_c_e & Length_b_d - 2*Length_b_f => Length_a_c/Length_b_d - Length_c_e/Length_b_f
 9. Parallel(a,b,e,f) & Parallel(e,f,f,g) => Parallel(a,b,f,g)
 10. Collinear(a,d,g) & Collinear(b,d,f) & Parallel(a,b,f,g) => Length_a_d/Length_b_d - Length_a_g/Length_b_f
-11. Length_a_c/Length_b_d - Length_c_e/Length_b_f & Length_a_c/Length_a_d - Length_c_e/Length_d_g & Length_a_d/Length_b_d - Length_a_g/Length_b_f => Length_a_g - Length_d_g
+11. Length_a_c/Length_a_d - Length_c_e/Length_d_g & Length_a_c/Length_b_d - Length_c_e/Length_b_f & Length_a_d/Length_b_d - Length_a_g/Length_b_f => Length_a_g - Length_d_g
 12. Length_a_g - Length_d_g & Collinear(a,d,g) => Midpoint(g,a,d)
