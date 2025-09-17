@@ -138,8 +138,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
     # Make retries non-deterministic w.r.t. the same problem_id
     base_seed = 42 + rank * 1000 + problem_id + 100000 * seed_offset
+    hash_seed = os.environ.get("PYTHONHASHSEED", 0)
     random.seed(base_seed)
     np.random.seed(base_seed)
+    sympy.core.random.seed(base_seed)
 
     state = State()
     state.silent = False
@@ -156,9 +158,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     attempt = 0
     points = 0
 
-    max_steps = random.uniform(6, 10)
+    max_steps = random.uniform(4, 6)
     max_attempts = 100
-    max_points = random.uniform(8, 16)
+    max_points = random.uniform(8, 12)
     constructions_list = []
     index = 0
     # Construction phase with timeout checks
@@ -255,7 +257,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     with open(os.path.join(problem_output_dir, f'constructions_list.json'), 'w') as f:
         s = ', '.join([str(construction) for constructions in constructions_list for construction in constructions])
         f.write(s)
-        
+    
     engine.run()
     conclusions = list(state.relations) + list(state.equations)
         
@@ -399,18 +401,25 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         diagram.restore()
 
         problem_constructions = sorted(necessary_constructions, key=lambda c: c.index)
+        coordinates = []
+        for name, point in diagram.name2point.items():
+            coordinates.append(f"{name}: ({str(point.x)}, {str(point.y)})")
 
         data = {
             "problem": ', '.join([str(construction) for construction in problem_constructions]),
             "goal": str(relation),
             "diagram": diagram_sample_path,
             "proof": new_proof_str,
+            "coordinates": ', '.join(coordinates),
+            "depth": new_state.condition2depth[key],
+            "seed": base_seed,
         }
 
         with open(os.path.join(sample_dir, "data.json"), "w") as f:
             json.dump(data, f, indent=4)
         
         samples_generated = True
+        print('Generated 1 sample...')
         break
 
     return {
@@ -489,7 +498,7 @@ def generate_until_timeout(rank: int, output_dir: str, timeout_handler: TimeoutH
 def main():
     rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
     timeout_seconds = int(os.environ.get("TIMEOUT_SECONDS", "3600"))
-    max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "0"))
+    max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "100"))
     base_output_dir = os.environ.get('OUTPUT_DIR', 'dataset')
 
     os.makedirs(base_output_dir, exist_ok=True)
