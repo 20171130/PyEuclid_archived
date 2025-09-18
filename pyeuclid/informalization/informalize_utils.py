@@ -5,9 +5,9 @@ from pyeuclid.informalization.construction_rule_template import construction_rul
 def informalize_construction(construction):
     if " = " in construction and "(" in construction and ")" in construction:
         output, formal_clause = construction.split(" = ")
-        output = output.split(",")
+        output = output.upper().split(",")
         predicate = formal_clause.split("(")[0]
-        params = output + formal_clause.split("(")[1].split(")")[0].split(",")
+        params = output + formal_clause.split("(")[1].split(")")[0].upper().split(",")
         if predicate in construction_rule_template:
             template = random.choice(construction_rule_template[predicate])
             return output, template[0].format(*[params[i] for i in template[1]])
@@ -47,19 +47,19 @@ def informalize_term(term):
         term_left = term[:term.find("Angle")]
         term_right = term[term.find("Angle") + 11:]
         term = term[term.find("Angle"): term.find("Angle") + 11]
-        return term_left + "\u2220" + "".join(term.split("_")[1:]) + term_right
+        return term_left + "\u2220" + "".join(term.split("_")[1:]).upper() + term_right
     elif "Length" in term:
         term_left = term[:term.find("Length")]
         term_right = term[term.find("Length") + 10:]
         term = term[term.find("Length"): term.find("Length") + 10]
-        return term_left + "".join(term.split("_")[1:]) + term_right
+        return term_left + "".join(term.split("_")[1:]).upper() + term_right
     else:
         return term
 
 def informalize_relation(formal_clause):
     if "(" in formal_clause and ")" in formal_clause:
         predicate = formal_clause.split("(")[0]
-        params = formal_clause.split("(")[1].split(")")[0].split(",")
+        params = formal_clause.split("(")[1].split(")")[0].upper().split(",")
         if predicate in relation_template:
             template = random.choice(relation_template[predicate])
             return template[0].format(*[params[i] for i in template[1]])
