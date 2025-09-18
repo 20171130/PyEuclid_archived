@@ -97,7 +97,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             candidate_set = [rule for rule in construction_rule_set if rule in construction_rule_sets["independent"]]
         else:
             rand = random.random()
-            if rand < 0.3:
+            if rand < 0.2:
                 candidate_set = [rule for rule in construction_rule_set if rule.num_inputs <= len(state.points) and rule in construction_rule_sets['deterministic']]
             else:
                 multiconstructions = True
@@ -200,7 +200,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
     proof_generator = ProofGenerator(state)
-    engine.run()
+    try:
+        engine.run()
+    except:
+        return 0
 
     max_depth = max(state.condition2depth.values())
 
@@ -213,13 +216,14 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     sub_conclusions = set()
     conclusions2dir = {}
     conclusions = []
-    conclusions += [symbol - solution for symbol, solution in state.solutions["angle_linear"].items() if len(solution.free_symbols)==0 and solution != pi/2]
+    conclusions += [symbol - solution for symbol, solution in state.solutions["angle_linear"].items() if len(solution.free_symbols)==0 and solution != pi/2 and solution != pi]
     conclusions += [symbol - solution for symbol, solution in state.solutions["length_ratio"].items() if len(solution.free_symbols)==0]
     conclusions += [symbol - solution for symbol, solution in state.solutions["length_linear"].items() if len(solution.free_symbols)==0]
     printt("Determining if auxiliary constructions are needed")
     
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
+    conclusions = [c for c in conclusions if state.condition2depth[c] > 2]
     conclusions.sort(key=lambda x: -state.condition2depth[x])
     def get_sufficient_constructions(points):
         res = []
@@ -253,74 +257,87 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         sufficient_constructions = get_sufficient_constructions(points)
         new_state = State()
         new_state.silent = True
-        new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+        if isinstance(relation, Traced):
+            symbols = relation.expr.free_symbols
+        else:
+            symbols = relation.free_symbols
+        if len(symbols) != 1:
+            continue
+        new_state.goal = next(iter(symbols))
+        goal_str = str(new_state.goal)
         new_state.diagram = diagram
         new_state.add_constructions(sufficient_constructions)
         new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
         new_algebraic_system = AlgebraicSystem(new_state)
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-        new_engine.run()
+        try:
+            new_engine.run()
+        except:
+            continue
         
         if new_state.complete() is not None:
             auxiliary_constructions = []
-            new_proof_generator = ProofGenerator(new_state)
+            new_proof_generator = ProofGenerator(new_state, norm=0, max_equation_length_perstep=None)
             try:
                 new_proof_generator.run()
             except:
                 continue
             new_proof = new_proof_generator.get_proof()
+            if len(new_proof) <= 4:
+                continue
             new_proof_str = new_proof_generator.get_proof_str()
         else:
             # requires auxiliary constructions
-            try:
-                proof_generator.run(relation)
-            except:
-                continue
-            auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
-            sufficient_auxiliary_constructions = []
-            for auxiliary_construction in auxiliary_constructions:
-                sufficient_auxiliary_constructions.append(auxiliary_construction)
-                for construction in get_sufficient_constructions([p for p in auxiliary_construction.inputs if isinstance(p, Point)]):
-                    if construction not in sufficient_constructions and construction not in sufficient_auxiliary_constructions:
-                        sufficient_auxiliary_constructions.append(construction)
-            sufficient_auxiliary_constructions = sorted(sufficient_auxiliary_constructions, key=lambda c: c.index)
-            auxiliary_constructions = sufficient_auxiliary_constructions.copy()
-            printt("Pruning auxiliary constructions")
-            for auxiliary_construction in sufficient_auxiliary_constructions[::-1]:
-                new_auxiliary_constructions = auxiliary_constructions.copy()
-                new_auxiliary_constructions.remove(auxiliary_construction)
-                new_constructions = sufficient_constructions + new_auxiliary_constructions
-                new_state = State()
-                new_state.silent = True
-                new_state.goal = relation.expr if isinstance(relation, Traced) else relation
-                new_state.diagram = diagram
-                new_state.add_constructions(new_constructions)
-                new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
-                new_algebraic_system = AlgebraicSystem(new_state)
-                new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-                new_engine.run()
-                if new_state.complete() is not None:
-                    # the auxiliary construction is not required
-                    auxiliary_constructions.remove(auxiliary_construction)
+            continue
+            # try:
+            #     proof_generator.run(relation)
+            # except:
+            #     continue
+            # auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
+            # sufficient_auxiliary_constructions = []
+            # for auxiliary_construction in auxiliary_constructions:
+            #     sufficient_auxiliary_constructions.append(auxiliary_construction)
+            #     for construction in get_sufficient_constructions([p for p in auxiliary_construction.inputs if isinstance(p, Point)]):
+            #         if construction not in sufficient_constructions and construction not in sufficient_auxiliary_constructions:
+            #             sufficient_auxiliary_constructions.append(construction)
+            # sufficient_auxiliary_constructions = sorted(sufficient_auxiliary_constructions, key=lambda c: c.index)
+            # auxiliary_constructions = sufficient_auxiliary_constructions.copy()
+            # printt("Pruning auxiliary constructions")
+            # for auxiliary_construction in sufficient_auxiliary_constructions[::-1]:
+            #     new_auxiliary_constructions = auxiliary_constructions.copy()
+            #     new_auxiliary_constructions.remove(auxiliary_construction)
+            #     new_constructions = sufficient_constructions + new_auxiliary_constructions
+            #     new_state = State()
+            #     new_state.silent = True
+            #     new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+            #     new_state.diagram = diagram
+            #     new_state.add_constructions(new_constructions)
+            #     new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
+            #     new_algebraic_system = AlgebraicSystem(new_state)
+            #     new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+            #     new_engine.run()
+            #     if new_state.complete() is not None:
+            #         # the auxiliary construction is not required
+            #         auxiliary_constructions.remove(auxiliary_construction)
             
-            new_state = State()
-            new_state.silent = True
-            new_state.goal = relation.expr if isinstance(relation, Traced) else relation
-            new_state.diagram = diagram
-            new_state.add_constructions(sorted(sufficient_constructions+auxiliary_constructions, key=lambda c: c.index))
-            new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
-            new_algebraic_system = AlgebraicSystem(new_state)
-            new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-            new_engine.run()
-            assert new_state.complete() is not None
-            new_proof_generator = ProofGenerator(new_state)
-            try:
-                new_proof_generator.run()
-            except:
-                continue
-            new_proof = new_proof_generator.get_proof()
-            new_proof_str = new_proof_generator.get_proof_str()
-            break
+            # new_state = State()
+            # new_state.silent = True
+            # new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+            # new_state.diagram = diagram
+            # new_state.add_constructions(sorted(sufficient_constructions+auxiliary_constructions, key=lambda c: c.index))
+            # new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
+            # new_algebraic_system = AlgebraicSystem(new_state)
+            # new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+            # new_engine.run()
+            # assert new_state.complete() is not None
+            # new_proof_generator = ProofGenerator(new_state, norm=0, max_equation_length_perstep=None)
+            # try:
+            #     new_proof_generator.run()
+            # except:
+            #     continue
+            # new_proof = new_proof_generator.get_proof()
+            # new_proof_str = new_proof_generator.get_proof_str()
+            # break
         
         necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
         
@@ -401,7 +418,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             "necessary_constructions": ', '.join([str(construction) for construction in necessary_constructions]),
             "unused_constructions": ', '.join([str(construction) for construction in sufficient_constructions if construction not in necessary_constructions]),
             "auxiliary_constructions": ', '.join([str(construction) for construction in auxiliary_constructions]),
-            "goal": str(relation),
+            "goal": goal_str,
             "depth": state.condition2depth[relation],
             "diagram": diagram_sample_path,
             "proof": new_proof_str,
@@ -422,7 +439,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         i += 1
         break
     printt(f"Rank {rank}: Problem {problem_id} - Generated {i} samples ({samples_with_auxiliary} with auxiliary)")
-    return i    
+    return i
 
 
 def main():
