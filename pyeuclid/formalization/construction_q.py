@@ -587,8 +587,8 @@ class construct_rectangle_q(ConstructionQ):
     
     def sample(self, angle_values=[], length_values=[], scale=1):
         while True:
-            h = sample_length(special_values==length_values, scale=scale)
-            w = sample_length(special_values==length_values, scale=scale)
+            h = sample_length(special_values=length_values, scale=scale)
+            w = sample_length(special_values=length_values, scale=scale)
             self.h = h
             self.w = w
             self.params = [h, w]

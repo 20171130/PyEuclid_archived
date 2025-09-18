@@ -41,7 +41,7 @@ def printt(s):
     print(s)
 
 
-debug = True
+debug = False
 
 rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
 rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
@@ -202,12 +202,18 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     proof_generator = ProofGenerator(state)
     engine.run()
 
+    max_depth = max(state.condition2depth.values())
+
+    if max_depth <= 2:
+        print('too easy problem!!!')
+        return 0
+
     i = 0
     samples_with_auxiliary = 0
     sub_conclusions = set()
     conclusions2dir = {}
     conclusions = []
-    conclusions += [symbol - solution for symbol, solution in state.solutions["angle_linear"].items() if len(solution.free_symbols)==0]
+    conclusions += [symbol - solution for symbol, solution in state.solutions["angle_linear"].items() if len(solution.free_symbols)==0 and solution != pi/2]
     conclusions += [symbol - solution for symbol, solution in state.solutions["length_ratio"].items() if len(solution.free_symbols)==0]
     conclusions += [symbol - solution for symbol, solution in state.solutions["length_linear"].items() if len(solution.free_symbols)==0]
     printt("Determining if auxiliary constructions are needed")
@@ -231,6 +237,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         for point in target_points:
             mark_sufficient(point)
         return sorted(res, key=lambda c: c.index)
+    
     for relation in conclusions:
         if isinstance(relation, Traced):
             key = relation.expr
@@ -257,12 +264,18 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         if new_state.complete() is not None:
             auxiliary_constructions = []
             new_proof_generator = ProofGenerator(new_state)
-            new_proof_generator.run()
+            try:
+                new_proof_generator.run()
+            except:
+                continue
             new_proof = new_proof_generator.get_proof()
             new_proof_str = new_proof_generator.get_proof_str()
         else:
             # requires auxiliary constructions
-            proof_generator.run(relation)
+            try:
+                proof_generator.run(relation)
+            except:
+                continue
             auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
             sufficient_auxiliary_constructions = []
             for auxiliary_construction in auxiliary_constructions:
@@ -301,7 +314,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             new_engine.run()
             assert new_state.complete() is not None
             new_proof_generator = ProofGenerator(new_state)
-            new_proof_generator.run()
+            try:
+                new_proof_generator.run()
+            except:
+                continue
             new_proof = new_proof_generator.get_proof()
             new_proof_str = new_proof_generator.get_proof_str()
             break
@@ -351,13 +367,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             c.construct(*basic_points)
             c.index = 0
             added_constructions.append(c)
-        
-        for (conditions, _, _) in new_proof:
-            for cond in conditions:
-                if isinstance(cond, sympy.core.expr.Expr):
-                    cond = Traced(cond)
-                if cond in conclusions:
-                    sub_conclusions.add(cond)
             
         has_auxiliary = len(auxiliary_constructions) > 0
         if has_auxiliary:
@@ -412,24 +421,22 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         conclusions2dir[relation] = sample_dir
         i += 1
         break
-    
-    for relation, sample_dir in conclusions2dir.items():
-        if os.path.exists(os.path.join(sample_dir, "data.json")):
-            with open(os.path.join(sample_dir, "data.json"), "r") as f:
-                data = json.load(f)
-            data["sub_conclusion"] = True if relation in sub_conclusions else False
-            with open(os.path.join(sample_dir, "data.json"), "w") as f:
-                json.dump(data, f, indent=2)
-                
     printt(f"Rank {rank}: Problem {problem_id} - Generated {i} samples ({samples_with_auxiliary} with auxiliary)")
+    return i    
+
 
 def main():
-    max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "100"))
-    base_output_dir = os.environ.get('OUTPUT_DIR', 'new_samples')
-
+    rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
+    max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "0"))
+    base_output_dir = os.environ.get('OUTPUT_DIR', 'dataset')
     os.makedirs(base_output_dir, exist_ok=True)
-    for problem_id in range(max_problem_id):
-        generate_single_problem(rank=rank, problem_id=problem_id, output_dir=base_output_dir)
+    max_problem_id = max_problem_id if max_problem_id > 0 else None
+    problem_id = 0
+    while True:
+        if max_problem_id is not None and cnt >= max_problem_id:
+            break
+        generated = generate_single_problem(rank=rank, problem_id=problem_id, output_dir=base_output_dir)
+        problem_id += generated
 
 
 if __name__ == '__main__':

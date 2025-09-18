@@ -14,19 +14,15 @@ class Engine:
     def search(self, depth=9999):
         self.algebraic_system.run()
         while self.state.current_depth < depth:
-            self.state.reasoning_depth += 1
             if self.state.complete() is not None:
                 break
-                        
+            self.state.reasoning_depth += 1
             dd_closure = self.deductive_database.run()
             
-            if self.state.complete() is not None:
+            if self.state.complete() is not None or dd_closure:
                 break
             
-            as_closure = self.algebraic_system.run()
-
-            if dd_closure and as_closure:
-                break
+            self.algebraic_system.run()
             
     def step(self, conditions, conclusions=[], depth=1):
         """
