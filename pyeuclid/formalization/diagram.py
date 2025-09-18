@@ -305,6 +305,8 @@ class Diagram:
                 
                 evaluated_expr = relation.subs(symbol2value)
                 self.numerical_cache[relation] = close_enough(float(evaluated_expr.evalf()), 0)
+                if not self.numerical_cache[relation]:
+                    breakpoint()
                 assert self.numerical_cache[relation]
             return self.numerical_cache[relation]
 
@@ -446,7 +448,7 @@ class Diagram:
                     plt.Circle(
                         (circle.center.x, circle.center.y),
                         circle.radius,
-                        color='red',
+                        color='black',
                         alpha=0.8,
                         fill=False,
                         lw=1.2,
@@ -488,6 +490,7 @@ class Diagram:
         def annotation_position(p):
             r = span / 20
             c = Circle(p, r)
+            
             avoids = []
             for segment in segments:
                 try:
@@ -502,7 +505,10 @@ class Diagram:
                     continue
             
             if not avoids:
-                return p.x + r / np.sqrt(2), p.y + r / np.sqrt(2)
+                x, y = p.x + r / np.sqrt(2), p.y + r / np.sqrt(2)
+                circles.add(Circle(Point(x, y), r/2))
+                segments.add(Segment(Point(x, y), p))
+                return x, y
             
             angs = sorted([ang_of(p, a) for a in avoids])
             angs += [angs[0] + 2 * np.pi]
@@ -512,6 +518,8 @@ class Diagram:
             ang = a + d / 2
             
             point_position = p + Point(np.cos(ang), np.sin(ang)) * r
+            circles.add(Circle(point_position, r/2))
+            segments.add(Segment(point_position, p))
             return point_position.x, point_position.y
             
         for p in points:
@@ -543,6 +551,7 @@ class Diagram:
                 xmin = min(xmin, x)
                 ymax = max(ymax, y)
                 ymin = min(ymin, y)
+                x, y = annotation_position(Point(x, y))
                 self.ax.annotate(value, (x, y), color="black", ha="center", va="center", fontsize=12)
             else:
                 if not len(eqn.args) == 2:
