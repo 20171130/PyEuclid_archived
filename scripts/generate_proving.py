@@ -160,7 +160,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
     max_steps = random.uniform(4, 6)
     max_attempts = 100
-    max_points = random.uniform(8, 12)
+    max_points = random.uniform(8, 10)
     constructions_list = []
     index = 0
     # Construction phase with timeout checks
@@ -374,7 +374,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         if new_state.condition2depth[key] <= 2:
             continue
 
-        new_proof_generator = ProofGenerator(new_state, max_equation_length_perstep=None)
+        new_proof_generator = ProofGenerator(new_state, max_equation_length_perstep=None, norm=0)
         new_proof_generator.run()
         new_proof = new_proof_generator.get_proof()
         new_proof_str = new_proof_generator.get_proof_str()
