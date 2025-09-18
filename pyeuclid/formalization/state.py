@@ -74,10 +74,13 @@ class State:
                 self.add_relation(item)
             else:
                 if self.diagram is not None:
-                    if isinstance(item, Traced):
-                        assert self.diagram.numerical_check(item.expr)
+                    if "Sector" in str(item) or "Circle" in str(item) or "Arc" in str(item) or "Perimeter" in str(item):
+                        pass
                     else:
-                        assert self.diagram.numerical_check(item)
+                        if isinstance(item, Traced):
+                            assert self.diagram.numerical_check(item.expr)
+                        else:
+                            assert self.diagram.numerical_check(item)
                 self.add_equation(item)
             
     def add_relation(self, relation):

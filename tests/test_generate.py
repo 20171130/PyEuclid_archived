@@ -207,11 +207,12 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     sub_conclusions = set()
     conclusions2dir = {}
     conclusions = []
-    conclusions += [symbol - solution for symbol, solution in state.solutions["angle_linear"].items() if len(solution.free_symbols)==0]
-    conclusions += [symbol - solution for symbol, solution in state.solutions["length_ratio"].items() if len(solution.free_symbols)==0]
-    conclusions += [symbol - solution for symbol, solution in state.solutions["length_linear"].items() if len(solution.free_symbols)==0]
+    conclusions = [item.expr for item in state.equations if len(item.expr.free_symbols)==1]
+    # conclusions += [symbol - solution for symbol, solution in state.solutions["angle_linear"].items() if len(solution.free_symbols)==0]
+    # conclusions += [symbol - solution for symbol, solution in state.solutions["length_ratio"].items() if len(solution.free_symbols)==0]
+    # conclusions += [symbol - solution for symbol, solution in state.solutions["length_linear"].items() if len(solution.free_symbols)==0]
     printt("Determining if auxiliary constructions are needed")
-    
+    breakpoint()
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
     conclusions.sort(key=lambda x: -state.condition2depth[x])
