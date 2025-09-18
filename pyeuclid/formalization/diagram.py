@@ -521,6 +521,44 @@ class Diagram:
             circles.add(Circle(point_position, r/2))
             segments.add(Segment(point_position, p))
             return point_position.x, point_position.y
+        
+        for angles in highlight_angles:
+            if len(angles) == 1:
+                a, b, c = angles[0]
+                if close_enough(calculate_angle(a, b, c), np.pi/2):
+                    v1 = (a - b) / a.distance(b)
+                    v2 = (c - b) / c.distance(b)
+                    p1 = b + v1 * span / 30
+                    p2 = p1 + v2 * span / 30
+                    p3 = b + v2 * span / 30
+                    self.ax.plot([p1.x, p2.x], [p1.y, p2.y], color='black', lw=1.2, alpha=0.8, ls='-')
+                    self.ax.plot([p2.x, p3.x], [p2.y, p3.y], color='black', lw=1.2, alpha=0.8, ls='-')
+                    segments.add(Segment(p1, p2))
+                    segments.add(Segment(p2, p3))
+                    continue
+            for angle in angles:
+                a, b, c = angle
+                angle_ba = ang_of(b, a) * 180 / np.pi
+                angle_bc = ang_of(b, c) * 180 / np.pi
+                
+                diff = (angle_bc - angle_ba) % 360
+                
+                if diff <= 180:
+                    theta1 = angle_ba
+                    sweep = diff
+                else:
+                    theta1 = angle_bc
+                    sweep = 360 - diff
+                
+                self.ax.add_patch(
+                    patches.Arc(
+                        (b.x, b.y), span / 10, span / 10,
+                        angle=0,
+                        theta1=theta1,
+                        theta2=theta1 + sweep,
+                        color='black', lw=1.2, alpha=0.8
+                    )
+                )
             
         for p in points:
             x_pos, y_pos = annotation_position(p)
@@ -562,7 +600,7 @@ class Diagram:
                     symbol, value = eqn.args
                 else:
                     continue
-                norm = span/20
+                norm = span/15
                 value = - value
                 a, b, c = str(symbol).split("_")[1:]
                 a, b, c = self.name2point[a], self.name2point[b], self.name2point[c]
@@ -580,45 +618,7 @@ class Diagram:
                     continue
                 self.ax.annotate(value, (x, y), color="black", ha="center", va="center", fontsize=12)
             annotated_equations.append(eqn)
-            
-        for angles in highlight_angles:
-            if len(angles) == 1:
-                a, b, c = angles[0]
-                if close_enough(calculate_angle(a, b, c), np.pi/2):
-                    v1 = (a - b) / a.distance(b)
-                    v2 = (c - b) / c.distance(b)
-                    p1 = b + v1 * span / 30
-                    p2 = p1 + v2 * span / 30
-                    p3 = b + v2 * span / 30
-                    self.ax.plot([p1.x, p2.x], [p1.y, p2.y], color='black', lw=1.2, alpha=0.8, ls='-')
-                    self.ax.plot([p2.x, p3.x], [p2.y, p3.y], color='black', lw=1.2, alpha=0.8, ls='-')
-                    segments.add(Segment(p1, p2))
-                    segments.add(Segment(p2, p3))
-                    continue
-            for angle in angles:
-                a, b, c = angle
-                angle_ba = ang_of(b, a) * 180 / np.pi
-                angle_bc = ang_of(b, c) * 180 / np.pi
-                
-                diff = (angle_bc - angle_ba) % 360
-                
-                if diff <= 180:
-                    theta1 = angle_ba
-                    sweep = diff
-                else:
-                    theta1 = angle_bc
-                    sweep = 360 - diff
-                
-                self.ax.add_patch(
-                    patches.Arc(
-                        (b.x, b.y), span / 10, span / 10,
-                        angle=0,
-                        theta1=theta1,
-                        theta2=theta1 + sweep,
-                        color='black', lw=1.2, alpha=0.8
-                    )
-                )
-
+        
         self.ax.set_aspect('equal')
         self.ax.set_axis_off()
         
