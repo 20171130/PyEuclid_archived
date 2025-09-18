@@ -67,16 +67,16 @@ def informalize_relation(formal_clause):
         term_list = "".join(formal_clause.split(" ")).split("-")
         if term_list[0] == "":
             right_list = [term.split("+")[0] for term in term_list[1:]]
-            right_list = [informalize_term(term) for term in right_list]
+            right_list = ["/".join(informalize_term(sub_term) for sub_term in term.split("/")) for term in right_list]
             left_list = [term.split("+")[1:] for term in term_list[1:]]
             left_list = [item for left in left_list for item in left]
-            left_list = [informalize_term(term) for term in left_list]
+            left_list = ["/".join(informalize_term(sub_term) for sub_term in term.split("/")) for term in left_list]
         else:
             right_list = [term.split("+")[0] for term in term_list[1:]]
-            right_list = [informalize_term(term) for term in right_list]
+            right_list = ["/".join(informalize_term(sub_term) for sub_term in term.split("/")) for term in right_list]
             left_list = [term_list[0].split("+")] + [term.split("+")[1:] for term in term_list[1:]]
             left_list = [item for left in left_list for item in left]
-            left_list = [informalize_term(term) for term in left_list]
+            left_list = ["/".join(informalize_term(sub_term) for sub_term in term.split("/")) for term in left_list]
         informal_clause = " + ".join(left_list) + " = " + " + ".join(right_list)
         return informal_clause
     return formal_clause
