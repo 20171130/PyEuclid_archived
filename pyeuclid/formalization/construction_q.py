@@ -15,11 +15,11 @@ def sample_angle(low=0, high=pi, special_values=[]):
     chosen = random.choice(values)
     return chosen
 
-def sample_length(low=0, high=9999, special_values=[]):
+def sample_length(low=0, high=9999, special_values=[], scale=1):
     values = [1, 2, 3, 4, 5, 6, 8, 10, 12, 13]
     values += special_values
     values = [item for item in values if item > low and item < high]
-    chosen = random.choice(values)
+    chosen = random.choice(values) * scale
     return chosen
 
 class ConstructionQ(ConstructionRule):
@@ -48,7 +48,7 @@ class construct_segment_q(ConstructionQ):
         self.a, self.b = a, b
         return [self.ab], []
     
-    def sample(self, angle_values=[], length_values=[]):
+    def sample(self, angle_values=[], length_values=[], scale=1):
         ab = sample_length()
         self.ab = ab
         self.params = [ab]
@@ -83,7 +83,7 @@ class construct_angle_counterclockwise(ConstructionQ):
         self.x = x
         self.outputs = [x]
     
-    def sample(self, angle_values=[], length_values=[]):
+    def sample(self, angle_values=[], length_values=[], scale=1):
         self.xab = sample_angle(special_values=angle_values)
         self.params = [self.xab]
         return [], [self.xab]
@@ -128,7 +128,7 @@ class construct_angle_clockwise(ConstructionQ):
         self.x = x
         self.outputs = [x]
     
-    def sample(self, angle_values=[], length_values=[]):
+    def sample(self, angle_values=[], length_values=[], scale=1):
         self.xab = sample_angle(special_values=angle_values)
         self.params = [self.xab]
         return [], [self.xab]
@@ -167,8 +167,8 @@ class construct_point_on_circle(ConstructionQ):
         self.r = r
         self.diagram = diagram
         
-    def sample(self, angle_values=[], length_values=[]):
-        r = sample_length(special_values=length_values)
+    def sample(self, angle_values=[], length_values=[], scale=1):
+        r = sample_length(special_values=length_values, scale=scale)
         self.r = r
         self.params = [r]
         return [self.r], []
@@ -199,8 +199,8 @@ class construct_point_on_line(ConstructionQ):
         self.outputs = [x]
         self.x = x
         
-    def sample(self, angle_values=[], length_values=[]):
-        l = sample_length(special_values=length_values)
+    def sample(self, angle_values=[], length_values=[], scale=1):
+        l = sample_length(special_values=length_values, scale=scale)
         self.l = l
         self.params = [l]
         return [self.l], []
@@ -237,8 +237,8 @@ class construct_ieq_triangle_q(ConstructionQ):
         self.a, self.b, self.c = a, b, c
         self.outputs = [a, b, c]
     
-    def sample(self, angle_values=[], length_values=[]):
-        l = sample_length(special_values=length_values)
+    def sample(self, angle_values=[], length_values=[], scale=1):
+        l = sample_length(special_values=length_values, scale=scale)
         self.l = l
         self.params = [l]
         return [l], [pi/3]
@@ -327,8 +327,8 @@ class construct_r_triangle_q(ConstructionQ):
         self.a, self.b, self.c = a, b, c
         self.outputs = [a, b, c]
     
-    def sample(self, angle_values=[], length_values=[]):
-        ab, bc = sample_length(special_values=length_values), sample_length(special_values=length_values)
+    def sample(self, angle_values=[], length_values=[], scale=1):
+        ab, bc = sample_length(special_values=length_values, scale=scale), sample_length(special_values=length_values, scale=scale)
         self.ab, self.bc = ab, bc
         self.params = [ab, bc]
         return [ab, bc], [pi/2]
@@ -365,8 +365,8 @@ class construct_eq_triangle_q(ConstructionQ):
         self.a, self.b, self.c = a, b, c
         self.outputs = [a, b, c]
     
-    def sample(self, angle_values=[], length_values=[]):
-        bc = sample_length(special_values=length_values)
+    def sample(self, angle_values=[], length_values=[], scale=1):
+        bc = sample_length(special_values=length_values, scale=scale)
         bac = sample_angle(special_values=angle_values)
         self.bc, self.bac = bc, bac
         self.params = [bc, bac]
@@ -405,9 +405,9 @@ class construct_parallelogram_q(ConstructionQ):
         self.a, self.b, self.c, self.d = a, b, c, d
         self.outputs = [a, b, c, d]
     
-    def sample(self, angle_values=[], length_values=[]):
-        ab = sample_length(special_values=length_values)
-        ad = sample_length(special_values=length_values)
+    def sample(self, angle_values=[], length_values=[], scale=1):
+        ab = sample_length(special_values=length_values, scale=scale)
+        ad = sample_length(special_values=length_values, scale=scale)
         bad = sample_angle(special_values=angle_values)
         self.ab, self.ad, self.bad = ab, ad, bad
         self.params = [ab, ad, bad]
@@ -446,9 +446,9 @@ class construct_eq_trapezoid_q(ConstructionQ):
         self.a, self.b, self.c, self.d = a, b, c, d
         self.outputs = [a, b, c, d]
     
-    def sample(self, angle_values=[], length_values=[]):
-        ab = sample_length(special_values=length_values)
-        ad = sample_length(special_values=length_values)
+    def sample(self, angle_values=[], length_values=[], scale=1):
+        ab = sample_length(special_values=length_values, scale=scale)
+        ad = sample_length(special_values=length_values, scale=scale)
         bad = sample_angle(special_values=angle_values)
         self.ab, self.ad, self.bad = ab, ad, bad
         self.params = [ab, ad, bad]
@@ -489,10 +489,10 @@ class construct_r_trapezoid_q(ConstructionQ):
         self.a, self.b, self.c, self.d = a, b, c, d
         self.outputs = [a, b, c, d]
     
-    def sample(self, angle_values=[], length_values=[]):
-        ab = sample_length(special_values=length_values)
-        ad = sample_length(special_values=length_values)
-        cd = sample_length(special_values=length_values)
+    def sample(self, angle_values=[], length_values=[], scale=1):
+        ab = sample_length(special_values=length_values, scale=scale)
+        ad = sample_length(special_values=length_values, scale=scale)
+        cd = sample_length(special_values=length_values, scale=scale)
         self.ab, self.ad, self.cd = ab, ad, cd
         self.params = [ab, ad, cd]
         return [ab, ad, cd], []
@@ -529,7 +529,7 @@ class construct_square_q(ConstructionQ):
         self.l = l
         self.diagram = diagram
         
-    def sample(self, angle_values=[], length_values=[]):
+    def sample(self, angle_values=[], length_values=[], scale=1):
         l = sample_length()
         self.l = l
         self.params = [l]
@@ -572,7 +572,7 @@ class construct_rectangle_q(ConstructionQ):
         self.a, self.b, self.c, self.d = a, b, c, d
         self.outputs = [a, b, c, d]
     
-    def sample(self, angle_values=[], length_values=[]):
+    def sample(self, angle_values=[], length_values=[], scale=1):
         h = sample_length()
         w = sample_length()
         self.h = h

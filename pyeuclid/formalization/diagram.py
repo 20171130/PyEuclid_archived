@@ -99,7 +99,7 @@ class Diagram:
         self.numerical_cache = {}
         
         self.fig, self.ax = None, None
-
+        self.scale = random.choice([1, 1, 1, 2, 3, 4, 5, 10])
         self.save_path = save_path
         self.cache_folder = cache_folder
         
@@ -310,7 +310,7 @@ class Diagram:
 
     def sketch(self, construction):
         if hasattr(construction, "sketch"):
-            lengths, angles = construction.sample(length_values=self.length_values, angle_values=self.angle_values)
+            lengths, angles = construction.sample(length_values=self.length_values, angle_values=self.angle_values, scale=self.scale)
             self.length_values = self.length_values.union(lengths)
             self.angle_values = self.angle_values.union(angles)
             result = construction.sketch()
