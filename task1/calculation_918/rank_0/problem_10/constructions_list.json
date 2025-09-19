@@ -1,0 +1,1 @@
+A,B,C = construct_ieq_triangle_q(2), D = construct_foot(B,C,A), E = construct_angle_clockwise(D,C,2*pi/3), E = construct_lc_tangent(A,C), F = construct_intersection_lt(A,D,E,B,C), G = construct_on_circle(F,D), G = construct_point_on_circle(A,3)

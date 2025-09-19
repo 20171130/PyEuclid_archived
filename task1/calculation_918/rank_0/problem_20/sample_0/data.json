@@ -1,0 +1,23 @@
+{
+  "problem": "A,B,C,D = construct_rectangle_q(30,120), E = construct_point_on_circle(A,10), E = construct_on_pline(A,B,C), G = construct_point_on_circle(D,130), G = construct_on_bline(D,E)",
+  "necessary_constructions": "A,B,C,D = construct_rectangle_q(30,120), E = construct_point_on_circle(A,10), E = construct_on_pline(A,B,C), G = construct_point_on_circle(D,130), G = construct_on_bline(D,E)",
+  "unused_constructions": "",
+  "auxiliary_constructions": "",
+  "goal": "Angle_D_E_G",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_20/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Length_A_E - 10 & Length_A_D - 120 => Length_A_D - 12*Length_A_E\n2. Rectangle(A,B,C,D) => Parallel(A,D,B,C)\n3. Parallel(A,D,B,C) & Parallel(A,E,B,C) => Parallel(A,D,A,E)\n4. Parallel(A,D,A,E) => Collinear(A,D,E)\n5. Collinear(A,D,E) => Length_A_D + Length_A_E - Length_D_E\n6. Length_A_D - 12*Length_A_E & Length_A_D + Length_A_E - Length_D_E & Length_A_D - 120 => Length_D_E - 130\n7. Length_D_G - 130 & Length_D_E - 130 => Length_D_E - Length_D_G\n8. Length_D_G - Length_E_G & Length_D_G - 130 => Length_E_G - 130\n9. Length_E_G - 130 & Length_D_E - 130 => Length_D_E - Length_E_G\n10. Length_D_E - Length_D_G & Length_D_E - Length_E_G => EquilateralTriangle(D,E,G)\n11. EquilateralTriangle(D,E,G) => Angle_D_E_G - pi/3\n",
+  "rank": 0,
+  "problem_id": 20,
+  "sample_id": 0,
+  "seed": 591459507,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Length_A_D - 120",
+    "Length_A_E - 10",
+    "Length_A_B - 30",
+    "Length_D_G - 130"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

@@ -1,0 +1,21 @@
+{
+  "problem": "A,B,C,D = construct_square_q(20), E = construct_angle_counterclockwise(D,B,2*pi/3), E = construct_on_bline(B,A)",
+  "necessary_constructions": "A,B,C,D = construct_square_q(20), E = construct_angle_counterclockwise(D,B,2*pi/3), E = construct_on_bline(B,A)",
+  "unused_constructions": "",
+  "auxiliary_constructions": "",
+  "goal": "Angle_D_C_E",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_26/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Square(A,B,C,D) => Perpendicular(A,C,B,D) & Angle_A_C_D - Angle_B_D_C & Length_A_C - Length_B_D & Angle_A_B_D - Angle_B_A_C\n2. Perpendicular(A,C,B,D) => Angle_A_C_D + Angle_B_D_C - pi/2\n3. Angle_B_D_E - 2*pi/3 & Angle_C_D_E + Angle_C_E_D + Angle_D_C_E - pi & Angle_B_D_C - Angle_B_D_E + Angle_C_D_E & Angle_A_C_D + Angle_B_D_C - pi/2 & Angle_A_C_D - Angle_B_D_C => Angle_C_E_D + Angle_D_C_E - 7*pi/12\n4. Angle_A_B_D - Angle_A_B_E + Angle_D_B_E & Angle_A_B_D - Angle_B_A_C & Angle_B_A_C - Angle_B_A_E + Angle_C_A_E & Angle_A_B_E - Angle_B_A_E => Angle_C_A_E - Angle_D_B_E\n5. Length_A_C - Length_B_D & Length_A_E - Length_B_E & Angle_C_A_E - Angle_D_B_E => Congruent3(A,C,E,B,D,E)\n6. Congruent3(A,C,E,B,D,E) => Angle_A_C_E - Angle_B_D_E\n7. Angle_B_D_E - 2*pi/3 & Angle_C_D_E + Angle_C_E_D + Angle_D_C_E - pi & Angle_A_C_D - Angle_A_C_E + Angle_D_C_E & Angle_B_D_C - Angle_B_D_E + Angle_C_D_E & Angle_A_C_D + Angle_B_D_C - pi/2 => Angle_A_C_E + Angle_C_E_D - 5*pi/6\n8. Angle_C_E_D + Angle_D_C_E - 7*pi/12 & Angle_B_D_E - 2*pi/3 & Angle_A_C_E - Angle_B_D_E & Angle_A_C_E + Angle_C_E_D - 5*pi/6 => Angle_D_C_E - 5*pi/12\n",
+  "rank": 0,
+  "problem_id": 26,
+  "sample_id": 0,
+  "seed": 189184631,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Angle_B_D_E - 2*pi/3",
+    "Length_A_B - 20"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

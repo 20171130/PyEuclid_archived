@@ -1,0 +1,23 @@
+{
+  "problem": "A,B,C,D = construct_eq_trapezoid_q(10,3,pi/3), E = construct_angle_clockwise(A,D,pi/3), E = construct_on_tline(C,B,C)",
+  "necessary_constructions": "A,B,C,D = construct_eq_trapezoid_q(10,3,pi/3), E = construct_angle_clockwise(A,D,pi/3), E = construct_on_tline(C,B,C)",
+  "unused_constructions": "",
+  "auxiliary_constructions": "",
+  "goal": "Angle_A_E_C",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_32/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Perpendicular(B,C,C,E) => Angle_B_C_E - pi/2\n2. Trapezoid(A,B,C,D) & Parallel(A,B,C,D) & -Length_A_D + Length_B_C => EquilateralTrapezoid(A,B,C,D)\n3. EquilateralTrapezoid(A,B,C,D) & Parallel(A,B,C,D) => Angle_A_B_C - Angle_B_A_D\n4. Angle_B_A_D - pi/3 & Angle_D_A_E - pi/3 => Angle_B_A_D - Angle_D_A_E\n5. Angle_B_A_D - Angle_D_A_E => Collinear(A,B,E)\n6. Collinear(A,B,E) => Angle_B_A_C - Angle_C_A_E\n7. Angle_A_C_B - Angle_A_C_E - Angle_B_C_E & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_B_C_E - pi/2 & Angle_A_B_C - Angle_B_A_D & Angle_B_A_C - Angle_C_A_E & Angle_B_A_D - pi/3 => Angle_A_C_E + Angle_C_A_E - pi/6\n8. Angle_A_C_E + Angle_C_A_E - pi/6 & Angle_A_C_E + Angle_A_E_C + Angle_C_A_E - pi => Angle_A_E_C - 5*pi/6\n",
+  "rank": 0,
+  "problem_id": 32,
+  "sample_id": 0,
+  "seed": 202922077,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Length_A_B - 10",
+    "Angle_B_A_D - pi/3",
+    "Length_A_D - 3",
+    "Angle_D_A_E - pi/3"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

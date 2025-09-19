@@ -1,0 +1,23 @@
+{
+  "problem": "A,B,C,D = construct_eq_trapezoid_q(8,4,2*pi/3), E = construct_on_tline(D,C,A), E = construct_angle_clockwise(C,D,pi/6)",
+  "necessary_constructions": "A,B,C,D = construct_eq_trapezoid_q(8,4,2*pi/3), E = construct_on_tline(D,C,A), E = construct_angle_clockwise(C,D,pi/6)",
+  "unused_constructions": "",
+  "auxiliary_constructions": "",
+  "goal": "Angle_A_E_C",
+  "depth": 4,
+  "diagram": "task1/calculation_918/rank_0/problem_12/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Parallel(A,B,C,D) => Angle_A_D_C + Angle_B_A_D - pi\n2. Angle_A_D_C + Angle_B_A_D - pi & Angle_B_A_D - 2*pi/3 => Angle_A_D_C - pi/3\n3. Angle_A_D_C - pi/3 & Angle_D_C_E - pi/6 => Angle_A_D_C + Angle_D_C_E - pi/2\n4. Angle_A_D_C + Angle_D_C_E - pi/2 => Perpendicular(A,D,C,E)\n5. Perpendicular(A,C,D,E) & Perpendicular(A,D,C,E) => Orthocenter(A,C,D,E)\n6. Orthocenter(A,C,D,E) => Perpendicular(A,E,C,D)\n7. Perpendicular(A,E,C,D) & Parallel(A,B,C,D) => Perpendicular(A,B,A,E)\n8. Perpendicular(A,B,A,E) => Angle_B_A_E - pi/2\n9. Angle_B_A_C + Angle_B_A_E - Angle_C_A_E & Angle_A_D_C + Angle_B_A_D - pi & Angle_A_C_D + Angle_A_C_E - Angle_D_C_E & Angle_B_A_C - Angle_B_A_D + Angle_C_A_D & Angle_D_C_E - pi/6 & Angle_A_C_E + Angle_A_E_C + Angle_C_A_E - pi & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi => Angle_A_E_C + Angle_B_A_E - 5*pi/6\n10. Angle_B_A_E - pi/2 & Angle_A_E_C + Angle_B_A_E - 5*pi/6 => Angle_A_E_C - pi/3\n",
+  "rank": 0,
+  "problem_id": 12,
+  "sample_id": 0,
+  "seed": 546896488,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Length_A_D - 4",
+    "Angle_B_A_D - 2*pi/3",
+    "Length_A_B - 8",
+    "Angle_D_C_E - pi/6"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}
