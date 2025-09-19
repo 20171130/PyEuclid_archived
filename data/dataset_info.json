@@ -25,5 +25,14 @@
             "query": "input",
             "response": "output"
         }
+    },
+    "task2_train": {
+        "file_name": "task2_train.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output",
+            "images": "images"
+        }
     }
 }
