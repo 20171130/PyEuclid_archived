@@ -5,7 +5,7 @@ import os
 import sys
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
 
@@ -32,21 +32,47 @@ def ensure_parent_dir(p: Path):
 def to_abs_file_url(p: Union[str, Path]) -> str:
     return f"file://{Path(p).expanduser().resolve()}"
 
-def strip_image_tag(instr: str) -> str:
-    if instr.startswith("<image>\n"):
-        return instr[len("<image>\n") :]
-    if instr.startswith("<image>"):
-        return instr[len("<image>") :].lstrip("\n")
-    return instr
+def parse_instruction(instr: str) -> Tuple[str, bool]:
+    """
+    Return (text_without_marker, image_first_flag).
+    If instruction starts with '<image>' (optionally followed by newline),
+    we strip that marker and signal that image should be placed BEFORE the text.
+    """
+    s = instr.lstrip()  # tolerate accidental leading spaces
+    if s.startswith("<image>\n"):
+        return s[len("<image>\n"):], True
+    if s.startswith("<image>"):
+        # handle no-newline case, then strip any immediate newline spaces
+        rest = s[len("<image>"):]
+        return rest.lstrip("\n"), True
+    return instr, False
 
-def build_messages(instruction: str, images: Optional[List[str]] = None):
-    parts: List[Dict[str, Any]] = [{"type": "text", "text": instruction}]
-    if images:
-        # vLLM OpenAI-compatible multimodal format
-        parts.append({
-            "type": "image_url",
-            "image_url": {"url": to_abs_file_url(images[0])}
-        })
+def build_messages(instruction_text: str,
+                   images: Optional[List[str]],
+                   image_first: bool) -> List[Dict[str, Any]]:
+    """
+    Build OpenAI-compatible multimodal chat message parts.
+    - If image_first is True, put the image part(s) BEFORE the text.
+    - Otherwise, put text first then image part(s).
+    - Supports multiple images if provided (they'll all be included).
+    """
+    parts: List[Dict[str, Any]] = []
+
+    def image_parts(imgs: List[str]) -> List[Dict[str, Any]]:
+        return [
+            {"type": "image_url", "image_url": {"url": to_abs_file_url(p)}}
+            for p in imgs
+        ]
+
+    imgs = images or []
+    if image_first and imgs:
+        parts.extend(image_parts(imgs))
+        parts.append({"type": "text", "text": instruction_text})
+    else:
+        parts.append({"type": "text", "text": instruction_text})
+        if imgs:
+            parts.extend(image_parts(imgs))
+
     return [{"role": "user", "content": parts}]
 
 # ---------- Server discovery & readiness ----------
@@ -113,12 +139,16 @@ def evaluate_item_sync(
     max_tokens: int,
     print_fn=None,
 ) -> Dict[str, Any]:
-    raw_instr = item.get("instruction", "")
+    # Your dataset format:
+    # { "index": int, "instruction": "<image>\n{problem}", "input": "", "output": "...(ignored)...", "images": ["path"] }
+    raw_instr = item.get("instruction", "") or ""
     images: List[str] = item.get("images", []) or []
-    has_image = raw_instr.strip().startswith("<image>") and len(images) > 0
 
-    instruction = strip_image_tag(raw_instr) if has_image else raw_instr
-    messages = build_messages(instruction, images if has_image else None)
+    # Detect whether the instruction leads with <image>
+    instruction_text, image_first = parse_instruction(raw_instr)
+
+    # Build messages so the image is placed BEFORE the text if image_first is True
+    messages = build_messages(instruction_text, images, image_first=image_first)
 
     start = time.perf_counter()
     try:
@@ -131,7 +161,7 @@ def evaluate_item_sync(
         )
         elapsed = time.perf_counter() - start
 
-        # Extract assistant text safely (new SDK returns typed objects)
+        # Extract assistant text safely
         text = ""
         if resp and getattr(resp, "choices", None):
             ch0 = resp.choices[0]
@@ -141,7 +171,9 @@ def evaluate_item_sync(
 
         if print_fn:
             print_fn("=" * 40)
-            print_fn(f"Prompt:\n{instruction}\n")
+            # Reconstruct a readable prompt preview:
+            leading = "<image>\n" if image_first and images else ""
+            print_fn(f"Prompt:\n{leading}{instruction_text}\n")
             print_fn(f"Model Output:\n{text}\n")
 
         usage = getattr(resp, "usage", None)
@@ -197,10 +229,10 @@ def main_sync(args):
                 print_fn=print_fn,
             )
             out = {
-                "index": idx,
+                "index": item.get("index", idx),  # preserve index if present
                 "instruction": item.get("instruction", ""),
                 "input": item.get("input", ""),
-                "reference_output": item.get("output", None),
+                "reference_output": item.get("output", None),  # ignored for prompting, kept for logging
                 "images": item.get("images", []),
                 **res,
             }

@@ -44,11 +44,6 @@ for idx, (data_json, image_file) in tqdm.tqdm(enumerate(zip(data_json_list, imag
     os.makedirs(os.path.dirname(dst_data_json), exist_ok=True)
     with open(dst_data_json, "w") as f:
         json.dump(data, f, indent=4)
-    # if os.path.islink(dst_image_file):
-    #     os.unlink(dst_image_file)
-    # elif os.path.exists(dst_image_file):
-    #     os.remove(dst_image_file)
-    # os.symlink(os.path.abspath(image_file), dst_image_file)
 
     if os.path.exists(dst_image_file):
         os.remove(dst_image_file)

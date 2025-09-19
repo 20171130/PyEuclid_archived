@@ -25,7 +25,7 @@ def create_problem_prompt(problem, goal):
     full_prompt = f"""
 You are given a plane geometry problem:
 
-Problem: {problem}. Prove that: {goal}
+Problem: {problem}. Prove that: {goal}.
 
 Task: Reword the problem in clear, concise, and fluent language, ensuring it is easy to understand while preserving its original meaning.  
 Output ONLY the rewritten problem. Do NOT include explanations or any additional text.
