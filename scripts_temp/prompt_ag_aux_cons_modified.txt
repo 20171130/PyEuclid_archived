@@ -1,0 +1,29 @@
+A = free A: construct a free point A
+A, B = segment A B: construct a line segment AB
+A, B, C = triangle A B C: construct a triangle ABC
+X = angle_bisector X A B C: construct X such that X lies on the angle bisector of of ∠ABC
+X = circumcenter X A B C: construct X such that X is the circumcenter of A, B, C
+X = eqangle2 X A B C: construct X such that ∠BAX = ∠XCB
+X = eqdistance X A B C: construct X such that XA = BC
+X = foot X A B C: construct X such that X is the foot of the perpendicular dropped on to BC from A
+X = incenter X A B C: construct X such that X is the incentre of triangle ABC
+X = intersection_cc X O W A: construct X such that X and A lies on the intersection of circle O and circle W
+X = intersection_lc X A O B: construct X such that the circle O intersects the line AB at point X
+X = intersection_ll X A B C D: construct X such that line AB and line CD intersect each other at X
+X = intersection_lp X A B C M N: construct X such that the line parallel to MN and passing through C intersects AB at X
+X = intersection_lt X A B C D E: construct X such that the line perpendicular to DE and passing through C intersects AB at X
+X = intersection_pp X A B C D E F: construct X such that the line paralel to BC and passing through A intersects the line parallel to EF and passing through D at X
+X = intersection_tt X A B C D E F: construct X such that the line perpendicular to BC and passing through A intersects the line perpendicular to EF and passing through D at X
+X = lc_tangent X A O: construct X such that XA is the tangent line intersecting circle O at A
+X = midpoint X A B: construct X such that X is the midpoint of AB
+X = mirror X A B: construct X such that X is the mirror point of A around B
+X = on_aline X A B C D E: construct X such that ∠XAB = ∠CDE
+X = on_bline X A B: construct X such that X lies on the perpendicular bisector of AB
+X = on_circle X O A: construct X such that X lies on the circle O with radios OA
+X = on_line X A B: construct X such that X lies on line AB
+X = on_pline X A B C: construct X such that XA is parallel to BC
+X = on_tline X A B C: construct X such that XA is perpendicular to BC
+X = orthocenter X A B C: construct X such that X is the orthocenter of triangle ABC
+X = reflect X A B C: construct X such that X is the reflection of A on BC
+X = on_dia X A B: construct X such that XAB is a right triangle with 90 degree angle at X
+X = eqangle3 X A B D E F: construct X such that ∠XAB = ∠DEF
