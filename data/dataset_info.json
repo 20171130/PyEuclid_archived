@@ -34,5 +34,14 @@
             "response": "output",
             "images": "images"
         }
+    },
+    "task1_train": {
+        "file_name": "task1_train.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output",
+            "images": "images"
+        }
     }
 }
