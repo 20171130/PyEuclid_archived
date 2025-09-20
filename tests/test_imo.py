@@ -9,6 +9,7 @@ import pyeuclid.formalization.utils as utils
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.translation import parse_texts_from_file
+from pyeuclid.formalization.construction_rule import *
 from pyeuclid.formalization.utils import Timeout
 from pyeuclid.engine.inference_rule import inference_rule_sets
 from pyeuclid.engine.deductive_database import DeductiveDatabase
@@ -17,6 +18,9 @@ from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
 import traceback
 
+independent_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["independent"]]
+deterministic_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["deterministic"]]
+nondeterministic_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["nondeterministic"]]
 class TestBenchmarks(unittest.TestCase):
     def test_jgex_ag_231(self):
         utils.MAX_DIAGRAM_ATTEMPTS = None

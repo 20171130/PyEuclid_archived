@@ -1,0 +1,22 @@
+{
+  "problem": "A,B,C = construct_r_triangle_q(15,36), D = construct_on_tline(A,B,C), D = construct_point_on_circle(B,39), E = construct_orthocenter(A,C,D)",
+  "necessary_constructions": "A,B,C = construct_r_triangle_q(15,36), D = construct_on_tline(A,B,C), D = construct_point_on_circle(B,39), E = construct_orthocenter(A,C,D)",
+  "unused_constructions": "",
+  "auxiliary_constructions": "",
+  "goal": "Area_C_D_E",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_19/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Angle_A_B_C - pi/2 => Perpendicular(A,B,B,C)\n2. Perpendicular(A,D,B,C) & Perpendicular(A,D,C,E) => Parallel(B,C,C,E)\n3. Parallel(B,C,C,E) => Collinear(B,C,E)\n4. Collinear(B,C,E) => Parallel(B,C,B,E) & Angle_A_C_B - Angle_A_C_E & Length_B_C - Length_B_E - Length_C_E\n5. Perpendicular(A,B,B,C) & Parallel(B,C,B,E) => Perpendicular(A,B,B,E)\n6. Perpendicular(A,B,B,C) & Perpendicular(A,D,B,C) => Parallel(A,B,A,D)\n7. Parallel(A,B,A,D) => Collinear(A,B,D)\n8. Collinear(A,B,D) => Parallel(A,B,B,D) & Angle_A_D_E - Angle_B_D_E\n9. Perpendicular(A,B,B,E) & Parallel(A,B,B,D) => Perpendicular(B,D,B,E)\n10. Perpendicular(B,D,B,E) => Angle_D_B_E - pi/2\n11. Angle_A_B_C - pi/2 & Angle_D_B_E - pi/2 => Angle_A_B_C - Angle_D_B_E\n12. Perpendicular(A,D,C,E) => Angle_A_D_E - Angle_C_E_D + pi/2\n13. Perpendicular(A,C,D,E) => Angle_A_C_E - Angle_C_E_D + pi/2\n14. Angle_A_D_E - Angle_C_E_D + pi/2 & Angle_A_D_E - Angle_B_D_E & Angle_A_C_B - Angle_A_C_E & Angle_A_C_E - Angle_C_E_D + pi/2 => Angle_A_C_B - Angle_B_D_E\n15. Angle_A_B_C - Angle_D_B_E & Angle_A_C_B - Angle_B_D_E => Similar3(A,B,C,E,B,D)\n16. Similar3(A,B,C,E,B,D) => Length_B_D/Length_B_C - Length_B_E/Length_A_B\n17. Length_B_D - 39 & Length_B_C - 36 => -13/12 + Length_B_D/Length_B_C\n18. Length_B_D/Length_B_C - Length_B_E/Length_A_B & -13/12 + Length_B_D/Length_B_C => -13/12 + Length_B_E/Length_A_B\n19. Perpendicular(A,B,B,E) => Angle_A_B_E - pi/2\n20. Angle_A_B_E - pi/2 => Area_A_B_E - Length_A_B*Length_B_E/2\n21. Length_A_B - 15 & -13/12 + Length_B_E/Length_A_B & Area_A_B_E - Length_A_B*Length_B_E/2 => Area_A_B_E - 975/8\n22. Length_A_B - 15 & Area_A_B_E - Length_A_B*Length_B_E/2 => Area_A_B_E - 15*Length_B_E/2\n23. Length_B_C - Length_B_E - Length_C_E & Length_B_C - 36 => Length_B_E + Length_C_E - 36\n24. Area_A_B_E - 15*Length_B_E/2 & Length_B_E + Length_C_E - 36 => Area_A_B_E + 15*Length_C_E/2 - 270\n25. Area_A_B_E - 975/8 & Area_A_B_E + 15*Length_C_E/2 - 270 => Length_C_E - 79/4\n26. Perpendicular(A,B,B,C) & Parallel(B,C,C,E) => Perpendicular(A,B,C,E)\n27. Perpendicular(A,B,C,E) & Parallel(A,B,B,D) => Perpendicular(B,D,C,E)\n28. Perpendicular(B,D,C,E) & Collinear(B,C,E) => Area_C_D_E - Length_B_D*Length_C_E/2\n29. Length_C_E - 79/4 & Length_B_D - 39 & Area_C_D_E - Length_B_D*Length_C_E/2 => Area_C_D_E - 3081/8\n",
+  "rank": 0,
+  "problem_id": 19,
+  "sample_id": 0,
+  "seed": 791845808,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Length_A_B - 15",
+    "Length_B_C - 36",
+    "Length_B_D - 39"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

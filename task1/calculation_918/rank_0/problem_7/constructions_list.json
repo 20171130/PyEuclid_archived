@@ -1,0 +1,1 @@
+A,B,C,D = construct_square_q(5), E = construct_point_on_circle(B,6), E = construct_lc_tangent(A,C), F = construct_foot(C,B,E), G = construct_lc_tangent(F,E), G = construct_angle_bisector(F,D,E), H = construct_foot(E,D,C)

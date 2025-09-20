@@ -1,9 +1,0 @@
-Solution:
-1. Collinear(B,C,D) [DiagramAngle4b(B,C,A,D)] => Angle_A_B_C - Angle_A_B_D & Angle_A_C_B - Angle_A_C_D & Parallel(B,D,C,D)
-2. Perpendicular(A,D,B,D) & Parallel(B,D,C,D) [AlphaGeometry1b(B,D,A,D,C,D)] => Perpendicular(A,D,C,D)
-3. Perpendicular(A,D,C,D) [Perp2Angle(A,D,C)] => Angle_A_D_C - pi/2
-4. Perpendicular(A,B,A,C) [Perp2Angle(B,A,C)] => Angle_B_A_C - pi/2
-5. Angle_A_C_B - Angle_A_C_D & Angle_A_D_C - pi/2 & Angle_B_A_C - Angle_B_A_D - Angle_C_A_D & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_B_A_C - pi/2 => Angle_A_C_B - Angle_B_A_D
-6. Angle_A_B_C - Angle_A_B_D & Angle_A_C_B - Angle_B_A_D [AlphaGeometry3536(A,B,C,D,B,A)] => Similar3(A,B,C,D,B,A)
-7. Similar3(A,B,C,D,B,A) [PropertyOfSimilar3(A,B,C,D,B,A)] => Length_A_B/Length_B_C - Length_B_D/Length_A_B
-8. Length_B_C - 12 & Length_A_B/Length_B_C - Length_B_D/Length_A_B & Length_B_D - 8 & Length_A_B - Variable_x => Variable_x - 4*sqrt(6)

@@ -1,0 +1,9 @@
+{
+    "problem": "a,b,c = construct_r_triangle(), e = construct_on_dia(a,c), g = construct_on_dia(a,c)",
+    "goal": "Angle_a_g_e - Angle_b_a_e",
+    "diagram": "task2/figure/rank_0/problem_2/sample_0/diagram.jpg",
+    "proof": "Solution:\n1. Perpendicular(a,g,c,g) => Angle_a_g_c - pi/2\n2. Perpendicular(a,e,c,e) => Angle_a_e_c - pi/2\n3. Angle_a_g_c - pi/2 & Angle_a_e_c - pi/2 => Angle_a_e_c - Angle_a_g_c\n4. Angle_a_e_c - Angle_a_g_c => Concyclic(a,c,e,g)\n5. Concyclic(a,c,e,g) => Angle_a_c_e + Angle_a_g_e - pi\n6. Perpendicular(a,b,a,c) => Angle_b_a_c - pi/2\n7. Angle_a_c_e + Angle_a_e_c + Angle_c_a_e - pi & Angle_b_a_c - Angle_b_a_e + Angle_c_a_e & Angle_a_e_c - pi/2 & Angle_b_a_c - pi/2 => Angle_a_c_e + Angle_b_a_e - pi\n8. Angle_a_c_e + Angle_a_g_e - pi & Angle_a_c_e + Angle_b_a_e - pi => Angle_a_g_e - Angle_b_a_e\n",
+    "coordinates": "a: (1.3416720011775185, 0.6308792967281398), b: (0.9180923925577262, 1.3013583341564274), c: (0.7379035746129631, 0.2494445619418852), d: (1.5410898200576213, 0.9522122685245596), e: (0.999571389790743, 0.08535235536902541), f: (0.8654355351327406, 0.670638834369806)",
+    "depth": 3,
+    "seed": 600044
+}

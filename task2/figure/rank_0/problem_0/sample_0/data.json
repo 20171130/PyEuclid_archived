@@ -1,0 +1,9 @@
+{
+    "problem": "a,b,c = construct_risos(), e = construct_mirror(b,c), h = construct_angle_mirror(b,c,a)",
+    "goal": "Angle_b_h_c - Angle_c_h_e",
+    "diagram": "task2/figure/rank_0/problem_0/sample_0/diagram.jpg",
+    "proof": "Solution:\n1. Length_b_c - Length_c_e & Collinear(b,c,e) => Midpoint(c,b,e)\n2. Angle_a_c_b - Angle_a_c_h & Angle_a_b_c - Angle_a_c_b => Angle_a_b_c - Angle_a_c_h\n3. Perpendicular(a,b,a,c) => Angle_b_a_c - pi/2\n4. Angle_a_b_c - Angle_a_c_h & Angle_a_b_c + Angle_a_c_b + Angle_b_a_c - pi & Angle_a_c_b + Angle_a_c_h - Angle_b_c_h & Angle_b_a_c - pi/2 => Angle_b_c_h - pi/2\n5. Angle_b_c_h - pi/2 => Perpendicular(b,c,c,h)\n6. Collinear(b,c,e) => Parallel(b,c,b,e)\n7. Perpendicular(b,c,c,h) & Parallel(b,c,b,e) => Perpendicular(b,e,c,h)\n8. Midpoint(c,b,e) & Perpendicular(b,e,c,h) => Length_b_h - Length_e_h\n9. Length_b_h - Length_e_h => IsoscelesTriangle(b,e,h)\n10. IsoscelesTriangle(b,e,h) & Length_b_h - Length_e_h & Collinear(b,c,e) & Perpendicular(b,e,c,h) => Angle_b_h_c - Angle_c_h_e\n",
+    "coordinates": "a: (-1.1410085574746138, -0.8448388936342593), b: (-1.3117759407583618, 0.7726271378502221), c: (0.4764574740098677, -0.6740715103505116), d: (-0.4801644337938926, 0.6413114710315763), e: (2.264690888778097, -2.1207701585512453), f: (-2.29063793506557, -1.9953649282721404), g: (0.28042760540618683, 1.182674476650836)",
+    "depth": 3,
+    "seed": 200042
+}

@@ -1,4 +1,0 @@
-Solution:
-1. Rectangle(J,K,L,M) => Angle_K_L_M - pi/2
-2. Rhombus(L,M,R,P) [PropertyOfRhombus(L,M,R,P)] => Angle_M_L_P - Angle_M_R_P
-3. Angle_K_L_M - pi/2 & Angle_K_L_M - Angle_K_L_P + Angle_M_L_P & Angle_M_L_P - Angle_M_R_P & Angle_M_R_P - 7*pi/18 => Angle_K_L_P - 8*pi/9

@@ -1,3 +1,0 @@
-Solution:
-1. Trapezoid(G,H,J,K) & Parallel(G,H,J,K) & Perpendicular(A,J,G,H) & Collinear(A,G,H) => Area_G_H_J_K - Length_A_J*(Length_G_H + Length_J_K)/2
-2. Area_G_H_J_K - Length_A_J*(Length_G_H + Length_J_K)/2 & Length_J_K - 13 & Length_G_H - 17 & Area_G_H_J_K - 75 => Length_A_J - 5

@@ -4,7 +4,7 @@ import numpy as np
 import json
 import random
 from typing import Optional, Dict, Any
-
+import time
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.diagram import Diagram, MaxAttemptsError
 from pyeuclid.formalization.state import State
@@ -43,8 +43,6 @@ def printt(s):
 
 debug = False
 
-rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
-rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
 def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
     """Generate a single problem with timeout checking at key points"""
     
@@ -53,6 +51,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
     seed = random.randint(0, int(1e9))
     hash_seed = os.environ.get("PYTHONHASHSEED", None)
+    seed = 0
     assert hash_seed is not None
     random.seed(seed)
     np.random.seed(seed)
@@ -71,11 +70,19 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     step = 0
     attempt = 0
     points = 0
-
+    t0 = time.time()
+    
     # printt(f"Rank {rank}: Starting problem {problem_id}")
-
-    max_steps = random.uniform(3, 6) # 4 - 10
-    max_points = 8
+    if problem_type == "proving":
+        max_steps = random.uniform(4, 10) # 4 - 10
+        max_points = random.uniform(8, 15) # 8 - 15
+        rule_set = inference_rule_sets["basic"]
+    else:
+        max_steps = random.uniform(3, 6) # 4 - 10
+        max_points = 8
+        rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
+        rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
+    
     max_attempts = 100
     constructions_list = []
     length_values, angle_values = set(), set()
@@ -220,7 +227,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     conclusions += [symbol - solution for symbol, solution in state.solutions["length_ratio"].items() if len(solution.free_symbols)==0]
     conclusions += [symbol - solution for symbol, solution in state.solutions["length_linear"].items() if len(solution.free_symbols)==0]
     printt("Determining if auxiliary constructions are needed")
-    
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
     conclusions = [c for c in conclusions if state.condition2depth[c] > 2]
@@ -424,6 +430,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             "diagram": diagram_sample_path,
             "proof": new_proof_str,
             "rank": rank,
+            "time_cost": time.time() - t0,
             "problem_id": problem_id,
             "sample_id": i,
             "seed": seed,

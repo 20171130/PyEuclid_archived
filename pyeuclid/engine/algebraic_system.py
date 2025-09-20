@@ -1,9 +1,7 @@
 import re
 import math
 import sympy
-
 from sympy import factor_list
-from itertools import combinations
 from tqdm import tqdm
 from pyeuclid.formalization.utils import *
 from stopit import ThreadingTimeout as TT, SignalTimeout as ST
@@ -11,8 +9,9 @@ from stopit import ThreadingTimeout as TT, SignalTimeout as ST
 remove_redundant = True
 
 class AlgebraicSystem:
-    def __init__(self, state):
+    def __init__(self, state, for_proof=False):
         self.state = state
+        self.for_proof = for_proof
     
     def process_equation(self, eqn, check=False):
         try:
@@ -181,11 +180,7 @@ class AlgebraicSystem:
                 if j == i:
                     break
                 if key in getattr(exprs[key1], "free_symbols", []):
-                    old = exprs[key1]
                     exprs[key1] = exprs[key1].subs(key, value)
-                    if str(exprs[key1]) == "0" and "Length" in str(key1):
-                        breakpoint()
-                        assert False
         exprs = {key: value for key, value in exprs.items()}
         return free_vars, exprs
 
@@ -235,20 +230,21 @@ class AlgebraicSystem:
         self.state.current_depth += 1
         self.compute_ratio_and_angle_sum()
 
-        for l1, v1 in length_linear_solved.items():
-            if len(v1.free_symbols) == 0:
-                eqn = Traced(l1-v1, depth=self.state.current_depth, sources=["length_linear"])
-                self.state.add_conditions(eqn)
-                continue
-            else:
-                for l2, v2 in length_linear_solved.items():
-                    if len((v2/v1).free_symbols) == 0:
-                        eqn = l1*(v2/v1)-l2
-                        eqn = self.process_equation(eqn)
-                        if eqn == 0:
-                            continue
-                        eqn = Traced(eqn, depth=self.state.current_depth, sources=["length_linear"])
-                        self.state.add_conditions(eqn)
+        if self.for_proof:
+            for l1, v1 in length_linear_solved.items():
+                if len(v1.free_symbols) == 0:
+                    eqn = Traced(l1-v1, depth=self.state.current_depth, sources=["length_linear"])
+                    self.state.add_conditions(eqn)
+                    continue
+                else:
+                    for l2, v2 in length_linear_solved.items():
+                        if len((v2/v1).free_symbols) == 0:
+                            eqn = l1*(v2/v1)-l2
+                            eqn = self.process_equation(eqn)
+                            if eqn == 0:
+                                continue
+                            eqn = Traced(eqn, depth=self.state.current_depth, sources=["length_linear"])
+                            self.state.add_conditions(eqn)
         
         self.state.current_depth += 1
 
@@ -343,28 +339,18 @@ class AlgebraicSystem:
     def compute_ratio_and_angle_sum(self):
         dic = {}
         tmp = self.state.lengths.equivalence_classes()
-        for component in tmp.values():
-            if len(component) == 1:
-                continue
-            rep = self.state.simplify_equation(component[0], self.state.solutions['length_ratio'])
-            if len(rep.free_symbols)==0:
-                component = component + [rep]
-            for a in range(len(component)):
-                for b in range(a+1, len(component)):
-                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
-                    self.state.add_conditions(eqn)
-
         expr2components = {}
         for x in tmp:
             for y in tmp:
                 expr = self.state.simplify_equation(x/y,  self.state.solutions['length_ratio'])
-                if len(expr.free_symbols) == 0 and expr != 1:
-                    for a in tmp[x]:
-                        for b in tmp[y]:
-                            eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
-                            self.state.add_conditions(eqn)
-                            eqn1 = Traced(a-expr*b, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
-                            self.state.add_conditions(eqn1)
+                if self.for_proof:
+                    if len(expr.free_symbols) == 0 and expr != 1:
+                        for a in tmp[x]:
+                            for b in tmp[y]:
+                                eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
+                                self.state.add_conditions(eqn)
+                                eqn1 = Traced(a-expr*b, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
+                                self.state.add_conditions(eqn1)
 
                 if not expr in dic:
                     dic[expr] = [sympy.core.mul.Mul(x, 1/y, evaluate=False)]
@@ -376,32 +362,45 @@ class AlgebraicSystem:
                     if len(expr.free_symbols) > 0:
                         expr2components[expr].append((x, y))
                     
-        for expr, components in expr2components.items():
-            for i in range(len(components)):
-                for j in range(i+1, len(components)):
-                    x1, y1 = components[i]
-                    x2, y2 = components[j]
-                    for a in tmp[x1]:
-                        for b in tmp[y1]:
-                            for c in tmp[x2]:
-                                for d in tmp[y2]:
-                                    eqn = Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
-                                    self.state.add_conditions(eqn)
 
+
+        if self.for_proof:
+            for component in tmp.values():
+                if len(component) == 1:
+                    continue
+                rep = self.state.simplify_equation(component[0], self.state.solutions['length_ratio'])
+                if len(rep.free_symbols)==0:
+                    component = component + [rep]
+                for a in range(len(component)):
+                    for b in range(a+1, len(component)):
+                        eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
+                        self.state.add_conditions(eqn)
+            for expr, components in expr2components.items():
+                for i in range(len(components)):
+                    for j in range(i+1, len(components)):
+                        x1, y1 = components[i]
+                        x2, y2 = components[j]
+                        for a in tmp[x1]:
+                            for b in tmp[y1]:
+                                for c in tmp[x2]:
+                                    for d in tmp[y2]:
+                                        eqn = Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
+                                        self.state.add_conditions(eqn)
         self.state.ratios = dic
 
         dic = {}
         tmp = self.state.angles.equivalence_classes()
-        for component in tmp.values():
-            if len(component) == 1:
-                continue
-            rep = self.state.simplify_equation(component[0], self.state.solutions['angle_linear'])
-            if len(rep.free_symbols)==0:
-                component = component + [rep]
-            for a in range(len(component)):
-                for b in range(a+1, len(component)):
-                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"], redundant={"angle_linear"})
-                    self.state.add_conditions(eqn)
+        if self.for_proof:
+            for component in tmp.values():
+                if len(component) == 1:
+                    continue
+                rep = self.state.simplify_equation(component[0], self.state.solutions['angle_linear'])
+                if len(rep.free_symbols)==0:
+                    component = component + [rep]
+                for a in range(len(component)):
+                    for b in range(a+1, len(component)):
+                        eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"], redundant={"angle_linear"})
+                        self.state.add_conditions(eqn)
         
         angle_keys = list(tmp.keys())
         for i in range(len(angle_keys)):
@@ -410,17 +409,18 @@ class AlgebraicSystem:
             for j in range(i, len(angle_keys)):
                 y = angle_keys[j]
                 y_expr = self.state.simplify_equation(y, self.state.solutions['angle_linear'])
-                expr = self.state.simplify_equation(x+y, self.state.solutions['angle_linear'])
+                expr = x_expr + y_expr
                 if not expr in dic:
                     dic[expr] = [x+y]
                 else:
                     dic[expr].append(x+y)
-                if len(expr.free_symbols) == 0 and len(x_expr.free_symbols) > 0 and len(y_expr.free_symbols) > 0:
-                    component_x, component_y = tmp[x], tmp[y]
-                    for a in range(len(component_x)):
-                        for b in range(len(component_y)):
-                            eqn = Traced(component_x[a]+component_y[b]-expr, depth=self.state.current_depth, sources=["angle_linear"], redundant={"angle_linear"})
-                            self.state.add_conditions(eqn)
+                if self.for_proof:
+                    if len(expr.free_symbols) == 0 and len(x_expr.free_symbols) > 0 and len(y_expr.free_symbols) > 0:
+                        component_x, component_y = tmp[x], tmp[y]
+                        for a in range(len(component_x)):
+                            for b in range(len(component_y)):
+                                eqn = Traced(component_x[a]+component_y[b]-expr, depth=self.state.current_depth, sources=["angle_linear"], redundant={"angle_linear"})
+                                self.state.add_conditions(eqn)
         self.state.angle_sums = dic
 
     def run(self):

@@ -1,0 +1,1 @@
+A,B,C = construct_r_triangle_q(60,130), D = construct_foot(B,C,A), E = construct_on_line(A,B), E = construct_eqdistance(A,B,C), F = construct_angle_counterclockwise(E,A,pi/12), F = construct_point_on_circle(B,120), G = construct_intersection_cc(A,B,F)

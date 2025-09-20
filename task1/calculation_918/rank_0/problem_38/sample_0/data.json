@@ -1,0 +1,22 @@
+{
+  "problem": "A,B,C,D = construct_rectangle_q(32,16), E = construct_on_circle(D,C), E = construct_lc_tangent(C,B), F = construct_point_on_line(A,D,12)",
+  "necessary_constructions": "A,B,C,D = construct_rectangle_q(32,16), E = construct_on_circle(D,C), E = construct_lc_tangent(C,B), F = construct_point_on_line(A,D,12)",
+  "unused_constructions": "",
+  "auxiliary_constructions": "",
+  "goal": "Area_D_E_F",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_38/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Collinear(A,D,F) => Length_A_D - Length_A_F - Length_D_F & Angle_A_D_C - Angle_C_D_F\n2. Length_A_D - 16 & Length_A_F - 12 => Length_A_D - 4*Length_A_F/3\n3. Length_A_D - 16 & Length_A_D - Length_A_F - Length_D_F & Length_A_D - 4*Length_A_F/3 => Length_D_F - 4\n4. Rectangle(A,B,C,D) => Angle_A_D_C - pi/2 & Angle_B_C_D - pi/2 & Length_A_B - Length_C_D\n5. Angle_A_D_C - pi/2 & Angle_A_D_C - Angle_C_D_F => Angle_C_D_F - pi/2\n6. Angle_C_D_F - pi/2 => Perpendicular(C,D,D,F)\n7. Perpendicular(B,C,C,E) => Angle_B_C_E - pi/2\n8. Angle_A_C_B + Angle_A_C_D - Angle_B_C_D & Angle_A_C_B + Angle_A_C_E - Angle_B_C_E & Angle_B_C_D - pi/2 & Angle_B_C_E - pi/2 => Angle_A_C_D - Angle_A_C_E\n9. Angle_A_C_D - Angle_A_C_E => Collinear(C,D,E)\n10. Collinear(C,D,E) => Parallel(C,D,D,E)\n11. Perpendicular(C,D,D,F) & Parallel(C,D,D,E) => Perpendicular(D,E,D,F)\n12. Perpendicular(D,E,D,F) => Angle_E_D_F - pi/2\n13. Angle_E_D_F - pi/2 => Area_D_E_F - Length_D_E*Length_D_F/2\n14. Length_C_D - Length_D_E & Length_A_B - Length_C_D & Length_A_B - 32 => Length_D_E - 32\n15. Length_D_F - 4 & Area_D_E_F - Length_D_E*Length_D_F/2 & Length_D_E - 32 => Area_D_E_F - 64\n",
+  "rank": 0,
+  "problem_id": 38,
+  "sample_id": 0,
+  "seed": 598238565,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Length_A_B - 32",
+    "Length_A_F - 12",
+    "Length_A_D - 16"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

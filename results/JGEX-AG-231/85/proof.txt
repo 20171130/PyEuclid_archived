@@ -1,9 +1,0 @@
-Solution:
-1. Parallel(a,c,b,d) & Parallel(a,d,b,c) => Parallelogram(a,c,b,d)
-2. Length_a_c + Length_b_c*(-1) => Length_a_c - Length_b_c
-3. Parallelogram(a,c,b,d) & Length_a_c - Length_b_c => Rhombus(a,c,b,d)
-4. Rhombus(a,c,b,d) => Perpendicular(a,b,c,d)
-5. Midpoint(e,a,c) & Midpoint(h,a,d) => Parallel(c,d,e,h)
-6. Perpendicular(a,b,c,d) & Parallel(c,d,e,h) => Perpendicular(a,b,e,h)
-7. Midpoint(e,a,c) & Midpoint(f,b,c) => Parallel(a,b,e,f)
-8. Perpendicular(a,b,e,h) & Parallel(a,b,e,f) => Perpendicular(e,f,e,h)

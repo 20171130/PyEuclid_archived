@@ -1,0 +1,21 @@
+{
+  "problem": "A,B,C,D = construct_square_q(80), E = construct_on_pline(A,B,D), F = construct_angle_clockwise(A,D,pi/12)",
+  "necessary_constructions": "A,B,C,D = construct_square_q(80), E = construct_on_pline(A,B,D), F = construct_angle_clockwise(A,D,pi/12)",
+  "unused_constructions": "E = construct_on_circle(A,B), F = construct_angle_counterclockwise(E,C,pi/6)",
+  "auxiliary_constructions": "",
+  "goal": "Angle_E_A_F",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_34/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Square(A,B,C,D) => Perpendicular(A,C,B,D) & Angle_A_D_B - Angle_C_A_D\n2. Perpendicular(A,C,B,D) & Parallel(A,E,B,D) => Perpendicular(A,C,A,E)\n3. Perpendicular(A,C,A,E) => Angle_C_A_E - pi/2\n4. Perpendicular(A,C,B,D) => Angle_A_D_B + Angle_C_A_D - pi/2\n5. Angle_C_A_E - pi/2 & Angle_C_A_E - Angle_C_A_F - Angle_E_A_F & Angle_D_A_F - pi/12 & Angle_A_E_F + Angle_A_F_E + Angle_E_A_F - pi & Angle_A_D_B + Angle_C_A_D - pi/2 & Angle_A_D_B - Angle_C_A_D & Angle_C_A_D - Angle_C_A_F - Angle_D_A_F => Angle_A_E_F + Angle_A_F_E - 2*pi/3\n6. Angle_A_E_F + Angle_A_F_E - 2*pi/3 & Angle_A_E_F + Angle_A_F_E + Angle_E_A_F - pi => Angle_E_A_F - pi/3\n",
+  "rank": 0,
+  "problem_id": 34,
+  "sample_id": 0,
+  "seed": 905705024,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Angle_D_A_F - pi/12",
+    "Length_A_B - 80"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

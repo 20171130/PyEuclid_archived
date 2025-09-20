@@ -1,0 +1,18 @@
+{
+  "problem": "A,B = construct_segment(), C = construct_on_bline(B,A), C = construct_on_dia(B,A), D = construct_on_dia(A,B), D = construct_angle_bisector(B,A,C), E = construct_on_tline(A,C,D), E = construct_on_tline(B,A,C), F = construct_on_aline(A,E,D,A,C)",
+  "necessary_constructions": "C = construct_on_bline(B,A), C = construct_on_dia(B,A), D = construct_on_dia(A,B), D = construct_angle_bisector(B,A,C), E = construct_on_tline(A,C,D), E = construct_on_tline(B,A,C), F = construct_on_aline(A,E,D,A,C)",
+  "unused_constructions": "A,B = construct_segment_q(18), F = construct_point_on_circle(E,18)",
+  "auxiliary_constructions": "",
+  "goal": "Angle_D_C_F",
+  "depth": 4,
+  "diagram": "task1/calculation_918/rank_0/problem_9/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Perpendicular(A,D,B,D) => Angle_A_D_B - pi/2\n2. Perpendicular(A,C,B,C) => Angle_A_C_B - pi/2\n3. Angle_A_D_B - pi/2 & Angle_A_C_B - pi/2 => Angle_A_C_B - Angle_A_D_B\n4. Angle_A_C_B - Angle_A_D_B => Concyclic(A,B,C,D)\n5. Concyclic(A,B,C,D) => Angle_B_A_D - Angle_B_C_D & Angle_B_A_C + Angle_B_D_C - pi\n6. Angle_B_A_C - 2*Angle_B_A_D & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 & Angle_A_B_C - Angle_B_A_C => Angle_B_A_D - pi/8\n7. Perpendicular(A,C,B,C) & Perpendicular(A,C,B,E) => Parallel(B,C,B,E)\n8. Parallel(B,C,B,E) => Collinear(B,C,E)\n9. Collinear(B,C,E) => Angle_B_C_F + Angle_E_C_F - pi & Parallel(B,C,C,E)\n10. Angle_B_A_D - Angle_B_C_D & Angle_B_C_D - Angle_B_C_F + Angle_D_C_F & Angle_B_A_D - pi/8 & Angle_B_C_F + Angle_E_C_F - pi => Angle_D_C_F + Angle_E_C_F - 7*pi/8\n11. Perpendicular(A,C,B,C) & Parallel(B,C,C,E) => Perpendicular(A,C,C,E)\n12. Angle_B_A_D - Angle_C_A_D & Angle_C_A_D - Angle_E_A_F => Angle_B_A_D - Angle_E_A_F\n13. Perpendicular(A,E,C,D) => Angle_A_D_C + Angle_D_A_E - pi/2\n14. Angle_A_D_B - pi/2 & Angle_A_D_B + Angle_A_D_C - Angle_B_D_C & Angle_B_A_D - Angle_E_A_F & Angle_B_A_D - Angle_B_A_F + Angle_D_A_F & Angle_A_D_C + Angle_D_A_E - pi/2 & Angle_D_A_E - Angle_D_A_F - Angle_E_A_F => Angle_B_A_F + Angle_B_D_C - pi\n15. Angle_B_A_F + Angle_B_D_C - pi & Angle_B_A_C + Angle_B_D_C - pi => Angle_B_A_C - Angle_B_A_F\n16. Angle_B_A_C - Angle_B_A_F => Collinear(A,C,F)\n17. Collinear(A,C,F) => Parallel(A,C,C,F)\n18. Perpendicular(A,C,C,E) & Parallel(A,C,C,F) => Perpendicular(C,E,C,F)\n19. Perpendicular(C,E,C,F) => Angle_E_C_F - pi/2\n20. Angle_D_C_F + Angle_E_C_F - 7*pi/8 & Angle_E_C_F - pi/2 => Angle_D_C_F - 3*pi/8\n",
+  "rank": 0,
+  "problem_id": 9,
+  "sample_id": 0,
+  "seed": 47047805,
+  "hash_seed": "0",
+  "annotated_equations": [],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

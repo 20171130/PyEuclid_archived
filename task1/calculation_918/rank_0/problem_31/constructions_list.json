@@ -1,0 +1,1 @@
+A,B,C = construct_r_triangle_q(8,8), D = construct_foot(B,C,A), E = construct_midpoint(A,B), F = construct_on_circle(E,D), F = construct_on_aline(E,D,C,E,D), G = construct_on_pline(B,C,F), G = construct_lc_tangent(A,B), H = construct_angle_clockwise(G,C,pi/4), H = construct_point_on_circle(D,40)

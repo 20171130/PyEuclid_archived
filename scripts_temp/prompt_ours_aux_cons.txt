@@ -1,0 +1,29 @@
+A = construct_free(): construct A such that A is a point
+A, B = construct_segment(): construct A, B such that AB is a line segment
+A, B, C = construct_triangle(): construct A, B, C such that ABC is a triangle
+X = construct_angle_bisector(A, B, C): construct X such that X is a point such that ∠ABX = ∠XBC
+X = construct_circumcenter(A, B, C): construct X such that X is the centre of the circle that passes through A, B, C
+X = construct_eqangle2(A, B, C): construct X such that X is a point such that ∠BAX = ∠XCB
+X = construct_eqdistance(A, B, C): construct X such that X is a point such that XA = BC
+X = construct_foot(A, B, C): construct X such that X is the foot of the perpendicular dropped on to BC from A
+X = construct_incenter(A, B, C): construct X such that X is the incentre of triangle ABC
+X = construct_intersection_cc(O, W, A): construct X such that XOWA is a quadrilateral where OA = OX and WA = WX
+X = construct_intersection_lc(A, O, B): construct X such that AOB is a triangle. The circle drawn with the centre at O and passing through B intersects the (possibly extended) line AB again at point X
+X = construct_intersection_ll(A, B, C, D): construct X such that line AB and line CD intersect each other at X
+X = construct_intersection_lp(A, B, C, M, N): construct X such that MN and AB are two non parallel lines. X lies on AB but not on MN such that CX is parallel to MN
+X = construct_intersection_lt(A, B, C, D, E): construct X such that AB and DE are two non perpendicular lines. Line XC is perpendicular to DE it intersects line AB at X
+X = construct_intersection_pp(A, B, C, D, E, F): construct X such that line XA and line BC are parallel. Line DX and line EF are parallel. X is the intersection point
+X = construct_intersection_tt(A, B, C, D, E, F): construct X such that BC and EF are two non parallel lines. XA and XD are perpendicular lines to the aforementioned lines respectively. The Perpendicular lines intersect at X
+X = construct_lc_tangent(A, O): construct X such that XA is the tangent to the circle centered on OAO (possibly extended) and passing through A
+X = construct_midpoint(A, B): construct X such that X is the midpoint of AB
+X = construct_mirror(A, B): construct X such that X is the mirror image of A around B
+X = construct_on_aline(A, B, C, D, E): construct X such that X is a point such that ∠XAB = ∠CDE. 
+X = construct_on_bline(A, B): construct X such that X lies on the perpendicular bisector of AB. 
+X = construct_on_circle(O, A): construct X such that X lies on the circle centered are O with radios OA. 
+X = construct_on_line(A, B): construct X such that X lies on line AB. 
+X = construct_on_pline(A, B, C): construct X such that X is on the line passing through A and parallel to BC. 
+X = construct_on_tline(A, B, C): construct X such that X is a point such that XA is perpendicular to A. 
+X = construct_orthocenter(A, B, C): construct X such that X is the orthocenter of triangle ABC. 
+X = construct_reflect(A, B, C): construct X such that X is the reflection of A on BC
+X = construct_on_dia(A, B): construct X such that XAB is an orthogonal triangle with 90 degree angle at X
+X = construct_eqangle3(A, B, D, E, F): construct X such that ∠XAB = ∠DEF

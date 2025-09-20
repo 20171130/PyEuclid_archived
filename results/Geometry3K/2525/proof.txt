@@ -1,7 +1,0 @@
-Solution:
-1. Angle_B_C_E - pi/2 & Angle_B_A_E - pi/2 => Angle_B_A_E - Angle_B_C_E
-2. Length_C_E - Variable_radius_E & Length_A_E - Variable_radius_E => Length_A_E - Length_C_E
-3. Length_A_E - Length_C_E [DefinitionOfIsoscelesTriangle(E,A,C)] => Angle_A_C_E - Angle_C_A_E
-4. Angle_B_A_E - Angle_B_C_E & Angle_A_C_E - Angle_C_A_E & Angle_B_A_C - Angle_B_A_E + Angle_C_A_E & Angle_A_C_B + Angle_A_C_E - Angle_B_C_E => Angle_A_C_B - Angle_B_A_C
-5. -Angle_A_C_B + Angle_B_A_C [DefinitionOfIsoscelesTriangle1(B,A,C)] => Length_A_B - Length_B_C
-6. Length_A_B + Length_A_C + Length_B_C - 25 & Length_A_B - 3*Variable_x & Length_A_B - Length_B_C & Length_A_C - 7 => Variable_x - 3

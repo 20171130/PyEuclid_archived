@@ -1,4 +1,0 @@
-Solution:
-1. Collinear(C,W,Y) [BetweenLength(C,W,Y)] => Length_C_W - Length_C_Y + Length_W_Y
-2. Length_C_W - 2 & Length_C_Y - 5 => Length_C_W - 2*Length_C_Y/5
-3. Length_C_W - Length_C_Y + Length_W_Y & Length_C_W - 2*Length_C_Y/5 & Length_C_Y - 5 => Length_W_Y - 3

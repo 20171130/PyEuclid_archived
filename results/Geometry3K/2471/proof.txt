@@ -1,5 +1,0 @@
-Solution:
-1. Collinear(B,C,E) [CollinearParallel(B,C,E)] => Parallel(B,C,C,E)
-2. Perpendicular(A,E,C,E) & Parallel(B,C,C,E) [AlphaGeometry1b(C,E,A,E,B,C)] => Perpendicular(A,E,B,C)
-3. Trapezoid(A,C,B,D) & Parallel(A,D,B,C) & Perpendicular(A,E,B,C) & Collinear(B,C,E) [TrapezoidArea(A,D,B,C,E)] => Area_A_C_B_D - Length_A_E*(Length_A_D + Length_B_C)/2
-4. Area_A_C_B_D - Length_A_E*(Length_A_D + Length_B_C)/2 & Length_A_E - 23 & Length_A_D - 22 & Length_B_C - 37 => Area_A_C_B_D - 1357/2

@@ -1,3 +1,0 @@
-Solution:
-1. Parallelogram(A,B,C,D) => Length_A_D - Length_B_C
-2. Length_B_C - 18 & Length_A_D - Length_B_C => Length_A_D - 18

@@ -1,14 +1,14 @@
 #!/bin/bash
 #SBATCH --job-name=auxiliary_constructions
-#SBATCH --array=0-19999
+#SBATCH --array=0-9999
 #SBATCH --time=72:00:00
-#SBATCH --cpus-per-task=1
-#SBATCH --mem=2G
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=8G
 #SBATCH --output=/dev/null
 #SBATCH --error=/dev/null
 #SBATCH --partition=learnfair,learnlab,devlab,scavenge
 
-export OUTPUT_DIR=task3/auxiliary_construction
+export OUTPUT_DIR=task3/auxiliary_construction_2
 export TIMEOUT_SECONDS=259200
 export MAX_PROBLEM_ID=0
 

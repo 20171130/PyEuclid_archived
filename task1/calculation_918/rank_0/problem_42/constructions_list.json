@@ -1,0 +1,1 @@
+A,B,C,D = construct_parallelogram_q(12,24,pi/12), E = construct_on_dia(C,A), E = construct_point_on_circle(D,20), F = construct_point_on_circle(C,40), F = construct_point_on_circle(E,40), G = construct_intersection_cc(B,E,C), H = construct_angle_clockwise(G,E,2*pi/3), H = construct_on_circle(A,C)

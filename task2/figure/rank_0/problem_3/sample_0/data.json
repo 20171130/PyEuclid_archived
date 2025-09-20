@@ -1,0 +1,9 @@
+{
+    "problem": "a,b,c,d = construct_isquare(), e = construct_shift(a,d,c), f = construct_lc_tangent(a,c)",
+    "goal": "Angle_a_d_f - Angle_a_e_f",
+    "diagram": "task2/figure/rank_0/problem_3/sample_0/diagram.jpg",
+    "proof": "Solution:\n1. Square(a,b,c,d) => Length_a_d - Length_c_d & Angle_a_d_b - Angle_c_a_d & Angle_a_c_d - Angle_b_d_c & Perpendicular(a,c,b,d)\n2. Length_a_d - Length_c_d & Length_a_e - Length_c_d => Length_a_d - Length_a_e\n3. Parallel(a,c,d,e) & Parallel(a,e,c,d) => Parallelogram(a,c,d,e)\n4. Parallelogram(a,c,d,e) => Angle_a_c_d - Angle_a_e_d\n5. Perpendicular(a,c,a,f) => Angle_c_a_f - pi/2\n6. Perpendicular(a,c,a,f) & Parallel(a,c,d,e) => Perpendicular(a,f,d,e)\n7. Perpendicular(a,f,d,e) => Angle_a_e_d - Angle_e_a_f + pi/2\n8. Perpendicular(a,c,b,d) => Angle_a_c_d + Angle_b_d_c - pi/2\n9. Perpendicular(a,c,a,f) & Perpendicular(a,c,b,d) => Parallel(a,f,b,d)\n10. Parallel(a,f,b,d) => Angle_a_d_b + Angle_d_a_f - pi\n11. Angle_a_c_d - Angle_a_e_d & Angle_a_d_b - Angle_c_a_d & Angle_c_a_f - pi/2 & Angle_a_e_d - Angle_e_a_f + pi/2 & Angle_a_c_d - Angle_b_d_c & Angle_a_c_d + Angle_b_d_c - pi/2 & Angle_c_a_d + Angle_c_a_f - Angle_d_a_f & Angle_a_d_b + Angle_d_a_f - pi => Angle_d_a_f - Angle_e_a_f\n12. Length_a_d - Length_a_e & Angle_d_a_f - Angle_e_a_f => Congruent3(a,d,f,a,e,f)\n13. Congruent3(a,d,f,a,e,f) => Angle_a_d_f - Angle_a_e_f\n",
+    "coordinates": "a: (-1.1666338582173836, -0.426327188942896), b: (0.015660603462337552, 0.005699148295153833), c: (-0.4163657337757123, 1.1879936099748751), d: (-1.5986601954554334, 0.7559672727368252), e: (-2.3489283198971047, -0.858353526180946), f: (0.10566382969786231, -1.0176374171723654), g: (-1.204092062012428, -0.1791379863565911)",
+    "depth": 3,
+    "seed": 100045
+}

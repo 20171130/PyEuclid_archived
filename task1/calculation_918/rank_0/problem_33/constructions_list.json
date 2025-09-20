@@ -1,0 +1,1 @@
+A,B,C = construct_r_triangle_q(5,50), D = construct_angle_counterclockwise(A,C,pi/6), D = construct_on_dia(C,A), E = construct_incenter(C,B,A), F = construct_on_dia(C,D), F = construct_on_pline(D,B,A), G = construct_on_pline(B,E,D), G = construct_angle_clockwise(A,B,pi/4), H = construct_point_on_circle(C,50), H = construct_angle_clockwise(E,A,2*pi/3)

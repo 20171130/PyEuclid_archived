@@ -1,0 +1,1 @@
+A,B,C,D = construct_square_q(4), E = construct_eqdistance(B,D,C), E = construct_angle_clockwise(D,C,pi/4), F = construct_angle_clockwise(E,B,2*pi/3), F = construct_on_bline(E,A), G = construct_incenter(C,A,B), H = construct_reflect(G,C,D)

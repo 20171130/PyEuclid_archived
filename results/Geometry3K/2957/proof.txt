@@ -1,9 +1,0 @@
-Solution:
-1. Length_D_E - 8 & Length_B_E - 18 => -4/9 + Length_D_E/Length_B_E
-2. Collinear(B,D,E) [CollinearParallel(B,D,E)] => Parallel(B,D,D,E)
-3. Perpendicular(A,E,D,E) & Parallel(B,D,D,E) [AlphaGeometry1b(D,E,A,E,B,D)] => Perpendicular(A,E,B,D)
-4. Perpendicular(A,E,B,D) & Perpendicular(B,C,B,D) [AlphaGeometry1(A,E,B,D,B,C)] => Parallel(A,E,B,C)
-5. Collinear(A,C,D) & Collinear(B,D,E) & Parallel(A,E,B,C) [AlphaGeometry8(A,E,C,B,D)] => Length_A_C/Length_B_E - Length_A_D/Length_D_E
-6. Length_D_E - 8 & Length_A_D - 10 => Length_A_D/Length_D_E - 5/4
-7. -4/9 + Length_D_E/Length_B_E & Length_A_C/Length_B_E - Length_A_D/Length_D_E & Length_A_D/Length_D_E - 5/4 => -16/45 + Length_D_E/Length_A_C
-8. Length_D_E - 8 & Length_A_C - Variable_x & -16/45 + Length_D_E/Length_A_C => Variable_x - 45/2

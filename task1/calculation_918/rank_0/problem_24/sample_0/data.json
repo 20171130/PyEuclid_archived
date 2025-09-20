@@ -1,0 +1,20 @@
+{
+  "problem": "A,B = construct_segment(), E = construct_on_line(A,B), F = construct_angle_counterclockwise(E,A,pi/12), G = construct_intersection_cc(A,B,F)",
+  "necessary_constructions": "E = construct_on_line(A,B), F = construct_angle_counterclockwise(E,A,pi/12), G = construct_intersection_cc(A,B,F)",
+  "unused_constructions": "A,B,C = construct_r_triangle_q(60,130), E = construct_eqdistance(A,B,C), F = construct_point_on_circle(B,120)",
+  "auxiliary_constructions": "",
+  "goal": "Angle_A_E_G",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_24/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Length_A_F - Length_A_G => IsoscelesTriangle(A,F,G)\n2. Length_A_F - Length_A_G & Length_B_F - Length_B_G => Perpendicular(A,B,F,G)\n3. Collinear(A,B,E) => Parallel(A,B,A,E)\n4. Perpendicular(A,B,F,G) & Parallel(A,B,A,E) => Perpendicular(A,E,F,G)\n5. IsoscelesTriangle(A,F,G) & Length_A_F - Length_A_G & Perpendicular(A,E,F,G) => Length_E_F - Length_E_G\n6. Length_E_F - Length_E_G => IsoscelesTriangle(E,F,G)\n7. IsoscelesTriangle(E,F,G) & Length_E_F - Length_E_G & Perpendicular(A,E,F,G) => Angle_A_E_F - Angle_A_E_G\n8. Angle_A_E_F - pi/12 & Angle_A_E_F - Angle_A_E_G => Angle_A_E_G - pi/12\n",
+  "rank": 0,
+  "problem_id": 24,
+  "sample_id": 0,
+  "seed": 779636587,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Angle_A_E_F - pi/12"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

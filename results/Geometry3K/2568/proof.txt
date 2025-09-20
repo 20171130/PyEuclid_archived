@@ -1,2 +1,0 @@
-Solution:
-1. Variable_x - 37 => Variable_x - 37

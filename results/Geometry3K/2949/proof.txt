@@ -1,3 +1,0 @@
-Solution:
-1. Trapezoid(A,C,B,D) & Parallel(A,C,B,D) & Perpendicular(A,C,B,H) & Collinear(A,C,H) [TrapezoidArea(B,D,A,C,H)] => Area_A_C_B_D - Length_B_H*(Length_A_C + Length_B_D)/2
-2. Area_A_C_B_D - Length_B_H*(Length_A_C + Length_B_D)/2 & Length_B_H - 10 & Length_B_D - 8 & Length_A_C - 11 => Area_A_C_B_D - 95

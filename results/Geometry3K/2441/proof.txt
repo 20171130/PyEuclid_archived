@@ -1,5 +1,0 @@
-Solution:
-1. Collinear(D,H,I) [FlatAngle2(D,I,H,C)] => Angle_C_I_D + Angle_C_I_H - pi & Angle_D_H_F - Angle_F_H_I
-2. Parallel(C,I,F,H) [Para2Angle(H,F,I,C)] => Angle_C_I_H + Angle_F_H_I - pi
-3. Variable_angle_3 - 11*pi/18 & Angle_C_I_D + Angle_C_I_H - pi & Angle_D_H_F - Angle_F_H_I & Angle_D_H_F - Variable_angle_3 & Angle_C_I_H + Angle_F_H_I - pi => Angle_C_I_D - 11*pi/18
-4. Angle_C_I_D - Variable_angle_1 & Angle_C_I_D - 11*pi/18 => Variable_angle_1 - 11*pi/18

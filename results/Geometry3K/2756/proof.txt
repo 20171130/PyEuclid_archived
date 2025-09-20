@@ -1,3 +1,0 @@
-Solution:
-1. Angle_F_H_J + Angle_F_J_H + Angle_H_F_J - pi & Angle_F_E_J - pi*Variable_x/180 & Angle_F_G_H - pi*(Variable_x/180 + 1/36) & Angle_E_J_F - Angle_E_J_H + Angle_F_J_H & Angle_E_F_G - pi*(Variable_x/180 + 1/9) & Angle_F_G_H + Angle_F_H_G + Angle_G_F_H - pi & Angle_E_F_G - Angle_E_F_J - Angle_G_F_J & Angle_G_H_J - pi*(Variable_x/180 - 1/36) & Angle_E_J_H - pi*(Variable_x/180 + 1/18) & Angle_F_H_G + Angle_F_H_J - Angle_G_H_J & Angle_E_F_J + Angle_E_J_F + Angle_F_E_J - pi & Angle_G_F_H - Angle_G_F_J + Angle_H_F_J => Angle_F_H_G + Angle_F_H_J - 97*pi/180
-2. Angle_F_H_G + Angle_F_H_J - 97*pi/180 & Angle_F_H_G + Angle_F_H_J - Angle_G_H_J => Angle_G_H_J - 97*pi/180

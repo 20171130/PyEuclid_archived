@@ -1,6 +1,0 @@
-Solution:
-1. Length_W_Y - Length_W_Z & Collinear(W,Y,Z) [DefinitionOfMidpoint(W,Y,Z)] => Midpoint(W,Y,Z)
-2. Collinear(W,Y,Z) [CollinearParallel(W,Y,Z)] => Parallel(W,Z,Y,Z)
-3. Perpendicular(W,X,W,Z) & Parallel(W,Z,Y,Z) [AlphaGeometry1b(W,Z,W,X,Y,Z)] => Perpendicular(W,X,Y,Z)
-4. Midpoint(W,Y,Z) & Perpendicular(W,X,Y,Z) [AlphaGeometry23(W,X,Y,Z)] => Length_X_Y - Length_X_Z
-5. Length_X_Y - 2*Variable_y - 18 & Length_X_Y - Length_X_Z & Length_X_Z - 5*Variable_y + 6 => Length_X_Z - 34

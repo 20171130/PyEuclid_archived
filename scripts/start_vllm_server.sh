@@ -9,7 +9,7 @@
 
 set -eo pipefail
 
-MODEL="saves/qwen2_5-math-7b"
+MODEL="saves/task2/918/qwen2.5-vl-7b"
 PORT="${PORT:-8000}"
 SHARED_DIR=".vllm"
 HOST="0.0.0.0"
@@ -23,8 +23,11 @@ HOSTFILE="${SHARED_DIR}/vllm_server_host.txt"
 echo "${HOSTNAME}:${PORT}" > "${HOSTFILE}"
 echo "[`date`] Launching vLLM on ${HOSTNAME}:${PORT}"
 
+NGPUS=$(nvidia-smi --query-gpu=index --format=csv,noheader 2>/dev/null | wc -l)
+
 vllm serve "${MODEL}" \
   --host "${HOST}" \
   --port "${PORT}" \
   --dtype auto \
-  --tensor-parallel-size "${SLURM_GPUS_PER_TASK:-1}"
+  --tensor-parallel-size "${NGPUS}" \
+  --allowed-local-media-path /private/home/zhaoyuli/PyEuclid_archived/data/task2/eval/images

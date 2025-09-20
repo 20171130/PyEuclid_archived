@@ -162,7 +162,7 @@ class ProofGenerator:
             for cond in conditions:
                 cond_constructions = self.run(cond, depth=depth, root=False)
                 constructions.update(cond_constructions)
-            self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
+            self.source_constructions[node] = sorted(constructions, key=lambda c: self.state.construction2index[c])
             return self.source_constructions[node]
 
         elif isinstance(node, Relation):
@@ -173,7 +173,7 @@ class ProofGenerator:
                         self.proof_dict[node] = [source]
                         cond_constructions = self.run(source, depth=depth, root=False)
                         constructions.update(cond_constructions)
-                        self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
+                        self.source_constructions[node] = sorted(constructions, key=lambda c: self.state.construction2index[c])
                         return self.source_constructions[node]
                     else:
                         self.proof_dict[node] = []
@@ -236,7 +236,7 @@ class ProofGenerator:
                 for item in sources:
                     cond_constructions = self.run(item, depth=depth, root=False)
                     constructions.update(cond_constructions)
-                self.source_constructions[expr] = sorted(constructions, key=lambda c: c.index)
+                self.source_constructions[expr] = sorted(constructions, key=lambda c: self.state.construction2index[c])
                 return self.source_constructions[expr]
             else:
                 assert isinstance(node, sympy.core.expr.Expr)
@@ -302,7 +302,7 @@ class ProofGenerator:
                     cond_constructions = self.run(item, root=False, depth=depth)
                     constructions.update(cond_constructions)
                 
-                self.source_constructions[node] = sorted(constructions, key=lambda c: c.index)
+                self.source_constructions[node] = sorted(constructions, key=lambda c: self.state.construction2index[c])
                 return self.source_constructions[node]
         
 

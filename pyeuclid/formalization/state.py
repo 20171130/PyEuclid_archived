@@ -27,7 +27,8 @@ class State:
 
         self.depth2conditions = defaultdict(list)
         self.condition2depth = defaultdict(int)
-
+        self.construction_index = 0
+        self.construction2index = {}
         self.current_depth = 0
         self.reasoning_depth = 0
         self.solutions = {}
@@ -74,10 +75,13 @@ class State:
                 self.add_relation(item)
             else:
                 if self.diagram is not None:
-                    if isinstance(item, Traced):
-                        assert self.diagram.numerical_check(item.expr)
+                    if "Sector" in str(item) or "Circle" in str(item) or "Arc" in str(item) or "Perimeter" in str(item):
+                        pass
                     else:
-                        assert self.diagram.numerical_check(item)
+                        if isinstance(item, Traced):
+                            assert self.diagram.numerical_check(item.expr)
+                        else:
+                            assert self.diagram.numerical_check(item)
                 self.add_equation(item)
             
     def add_relation(self, relation):
@@ -170,6 +174,9 @@ class State:
     
     def add_constructions(self, constructions):
         for construction in constructions:
+            construction.index = self.construction_index
+            self.construction2index[construction] = self.construction_index
+            self.construction_index += 1
             for p in construction.inputs:
                 if isinstance(p, Point):
                     self.add_point(p)

@@ -1,5 +1,0 @@
-Solution:
-1. Length_A_C - Length_A_D & -Length_B_C + Length_B_D [DefinitionOfKite1(C,A,D,B)] => Kite(A,C,B,D)
-2. Kite(A,C,B,D) & Length_A_C - Length_A_D & -Length_B_C + Length_B_D [PropertyOfKite(C,A,D,B)] => Perpendicular(A,B,C,D)
-3. Perpendicular(A,B,C,D) [RhombusArea(A,C,B,D)] => Area_A_C_B_D - Length_A_B*Length_C_D/2
-4. Area_A_C_B_D - Length_A_B*Length_C_D/2 & Length_A_B - 32 & Length_C_D - 21 => Area_A_C_B_D - 336
