@@ -52,6 +52,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
     seed = random.randint(0, int(1e9))
     hash_seed = os.environ.get("PYTHONHASHSEED", None)
+    seed = 0
     assert hash_seed is not None
     random.seed(seed)
     np.random.seed(seed)
