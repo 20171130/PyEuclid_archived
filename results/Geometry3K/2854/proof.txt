@@ -1,4 +1,0 @@
-Solution:
-1. Perpendicular(A,C,B,C) [Perp2Angle(A,C,B)] => Angle_A_C_B - pi/2
-2. Angle_A_B_C - pi/3 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_C_B - pi/2 => Angle_B_A_C - pi/6
-3. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_B_A_C - pi/6 & Angle_A_C_B - pi/2 & Length_B_C - 4 & Length_A_B - Variable_h => Variable_h - 8

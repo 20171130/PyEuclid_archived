@@ -1,6 +1,0 @@
-Solution:
-1. Perpendicular(J,K,K,L) => Angle_J_K_L - pi/2
-2. Angle_J_K_L - pi/2 & Angle_J_K_L + Angle_J_L_K + Angle_K_J_L - pi => Angle_J_L_K + Angle_K_J_L - pi/2
-3. sin(Angle_K_J_L)/Length_K_L - sin(Angle_J_L_K)/Length_J_K & Length_J_K - 5 & Angle_J_L_K + Angle_K_J_L - pi/2 & Length_K_L - 12 => Angle_K_J_L - atan(12/5)
-4. Angle_J_L_K + Angle_K_J_L - pi/2 & Angle_K_J_L - atan(12/5) => Angle_J_L_K - pi/2 + atan(12/5)
-5. Angle_J_L_K - pi/2 + atan(12/5) => tan(Angle_J_L_K) - 5/12

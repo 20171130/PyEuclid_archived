@@ -1,7 +1,0 @@
-Solution:
-1. Rhombus(P,Q,R,S) => Perpendicular(P,R,Q,S)
-2. Collinear(C,Q,S) [CollinearParallel(C,Q,S)] => Parallel(C,S,Q,S)
-3. Perpendicular(P,R,Q,S) & Parallel(C,S,Q,S) [AlphaGeometry1b(Q,S,P,R,C,S)] => Perpendicular(C,S,P,R)
-4. Collinear(C,P,R) [CollinearParallel(C,P,R)] => Parallel(C,P,P,R)
-5. Perpendicular(C,S,P,R) & Parallel(C,P,P,R) [AlphaGeometry1b(P,R,C,S,C,P)] => Perpendicular(C,P,C,S)
-6. Perpendicular(C,P,C,S) [Perp2Angle(P,C,S)] => Angle_P_C_S - pi/2

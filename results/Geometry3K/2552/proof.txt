@@ -1,4 +1,0 @@
-Solution:
-1. Collinear(C,D,E) [DiagramAngle4b(D,C,A,E)] => Angle_A_D_C - Angle_A_D_E
-2. Angle_D_A_E - pi/3 & Angle_A_E_D - 2*pi/9 & Angle_B_E_C - 4*pi/9 & Angle_A_D_E + Angle_A_E_D + Angle_D_A_E - pi & Angle_A_D_C - Angle_A_D_E => Angle_A_D_C - Angle_B_E_C
-3. Angle_A_D_C - Angle_B_E_C & Collinear(C,D,E) [AlphaGeometry3b1(A,D,C,B,E)] => Parallel(A,D,B,E)

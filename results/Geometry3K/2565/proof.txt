@@ -1,4 +1,0 @@
-Solution:
-1. Angle_A_B_X + Angle_A_X_B + Angle_B_A_X - pi & Angle_B_A_X - pi/2 => Angle_A_B_X + Angle_A_X_B - pi/2
-2. sin(Angle_B_A_X)/Length_B_X - sin(Angle_A_B_X)/Length_A_X & Length_B_X - 13 & Angle_A_B_X + Angle_A_X_B - pi/2 & Length_A_X - 5 & Angle_B_A_X - pi/2 => Angle_A_X_B - acos(5/13)
-3. Angle_A_X_B - acos(5/13) => tan(Angle_A_X_B) - 12/5

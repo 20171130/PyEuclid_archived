@@ -1,7 +1,0 @@
-Solution:
-1. Collinear(G,H,I) => Length_G_H - Length_G_I + Length_H_I
-2. Length_G_H - 9 & Length_G_H - Length_G_I + Length_H_I => Length_G_I - Length_H_I - 9
-3. Length_J_K - 4 & Length_G_K - 6 => -2/3 + Length_J_K/Length_G_K
-4. Collinear(G,H,I) & Collinear(G,J,K) & Parallel(H,K,I,J) => Length_G_H/Length_G_K - Length_H_I/Length_J_K
-5. -2/3 + Length_J_K/Length_G_K & Length_G_H - 9 & Length_G_H/Length_G_K - Length_H_I/Length_J_K => Length_H_I - 6
-6. Length_G_I - Length_H_I - 9 & Length_H_I - 6 => Length_G_I - 15

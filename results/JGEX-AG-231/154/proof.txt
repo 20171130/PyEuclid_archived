@@ -1,9 +1,0 @@
-Solution:
-1. Collinear(a,d,e) & Collinear(a,d,h) => Collinear(a,e,h)
-2. Collinear(a,b,f) & Collinear(a,b,j) => Collinear(a,f,j)
-3. Collinear(a,c,g) & Collinear(a,c,i) => Collinear(a,g,i)
-4. Collinear(a,f,j) & Collinear(a,g,i) & Parallel(f,g,i,j) => Length_a_f/Length_a_g + Length_f_j*(-1)/Length_g_i
-5. Collinear(a,e,h) & Collinear(a,g,i) & Parallel(e,g,h,i) => Length_a_e/Length_a_g + Length_e_h*(-1)/Length_g_i
-6. Length_a_f/Length_a_g + Length_f_j*(-1)/Length_g_i & Length_a_e/Length_a_g + Length_e_h*(-1)/Length_g_i => Length_a_e/Length_e_h + Length_a_f*(-1)/Length_f_j
-7. Length_a_e/Length_e_h + Length_a_f*(-1)/Length_f_j => Length_a_e/Length_e_h - Length_a_f/Length_f_j
-8. Collinear(a,e,h) & Collinear(a,f,j) & Length_a_e/Length_e_h - Length_a_f/Length_f_j => Parallel(e,f,h,j)

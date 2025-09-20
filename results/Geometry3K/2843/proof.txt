@@ -1,3 +1,0 @@
-Solution:
-1. Congruent3(L,M,N,Q,R,S) [PropertyOfCongruent(L,M,N,Q,R,S)] => Length_L_N - Length_Q_S
-2. Length_L_N - Length_Q_S & Length_Q_S - 2*Variable_x - 10 & Length_L_N - 3*Variable_x - 5 => Variable_x - 5

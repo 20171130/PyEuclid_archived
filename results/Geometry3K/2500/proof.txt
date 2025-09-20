@@ -1,7 +1,0 @@
-Solution:
-1. Perpendicular(D,E,E,F) & Parallel(C,F,D,E) [AlphaGeometry1b(D,E,E,F,C,F)] => Perpendicular(C,F,E,F)
-2. Perpendicular(C,D,C,F) & Perpendicular(C,F,E,F) [AlphaGeometry1(C,D,C,F,E,F)] => Parallel(C,D,E,F)
-3. Parallel(C,D,E,F) & Parallel(C,F,D,E) [DefinitionOfParallelogram1(C,D,E,F)] => Parallelogram(C,D,E,F)
-4. Parallelogram(C,D,E,F) => Angle_C_F_D - Angle_E_D_F
-5. Angle_C_F_D - Angle_E_D_F & Angle_E_D_F - 13*pi/60 => Angle_C_F_D - 13*pi/60
-6. Angle_C_F_D - Variable_angle_2 & Angle_C_F_D - 13*pi/60 => Variable_angle_2 - 13*pi/60

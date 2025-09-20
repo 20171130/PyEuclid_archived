@@ -1,5 +1,0 @@
-Solution:
-1. Collinear(B,G,J) [DiagramAngle4b(G,B,H,J)] => Angle_B_G_H - Angle_H_G_J & Angle_B_J_H - Angle_G_J_H
-2. Perpendicular(G,H,H,J) [Perp2Angle(G,H,J)] => Angle_G_H_J - pi/2
-3. Angle_B_G_H - Variable_angle_2 & Angle_G_H_J + Angle_G_J_H + Angle_H_G_J - pi & Variable_angle_3 - pi*Variable_x/180 & Angle_B_G_H - Angle_H_G_J & Angle_B_J_H - Angle_G_J_H & Angle_G_H_J - pi/2 & Angle_B_J_H - Variable_angle_3 & Variable_angle_2 - pi*Variable_x/90 => Angle_B_J_H - pi/6
-4. Angle_B_J_H - Variable_angle_3 & Angle_B_J_H - pi/6 => Variable_angle_3 - pi/6

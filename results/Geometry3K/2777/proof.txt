@@ -1,3 +1,0 @@
-Solution:
-1. Perpendicular(A,F,A,L) [Perp2Angle(F,A,L)] => Angle_F_A_L - pi/2
-2. Length_A_F**2 - 2*Length_A_F*Length_A_L*cos(Angle_F_A_L) + Length_A_L**2 - Length_F_L**2 & Length_A_F - Variable_z & Length_A_L - sqrt(3) & Angle_F_A_L - pi/2 & Length_F_L - 2*sqrt(3) => Variable_z - 3

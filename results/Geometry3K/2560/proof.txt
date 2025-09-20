@@ -1,9 +1,0 @@
-Solution:
-1. Length_A_S - Variable_radius_A & Length_A_R - Variable_radius_A => Length_A_R - Length_A_S
-2. Length_A_R - Variable_radius_A & Length_A_T - Variable_radius_A => Length_A_R - Length_A_T
-3. Length_A_R - Variable_radius_A & Length_A_U - Variable_radius_A => Length_A_R - Length_A_U
-4. Length_A_R - Length_A_S & Length_A_R - Length_A_T & Length_A_R - Length_A_U [AlphaGeometry2(A,R,S,T,U)] => Concyclic(R,S,T,U)
-5. Concyclic(R,S,T,U) & Collinear(R,T,V) & Collinear(S,U,V) [IntersectingChordsTheorem(R,T,S,U,V)] => Length_R_V/Length_S_V - Length_U_V/Length_T_V
-6. Length_U_V - 8 & Length_T_V - 4 => -2 + Length_U_V/Length_T_V
-7. Length_R_V/Length_S_V - Length_U_V/Length_T_V & -2 + Length_U_V/Length_T_V => Length_R_V/Length_S_V - 2
-8. Length_R_V/Length_S_V - 2 & Length_S_V - Variable_x & Length_R_V - 4 => Variable_x - 2

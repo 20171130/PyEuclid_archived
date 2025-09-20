@@ -1,4 +1,0 @@
-Solution:
-1. Length_A_F - 21/2 & Length_F_W - 14 => Length_A_F - 3*Length_F_W/4
-2. Collinear(A,F,W) [BetweenLength(F,A,W)] => Length_A_F + Length_A_W - Length_F_W
-3. Length_A_F - 21/2 & Length_A_W - Variable_x & Length_A_F - 3*Length_F_W/4 & Length_A_F + Length_A_W - Length_F_W => Variable_x - 7/2

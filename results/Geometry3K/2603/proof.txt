@@ -1,8 +1,0 @@
-Solution:
-1. Parallel(H,S,K,Q) & Parallel(H,S,J,R) & Collinear(H,J,K) & Collinear(Q,R,S) [AlphaGeometry8b(H,S,K,Q,J,R)] => Length_H_J/Length_R_S - Length_J_K/Length_Q_R
-2. Length_K_L - 4 & Length_P_Q - 6 => Length_K_L - 2*Length_P_Q/3
-3. Parallel(H,S,K,Q) & Parallel(K,Q,L,P) [ParaTrans(K,Q,H,S,L,P)] => Parallel(H,S,L,P)
-4. Parallel(H,S,J,R) & Parallel(H,S,L,P) [ParaTrans(H,S,J,R,L,P)] => Parallel(J,R,L,P)
-5. Parallel(H,S,J,R) & Parallel(H,S,K,Q) [ParaTrans(H,S,J,R,K,Q)] => Parallel(J,R,K,Q)
-6. Parallel(J,R,L,P) & Parallel(J,R,K,Q) & Collinear(J,K,L) & Collinear(P,Q,R) [AlphaGeometry8b(J,R,L,P,K,Q)] => Length_J_K/Length_Q_R - Length_K_L/Length_P_Q
-7. Length_H_J/Length_R_S - Length_J_K/Length_Q_R & Length_K_L - 2*Length_P_Q/3 & Length_J_K/Length_Q_R - Length_K_L/Length_P_Q & Length_R_S - 6 => Length_H_J - 4

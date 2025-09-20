@@ -1,7 +1,0 @@
-Solution:
-1. Length_M_X - 4 & Length_N_X - 6 => Length_M_X - 2*Length_N_X/3
-2. Collinear(M,X,Y) & Collinear(N,X,Z) & Parallel(M,N,Y,Z) [AlphaGeometry8(M,N,Y,Z,X)] => Length_M_X/Length_N_X - Length_M_Y/Length_N_Z
-3. Length_M_X - 2*Length_N_X/3 & Length_N_Z - 9 & Length_M_X/Length_N_X - Length_M_Y/Length_N_Z => Length_M_Y - 6
-4. Collinear(M,X,Y) [BetweenLength(X,M,Y)] => Length_M_X + Length_M_Y - Length_X_Y
-5. Length_M_X - 4 & Length_M_X + Length_M_Y - Length_X_Y => Length_M_Y - Length_X_Y + 4
-6. Length_M_Y - 6 & Length_M_Y - Length_X_Y + 4 => Length_X_Y - 10

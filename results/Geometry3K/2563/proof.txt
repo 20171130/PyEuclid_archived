@@ -1,3 +1,0 @@
-Solution:
-1. Parallelogram(J,K,L,M) => Angle_J_L_M - Angle_K_J_L
-2. Angle_J_L_M - Angle_K_J_L & Angle_J_L_M - pi/6 => Angle_K_J_L - pi/6

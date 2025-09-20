@@ -1,3 +1,0 @@
-Solution:
-1. Rhombus(F,G,H,J) => Length_G_H - Length_H_J
-2. Length_G_H - Variable_x - 9 & Length_G_H - Length_H_J & Length_H_J - 5*Variable_x + 2 => Variable_x - 11/4

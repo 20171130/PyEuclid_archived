@@ -1,7 +1,0 @@
-Solution:
-1. Length_E_G - 4 & Length_A_D - 8 => Length_A_D/Length_E_G - 2
-2. Similar4(A,B,D,C,E,F,G,H) [PropertyOfSimilar4(A,B,D,C,E,F,G,H)] => Length_A_B/Length_E_F - Length_B_D/Length_F_G & Angle_A_B_D - Angle_E_F_G & Length_E_F**2/Length_A_B**2 - Area_E_F_G_H/Area_A_B_D_C
-3. Length_A_B/Length_E_F - Length_B_D/Length_F_G & Angle_A_B_D - Angle_E_F_G [AlphaGeometry40(A,B,D,E,F,G)] => Similar3(A,B,D,E,F,G)
-4. Similar3(A,B,D,E,F,G) [PropertyOfSimilar3(A,B,D,E,F,G)] => Length_A_B/Length_E_F - Length_A_D/Length_E_G
-5. Length_A_D/Length_E_G - 2 & Length_A_B/Length_E_F - Length_A_D/Length_E_G => Length_A_B - 2*Length_E_F
-6. Length_A_B - 2*Length_E_F & Length_E_F**2/Length_A_B**2 - Area_E_F_G_H/Area_A_B_D_C & Area_A_B_D_C - 36 => Area_E_F_G_H - 9
