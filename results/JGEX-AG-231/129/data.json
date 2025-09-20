@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), e,d = construct_square(b,a), f,g = construct_square(a,c), h = construct_on_line(b,e), h = construct_on_line(a,d), i = construct_on_pline(e,a,g), i = construct_on_pline(g,a,e)",
-    "goal": "Perpendicular(c,h,h,i)"
-}

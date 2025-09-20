@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_circumcenter(a,b,c), e = construct_on_circle(d,a), f = construct_foot(e,a,c), g = construct_foot(e,a,b)",
-    "goal": "Similar3(b,c,e,g,f,e)"
-}

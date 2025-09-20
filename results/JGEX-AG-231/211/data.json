@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), d = construct_midpoint(b,a), f = construct_on_circle(d,a), c = construct_intersection_lt(a,b,f,d,f), e = construct_midpoint(c,a), g = construct_on_tline(b,a,b), g = construct_on_circle(e,a)",
-    "goal": "Angle_c_f_g - Angle_c_g_f"
-}

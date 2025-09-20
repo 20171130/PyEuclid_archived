@@ -1,4 +1,0 @@
-{
-    "problem": "a,c,d = construct_triangle(), b = construct_on_pline(c,d,a), b = construct_on_pline(a,d,c), e = construct_on_line(a,c), f = construct_shift(c,a,e)",
-    "goal": "Parallel(b,f,d,e)"
-}

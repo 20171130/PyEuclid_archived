@@ -1,4 +1,0 @@
-{
-    "problem": "b,a,c = construct_triangle(), d = construct_foot(b,a,c), e = construct_foot(c,a,b), f = construct_intersection_ll(b,d,c,e)",
-    "goal": "Perpendicular(a,f,b,c)"
-}

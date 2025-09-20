@@ -1,6 +1,0 @@
-Solution:
-1. Length_B_D - 20 & Length_B_C - 12 => -5/3 + Length_B_D/Length_B_C
-2. Parallelogram(A,C,B,D) => Length_A_C - Length_B_D & Length_A_D - Length_B_C
-3. -5/3 + Length_B_D/Length_B_C & Length_A_C - Length_B_D => Length_A_C - 5*Length_B_C/3
-4. -5/3 + Length_B_D/Length_B_C & Length_A_D - Length_B_C & Length_A_C - Length_B_D => Length_A_C - 5*Length_A_D/3
-5. Length_A_C - 5*Length_B_C/3 & Length_A_C - 5*Length_A_D/3 & Length_B_D - 20 & Length_A_C - Length_B_D => Length_A_C + Length_A_D + Length_B_C + Length_B_D - 64

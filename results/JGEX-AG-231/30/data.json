@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_midpoint(b,c), e = construct_midpoint(c,a), f = construct_midpoint(b,a), g = construct_parallelogram(d,a,e)",
-    "goal": "-Length_b_g + Length_c_f"
-}

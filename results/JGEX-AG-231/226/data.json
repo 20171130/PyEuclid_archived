@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c,d = construct_eq_trapezoid()",
-    "goal": "-Angle_a_b_c + Angle_b_a_d"
-}

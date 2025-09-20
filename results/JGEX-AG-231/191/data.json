@@ -1,4 +1,0 @@
-{
-    "problem": "c,b,y = construct_triangle(), a = construct_foot(c,b,y), x = construct_angle_bisector(c,b,y), d = construct_foot(a,b,c), e = construct_on_line(b,x), e = construct_on_line(c,a), f = construct_foot(e,b,c), g = construct_on_line(b,x), g = construct_on_line(a,d)",
-    "goal": "-Length_e_f + Length_f_g"
-}

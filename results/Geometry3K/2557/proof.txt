@@ -1,9 +1,0 @@
-Solution:
-1. Collinear(B,C,E) [FlatAngle2(C,B,E,D)] => Angle_C_B_D + Angle_D_B_E - pi
-2. Length_B_C - Variable_radius_B & Length_B_E - Variable_radius_B => Length_B_C - Length_B_E
-3. Length_B_E - Variable_radius_B & Length_B_D - Variable_radius_B => Length_B_D - Length_B_E
-4. -Length_B_C + Length_B_E & -Length_B_D + Length_B_E [InscribedAngle1(B,E,C,D)] => Angle_C_B_D - 2*Angle_C_E_D
-5. Length_B_C - Variable_radius_B & Length_B_D - Variable_radius_B => Length_B_C - Length_B_D
-6. Length_B_C - Length_B_D & Length_B_C - Length_B_E [InscribedAngle1(B,C,D,E)] => Angle_D_B_E - 2*Angle_D_C_E
-7. Angle_C_E_D - pi*Variable_x/60 & Angle_C_B_D + Angle_D_B_E - pi & Angle_D_C_E - pi*(Variable_x/36 - 1/15) & Angle_C_B_D - 2*Angle_C_E_D & Angle_D_B_E - 2*Angle_D_C_E => Angle_D_C_E - 23*pi/80 & Angle_C_E_D - 17*pi/80
-8. Angle_C_E_D - pi*Variable_x/60 & Angle_D_C_E - 23*pi/80 & Angle_D_C_E - pi*(Variable_x/36 - 1/15) & Angle_C_E_D - 17*pi/80 => Variable_x - 51/4

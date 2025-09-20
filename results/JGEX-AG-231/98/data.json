@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c,d = construct_rectangle(), e = construct_on_line(b,d), e = construct_on_line(a,c), f = construct_midpoint(e,d), g = construct_midpoint(e,a)",
-    "goal": "-Length_b_g + Length_c_f"
-}

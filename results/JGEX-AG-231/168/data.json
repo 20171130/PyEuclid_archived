@@ -1,4 +1,0 @@
-{
-    "problem": "c,a,b = construct_iso_triangle(), d = construct_on_line(a,c), e = construct_on_line(b,c), e = construct_eqdistance(b,a,d), f = construct_on_line(a,b), f = construct_on_line(d,e)",
-    "goal": "Length_d_f - Length_e_f"
-}

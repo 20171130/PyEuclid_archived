@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), e = construct_on_line(a,b), f = construct_intersection_lp(a,c,e,c,b), d = construct_circumcenter(a,b,c), g = construct_circumcenter(a,e,f)",
-    "goal": "Collinear(a,d,g)"
-}

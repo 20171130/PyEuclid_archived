@@ -1,5 +1,0 @@
-Solution:
-1. Square(A,C,B,D) [PropertyOfSquare(A,C,B,D)] => Area_A_C_B_D - Length_A_C*Length_B_C & Perpendicular(A,B,C,D) & Length_A_C - Length_B_C & Length_A_B - Length_C_D
-2. Perpendicular(A,B,C,D) [RhombusArea(A,C,B,D)] => Area_A_C_B_D - Length_A_B*Length_C_D/2
-3. Length_A_C - 12 & Area_A_C_B_D - Length_A_C*Length_B_C & Area_A_C_B_D - Length_A_B*Length_C_D/2 & Length_A_C - Length_B_C & Length_A_B - Length_C_D => Length_A_B - 12*sqrt(2)
-4. Length_A_B - 12*sqrt(2) & Length_A_B - Variable_y => Variable_y - 12*sqrt(2)

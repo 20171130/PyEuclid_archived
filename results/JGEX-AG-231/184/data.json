@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_on_circle(a,b), d = construct_on_circle(a,b), e = construct_lc_tangent(c,a), e = construct_lc_tangent(d,a), f = construct_lc_tangent(b,a), f = construct_on_line(c,e), h = construct_on_pline(c,b,f), h = construct_on_line(b,d), g = construct_on_line(d,e), g = construct_on_line(b,f), i = construct_on_line(b,e), i = construct_on_line(c,h)",
-    "goal": "Length_c_i - Length_h_i"
-}

@@ -1,4 +1,0 @@
-{
-    "problem": "c,a,b = construct_risos(), d = construct_midpoint(b,a), e = construct_on_line(b,c), f = construct_circumcenter(d,b,e), g = construct_on_line(a,e), g = construct_on_circle(f,b)",
-    "goal": "Perpendicular(a,e,c,g)"
-}

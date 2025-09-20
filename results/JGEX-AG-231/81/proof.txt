@@ -1,9 +1,0 @@
-Solution:
-1. Length_b_c - Length_b_e => Angle_b_c_e - Angle_b_e_c
-2. Collinear(c,e,f) => Angle_b_c_e + Angle_b_c_f - pi
-3. Length_b_c - Length_b_e & Length_b_c - Length_b_d & Length_b_e - Length_b_g => Length_b_d - Length_b_g
-4. -Length_b_c + Length_b_d & Length_b_d - Length_b_g => Angle_c_b_g - 2*Angle_c_d_g
-5. Length_a_c - Length_a_f & Length_a_c - Length_a_d & Perpendicular(a,c,b,c) => Angle_b_c_f + Angle_c_d_f - pi
-6. Collinear(b,e,g) => Angle_c_b_e + Angle_c_b_g - pi
-7. Angle_a_d_c - Angle_a_d_f - Angle_c_d_f & Angle_b_c_e - Angle_b_e_c & Angle_b_c_e + Angle_b_c_f - pi & Angle_a_d_c - Angle_a_d_g - Angle_c_d_g & Angle_c_b_g - 2*Angle_c_d_g & Angle_b_c_f + Angle_c_d_f - pi & Angle_b_c_e + Angle_b_e_c + Angle_c_b_e - pi & Angle_c_b_e + Angle_c_b_g - pi => Angle_a_d_f - Angle_a_d_g
-8. Angle_a_d_f - Angle_a_d_g => Collinear(d,f,g)

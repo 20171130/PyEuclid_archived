@@ -1,7 +1,0 @@
-Solution:
-1. Length_V_W - Variable_radius_V & Length_V_X - Variable_radius_V => Length_V_W - Length_V_X
-2. Length_V_Y - Variable_radius_V & Length_V_W - Variable_radius_V => Length_V_W - Length_V_Y
-3. Length_V_Z - Variable_radius_V & Length_V_W - Variable_radius_V => Length_V_W - Length_V_Z
-4. Length_V_W - Length_V_X & Length_V_W - Length_V_Y & Length_V_W - Length_V_Z [AlphaGeometry2(V,W,X,Y,Z)] => Concyclic(W,X,Y,Z)
-5. Concyclic(W,X,Y,Z) [AlphaGeometry4b(W,Y,X,Z)] => Angle_W_X_Y + Angle_W_Z_Y - pi
-6. Angle_W_Z_Y - pi/3 & Angle_W_X_Y + Angle_W_Z_Y - pi => Angle_W_X_Y - 2*pi/3

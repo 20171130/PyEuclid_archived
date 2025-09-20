@@ -1,4 +1,0 @@
-{
-  "problem": "a,b,c = construct_triangle(), h = construct_orthocenter(a,b,c), f = construct_on_line(h,a), f = construct_on_line(b,c), m = construct_midpoint(b,c), o = construct_circumcenter(a,b,c), q = construct_on_dia(a,h), q = construct_on_circle(o,a), k = construct_on_dia(h,q), k = construct_on_circle(o,a), o1 = construct_circumcenter(k,q,h), o2 = construct_circumcenter(f,k,m)",
-  "goal": "Collinear(k,o1,o2)"
-}

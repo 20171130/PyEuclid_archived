@@ -1,4 +1,0 @@
-{
-    "problem": "q4,q1,q3,q0,q2 = construct_pentagon(), p0 = construct_on_line(q4,q1), p0 = construct_on_line(q0,q2), p4 = construct_on_line(q4,q1), p4 = construct_on_line(q3,q0), p3 = construct_on_line(q3,q0), p3 = construct_on_line(q4,q2), p2 = construct_on_line(q1,q3), p2 = construct_on_line(q4,q2), p1 = construct_on_line(q1,q3), p1 = construct_on_line(q0,q2), o0 = construct_circumcenter(q0,p0,p4), o1 = construct_circumcenter(p1,q1,p0), o4 = construct_circumcenter(p4,p3,q4), o3 = construct_circumcenter(p3,p2,q3), o2 = construct_circumcenter(p1,p2,q2), m0 = construct_on_circle(o0,q0), m0 = construct_on_circle(o1,q1), m4 = construct_on_circle(o0,q0), m4 = construct_on_circle(o4,q4), m3 = construct_on_circle(o4,q4), m3 = construct_on_circle(o3,q3), m2 = construct_on_circle(o3,q3), m2 = construct_on_circle(o2,q2), m1 = construct_on_circle(o2,q2), m1 = construct_on_circle(o1,q1)",
-    "goal": "Concyclic(m1,m2,m3,m4)"
-}

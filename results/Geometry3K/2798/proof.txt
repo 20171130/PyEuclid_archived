@@ -1,5 +1,0 @@
-Solution:
-1. Length_B_D - Length_D_E & Length_B_D - 84 => Length_D_E - 84
-2. Length_B_D - Length_B_E & Length_B_D - 84 => Length_B_E - 84
-3. Area_B_D_E**2 - (-Length_B_D/2 + Length_B_E/2 + Length_D_E/2)*(Length_B_D/2 - Length_B_E/2 + Length_D_E/2)*(Length_B_D/2 + Length_B_E/2 - Length_D_E/2)*(Length_B_D/2 + Length_B_E/2 + Length_D_E/2) & Length_D_E - 84 & Length_B_E - 84 & Length_B_D - 84 => Area_B_D_E - 1764*sqrt(3)
-4. Variable_radius_A - 14*sqrt(3) & Area_B_D_E - 1764*sqrt(3) => Area_B_D_E - pi*Variable_radius_A**2 - 1764*sqrt(3) + 588*pi

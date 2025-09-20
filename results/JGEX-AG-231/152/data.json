@@ -1,4 +1,0 @@
-{
-    "problem": "c,a,b = construct_iso_triangle(), e = construct_midpoint(b,c), f = construct_on_line(a,b), f = construct_on_circle(e,b), d,x = construct_trisegment(c,b), g = construct_on_line(c,f), g = construct_on_line(a,d)",
-    "goal": "Length_c_g - Length_f_g"
-}

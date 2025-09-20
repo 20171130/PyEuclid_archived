@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_s_angle(b,a,60.0), d = construct_foot(a,b,c), e = construct_foot(b,a,c), g = construct_circumcenter(b,c,a), f = construct_on_line(a,d), f = construct_on_line(b,e)",
-    "goal": "Length_a_f - Length_a_g"
-}

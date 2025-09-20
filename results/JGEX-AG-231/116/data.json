@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_midpoint(a,b), d = construct_on_circle(c,a), e = construct_lc_tangent(d,c), e = construct_angle_mirror(b,a,d)",
-    "goal": "Perpendicular(a,e,d,e)"
-}

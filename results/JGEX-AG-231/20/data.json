@@ -1,4 +1,0 @@
-{
-    "problem": "m,a,b = construct_iso_triangle(), o = construct_circumcenter(a,b,m), d = construct_on_line(m,o), d = construct_on_line(a,b), e = construct_on_tline(a,a,o), e = construct_on_pline(m,a,o)",
-    "goal": "-Length_d_m + Length_e_m"
-}

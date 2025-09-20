@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_circumcenter(a,b,c), e = construct_on_circle(d,a), f = construct_on_line(a,b), f = construct_on_line(c,e), g = construct_on_pline(f,a,e), g = construct_on_line(b,c)",
-    "goal": "-Angle_b_c_f + Angle_b_f_g"
-}

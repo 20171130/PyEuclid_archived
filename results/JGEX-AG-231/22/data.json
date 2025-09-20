@@ -1,4 +1,0 @@
-{
-    "problem": "b,c,d = construct_triangle(), e = construct_foot(b,c,d), a = construct_free(), f = construct_foot(a,c,d), g = construct_midpoint(b,a)",
-    "goal": "-Length_e_g + Length_f_g"
-}

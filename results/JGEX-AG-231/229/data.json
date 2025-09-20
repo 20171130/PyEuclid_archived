@@ -1,4 +1,0 @@
-{
-    "problem": "b,c = construct_segment(), a = construct_on_tline(b,b,c), d = construct_on_circle(c,b), e,g = construct_e5128(a,b,c,d)",
-    "goal": "Length_a_g - Length_b_g"
-}

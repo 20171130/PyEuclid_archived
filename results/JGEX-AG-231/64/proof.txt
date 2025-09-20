@@ -1,7 +1,0 @@
-Solution:
-1. Collinear(c,e,f) => Parallel(c,e,c,f)
-2. Perpendicular(a,b,c,e) & Parallel(c,e,c,f) => Perpendicular(a,b,c,f)
-3. Collinear(b,d,f) => Parallel(b,d,b,f)
-4. Perpendicular(a,c,b,d) & Parallel(b,d,b,f) => Perpendicular(a,c,b,f)
-5. Perpendicular(a,b,c,f) & Perpendicular(a,c,b,f) => Orthocenter(a,b,c,f)
-6. Orthocenter(a,b,c,f) => Perpendicular(a,f,b,c)

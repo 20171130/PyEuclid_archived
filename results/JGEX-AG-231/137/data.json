@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_foot(b,a,c), e = construct_foot(a,b,c), f = construct_on_line(b,d), f = construct_on_line(a,e), g = construct_circumcenter(b,f,a), h = construct_on_line(b,c), h = construct_on_circle(g,a), i = construct_on_line(a,c), i = construct_on_circle(g,a)",
-    "goal": "Length_c_f - Length_f_i"
-}

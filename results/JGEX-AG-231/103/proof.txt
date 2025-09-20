@@ -1,8 +1,0 @@
-Solution:
-1. Perpendicular(a,h,b,c) => Angle_a_h_c + Angle_b_c_h - pi/2
-2. Length_b_o - Length_c_o & Length_b_o - Length_h_o & Length_b_o - Length_o_p => Concyclic(b,c,h,p)
-3. Concyclic(b,c,h,p) => Angle_b_c_h + Angle_b_p_h - pi
-4. Perpendicular(a,b,c,h) => Angle_a_h_c - Angle_b_a_h + pi/2
-5. Angle_a_h_c + Angle_b_c_h - pi/2 & Angle_b_c_h + Angle_b_p_h - pi & Angle_a_h_c - Angle_b_a_h + pi/2 => Angle_b_a_h - Angle_b_p_h
-6. Perpendicular(a,b,c,h) & Perpendicular(c,h,h,p) => Parallel(a,b,h,p)
-7. Angle_b_a_h - Angle_b_p_h & Parallel(a,b,h,p) => Parallel(a,h,b,p)

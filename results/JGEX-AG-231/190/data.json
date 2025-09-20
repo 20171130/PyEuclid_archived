@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c,d = construct_isquare(), e = construct_midpoint(b,a), f = construct_on_line(a,b), g = construct_on_tline(e,d,e), g = construct_angle_bisector(c,b,f)",
-    "goal": "Length_d_e - Length_e_g"
-}

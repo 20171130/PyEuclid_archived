@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d,e = construct_square(a,b), f = construct_foot(a,b,c), g = construct_on_line(a,f), g = construct_eqdistance(a,b,c)",
-    "goal": "Perpendicular(b,g,c,d)"
-}

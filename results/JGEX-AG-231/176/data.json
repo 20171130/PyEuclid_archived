@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_parallelogram(a,b,c), e = construct_eqangle2(d,a,b)",
-    "goal": "Angle_d_a_e - Angle_d_c_e"
-}

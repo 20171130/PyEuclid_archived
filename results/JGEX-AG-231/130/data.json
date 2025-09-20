@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_circumcenter(a,b,c), e = construct_lc_tangent(b,d), f = construct_angle_bisector(e,b,c), f = construct_on_circle(d,a), g = construct_foot(f,b,c), h = construct_foot(f,b,e)",
-    "goal": "Angle_b_a_f + Angle_c_a_f - pi"
-}

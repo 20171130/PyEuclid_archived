@@ -1,9 +1,0 @@
-Solution:
-1. Rectangle(A,B,D,C) => Angle_A_B_D - pi/2 & Angle_B_A_D - Angle_B_C_D & Length_A_D - Length_B_C & Angle_A_C_D - pi/2 & Area_A_B_D_C - Length_A_C*Length_C_D*sin(Angle_A_C_D) & Length_A_C - Length_B_D
-2. Angle_B_A_D - Angle_B_C_D & Angle_B_C_D - pi/6 => Angle_B_A_D - pi/6
-3. sin(Angle_B_A_D)/Length_B_D - sin(Angle_A_B_D)/Length_A_D & Angle_A_B_D - pi/2 & Angle_B_A_D - pi/6 & Length_A_D - Length_B_C => Length_B_C - 2*Length_B_D
-4. Perpendicular(A,B,A,C) [Perp2Angle(B,A,C)] => Angle_B_A_C - pi/2
-5. Angle_A_C_D - pi/2 & Angle_A_C_B - Angle_A_C_D + Angle_B_C_D & Angle_B_C_D - pi/6 => Angle_A_C_B - pi/3
-6. sin(Angle_B_A_C)/Length_B_C - sin(Angle_A_C_B)/Length_A_B & Angle_B_A_C - pi/2 & Length_A_B - 15 & Angle_A_C_B - pi/3 => Length_B_C - 10*sqrt(3)
-7. Area_A_B_D_C - Length_A_C*Length_C_D*sin(Angle_A_C_D) & Angle_A_C_D - pi/2 & Length_C_D - 15 & Length_A_C - Length_B_D => Area_A_B_D_C - 15*Length_B_D
-8. Length_B_C - 2*Length_B_D & Length_B_C - 10*sqrt(3) & Area_A_B_D_C - 15*Length_B_D => Area_A_B_D_C - 75*sqrt(3)

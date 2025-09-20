@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_on_circle(a,b), d = construct_lc_tangent(c,a), d = construct_on_line(a,b), e = construct_on_line(a,b), e = construct_on_circle(a,b), f = construct_on_pline(a,c,e), f = construct_on_line(c,d)",
-    "goal": "Perpendicular(a,b,b,f)"
-}

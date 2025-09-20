@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_on_tline(b,a,b), d = construct_on_tline(c,b,c), d = construct_on_tline(a,a,b), e = construct_midpoint(c,d), f = construct_midpoint(b,c), g = construct_midpoint(a,b), h = construct_midpoint(a,d)",
-    "goal": "-Length_e_h + Length_g_h"
-}

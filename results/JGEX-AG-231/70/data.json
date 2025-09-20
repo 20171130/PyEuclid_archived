@@ -1,4 +1,0 @@
-{
-    "problem": "c,a = construct_segment(), b = construct_eq_triangle(c,a), d = construct_circumcenter(c,a,b), e = construct_on_pline(d,a,c), e = construct_on_line(a,b), f = construct_on_pline(d,b,c), f = construct_on_line(a,b)",
-    "goal": "Length_a_e - Length_e_f"
-}

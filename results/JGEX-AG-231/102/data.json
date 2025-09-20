@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), h = construct_orthocenter(a,b,c), o = construct_circumcenter(a,b,c), c1 = construct_circumcenter(a,b,h), b1 = construct_circumcenter(a,h,c), a1 = construct_circumcenter(b,h,c)",
-    "goal": "Perpendicular(a1,o,b1,c1)"
-}

@@ -1,4 +1,0 @@
-Solution:
-1. Parallel(Q,R,S,T) [Para2Angle(R,Q,S,T)] => Angle_Q_R_S + Angle_R_S_T - pi
-2. Collinear(B,R,S) [DiagramAngle4b(S,B,T,R)] => Angle_B_S_T - Angle_R_S_T
-3. Angle_Q_R_S + Angle_R_S_T - pi & Angle_Q_R_S - pi/4 & Angle_B_S_T - Angle_R_S_T => Angle_B_S_T - 3*pi/4

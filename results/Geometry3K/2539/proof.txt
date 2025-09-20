@@ -1,9 +1,0 @@
-Solution:
-1. Length_J_M - Variable_radius_M & Length_H_M - Variable_radius_M => Length_H_M - Length_J_M
-2. Length_H_M - Length_J_M [DefinitionOfIsoscelesTriangle(M,H,J)] => IsoscelesTriangle(H,J,M)
-3. Collinear(M,N,P) [CollinearParallel(M,N,P)] => Parallel(M,P,N,P)
-4. Perpendicular(J,N,N,P) & Parallel(M,P,N,P) [AlphaGeometry1b(N,P,J,N,M,P)] => Perpendicular(J,N,M,P)
-5. Collinear(H,J,N) [CollinearParallel(H,J,N)] => Parallel(H,J,J,N)
-6. Perpendicular(J,N,M,P) & Parallel(H,J,J,N) [AlphaGeometry1b(J,N,M,P,H,J)] => Perpendicular(H,J,M,P)
-7. IsoscelesTriangle(H,J,M) & Length_H_M - Length_J_M & Perpendicular(H,J,M,P) [PropertyOfIsoscelesTriangle3(M,H,J,P)] => Angle_H_M_P - Angle_J_M_P
-8. Angle_H_M_P - Angle_J_M_P & Angle_H_M_P - 13*pi/36 => Angle_J_M_P - 13*pi/36

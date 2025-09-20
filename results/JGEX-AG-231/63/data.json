@@ -1,4 +1,0 @@
-{
-    "problem": "a,c = construct_segment(), b = construct_eq_triangle(c,a), e = construct_mirror(c,b), d = construct_mirror(b,e), f = construct_foot(d,a,b)",
-    "goal": "Perpendicular(a,c,c,f)"
-}

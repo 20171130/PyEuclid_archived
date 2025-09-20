@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_on_circle(a,b), d = construct_on_circle(a,b), e = construct_on_circle(a,b), f = construct_intersection_ll(b,c,d,e), g = construct_intersection_ll(c,d,b,e), h = construct_angle_bisector(d,f,b), i = construct_angle_bisector(c,g,b), j = construct_intersection_ll(f,h,g,i), k = construct_intersection_ll(d,e,g,i), l = construct_intersection_ll(g,i,b,c)",
-    "goal": "Perpendicular(f,h,g,i)"
-}

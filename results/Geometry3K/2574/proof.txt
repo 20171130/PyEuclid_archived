@@ -1,2 +1,0 @@
-Solution:
-1. Collinear(G,J,K) [FlatAngle(G,K,J)] => Angle_G_K_J - pi

@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_foot(a,b,c), q = construct_foot(d,a,b), p = construct_foot(d,a,c)",
-    "goal": "Concyclic(b,c,p,q)"
-}

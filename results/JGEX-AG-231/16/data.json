@@ -1,4 +1,0 @@
-{
-    "problem": "q,r,p = construct_triangle(), o1 = construct_circumcenter(q,r,p), s = construct_on_circle(o1,q), y = construct_on_line(q,s), o = construct_circumcenter(y,p,q), x = construct_on_circle(o,q), i = construct_on_line(r,s), i = construct_on_line(y,x)",
-    "goal": "Angle_r_i_x + Angle_r_p_x - pi"
-}

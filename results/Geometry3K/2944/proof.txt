@@ -1,5 +1,0 @@
-Solution:
-1. Rectangle(W,X,Z,Y) => Angle_W_X_Z - pi/2
-2. Collinear(A,X,Y) [DiagramAngle4b(X,A,Z,Y)] => Angle_A_X_Z - Angle_Y_X_Z
-3. Variable_angle_1 - pi/6 & Angle_W_X_Z - pi/2 & Angle_A_X_Z - Angle_Y_X_Z & Angle_A_X_W + Angle_A_X_Z - Angle_W_X_Z & Angle_A_X_W - Variable_angle_1 => Angle_Y_X_Z - pi/3
-4. Angle_Y_X_Z - Variable_angle_2 & Angle_Y_X_Z - pi/3 => Variable_angle_2 - pi/3

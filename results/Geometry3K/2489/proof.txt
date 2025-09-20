@@ -1,3 +1,0 @@
-Solution:
-1. Angle_Q_R_S - pi*Variable_x/180 & Angle_Q_T_S - pi*Variable_x/180 => Angle_Q_R_S - Angle_Q_T_S
-2. Angle_Q_R_S - pi*Variable_x/180 & Angle_Q_S_R + Angle_Q_S_T - Angle_R_S_T & Angle_Q_R_S + Angle_Q_S_R + Angle_R_Q_S - pi & Angle_R_S_T - pi*(Variable_x/90 + 7/180) & Angle_Q_R_S - Angle_Q_T_S & Angle_R_Q_T - pi*(Variable_x/90 + 1/36) & Angle_R_Q_S - Angle_R_Q_T + Angle_S_Q_T & Angle_Q_S_T + Angle_Q_T_S + Angle_S_Q_T - pi => Angle_Q_R_S - 29*pi/90

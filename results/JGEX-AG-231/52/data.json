@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_foot(b,a,c), e = construct_foot(a,b,c), f = construct_foot(b,d,e)",
-    "goal": "Angle_a_b_d - Angle_c_b_f"
-}

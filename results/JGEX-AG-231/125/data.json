@@ -1,4 +1,0 @@
-{
-    "problem": "b,c,a = construct_triangle(), d = construct_intersection_cc(b,a,c), e = construct_on_circle(b,c), g = construct_intersection_lc(e,a,d), f = construct_on_circle(b,c), h = construct_intersection_lc(f,a,c)",
-    "goal": "Parallel(e,f,g,h)"
-}

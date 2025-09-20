@@ -1,4 +1,0 @@
-{
-    "problem": "o,a = construct_segment(), p = construct_on_circle(a,o), q = construct_intersection_cc(a,o,p), r = construct_lc_tangent(p,a), r = construct_on_circle(o,p)",
-    "goal": "Length_p_q - Length_p_r"
-}

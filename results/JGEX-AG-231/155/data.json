@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c,d = construct_quadrangle(), e = construct_midpoint(c,b), f = construct_midpoint(d,c), g = construct_midpoint(a,d), h = construct_midpoint(b,a), i = construct_on_line(e,g), i = construct_on_line(f,h)",
-    "goal": "Midpoint(i,f,h)"
-}

@@ -1,6 +1,0 @@
-Solution:
-1. Collinear(L,M,P) [CollinearParallel(L,M,P)] => Parallel(L,M,M,P)
-2. Perpendicular(H,P,M,P) & Parallel(L,M,M,P) [AlphaGeometry1b(M,P,H,P,L,M)] => Perpendicular(H,P,L,M)
-3. Perpendicular(H,P,L,M) & Collinear(L,M,P) [AreaEqualsBaseTimesHeight(H,L,M,P)] => Area_H_L_M - Length_H_P*Length_L_M/2
-4. Length_L_M - 12 & Area_H_L_M - Length_H_P*Length_L_M/2 => Area_H_L_M - 6*Length_H_P
-5. Area_H_L_M**2 - (-Length_H_L/2 + Length_H_M/2 + Length_L_M/2)*(Length_H_L/2 - Length_H_M/2 + Length_L_M/2)*(Length_H_L/2 + Length_H_M/2 - Length_L_M/2)*(Length_H_L/2 + Length_H_M/2 + Length_L_M/2) & Length_L_M - 12 & Length_H_M - 9 & Area_H_L_M - 6*Length_H_P & Length_H_L - 9 => Length_H_P - 3*sqrt(5)

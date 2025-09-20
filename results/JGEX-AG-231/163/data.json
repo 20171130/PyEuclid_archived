@@ -1,4 +1,0 @@
-{
-    "problem": "a,c,d = construct_triangle(), b = construct_on_pline(c,d,a), b = construct_on_pline(a,d,c), e = construct_on_line(a,c), g = construct_on_line(a,b), g = construct_on_pline(e,a,d), f = construct_on_line(a,d), f = construct_on_pline(e,c,d), h = construct_on_line(e,g), h = construct_on_line(c,d), i = construct_on_line(b,c), i = construct_on_line(e,f)",
-    "goal": "Parallel(f,g,h,i)"
-}

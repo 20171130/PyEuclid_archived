@@ -1,4 +1,0 @@
-{
-    "problem": "c,d,b = construct_triangle(), e = construct_midpoint(c,d), a = construct_eqdistance(d,c,b), a = construct_on_pline(b,d,c), f = construct_midpoint(b,a)",
-    "goal": "Perpendicular(a,b,e,f)"
-}

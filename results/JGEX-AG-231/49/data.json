@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_on_bline(a,b), d = construct_on_line(a,c), e = construct_on_circle(c,d), e = construct_on_line(b,c)",
-    "goal": "Length_a_e - Length_b_d"
-}
