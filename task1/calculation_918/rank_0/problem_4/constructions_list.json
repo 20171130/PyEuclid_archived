@@ -1,0 +1,1 @@
+A,B,C = construct_ieq_triangle_q(5), D = construct_angle_bisector(C,A,B), D = construct_eqdistance(A,A,C), E = construct_on_tline(C,A,B), E = construct_on_line(A,D), F = construct_intersection_ll(A,D,C,B), G = construct_on_bline(A,D), G = construct_on_dia(B,E), H = construct_foot(A,D,B)

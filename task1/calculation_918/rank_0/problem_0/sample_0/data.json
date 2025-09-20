@@ -1,0 +1,20 @@
+{
+  "problem": "A,B,C,D = construct_square_q(3), G = construct_circumcenter(C,A,B)",
+  "necessary_constructions": "A,B,C,D = construct_square_q(3), G = construct_circumcenter(C,A,B)",
+  "unused_constructions": "",
+  "auxiliary_constructions": "",
+  "goal": "Area_C_D_G",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_0/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Square(A,B,C,D) => Length_A_B - Length_A_D & Angle_A_C_B - Angle_B_A_C & Perpendicular(A,C,B,D) & Angle_B_A_D - pi/2 & Angle_A_C_B - Angle_C_B_D & Length_A_C - Length_B_D & Area_A_B_C_D - Length_A_B*Length_A_D & Length_B_C - Length_C_D & Angle_A_B_D - Angle_B_A_C & Angle_B_C_D - pi/2 & Angle_A_B_C - pi/2\n2. Length_A_B - Length_A_D => IsoscelesTriangle(A,B,D)\n3. -Length_A_G + Length_C_G & -Length_B_G + Length_C_G => Angle_A_C_B - Angle_A_G_B/2\n4. Perpendicular(A,C,B,D) => Angle_A_B_D + Angle_B_A_C - pi/2 & Angle_A_C_B + Angle_C_B_D - pi/2 & Area_A_B_C_D - Length_A_C*Length_B_D/2\n5. Length_A_G - Length_B_G => Angle_A_B_G - Angle_B_A_G\n6. Angle_A_C_B - Angle_A_G_B/2 & Angle_A_C_B - Angle_B_A_C & Angle_A_B_G + Angle_A_G_B + Angle_B_A_G - pi & Angle_A_B_D + Angle_B_A_C - pi/2 & Angle_A_B_G - Angle_B_A_G => Angle_A_B_D - Angle_A_B_G\n7. Angle_A_B_D - Angle_A_B_G => Collinear(B,D,G)\n8. Angle_A_C_B - Angle_A_G_B/2 & Angle_A_C_B + Angle_C_B_D - pi/2 & Angle_B_A_D - Angle_B_A_G - Angle_D_A_G & Angle_B_A_D - pi/2 & Angle_A_B_G + Angle_A_G_B + Angle_B_A_G - pi & Angle_A_C_B - Angle_C_B_D & Angle_A_B_G - Angle_B_A_G => Angle_B_A_G - Angle_D_A_G\n9. IsoscelesTriangle(A,B,D) & Length_A_B - Length_A_D & Angle_B_A_G - Angle_D_A_G => Perpendicular(A,G,B,D)\n10. IsoscelesTriangle(A,B,D) & Length_A_B - Length_A_D & Collinear(B,D,G) & Perpendicular(A,G,B,D) => Midpoint(G,B,D)\n11. Midpoint(G,B,D) => Length_B_D - 2*Length_D_G\n12. Length_A_B - Length_A_D & Length_A_B - 3 & Area_A_B_C_D - Length_A_C*Length_B_D/2 & Length_A_C - Length_B_D & Area_A_B_C_D - Length_A_B*Length_A_D => Length_B_D - 3*sqrt(2) & Length_A_C - 3*sqrt(2)\n13. Length_B_D - 2*Length_D_G & Length_B_D - 3*sqrt(2) => Length_D_G - 3*sqrt(2)/2\n14. Length_B_C - Length_C_D => IsoscelesTriangle(B,C,D)\n15. Length_A_G - Length_B_G & Length_A_G - Length_C_G => Angle_B_A_C - Angle_B_G_C/2\n16. Length_B_G - Length_C_G => Angle_B_C_G - Angle_C_B_G\n17. Angle_A_B_D - Angle_B_A_C & Angle_B_A_C - Angle_B_G_C/2 & Angle_B_C_D - Angle_B_C_G - Angle_D_C_G & Angle_B_C_D - pi/2 & Angle_A_B_D + Angle_B_A_C - pi/2 & Angle_B_C_G - Angle_C_B_G & Angle_B_C_G + Angle_B_G_C + Angle_C_B_G - pi => Angle_B_C_G - Angle_D_C_G\n18. IsoscelesTriangle(B,C,D) & Length_B_C - Length_C_D & Angle_B_C_G - Angle_D_C_G => Perpendicular(B,D,C,G)\n19. Collinear(B,D,G) => Parallel(B,D,D,G)\n20. Perpendicular(B,D,C,G) & Parallel(B,D,D,G) => Perpendicular(C,G,D,G)\n21. Perpendicular(C,G,D,G) => Angle_C_G_D - pi/2\n22. Angle_C_G_D - pi/2 => Area_C_D_G - Length_C_G*Length_D_G/2\n23. Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - pi/2 & Angle_B_A_C - Angle_B_G_C/2 & Angle_B_C_G - Angle_C_B_G & Angle_B_C_G + Angle_B_G_C + Angle_C_B_G - pi => Angle_A_C_B - Angle_B_C_G\n24. Angle_A_C_B - Angle_B_C_G => Collinear(A,C,G)\n25. Length_A_G - Length_C_G & Collinear(A,C,G) => Midpoint(G,A,C)\n26. Midpoint(G,A,C) => Length_A_C - 2*Length_C_G\n27. Length_A_C - 2*Length_C_G & Length_A_C - 3*sqrt(2) => Length_C_G - 3*sqrt(2)/2\n28. Length_D_G - 3*sqrt(2)/2 & Area_C_D_G - Length_C_G*Length_D_G/2 & Length_C_G - 3*sqrt(2)/2 => Area_C_D_G - 9/4\n",
+  "rank": 0,
+  "problem_id": 0,
+  "sample_id": 0,
+  "seed": 852525079,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Length_A_B - 3"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

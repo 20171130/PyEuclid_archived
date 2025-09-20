@@ -1,0 +1,1 @@
+a,b,c,d = construct_rectangle(), e = construct_lc_tangent(d,b), e = construct_on_line(a,c), f = construct_on_circum(d,a,e), f = construct_lc_tangent(d,a), g = construct_on_dia(c,f), g = construct_on_pline(a,c,f), h = construct_eqdistance(a,g,c), h = construct_on_circum(b,a,c)

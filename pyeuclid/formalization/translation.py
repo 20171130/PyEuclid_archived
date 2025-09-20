@@ -10,7 +10,7 @@ def get_constructions_list_from_text(text):
     constructions_text_list = parts[0].split('; ')
     constructions_list = []
     coordinates_list = []
-    index = 0
+    # index = 0
     
     for constructions_text in constructions_text_list:
         outputs_text, constructions_text = constructions_text.split(' = ')
@@ -43,8 +43,8 @@ def get_constructions_list_from_text(text):
                 outputs, inputs = all_args[:rule.num_outputs], all_args[rule.num_outputs:]
             
             construction = rule(*inputs)
-            construction.index = index
-            index += 1
+            # construction.index = index
+            # index += 1
             construction.construct(*outputs)
             constructions.append(construction)
         constructions_list.append(constructions)

@@ -1,0 +1,20 @@
+{
+  "problem": "A,B,C = construct_eq_triangle_q(1,pi/2), D = construct_foot(A,B,C), E = construct_on_pline(D,A,B), E = construct_on_dia(C,B)",
+  "necessary_constructions": "A,B,C = construct_eq_triangle_q(1,pi/2), D = construct_foot(A,B,C), E = construct_on_pline(D,A,B), E = construct_on_dia(C,B)",
+  "unused_constructions": "",
+  "auxiliary_constructions": "",
+  "goal": "Area_B_C_E",
+  "depth": 4,
+  "diagram": "task1/calculation_918/rank_0/problem_22/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Length_A_B - Length_A_C => IsoscelesTriangle(A,B,C)\n2. IsoscelesTriangle(A,B,C) & Length_A_B - Length_A_C & Collinear(B,C,D) & Perpendicular(A,D,B,C) => Midpoint(D,B,C)\n3. Midpoint(D,B,C) => Length_B_C - 2*Length_C_D\n4. Angle_B_A_C - pi/2 => Perpendicular(A,B,A,C) & Area_A_B_C - Length_A_B*Length_A_C/2\n5. Midpoint(D,B,C) & Perpendicular(A,B,A,C) => Length_A_D - Length_C_D & Length_A_D - Length_B_D\n6. Length_B_C - 1 & Length_B_C - 2*Length_C_D & Length_A_D - Length_C_D => Length_A_D - 1/2\n7. Perpendicular(B,E,C,E) => Angle_B_E_C - pi/2\n8. Perpendicular(A,B,A,C) & Parallel(A,B,D,E) => Perpendicular(A,C,D,E)\n9. Perpendicular(A,C,D,E) => Angle_A_C_E + Angle_C_E_D - pi/2\n10. Angle_B_E_C - pi/2 & Angle_A_C_E + Angle_C_E_D - pi/2 & Angle_B_E_C - Angle_B_E_D - Angle_C_E_D => Angle_A_C_E - Angle_B_E_D\n11. Collinear(B,C,D) => Angle_A_B_C - Angle_A_B_D\n12. Midpoint(D,B,C) & Perpendicular(B,E,C,E) => Length_B_D - Length_D_E\n13. Length_A_D - Length_B_D & Length_B_D - Length_D_E => Length_A_D - Length_D_E\n14. Length_A_D - Length_B_D & Length_A_D - Length_C_D & Length_A_D - Length_D_E => Concyclic(A,B,C,E)\n15. Concyclic(A,B,C,E) => Angle_A_B_C + Angle_A_E_C - pi\n16. Parallel(A,B,D,E) => Angle_A_B_D + Angle_B_D_E - pi\n17. Angle_A_B_C - Angle_A_B_D & Angle_A_B_C + Angle_A_E_C - pi & Angle_A_B_D + Angle_B_D_E - pi => Angle_A_E_C - Angle_B_D_E\n18. Angle_A_C_E - Angle_B_E_D & Angle_A_E_C - Angle_B_D_E => Similar3(A,C,E,B,E,D)\n19. Similar3(A,C,E,B,E,D) => Length_A_C/Length_C_E - Length_B_E/Length_D_E\n20. Length_A_C/Length_C_E - Length_B_E/Length_D_E & Length_A_D - Length_D_E => Length_A_C/Length_B_E - Length_C_E/Length_A_D\n21. Perpendicular(A,D,B,C) & Collinear(B,C,D) => Area_A_B_C - Length_A_D*Length_B_C/2\n22. Length_B_C - 1 & Length_B_C - 2*Length_C_D & Area_A_B_C - Length_A_B*Length_A_C/2 & Length_A_D - Length_C_D & Area_A_B_C - Length_A_D*Length_B_C/2 & Length_A_B - Length_A_C => Length_A_C - sqrt(2)/2\n23. Angle_B_E_C - pi/2 => Area_B_C_E - Length_B_E*Length_C_E/2\n24. Length_A_D - 1/2 & Length_A_C/Length_B_E - Length_C_E/Length_A_D & Length_A_C - sqrt(2)/2 & Area_B_C_E - Length_B_E*Length_C_E/2 => Area_B_C_E - sqrt(2)/8\n",
+  "rank": 0,
+  "problem_id": 22,
+  "sample_id": 0,
+  "seed": 852022425,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Length_B_C - 1"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

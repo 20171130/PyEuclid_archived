@@ -1,0 +1,20 @@
+{
+  "problem": "A,B,C,D = construct_square_q(5), E = construct_lc_tangent(A,C), F = construct_foot(C,B,E), H = construct_foot(E,D,C)",
+  "necessary_constructions": "A,B,C,D = construct_square_q(5), E = construct_lc_tangent(A,C), F = construct_foot(C,B,E), H = construct_foot(E,D,C)",
+  "unused_constructions": "E = construct_point_on_circle(B,6)",
+  "auxiliary_constructions": "",
+  "goal": "Angle_A_F_H",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_7/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Square(A,B,C,D) => Angle_A_B_D - Angle_B_A_C & Parallel(A,B,C,D) & Perpendicular(A,C,B,D)\n2. Collinear(C,D,H) => Parallel(C,D,C,H)\n3. Parallel(A,B,C,D) & Parallel(C,D,C,H) => Parallel(A,B,C,H)\n4. Parallel(A,B,C,H) => Angle_A_C_H + Angle_B_A_C - pi\n5. Perpendicular(A,C,B,D) => Angle_A_B_D + Angle_B_A_C - pi/2\n6. Angle_A_B_D - Angle_B_A_C & Angle_A_C_H + Angle_B_A_C - pi & Angle_A_B_D + Angle_B_A_C - pi/2 => Angle_A_C_H - 3*pi/4\n7. Perpendicular(A,C,A,E) => Angle_C_A_E - pi/2\n8. Collinear(B,E,F) => Parallel(B,E,E,F)\n9. Perpendicular(B,E,C,F) & Parallel(B,E,E,F) => Perpendicular(C,F,E,F)\n10. Perpendicular(C,F,E,F) => Angle_C_F_E - pi/2\n11. Angle_C_A_E - pi/2 & Angle_A_E_C - Angle_A_E_F - Angle_C_E_F & Angle_C_E_F + Angle_C_F_E + Angle_E_C_F - pi & Angle_A_C_E + Angle_A_E_C + Angle_C_A_E - pi & Angle_A_C_E + Angle_A_C_F - Angle_E_C_F & Angle_C_F_E - pi/2 => Angle_A_C_F - Angle_A_E_F\n12. Angle_A_C_F - Angle_A_E_F => Concyclic(A,C,E,F)\n13. Perpendicular(C,D,E,H) & Parallel(A,B,C,D) => Perpendicular(A,B,E,H)\n14. Perpendicular(A,B,E,H) => Angle_A_E_H + Angle_B_A_E - pi/2\n15. Angle_A_B_D - Angle_B_A_C & Angle_B_A_C + Angle_B_A_E - Angle_C_A_E & Angle_C_A_E - pi/2 & Angle_A_B_D + Angle_B_A_C - pi/2 & Angle_A_E_H + Angle_B_A_E - pi/2 => Angle_A_E_H - pi/4\n16. Angle_A_C_H - 3*pi/4 & Angle_A_E_H - pi/4 => Angle_A_C_H + Angle_A_E_H - pi\n17. Angle_A_C_H + Angle_A_E_H - pi => Concyclic(A,C,E,H)\n18. Concyclic(A,C,E,F) & Concyclic(A,C,E,H) => Concyclic(A,C,F,H)\n19. Concyclic(A,C,F,H) => Angle_A_C_H - Angle_A_F_H\n20. Angle_A_C_H - 3*pi/4 & Angle_A_C_H - Angle_A_F_H => Angle_A_F_H - 3*pi/4\n",
+  "rank": 0,
+  "problem_id": 7,
+  "sample_id": 0,
+  "seed": 828896969,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Length_A_B - 5"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

@@ -1,0 +1,22 @@
+{
+  "problem": "A,B,C = construct_r_triangle_q(2,1), D = construct_on_circle(B,C), D = construct_on_dia(A,C), E = construct_lc_tangent(B,C), E = construct_angle_counterclockwise(C,D,pi/6), G = construct_foot(E,D,A)",
+  "necessary_constructions": "A,B,C = construct_r_triangle_q(2,1), D = construct_on_circle(B,C), D = construct_on_dia(A,C), E = construct_lc_tangent(B,C), E = construct_angle_counterclockwise(C,D,pi/6), G = construct_foot(E,D,A)",
+  "unused_constructions": "",
+  "auxiliary_constructions": "",
+  "goal": "Angle_D_B_G",
+  "depth": 4,
+  "diagram": "task1/calculation_918/rank_0/problem_27/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Collinear(A,D,G) => Parallel(A,D,A,G) & Angle_B_A_D - Angle_B_A_G & Angle_C_A_D - Angle_C_A_G\n2. Perpendicular(A,D,E,G) & Parallel(A,D,A,G) => Perpendicular(A,G,E,G)\n3. Perpendicular(A,G,E,G) => Angle_A_G_E - pi/2\n4. Angle_A_B_C - pi/2 & Angle_A_G_E - pi/2 => Angle_A_B_C - Angle_A_G_E\n5. Perpendicular(A,D,C,D) => Angle_A_D_C - pi/2\n6. Angle_A_D_C - pi/2 & Angle_A_B_C - pi/2 => Angle_A_B_C - Angle_A_D_C\n7. Angle_A_B_C - Angle_A_D_C => Concyclic(A,B,C,D)\n8. Concyclic(A,B,C,D) => Angle_A_C_B + Angle_A_D_B - pi & Angle_B_A_C - Angle_B_D_C & Angle_A_B_D - Angle_A_C_D\n9. Perpendicular(A,D,C,D) & Perpendicular(A,D,E,G) => Parallel(C,D,E,G)\n10. Parallel(C,D,E,G) => Angle_C_E_G + Angle_D_C_E - pi\n11. Angle_A_B_C - pi/2 => Perpendicular(A,B,B,C)\n12. Perpendicular(A,B,B,C) & Perpendicular(B,C,B,E) => Parallel(A,B,B,E)\n13. Parallel(A,B,B,E) => Collinear(A,B,E)\n14. Collinear(A,B,E) => Angle_A_E_G + Angle_B_E_G - pi & Angle_B_A_C - Angle_C_A_E\n15. Perpendicular(B,C,B,E) => Angle_C_B_E - pi/2\n16. Length_B_C - Length_B_D => Angle_B_C_D - Angle_B_D_C\n17. Angle_A_D_C - pi/2 & Angle_C_E_G + Angle_D_C_E - pi & Angle_A_D_B - Angle_A_D_C - Angle_B_D_C & Angle_A_E_G + Angle_B_E_G - pi & Angle_B_C_D - Angle_B_C_E + Angle_D_C_E & Angle_C_B_E - pi/2 & Angle_B_C_E + Angle_B_E_C + Angle_C_B_E - pi & Angle_B_C_D - Angle_B_D_C & Angle_B_E_C + Angle_B_E_G - Angle_C_E_G => Angle_A_D_B + Angle_A_E_G - pi\n18. Angle_A_C_B + Angle_A_D_B - pi & Angle_A_D_B + Angle_A_E_G - pi => Angle_A_C_B - Angle_A_E_G\n19. Angle_A_B_C - Angle_A_G_E & Angle_A_C_B - Angle_A_E_G => Similar3(A,B,C,A,G,E)\n20. Similar3(A,B,C,A,G,E) => Length_A_B/Length_A_C - Length_A_G/Length_A_E\n21. Angle_A_D_C - pi/2 & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_A_B_C - pi/2 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_B_A_D - Angle_B_A_G & Angle_B_A_C + Angle_B_A_D - Angle_C_A_D & Angle_B_C_D - Angle_B_D_C & Angle_A_C_B - Angle_A_C_D - Angle_B_C_D => Angle_B_A_G - Angle_B_D_C\n22. Angle_B_A_C - Angle_C_A_E & Angle_B_A_G - Angle_B_D_C & Angle_B_A_C - Angle_B_D_C => Angle_B_A_G - Angle_C_A_E\n23. Length_A_B/Length_A_C - Length_A_G/Length_A_E & Angle_B_A_G - Angle_C_A_E => Similar3(A,B,G,A,C,E)\n24. Similar3(A,B,G,A,C,E) => Angle_A_B_G - Angle_A_C_E\n25. Angle_A_D_C - pi/2 & Angle_C_A_D - Angle_C_A_G & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi => Angle_A_C_D + Angle_C_A_G - pi/2\n26. Angle_A_C_D + Angle_C_A_G - pi/2 & Angle_A_B_D - Angle_A_C_D => Angle_A_B_D + Angle_C_A_G - pi/2\n27. Angle_A_C_D - Angle_A_C_E - Angle_D_C_E & Angle_A_D_C - pi/2 & Angle_C_A_D - Angle_C_A_G & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_D_C_E - pi/6 => Angle_A_C_E + Angle_C_A_G - pi/3\n28. Angle_A_B_D - Angle_A_B_G - Angle_D_B_G & Angle_A_B_G - Angle_A_C_E & Angle_A_B_D + Angle_C_A_G - pi/2 & Angle_A_C_E + Angle_C_A_G - pi/3 => Angle_D_B_G - pi/6\n",
+  "rank": 0,
+  "problem_id": 27,
+  "sample_id": 0,
+  "seed": 453259853,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Length_B_C - 1",
+    "Length_A_B - 2",
+    "Angle_D_C_E - pi/6"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

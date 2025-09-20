@@ -1,0 +1,1 @@
+a,b,c = construct_r_triangle(), d = construct_eqdistance(b,c,a), d = construct_eqdistance(c,c,b), e = construct_on_dia(a,c), e = construct_angle_mirror(d,b,a), f = construct_angle_bisector(c,e,a), f = construct_on_dia(b,a), g = construct_on_dia(a,c)

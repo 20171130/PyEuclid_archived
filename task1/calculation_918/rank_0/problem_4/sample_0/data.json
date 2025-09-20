@@ -1,0 +1,22 @@
+{
+  "problem": "A,B,C = construct_ieq_triangle_q(5), D = construct_angle_bisector(C,A,B), E = construct_on_tline(C,A,B), E = construct_on_line(A,D), F = construct_intersection_ll(A,D,C,B), G = construct_on_dia(B,E)",
+  "necessary_constructions": "A,B,C = construct_ieq_triangle_q(5), D = construct_angle_bisector(C,A,B), E = construct_on_tline(C,A,B), E = construct_on_line(A,D), F = construct_intersection_ll(A,D,C,B), G = construct_on_dia(B,E)",
+  "unused_constructions": "D = construct_eqdistance(A,A,C), G = construct_on_bline(A,D)",
+  "auxiliary_constructions": "",
+  "goal": "Angle_B_G_F",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_4/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. EquilateralTriangle(A,B,C) => Angle_A_B_C - pi/3 & IsoscelesTriangle(A,B,C)\n2. Collinear(A,D,E) & Collinear(A,D,F) => Collinear(A,E,F)\n3. Collinear(A,E,F) => Angle_A_E_C + Angle_C_E_F - pi & Parallel(A,E,E,F)\n4. Perpendicular(A,B,C,E) => Angle_A_E_C - Angle_B_A_E - pi/2\n5. Length_A_B - 5 & Length_A_C - 5 => Length_A_B - Length_A_C\n6. IsoscelesTriangle(A,B,C) & Length_A_B - Length_A_C & Angle_B_A_D - Angle_C_A_D => Perpendicular(A,D,B,C)\n7. Collinear(A,D,E) => Parallel(A,D,A,E)\n8. Perpendicular(A,D,B,C) & Parallel(A,D,A,E) => Perpendicular(A,E,B,C)\n9. Perpendicular(A,E,B,C) => Angle_A_B_C + Angle_B_A_E - pi/2\n10. Angle_A_B_C - pi/3 & Angle_A_E_C + Angle_C_E_F - pi & Angle_A_E_C - Angle_B_A_E - pi/2 & Angle_A_B_C + Angle_B_A_E - pi/2 => Angle_C_E_F - pi/3\n11. IsoscelesTriangle(A,B,C) & Length_A_B - Length_A_C & Perpendicular(A,E,B,C) => Length_B_E - Length_C_E\n12. Length_B_E - Length_C_E => IsoscelesTriangle(B,C,E)\n13. Parallel(A,D,A,E) & Parallel(A,E,E,F) => Parallel(A,D,E,F)\n14. Perpendicular(A,D,B,C) & Parallel(A,D,E,F) => Perpendicular(B,C,E,F)\n15. IsoscelesTriangle(B,C,E) & Length_B_E - Length_C_E & Collinear(B,C,F) & Perpendicular(B,C,E,F) => Angle_B_E_F - Angle_C_E_F\n16. Angle_C_E_F - pi/3 & Angle_B_E_F - Angle_C_E_F => Angle_B_E_F - pi/3\n17. Collinear(B,C,F) => Parallel(B,C,B,F)\n18. Perpendicular(A,D,B,C) & Parallel(B,C,B,F) => Perpendicular(A,D,B,F)\n19. Perpendicular(A,D,B,F) & Parallel(A,D,E,F) => Perpendicular(B,F,E,F)\n20. Perpendicular(B,F,E,F) => Angle_B_F_E - pi/2\n21. Perpendicular(B,G,E,G) => Angle_B_G_E - pi/2\n22. Angle_B_F_E - pi/2 & Angle_B_G_E - pi/2 => Angle_B_F_E + Angle_B_G_E - pi\n23. Angle_B_F_E + Angle_B_G_E - pi => Concyclic(B,E,F,G)\n24. Concyclic(B,E,F,G) => Angle_B_E_F - Angle_B_G_F\n25. Angle_B_E_F - pi/3 & Angle_B_E_F - Angle_B_G_F => Angle_B_G_F - pi/3\n",
+  "rank": 0,
+  "problem_id": 4,
+  "sample_id": 0,
+  "seed": 978447984,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Length_B_C - 5",
+    "Length_A_B - 5",
+    "Length_A_C - 5"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

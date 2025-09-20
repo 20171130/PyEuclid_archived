@@ -1,0 +1,18 @@
+{
+  "problem": "",
+  "necessary_constructions": "",
+  "unused_constructions": "A,B,C,D = construct_square_q(2), E = construct_eqdistance(D,C,A), E = construct_lc_tangent(D,C)",
+  "auxiliary_constructions": "",
+  "goal": "Length_A_E",
+  "depth": 6,
+  "diagram": "task1/calculation_918/rank_0/problem_14/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Square(A,B,C,D) => Perpendicular(A,C,B,D) & Length_A_D - Length_C_D & Length_A_C - Length_B_D & Area_A_B_C_D - Length_A_D*Length_C_D & Angle_A_D_C - pi/2 & Area_A_B_C_D - Length_A_B*Length_B_C & Length_A_B - Length_B_C\n2. Perpendicular(A,C,B,D) => Area_A_B_C_D - Length_A_C*Length_B_D/2\n3. Area_A_B_C_D - Length_A_C*Length_B_D/2 & Length_A_D - Length_C_D & Length_A_C - Length_D_E & Length_A_C - Length_B_D & Area_A_B_C_D - Length_A_D*Length_C_D => sqrt(2)*Length_A_D - Length_D_E\n4. Perpendicular(C,D,D,E) => Angle_C_D_E - pi/2\n5. Angle_A_D_C - pi/2 & Angle_C_D_E - pi/2 & Angle_A_D_B - Angle_A_D_C + Angle_B_D_C & Angle_B_D_C + Angle_B_D_E - Angle_C_D_E => Angle_A_D_B - Angle_B_D_E\n6. Angle_A_D_B - Angle_B_D_E => Collinear(A,D,E)\n7. Collinear(A,D,E) => Length_A_D + Length_A_E - Length_D_E\n8. Area_A_B_C_D - Length_A_C*Length_B_D/2 & Length_A_B - 2 & Area_A_B_C_D - Length_A_B*Length_B_C & Length_A_C - Length_D_E & Length_A_B - Length_B_C & Length_A_C - Length_B_D => Length_D_E - 2*sqrt(2)\n9. sqrt(2)*Length_A_D - Length_D_E & Length_A_D + Length_A_E - Length_D_E & Length_D_E - 2*sqrt(2) => Length_A_E - 2*sqrt(2) + 2\n",
+  "rank": 0,
+  "problem_id": 14,
+  "sample_id": 0,
+  "seed": 180151557,
+  "hash_seed": "0",
+  "annotated_equations": [],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

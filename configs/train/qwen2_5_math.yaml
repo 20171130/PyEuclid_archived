@@ -8,7 +8,7 @@ finetuning_type: full
 deepspeed: LLaMA-Factory/examples/deepspeed/ds_z3_config.json
 
 ### dataset
-dataset: pyeuclid_text_train
+dataset: task3
 template: qwen
 cutoff_len: 2048
 overwrite_cache: true
@@ -16,9 +16,8 @@ preprocessing_num_workers: 16
 dataloader_num_workers: 4
 
 ### output
-output_dir: saves/qwen2_5-math-7b/
+output_dir: saves/task3/qwen2.5-math-7b/
 logging_steps: 10
-# save_steps: 100
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: true
@@ -26,7 +25,7 @@ report_to: wandb
 save_total_limit: 1
 
 ### train
-per_device_train_batch_size: 2
+per_device_train_batch_size: 8
 gradient_accumulation_steps: 4
 learning_rate: 1.0e-5
 num_train_epochs: 2

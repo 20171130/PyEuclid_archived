@@ -1,0 +1,1 @@
+A,B,C,D = construct_eq_trapezoid_q(8,4,2*pi/3), E = construct_on_tline(D,C,A), E = construct_angle_clockwise(C,D,pi/6), F = construct_incenter(A,B,C), G = construct_on_bline(F,A), G = construct_angle_bisector(B,E,F)

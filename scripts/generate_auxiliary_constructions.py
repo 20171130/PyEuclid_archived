@@ -309,6 +309,24 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     
     if not filtered_conclusions:
         return {"samples_generated": 0, "samples_with_auxiliary": 0}
+    
+    final_conclusions = []
+
+    relations = [c for c in filtered_conclusions if isinstance(c, Relation)]
+    if relations:
+        final_conclusions.append(random.choice(relations))
+    angle_diffs = [c for c in filtered_conclusions if isinstance(c, Traced) and is_angle_diff(c.expr)]
+    if angle_diffs:
+        final_conclusions.append(random.choice(angle_diffs))
+    angle_sums = [c for c in filtered_conclusions if isinstance(c, Traced) and is_angle_sum_minus_pi(c.expr)]
+    if angle_sums:
+        final_conclusions.append(random.choice(angle_sums))
+    length_diffs = [c for c in filtered_conclusions if isinstance(c, Traced) and is_length_diff(c.expr)]
+    if length_diffs:
+        final_conclusions.append(random.choice(length_diffs))
+    ratio_diffs = [c for c in filtered_conclusions if isinstance(c, Traced) and is_length_ratio_diff(c.expr)]
+    if ratio_diffs:
+        final_conclusions.append(random.choice(ratio_diffs))
 
     def get_sufficient_constructions(points):
         res = []
@@ -327,7 +345,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             mark_sufficient(point)
         return sorted(res, key=lambda c: c.index)
 
-    for relation in filtered_conclusions:
+    for relation in final_conclusions:
         if timeout_handler.check_timeout():
             break
         if isinstance(relation, Traced):
@@ -439,13 +457,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             c.index = 0
             added_constructions.append(c)
 
-        for (conditions, _, _) in new_proof:
-            for cond in conditions:
-                if isinstance(cond, sympy.core.expr.Expr):
-                    cond = Traced(cond)
-                if cond in conclusions:
-                    sub_conclusions.add(cond)
-
         has_auxiliary = len(auxiliary_constructions) > 0
         if has_auxiliary:
             aux_proof = 'Auxilirary Construction:\n' if len(auxiliary_constructions) == 1 else 'Auxilirary Constructions:\n'
@@ -491,14 +502,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
         conclusions2dir[relation] = sample_dir
         i += 1
-
-    for relation, sample_dir in conclusions2dir.items():
-        if os.path.exists(os.path.join(sample_dir, "data.json")):
-            with open(os.path.join(sample_dir, "data.json"), "r") as f:
-                data = json.load(f)
-            data["sub_conclusion"] = True if relation in sub_conclusions else False
-            with open(os.path.join(sample_dir, "data.json"), "w") as f:
-                json.dump(data, f, indent=4)
 
     return {
         "samples_generated": i,

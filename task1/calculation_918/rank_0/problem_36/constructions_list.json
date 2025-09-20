@@ -1,0 +1,1 @@
+A,B,C,D = construct_eq_trapezoid_q(50,20,2*pi/3), E = construct_foot(C,B,A), F = construct_on_line(A,D), F = construct_angle_counterclockwise(C,E,pi/12), G = construct_circumcenter(B,C,D)

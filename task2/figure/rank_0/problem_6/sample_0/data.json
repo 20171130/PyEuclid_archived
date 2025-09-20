@@ -1,0 +1,9 @@
+{
+    "problem": "a,b,c,d = construct_rectangle(), e = construct_on_pline(c,a,d), e = construct_on_bline(a,d)",
+    "goal": "Midpoint(e,b,c)",
+    "diagram": "task2/figure/rank_0/problem_6/sample_0/diagram.jpg",
+    "proof": "Solution:\n1. Rectangle(a,b,c,d) => Length_a_b - Length_c_d & Angle_a_d_c - Angle_b_a_d & Parallel(a,d,b,c)\n2. Angle_b_a_d - Angle_b_a_e - Angle_d_a_e & Angle_a_d_e - Angle_d_a_e & Angle_a_d_c - Angle_a_d_e - Angle_c_d_e & Angle_a_d_c - Angle_b_a_d => Angle_b_a_e - Angle_c_d_e\n3. Length_a_b - Length_c_d & Length_a_e - Length_d_e & Angle_b_a_e - Angle_c_d_e => Congruent3(a,b,e,d,c,e)\n4. Congruent3(a,b,e,d,c,e) => Length_b_e - Length_c_e\n5. Parallel(a,d,b,c) & Parallel(a,d,c,e) => Parallel(b,c,c,e)\n6. Parallel(b,c,c,e) => Collinear(b,c,e)\n7. Length_b_e - Length_c_e & Collinear(b,c,e) => Midpoint(e,b,c)\n",
+    "coordinates": "a: (1.737412916452604, -0.21080884694096003), b: (1.0461157571844866, -1.894256247410877), c: (-1.403918393494397, -0.8881650276903158), d: (-0.7126212342262797, 0.7952823727796012), e: (-0.17890131815495536, -1.3912106375505964), f: (1.3836963959156396, 2.4140285775466648), g: (0.364331090445471, 0.2450493595099188), h: (0.531285552768695, -1.4983207714900686)",
+    "depth": 4,
+    "seed": 200048
+}

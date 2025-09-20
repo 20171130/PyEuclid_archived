@@ -1,0 +1,1 @@
+a,b,c,d = construct_isquare(), e = construct_shift(a,d,c), f = construct_lc_tangent(a,c), g = construct_angle_bisector(f,e,d), g = construct_on_dia(a,b), h = construct_centroid(c,g,a)

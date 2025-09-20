@@ -1,0 +1,1 @@
+a,b,c = construct_risos(), d = construct_on_circle(c,a), d = construct_on_bline(a,c), e = construct_mirror(b,c), f = construct_on_circle(a,c), g = construct_on_pline(c,a,b), g = construct_on_tline(f,e,b), h = construct_angle_bisector(f,b,e), h = construct_angle_mirror(b,c,a)

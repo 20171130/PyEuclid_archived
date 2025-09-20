@@ -1,0 +1,1 @@
+a,b,c = construct_risos(), d = construct_on_circum(c,a,b), e = construct_parallelogram(a,b,d), f = construct_on_bline(b,e), f = construct_angle_bisector2(e,a,c), g = construct_eqdistance(e,a,d), g = construct_on_circum(d,a,e), h = construct_angle_bisector2(a,g,b)

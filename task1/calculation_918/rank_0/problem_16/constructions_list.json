@@ -1,0 +1,1 @@
+A,B,C,D = construct_rectangle_q(9,24), E = construct_on_circle(D,A), E = construct_point_on_circle(B,9), F = construct_on_aline(C,D,E,A,B), F = construct_lc_tangent(D,E), G = construct_lc_tangent(F,D), G = construct_on_pline(E,B,A), H = construct_on_aline(E,G,D,B,C), H = construct_point_on_circle(E,24)

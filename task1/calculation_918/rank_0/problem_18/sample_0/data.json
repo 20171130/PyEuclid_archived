@@ -1,0 +1,21 @@
+{
+  "problem": "A,B,C = construct_eq_triangle_q(20,2*pi/3), D = construct_foot(A,C,B), E = construct_lc_tangent(D,C), E = construct_on_circle(D,B), F = construct_eqdistance(C,E,D), F = construct_on_circle(E,D)",
+  "necessary_constructions": "A,B,C = construct_eq_triangle_q(20,2*pi/3), D = construct_foot(A,C,B), E = construct_lc_tangent(D,C), E = construct_on_circle(D,B), F = construct_eqdistance(C,E,D), F = construct_on_circle(E,D)",
+  "unused_constructions": "",
+  "auxiliary_constructions": "",
+  "goal": "Area_D_E_F",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_18/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Length_D_E - Length_E_F & Length_B_D - Length_D_E => Length_B_D - Length_E_F\n2. Length_A_B - Length_A_C => IsoscelesTriangle(A,B,C)\n3. IsoscelesTriangle(A,B,C) & Length_A_B - Length_A_C & Perpendicular(A,D,B,C) => Length_B_D - Length_C_D\n4. Length_B_D - Length_E_F & Length_B_D - Length_C_D => Length_C_D - Length_E_F\n5. Length_C_D - Length_E_F & Length_C_F - Length_D_E => Parallelogram(C,D,E,F)\n6. Perpendicular(C,D,D,E) => Angle_C_D_E - pi/2\n7. Parallelogram(C,D,E,F) & Angle_C_D_E - pi/2 => Rectangle(C,D,E,F)\n8. Rectangle(C,D,E,F) => Angle_D_E_F - pi/2\n9. Angle_D_E_F - pi/2 => Area_D_E_F - Length_D_E*Length_E_F/2\n10. IsoscelesTriangle(A,B,C) & Length_A_B - Length_A_C & Collinear(B,C,D) & Perpendicular(A,D,B,C) => Midpoint(D,B,C)\n11. Midpoint(D,B,C) => Length_B_C - 2*Length_B_D\n12. Length_B_D - Length_E_F & Length_B_C - 2*Length_B_D & Length_B_C - 20 => Length_E_F - 10\n13. Length_B_C - 2*Length_B_D & Length_B_C - 20 & Length_B_D - Length_D_E => Length_D_E - 10\n14. Area_D_E_F - Length_D_E*Length_E_F/2 & Length_E_F - 10 & Length_D_E - 10 => Area_D_E_F - 50\n",
+  "rank": 0,
+  "problem_id": 18,
+  "sample_id": 0,
+  "seed": 591395331,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Angle_B_A_C - 2*pi/3",
+    "Length_B_C - 20"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

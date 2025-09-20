@@ -1,0 +1,1 @@
+A,B,C,D = construct_square_q(26), E = construct_on_circle(A,B), E = construct_point_on_circle(B,26), F = construct_angle_bisector(E,B,D), F = construct_angle_clockwise(C,B,pi/6), G = construct_foot(C,B,D), H = construct_on_bline(C,D), H = construct_on_dia(C,A)

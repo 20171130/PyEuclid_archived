@@ -1,0 +1,22 @@
+{
+  "problem": "A,B,C = construct_eq_triangle_q(20,2*pi/3), D = construct_on_dia(C,A), D = construct_on_dia(B,C), E = construct_angle_clockwise(A,D,pi/3), E = construct_angle_bisector(C,B,A), F = construct_angle_bisector(E,D,B)",
+  "necessary_constructions": "A,B,C = construct_eq_triangle_q(20,2*pi/3), D = construct_on_dia(C,A), D = construct_on_dia(B,C), E = construct_angle_clockwise(A,D,pi/3), E = construct_angle_bisector(C,B,A), F = construct_angle_bisector(E,D,B)",
+  "unused_constructions": "F = construct_on_dia(C,A)",
+  "auxiliary_constructions": "",
+  "goal": "Angle_B_D_F",
+  "depth": 3,
+  "diagram": "task1/calculation_918/rank_0/problem_39/sample_0/diagram.pdf",
+  "proof": "Solution:\n1. Perpendicular(B,D,C,D) => Angle_B_D_C - pi/2\n2. Angle_B_D_C - pi/2 & Angle_B_D_C - Angle_B_D_E - Angle_C_D_E => Angle_B_D_E + Angle_C_D_E - pi/2\n3. Perpendicular(A,D,C,D) & Perpendicular(B,D,C,D) => Parallel(A,D,B,D)\n4. Parallel(A,D,B,D) => Collinear(A,B,D)\n5. Collinear(A,B,D) => Angle_B_A_E + Angle_D_A_E - pi & Angle_B_A_C + Angle_C_A_D - pi & Angle_A_D_E - Angle_B_D_E\n6. Angle_B_A_C - 2*pi/3 & Angle_D_A_E - pi/3 & Angle_B_A_E + Angle_D_A_E - pi => Angle_B_A_C - Angle_B_A_E\n7. Angle_B_A_C - Angle_B_A_E => Collinear(A,C,E)\n8. Collinear(A,C,E) & Angle_A_B_E - Angle_C_B_E => Length_A_B/Length_B_C - Length_A_E/Length_C_E\n9. Length_A_B - Length_A_C => Angle_A_B_C - Angle_A_C_B\n10. Perpendicular(A,D,C,D) => Angle_A_D_C - pi/2\n11. Angle_A_B_C - Angle_A_C_B & Angle_A_D_C - pi/2 & Angle_B_A_C + Angle_C_A_D - pi & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi & Angle_B_A_C - 2*pi/3 & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi => Angle_A_C_B - Angle_A_C_D\n12. Collinear(A,B,D) & Angle_A_C_B - Angle_A_C_D => Length_A_B/Length_A_D - Length_B_C/Length_C_D\n13. Length_A_B/Length_B_C - Length_A_E/Length_C_E & Length_A_B/Length_A_D - Length_B_C/Length_C_D => Length_A_D/Length_C_D - Length_A_E/Length_C_E\n14. Collinear(A,C,E) & -Length_A_D/Length_C_D + Length_A_E/Length_C_E => Angle_A_D_E - Angle_C_D_E\n15. Angle_B_D_E - 2*Angle_B_D_F & Angle_B_D_E + Angle_C_D_E - pi/2 & Angle_A_D_E - Angle_C_D_E & Angle_A_D_E - Angle_B_D_E => Angle_B_D_F - pi/8\n",
+  "rank": 0,
+  "problem_id": 39,
+  "sample_id": 0,
+  "seed": 475035206,
+  "hash_seed": "0",
+  "annotated_equations": [
+    "Angle_B_A_C - 2*pi/3",
+    "Length_B_C - 20",
+    "Angle_D_A_E - pi/3"
+  ],
+  "has_auxiliary_constructions": false,
+  "num_auxiliary_constructions": 0
+}

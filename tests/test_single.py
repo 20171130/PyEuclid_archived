@@ -54,6 +54,7 @@ def run_single_problem(args):
 
     algebraic_system = AlgebraicSystem(state)
     proof_generator = ProofGenerator(state)
+    proof_generator.norm = 0
     proof_generator.max_equation_length_perstep = None
     engine = Engine(state, deductive_database, algebraic_system)
     t0 = time.time()

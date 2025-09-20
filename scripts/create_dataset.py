@@ -16,7 +16,7 @@ system_prompt = (
 )
 
 problems = defaultdict(list)
-dataset_dir = Path("dataset/auxiliary_constructions")
+dataset_dir = Path("task3/auxiliary_construction")
 data_json_list = []
 image_file_list = []
 for json_file in tqdm.tqdm(dataset_dir.rglob("*data.json")):
@@ -55,5 +55,5 @@ for data_json in data_json_list:
 
 print(f'Totoal: {len(dataset)} instances.')
 
-with open(f"data/auxiliary_construction.json", "w") as f:
+with open(f"data/task3_train.json", "w") as f:
     json.dump(dataset, f, indent=4)

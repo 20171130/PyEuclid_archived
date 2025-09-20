@@ -31,7 +31,7 @@ class TestBenchmarks(unittest.TestCase):
         for idx in problem_ids:
             if not idx%world_size == rank:
                 continue
-            result_dir = f"results/Geometry3K/{idx+1}/"
+            result_dir = f"results/Geometry3K/{idx}/"
             os.makedirs(result_dir, exist_ok=True)
             state = State()
             state.silent = True
@@ -58,8 +58,7 @@ class TestBenchmarks(unittest.TestCase):
                 # state.add_conditions(diagrammatic_relations)
                 deductive_database = DeductiveDatabase(state, outer_theorems=inference_rule_sets["basic"]+inference_rule_sets['complex'])
                 algebraic_system = AlgebraicSystem(state)
-                proof_generator = ProofGenerator(state)
-                proof_generator.max_equation_length_perstep = None
+                proof_generator = ProofGenerator(state, norm=0, max_equation_length_perstep=None)
                 engine = Engine(state, deductive_database, algebraic_system)
                 t = time.time()
                 with TT(1200):
@@ -73,7 +72,7 @@ class TestBenchmarks(unittest.TestCase):
                         proof_str = None
                         with TT(1200):
                             proof_generator.run()
-                            proof_str = proof_generator.get_proof_str()
+                            proof_str = proof_generator.get_proof_str(verbose=True)
                         
                         if proof_str is not None:
                             print(f'{idx} proof generation runs in {time.time()-t0}')

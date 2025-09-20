@@ -1,0 +1,1 @@
+A,B,C = construct_r_triangle_q(20,2), D = construct_on_pline(A,C,B), D = construct_on_circle(C,A), E = construct_circumcenter(B,C,D), F = construct_on_pline(D,A,B), F = construct_on_circle(C,A), G = construct_point_on_line(C,E,8), H = construct_on_aline(D,A,E,G,B), H = construct_eqdistance(E,G,F)
