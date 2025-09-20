@@ -4,7 +4,7 @@ import numpy as np
 import json
 import random
 from typing import Optional, Dict, Any
-
+import time
 from pyeuclid.formalization.relation import *
 from pyeuclid.formalization.diagram import Diagram, MaxAttemptsError
 from pyeuclid.formalization.state import State
@@ -42,9 +42,8 @@ def printt(s):
 
 
 debug = True
+problem_type = "proving"
 
-rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
-rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
 def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
     """Generate a single problem with timeout checking at key points"""
     
@@ -71,11 +70,19 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     step = 0
     attempt = 0
     points = 0
-
+    t0 = time.time()
+    
     # printt(f"Rank {rank}: Starting problem {problem_id}")
-
-    max_steps = random.uniform(3, 6) # 4 - 10
-    max_points = 8
+    if problem_type == "proving":
+        max_steps = random.uniform(4, 10) # 4 - 10
+        max_points = random.uniform(8, 15) # 8 - 15
+        rule_set = inference_rule_sets["basic"]
+    else:
+        max_steps = random.uniform(3, 6) # 4 - 10
+        max_points = 8
+        rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
+        rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
+    
     max_attempts = 100
     constructions_list = []
     length_values, angle_values = set(), set()
@@ -207,12 +214,12 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     sub_conclusions = set()
     conclusions2dir = {}
     conclusions = []
-    conclusions = [item.expr for item in state.equations if len(item.expr.free_symbols)==1]
-    # conclusions += [symbol - solution for symbol, solution in state.solutions["angle_linear"].items() if len(solution.free_symbols)==0]
-    # conclusions += [symbol - solution for symbol, solution in state.solutions["length_ratio"].items() if len(solution.free_symbols)==0]
-    # conclusions += [symbol - solution for symbol, solution in state.solutions["length_linear"].items() if len(solution.free_symbols)==0]
+    if problem_type == "proving":
+        conclusions = list([relation for relation in state.relations if not trivial_condition(relation) and hasattr(relation, "source")]) 
+        conclusions += [eq for eq in state.equations if eq.sources and isinstance(eq.sources[0], InferenceRule) and not isinstance(eq.sources[0], (DiagramAngle4a, DiagramAngle4b, DiagramAngle2, FlatAngle, FlatAngle2))]
+    else:
+        conclusions = [item.expr for item in state.equations if len(item.expr.free_symbols)==1]
     printt("Determining if auxiliary constructions are needed")
-    breakpoint()
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
     conclusions.sort(key=lambda x: -state.condition2depth[x])
@@ -398,6 +405,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             "diagram": diagram_sample_path,
             "proof": new_proof_str,
             "rank": rank,
+            "time_cost": time.time() - t0,
             "problem_id": problem_id,
             "sample_id": i,
             "seed": seed,

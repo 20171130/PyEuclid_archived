@@ -181,11 +181,7 @@ class AlgebraicSystem:
                 if j == i:
                     break
                 if key in getattr(exprs[key1], "free_symbols", []):
-                    old = exprs[key1]
                     exprs[key1] = exprs[key1].subs(key, value)
-                    if str(exprs[key1]) == "0" and "Length" in str(key1):
-                        breakpoint()
-                        assert False
         exprs = {key: value for key, value in exprs.items()}
         return free_vars, exprs
 
@@ -410,7 +406,7 @@ class AlgebraicSystem:
             for j in range(i, len(angle_keys)):
                 y = angle_keys[j]
                 y_expr = self.state.simplify_equation(y, self.state.solutions['angle_linear'])
-                expr = self.state.simplify_equation(x+y, self.state.solutions['angle_linear'])
+                expr = x_expr + y_expr
                 if not expr in dic:
                     dic[expr] = [x+y]
                 else:
