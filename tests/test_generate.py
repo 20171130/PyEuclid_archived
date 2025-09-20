@@ -243,11 +243,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         return sorted(res, key=lambda c: c.index)
     
     for relation in conclusions:
-        if isinstance(relation, Traced):
-            key = relation.expr
-        else:
-            key = relation
-
         if isinstance(relation, Relation):
             points = relation.get_points()
         else:
@@ -286,6 +281,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             if len(new_proof) <= 4:
                 continue
             new_proof_str = new_proof_generator.get_proof_str()
+            key = new_state.goal - new_state.complete()
         else:
             # requires auxiliary constructions
             continue
@@ -341,6 +337,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         
         necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
         
+        if len(necessary_constructions) <= 2:
+            print('necessary_constructions fails')
+            print(len(necessary_constructions))
+            continue
+
         input_points = set()
         output_points = set()
         for construction in new_proof_generator.source_constructions[key]:
