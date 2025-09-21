@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 import json
 from pathlib import Path
@@ -21,108 +22,113 @@ except Exception:
     _HAS_GEMINI = False
 
 
-def create_problem_prompt(problem, goal):
+# ---------------------- Prompt builders ----------------------
+def create_problem_prompt(problem: str, goal: str) -> str:
     full_prompt = f"""
 You are given a plane geometry problem:
 
 Problem: {problem}. Find {goal}.
 
-Task: 
-- Rewrite the problem in clear, concise, and fluent language, preserving the original meaning. 
+Task:
+- Rewrite the problem in clear, concise, and fluent language, preserving the original meaning.
 - If any angles are given in radians, convert them to degrees.
 - Output ONLY the rewritten problem, with no explanations or extra text.
 """
     return full_prompt.strip()
 
 
-def create_proof_prompt(problem, proof):
+def create_proof_prompt(problem: str, proof: str) -> str:
     full_prompt = f"""
 You are given a plane geometry problem and its corresponding solution:
 
-Problem:  
+Problem:
 {problem}
 
-Solution:  
+Solution:
 {proof}
 
-Task: 
-- Rewrite the solution in clear, concise, and fluent language, simplifying trivial or redundant steps while preserving correctness. 
+Task:
+- Rewrite the solution in clear, concise, and fluent language, simplifying trivial or redundant steps.
+- Step-wise formatting is optional. Use it only when it improves clarity; otherwise, presenting the solution as a continuous paragraph is acceptable.
 - If any angles are given in radians, convert them to degrees.
-- Output ONLY the rewritten solution, with the final answer inside \\boxed{{}}. 
+- Output ONLY the rewritten solution, with the final answer inside \\boxed{{}}.
 - Do NOT include the problem statement, explanations, or extra text.
 """
     return full_prompt.strip()
 
-def create_problem_prompt_choices(problem, goal, proof):
+
+def create_problem_prompt_choices(problem: str, goal: str, proof: str, n_choices: int = 4) -> str:
+    # Build dynamic choice label list (A, B, C, ...)
+    labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[:max(2, n_choices)]
+    labels_block = "\n".join(f"{ch}: ..." for ch in labels)
+
     full_prompt = f"""
 You are given a plane geometry problem and its corresponding solution:
 
-Problem: As shown in the figure, {problem}. {goal} = ().
+Problem: As shown in the figure, {problem}. {goal} = ( ).
 
-Proof:
-{solution}
+Reference Solution (for correctness only):
+{proof}
 
-Task: 
+Task:
 - Rewrite the problem in clear, concise, and fluent language, preserving the original meaning.
-- Convert the task into a multiple-choice question with exactly 4 options labeled A, B, C, D.
+- Convert the task into a multiple-choice question with exactly {n_choices} options labeled {", ".join(labels)}.
 - Use the reference solution ONLY to determine the correct numeric/choice answer.
-- Create plausible distractors of the same type, magnitude, and units as the correct answer.
+- Create plausible distractors of comparable scale or magnitude to the correct answer.
 - Ensure EXACTLY ONE option is correct.
 - If any angles are given in radians, convert them to degrees.
-- Output ONLY the rewritten problem with multiple choices, with no explanations or extra text.
-- Do NOT include the solution, explanations, or extra text.
+- Output ONLY the rewritten problem followed by the choices, with no explanations or extra text.
+- Do NOT include the solution, rationales, or extra text.
 
 Output format:
 <Rewritten problem statement>
 
 Choices:
-A: ...
-B: ...
-C: ...
-D: ...
+{labels_block}
 """
     return full_prompt.strip()
 
 
-def create_proof_prompt_choices(problem, proof):
+def create_proof_prompt_choices(problem: str, proof: str) -> str:
     full_prompt = f"""
 You are given a plane geometry problem and its corresponding solution:
 
-Problem:  
+Problem:
 {problem}
 
-Solution:  
+Solution:
 {proof}
 
-Task: 
-- Rewrite the problem and solution in clear, concise, and fluent language, simplifying trivial or redundant steps while preserving correctness. 
+Task:
+- Rewrite the solution in clear, concise, and fluent language, simplifying trivial or redundant steps.
+- Step-wise formatting is optional. Use it only when it improves clarity; otherwise, presenting the solution as a continuous paragraph is acceptable.
 - If any angles are given in radians, convert them to degrees.
-- Output ONLY the rewritten solution, with the final choice inside \\boxed{{}}. 
+- Ensure the final choice label matches the provided solution’s final answer.
+- Output ONLY the rewritten solution, with the final CHOICE LABEL (e.g., A, B, C, or D) inside \\boxed{{}}.
 - Do NOT include the problem statement, explanations, or extra text.
 """
     return full_prompt.strip()
 
 
-
-def build_problem_prompt(problem: str, goal: str, proof: Optional[str] = None, n_choices: int = 4) -> Tuple[str, str]:
+def build_problem_prompt(problem: str, goal: str, proof: Optional[str], mc_prob: float, n_choices: int = 4) -> Tuple[str, str]:
     """
-    Randomly choose between 'completion' and 'mc' (50/50).
-    Returns (mode, prompt).
-    - mode: 'completion' or 'mc'
-    - prompt: generated text
+    Decide the mode ('completion' or 'mc') and return (mode, prompt).
+    - If proof is missing/empty, force 'completion'.
+    - Otherwise sample using mc_prob (default 0.5).
     """
-    if random.random() < 0.5 or not proof:
-        return "completion", create_problem_prompt(problem, goal)
-    return "mc", create_problem_prompt_choices(problem, goal, proof, n_choices=n_choices)
+    has_proof = bool(proof and str(proof).strip())
+    if has_proof and random.random() < mc_prob:
+        return "mc", create_problem_prompt_choices(problem, goal, proof, n_choices=n_choices)
+    return "completion", create_problem_prompt(problem, goal)
 
 
-def build_proof_prompt(problem: str, proof: str, mode: str) -> str:
+def build_proof_prompt(problem_for_proof: str, proof: str, mode: str) -> str:
     """
-    Match the proof prompt with the same mode used for the problem.
+    Match the proof prompt to the chosen mode.
     """
     if mode == "mc":
-        return create_proof_prompt_choices(problem, proof)
-    return create_proof_prompt(problem, proof)
+        return create_proof_prompt_choices(problem_for_proof, proof)
+    return create_proof_prompt(problem_for_proof, proof)
 
 
 # ---------------------- Metrics ----------------------
@@ -130,6 +136,7 @@ def build_proof_prompt(problem: str, proof: str, mode: str) -> str:
 class Prices:
     input_per_1k: float = 0.0  # USD per 1K tokens
     output_per_1k: float = 0.0
+
 
 class Metrics:
     def __init__(self, prices: Prices):
@@ -187,7 +194,7 @@ class AsyncSimpleAzureLLM:
         user_prompt: str,
         system_prompt: Optional[str] = None,
     ) -> tuple[str, int, int, float]:
-        """Return (text, prompt_tokens, completion_tokens, latency_sec). Text-only; no image content."""
+        """Return (text, prompt_tokens, completion_tokens, latency_sec)."""
         messages = []
         sys = self._pick(system_prompt, self.system_prompt)
         if sys:
@@ -224,12 +231,7 @@ class AsyncSimpleAzureLLM:
 class AsyncSimpleGeminiLLM:
     """
     Async wrapper around google-generativeai for TEXT-ONLY prompts.
-    Requires:
-      - GEMINI_API_KEY
-      - Model name (e.g., gemini-2.5-flash)
-    Notes:
-      - System instruction is set at model creation time.
-      - Uses response.usage_metadata for token counts when available.
+    Requires GEMINI_API_KEY and a model name (e.g., gemini-2.5-flash).
     """
     def __init__(
         self,
@@ -254,22 +256,15 @@ class AsyncSimpleGeminiLLM:
     async def generate(
         self,
         user_prompt: str,
-        system_prompt: Optional[str] = None,  # kept for API parity; ignored
+        system_prompt: Optional[str] = None,  # ignored
     ) -> tuple[str, int, int, float]:
-        """
-        Returns (text, prompt_tokens, completion_tokens, latency_sec). Text-only; no images sent.
-        """
         last_err = None
         for attempt in range(1, self.retries + 1):
             try:
                 t0 = time.perf_counter()
-                # TEXT-ONLY async call
                 resp = await self.model.generate_content_async(user_prompt)
                 t1 = time.perf_counter()
-
                 text = resp.text or ""
-
-                # Token usage (when available)
                 pt = 0
                 ct = 0
                 try:
@@ -279,7 +274,6 @@ class AsyncSimpleGeminiLLM:
                         ct = int(getattr(um, "candidates_token_count", 0) or 0)
                 except Exception:
                     pass
-
                 return text, pt, ct, (t1 - t0)
             except Exception as e:
                 last_err = e
@@ -290,7 +284,7 @@ class AsyncSimpleGeminiLLM:
         raise RuntimeError(f"Gemini generate_content failed: {last_err}")
 
 
-# ---------- Pricing + metrics (defaults for Azure; overridden per provider) ----------
+# ---------- Pricing + metrics (defaults; override via env if you want) ----------
 DEFAULT_AZURE_PRICES = Prices(
     input_per_1k=float(os.getenv("PRICE_IN_PER_1K", "0.0025")),
     output_per_1k=float(os.getenv("PRICE_OUT_PER_1K", "0.0100")),
@@ -305,6 +299,7 @@ DEFAULT_GEMINI_PRICES = Prices(
 # ---------- Concurrency ----------
 MAX_CONCURRENCY = int(os.getenv("MAX_CONCURRENCY", "1000"))
 
+
 # ---------- Discovery ----------
 def collect_paths(root: str) -> Tuple[List[str], List[str]]:
     data_json_list, image_file_list = [], []
@@ -315,6 +310,7 @@ def collect_paths(root: str) -> Tuple[List[str], List[str]]:
     return sorted(data_json_list), sorted(image_file_list)
 
 
+# ---------- One-sample processing ----------
 async def process_one(
     idx: int,
     total: int,
@@ -328,6 +324,8 @@ async def process_one(
     print_prompts: bool,
     print_outputs: bool,
     metrics: Metrics,
+    mc_prob: float,
+    n_choices: int,
 ) -> Optional[str]:
     """Process a single sample. NOTE: We DO NOT send images to the model; we only COPY them."""
     async with sem:
@@ -336,7 +334,7 @@ async def process_one(
         logs.append("-" * 80)
 
         try:
-            with open(data_json, "r") as f:
+            with open(data_json, "r", encoding="utf-8") as f:
                 data = json.load(f)
         except Exception as e:
             logs.append(f"Failed to read/parse {data_json}: {e}")
@@ -347,10 +345,12 @@ async def process_one(
         informal_goal = data.get("informal_goal", "")
         informal_proof = data.get("informal_proof", "")
 
-        # 1) Refine problem
-        prompt_problem = create_problem_prompt(informal_problem, informal_goal)
+        # 1) Build problem prompt based on mode (50/50 by default)
+        mode, prompt_problem = build_problem_prompt(
+            informal_problem, informal_goal, informal_proof, mc_prob=mc_prob, n_choices=n_choices
+        )
         if print_prompts:
-            logs.append(">>> PROBLEM PROMPT >>>")
+            logs.append(f">>> PROBLEM PROMPT ({mode.upper()}) >>>")
             logs.append(prompt_problem)
             logs.append("-" * 80)
 
@@ -368,10 +368,10 @@ async def process_one(
             logs.append(refined_problem)
             logs.append("-" * 80)
 
-        # 2) Refine proof — TEXT ONLY (no image sent)
-        prompt_proof = create_proof_prompt(refined_problem, informal_proof)
+        # 2) Proof prompt matched to the same mode
+        prompt_proof = build_proof_prompt(refined_problem, informal_proof, mode=mode)
         if print_prompts:
-            logs.append(">>> PROOF PROMPT >>>")
+            logs.append(f">>> PROOF PROMPT ({mode.upper()}) >>>")
             logs.append(prompt_proof)
             logs.append("-" * 80)
 
@@ -389,13 +389,14 @@ async def process_one(
             logs.append(refined_proof)
             logs.append("=" * 80 + "\n")
 
-        # 3) Write outputs & COPY image file (no symlinks, no sending to model)
+        # 3) Write outputs & COPY image file
         try:
             rel = Path(data_json).relative_to(Path(dataset_dir))
             dst_data_json = Path(dst_dataset_dir) / rel
             dst_image_file = Path(dst_dataset_dir) / Path(image_file).relative_to(Path(dataset_dir))
 
             dst_data_json.parent.mkdir(parents=True, exist_ok=True)
+            data["mode"] = mode  # record which format was used
             data["refined_problem"] = refined_problem
             data["refined_proof"] = refined_proof
             with open(dst_data_json, "w", encoding="utf-8") as f:
@@ -414,6 +415,7 @@ async def process_one(
         return None
 
 
+# ---------------------- Main ----------------------
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -426,20 +428,29 @@ async def main():
     parser.add_argument(
         "--dataset-dir",
         type=str,
-        default="task1/calculation_919_template",
-        help="Root directory containing source samples (default: task2/figure_template)",
+        default="task1/calculation_919_samples_template",
+        help="Root directory containing source samples (default: task1/calculation_919_samples_template)",
     )
     parser.add_argument(
         "--dst-dataset-dir",
         type=str,
-        default="task1/calculation_919_llm",
-        help="Destination directory to write refined samples (default: task2/figure_llm)",
+        default="task1/calculation_919_samples_llm",
+        help="Destination directory to write refined samples (default: task1/calculation_919_llm)",
     )
-    parser.add_argument("--start_idx", type=int, default=0, help="Start index (inclusive)")
-    parser.add_argument("--end_idx", type=int, default=None, help="End index (exclusive)")
+    parser.add_argument("--start-idx", type=int, default=0, help="Start index (inclusive)")
+    parser.add_argument("--end-idx", type=int, default=None, help="End index (exclusive)")
     parser.add_argument("--print-prompts", action="store_true", help="Print LLM prompts")
     parser.add_argument("--print-outputs", action="store_true", help="Print LLM outputs")
+
+    # NEW: control flip & reproducibility
+    parser.add_argument("--mc-prob", type=float, default=0.5, help="Probability of multiple-choice mode (default 0.5)")
+    parser.add_argument("--n-choices", type=int, default=4, help="Number of choices when in MC mode (default 4)")
+    parser.add_argument("--seed", type=int, default=0, help="Random seed for reproducibility")
+
     args = parser.parse_args()
+
+    if args.seed is not None:
+        random.seed(args.seed)
 
     dataset_dir = args.dataset_dir
     dst_dataset_dir = args.dst_dataset_dir
@@ -457,6 +468,7 @@ async def main():
     print(f"dataset_dir: {dataset_dir}")
     print(f"dst_dataset_dir: {dst_dataset_dir}")
     print(f"provider: {args.provider}")
+    print(f"mc_prob: {args.mc_prob}, n_choices: {args.n_choices}, seed: {args.seed}")
 
     # --------- Build provider + pricing + metrics ----------
     if args.provider == "azure":
@@ -485,7 +497,6 @@ async def main():
         prices = DEFAULT_GEMINI_PRICES
 
         async def closer():
-            # Gemini SDK has no open client to close; keep async shape for symmetry
             return
 
     metrics = Metrics(prices)
@@ -497,7 +508,7 @@ async def main():
     # Pricing banner
     print(f"Pricing (USD/1K tokens): input={prices.input_per_1k}, output={prices.output_per_1k}")
 
-    sem = asyncio.Semaphore(MAX_CONCURRENCY)
+    sem = asyncio.Semaphore(int(os.getenv("MAX_CONCURRENCY", MAX_CONCURRENCY)))
     tasks = [
         process_one(
             i + start,
@@ -511,6 +522,8 @@ async def main():
             print_prompts=args.print_prompts,
             print_outputs=args.print_outputs,
             metrics=metrics,
+            mc_prob=args.mc_prob,
+            n_choices=args.n_choices,
         )
         for i, (dj, im) in enumerate(zip(data_json_list, image_file_list))
     ]
