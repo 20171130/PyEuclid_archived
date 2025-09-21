@@ -27,9 +27,10 @@ You are given a plane geometry problem:
 
 Problem: {problem}. Find {goal}.
 
-Task: Rewrite the problem in clear, concise, and fluent language, preserving the original meaning. 
-If any angles are given in radians, convert them to degrees.
-Output ONLY the rewritten problem, with no explanations or extra text.
+Task: 
+- Rewrite the problem in clear, concise, and fluent language, preserving the original meaning. 
+- If any angles are given in radians, convert them to degrees.
+- Output ONLY the rewritten problem, with no explanations or extra text.
 """
     return full_prompt.strip()
 
@@ -44,12 +45,84 @@ Problem:
 Solution:  
 {proof}
 
-Task: Rewrite the solution in clear, concise, and fluent language, simplifying trivial or redundant steps while preserving correctness. 
-If any angles are given in radians, convert them to degrees.
-Output ONLY the rewritten solution, with the final answer inside \\boxed{{}}. 
-Do NOT include the problem statement, explanations, or extra text.
+Task: 
+- Rewrite the solution in clear, concise, and fluent language, simplifying trivial or redundant steps while preserving correctness. 
+- If any angles are given in radians, convert them to degrees.
+- Output ONLY the rewritten solution, with the final answer inside \\boxed{{}}. 
+- Do NOT include the problem statement, explanations, or extra text.
 """
     return full_prompt.strip()
+
+def create_problem_prompt_choices(problem, goal, proof):
+    full_prompt = f"""
+You are given a plane geometry problem and its corresponding solution:
+
+Problem: As shown in the figure, {problem}. {goal} = ().
+
+Proof:
+{solution}
+
+Task: 
+- Rewrite the problem in clear, concise, and fluent language, preserving the original meaning.
+- Convert the task into a multiple-choice question with exactly 4 options labeled A, B, C, D.
+- Use the reference solution ONLY to determine the correct numeric/choice answer.
+- Create plausible distractors of the same type, magnitude, and units as the correct answer.
+- Ensure EXACTLY ONE option is correct.
+- If any angles are given in radians, convert them to degrees.
+- Output ONLY the rewritten problem with multiple choices, with no explanations or extra text.
+- Do NOT include the solution, explanations, or extra text.
+
+Output format:
+<Rewritten problem statement>
+
+Choices:
+A: ...
+B: ...
+C: ...
+D: ...
+"""
+    return full_prompt.strip()
+
+
+def create_proof_prompt_choices(problem, proof):
+    full_prompt = f"""
+You are given a plane geometry problem and its corresponding solution:
+
+Problem:  
+{problem}
+
+Solution:  
+{proof}
+
+Task: 
+- Rewrite the problem and solution in clear, concise, and fluent language, simplifying trivial or redundant steps while preserving correctness. 
+- If any angles are given in radians, convert them to degrees.
+- Output ONLY the rewritten solution, with the final choice inside \\boxed{{}}. 
+- Do NOT include the problem statement, explanations, or extra text.
+"""
+    return full_prompt.strip()
+
+
+
+def build_problem_prompt(problem: str, goal: str, proof: Optional[str] = None, n_choices: int = 4) -> Tuple[str, str]:
+    """
+    Randomly choose between 'completion' and 'mc' (50/50).
+    Returns (mode, prompt).
+    - mode: 'completion' or 'mc'
+    - prompt: generated text
+    """
+    if random.random() < 0.5 or not proof:
+        return "completion", create_problem_prompt(problem, goal)
+    return "mc", create_problem_prompt_choices(problem, goal, proof, n_choices=n_choices)
+
+
+def build_proof_prompt(problem: str, proof: str, mode: str) -> str:
+    """
+    Match the proof prompt with the same mode used for the problem.
+    """
+    if mode == "mc":
+        return create_proof_prompt_choices(problem, proof)
+    return create_proof_prompt(problem, proof)
 
 
 # ---------------------- Metrics ----------------------
