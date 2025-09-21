@@ -267,8 +267,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             auxiliary_constructions = []
             new_proof_generator = ProofGenerator(new_state)
             new_proof_generator.run()
-            new_proof = new_proof_generator.get_proof()
-            new_proof_str = new_proof_generator.get_proof_str()
+            new_proof_str = new_proof_generator.get_proof_str(angle="degree")
         else:
             # requires auxiliary constructions
             proof_generator.run(relation)
@@ -311,8 +310,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             assert new_state.complete() is not None
             new_proof_generator = ProofGenerator(new_state)
             new_proof_generator.run()
-            new_proof = new_proof_generator.get_proof()
-            new_proof_str = new_proof_generator.get_proof_str()
+            new_proof_str = new_proof_generator.get_proof_str(angle="degree")
             break
         
         necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
@@ -360,13 +358,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             c.construct(*basic_points)
             c.index = 0
             added_constructions.append(c)
-        
-        for (conditions, _, _) in new_proof:
-            for cond in conditions:
-                if isinstance(cond, sympy.core.expr.Expr):
-                    cond = Traced(cond)
-                if cond in conclusions:
-                    sub_conclusions.add(cond)
             
         has_auxiliary = len(auxiliary_constructions) > 0
         if has_auxiliary:
