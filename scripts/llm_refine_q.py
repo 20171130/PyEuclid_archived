@@ -57,7 +57,7 @@ Task:
     return full_prompt.strip()
 
 
-def create_problem_prompt_choices(problem: str, goal: str, proof: str, n_choices: int = 4) -> str:
+def create_problem_prompt_choices(problem: str, goal: str, answer: str, n_choices: int = 4) -> str:
     # Build dynamic choice label list (A, B, C, ...)
     labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[:max(2, n_choices)]
     labels_block = "\n".join(f"{ch}: ..." for ch in labels)
@@ -67,8 +67,8 @@ You are given a plane geometry problem and its corresponding solution:
 
 Problem: As shown in the figure, {problem}. {goal} = ( ).
 
-Reference Solution (for correctness only):
-{proof}
+Reference Answer (for correctness only):
+{answer}
 
 Task:
 - Rewrite the problem in clear, concise, and fluent language, preserving the original meaning.
@@ -110,15 +110,15 @@ Task:
     return full_prompt.strip()
 
 
-def build_problem_prompt(problem: str, goal: str, proof: Optional[str], mc_prob: float, n_choices: int = 4) -> Tuple[str, str]:
+def build_problem_prompt(problem: str, goal: str, answer: Optional[str], mc_prob: float, n_choices: int = 4) -> Tuple[str, str]:
     """
     Decide the mode ('completion' or 'mc') and return (mode, prompt).
     - If proof is missing/empty, force 'completion'.
     - Otherwise sample using mc_prob (default 0.5).
     """
-    has_proof = bool(proof and str(proof).strip())
-    if has_proof and random.random() < mc_prob:
-        return "mc", create_problem_prompt_choices(problem, goal, proof, n_choices=n_choices)
+    has_answer = bool(answer and str(answer).strip())
+    if has_answer and random.random() < mc_prob:
+        return "mc", create_problem_prompt_choices(problem, goal, answer, n_choices=n_choices)
     return "completion", create_problem_prompt(problem, goal)
 
 
@@ -344,10 +344,11 @@ async def process_one(
         informal_problem = data.get("informal_problem", "")
         informal_goal = data.get("informal_goal", "")
         informal_proof = data.get("informal_proof", "")
+        answer = data.get("solution", "")
 
         # 1) Build problem prompt based on mode (50/50 by default)
         mode, prompt_problem = build_problem_prompt(
-            informal_problem, informal_goal, informal_proof, mc_prob=mc_prob, n_choices=n_choices
+            informal_problem, informal_goal, answer, mc_prob=mc_prob, n_choices=n_choices
         )
         if print_prompts:
             logs.append(f">>> PROBLEM PROMPT ({mode.upper()}) >>>")
@@ -428,13 +429,13 @@ async def main():
     parser.add_argument(
         "--dataset-dir",
         type=str,
-        default="task1/calculation_919_samples_template",
+        default="task1/calculation_921_samples_template",
         help="Root directory containing source samples (default: task1/calculation_919_samples_template)",
     )
     parser.add_argument(
         "--dst-dataset-dir",
         type=str,
-        default="task1/calculation_919_samples_llm",
+        default="task1/calculation_921_samples_llm",
         help="Destination directory to write refined samples (default: task1/calculation_919_llm)",
     )
     parser.add_argument("--start-idx", type=int, default=0, help="Start index (inclusive)")

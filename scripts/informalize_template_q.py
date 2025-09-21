@@ -6,13 +6,13 @@ import fitz  # PyMuPDF
 from pyeuclid.informalization.informalize_utils import *
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
-dataset_dir = "task1/calculation_919"
-dst_dataset_dir = "task1/calculation_919_samples_template"
+dataset_dir = "task1/calculation_921"
+dst_dataset_dir = "task1/calculation_921_samples_template"
 data_json_list = []
 image_file_list = []
 
 # collect all data.json + diagram.pdf pairs (cap to 100000 like your original)
-for entry in sorted(tqdm.tqdm(Path(dataset_dir).rglob("*data.json")))[:10]:
+for entry in sorted(tqdm.tqdm(Path(dataset_dir).rglob("*data.json"))):
     sample_dir = entry.parent
     data_json_list.append(os.path.join(sample_dir, "data.json"))
     image_file_list.append(os.path.join(sample_dir, "diagram.pdf"))
