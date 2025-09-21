@@ -281,10 +281,7 @@ class Diagram:
             if not 'check_' + relation.__class__.__name__.lower() in globals():
                 return True
             func = globals()['check_' + relation.__class__.__name__.lower()]
-            try:
-                args = [self.name2point[p.name] for p in relation.get_points()]
-            except:
-                breakpoint()
+            args = [self.name2point[p.name] for p in relation.get_points()]
             if relation not in self.numerical_cache:
                 if relation.negated:
                     self.numerical_cache[relation] = not func(args)
