@@ -550,6 +550,7 @@ class Diagram:
                 ymax = max(ymax, y)
                 ymin = min(ymin, y)
                 x, y = annotation_position(Point(x, y))
+                value = str(value).replace("Variable_", "").replace("*", "")
                 self.ax.annotate(value, (x, y), color="black", ha="center", va="center", fontsize=12)
             else:
                 symbol = [item for item in (eqn.free_symbols) if "Angle" in str(item)][0]
@@ -572,6 +573,7 @@ class Diagram:
                     value = f"{value/pi*180}"
                 if value == "90°":
                     continue
+                value = str(value).replace("Variable_", "").replace("*", "")
                 self.ax.annotate(value, (x, y), color="black", ha="center", va="center", fontsize=12)
             annotated_equations.append(eqn)
             
