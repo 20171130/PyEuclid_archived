@@ -429,13 +429,13 @@ async def main():
     parser.add_argument(
         "--dataset-dir",
         type=str,
-        default="task1/calculation_921_samples_template",
+        default="task1/calculation_921_template",
         help="Root directory containing source samples (default: task1/calculation_919_samples_template)",
     )
     parser.add_argument(
         "--dst-dataset-dir",
         type=str,
-        default="task1/calculation_921_samples_llm",
+        default="task1/calculation_921_llm",
         help="Destination directory to write refined samples (default: task1/calculation_919_llm)",
     )
     parser.add_argument("--start-idx", type=int, default=0, help="Start index (inclusive)")

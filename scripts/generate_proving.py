@@ -144,7 +144,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     sympy.core.random.seed(base_seed)
 
     state = State()
-    state.silent = False
+    state.silent = True
     deductive_database = DeductiveDatabase(state)
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
@@ -158,9 +158,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     attempt = 0
     points = 0
 
-    max_steps = random.uniform(4, 6)
+    max_steps = random.uniform(3, 5)
     max_attempts = 100
-    max_points = random.uniform(8, 10)
+    max_points = 8
     constructions_list = []
     index = 0
     # Construction phase with timeout checks
@@ -258,7 +258,16 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         s = ', '.join([str(construction) for constructions in constructions_list for construction in constructions])
         f.write(s)
     
-    engine.run()
+    print('running engine')
+    
+    try:
+        engine.run()
+    except:
+        print('engine error!')
+        return {"samples_generated": 0}
+    
+    print('finish engine')
+
     conclusions = list(state.relations) + list(state.equations)
         
     if timeout_handler.check_timeout():
@@ -267,6 +276,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     max_depth = max(state.condition2depth.values())
 
     if max_depth <= 2:
+        print(f'depth to low: {max_depth}')
         return {"samples_generated": 0}
 
     conclusions = [c for c in conclusions if state.condition2depth.get(c) > 2 and state.condition2depth.get(c) >= max_depth - 1]
@@ -360,28 +370,45 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         sufficient_constructions = get_sufficient_constructions(points)
         sufficient_constructions = sorted(sufficient_constructions, key=lambda c: c.index)
         new_state = State()
-        new_state.silent = False
+        new_state.silent = True
         new_state.goal = relation.expr if isinstance(relation, Traced) else relation
         new_state.diagram = diagram
         new_state.add_constructions(sufficient_constructions)
         new_deductive_database = DeductiveDatabase(new_state)
         new_algebraic_system = AlgebraicSystem(new_state)
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-        new_engine.run()
+        try:
+            new_engine.run()
+        except:
+            print('new_engine error!')
+            continue
+
         if new_state.complete() is None:
+            print('new_engine cannot solve')
             continue
 
         if new_state.condition2depth[key] <= 2:
+            print('depth too easy')
             continue
 
         new_proof_generator = ProofGenerator(new_state, max_equation_length_perstep=None, norm=0)
-        new_proof_generator.run()
-        new_proof = new_proof_generator.get_proof()
-        new_proof_str = new_proof_generator.get_proof_str()
+        try:
+            new_proof_generator.run()
+            new_proof = new_proof_generator.get_proof()
+        except:
+            print('new_proof wrong!!')
+            input()
+        
+        if len(new_proof) <= 4:
+            print('proof too easy')
+            continue
+
+        new_proof_str = new_proof_generator.get_proof_str(angle='degree')
 
         necessary_constructions = new_proof_generator.source_constructions[key]
 
         if len(necessary_constructions) <= 2:
+            print('neccessy constructions too easy')
             continue
 
         input_points  = {p for c in necessary_constructions for p in c.inputs  if isinstance(p, Point)}

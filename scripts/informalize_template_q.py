@@ -12,7 +12,7 @@ data_json_list = []
 image_file_list = []
 
 # collect all data.json + diagram.pdf pairs (cap to 100000 like your original)
-for entry in sorted(tqdm.tqdm(Path(dataset_dir).rglob("*data.json"))):
+for entry in sorted(tqdm.tqdm(Path(dataset_dir).rglob("*data.json")))[:10]:
     sample_dir = entry.parent
     data_json_list.append(os.path.join(sample_dir, "data.json"))
     image_file_list.append(os.path.join(sample_dir, "diagram.pdf"))
