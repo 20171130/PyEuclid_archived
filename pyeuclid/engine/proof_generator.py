@@ -415,22 +415,24 @@ class ProofGenerator:
         
         return proof
     
-    def show_proof(self, node=None, verbose=False):
-        res = self.get_proof_str(node, verbose)
+    def show_proof(self, node=None, verbose=False, angle="radian"):
+        res = self.get_proof_str(node, verbose, angle=angle)
         print(res)
 
-    def get_proof_str(self, node=None, verbose=False):
+    def get_proof_str(self, node=None, verbose=False, angle="radian"):
         res = "Solution:\n"
         proof = self.get_proof(node)
         def _format(items):
             formatted_items = []
             for item in items:
+                if isinstance(item, Traced):
+                    item = item.expr
                 if isinstance(item, sympy.core.expr.Expr):
+                    if angle == "degree":
+                        item = item.subs(pi, 180)
                     s = pretty_print_expr(item)
                 else:
                     s = str(item)
-                # if verbose and hasattr(item, 'depth'):
-                #     s += f"@{item.depth}"
                 formatted_items.append(s)
             return ' & '.join(formatted_items)
 
@@ -564,7 +566,7 @@ class ProofGenerator:
                             div *= arg
                     if div != 1:
                         eqn = eqn / div
-
+                
                 eqn = sympy.expand(eqn)
 
                 probe = eqn.args if eqn.is_Add else (eqn,)
