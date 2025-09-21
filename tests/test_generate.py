@@ -41,7 +41,8 @@ def printt(s):
     print(s)
 
 
-debug = False
+debug = True
+problem_type = "calculation"
 
 def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
     """Generate a single problem with timeout checking at key points"""
@@ -51,7 +52,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
     seed = random.randint(0, int(1e9))
     hash_seed = os.environ.get("PYTHONHASHSEED", None)
-    seed = 0
     assert hash_seed is not None
     random.seed(seed)
     np.random.seed(seed)
@@ -197,7 +197,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         for p in outputs:
             point2constructions[p] = constructions
         
-        annotated_equations = diagram.draw_diagram(save=True, equations=state.equations)
+        equations = [item.expr for item in state.equations if len(item.free_symbols)==1]
+        annotated_equations = diagram.draw_diagram(save=True, equations=equations)
 
     with open(os.path.join(problem_output_dir, f'constructions_list.json'), 'w') as f:
         s = ', '.join([str(construction) for constructions in constructions_list for construction in constructions])
@@ -286,7 +287,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             new_proof = new_proof_generator.get_proof()
             if len(new_proof) <= 4:
                 continue
-            new_proof_str = new_proof_generator.get_proof_str()
+            new_proof_str = new_proof_generator.get_proof_str(angle="degree")
             key = new_state.goal - new_state.complete()
         else:
             # requires auxiliary constructions
@@ -415,7 +416,25 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         new_state = State()
         new_state.diagram = diagram
         new_state.add_constructions(necessary_constructions+auxiliary_constructions)
-        annotated_equations = diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=new_state.equations)
+        goal = str(relation)
+        equations = [item.expr for item in new_state.equations if len(item.free_symbols)==1]
+        if "Length" in str(relation) or "Angle" in str(relation):
+            rand = random.random()
+            symbol = list(relation.free_symbols)[0]
+            value = sympy.solve(relation, symbol)[0]
+            variable = random.choice(["a", "b", "c", "x", "y", "z"])
+            variable = Variable(variable)
+            if "Angle" in str(relation):
+                value = value/sympy.pi*180
+                symbol = symbol *180/sympy.pi
+            factor = random.choice([1, 2, 3, 4, 5, 6, 7])
+            if random.random() > 0.5:
+                equation = variable * factor - symbol - value%factor
+            else:
+                equation = variable * factor - symbol - value%factor + factor
+            equations.append(equation)
+            goal = str(equation.subs(symbol, value)/factor)
+        annotated_equations = diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=equations)
         diagram.restore()
 
         problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
