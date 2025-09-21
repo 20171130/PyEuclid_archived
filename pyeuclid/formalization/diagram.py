@@ -538,15 +538,10 @@ class Diagram:
         annotated_equations = []
         for eqn in equations:
             if "Length" in str(eqn):
-                if not len(eqn.args) == 2 or "/" in str(eqn) or "**" in str(eqn):
+                if "/" in str(eqn) or "**" in str(eqn):
                     continue
-                if len(eqn.args[0].free_symbols)==0:
-                    value, symbol = eqn.args
-                elif len(eqn.args[1].free_symbols)==0:
-                    symbol, value = eqn.args
-                else:
-                    continue
-                value = - value
+                symbol = [item for item in (eqn.free_symbols) if "Length" in str(item)][0]
+                value = sympy.solve(eqn, symbol)[0]
                 a, b = str(symbol).split("_")[1:]
                 a, b = self.name2point[a], self.name2point[b]
                 x, y = (a.x+b.x)/2, (a.y+b.y)/2
@@ -557,16 +552,9 @@ class Diagram:
                 x, y = annotation_position(Point(x, y))
                 self.ax.annotate(value, (x, y), color="black", ha="center", va="center", fontsize=12)
             else:
-                if not len(eqn.args) == 2:
-                    continue
-                if len(eqn.args[0].free_symbols)==0:
-                    value, symbol = eqn.args
-                elif len(eqn.args[1].free_symbols)==0:
-                    symbol, value = eqn.args
-                else:
-                    continue
+                symbol = [item for item in (eqn.free_symbols) if "Angle" in str(item)][0]
+                value = sympy.solve(eqn, symbol)[0]
                 norm = span/20
-                value = - value
                 a, b, c = str(symbol).split("_")[1:]
                 a, b, c = self.name2point[a], self.name2point[b], self.name2point[c]
                 highlight_angles.append([(a, b, c)])
@@ -578,7 +566,10 @@ class Diagram:
                 xmin = min(xmin, x)
                 ymax = max(ymax, y)
                 ymin = min(ymin, y)
-                value = f"{value/pi*180}°"
+                if len(value.free_symbols)==0:
+                    value = f"{value/pi*180}°"
+                else:
+                    value = f"{value/pi*180}"
                 if value == "90°":
                     continue
                 self.ax.annotate(value, (x, y), color="black", ha="center", va="center", fontsize=12)
