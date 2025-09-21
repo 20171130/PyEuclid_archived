@@ -46,6 +46,9 @@ def informalize_problem_q(problem):
         if " = " in construction:
             output, informal_clause = informalize_construction_q(construction)
             informal_constructions.append([output, informal_clause])
+        else:
+            informal_clause = informalize_relation_q(construction)
+            informal_constructions.append([None, informal_clause])
     informal_problem = ", ".join([informal_clause for _, informal_clause in informal_constructions])
     return informal_problem
 
@@ -87,6 +90,12 @@ def informalize_term(term):
         term_right = term[term.find("Area") + 4 + num_params * 2:]
         term = term[term.find("Area"): term.find("Area") + 4 + num_params * 2]
         return term_left + "area of " + "".join(term.split("_")[1:]).upper() + term_right
+    elif "Variable" in term:
+        num_params = term.count("_")
+        term_left = term[:term.find("Variable")]
+        term_right = term[term.find("Variable") + 8 + num_params * 2:]
+        term = term[term.find("Variable"): term.find("Variable") + 8 + num_params * 2]
+        return term_left + "".join(term.split("_")[1:]) + term_right
     return term
 
 def informalize_relation(formal_clause):
@@ -153,22 +162,22 @@ def informalize_relation_q(formal_clause):
             template = random.choice(relation_template[predicate])
             return template[0].format(*[params[i] for i in template[1]])
     else:
-        # term_list = "".join(formal_clause.split(" ")).split("-")
         sub_list = get_substrings_in_brackets(formal_clause)
         for sub in sub_list:
             if " + " in sub or " - " in sub:
                 return formal_clause + " = " + "0"
-        term_list = formal_clause.split(" - ")
+        term_list = "".join(formal_clause.split(" ")).split("-")
+        # term_list = formal_clause.split(" - ")
         if term_list[0] == "":
-            right_list = [term.split(" + ")[0] for term in term_list[1:]]
+            right_list = [term.split("+")[0] for term in term_list[1:]]
             right_list = informalize_term_list_q(right_list)
-            left_list = [term.split(" + ")[1:] for term in term_list[1:]]
+            left_list = [term.split("+")[1:] for term in term_list[1:]]
             left_list = [item for left in left_list for item in left]
             left_list = informalize_term_list_q(left_list)
         else:
-            right_list = [term.split(" + ")[0] for term in term_list[1:]]
+            right_list = [term.split("+")[0] for term in term_list[1:]]
             right_list = informalize_term_list_q(right_list)
-            left_list = [term_list[0].split(" + ")] + [term.split(" + ")[1:] for term in term_list[1:]]
+            left_list = [term_list[0].split("+")] + [term.split("+")[1:] for term in term_list[1:]]
             left_list = [item for left in left_list for item in left]
             left_list = informalize_term_list_q(left_list)
         informal_clause = " + ".join(left_list) + " = " + " + ".join(right_list)
