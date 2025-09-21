@@ -9,8 +9,8 @@
 
 set -eo pipefail
 
-# MODEL="saves/task2/918/qwen2.5-vl-7b"
-MODEL="Qwen/Qwen2.5-VL-7B-Instruct"
+MODEL="saves/task1/919/qwen2.5-vl-7b"
+# MODEL="Qwen/Qwen2.5-VL-7B-Instruct"
 PORT="${PORT:-8000}"
 SHARED_DIR=".vllm"
 HOST="0.0.0.0"
@@ -31,4 +31,4 @@ vllm serve "${MODEL}" \
   --port "${PORT}" \
   --dtype auto \
   --tensor-parallel-size "${NGPUS}" \
-  --allowed-local-media-path /private/home/zhaoyuli/PyEuclid_archived/data/task2/eval/images
+  --allowed-local-media-path /private/home/zhaoyuli/PyEuclid_archived/data/

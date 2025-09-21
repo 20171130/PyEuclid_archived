@@ -155,9 +155,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     attempt = 0
     points = 0
 
-    max_steps = random.uniform(6, 12)
+    max_steps = random.uniform(8, 10)
     max_attempts = 100
-    max_points = random.uniform(10, 20)
+    max_points = random.uniform(10, 16)
     constructions_list = []
     index = 0
     old_relations = []

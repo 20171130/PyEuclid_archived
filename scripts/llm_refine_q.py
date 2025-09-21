@@ -27,8 +27,9 @@ You are given a plane geometry problem:
 
 Problem: {problem}. Find {goal}.
 
-Task: Reword the problem in clear, concise, and fluent language, ensuring it is easy to understand while preserving its original meaning.  
-Output ONLY the rewritten problem. Do NOT include explanations or any additional text.
+Task: Rewrite the problem in clear, concise, and fluent language, preserving the original meaning. 
+If any angles are given in radians, convert them to degrees.
+Output ONLY the rewritten problem, with no explanations or extra text.
 """
     return full_prompt.strip()
 
@@ -43,8 +44,10 @@ Problem:
 Solution:  
 {proof}
 
-Task: Reword the solution in clear, concise, and fluent language, simplifying or combining trivial or redundant steps while preserving correctness. Avoid unnecessary details.
-Output ONLY the rewritten solution. Present the final answer in \\boxed{{}}. Do NOT include the problem statement, explanations, or any additional text.
+Task: Rewrite the solution in clear, concise, and fluent language, simplifying trivial or redundant steps while preserving correctness. 
+If any angles are given in radians, convert them to degrees.
+Output ONLY the rewritten solution, with the final answer inside \\boxed{{}}. 
+Do NOT include the problem statement, explanations, or extra text.
 """
     return full_prompt.strip()
 
