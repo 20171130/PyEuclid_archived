@@ -41,7 +41,7 @@ def printt(s):
     print(s)
 
 
-debug = True
+debug = False
 problem_type = "calculation"
 
 def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
@@ -78,7 +78,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         max_points = random.uniform(8, 15) # 8 - 15
         rule_set = inference_rule_sets["basic"]
     else:
-        max_steps = random.uniform(3, 6) # 4 - 10
+        max_steps = random.uniform(3, 5) # 4 - 10
         max_points = 8
         rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
         rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
@@ -230,8 +230,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     printt("Determining if auxiliary constructions are needed")
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
-    conclusions = [c for c in conclusions if state.condition2depth[c] > 2]
-    conclusions.sort(key=lambda x: -state.condition2depth[x])
+    max_depth = max(state.condition2depth.values())
+    conclusions = [c for c in conclusions if state.condition2depth[c] >= 2 and state.condition2depth[c] >= max_depth - 1]
+    random.shuffle(conclusions)
+    # conclusions.sort(key=lambda x: -state.condition2depth[x])
+    print(f'got {len(conclusions)} conclusions.')
     def get_sufficient_constructions(points):
         res = []
         target_points = set(points)
@@ -259,16 +262,32 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         sufficient_constructions = get_sufficient_constructions(points)
         new_state = State()
         new_state.silent = True
-        if isinstance(relation, Traced):
-            symbols = relation.expr.free_symbols
-        else:
-            symbols = relation.free_symbols
-        if len(symbols) != 1:
-            continue
-        new_state.goal = next(iter(symbols))
-        goal_str = str(new_state.goal)
+        symbol = list(relation.free_symbols)[0]
+        goal = symbol
+        solution = sympy.solve(relation, symbol)[0]
         new_state.diagram = diagram
         new_state.add_constructions(sufficient_constructions)
+        equations = [item.expr for item in new_state.equations if len(item.free_symbols)==1]
+        variable_eqn = None
+        if random.random() > 0.9 and ("Length" in str(relation) or "Angle" in str(relation)):
+            rand = random.random()
+            variable = random.choice(["a", "b", "c", "x", "y", "z"])
+            variable = Variable(variable)
+            if "Angle" in str(relation):
+                solution = solution/sympy.pi*180
+                symbol = symbol * 180 / sympy.pi
+            factor = random.choice([1, 2, 3, 4, 5, 6, 7])
+            if random.random() > 0.5:
+                variable_eqn = variable * factor - symbol - solution%factor
+            else:
+                variable_eqn = variable * factor - symbol - solution%factor + factor
+            variable_eqn *= pi
+            equations.append(variable_eqn)
+            new_state.add_equation(variable_eqn)
+            solution = sympy.solve(variable_eqn.subs(symbol, solution), variable)[0]
+            goal = variable
+            key = goal - solution
+        new_state.goal = goal
         new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
         new_algebraic_system = AlgebraicSystem(new_state)
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
@@ -283,19 +302,19 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             try:
                 new_proof_generator.run()
             except:
+                print('new proof generator run fails !!!!')
                 continue
             new_proof = new_proof_generator.get_proof()
             if len(new_proof) <= 4:
+                print('proof so short !!!!')
                 continue
             new_proof_str = new_proof_generator.get_proof_str(angle="degree")
             key = new_state.goal - new_state.complete()
         else:
             # requires auxiliary constructions
+            print('new state does not prove !!!!')
             continue
-            # try:
-            #     proof_generator.run(relation)
-            # except:
-            #     continue
+            # proof_generator.run(relation)
             # auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
             # sufficient_auxiliary_constructions = []
             # for auxiliary_construction in auxiliary_constructions:
@@ -312,12 +331,14 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             #     new_constructions = sufficient_constructions + new_auxiliary_constructions
             #     new_state = State()
             #     new_state.silent = True
-            #     new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+            #     new_state.goal = goal
             #     new_state.diagram = diagram
             #     new_state.add_constructions(new_constructions)
             #     new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
             #     new_algebraic_system = AlgebraicSystem(new_state)
             #     new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+            #     if variable_eqn:
+            #         new_state.add_equation(variable_eqn)
             #     new_engine.run()
             #     if new_state.complete() is not None:
             #         # the auxiliary construction is not required
@@ -325,21 +346,21 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             
             # new_state = State()
             # new_state.silent = True
-            # new_state.goal = relation.expr if isinstance(relation, Traced) else relation
+            # new_state.goal = goal
             # new_state.diagram = diagram
             # new_state.add_constructions(sorted(sufficient_constructions+auxiliary_constructions, key=lambda c: c.index))
             # new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
             # new_algebraic_system = AlgebraicSystem(new_state)
             # new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-            # new_engine.run()
-            # assert new_state.complete() is not None
-            # new_proof_generator = ProofGenerator(new_state, norm=0, max_equation_length_perstep=None)
+            # if variable_eqn:
+            #     new_state.add_equation(variable_eqn)
             # try:
-            #     new_proof_generator.run()
-            # except:
-            #     continue
-            # new_proof = new_proof_generator.get_proof()
-            # new_proof_str = new_proof_generator.get_proof_str()
+            #     new_engine.run()
+            # continue
+            # assert new_state.complete() is not None
+            # new_proof_generator = ProofGenerator(new_state)
+            # new_proof_generator.run()
+            # new_proof_str = new_proof_generator.get_proof_str(angle="degree")
             # break
         
         necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
@@ -416,35 +437,24 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         new_state = State()
         new_state.diagram = diagram
         new_state.add_constructions(necessary_constructions+auxiliary_constructions)
-        goal = str(relation)
-        equations = [item.expr for item in new_state.equations if len(item.free_symbols)==1]
-        if "Length" in str(relation) or "Angle" in str(relation):
-            rand = random.random()
-            symbol = list(relation.free_symbols)[0]
-            value = sympy.solve(relation, symbol)[0]
-            variable = random.choice(["a", "b", "c", "x", "y", "z"])
-            variable = Variable(variable)
-            if "Angle" in str(relation):
-                value = value/sympy.pi*180
-                symbol = symbol *180/sympy.pi
-            factor = random.choice([1, 2, 3, 4, 5, 6, 7])
-            if random.random() > 0.5:
-                equation = variable * factor - symbol - value%factor
-            else:
-                equation = variable * factor - symbol - value%factor + factor
-            equations.append(equation)
-            goal = str(equation.subs(symbol, value)/factor)
         annotated_equations = diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=equations)
         diagram.restore()
 
         problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
+        problem_str =  ', '.join([str(construction) for construction in problem_constructions])
+        if variable_eqn:
+            if 'pi' in str(variable_eqn):
+                variable_eqn = variable_eqn.subs(pi, 180) / 180
+            problem_str = problem_str + ', ' + str(variable_eqn)
+        solution = solution.subs(pi, 180)
 
         data = {
-            "problem": ', '.join([str(construction) for construction in problem_constructions]),
+            "problem": problem_str,
             "necessary_constructions": ', '.join([str(construction) for construction in necessary_constructions]),
             "unused_constructions": ', '.join([str(construction) for construction in sufficient_constructions if construction not in necessary_constructions]),
             "auxiliary_constructions": ', '.join([str(construction) for construction in auxiliary_constructions]),
-            "goal": goal_str,
+            "goal": str(goal),
+            "solution": str(solution),
             "depth": state.condition2depth[relation],
             "diagram": diagram_sample_path,
             "proof": new_proof_str,
