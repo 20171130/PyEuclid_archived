@@ -8,14 +8,14 @@ import urllib.parse
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
-JSON_PATH = "/scratch/sophistz/workspace/PyEuclid_archived/data/task2/eval/data.json"
+JSON_PATH = "./data/task2/eval/data.json"
 
 def load_and_normalize(path: str):
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     
     ours = {}
-    with open("/scratch/sophistz/workspace/PyEuclid_archived/results/task2/ours2.json", "r") as f:
+    with open("./results/task2/ours2.json", "r") as f:
         results = f.readlines()
         for result in results:
             if result[-1] == "\n": result = result[:-1]
