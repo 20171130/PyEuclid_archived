@@ -400,9 +400,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         new_engine.run()
         assert new_state.complete() is not None
 
-        if new_state.condition2depth[key] <= 2:
-            continue
-
         new_proof_generator = ProofGenerator(new_state, max_equation_length_perstep=None)
         new_proof_generator.run()
         new_proof = new_proof_generator.get_proof()

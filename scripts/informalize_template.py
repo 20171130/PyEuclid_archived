@@ -2,51 +2,87 @@ import json
 import os
 import shutil
 from pathlib import Path
-from pyeuclid.informalization.informalize_utils import *
-import tqdm
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from pyeuclid.informalization.informalize_utils import (
+    informalize_problem,
+    informalize_goal,
+    informalize_proof,
+)
+from tqdm import tqdm
 
-dataset_dir = "task2/proving_918"
-dst_dataset_dir = "task2/proving_918_template"
-data_json_list = []
-image_file_list = []
-for entry in tqdm.tqdm(Path(dataset_dir).rglob("*data.json")):
-    sample_dir = entry.parent
-    data_json_list.append(os.path.join(sample_dir, "data.json"))
-    image_file_list.append(os.path.join(sample_dir, "diagram.jpg"))
-print("begin")
 
-total_num = len(data_json_list)
-error_list = list()
-result = dict()
+dataset_dir = "task2/proving_921"
+dst_dataset_dir = "task2/proving_921_template"
+max_workers = os.cpu_count() or 32
 
-for idx, (data_json, image_file) in tqdm.tqdm(enumerate(zip(data_json_list, image_file_list))):
+
+def process_sample(data_json: str, image_file: str, dataset_dir: str, dst_dataset_dir: str):
+    """
+    Worker function: load JSON, informalize, write JSON + copy image.
+    Returns None if success, or data_json path if failed.
+    """
     try:
         with open(data_json, "r") as f:
             data = json.load(f)
-    except:
-        error_list.append(data_json)
-        continue
-    problem = data["problem"]
-    goal = data["goal"]
-    proof = data["proof"]
+    except Exception:
+        return data_json  # error reading
 
-    informal_problem = informalize_problem(problem)
-    data["informal_problem"] = informal_problem
+    try:
+        problem = data["problem"]
+        goal = data["goal"]
+        proof = data["proof"]
 
-    informal_goal = informalize_goal(goal)
-    data["informal_goal"] = informal_goal
-    
-    informal_proof = informalize_proof(proof)
-    data["informal_proof"] = informal_proof
+        data["informal_problem"] = informalize_problem(problem)
+        data["informal_goal"] = informalize_goal(goal)
+        data["informal_proof"] = informalize_proof(proof)
 
-    dst_data_json = data_json.replace(dataset_dir, dst_dataset_dir)
-    dst_image_file = image_file.replace(dataset_dir, dst_dataset_dir)
-    os.makedirs(os.path.dirname(dst_data_json), exist_ok=True)
-    with open(dst_data_json, "w") as f:
-        json.dump(data, f, indent=4)
+        dst_data_json = data_json.replace(dataset_dir, dst_dataset_dir)
+        dst_image_file = image_file.replace(dataset_dir, dst_dataset_dir)
+        os.makedirs(os.path.dirname(dst_data_json), exist_ok=True)
 
-    if os.path.exists(dst_image_file):
-        os.remove(dst_image_file)
-    shutil.copy2(image_file, dst_image_file)
+        with open(dst_data_json, "w") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
 
-print(error_list)
+        if os.path.exists(image_file):
+            os.makedirs(os.path.dirname(dst_image_file), exist_ok=True)
+            if os.path.exists(dst_image_file):
+                os.remove(dst_image_file)
+            shutil.copy2(image_file, dst_image_file)
+
+        return None
+    except Exception:
+        return data_json
+
+
+def main():
+    data_json_list = []
+    image_file_list = []
+
+    # collect all files
+    for entry in sorted(tqdm(Path(dataset_dir).rglob("*data.json")))[:100000]:
+        sample_dir = entry.parent
+        data_json_list.append(str(sample_dir / "data.json"))
+        image_file_list.append(str(sample_dir / "diagram.jpg"))
+
+    print("begin")
+
+    error_list = []
+
+    with ProcessPoolExecutor(max_workers=max_workers) as ex:
+        futures = [
+            ex.submit(process_sample, dj, im, dataset_dir, dst_dataset_dir)
+            for dj, im in zip(data_json_list, image_file_list)
+        ]
+
+        for future in tqdm(as_completed(futures), total=len(futures)):
+            res = future.result()
+            if res is not None:
+                error_list.append(res)
+
+    print("Done.")
+    if error_list:
+        print("Errors:", error_list)
+
+
+if __name__ == "__main__":
+    main()

@@ -35,6 +35,15 @@
             "images": "images"
         }
     },
+    "task2_921_train": {
+        "file_name": "task2_921_train.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output",
+            "images": "images"
+        }
+    },
     "task1_train_921": {
         "file_name": "task1_train_921.json",
         "columns": {

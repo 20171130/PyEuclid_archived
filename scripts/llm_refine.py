@@ -27,8 +27,10 @@ You are given a plane geometry problem:
 
 Problem: {problem}. Prove that: {goal}.
 
-Task: Reword the problem in clear, concise, and fluent language, ensuring it is easy to understand while preserving its original meaning.  
-Output ONLY the rewritten problem. Do NOT include explanations or any additional text.
+Task: 
+- Rewrite the problem in clear, concise, and fluent language, preserving the original meaning.
+- If any angles are given in radians, convert them to degrees.
+- Output ONLY the rewritten problem. Do NOT include explanations or any additional text.
 """
     return full_prompt.strip()
 
@@ -43,8 +45,11 @@ Problem:
 Proof:  
 {proof}
 
-Task: Reword the proof in clear, concise, and fluent language, simplifying or combining trivial or redundant steps while preserving correctness. Avoid unnecessary details.
-Output ONLY the rewritten proof. Do NOT include the problem statement, explanations, or any additional text.
+Task: 
+- Rewrite the proof in clear, concise, and fluent language, simplifying trivial or redundant steps.
+- Step-wise formatting is optional. Use it only when it improves clarity; otherwise, presenting the solution as a continuous paragraph is acceptable.
+- If any angles are given in radians, convert them to degrees.
+- Output ONLY the rewritten proof. Do NOT include the problem statement, explanations, or any additional text.
 """
     return full_prompt.strip()
 
@@ -350,13 +355,13 @@ async def main():
     parser.add_argument(
         "--dataset-dir",
         type=str,
-        default="task2/figure_template",
+        default="task2/proving_921_template",
         help="Root directory containing source samples (default: task2/figure_template)",
     )
     parser.add_argument(
         "--dst-dataset-dir",
         type=str,
-        default="task2/figure_llm",
+        default="task2/proving_921_llm",
         help="Destination directory to write refined samples (default: task2/figure_llm)",
     )
     parser.add_argument("--start_idx", type=int, default=0, help="Start index (inclusive)")
