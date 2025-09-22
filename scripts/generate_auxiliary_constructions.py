@@ -360,8 +360,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             points = [p for points in points_list for p in points]
 
         sufficient_constructions = get_sufficient_constructions(points)
-
-        proof_generator.run(relation)
+        try:
+            proof_generator.run(relation)
+        except:
+            continue
         auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
         sufficient_auxiliary_constructions = []
         for auxiliary_construction in auxiliary_constructions:
@@ -384,7 +386,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             new_deductive_database = DeductiveDatabase(new_state)
             new_algebraic_system = AlgebraicSystem(new_state)
             new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-            new_engine.run()
+            try:
+                new_engine.run()
+            except:
+                continue
             if new_state.complete() is not None:
                 # the auxiliary construction is not required
                 auxiliary_constructions.remove(auxiliary_construction)
@@ -397,11 +402,17 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         new_deductive_database = DeductiveDatabase(new_state)
         new_algebraic_system = AlgebraicSystem(new_state)
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-        new_engine.run()
-        assert new_state.complete() is not None
-
+        try:
+            new_engine.run()
+            assert new_state.complete() is not None
+        except:
+            continue
+        
         new_proof_generator = ProofGenerator(new_state, max_equation_length_perstep=None)
-        new_proof_generator.run()
+        try:
+            new_proof_generator.run()
+        except:
+            continue
         new_proof = new_proof_generator.get_proof()
         new_proof_str = new_proof_generator.get_proof_str()
 
