@@ -8,7 +8,7 @@
 #SBATCH --error=/dev/null
 #SBATCH --partition=learnfair,learnlab,devlab,scavenge
 
-export OUTPUT_DIR=task3/auxiliary_construction_2
+export OUTPUT_DIR=task3/auxiliary_construction_921
 export TIMEOUT_SECONDS=259200
 export MAX_PROBLEM_ID=0
 
