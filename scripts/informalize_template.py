@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 
 dataset_dir = "task2/proving_921"
-dst_dataset_dir = "task2/proving_921_template"
+dst_dataset_dir = "task2/proving_921_eval_template"
 max_workers = os.cpu_count() or 32
 
 
@@ -59,7 +59,7 @@ def main():
     image_file_list = []
 
     # collect all files
-    for entry in sorted(tqdm(Path(dataset_dir).rglob("*data.json")))[:100000]:
+    for entry in sorted(tqdm(Path(dataset_dir).rglob("*data.json")))[100000:]:
         sample_dir = entry.parent
         data_json_list.append(str(sample_dir / "data.json"))
         image_file_list.append(str(sample_dir / "diagram.jpg"))

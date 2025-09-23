@@ -51,7 +51,7 @@ Task:
 - Rewrite the solution in clear, concise, and fluent language, simplifying trivial or redundant steps.
 - Step-wise formatting is optional. Use it only when it improves clarity; otherwise, presenting the solution as a continuous paragraph is acceptable.
 - If any angles are given in radians, convert them to degrees.
-- Output ONLY the rewritten solution, with the final answer inside \\boxed{{}}.
+- Output ONLY the rewritten solution, with the final answer inside \\boxed{{}} at the end.
 - Do NOT include the problem statement, explanations, or extra text.
 """
     return full_prompt.strip()
@@ -104,7 +104,7 @@ Task:
 - Step-wise formatting is optional. Use it only when it improves clarity; otherwise, presenting the solution as a continuous paragraph is acceptable.
 - If any angles are given in radians, convert them to degrees.
 - Ensure the final choice label matches the provided solution’s final answer.
-- Output ONLY the rewritten solution, with the final CHOICE LABEL (e.g., A, B, C, or D) inside \\boxed{{}}.
+- Output ONLY the rewritten solution, with the final CHOICE LABEL (e.g., A, B, C, or D) inside \\boxed{{}} at the end.
 - Do NOT include the problem statement, explanations, or extra text.
 """
     return full_prompt.strip()
@@ -429,14 +429,13 @@ async def main():
     parser.add_argument(
         "--dataset-dir",
         type=str,
-        default="task1/calculation_921_template",
+        default="task1/calculation_922_new_template",
         help="Root directory containing source samples (default: task1/calculation_919_samples_template)",
     )
     parser.add_argument(
         "--dst-dataset-dir",
         type=str,
-        default="task1/calculation_921_llm",
-        help="Destination directory to write refined samples (default: task1/calculation_919_llm)",
+        default="task1/calculation_922_new_llm", help="Destination directory to write refined samples (default: task1/calculation_919_llm)",
     )
     parser.add_argument("--start-idx", type=int, default=0, help="Start index (inclusive)")
     parser.add_argument("--end-idx", type=int, default=None, help="End index (exclusive)")
@@ -444,7 +443,7 @@ async def main():
     parser.add_argument("--print-outputs", action="store_true", help="Print LLM outputs")
 
     # NEW: control flip & reproducibility
-    parser.add_argument("--mc-prob", type=float, default=0.5, help="Probability of multiple-choice mode (default 0.5)")
+    parser.add_argument("--mc-prob", type=float, default=0.9, help="Probability of multiple-choice mode (default 0.5)")
     parser.add_argument("--n-choices", type=int, default=4, help="Number of choices when in MC mode (default 4)")
     parser.add_argument("--seed", type=int, default=0, help="Random seed for reproducibility")
 

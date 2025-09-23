@@ -52,5 +52,14 @@
             "response": "output",
             "images": "images"
         }
+    },
+    "task1_train_922_new": {
+        "file_name": "task1_train_922_new.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output",
+            "images": "images"
+        }
     }
 }

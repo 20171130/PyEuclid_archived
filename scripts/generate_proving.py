@@ -275,11 +275,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
     max_depth = max(state.condition2depth.values())
 
-    if max_depth <= 2:
+    if max_depth < 2:
         print(f'depth to low: {max_depth}')
         return {"samples_generated": 0}
 
-    conclusions = [c for c in conclusions if state.condition2depth.get(c) > 2 and state.condition2depth.get(c) >= max_depth - 1]
+    conclusions = [c for c in conclusions if state.condition2depth.get(c) >= 2 and state.condition2depth.get(c) <= 4]
     # filter conclusions
     filtered_conclusions = []
     for relation in conclusions:
