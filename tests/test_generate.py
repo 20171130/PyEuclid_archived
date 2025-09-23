@@ -308,6 +308,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             if len(new_proof) <= 4:
                 print('proof so short !!!!')
                 continue
+            if len(new_proof) >= 40:
+                print('proof so long !!!!')
+                continue
             new_proof_str = new_proof_generator.get_proof_str(angle="degree")
             key = new_state.goal - new_state.complete()
         else:
