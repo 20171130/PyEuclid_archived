@@ -8,7 +8,13 @@ import math
 # abuse Length and Angle class for type annotation for length and angle values
 
 def sample_angle(low=0, high=pi, special_values=[]):
-    values = [15, 30, 45, 60, 90, 120]
+    rand = random.random()
+    if rand > 0.5:
+        values = [15, 30, 45, 60, 90, 120]
+    elif rand > 0.1:
+        values = list(range(10,81))
+    else:
+        values = list(range(100,171))
     values = [pi*item/180 for item in values]
     values += special_values
     values = [item for item in values if item > low and item < high]
@@ -16,7 +22,13 @@ def sample_angle(low=0, high=pi, special_values=[]):
     return chosen
 
 def sample_length(low=0, high=9999, special_values=[], scale=1):
-    values = [1, 2, 3, 4, 5, 6, 8, 10, 12, 13]
+    rand = random.random()
+    if rand > 0.5:
+        values = [1, 2, 3, 4, 5, 6, 8, 10, 12, 13]
+    elif rand > 0.1:
+        values = list(range(1,11))
+    else:
+        values = list(range(11, 16))
     values = [item*scale for item in values]
     values += special_values
     values = [item for item in values if item > low and item < high]
