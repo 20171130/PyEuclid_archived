@@ -145,7 +145,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
         if multiconstructions:
             to_intersect = picked
-            candidate_set = [rule for rule in  construction_rule_set if rule.num_inputs <= len(state.points) and rule.num_outputs == picked.num_outputs and rule in construction_rule_sets['nondeterministic']]
+            candidate_set = [rule for rule in construction_rule_set if rule.num_inputs <= len(state.points) and rule.num_outputs == picked.num_outputs and rule in construction_rule_sets['nondeterministic']]
             rand = random.random()
             picked = random.choice(candidate_set)
             all_points = list(state.points.copy())
@@ -215,7 +215,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
     max_depth = max(state.condition2depth.values())
 
-    if max_depth <= 2:
+    if max_depth < 2:
         print('too easy problem!!!')
         return 0
 
@@ -231,7 +231,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
     max_depth = max(state.condition2depth.values())
-    conclusions = [c for c in conclusions if state.condition2depth[c] >= 2 and state.condition2depth[c] >= max_depth - 1]
+    conclusions = [c for c in conclusions if state.condition2depth[c] >= 2 and state.condition2depth[c] <= 4]
     random.shuffle(conclusions)
     # conclusions.sort(key=lambda x: -state.condition2depth[x])
     print(f'got {len(conclusions)} conclusions.')
