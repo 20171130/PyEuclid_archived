@@ -230,7 +230,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     printt("Determining if auxiliary constructions are needed")
     sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
     os.makedirs(sample_dir, exist_ok=True)
-    max_depth = max(state.condition2depth.values())
     conclusions = [c for c in conclusions if state.condition2depth[c] >= 2 and state.condition2depth[c] <= 4]
     random.shuffle(conclusions)
     # conclusions.sort(key=lambda x: -state.condition2depth[x])
@@ -492,7 +491,11 @@ def main():
     while True:
         if max_problem_id is not None and cnt >= max_problem_id:
             break
-        generated = generate_single_problem(rank=rank, problem_id=problem_id, output_dir=base_output_dir)
+        try:
+            generated = generate_single_problem(rank=rank, problem_id=problem_id, output_dir=base_output_dir)
+        except:
+            generated = 0
+            continue
         problem_id += generated
 
 
