@@ -450,6 +450,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             problem_str = problem_str + ', ' + str(variable_eqn)
         solution = solution.subs(pi, 180)
 
+        coordinates = []
+        for name, point in diagram.name2point.items():
+            coordinates.append(f"{name}: ({str(point.x)}, {str(point.y)})")
+
         data = {
             "problem": problem_str,
             "necessary_constructions": ', '.join([str(construction) for construction in necessary_constructions]),
@@ -468,7 +472,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             "hash_seed": hash_seed,
             "annotated_equations": [str(item) for item in annotated_equations],
             "has_auxiliary_constructions": has_auxiliary,
-            "num_auxiliary_constructions": len(auxiliary_constructions)
+            "num_auxiliary_constructions": len(auxiliary_constructions),
+            "coordinates": ', '.join(coordinates),
         }
 
         with open(os.path.join(sample_dir, "data.json"), "w") as f:
