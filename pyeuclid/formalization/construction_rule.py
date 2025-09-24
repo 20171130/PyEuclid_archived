@@ -52,7 +52,7 @@ class register:
         return cls
 
 
-@register("deterministic", "auxiliary_construction", "proving")
+@register("deterministic", "auxiliary_construction")
 class construct_free(ConstructionRule):
     def __init__(self):
         self.inputs = []
@@ -62,7 +62,7 @@ class construct_free(ConstructionRule):
         self.outputs = [a]
 
 
-@register("independent", "auxiliary_construction", "proving")
+@register("independent", "auxiliary_construction")
 class construct_segment(ConstructionRule):
     def __init__(self):
         self.inputs = []
@@ -384,7 +384,7 @@ class construct_angle_bisector(ConstructionRule):
         ]
 
 
-@register("nondeterministic", "proving")
+@register("nondeterministic")
 class construct_angle_bisector2(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -470,7 +470,7 @@ class construct_circumcenter(ConstructionRule):
         ]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_eq_triangle(ConstructionRule):
     def __init__(self, b: Point, c: Point):
         self.inputs = [b, c]
@@ -641,7 +641,7 @@ class construct_incenter2(ConstructionRule):
         ]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_excenter(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -976,7 +976,7 @@ class construct_mirror(ConstructionRule):
         ]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_nsquare(ConstructionRule):
     def __init__(self, a: Point, b: Point):
         self.inputs = [a, b]
@@ -1184,7 +1184,7 @@ class construct_orthocenter(ConstructionRule):
         ]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_parallelogram(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -1209,7 +1209,7 @@ class construct_parallelogram(ConstructionRule):
         ]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_psquare(ConstructionRule):
     def __init__(self, a: Point, b: Point):
         self.inputs = [a, b]
@@ -1273,7 +1273,7 @@ class construct_s_angle(ConstructionRule):
         return [Angle(a, b, x) - sympy.simplify(sympy.Rational(abs(alpha), 180) * pi)]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_shift(ConstructionRule):
     def __init__(self, b: Point, c: Point, d: Point):
         self.inputs = [b, c, d]
@@ -1297,7 +1297,7 @@ class construct_shift(ConstructionRule):
         ]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_square(ConstructionRule):
     def __init__(self, a: Point, b: Point):
         self.inputs = [a, b]
@@ -1410,7 +1410,7 @@ class construct_3peq(ConstructionRule):
         ]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_trisect(ConstructionRule):
     def __init__(self, a: Point, b: Point, c: Point):
         self.inputs = [a, b, c]
@@ -1434,7 +1434,7 @@ class construct_trisect(ConstructionRule):
         ]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_trisegment(ConstructionRule):
     def __init__(self, a: Point, b: Point):
         self.inputs = [a, b]
@@ -1496,7 +1496,7 @@ class construct_on_opline(ConstructionRule):
         return [Collinear(x, a, b)]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_cc_tangent0(ConstructionRule):
     def __init__(self, o: Point, a: Point, w: Point, b: Point):
         self.inputs = [o, a, w, b]
@@ -1574,7 +1574,7 @@ class construct_eqangle3(ConstructionRule):
         return [Angle(a, x, b) - Angle(e, d, f)]
 
 
-@register("deterministic", "proving")
+@register("deterministic")
 class construct_tangent(ConstructionRule):
     def __init__(self, a: Point, o: Point, b: Point):
         self.inputs = [a, o, b]

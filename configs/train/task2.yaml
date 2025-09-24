@@ -9,7 +9,7 @@ stage: sft
 do_train: true
 finetuning_type: full
 freeze_vision_tower: true
-freeze_multi_modal_projector: true
+freeze_multi_modal_projector: false
 freeze_language_model: false
 deepspeed: LLaMA-Factory/examples/deepspeed/ds_z3_config.json
 
@@ -23,7 +23,7 @@ preprocessing_num_workers: 16
 dataloader_num_workers: 4
 
 ### output
-output_dir: saves/task2/921/qwen2.5-vl-7b/
+output_dir: saves/task2/923/qwen2.5-vl-7b/
 logging_steps: 10
 plot_loss: true
 overwrite_output_dir: true
@@ -33,7 +33,7 @@ report_to: wandb
 ### train
 per_device_train_batch_size: 8
 gradient_accumulation_steps: 4
-learning_rate: 5.0e-6
+learning_rate: 1.0e-6
 num_train_epochs: 1
 lr_scheduler_type: cosine
 warmup_ratio: 0.05

@@ -6,9 +6,9 @@ from tqdm import tqdm
 
 def main():
     ap = argparse.ArgumentParser(description="Build Alpaca VLM dataset with optional start/end slicing.")
-    ap.add_argument("--dataset_dir", type=Path, default=Path("task2/proving_921_llm"),
+    ap.add_argument("--dataset_dir", type=Path, default=Path("task2/proving_923_llm"),
                     help="Root containing *data.json + diagram.jpg pairs.")
-    ap.add_argument("--out_json", type=Path, default=Path("data/task2_921_train.json"),
+    ap.add_argument("--out_json", type=Path, default=Path("data/task2_923_train.json"),
                     help="Output JSON path.")
     ap.add_argument("--start", type=int, default=0, help="Start index (inclusive) after sorting.")
     ap.add_argument("--end", type=int, default=None, help="End index (inclusive) after sorting. Default: last.")

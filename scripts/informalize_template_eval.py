@@ -11,8 +11,8 @@ from pyeuclid.informalization.informalize_utils import (
 from tqdm import tqdm
 
 
-dataset_dir = "task2/proving_923"
-dst_dataset_dir = "task2/proving_923_template"
+dataset_dir = "task2/proving_921"
+dst_dataset_dir = "task2/proving_921_eval1_template"
 max_workers = os.cpu_count() or 32
 
 
@@ -58,11 +58,24 @@ def main():
     data_json_list = []
     image_file_list = []
 
-    # collect all files
-    for entry in sorted(tqdm(Path(dataset_dir).rglob("*data.json")))[:10000]:
-        sample_dir = entry.parent
-        data_json_list.append(str(sample_dir / "data.json"))
-        image_file_list.append(str(sample_dir / "diagram.jpg"))
+    ds_dir = Path(dataset_dir)
+    all_entries = sorted(tqdm(ds_dir.rglob("*data.json")))[99000:100000]
+
+    for entry in tqdm(all_entries, desc="Scanning", unit="file"):
+        try:
+            with open(entry, "r") as f:
+                data = json.load(f)
+        except Exception as e:
+            # skip corrupted JSONs
+            continue
+
+        if data.get("depth", 9999) <= 3:
+            sample_dir = entry.parent
+            data_json_list.append(str(sample_dir / "data.json"))
+            image_file_list.append(str(sample_dir / "diagram.jpg"))
+
+            if len(data_json_list) >= 100:
+                break
 
     print("begin")
 
@@ -74,7 +87,7 @@ def main():
             for dj, im in zip(data_json_list, image_file_list)
         ]
 
-        for future in tqdm(as_completed(futures), total=len(futures)):
+        for future in tqdm(as_completed(futures), total=len(futures), desc="Processing"):
             res = future.result()
             if res is not None:
                 error_list.append(res)

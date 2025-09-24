@@ -279,7 +279,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         print(f'depth to low: {max_depth}')
         return {"samples_generated": 0}
 
-    conclusions = [c for c in conclusions if state.condition2depth.get(c) >= 2 and state.condition2depth.get(c) <= 4]
+    conclusions = [c for c in conclusions if state.condition2depth.get(c) >= 2 and state.condition2depth.get(c) <= 3]
     # filter conclusions
     filtered_conclusions = []
     for relation in conclusions:
@@ -387,10 +387,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             print('new_engine cannot solve')
             continue
 
-        if new_state.condition2depth[key] <= 2:
-            print('depth too easy')
-            continue
-
         new_proof_generator = ProofGenerator(new_state, max_equation_length_perstep=None, norm=0)
         try:
             new_proof_generator.run()
@@ -401,6 +397,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         
         if len(new_proof) <= 4:
             print('proof too easy')
+            continue
+
+        if len(new_proof) >= 20:
             continue
 
         new_proof_str = new_proof_generator.get_proof_str(angle='degree')
