@@ -197,8 +197,12 @@ class UnionFind:
     
 #     def __hash__(self):
 #         return hash(self.expr)
-
-
+import math
+def round_sig(x, sig=3):
+    if x == 0:
+        return 0
+    return round(x, sig - int(math.floor(math.log10(abs(x)))) - 1)
+        
 class Traced:
     def __init__(self, expr, depth=0, sources=None, redundant=None, approx_sig=16):
         if isinstance(expr, Traced):
@@ -214,11 +218,21 @@ class Traced:
         if isinstance(terms[0], sympy.core.mul.Mul) and terms[0].args[0].is_constant():
             expr = expr/terms[0].args[0]
 
-        self._approx_sig = int(approx_sig) if approx_sig else 0
-        if self._approx_sig > 0:
-            expr = self._approximate_numeric_factors(expr, self._approx_sig)
+        # self._approx_sig = int(approx_sig) if approx_sig else 0
+        # if self._approx_sig > 0:
+        #     expr = self._approximate_numeric_factors(expr, self._approx_sig)
 
         self.expr = expr
+
+        if isinstance(expr, sympy.core.add.Add):
+            args = []
+            for arg in expr.args:
+                if len(arg.free_symbols) == 0:
+                    arg = round_sig(arg.evalf())
+                args.append(arg)
+            self.numerical_expr = sympy.core.add.Add(*args)
+        else:
+            self.numerical_expr = expr
         self.sources = list(sources)
         self.redundant = set(redundant)
         self.kinds = []
@@ -317,7 +331,7 @@ class Traced:
         return hash(self) == hash(other)
     
     def __hash__(self):
-        return hash(self.expr)
+        return hash(self.numerical_expr)
 
 # def _rationalize_floats(expr: sympy.Expr, *, tol: float = 1e-12, max_den: int = 10**6) -> sympy.Expr:
 #     repl = {}

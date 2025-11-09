@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_angle_bisector(b,a,c), e = construct_foot(c,a,d), f = construct_intersection_lp(a,c,e,a,b)",
-    "goal": "-Length_c_f + Length_e_f"
-}

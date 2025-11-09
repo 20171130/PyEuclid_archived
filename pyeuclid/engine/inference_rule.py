@@ -3104,6 +3104,29 @@ class LawOfCosines(InferenceRule):
                 self.a, self.c) * Length(self.b, self.c) * 2 * cos(Angle(self.a, self.c, self.b))
         ]
         
+@register("complex")
+class PythagoreanTheorem(InferenceRule):
+    def __init__(self, a: Point, b: Point, c: Point):
+        super().__init__()
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def condition(self):
+        return [
+            Not(Collinear(self.a, self.b, self.c)),
+            *Different(self.a, self.b, self.c),
+            Lt(self.a, self.b),
+            Lt(self.a, self.c),
+            Lt(self.b, self.c),
+            Angle(self.a, self.b, self.c) - pi/2
+        ]
+
+    def conclusion(self):
+        return [
+            Length(self.a, self.c)**2 - Length(self.a, self.b)**2 - Length(self.b, self.c)**2
+        ]
+        
 
 @register('complex')
 class AreaEqualsBaseTimesHeight(InferenceRule):

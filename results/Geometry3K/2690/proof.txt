@@ -1,2 +1,0 @@
-Solution:
-1. Length_B_D - 5*Variable_x + 8 & Length_A_D - 3*Variable_x - 11 & Length_A_D - Length_B_D => Variable_x - 19/2

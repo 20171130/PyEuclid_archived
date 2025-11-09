@@ -1,5 +1,0 @@
-Solution:
-1. Rectangle(A,D,B,E) => Length_A_E - Length_B_D & Area_A_D_B_E - Length_A_D*Length_B_D & Length_A_D - Length_B_E
-2. Length_A_E - 9 & Length_A_E - Length_B_D => Length_B_D - 9
-3. Length_B_E - 16 & Length_A_D - Length_B_E => Length_A_D - 16
-4. Length_B_D - 9 & Area_A_D_B_E - Length_A_D*Length_B_D & Length_A_D - 16 => Area_A_D_B_E - 144

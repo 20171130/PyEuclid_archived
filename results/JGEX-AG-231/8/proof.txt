@@ -1,9 +1,0 @@
-Solution:
-1. Length_b_o - Length_d_o & Length_a_o - Length_b_o => Length_a_o - Length_d_o
-2. Length_a_o - Length_b_o & Length_a_o - Length_c_o & Length_a_o - Length_d_o => Concyclic(a,b,c,d)
-3. Concyclic(a,b,c,d) => Angle_b_a_c - Angle_b_d_c
-4. Collinear(a,c,e) => Angle_b_a_c + Angle_b_a_e - pi
-5. Length_a_p - Length_b_p & Length_a_p - Length_e_p & Length_a_p - Length_f_p => Concyclic(a,b,e,f)
-6. Concyclic(a,b,e,f) => Angle_b_a_e - Angle_b_f_e
-7. Angle_b_a_c - Angle_b_d_c & Angle_b_a_c + Angle_b_a_e - pi & Angle_b_a_e - Angle_b_f_e => Angle_b_d_c + Angle_b_f_e - pi
-8. Angle_b_d_c + Angle_b_f_e - pi & Collinear(b,d,f) => Parallel(c,d,e,f)

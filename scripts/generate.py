@@ -19,6 +19,7 @@ from pyeuclid.engine.inference_rule import *
 from pyeuclid.engine.algebraic_system import AlgebraicSystem
 from pyeuclid.engine.proof_generator import ProofGenerator
 from pyeuclid.engine.engine import Engine
+from pyeuclid.formalization.construction_q import *
 
 class TimeoutHandler:
     def __init__(self, timeout_seconds: Optional[int] = None):
@@ -112,8 +113,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     max_attempts = 100
     max_points = random.uniform(8, 15) # 8 - 15
     constructions_list = []
+    length_values, angle_values = set(), set()
     index = 0
-
     # Construction phase with timeout checks
     while (step < max_steps and attempt < max_attempts and points < max_points 
            and not timeout_handler.check_timeout()):
@@ -146,7 +147,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             # For input types that are all points
             candidates = itertools.permutations(all_points, len(picked.input_types))
             for candidate in candidates:
-                construction = picked(*candidate)
+                if isinstance(picked, ConstructionQ):
+                    construction = picked(*candidate, angle_values=angle_values, length_values=length_values)
+                else:
+                    construction = picked(*candidate)
                 for condition in construction.conditions():
                     if not diagram.numerical_check(condition):
                         break
@@ -171,7 +175,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
         construction = random.choice(valid_constructions)
         outputs = [Point(chr(ord('A') + num_points + i)) for i in range(picked.num_outputs)]
-        construction.construct(*outputs)
+        results = construction.construct(*outputs)
+        if not results is None:
+            a, b = results
+            length_values = length_values.union(a)
+            angle_values = angle_values.union(b)
         constructions.append(construction)
 
         if multiconstructions:

@@ -1,3 +1,0 @@
-Solution:
-1. Rhombus(A,B,C,D) => Angle_A_B_D - Angle_A_D_B
-2. Angle_A_B_D - Angle_A_D_B & Angle_A_B_D - 2*pi/15 => Angle_A_D_B - 2*pi/15

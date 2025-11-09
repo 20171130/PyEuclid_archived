@@ -1,2 +1,0 @@
-Solution:
-1. Perpendicular(I,L,J,L) [Perp2Angle(I,L,J)] => Angle_I_L_J - pi/2

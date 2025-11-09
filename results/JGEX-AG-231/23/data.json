@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_on_bline(a,b), d = construct_on_tline(b,a,b), e = construct_intersection_lt(c,d,a,a,b)",
-    "goal": "-Length_c_d + Length_c_e"
-}

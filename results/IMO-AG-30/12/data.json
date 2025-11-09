@@ -1,4 +1,0 @@
-{
-  "problem": "x,y,z = construct_triangle(), o = construct_circumcenter(x,y,z), w = construct_on_circle(o,x), a = construct_on_tline(z,o,z), a = construct_on_tline(x,o,x), b = construct_on_tline(z,o,z), b = construct_on_tline(w,o,w), c = construct_on_tline(y,o,y), c = construct_on_tline(w,o,w), d = construct_on_tline(x,o,x), d = construct_on_tline(y,o,y), i1 = construct_incenter(a,b,c), i2 = construct_incenter(a,c,d), f1 = construct_foot(i1,a,c), f2 = construct_foot(i2,a,c), q,t,p,s = construct_cc_tangent(i1,f1,i2,f2), k = construct_on_line(q,t), k = construct_on_line(p,s)",
-  "goal": "Length_k_o - Length_o_x"
-}

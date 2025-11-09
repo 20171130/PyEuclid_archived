@@ -1,4 +1,0 @@
-{
-  "problem": "a,b,c = construct_triangle(), h = construct_orthocenter(a,b,c), t1,t2,t3,i = construct_incenter2(a,b,c), h1 = construct_foot(a,b,c), h2 = construct_foot(b,c,a), h3 = construct_foot(c,a,b), x1 = construct_reflect(h1,t1,t2), x2 = construct_reflect(h2,t1,t2), y2 = construct_reflect(h2,t2,t3), y3 = construct_reflect(h3,t2,t3), z = construct_on_line(x1,x2), z = construct_on_line(y2,y3)",
-  "goal": "-Length_i_t1 + Length_i_z"
-}

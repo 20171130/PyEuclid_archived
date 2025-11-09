@@ -1,9 +1,0 @@
-Solution:
-1. Collinear(A,B,M) & Collinear(A,C,N) & Parallel(B,C,M,N) [AlphaGeometry8(B,C,M,N,A)] => Length_A_B/Length_A_C - Length_B_M/Length_C_N
-2. Length_B_M - 24 & Length_C_N - 20 => Length_B_M/Length_C_N - 6/5
-3. Length_A_B/Length_A_C - Length_B_M/Length_C_N & Length_B_M/Length_C_N - 6/5 => Length_A_B - 6*Length_A_C/5
-4. Collinear(A,C,N) [BetweenLength(A,N,C)] => Length_A_C - Length_A_N - Length_C_N
-5. Length_A_C - Length_A_N - Length_C_N & Length_A_N - 3*Variable_x + 2 & Length_C_N - 20 => Length_A_C - 3*Variable_x - 18
-6. Collinear(A,B,M) [BetweenLength(A,M,B)] => Length_A_B - Length_A_M - Length_B_M
-7. Length_B_M - 24 & Length_A_M - 4*Variable_x + 6 & Length_A_B - Length_A_M - Length_B_M => Length_A_B - 4*Variable_x - 18
-8. Length_A_B - 6*Length_A_C/5 & Length_A_C - 3*Variable_x - 18 & Length_A_B - 4*Variable_x - 18 => Variable_x - 9

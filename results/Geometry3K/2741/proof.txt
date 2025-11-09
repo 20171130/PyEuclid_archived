@@ -1,9 +1,0 @@
-Solution:
-1. Length_R_S - Variable_radius_S & Length_P_S - Variable_radius_S => Length_P_S - Length_R_S
-2. Length_P_S - Length_R_S => IsoscelesTriangle(P,R,S)
-3. Collinear(Q,S,T) => Parallel(Q,S,Q,T)
-4. Perpendicular(P,T,Q,T) & Parallel(Q,S,Q,T) => Perpendicular(P,T,Q,S)
-5. Collinear(P,R,T) => Parallel(P,R,P,T)
-6. Perpendicular(P,T,Q,S) & Parallel(P,R,P,T) => Perpendicular(P,R,Q,S)
-7. IsoscelesTriangle(P,R,S) & Length_P_S - Length_R_S & Perpendicular(P,R,Q,S) => Angle_P_S_Q - Angle_Q_S_R
-8. Angle_P_S_Q - Angle_P_S_R + Angle_Q_S_R & Angle_P_S_Q - Angle_Q_S_R & Angle_P_S_R - 49*pi/90 => Angle_P_S_Q - 49*pi/180

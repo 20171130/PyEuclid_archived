@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c,d = construct_quadrangle(), e = construct_midpoint(b,a), f = construct_foot(a,c,d), g = construct_foot(b,c,d)",
-    "goal": "Length_e_f - Length_e_g"
-}

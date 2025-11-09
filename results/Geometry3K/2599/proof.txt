@@ -1,9 +1,0 @@
-Solution:
-1. Collinear(P,Q,S) & Collinear(R,S,T) & Parallel(P,T,Q,R) [AlphaGeometry8(P,T,Q,R,S)] => Similar3(P,S,T,Q,S,R) & Length_P_Q/Length_R_T - Length_P_S/Length_S_T
-2. Similar3(P,S,T,Q,S,R) [PropertyOfSimilar3(P,S,T,Q,S,R)] => Length_P_S/Length_Q_S - Length_P_T/Length_Q_R
-3. Length_R_T - 4 & Length_S_T - 8 => -2 + Length_S_T/Length_R_T
-4. -2 + Length_S_T/Length_R_T & Length_P_Q/Length_R_T - Length_P_S/Length_S_T => Length_P_Q - Length_P_S/2
-5. Collinear(P,Q,S) [BetweenLength(Q,P,S)] => Length_P_Q + Length_P_S - Length_Q_S
-6. Length_P_Q - Length_P_S/2 & Length_P_Q + Length_P_S - Length_Q_S => Length_P_S - 2*Length_Q_S/3
-7. Length_P_S/Length_Q_S - Length_P_T/Length_Q_R & Length_P_S - 2*Length_Q_S/3 => Length_P_T/Length_Q_R - 2/3
-8. Length_P_T/Length_Q_R - 2/3 & Length_P_T - 6 => Length_Q_R - 9

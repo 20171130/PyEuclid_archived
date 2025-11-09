@@ -1,4 +1,0 @@
-{
-    "problem": "b,c,a = construct_triangle(), d = construct_lc_tangent(c,a), d = construct_lc_tangent(b,a), e = construct_on_circle(a,c), e = construct_on_dia(a,d)",
-    "goal": "Angle_a_b_c + Angle_a_b_e - pi"
-}

@@ -47,7 +47,7 @@ class TestBenchmarks(unittest.TestCase):
                 state.diagram.draw([], goal_constructions)
                 state.diagram.draw_diagram(constructions = constructions + goal_constructions, save=True)   
                 deductive_database = DeductiveDatabase(state)
-                algebraic_system = AlgebraicSystem(state)
+                algebraic_system = AlgebraicSystem(state, for_proof=False)
                 proof_generator = ProofGenerator(state)
                 proof_generator.max_equation_length_perstep = None
                 engine = Engine(state, deductive_database, algebraic_system)
@@ -63,9 +63,9 @@ class TestBenchmarks(unittest.TestCase):
                         proof_generator.run()
                         proof_str = proof_generator.get_proof_str()
                         print(f'{idx} proof generation runs in {time.time()-t0}')
-                        proof_path = os.path.join(result_dir, "proof.txt")
-                        with open(proof_path, 'w+') as f:
-                            f.write(proof_str)
+                        # proof_path = os.path.join(result_dir, "proof.txt")
+                        # with open(proof_path, 'w+') as f:
+                        #     f.write(proof_str)
                 else:
                     print(f"{idx} unsolved in {t} seconds")
             except BaseException as e:

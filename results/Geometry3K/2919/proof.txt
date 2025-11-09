@@ -1,5 +1,0 @@
-Solution:
-1. Length_A_X - 2*Variable_x & Length_B_C - Variable_x => -1/2 + Length_B_C/Length_A_X
-2. Rhombus(A,B,X,C) => Perpendicular(A,X,B,C)
-3. Perpendicular(A,X,B,C) [RhombusArea(A,B,X,C)] => Area_A_B_X_C - Length_A_X*Length_B_C/2
-4. -1/2 + Length_B_C/Length_A_X & Area_A_B_X_C - 169 & Area_A_B_X_C - Length_A_X*Length_B_C/2 => Length_A_X - 26

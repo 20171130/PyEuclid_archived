@@ -1,6 +1,0 @@
-Solution:
-1. Length_A_C - Variable_radius_C & Length_C_J - Variable_radius_C => Length_A_C - Length_C_J
-2. Length_A_C - Length_C_J & Collinear(A,C,J) [DefinitionOfMidpoint(C,A,J)] => Midpoint(C,A,J)
-3. Midpoint(C,A,J) [PropertyOfMidpoint(C,A,J)] => Length_A_J - 2*Length_C_J
-4. Length_C_J - Variable_radius_C & Length_A_J - 15 & Length_A_J - 2*Length_C_J => Variable_radius_C - 15/2
-5. Angle_J_C_K - 7*pi/12 & Variable_radius_C - 15/2 => Angle_J_C_K*Variable_radius_C - 35*pi/8

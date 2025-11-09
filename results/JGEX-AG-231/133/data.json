@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_midpoint(b,a), d = construct_on_tline(c,a,b), d = construct_on_circle(c,a), e = construct_on_circle(c,d), e = construct_on_line(d,c), f = construct_on_line(a,b), g = construct_on_line(c,d), g = construct_on_circle(c,f), h = construct_on_circle(c,e), h = construct_on_line(e,f), i = construct_on_line(b,g), i = construct_on_circle(c,a)",
-    "goal": "Perpendicular(b,i,e,h)"
-}

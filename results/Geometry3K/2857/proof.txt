@@ -1,9 +1,0 @@
-Solution:
-1. Kite(F,G,H,J) & Length_F_G - Length_F_J & -Length_G_H + Length_H_J [PropertyOfKite(G,F,J,H)] => Perpendicular(F,H,G,J)
-2. Collinear(A,G,J) [CollinearParallel(A,G,J)] => Parallel(A,G,G,J)
-3. Perpendicular(F,H,G,J) & Parallel(A,G,G,J) [AlphaGeometry1b(G,J,F,H,A,G)] => Perpendicular(A,G,F,H)
-4. Collinear(A,F,H) [CollinearParallel(A,F,H)] => Parallel(A,H,F,H)
-5. Perpendicular(A,G,F,H) & Parallel(A,H,F,H) [AlphaGeometry1b(F,H,A,G,A,H)] => Perpendicular(A,G,A,H)
-6. Perpendicular(A,G,A,H) [Perp2Angle(G,A,H)] => Angle_G_A_H - pi/2
-7. Length_A_G**2 - 2*Length_A_G*Length_A_H*cos(Angle_G_A_H) + Length_A_H**2 - Length_G_H**2 & Length_A_H - 15 & Length_A_G - 12 & Angle_G_A_H - pi/2 & Length_G_H - Length_H_J => Length_H_J - 3*sqrt(41)
-8. Length_H_J - 3*sqrt(41) & Length_G_H - Length_H_J => Length_G_H - 3*sqrt(41)

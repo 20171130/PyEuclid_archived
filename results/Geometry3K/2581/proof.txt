@@ -1,3 +1,0 @@
-Solution:
-1. Parallelogram(A,B,D,C) => Length_A_C - Length_B_D
-2. Length_B_D - 2*Variable_x - 3 & Length_A_C - Variable_x - 7 & Length_A_C - Length_B_D => Variable_x - 4

@@ -1,6 +1,0 @@
-Solution:
-1. Parallel(b,c,d,e) => Trapezoid(b,c,d,e)
-2. Length_a_b - Length_a_c & Length_a_b - Length_a_d & Length_a_b - Length_a_e => Concyclic(b,c,d,e)
-3. Concyclic(b,c,d,e) & Parallel(b,c,d,e) => Angle_b_c_d - Angle_c_b_e
-4. Trapezoid(b,c,d,e) & Parallel(b,c,d,e) & -Angle_b_c_d + Angle_c_b_e => EquilateralTrapezoid(b,c,d,e)
-5. EquilateralTrapezoid(b,c,d,e) & Parallel(b,c,d,e) => Length_b_e - Length_c_d

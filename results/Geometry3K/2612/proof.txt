@@ -1,2 +1,0 @@
-Solution:
-1. Length_B_N - Variable_y & Length_B_N - Length_C_N & Length_C_N - 3*Variable_y/5 - 2 => Variable_y - 5

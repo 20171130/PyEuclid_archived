@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), o = construct_circumcenter(a,b,c), u = construct_angle_bisector(b,a,c), u = construct_on_line(b,c), t = construct_on_tline(a,a,o), t = construct_on_line(b,c)",
-    "goal": "Length_a_t - Length_t_u"
-}

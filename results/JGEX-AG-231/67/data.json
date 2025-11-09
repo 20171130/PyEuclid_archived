@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_parallelogram(a,b,c), e = construct_eq_triangle(a,b), f = construct_eq_triangle(b,c)",
-    "goal": "Length_d_e - Length_d_f"
-}

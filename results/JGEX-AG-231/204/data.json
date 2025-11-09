@@ -1,4 +1,0 @@
-{
-    "problem": "c,a,b = construct_risos(), d = construct_midpoint(b,a), e = construct_on_line(a,b), f = construct_foot(e,a,c), g = construct_foot(e,b,c)",
-    "goal": "Length_d_f - Length_d_g"
-}

@@ -1,2 +1,0 @@
-Solution:
-1. Length_L_M - Length_M_N & Length_M_N - 4*Variable_x + 2 & Length_L_M - 3*Variable_x - 1 => Length_L_M - 10

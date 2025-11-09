@@ -1,3 +1,0 @@
-Solution:
-1. Rhombus(A,B,C,D) [PropertyOfRhombus(A,B,C,D)] => Angle_A_D_C + Angle_B_A_D - pi & Angle_A_C_D - Angle_C_A_D
-2. Angle_A_D_C + Angle_B_A_D - pi & Angle_A_C_D + Angle_A_D_C + Angle_C_A_D - pi & Angle_A_D_C - Angle_B_A_D/2 & Angle_A_C_D - Angle_C_A_D => Angle_A_C_D - pi/3

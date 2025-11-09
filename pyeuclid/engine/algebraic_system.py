@@ -1,52 +1,54 @@
 import re
 import math
 import sympy
-
 from sympy import factor_list
-from itertools import combinations
-
+from tqdm import tqdm
 from pyeuclid.formalization.utils import *
-from stopit import ThreadingTimeout as TT
+from stopit import ThreadingTimeout as TT, SignalTimeout as ST
+
+remove_redundant = True
 
 class AlgebraicSystem:
-    def __init__(self, state):
+    def __init__(self, state, for_proof=False):
         self.state = state
+        self.for_proof = for_proof
     
     def process_equation(self, eqn, check=False):
-        if isinstance(eqn, sympy.core.add.Add):
-            add_args = []
-            for item in eqn.args:
-                if isinstance(item, sympy.core.mul.Mul) and is_small(item.args[0]):
-                    continue
-                add_args.append(item)
-            eqn = sympy.core.add.Add(*add_args)
-        if is_small(eqn):
-            return sympy.sympify(0)
-        eqn, denominator = eqn.as_numer_denom()
-        factors = None
         try:
-            with Timeout(0.1):
+            with ST(1), TT(0.1):
+                if isinstance(eqn, sympy.core.add.Add):
+                    add_args = []
+                    for item in eqn.args:
+                        if isinstance(item, sympy.core.mul.Mul) and is_small(item.args[0]):
+                            continue
+                        add_args.append(item)
+                    eqn = sympy.core.add.Add(*add_args)
+                if is_small(eqn):
+                    return sympy.sympify(0)
+                eqn, denominator = eqn.as_numer_denom()
+                factors = None
                 factors = factor_list(eqn)
+                if factors is None:
+                    return eqn
+                if is_small(factors[0]):
+                    return sympy.sympify(0)
+                factors = factors[1]  # removes constant coefficient
+                if any([is_small(item[0]) for item in factors]):
+                    return sympy.sympify(0)
+                factors = [item[0] for item in factors if not item[0].is_positive]
+                if len(factors) == 0:
+                    if check:
+                        breakpoint()
+                        assert False
+                    else:
+                        return sympy.sympify(0)
+                eqn = factors[0]
+                for item in factors[1:]:
+                    eqn = eqn*item
+                return eqn.expand()
+            return sympy.sympify(0)
         except:
-            pass
-        if factors is None:
-            return eqn
-        if is_small(factors[0]):
             return sympy.sympify(0)
-        factors = factors[1]  # removes constant coefficient
-        if any([is_small(item[0]) for item in factors]):
-            return sympy.sympify(0)
-        factors = [item[0] for item in factors if not item[0].is_positive]
-        if len(factors) == 0:
-            if check:
-                breakpoint()
-                assert False
-            else:
-                return sympy.sympify(0)
-        eqn = factors[0]
-        for item in factors[1:]:
-            eqn = eqn*item
-        return eqn.expand()
     
     def process_solutions(self, var, eqn, solutions, var_types):
         def _all_terms_have_factor(expr: sympy.Expr, sym: sympy.Symbol) -> bool:
@@ -79,6 +81,7 @@ class AlgebraicSystem:
                         for sol in solutions if abs(sympy.im(sol)) < 1e-3]
             try:
                 if str(var).startswith("Angle"):
+                    solutions = {j%(2*math.pi) for j in solutions}
                     solutions = {j for j in solutions if j >= 0 and j <= math.pi+eps}
                     # Prioitize non-zero and non-flat angle
                     if len(solutions) > 1:
@@ -114,9 +117,11 @@ class AlgebraicSystem:
             return solutions.pop()
         return None
 
-    def elim(self, eq_type, equations, var_types):        
-        # raw_equations = [eq for eq in equations if eq_type not in eq.redundant]
-        raw_equations = equations
+    def elim(self, eq_type, equations, var_types):
+        if remove_redundant:    
+            raw_equations = [eq for eq in equations if eq_type not in eq.redundant]
+        else:
+            raw_equations = equations
         equations = [item.expr for item in raw_equations]
         free_vars = []
         for eqn in equations:
@@ -129,7 +134,7 @@ class AlgebraicSystem:
         for i, eqn in enumerate(equations):
             eqn = self.process_equation(eqn, check=True)
             if eqn == 0:
-                # raw_equations[i].redundant.add(eq_type)
+                raw_equations[i].redundant.add(eq_type)
                 continue
             symbols = list(eqn.free_symbols)
             symbols.sort(key=lambda x: str(x))
@@ -157,7 +162,7 @@ class AlgebraicSystem:
                 exprs[var] = expr
             elif check_equalities(expr-exprs[var]):  # redundant equation
                 equations[i] = sympy.sympify(0)
-                # raw_equations[i].redundant.add(eq_type)
+                raw_equations[i].redundant.add(eq_type)
                 continue
             else:
                 breakpoint()  # contradiction
@@ -175,11 +180,7 @@ class AlgebraicSystem:
                 if j == i:
                     break
                 if key in getattr(exprs[key1], "free_symbols", []):
-                    old = exprs[key1]
                     exprs[key1] = exprs[key1].subs(key, value)
-                    if str(exprs[key1]) == "0" and "Length" in str(key1):
-                        breakpoint()
-                        assert False
         exprs = {key: value for key, value in exprs.items()}
         return free_vars, exprs
 
@@ -194,7 +195,14 @@ class AlgebraicSystem:
         self.state.solutions['angle_linear'] = angle_linear_solved
         self.state.solutions['length_ratio'] = length_ratio_solved
         self.state.solutions['length_linear'] = length_linear_solved
-
+        solutions = angle_linear_solved.copy()
+        solutions.update(length_linear_solved)
+        solutions.update(length_ratio_solved)
+        for key, value in solutions.items():
+            eqn = key - value
+            if not eqn in self.state.condition2depth:
+                self.state.condition2depth[eqn] = self.state.reasoning_depth
+            
         # extract equivalence relations and store in union find
         dic = {}
         eqns = []
@@ -222,16 +230,21 @@ class AlgebraicSystem:
         self.state.current_depth += 1
         self.compute_ratio_and_angle_sum()
 
-        for l1, v1 in length_linear_solved.items():
-            if len(v1.free_symbols) == 0:
-                eqn = Traced(l1-v1, depth=self.state.current_depth, sources=["length_linear"])
-                self.state.add_conditions(eqn)
-                continue
-            else:
-                for l2, v2 in length_linear_solved.items():
-                    if len((v2/v1).free_symbols) == 0:
-                        eqn = Traced(l1*(v2/v1)-l2, depth=self.state.current_depth, sources=["length_linear"])
-                        self.state.add_conditions(eqn)
+        if self.for_proof:
+            for l1, v1 in length_linear_solved.items():
+                if len(v1.free_symbols) == 0:
+                    eqn = Traced(l1-v1, depth=self.state.current_depth, sources=["length_linear"])
+                    self.state.add_conditions(eqn)
+                    continue
+                else:
+                    for l2, v2 in length_linear_solved.items():
+                        if len((v2/v1).free_symbols) == 0:
+                            eqn = l1*(v2/v1)-l2
+                            eqn = self.process_equation(eqn)
+                            if eqn == 0:
+                                continue
+                            eqn = Traced(eqn, depth=self.state.current_depth, sources=["length_linear"])
+                            self.state.add_conditions(eqn)
         
         self.state.current_depth += 1
 
@@ -247,13 +260,17 @@ class AlgebraicSystem:
                 for symbol in symbols:
                     sources.append(symbol - substitute_solved[symbol])
                 expr = self.process_equation(eqn)
+                s = str(expr)
+                complexity = s.count("sin") + s.count("cos") + s.count("tan") + s.count("**")/2
+                if complexity > 2:
+                    continue
                 if len(expr.free_symbols) > 0:
                     if len(expr.free_symbols) <= 2:
                         symbol = list(expr.free_symbols)[0]
                         solutions = []
                         try:
-                            with TT(0.1):
-                                solutions = sympy.solve(expr, symbol)
+                            with ST(1), TT(0.1):
+                                    solutions = sympy.solve(expr, symbol)
                         except:
                             continue
                         solution = self.process_solutions(symbol, expr, solutions, var_types)
@@ -273,77 +290,67 @@ class AlgebraicSystem:
         # then try to solve equations that are not much too complicated
         for i, length_solved in enumerate([length_ratio_solved, length_linear_solved]):
             solved = angle_linear_solved | length_solved
-            for eqn in others:
+            pbar = others if self.state.silent else tqdm(others)
+            for eqn in pbar:
                 if len(self.state.simplify_equation(eqn, solved).free_symbols) == 0:
-                    # eqn.redundant.add('others')
+                    eqn.redundant.add('others')
                     continue
-                # if 'others' in eqn.redundant:
-                #     continue
+                if 'others' in eqn.redundant and remove_redundant:
+                    continue
                 raw_eqn = eqn
                 symbols = [symbol for symbol in raw_eqn.free_symbols if symbol in solved]
                 symbol2sources = {}
                 for symbol in symbols:
                     symbol2sources[symbol] = symbol - solved[symbol]
-                combs = [symbols]
-                # for i in range(0, min(3, len(eqn.free_symbols))):
-                #     combs += combinations(symbols, len(eqn.free_symbols)-i)
-                for comb in combs:
-                    eqn = raw_eqn
-                    sources = [raw_eqn]
-                    for symbol in comb:
-                        eqn = eqn.subs(symbol, solved[symbol])
-                        sources.append(symbol2sources[symbol])
-                    expr = self.process_equation(eqn.expr)
-                    if len(expr.free_symbols) > 0:
-                        if len(expr.free_symbols) <= 2:
-                            symbol = list(expr.free_symbols)[0]
-                            solutions = []
-                            try:
-                                with TT(0.1):
-                                    solutions = sympy.solve(expr, symbol)
-                            except:
-                                continue
-                            solution = self.process_solutions(symbol, expr, solutions, var_types)
-                            if solution is None:
-                                continue
-                            expr = symbol - solution
-
-                        traced = Traced(expr)
-                        kinds = classify_equations([traced], var_types)
-                        if kinds[-1]:
+                eqn = raw_eqn
+                sources = [raw_eqn]
+                for symbol in symbols:
+                    try:
+                        with ST(1), TT(0.1):
+                            eqn = eqn.subs(symbol, solved[symbol])
+                    except:
+                        continue
+                    sources.append(symbol2sources[symbol])
+                expr = self.process_equation(eqn.expr)
+                if len(expr.free_symbols) > 0:
+                    if len(expr.free_symbols) <= 2:
+                        symbol = list(expr.free_symbols)[0]
+                        solutions = []
+                        try:
+                            with ST(1), TT(0.1):
+                                solutions = sympy.solve(expr, symbol)
+                        except:
                             continue
-                        eqn = Traced(expr, depth=self.state.current_depth, sources=sources)
-                        if eqn not in self.state.equations:
-                            self.state.add_conditions(eqn)
-                            closure = False
+                        solution = self.process_solutions(symbol, expr, solutions, var_types)
+                        if solution is None:
+                            continue
+                        expr = symbol - solution
+                    traced = Traced(expr)
+                    kinds = classify_equations([traced], var_types)
+                    if kinds[-1]:
+                        continue
+                    eqn = Traced(expr, depth=self.state.current_depth, sources=sources)
+                    if eqn not in self.state.equations:
+                        self.state.add_conditions(eqn)
+                        closure = False
         
         return closure
         
     def compute_ratio_and_angle_sum(self):
         dic = {}
         tmp = self.state.lengths.equivalence_classes()
-        for component in tmp.values():
-            if len(component) == 1:
-                continue
-            rep = self.state.simplify_equation(component[0], self.state.solutions['length_ratio'])
-            if len(rep.free_symbols)==0:
-                component = component + [rep]
-            for a in range(len(component)):
-                for b in range(a+1, len(component)):
-                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
-                    self.state.add_conditions(eqn)
-
         expr2components = {}
         for x in tmp:
             for y in tmp:
                 expr = self.state.simplify_equation(x/y,  self.state.solutions['length_ratio'])
-                if len(expr.free_symbols) == 0 and expr != 1:
-                    for a in tmp[x]:
-                        for b in tmp[y]:
-                            eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
-                            self.state.add_conditions(eqn)
-                            eqn1 = Traced(a-expr*b, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
-                            self.state.add_conditions(eqn1)
+                if self.for_proof:
+                    if len(expr.free_symbols) == 0 and expr != 1:
+                        for a in tmp[x]:
+                            for b in tmp[y]:
+                                eqn = Traced(a/b-expr, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
+                                self.state.add_conditions(eqn)
+                                eqn1 = Traced(a-expr*b, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
+                                self.state.add_conditions(eqn1)
 
                 if not expr in dic:
                     dic[expr] = [sympy.core.mul.Mul(x, 1/y, evaluate=False)]
@@ -355,32 +362,45 @@ class AlgebraicSystem:
                     if len(expr.free_symbols) > 0:
                         expr2components[expr].append((x, y))
                     
-        for expr, components in expr2components.items():
-            for i in range(len(components)):
-                for j in range(i+1, len(components)):
-                    x1, y1 = components[i]
-                    x2, y2 = components[j]
-                    for a in tmp[x1]:
-                        for b in tmp[y1]:
-                            for c in tmp[x2]:
-                                for d in tmp[y2]:
-                                    eqn = Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
-                                    self.state.add_conditions(eqn)
 
+
+        if self.for_proof:
+            for component in tmp.values():
+                if len(component) == 1:
+                    continue
+                rep = self.state.simplify_equation(component[0], self.state.solutions['length_ratio'])
+                if len(rep.free_symbols)==0:
+                    component = component + [rep]
+                for a in range(len(component)):
+                    for b in range(a+1, len(component)):
+                        eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
+                        self.state.add_conditions(eqn)
+            for expr, components in expr2components.items():
+                for i in range(len(components)):
+                    for j in range(i+1, len(components)):
+                        x1, y1 = components[i]
+                        x2, y2 = components[j]
+                        for a in tmp[x1]:
+                            for b in tmp[y1]:
+                                for c in tmp[x2]:
+                                    for d in tmp[y2]:
+                                        eqn = Traced(a/b-c/d, depth=self.state.current_depth, sources=["length_ratio"], redundant={"length_ratio"})
+                                        self.state.add_conditions(eqn)
         self.state.ratios = dic
 
         dic = {}
         tmp = self.state.angles.equivalence_classes()
-        for component in tmp.values():
-            if len(component) == 1:
-                continue
-            rep = self.state.simplify_equation(component[0], self.state.solutions['angle_linear'])
-            if len(rep.free_symbols)==0:
-                component = component + [rep]
-            for a in range(len(component)):
-                for b in range(a+1, len(component)):
-                    eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"], redundant={"angle_linear"})
-                    self.state.add_conditions(eqn)
+        if self.for_proof:
+            for component in tmp.values():
+                if len(component) == 1:
+                    continue
+                rep = self.state.simplify_equation(component[0], self.state.solutions['angle_linear'])
+                if len(rep.free_symbols)==0:
+                    component = component + [rep]
+                for a in range(len(component)):
+                    for b in range(a+1, len(component)):
+                        eqn = Traced(component[a]-component[b], depth=self.state.current_depth, sources=["angle_linear"], redundant={"angle_linear"})
+                        self.state.add_conditions(eqn)
         
         angle_keys = list(tmp.keys())
         for i in range(len(angle_keys)):
@@ -389,21 +409,22 @@ class AlgebraicSystem:
             for j in range(i, len(angle_keys)):
                 y = angle_keys[j]
                 y_expr = self.state.simplify_equation(y, self.state.solutions['angle_linear'])
-                expr = self.state.simplify_equation(x+y, self.state.solutions['angle_linear'])
+                expr = x_expr + y_expr
                 if not expr in dic:
                     dic[expr] = [x+y]
                 else:
                     dic[expr].append(x+y)
-                if len(expr.free_symbols) == 0 and len(x_expr.free_symbols) > 0 and len(y_expr.free_symbols) > 0:
-                    component_x, component_y = tmp[x], tmp[y]
-                    for a in range(len(component_x)):
-                        for b in range(len(component_y)):
-                            eqn = Traced(component_x[a]+component_y[b]-expr, depth=self.state.current_depth, sources=["angle_linear"], redundant={"angle_linear"})
-                            self.state.add_conditions(eqn)
+                if self.for_proof:
+                    if len(expr.free_symbols) == 0 and len(x_expr.free_symbols) > 0 and len(y_expr.free_symbols) > 0:
+                        component_x, component_y = tmp[x], tmp[y]
+                        for a in range(len(component_x)):
+                            for b in range(len(component_y)):
+                                eqn = Traced(component_x[a]+component_y[b]-expr, depth=self.state.current_depth, sources=["angle_linear"], redundant={"angle_linear"})
+                                self.state.add_conditions(eqn)
         self.state.angle_sums = dic
 
     def run(self):
-        closure = self.solve_equation()
+        closure = False
         while not closure:
             closure = self.solve_equation()
         return closure

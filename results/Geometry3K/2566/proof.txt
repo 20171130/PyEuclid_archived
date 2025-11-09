@@ -1,7 +1,0 @@
-Solution:
-1. Parallelogram(A,B,C,D) => Trapezoid(A,B,C,D) & Parallel(A,D,B,C) & Length_A_D - Length_B_C
-2. Collinear(A,D,E) [CollinearParallel(A,D,E)] => Parallel(A,D,D,E)
-3. Perpendicular(B,E,D,E) & Parallel(A,D,D,E) [AlphaGeometry1b(D,E,B,E,A,D)] => Perpendicular(A,D,B,E)
-4. Trapezoid(A,B,C,D) & Parallel(A,D,B,C) & Perpendicular(A,D,B,E) & Collinear(A,D,E) [TrapezoidArea(B,C,D,A,E)] => Area_A_B_C_D - Length_B_E*(Length_A_D + Length_B_C)/2
-5. Length_B_C - Variable_x - 10 & Length_A_D - Length_B_C => Length_A_D - Variable_x - 10
-6. Area_A_B_C_D - Length_B_E*(Length_A_D + Length_B_C)/2 & Length_A_D - Variable_x - 10 & Length_B_E - Variable_x & Length_B_C - Variable_x - 10 & Area_A_B_C_D - 2000 => Variable_x - 40

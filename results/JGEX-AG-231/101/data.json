@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), o = construct_circumcenter(a,b,c), d = construct_on_tline(b,a,c), d = construct_on_circle(o,a), f = construct_midpoint(b,a), e = construct_on_line(a,c), e = construct_on_line(b,d)",
-    "goal": "Perpendicular(c,d,e,f)"
-}

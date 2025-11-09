@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_midpoint(b,a), d = construct_on_circle(c,a), e = construct_angle_bisector(d,c,a), e = construct_on_circle(c,a), f = construct_foot(e,a,b), g = construct_intersection_ll(a,d,e,f), h = construct_intersection_ll(a,d,b,e)",
-    "goal": "Length_a_g - Length_e_g"
-}

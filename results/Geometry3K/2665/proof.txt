@@ -1,6 +1,0 @@
-Solution:
-1. Similar3(A,B,C,E,F,G) [PropertyOfSimilar3(A,B,C,E,F,G)] => Length_A_B/Length_B_C - Length_E_F/Length_F_G
-2. Length_E_F - 12 & Length_F_G - 15 => -5/4 + Length_F_G/Length_E_F
-3. Length_A_C - 12 & Length_B_C - 20 => Length_A_C - 3*Length_B_C/5
-4. Length_A_B/Length_B_C - Length_E_F/Length_F_G & -5/4 + Length_F_G/Length_E_F & Length_A_C - 3*Length_B_C/5 => -3/4 + Length_A_C/Length_A_B
-5. -3/4 + Length_A_C/Length_A_B & Length_A_C - 12 & Length_A_B - 2*Variable_x => Variable_x - 8

@@ -1,7 +1,0 @@
-Solution:
-1. Length_R_S - 7 & Length_Q_R - 7 => Length_Q_R - Length_R_S
-2. Length_Q_R - Length_R_S & Collinear(Q,R,S) [DefinitionOfMidpoint(R,Q,S)] => Midpoint(R,Q,S)
-3. Collinear(Q,R,S) [CollinearParallel(Q,R,S)] => Parallel(Q,R,Q,S)
-4. Perpendicular(P,R,Q,R) & Parallel(Q,R,Q,S) [AlphaGeometry1b(Q,R,P,R,Q,S)] => Perpendicular(P,R,Q,S)
-5. Midpoint(R,Q,S) & Perpendicular(P,R,Q,S) [AlphaGeometry23(R,P,Q,S)] => Length_P_Q - Length_P_S
-6. Length_P_Q - Length_P_S & Length_P_Q - 9 => Length_P_S - 9

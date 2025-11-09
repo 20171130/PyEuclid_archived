@@ -1,4 +1,0 @@
-{
-  "problem": "a,b,c = construct_triangle(), h = construct_orthocenter(a,b,c), d = construct_midpoint(b,c), e = construct_midpoint(a,c), f = construct_midpoint(a,b), a1 = construct_on_circle(d,h), a1 = construct_on_line(b,c), a2 = construct_on_circle(d,h), a2 = construct_on_line(b,c), b1 = construct_on_circle(e,h), b1 = construct_on_line(c,a), b2 = construct_on_circle(e,h), b2 = construct_on_line(c,a), c1 = construct_on_circle(f,h), c1 = construct_on_line(a,b), c2 = construct_on_circle(f,h), c2 = construct_on_line(a,b)",
-  "goal": "Concyclic(b1,b2,c1,c2)"
-}

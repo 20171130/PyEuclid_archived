@@ -1,3 +1,0 @@
-Solution:
-1. Rectangle(D,E,F,G) => Angle_E_F_G - pi/2
-2. Angle_E_F_G - pi/2 & Angle_D_F_E + Angle_D_F_G - Angle_E_F_G & Angle_D_F_E - pi*(Variable_x/90 - 1/60) & Angle_D_F_G - pi*(Variable_x/180 + 1/15) => Angle_D_F_E - 17*pi/60

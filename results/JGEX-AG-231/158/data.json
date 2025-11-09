@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), e,d = construct_square(a,c), f,g = construct_square(c,b), h = construct_midpoint(a,e), i = construct_midpoint(b,g), j = construct_midpoint(a,b)",
-    "goal": "Perpendicular(h,j,i,j)"
-}

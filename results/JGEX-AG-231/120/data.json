@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_on_circle(a,b), d = construct_on_line(a,c), e = construct_on_line(a,b), e = construct_on_circle(a,d), f = construct_on_line(b,d), f = construct_on_line(c,e)",
-    "goal": "Angle_b_a_f - Angle_c_a_f"
-}

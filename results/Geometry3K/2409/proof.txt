@@ -1,2 +1,0 @@
-Solution:
-1. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_C_B - pi/3 & Length_A_C - 21 & Angle_A_B_C - pi/6 & Length_A_B - Variable_y => Variable_y - 21*sqrt(3)

@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_on_bline(a,b), e = construct_midpoint(c,a), f = construct_midpoint(b,c), d = construct_on_pline(b,a,c), d = construct_on_pline(a,b,c), g = construct_midpoint(d,b), h = construct_midpoint(a,d)",
-    "goal": "Perpendicular(e,f,e,h)"
-}

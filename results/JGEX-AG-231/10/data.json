@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), p = construct_midpoint(b,a), q = construct_midpoint(c,b), d = construct_on_tline(b,a,c), r = construct_midpoint(d,c), s = construct_midpoint(a,d), o = construct_on_line(p,r), o = construct_on_line(q,s)",
-    "goal": "-Length_o_r + Length_o_s"
-}

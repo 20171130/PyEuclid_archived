@@ -1,3 +1,0 @@
-Solution:
-1. Perpendicular(A,P,M,P) [Perp2Angle(A,P,M)] => Angle_A_P_M - pi/2
-2. Length_A_M**2 - Length_A_P**2 + 2*Length_A_P*Length_M_P*cos(Angle_A_P_M) - Length_M_P**2 & Angle_A_P_M - pi/2 & Length_A_P - Variable_x & Length_A_M - 20 & Length_M_P - 16 => Variable_x - 12

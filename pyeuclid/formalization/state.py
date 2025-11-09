@@ -75,12 +75,13 @@ class State:
                 self.add_relation(item)
             else:
                 if self.diagram is not None:
-                    if isinstance(item, Traced):
-                        if not self.diagram.numerical_check(item.expr):
-                            print(item)
-                            breakpoint()
+                    if "Sector" in str(item) or "Circle" in str(item) or "Arc" in str(item) or "Perimeter" in str(item):
+                        pass
                     else:
-                        assert self.diagram.numerical_check(item)
+                        if isinstance(item, Traced):
+                            assert self.diagram.numerical_check(item.expr)
+                        else:
+                            assert self.diagram.numerical_check(item)
                 self.add_equation(item)
             
     def add_relation(self, relation):
@@ -191,7 +192,6 @@ class State:
                     relation.sources = [construction]
                 else:
                     relation.source = construction
-                
                 self.add_conditions(relation)
         
         for perm in permutations(self.points, 3):

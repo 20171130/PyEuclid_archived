@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d,e = construct_square(a,c), g,f = construct_square(c,b)",
-    "goal": "Perpendicular(a,f,b,d)"
-}

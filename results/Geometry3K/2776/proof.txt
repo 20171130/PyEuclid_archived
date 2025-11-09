@@ -1,7 +1,0 @@
-Solution:
-1. Collinear(A,D,E) [DiagramAngle4b(A,D,B,E)] => Angle_B_A_D - Angle_B_A_E
-2. Collinear(B,C,E) [DiagramAngle4b(B,C,A,E)] => Angle_A_B_C - Angle_A_B_E
-3. Rectangle(A,B,D,C) => Angle_A_B_C - Angle_B_A_D
-4. Collinear(B,C,E) & Collinear(A,D,E) [DiagramAngle4(E,A,B,D,C)] => Angle_A_E_B - Angle_C_E_D
-5. Angle_B_A_D - Angle_B_A_E & Angle_A_B_C - Angle_A_B_E & Angle_A_B_C - Angle_B_A_D & Angle_A_E_B - Angle_C_E_D & Angle_A_B_E + Angle_A_E_B + Angle_B_A_E - pi & Angle_B_A_D - 2*pi/9 => Angle_C_E_D - 5*pi/9
-6. Angle_C_E_D - Variable_angle_8 & Angle_C_E_D - 5*pi/9 => Variable_angle_8 - 5*pi/9

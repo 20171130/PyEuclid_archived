@@ -314,9 +314,28 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
     relations = [c for c in filtered_conclusions if isinstance(c, Relation)]
     random.shuffle(relations)
-    angle_diffs = [c for c in filtered_conclusions if isinstance(c, Traced) and is_angle_diff(c.expr)]
+    def is_angle_const(symbol):
+        expr = state.simplify_equation(symbol, state.solutions['length_ratio'])
+        return not expr.free_symbols  # True if constant
+
+    def expr_has_const_angle(expr):
+        """Return True if any angle symbol inside expr is constant."""
+        return any(is_angle_const(sym) for sym in expr.free_symbols)
+
+    angle_diffs = [
+        c for c in filtered_conclusions
+        if isinstance(c, Traced)
+        and is_angle_diff(c.expr)
+        and not expr_has_const_angle(c.expr)
+    ]
     random.shuffle(angle_diffs)
-    angle_sums = [c for c in filtered_conclusions if isinstance(c, Traced) and is_angle_sum_minus_pi(c.expr)]
+
+    angle_sums = [
+        c for c in filtered_conclusions
+        if isinstance(c, Traced)
+        and is_angle_sum_minus_pi(c.expr)
+        and not expr_has_const_angle(c.expr)
+    ]
     random.shuffle(angle_sums)
     length_diffs = [c for c in filtered_conclusions if isinstance(c, Traced) and is_length_diff(c.expr)]
     random.shuffle(length_diffs)
@@ -437,7 +456,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             "diagram": diagram_sample_path,
             "proof": new_proof_str,
             "coordinates": ', '.join(coordinates),
-            "depth": new_state.condition2depth[key],
+            "depth": state.condition2depth[key],
             "seed": base_seed,
         }
 

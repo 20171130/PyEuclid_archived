@@ -1,5 +1,0 @@
-Solution:
-1. Parallelogram(A,B,C,D) => Length_A_D - Length_B_C & Length_A_B - Length_C_D
-2. Length_A_D - 18 & Length_A_D - Length_B_C => Length_B_C - 18
-3. Length_A_B - Length_C_D & Length_A_B - 20 => Length_C_D - 20
-4. Length_A_B - 20 & Length_B_C - 18 & Length_A_D - 18 & Length_C_D - 20 => Length_A_B + Length_A_D + Length_B_C + Length_C_D - 76

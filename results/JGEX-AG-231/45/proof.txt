@@ -1,9 +1,0 @@
-Solution:
-1. Collinear(a,q,s) => Angle_b_a_q - Angle_b_a_s
-2. Collinear(a,a1,p) => Angle_a1_a_c - Angle_c_a_p
-3. Length_a_f - Length_b_f & Length_a_f - Length_c_f & Length_a_f - Length_f_q => Concyclic(a,b,c,q)
-4. Concyclic(a,b,c,q) => Angle_b_a_q - Angle_b_c_q
-5. Length_a_f - Length_c_f & Length_a_f - Length_f_p & Length_a_f - Length_f_q => Concyclic(a,c,p,q)
-6. Concyclic(a,c,p,q) => Angle_c_a_p + Angle_c_q_p - pi
-7. Angle_b_a_q - Angle_b_a_s & Angle_a1_a_c - Angle_c_a_p & Angle_b_a_q - Angle_b_c_q & Angle_c_a_p + Angle_c_q_p - pi & Angle_a1_a_c - Angle_b_a_s => Angle_b_c_q + Angle_c_q_p - pi
-8. Angle_b_c_q + Angle_c_q_p - pi => Parallel(b,c,p,q)

@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_nsquare(b,a), d = construct_psquare(a,b), e = construct_on_line(b,d), f = construct_foot(e,b,c), g = construct_foot(e,d,c)",
-    "goal": "Length_a_e - Length_f_g"
-}

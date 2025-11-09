@@ -1,4 +1,0 @@
-{
-    "problem": "a,b,c = construct_triangle(), d = construct_midpoint(a,c), e = construct_midpoint(b,a), f = construct_midpoint(c,b), g = construct_on_pline(d,a,f), g = construct_on_pline(f,a,c)",
-    "goal": "Parallel(b,g,c,e)"
-}

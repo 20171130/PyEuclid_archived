@@ -1,6 +1,0 @@
-Solution:
-1. Length_K_L - 6 & Length_J_M - 6 => Length_J_M - Length_K_L
-2. Trapezoid(J,K,L,M) & Parallel(J,K,L,M) & Length_J_M - Length_K_L [DefinitionOfEquilateralTrapezoid1(J,K,L,M)] => EquilateralTrapezoid(J,K,L,M)
-3. EquilateralTrapezoid(J,K,L,M) & Parallel(J,K,L,M) [PropertyOfEquilateralTrapezoid(J,K,L,M)] => Angle_J_M_L - Angle_K_L_M
-4. Parallel(J,K,L,M) [Para2Angle(K,J,L,M)] => Angle_J_K_L + Angle_K_L_M - pi
-5. Angle_J_M_L - 4*pi/9 & Angle_J_M_L - Angle_K_L_M & Angle_J_K_L + Angle_K_L_M - pi => Angle_J_K_L - 5*pi/9

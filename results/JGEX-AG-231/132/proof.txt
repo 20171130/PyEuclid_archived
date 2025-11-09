@@ -1,7 +1,0 @@
-Solution:
-1. Collinear(c,e,f) => Angle_b_e_c + Angle_b_e_f - pi
-2. Length_a_b - Length_a_c & Length_a_b - Length_a_d & Length_a_b - Length_a_e => Concyclic(b,c,d,e)
-3. Concyclic(b,c,d,e) => Angle_b_d_c - Angle_b_e_c
-4. -Length_b_g + Length_f_g & -Length_e_g + Length_f_g & Perpendicular(f,g,f,h) => Angle_b_e_f + Angle_b_f_h - pi
-5. Angle_b_e_c + Angle_b_e_f - pi & Angle_b_d_c - Angle_b_e_c & Angle_b_e_f + Angle_b_f_h - pi => Angle_b_d_c - Angle_b_f_h
-6. Angle_b_d_c - Angle_b_f_h & Collinear(b,d,f) => Parallel(c,d,f,h)

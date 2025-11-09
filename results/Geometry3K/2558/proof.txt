@@ -1,2 +1,0 @@
-Solution:
-1. Length_R_S - 2*Variable_x - 1 & Length_Q_S - 6*Variable_x + 1 & Length_Q_S - Length_R_S => Length_R_S - 2

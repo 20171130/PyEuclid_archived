@@ -44,6 +44,8 @@ class register:
         
         init_sig = inspect.signature(cls.__init__)
         init_params = list(init_sig.parameters.values())[1:]
+        init_params = [item for item in init_params if item.annotation==Point]
+
         cls.input_types = [p.annotation for p in init_params]
         cls.num_inputs = len(cls.input_types)
         
@@ -70,6 +72,25 @@ class construct_segment(ConstructionRule):
 
     def construct(self, a: Point, b: Point):
         self.outputs = [a, b]
+        
+        
+@register("independent")
+class construct_free_parallelogram(ConstructionRule):
+    def __init__(self):
+        self.inputs = []
+        self.outputs = None
+
+    def construct(self, a: Point, b: Point, c: Point, d: Point):
+        self.outputs = [a, b, c, d]
+
+    def conditions(self):
+        return []
+
+    def conclusions(self):
+        a, b, c, d = self.outputs
+        return [
+            Parallelogram(a, b, c, d)
+        ]
 
 
 @register("independent")

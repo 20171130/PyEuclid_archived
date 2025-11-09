@@ -1,7 +1,0 @@
-Solution:
-1. Length_A_B - 6 & Length_B_C - 6 => Length_A_B - Length_B_C
-2. Length_A_B - Length_B_C [DefinitionOfIsoscelesTriangle(B,A,C)] => Angle_A_C_B - Angle_B_A_C
-3. Angle_A_B_C - 2*pi/3 & Angle_A_C_B - Angle_B_A_C & Angle_A_B_C + Angle_A_C_B + Angle_B_A_C - pi => Angle_A_C_B - pi/6
-4. sin(Angle_A_B_C)/Length_A_C - sin(Angle_A_C_B)/Length_A_B & Angle_A_C_B - pi/6 & Length_A_B - 6 & Angle_A_B_C - 2*pi/3 => Length_A_C - 6*sqrt(3)
-5. Area_A_B_C**2 - (-Length_A_B/2 + Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 - Length_A_C/2 + Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 - Length_B_C/2)*(Length_A_B/2 + Length_A_C/2 + Length_B_C/2) & Length_A_C - 6*sqrt(3) & Length_B_C - 6 & Length_A_B - 6 => Area_A_B_C - 9*sqrt(3)
-6. Area_A_B_C - 9*sqrt(3) & Length_B_C - 6 => Area_A_B_C - pi*Length_B_C**2/3 - 9*sqrt(3) + 12*pi

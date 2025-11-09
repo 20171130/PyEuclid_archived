@@ -1,4 +1,0 @@
-{
-    "problem": "a,b = construct_segment(), c = construct_midpoint(b,a), d = construct_on_circle(c,a), e = construct_on_tline(a,a,b), e = construct_on_tline(d,c,d), f = construct_on_tline(b,a,b), f = construct_on_line(d,e), g = construct_on_line(b,e), g = construct_on_line(a,f)",
-    "goal": "Parallel(a,e,d,g)"
-}

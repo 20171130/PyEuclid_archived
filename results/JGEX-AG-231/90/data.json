@@ -1,4 +1,0 @@
-{
-    "problem": "c,d = construct_segment(), e = construct_midpoint(c,d), a = construct_free(), b = construct_on_pline(c,d,a), b = construct_on_pline(a,d,c), f = construct_midpoint(a,b), g = construct_on_line(a,c), g = construct_on_line(b,e), h = construct_on_line(d,f), h = construct_on_line(a,c)",
-    "goal": "Length_a_h - Length_g_h"
-}

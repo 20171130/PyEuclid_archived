@@ -1,4 +1,0 @@
-Solution:
-1. Perpendicular(B,C,B,D) [Perp2Angle(C,B,D)] => Angle_C_B_D - pi/2
-2. Length_B_C**2 - 2*Length_B_C*Length_B_D*cos(Angle_C_B_D) + Length_B_D**2 - Length_C_D**2 & Length_C_D - 16 & Length_B_C - Variable_y & Angle_C_B_D - pi/2 & Length_B_D - 8 => Variable_y - 8*sqrt(3)
-3. Length_B_C - Variable_y & Variable_y - 8*sqrt(3) & Length_B_C - Variable_x => Variable_x - 8*sqrt(3)

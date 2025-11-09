@@ -1,4 +1,0 @@
-Solution:
-1. Collinear(A,C,F) [DiagramAngle4b(A,C,B,F)] => Angle_B_A_C - Angle_B_A_F & Angle_A_F_B + Angle_B_F_C - pi
-2. Parallelogram(A,B,C,D) => Angle_A_C_D - Angle_B_A_C
-3. Angle_B_A_C - Angle_B_A_F & Angle_A_B_F + Angle_A_F_B + Angle_B_A_F - pi & Angle_A_B_F - pi/9 & Angle_B_F_C - 49*pi/180 & Angle_A_F_B + Angle_B_F_C - pi & Angle_A_C_D - Angle_B_A_C => Angle_A_C_D - 29*pi/180

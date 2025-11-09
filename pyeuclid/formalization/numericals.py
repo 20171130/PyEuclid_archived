@@ -656,7 +656,7 @@ def ang_between(tail: Point, head1: Point, head2: Point) -> float:
     return diff
 
 
-def random_rfss(*points: list[Point]) -> list[Point]:
+def random_rfss(*points: list[Point], scale=None) -> list[Point]:
     """Random rotate-flip-scale-shift a point cloud."""
     # center point cloud.
     average = sum(points, Point(0.0, 0.0)) * (1.0 / len(points))
@@ -666,7 +666,8 @@ def random_rfss(*points: list[Point]) -> list[Point]:
     ang = unif(0.0, 2 * np.pi)
     sin, cos = np.sin(ang), np.cos(ang)
     # scale and shift
-    scale = unif(0.5, 2.0)
+    if scale is None:
+        scale = unif(2, 10.0)
     shift = Point(unif(-1, 1), unif(-1, 1))
     points = [p.rotate(sin, cos) * scale + shift for p in points]
 
@@ -696,10 +697,7 @@ def calculate_angle(a, b, c):
     
     mag_ab_sq = ab_x * ab_x + ab_y * ab_y
     mag_bc_sq = bc_x * bc_x + bc_y * bc_y
-    
-    mag_ab = math.sqrt(mag_ab_sq)
-    mag_bc = math.sqrt(mag_bc_sq)
-    
+
     dot_product = ab_x * bc_x + ab_y * bc_y
     cross_product = ab_x * bc_y - ab_y * bc_x
 

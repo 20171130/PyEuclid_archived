@@ -1,9 +1,0 @@
-Solution:
-1. Midpoint(N,R,S) [PropertyOfMidpoint(N,R,S)] => Length_N_R - Length_R_S/2 & Length_N_S - Length_R_S/2
-2. Midpoint(M,T,V) [PropertyOfMidpoint(M,T,V)] => Length_M_T - Length_T_V/2 & Length_M_V - Length_T_V/2
-3. Length_N_R - Length_R_S/2 & Length_M_T - Length_T_V/2 => Length_M_T/Length_N_R - Length_T_V/Length_R_S
-4. Length_M_V - Length_T_V/2 & Length_N_S - Length_R_S/2 => Length_M_V/Length_N_S - Length_T_V/Length_R_S
-5. Length_M_T/Length_N_R - Length_T_V/Length_R_S & Length_M_V/Length_N_S - Length_T_V/Length_R_S => Length_M_T/Length_M_V - Length_N_R/Length_N_S
-6. Collinear(N,R,S) & Parallel(R,T,S,V) & Collinear(M,T,V) & -Length_M_T/Length_M_V + Length_N_R/Length_N_S [AlphaGeometry42(R,T,V,S,N,M)] => Parallel(M,N,R,T)
-7. Parallel(R,T,S,V) & Parallel(M,N,R,T) & Collinear(N,R,S) & Collinear(M,T,V) [AlphaGeometry8b(R,T,S,V,N,M)] => Length_M_N - Length_N_R*Length_S_V/Length_R_S - Length_N_S*Length_R_T/Length_R_S
-8. Length_M_N - Length_N_R*Length_S_V/Length_R_S - Length_N_S*Length_R_T/Length_R_S & Length_N_S - Length_R_S/2 & Length_R_T - 32 & Length_N_R - Length_R_S/2 & Length_M_N - 25 => Length_S_V - 18

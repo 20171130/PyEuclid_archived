@@ -1,4 +1,0 @@
-{
-  "problem": "a,b,c = construct_triangle(), o = construct_circumcenter(a,b,c), p = construct_on_circle(o,a), q = construct_on_tline(p,o,p), pa = construct_reflect(p,b,c), pb = construct_reflect(p,c,a), pc = construct_reflect(p,a,b), qa = construct_reflect(q,b,c), qb = construct_reflect(q,c,a), qc = construct_reflect(q,a,b), a1 = construct_on_line(pb,qb), a1 = construct_on_line(pc,qc), b1 = construct_on_line(pa,qa), b1 = construct_on_line(pc,qc), c1 = construct_on_line(pa,qa), c1 = construct_on_line(pb,qb), o1 = construct_circumcenter(a1,b1,c1), x = construct_on_circle(o,a), x = construct_on_circle(o1,a1)",
-  "goal": "Collinear(o,o1,x)"
-}
