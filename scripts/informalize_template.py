@@ -11,8 +11,8 @@ from pyeuclid.informalization.informalize_utils import (
 from tqdm import tqdm
 
 
-dataset_dir = "task2/proving_923"
-dst_dataset_dir = "task2/proving_923_template"
+dataset_dir = "task2/figure"
+dst_dataset_dir = "task2/figure_template"
 max_workers = os.cpu_count() or 32
 
 

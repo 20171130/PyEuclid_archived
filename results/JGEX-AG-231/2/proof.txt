@@ -1,10 +1,10 @@
 Solution:
-1. Length_a_o - Length_c_o & Length_a_o - Length_n_o => Length_c_o - Length_n_o
+1. Length_a_o - Length_n_o & Length_a_o - Length_c_o => Length_c_o - Length_n_o
 2. -Length_b_o + Length_c_o & Length_c_o - Length_n_o => Angle_b_c_n - Angle_b_o_n/2
-3. Length_a_o - Length_b_o => IsoscelesTriangle(a,b,o)
-4. IsoscelesTriangle(a,b,o) & Length_a_o - Length_b_o & Collinear(a,b,m) & Midpoint(m,a,b) => Perpendicular(a,b,m,o)
-5. Collinear(m,n,o) => Parallel(m,o,n,o)
-6. Perpendicular(a,b,m,o) & Parallel(m,o,n,o) => Perpendicular(a,b,n,o)
-7. IsoscelesTriangle(a,b,o) & Length_a_o - Length_b_o & Perpendicular(a,b,n,o) => Angle_a_o_n - Angle_b_o_n
-8. -Length_a_o + Length_c_o & Length_c_o - Length_n_o => Angle_a_c_n + Angle_a_o_n/2 - pi
-9. Angle_b_c_n - Angle_b_o_n/2 & Angle_a_o_n - Angle_b_o_n & Angle_a_c_n + Angle_a_o_n/2 - pi => Angle_a_c_n + Angle_b_c_n - pi
+3. -Length_a_o + Length_c_o & Length_c_o - Length_n_o => Angle_a_c_n + Angle_a_o_n/2 - pi
+4. Length_a_o - Length_b_o => IsoscelesTriangle(a,b,o)
+5. IsoscelesTriangle(a,b,o) & Length_a_o - Length_b_o & Collinear(a,b,m) & Midpoint(m,a,b) => Perpendicular(a,b,m,o)
+6. Collinear(m,n,o) => Parallel(m,o,n,o)
+7. Perpendicular(a,b,m,o) & Parallel(m,o,n,o) => Perpendicular(a,b,n,o)
+8. IsoscelesTriangle(a,b,o) & Length_a_o - Length_b_o & Perpendicular(a,b,n,o) => Angle_a_o_n - Angle_b_o_n
+9. Angle_b_c_n - Angle_b_o_n/2 & Angle_a_c_n + Angle_a_o_n/2 - pi & Angle_a_o_n - Angle_b_o_n => Angle_a_c_n + Angle_b_c_n - pi

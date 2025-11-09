@@ -11,7 +11,7 @@ from stopit import ThreadingTimeout as TT
 import pyeuclid.formalization.utils as utils
 from pyeuclid.formalization.state import State
 from pyeuclid.formalization.relation import *
-from pyeuclid.formalization.translation import parse_texts_from_file
+from pyeuclid.formalization.translation import *
 from pyeuclid.formalization.utils import Timeout, TimeoutException
 from pyeuclid.formalization.construction_rule import *
 from pyeuclid.engine.inference_rule import *
@@ -39,7 +39,13 @@ class TestBenchmarks(unittest.TestCase):
                 state.silent = True
             try:
                 diagram_path = os.path.join(result_dir, "diagram.jpg")
+                print(str(diagram_path))
                 state.load_problem_from_text(text, str(diagram_path))
+                # state.diagram.draw_diagram()
+                constructions = [c for cs in state.diagram.constructions_list for c in cs]
+                goal_constructions = get_constructions_from_goal(state.goal)
+                state.diagram.draw([], goal_constructions)
+                state.diagram.draw_diagram(constructions = constructions + goal_constructions, save=True)   
                 deductive_database = DeductiveDatabase(state)
                 algebraic_system = AlgebraicSystem(state)
                 proof_generator = ProofGenerator(state)

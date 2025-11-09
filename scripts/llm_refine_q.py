@@ -103,7 +103,7 @@ Task:
 - Rewrite the solution in clear, concise, and fluent language, simplifying trivial or redundant steps.
 - Step-wise formatting is optional. Use it only when it improves clarity; otherwise, presenting the solution as a continuous paragraph is acceptable.
 - If any angles are given in radians, convert them to degrees.
-- Ensure the final choice label matches the provided solution’s final answer.
+- Ensure the final choice label matches the provided solution's final answer.
 - Output ONLY the rewritten solution, with the final CHOICE LABEL (e.g., A, B, C, or D) inside \\boxed{{}} at the end.
 - Do NOT include the problem statement, explanations, or extra text.
 """

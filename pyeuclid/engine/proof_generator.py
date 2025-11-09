@@ -437,7 +437,7 @@ class ProofGenerator:
             return ' & '.join(formatted_items)
 
         for step, (conditions, theorem, conclusions) in enumerate(proof):
-            theorem_str = f" [{theorem}]" if theorem and verbose else ""
+            theorem_str = ""
             res += f"{step + 1}. {_format(conditions)}{theorem_str} => {_format(conclusions)}\n"
         return res
     
