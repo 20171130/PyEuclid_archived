@@ -31,6 +31,22 @@ class ConstructionRule:
         return f"{class_name}({inputs})"
 
 
+class ConstructionQ(ConstructionRule):
+    def sample(angle_values=[], length_values=[]):
+        raise NotImplementedError()
+    
+    def point2coord(self, point):
+        return self.diagram.name2point[point.name]
+    
+    def __str__(self):
+        class_name = self.__class__.__name__
+        params = self.inputs + getattr(self, "params", [])
+        inputs = ",".join([str(item) for item in params]) 
+        outputs = ",".join(str(out) for out in self.outputs)
+        return f"{outputs} = {class_name}({inputs})"
+        
+
+
 class register:
     def __init__(self, *annotations):
         self.annotations = annotations
@@ -44,7 +60,10 @@ class register:
         
         init_sig = inspect.signature(cls.__init__)
         init_params = list(init_sig.parameters.values())[1:]
-        init_params = [item for item in init_params if item.annotation==Point]
+        if issubclass(cls, ConstructionQ):
+            init_params = [item for item in init_params if item.annotation==Point]
+        else:
+            init_params = [item for item in init_params]
 
         cls.input_types = [p.annotation for p in init_params]
         cls.num_inputs = len(cls.input_types)
