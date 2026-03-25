@@ -3,45 +3,78 @@ import sympy
 import numpy as np
 import json
 import random
+import itertools
+from typing import Optional, Dict, Any
 import time
-import argparse
+from pyeuclid.formalization.relation import *
+from pyeuclid.formalization.diagram import Diagram, MaxAttemptsError
+from pyeuclid.formalization.state import State
+from pyeuclid.formalization.construction_rule import *
+from pyeuclid.formalization.translation import get_constructions_from_goal
+from pyeuclid.engine.deductive_database import DeductiveDatabase
+from pyeuclid.engine.inference_rule import *
+from pyeuclid.engine.algebraic_system import AlgebraicSystem
+from pyeuclid.engine.proof_generator import ProofGenerator
+from pyeuclid.engine.engine import Engine
 
-from stopit import ThreadingTimeout
-
-from euclidea.formalization.relation import *
-from euclidea.formalization.diagram import Diagram, MaxAttemptsError
-from euclidea.formalization.state import State
-from euclidea.formalization.construction_rule import *
-from euclidea.formalization.translation import get_constructions_from_goal
-from euclidea.formalization.naming_policy import NamePolicy
-from euclidea.formalization.utils import expr_complexity
-from euclidea.engine.deductive_database import DeductiveDatabase
-from euclidea.engine.inference_rule import *
-from euclidea.engine.algebraic_system import AlgebraicSystem
-from euclidea.engine.proof_generator import ProofGenerator
-from euclidea.engine.engine import Engine
-from euclidea.formalization.construction_q import ConstructionQ, construct_segment_q, construct_square_q, construct_rectangle_q, construct_angle_counterclockwise, construct_angle_clockwise, construct_point_on_circle, construct_point_on_line, construct_parallelogram_q, construct_eq_trapezoid_q, construct_r_triangle_q, construct_eq_triangle_q, construct_ieq_triangle_q, construct_r_trapezoid_q
+from pyeuclid.formalization.construction_q import ConstructionQ, construct_segment_q, construct_square_q, construct_rectangle_q, construct_angle_counterclockwise, construct_angle_clockwise, construct_point_on_circle, construct_point_on_line, construct_parallelogram_q, construct_eq_trapezoid_q, construct_r_triangle_q, construct_eq_triangle_q, construct_ieq_triangle_q, construct_r_trapezoid_q
 
 
-def generate_single_problem(output_dir: str, problem_id: int):
-    problem_output_dir = os.path.join(output_dir, f'problem_{problem_id}')
-    os.makedirs(problem_output_dir, exist_ok=True)
+# import logging
+# Configure basic logging to console
+# logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# # Get a logger
+# logger = logging.getLogger(__name__)
+
+from datetime import datetime
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
     
+def printt(s):
+    # Get the current date and time
+    now = datetime.now()
+    # Format the time as a string (e.g., HH:MM:SS)
+    current_time_str = now.strftime("%H:%M:%S")
+    # Print the formatted time
+    s = f"Rank {rank} {current_time_str} {s}"
+    print(s)
+
+
+debug = False
+problem_type = "calculation"
+
+def generate_single_problem(rank: int, output_dir: str, problem_id: int, auxiliary_mode: str = "allow") -> Dict[str, Any]:
+    """Generate a single problem with timeout checking at key points.
+    
+    Args:
+        rank: MPI rank or process ID
+        output_dir: Output directory for problems
+        problem_id: Problem ID
+        auxiliary_mode: One of "allow" (default), "forbid", or "must"
+            - "allow": Accept both problems with and without auxiliary constructions
+            - "forbid": Only accept problems without auxiliary constructions
+            - "must": Only accept problems with auxiliary constructions
+    """
+    
+    problem_output_dir = os.path.join(output_dir, f'rank_{rank}', f'problem_{problem_id}')
+    os.makedirs(problem_output_dir, exist_ok=True)
+
     seed = random.randint(0, int(1e9))
-    hash_seed = os.environ.get("PYTHONHASHSEED")
-    assert hash_seed is not None, (
-        "For full reproducibility, please set the environment variable "
-        "`PYTHONHASHSEED`, e.g. `export PYTHONHASHSEED=0`."
-    )
+    hash_seed = os.environ.get("PYTHONHASHSEED", None)
+    assert hash_seed is not None
     random.seed(seed)
     np.random.seed(seed)
     sympy.core.random.seed(seed)
+    printt(f"Seed: {seed} Hash Seed: {hash_seed}")
 
     state = State()
     state.silent = True
     point2constructions = {}
 
-    diagram_path = os.path.join(problem_output_dir, f'full_diagram.png')
+    diagram_path = os.path.join(problem_output_dir, f'diagram_rank_{rank}_problem_{problem_id}.pdf')
+    
     diagram = Diagram(cache_folder=None, save_path=diagram_path)
     state.diagram = diagram
 
@@ -50,14 +83,20 @@ def generate_single_problem(output_dir: str, problem_id: int):
     points = 0
     t0 = time.time()
     
-    max_steps = random.uniform(3, 5)
-    max_points = random.uniform(8, 10)
+    # printt(f"Rank {rank}: Starting problem {problem_id}")
+    if auxiliary_mode == "forbid":
+        max_steps = random.uniform(3, 5) # 4 - 10
+        max_points = 8
+    else:
+        max_steps = random.uniform(4, 10) # 4 - 10
+        max_points = random.uniform(8, 15) # 8 - 15
+    if problem_type == "proving":
+        rule_set = inference_rule_sets["basic"]
+    else:
+        rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
+        rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
+    
     max_attempts = 100
-
-    rule_set = inference_rule_sets["basic"] + inference_rule_sets['complex']
-    if random.random() < 0.9:
-        rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines, AreaHeronFormula)]
-    name_policy = NamePolicy(seed=seed)
     constructions_list = []
     length_values, angle_values = set(), set()
     index = 0
@@ -65,8 +104,12 @@ def generate_single_problem(output_dir: str, problem_id: int):
     construction_rule_set = [construct_segment_q, construct_r_triangle_q, construct_eq_triangle_q, construct_ieq_triangle_q, construct_r_trapezoid_q, construct_eq_trapezoid_q, construct_square_q, construct_rectangle_q, construct_parallelogram_q]
     construction_rule_set += [construct_angle_counterclockwise, construct_angle_clockwise, construct_point_on_circle, construct_point_on_line, construct_on_dia, construct_angle_bisector, construct_circumcenter, construct_eqdistance, construct_incenter, construct_intersection_cc, construct_intersection_lc, construct_intersection_ll, construct_intersection_lp, construct_intersection_lt, construct_intersection_pp, construct_intersection_tt, construct_lc_tangent, construct_midpoint, construct_mirror, construct_on_aline, construct_on_bline, construct_on_circle, construct_on_line, construct_on_pline, construct_on_tline, construct_orthocenter, construct_reflect]
     construction_rule_set += [construct_foot] * 10
-
+    # the diagram is fully determined
+    if debug:
+        state.silent = False
+    # Construction phase with timeout checks
     while (step < max_steps and attempt < max_attempts and len(state.points)<max_points):
+        
         constructions = []
         multiconstructions = False
 
@@ -100,16 +143,12 @@ def generate_single_problem(output_dir: str, problem_id: int):
                         break
                 else:
                     valid_constructions.append(construction)
-
         if not valid_constructions:
             attempt += 1
             continue
 
         construction = random.choice(valid_constructions)
-        used = {p.name for p in state.points}
-        labels = name_policy.alloc_labels(picked, picked.num_outputs, used)
-        outputs = [Point(lbl) for lbl in labels]
-        # outputs = [Point(chr(ord('A') + num_points + i)) for i in range(picked.num_outputs)]
+        outputs = [Point(chr(ord('A') + num_points + i)) for i in range(picked.num_outputs)]
         results = construction.construct(*outputs)
         if not results is None:
             a, b = results
@@ -157,7 +196,7 @@ def generate_single_problem(output_dir: str, problem_id: int):
         attempt += 1
 
         try:
-            diagram.add_constructions(constructions, aesthetic_checking=True)
+            diagram.add_constructions(constructions)
         except MaxAttemptsError:
             continue
             
@@ -165,36 +204,49 @@ def generate_single_problem(output_dir: str, problem_id: int):
         for construction in constructions:
             construction.index = index
             index += 1
-        
         state.add_constructions(constructions)
         step += 1
         points += len(outputs)
         for p in outputs:
             point2constructions[p] = constructions
+        
+        equations = [item.expr for item in state.equations if len(item.free_symbols)==1]
+        annotated_equations = diagram.draw_diagram(save=True, equations=equations)
 
+    with open(os.path.join(problem_output_dir, f'constructions_list.json'), 'w') as f:
+        s = ', '.join([str(construction) for constructions in constructions_list for construction in constructions])
+        f.write(s)
+    printt(s)
     deductive_database = DeductiveDatabase(state, outer_theorems=rule_set)
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
-    
+    proof_generator = ProofGenerator(state)
     try:
-        with ThreadingTimeout(1200):
-            engine.search(depth=10)
+        engine.run()
     except:
         return 0
 
     max_depth = max(state.condition2depth.values())
 
     if max_depth < 2:
+        print('too easy problem!!!')
         return 0
-    
+
     i = 0
+    samples_with_auxiliary = 0
+    sub_conclusions = set()
+    conclusions2dir = {}
     conclusions = []
     conclusions += [symbol - solution for symbol, solution in state.solutions["angle_linear"].items() if len(solution.free_symbols)==0 and solution != pi/2 and solution != pi]
     conclusions += [symbol - solution for symbol, solution in state.solutions["length_ratio"].items() if len(solution.free_symbols)==0]
     conclusions += [symbol - solution for symbol, solution in state.solutions["length_linear"].items() if len(solution.free_symbols)==0]
-    conclusions = [c for c in conclusions if state.condition2depth[c] >= 2 and state.condition2depth[c] <= 4 and expr_complexity(c) <= 2]
+    printt("Determining if auxiliary constructions are needed")
+    sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
+    os.makedirs(sample_dir, exist_ok=True)
+    conclusions = [c for c in conclusions if state.condition2depth[c] >= 2 and state.condition2depth[c] <= 4]
     random.shuffle(conclusions)
-
+    # conclusions.sort(key=lambda x: -state.condition2depth[x])
+    print(f'got {len(conclusions)} conclusions.')
     def get_sufficient_constructions(points):
         res = []
         target_points = set(points)
@@ -224,159 +276,300 @@ def generate_single_problem(output_dir: str, problem_id: int):
         new_state.silent = True
         symbol = list(relation.free_symbols)[0]
         goal = symbol
-        answer = sympy.solve(relation, symbol)[0]
+        solution = sympy.solve(relation, symbol)[0]
         new_state.diagram = diagram
         new_state.add_constructions(sufficient_constructions)
+        equations = [item.expr for item in new_state.equations if len(item.free_symbols)==1]
         variable_eqn = None
-        length_related = "Length" in str(relation)
-        angle_related = "Angle" in str(relation)
-
-        if random.random() > 0.9 and (length_related or angle_related):
+        if random.random() > 0.9 and ("Length" in str(relation) or "Angle" in str(relation)):
+            # generates a goal that contains a variable
             rand = random.random()
             variable = random.choice(["a", "b", "c", "x", "y", "z"])
             variable = Variable(variable)
-            if angle_related:
-                answer = answer*180/sympy.pi
-                symbol = symbol*180/sympy.pi
-            
-            if answer.is_integer:
-                factor = random.choice([1, 2, 3, 4, 5, 6, 7])
-                if random.random() > 0.5:
-                    variable_eqn = variable * factor - symbol - answer%factor
-                else:
-                    variable_eqn = variable * factor - symbol - answer%factor + factor
-                if angle_related:
-                    variable_eqn *= pi
-                new_state.add_equation(variable_eqn)
-                answer = sympy.solve(variable_eqn.subs(symbol, answer), variable)[0]
-                goal = variable
-                key = goal - answer
-        
+            if "Angle" in str(relation):
+                solution = solution/sympy.pi*180
+                symbol = symbol * 180 / sympy.pi
+            factor = random.choice([1, 2, 3, 4, 5, 6, 7])
+            if random.random() > 0.5:
+                variable_eqn = variable * factor - symbol - solution%factor
+            else:
+                variable_eqn = variable * factor - symbol - solution%factor + factor
+            variable_eqn *= pi
+            equations.append(variable_eqn)
+            new_state.add_equation(variable_eqn)
+            solution = sympy.solve(variable_eqn.subs(symbol, solution), variable)[0]
+            goal = variable
+        key = goal - solution
         new_state.goal = goal
         new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
         new_algebraic_system = AlgebraicSystem(new_state)
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
         try:
-            with ThreadingTimeout(1200):
-                new_engine.search(depth=10)
+            new_engine.run()
         except:
             continue
         
+        auxiliary_constructions = []
         if new_state.complete() is not None:
-            proof_generator = ProofGenerator(new_state, norm=0, max_equation_length_perstep=None)
+            if auxiliary_mode == "must":
+                printt(f"Rank {rank}: Problem {problem_id} - Skipped conclusion (no auxiliary constructions, but auxiliary_mode=must)")
+                continue
+            new_proof_generator = ProofGenerator(new_state, norm=0, max_equation_length_perstep=None)
             try:
-                proof_generator.run()
-                proof = proof_generator.get_proof()
+                new_proof_generator.run()
             except:
+                print('new proof generator run fails !!!!')
                 continue
-            if len(proof) <= 4 or len(proof) >= 40:
+            new_proof = new_proof_generator.get_proof()
+            if len(new_proof) <= 4:
+                print('proof so short !!!!')
                 continue
-            proof_str = proof_generator.get_proof_str(angle="degree")
+            if len(new_proof) >= 40:
+                print('proof so long !!!!')
+                continue
+            new_proof_str = new_proof_generator.get_proof_str(angle="degree")
             key = new_state.goal - new_state.complete()
         else:
             # requires auxiliary constructions
-            continue
+            if auxiliary_mode == "forbid":
+                printt(f"Rank {rank}: Problem {problem_id} - Skipped conclusion (requires auxiliary constructions, auxiliary_mode=forbid)")
+                continue
+            print('new state does not prove - attempting auxiliary constructions')
+            proof_generator.run(relation)
+            auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
+            sufficient_auxiliary_constructions = []
+            for auxiliary_construction in auxiliary_constructions:
+                sufficient_auxiliary_constructions.append(auxiliary_construction)
+                for construction in get_sufficient_constructions([p for p in auxiliary_construction.inputs if isinstance(p, Point)]):
+                    if construction not in sufficient_constructions and construction not in sufficient_auxiliary_constructions:
+                        sufficient_auxiliary_constructions.append(construction)
+            sufficient_auxiliary_constructions = sorted(sufficient_auxiliary_constructions, key=lambda c: c.index)
+            auxiliary_constructions = sufficient_auxiliary_constructions.copy()
+            printt("Pruning auxiliary constructions")
+            for auxiliary_construction in sufficient_auxiliary_constructions[::-1]:
+                new_auxiliary_constructions = auxiliary_constructions.copy()
+                new_auxiliary_constructions.remove(auxiliary_construction)
+                new_constructions = sufficient_constructions + new_auxiliary_constructions
+                new_state_aux = State()
+                new_state_aux.silent = True
+                new_state_aux.goal = goal
+                new_state_aux.diagram = diagram
+                new_state_aux.add_constructions(new_constructions)
+                new_deductive_database = DeductiveDatabase(new_state_aux, outer_theorems=rule_set)
+                new_algebraic_system = AlgebraicSystem(new_state_aux)
+                new_engine = Engine(new_state_aux, new_deductive_database, new_algebraic_system)
+                if variable_eqn is not None:
+                    new_state_aux.add_equation(variable_eqn)
+                new_engine.run()
+                if new_state_aux.complete() is not None:
+                    auxiliary_constructions.remove(auxiliary_construction)
+            
+            new_state = State()
+            new_state.silent = True
+            new_state.goal = goal
+            new_state.diagram = diagram
+            new_state.add_constructions(sorted(sufficient_constructions+auxiliary_constructions, key=lambda c: c.index))
+            new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
+            new_algebraic_system = AlgebraicSystem(new_state)
+            new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+            if variable_eqn is not None:
+                new_state.add_equation(variable_eqn)
+            try:
+                new_engine.run()
+            except:
+                print('new engine run with auxiliary constructions failed')
+                continue
+            
+            if new_state.complete() is None:
+                print('still cannot solve with auxiliary constructions')
+                continue
+            
+            new_proof_generator = ProofGenerator(new_state, norm=0, max_equation_length_perstep=None)
+            try:
+                new_proof_generator.run()
+            except:
+                print('new proof generator with auxiliary constructions fails')
+                continue
+            new_proof = new_proof_generator.get_proof()
+            if len(new_proof) <= 4:
+                print('proof with auxiliary still too short')
+                continue
+            if len(new_proof) >= 40:
+                print('proof with auxiliary too long')
+                continue
+            new_proof_str = new_proof_generator.get_proof_str(angle="degree")
+            key = new_state.goal - new_state.complete()
         
-        necessary_constructions = [construction for construction in sufficient_constructions if construction in proof_generator.source_constructions[key]]
+        necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
         
-        # check free points
-        input_points = []
-        output_points = []
-        for construction in necessary_constructions:
-            input_points.extend(construction.inputs)
-            output_points.extend(construction.outputs)
-        if not all([p in output_points for p in input_points]):
+        if len(necessary_constructions) <= 2:
+            print('necessary_constructions fails')
+            print(len(necessary_constructions))
             continue
 
-        if len(necessary_constructions) <= 2:
+        input_points = set()
+        output_points = set()
+        for construction in new_proof_generator.source_constructions[key]:
+            input_points.update([p for p in construction.inputs if isinstance(p, Point)])
+            output_points.update([p for p in construction.outputs])
+        
+        added_constructions = []
+        basic_points = []
+        for p in sorted(list(input_points), key=lambda p:p.name):
+            if p not in output_points:
+                if len(point2constructions[p]) == 1 and type(point2constructions[p][0]) in list(construction_rule_sets["independent"]):
+                    basic_points.append(p)
+                else:
+                    c = construct_free()
+                    c.construct(p)
+                    c.index = point2constructions[p][0].index
+                    added_constructions.append(c)
+        
+        if len(basic_points) == 1:
+            c = construct_free()
+            c.construct(*basic_points)
+            c.index = 0
+            added_constructions.append(c)
+        elif len(basic_points) == 2:
+            c = construct_segment()
+            c.construct(*basic_points)
+            c.index = 0
+            added_constructions.append(c)
+        elif len(basic_points) == 3:
+            c = construct_triangle()
+            c.construct(*basic_points)
+            c.index = 0
+            added_constructions.append(c)
+        elif len(basic_points) == 4:
+            c = construct_quadrangle()
+            c.construct(*basic_points)
+            c.index = 0
+            added_constructions.append(c)
+        elif len(basic_points) == 5:
+            c = construct_pentagon()
+            c.construct(*basic_points)
+            c.index = 0
+            added_constructions.append(c)
+            
+        has_auxiliary = len(auxiliary_constructions) > 0
+        if auxiliary_mode == "must" and not has_auxiliary:
+            printt(f"Rank {rank}: Problem {problem_id} - Skipped conclusion (auxiliary constructions pruned to zero, auxiliary_mode=must)")
             continue
+        
+        if has_auxiliary:
+            aux_proof = 'Auxilirary Constructions:\n'
+            for construction in auxiliary_constructions:
+                aux_proof = aux_proof + str(construction) + '\n'
+            new_proof_str = aux_proof + new_proof_str
+            samples_with_auxiliary += 1
 
         diagram.save()
 
-        diagram_sample_path = os.path.join(problem_output_dir, 'diagram.png')
-        diagram.save_path = diagram_sample_path
+        sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
+        os.makedirs(sample_dir, exist_ok=True)
+
+        diagram_before_auxiliary_png_path = os.path.join(sample_dir, 'diagram_before_auxiliary.png')
+        diagram_before_auxiliary_svg_path = os.path.join(sample_dir, 'diagram_before_auxiliary.svg')
+        diagram_after_auxiliary_png_path = os.path.join(sample_dir, 'diagram_after_auxiliary.png')
+        diagram_after_auxiliary_svg_path = os.path.join(sample_dir, 'diagram_after_auxiliary.svg')
+        diagram_sample_path = diagram_after_auxiliary_png_path
 
         goal_constructions = get_constructions_from_goal(relation)
         diagram.draw([], goal_constructions)
-        new_state = State()
-        new_state.diagram = diagram
-        new_state.add_constructions(necessary_constructions)
-
-        equations = []
-        for construction in necessary_constructions:
-            for conclusion in construction.conclusions():
-                if isinstance(conclusion, sympy.core.expr.Expr) and len(conclusion.free_symbols)==1:
-                    equations.append(conclusion)
-        if variable_eqn:
-            equations.append(variable_eqn)
-        
-        # check whether parameterized constructions are used
-        conditions = []
-        for step in proof:
-            conditions.extend(step[0])
-        if not all([eq in conditions for eq in equations]):
-            continue
-
+        diagram.save_path = diagram_before_auxiliary_png_path
         diagram.draw_diagram(constructions=necessary_constructions+goal_constructions, save=True, equations=equations)
+        diagram.save_path = diagram_before_auxiliary_svg_path
+        diagram.draw_diagram(constructions=necessary_constructions+goal_constructions, save=True, equations=equations)
+
+        auxiliary_construction_plot_code_numeric = []
+        auxiliary_construction_plot_code_symbolic = []
+        if has_auxiliary:
+            diagram.auxiliary_constructions.extend(auxiliary_constructions)
+
+        diagram.save_path = diagram_after_auxiliary_png_path
+        annotated_equations = diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=equations)
+        diagram.save_path = diagram_after_auxiliary_svg_path
+        diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=equations)
+        if has_auxiliary:
+            auxiliary_construction_plot_code = diagram.get_auxiliary_construction_plot_code(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, ax_name="ax")
+            auxiliary_construction_plot_code_numeric = auxiliary_construction_plot_code["numeric"]
+            auxiliary_construction_plot_code_symbolic = auxiliary_construction_plot_code["symbolic"]
         diagram.restore()
 
-        problem_constructions = sorted(necessary_constructions, key=lambda c: c.index)
+        problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
         problem_str =  ', '.join([str(construction) for construction in problem_constructions])
-        if variable_eqn:
+        if variable_eqn is not None:
             if 'pi' in str(variable_eqn):
                 variable_eqn = variable_eqn.subs(pi, 180) / 180
             problem_str = problem_str + ', ' + str(variable_eqn)
-        answer = answer.subs(pi, 180)
-        
-        # coordinates = []
-        # for name, point in diagram.name2point.items():
-        #     coordinates.append(f"{name}: ({str(point.x)}, {str(point.y)})")
+        solution = solution.subs(pi, 180)
+
+        coordinates = []
+        for name, point in diagram.name2point.items():
+            coordinates.append(f"{name}: ({str(point.x)}, {str(point.y)})")
 
         data = {
-            "problem_id": problem_id,
-            "seed": seed,
-            "time_cost": time.time() - t0,
-            "symbolic_problem": problem_str,
-            "symbolic_goal": str(goal),
-            "symbolic_proof": proof_str,
-            "answer": str(answer),
-            "diagram": diagram_sample_path,
+            "problem": problem_str,
+            "necessary_constructions": ', '.join([str(construction) for construction in necessary_constructions]),
+            "unused_constructions": ', '.join([str(construction) for construction in sufficient_constructions if construction not in necessary_constructions]),
+            "auxiliary_constructions": ', '.join([str(construction) for construction in auxiliary_constructions]),
+            "auxiliary_construction_plot_code": auxiliary_construction_plot_code_numeric,
+            "auxiliary_construction_plot_code_numeric": auxiliary_construction_plot_code_numeric,
+            "auxiliary_construction_plot_code_symbolic": auxiliary_construction_plot_code_symbolic,
+            "goal": str(goal),
+            "solution": str(solution),
             "depth": state.condition2depth[relation],
+            "diagram": diagram_sample_path,
+            "diagram_before_auxiliary_png": diagram_before_auxiliary_png_path,
+            "diagram_before_auxiliary_svg": diagram_before_auxiliary_svg_path,
+            "diagram_after_auxiliary_png": diagram_after_auxiliary_png_path,
+            "diagram_after_auxiliary_svg": diagram_after_auxiliary_svg_path,
+            "proof": new_proof_str,
+            "rank": rank,
+            "time_cost": time.time() - t0,
+            "problem_id": problem_id,
+            "sample_id": i,
+            "seed": seed,
+            "hash_seed": hash_seed,
+            "annotated_equations": [str(item) for item in annotated_equations],
+            "has_auxiliary_constructions": has_auxiliary,
+            "num_auxiliary_constructions": len(auxiliary_constructions),
+            "coordinates": ', '.join(coordinates),
         }
 
-        with open(os.path.join(problem_output_dir, "data.json"), "w") as f:
+        with open(os.path.join(sample_dir, "data.json"), "w") as f:
             json.dump(data, f, indent=2)
+        
+        conclusions2dir[relation] = sample_dir
         i += 1
         break
+    printt(f"Rank {rank}: Problem {problem_id} - Generated {i} samples ({samples_with_auxiliary} with auxiliary)")
     return i
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--max-problem",
-        type=int,
-        default=0,
-        help="Maximum number of problems to generate (0 means unlimited)."
-    )
-    parser.add_argument(
-        "--output-dir",
-        type=str,
-        default="dataset/calculation",
-        help="Directory to store generated problems."
-    )
-    args = parser.parse_args()
-
-    max_problem = args.max_problem if args.max_problem > 0 else None
-    output_dir = args.output_dir
-
-    os.makedirs(output_dir, exist_ok=True)
-
-    problem_id = 1
+    rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
+    max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "0"))
+    base_output_dir = os.environ.get('OUTPUT_DIR', 'dataset')
+    auxiliary_mode = os.environ.get('AUX_MODE', os.environ.get('AUXILIARY_MODE', 'allow')).lower()
+    
+    if auxiliary_mode not in ('allow', 'forbid', 'must'):
+        raise ValueError(f"AUX_MODE/AUXILIARY_MODE must be 'allow', 'forbid', or 'must', got: {auxiliary_mode}")
+    
+    os.makedirs(base_output_dir, exist_ok=True)
+    max_problem_id = max_problem_id if max_problem_id > 0 else None
+    problem_id = 0
+    
+    printt(f"Rank {rank}: Starting generation with AUX_MODE={auxiliary_mode}")
+    
     while True:
-        if max_problem is not None and problem_id > max_problem:
+        if max_problem_id is not None and problem_id >= max_problem_id:
             break
-        generated = generate_single_problem(problem_id=problem_id, output_dir=output_dir)
+        try:
+            generated = generate_single_problem(rank=rank, problem_id=problem_id, output_dir=base_output_dir, auxiliary_mode=auxiliary_mode)
+        except:
+            generated = 0
+            continue
         problem_id += generated
 
 

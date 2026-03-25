@@ -406,6 +406,65 @@ class Diagram:
             )
             if auxiliary:
                 self.auxiliary_constructions.append(construction)
+
+    def get_auxiliary_construction_plot_code(self, constructions=None, ax_name="ax"):
+        if constructions is None:
+            constructions = [c for constructions in self.constructions_list for c in constructions]
+
+        def num(v):
+            return format(float(v), ".15g")
+
+        plot_code_numeric = []
+        plot_code_symbolic = []
+        for construction in constructions:
+            if construction not in self.auxiliary_constructions:
+                continue
+            if construction not in self.construction2diagram:
+                continue
+            new_points, new_segments, new_circles, _, _ = self.construction2diagram[construction]
+            numeric_lines = []
+            symbolic_lines = []
+            for point in new_points:
+                numeric_lines.append(
+                    f"{ax_name}.scatter({num(point.x)}, {num(point.y)}, color='black', s=15)"
+                )
+                point_name = self.point2name[point]
+                symbolic_lines.append(
+                    f"{ax_name}.scatter({point_name}.x, {point_name}.y, color='black', s=15)"
+                )
+            for segment in new_segments:
+                numeric_lines.append(
+                    f"{ax_name}.plot([{num(segment.p1.x)}, {num(segment.p2.x)}], [{num(segment.p1.y)}, {num(segment.p2.y)}], color='black', lw=1.2, alpha=0.8, ls='--')"
+                )
+                p1_name = self.point2name[segment.p1]
+                p2_name = self.point2name[segment.p2]
+                symbolic_lines.append(
+                    f"{ax_name}.plot([{p1_name}.x, {p2_name}.x], [{p1_name}.y, {p2_name}.y], color='black', lw=1.2, alpha=0.8, ls='--')"
+                )
+            for circle in new_circles:
+                numeric_lines.append(
+                    f"{ax_name}.add_patch(__import__('matplotlib.patches', fromlist=['Circle']).Circle(({num(circle.center.x)}, {num(circle.center.y)}), {num(circle.radius)}, color='black', alpha=0.8, fill=False, lw=1.2, ls='--'))"
+                )
+                center_name = self.point2name[circle.center]
+                symbolic_lines.append(
+                    f"{ax_name}.add_patch(__import__('matplotlib.patches', fromlist=['Circle']).Circle(({center_name}.x, {center_name}.y), {num(circle.radius)}, color='black', alpha=0.8, fill=False, lw=1.2, ls='--'))"
+                )
+            plot_code_numeric.append(
+                {
+                    "construction": str(construction),
+                    "code": numeric_lines
+                }
+            )
+            plot_code_symbolic.append(
+                {
+                    "construction": str(construction),
+                    "code": symbolic_lines
+                }
+            )
+        return {
+            "numeric": plot_code_numeric,
+            "symbolic": plot_code_symbolic
+        }
                 
     def draw_diagram(self, constructions=None, show=False, save=True, equations=[]):
         imsize = 512 / 100

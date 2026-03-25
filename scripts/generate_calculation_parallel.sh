@@ -11,7 +11,7 @@ export PYTHONHASHSEED=0
 export OUTPUT_DIR=calculation_problems
 export TIMEOUT_SECONDS=3600
 export MAX_PROBLEM_ID=0
-# AUXILIARY_MODE options: "allow" (default), "forbid", "must"
-export AUXILIARY_MODE=must
+# AUX_MODE options: "allow" (default), "forbid", "must"
+export AUX_MODE=must
 
-python tests/test_generate.py
+python scripts/generate_calculation_parallel.py
