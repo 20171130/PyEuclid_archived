@@ -1,15 +1,17 @@
 #!/bin/bash
 #SBATCH --job-name=gen_calculation
-#SBATCH --array=0-4999
-#SBATCH --time=1:00:00
+#SBATCH --array=0-29
+#SBATCH --time=8:00:00
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
-#SBATCH --output=923_logs/%x-%A_%a.out    # logs/gen_calc-<jobid>_<task>.out
-#SBATCH --error=923_logs/%x-%A_%a.err
-#SBATCH --partition=learnfair,learnlab,devlab,scavenge
+#SBATCH --output=logs/%x-%A_%a.out
+#SBATCH --error=logs/%x-%A_%a.err
 
-export OUTPUT_DIR=task1/calculation_923_new2
+export PYTHONHASHSEED=0
+export OUTPUT_DIR=calculation_problems
 export TIMEOUT_SECONDS=3600
 export MAX_PROBLEM_ID=0
+# AUXILIARY_MODE options: "allow" (default), "forbid", "must"
+export AUXILIARY_MODE=must
 
-PYTHONHASHSEED=0 python tests/test_generate.py 
+python tests/test_generate.py

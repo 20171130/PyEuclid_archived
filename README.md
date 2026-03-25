@@ -1,7 +1,4 @@
-# [#259] PyEuclid: A Versatile Formal Plane Geometry System in Python
-
-## Claimed Badges
-Available badge, functional badge, and reusable badge
+# PyEuclid: A Versatile Formal Plane Geometry System in Python
 
 ## Computational Recourses
 We conduct our experiments on a server running Ubuntu 22.04.5 LTS with an AMD Ryzen Threadripper 2990WX processor, utilizing 30 CPU cores in parallel (2 cores per process, each allocated 4 GB of memory). On this setup, experiments on the JGEX-AG-231 dataset take approximately 2 hours to complete, while the Geometry3K dataset takes around 1 hour.
@@ -58,6 +55,90 @@ Note:
 PyEuclid uses Gurobi as a component of its proof generator.
 To solve more complex problems, you may need a [Gurobi academic license](https://www.gurobi.com/academia/academic-program-and-licenses/), as the free version has a limit of 2000 variables and constraints, which may not be sufficient for certain cases.
 
+
+## Generating Problems
+
+### Computational and Proving Problems
+PyEuclid can generate two types of geometry problems: **computational problems** (requiring numeric calculations) and **proving problems** (requiring formal proofs).
+
+#### Problem Types
+
+**Computational Problems** are numeric calculation tasks that require students to compute geometric quantities (lengths, angles, ratios). These can be generated:
+- **Without auxiliary constructions**: Problems solvable using must the given geometric constructions
+- **With auxiliary constructions**: More challenging problems that require additional helper constructions to reach the solution
+
+**Proving Problems** require formal geometric proof generation.
+
+#### Sequential Generation
+For small-scale problem generation on a single machine:
+
+```bash
+# Generate computational problems (accept both with and without auxiliary constructions)
+python tests/test_generate.py
+
+# Generate ONLY computational problems WITHOUT auxiliary constructions
+export PYTHONHASHSEED=0
+export AUXILIARY_MODE=forbid
+export MAX_PROBLEM_ID=10
+python tests/test_generate.py
+
+# Generate ONLY computational problems WITH auxiliary constructions
+export PYTHONHASHSEED=0
+export AUXILIARY_MODE=must
+export MAX_PROBLEM_ID=10
+python tests/test_generate.py
+
+# OR generate proving problems
+export PYTHONHASHSEED=0
+export OUTPUT_DIR=dataset/proving
+export TIMEOUT_SECONDS=3600
+export MAX_PROBLEM_ID=100
+python scripts/generate_proving.py
+```
+
+#### Parallel Generation with SLURM
+For large-scale problem generation on a compute cluster:
+
+```bash
+# Generate computational problems in parallel (with auxiliary construction support)
+sbatch scripts/generate_calculation_parallel.sh
+
+# Generate proving problems in parallel
+sbatch scripts/generate_proving_parallel.sh
+
+# Generate auxiliary constructions in parallel
+sbatch scripts/generate_auxiliary_constructions_parallel.sh
+```
+
+The SLURM scripts automatically configure:
+- Array job distribution across cluster nodes
+- Per-task CPU and memory allocation (2 cores, 8GB per task)
+- Timeout and problem limits via environment variables
+- Output directory structure with rank-based organization
+
+**Generated Problem Structure:**
+Each computational problem includes:
+- `data.json`: Problem metadata (necessary constructions, auxiliary constructions, goal, proof, depth, etc.)
+- `diagram.pdf`: Visual diagram of the geometric configuration
+- `necessary_constructions`: Minimal constructions required for solving
+- `auxiliary_constructions`: Additional constructions needed if solvable must with their help
+- `has_auxiliary_constructions`: Boolean flag indicating if auxiliaries were required
+- `num_auxiliary_constructions`: Count of auxiliary constructions used
+
+Each proving problem includes:
+- `data.json`: Problem metadata (constructions, goals, proofs, coordinates, depth)
+- `diagram.jpg`: Visual diagram of the geometric configuration
+- `constructions_list.json`: Complete construction sequence
+
+### Environment Variables for Problem Generation
+- `OUTPUT_DIR`: Output directory for generated problems (default: `dataset`)
+- `TIMEOUT_SECONDS`: Timeout per SLURM task in seconds (default: `3600`)
+- `MAX_PROBLEM_ID`: Maximum number of problems to generate per task (0 = unlimited)
+- `PYTHONHASHSEED`: Must be set to an integer for reproducibility (e.g., `0`)
+- `AUXILIARY_MODE`: Control auxiliary construction filtering for computational problems (default: `allow`)
+  - `allow`: Accept problems with or without auxiliary constructions
+  - `forbid`: Only accept problems without auxiliary constructions
+  - `must`: Only accept problems with auxiliary constructions
 
 ## Evaluation
 We provide both sequential and parallel methods to run experiments on the JGEX-AG-231 and Geometry3K datasets:

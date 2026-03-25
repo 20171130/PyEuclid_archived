@@ -3,6 +3,7 @@ import sympy
 import numpy as np
 import json
 import random
+import itertools
 from typing import Optional, Dict, Any
 import time
 from pyeuclid.formalization.relation import *
@@ -44,8 +45,18 @@ def printt(s):
 debug = False
 problem_type = "calculation"
 
-def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict[str, Any]:
-    """Generate a single problem with timeout checking at key points"""
+def generate_single_problem(rank: int, output_dir: str, problem_id: int, auxiliary_mode: str = "allow") -> Dict[str, Any]:
+    """Generate a single problem with timeout checking at key points.
+    
+    Args:
+        rank: MPI rank or process ID
+        output_dir: Output directory for problems
+        problem_id: Problem ID
+        auxiliary_mode: One of "allow" (default), "forbid", or "must"
+            - "allow": Accept both problems with and without auxiliary constructions
+            - "forbid": Only accept problems without auxiliary constructions
+            - "must": Only accept problems with auxiliary constructions
+    """
     
     problem_output_dir = os.path.join(output_dir, f'rank_{rank}', f'problem_{problem_id}')
     os.makedirs(problem_output_dir, exist_ok=True)
@@ -73,13 +84,15 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
     t0 = time.time()
     
     # printt(f"Rank {rank}: Starting problem {problem_id}")
-    if problem_type == "proving":
-        max_steps = random.uniform(4, 10) # 4 - 10
-        max_points = random.uniform(8, 15) # 8 - 15
-        rule_set = inference_rule_sets["basic"]
-    else:
+    if auxiliary_mode == "forbid":
         max_steps = random.uniform(3, 5) # 4 - 10
         max_points = 8
+    else:
+        max_steps = random.uniform(4, 10) # 4 - 10
+        max_points = random.uniform(8, 15) # 8 - 15
+    if problem_type == "proving":
+        rule_set = inference_rule_sets["basic"]
+    else:
         rule_set = inference_rule_sets["basic"]+inference_rule_sets['complex']
         rule_set = [item for item in rule_set if not item in (LawOfSines, LawOfCosines)]
     
@@ -269,6 +282,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         equations = [item.expr for item in new_state.equations if len(item.free_symbols)==1]
         variable_eqn = None
         if random.random() > 0.9 and ("Length" in str(relation) or "Angle" in str(relation)):
+            # generates a goal that contains a variable
             rand = random.random()
             variable = random.choice(["a", "b", "c", "x", "y", "z"])
             variable = Variable(variable)
@@ -285,7 +299,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             new_state.add_equation(variable_eqn)
             solution = sympy.solve(variable_eqn.subs(symbol, solution), variable)[0]
             goal = variable
-            key = goal - solution
+        key = goal - solution
         new_state.goal = goal
         new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
         new_algebraic_system = AlgebraicSystem(new_state)
@@ -295,8 +309,11 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
         except:
             continue
         
+        auxiliary_constructions = []
         if new_state.complete() is not None:
-            auxiliary_constructions = []
+            if auxiliary_mode == "must":
+                printt(f"Rank {rank}: Problem {problem_id} - Skipped conclusion (no auxiliary constructions, but auxiliary_mode=must)")
+                continue
             new_proof_generator = ProofGenerator(new_state, norm=0, max_equation_length_perstep=None)
             try:
                 new_proof_generator.run()
@@ -314,56 +331,74 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             key = new_state.goal - new_state.complete()
         else:
             # requires auxiliary constructions
-            print('new state does not prove !!!!')
-            continue
-            # proof_generator.run(relation)
-            # auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
-            # sufficient_auxiliary_constructions = []
-            # for auxiliary_construction in auxiliary_constructions:
-            #     sufficient_auxiliary_constructions.append(auxiliary_construction)
-            #     for construction in get_sufficient_constructions([p for p in auxiliary_construction.inputs if isinstance(p, Point)]):
-            #         if construction not in sufficient_constructions and construction not in sufficient_auxiliary_constructions:
-            #             sufficient_auxiliary_constructions.append(construction)
-            # sufficient_auxiliary_constructions = sorted(sufficient_auxiliary_constructions, key=lambda c: c.index)
-            # auxiliary_constructions = sufficient_auxiliary_constructions.copy()
-            # printt("Pruning auxiliary constructions")
-            # for auxiliary_construction in sufficient_auxiliary_constructions[::-1]:
-            #     new_auxiliary_constructions = auxiliary_constructions.copy()
-            #     new_auxiliary_constructions.remove(auxiliary_construction)
-            #     new_constructions = sufficient_constructions + new_auxiliary_constructions
-            #     new_state = State()
-            #     new_state.silent = True
-            #     new_state.goal = goal
-            #     new_state.diagram = diagram
-            #     new_state.add_constructions(new_constructions)
-            #     new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
-            #     new_algebraic_system = AlgebraicSystem(new_state)
-            #     new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-            #     if variable_eqn:
-            #         new_state.add_equation(variable_eqn)
-            #     new_engine.run()
-            #     if new_state.complete() is not None:
-            #         # the auxiliary construction is not required
-            #         auxiliary_constructions.remove(auxiliary_construction)
+            if auxiliary_mode == "forbid":
+                printt(f"Rank {rank}: Problem {problem_id} - Skipped conclusion (requires auxiliary constructions, auxiliary_mode=forbid)")
+                continue
+            print('new state does not prove - attempting auxiliary constructions')
+            proof_generator.run(relation)
+            auxiliary_constructions = sorted([c for c in proof_generator.source_constructions[key] if c not in sufficient_constructions], key=lambda c: c.index)
+            sufficient_auxiliary_constructions = []
+            for auxiliary_construction in auxiliary_constructions:
+                sufficient_auxiliary_constructions.append(auxiliary_construction)
+                for construction in get_sufficient_constructions([p for p in auxiliary_construction.inputs if isinstance(p, Point)]):
+                    if construction not in sufficient_constructions and construction not in sufficient_auxiliary_constructions:
+                        sufficient_auxiliary_constructions.append(construction)
+            sufficient_auxiliary_constructions = sorted(sufficient_auxiliary_constructions, key=lambda c: c.index)
+            auxiliary_constructions = sufficient_auxiliary_constructions.copy()
+            printt("Pruning auxiliary constructions")
+            for auxiliary_construction in sufficient_auxiliary_constructions[::-1]:
+                new_auxiliary_constructions = auxiliary_constructions.copy()
+                new_auxiliary_constructions.remove(auxiliary_construction)
+                new_constructions = sufficient_constructions + new_auxiliary_constructions
+                new_state_aux = State()
+                new_state_aux.silent = True
+                new_state_aux.goal = goal
+                new_state_aux.diagram = diagram
+                new_state_aux.add_constructions(new_constructions)
+                new_deductive_database = DeductiveDatabase(new_state_aux, outer_theorems=rule_set)
+                new_algebraic_system = AlgebraicSystem(new_state_aux)
+                new_engine = Engine(new_state_aux, new_deductive_database, new_algebraic_system)
+                if variable_eqn is not None:
+                    new_state_aux.add_equation(variable_eqn)
+                new_engine.run()
+                if new_state_aux.complete() is not None:
+                    auxiliary_constructions.remove(auxiliary_construction)
             
-            # new_state = State()
-            # new_state.silent = True
-            # new_state.goal = goal
-            # new_state.diagram = diagram
-            # new_state.add_constructions(sorted(sufficient_constructions+auxiliary_constructions, key=lambda c: c.index))
-            # new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
-            # new_algebraic_system = AlgebraicSystem(new_state)
-            # new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
-            # if variable_eqn:
-            #     new_state.add_equation(variable_eqn)
-            # try:
-            #     new_engine.run()
-            # continue
-            # assert new_state.complete() is not None
-            # new_proof_generator = ProofGenerator(new_state)
-            # new_proof_generator.run()
-            # new_proof_str = new_proof_generator.get_proof_str(angle="degree")
-            # break
+            new_state = State()
+            new_state.silent = True
+            new_state.goal = goal
+            new_state.diagram = diagram
+            new_state.add_constructions(sorted(sufficient_constructions+auxiliary_constructions, key=lambda c: c.index))
+            new_deductive_database = DeductiveDatabase(new_state, outer_theorems=rule_set)
+            new_algebraic_system = AlgebraicSystem(new_state)
+            new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
+            if variable_eqn is not None:
+                new_state.add_equation(variable_eqn)
+            try:
+                new_engine.run()
+            except:
+                print('new engine run with auxiliary constructions failed')
+                continue
+            
+            if new_state.complete() is None:
+                print('still cannot solve with auxiliary constructions')
+                continue
+            
+            new_proof_generator = ProofGenerator(new_state, norm=0, max_equation_length_perstep=None)
+            try:
+                new_proof_generator.run()
+            except:
+                print('new proof generator with auxiliary constructions fails')
+                continue
+            new_proof = new_proof_generator.get_proof()
+            if len(new_proof) <= 4:
+                print('proof with auxiliary still too short')
+                continue
+            if len(new_proof) >= 40:
+                print('proof with auxiliary too long')
+                continue
+            new_proof_str = new_proof_generator.get_proof_str(angle="degree")
+            key = new_state.goal - new_state.complete()
         
         necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
         
@@ -417,6 +452,10 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
             added_constructions.append(c)
             
         has_auxiliary = len(auxiliary_constructions) > 0
+        if auxiliary_mode == "must" and not has_auxiliary:
+            printt(f"Rank {rank}: Problem {problem_id} - Skipped conclusion (auxiliary constructions pruned to zero, auxiliary_mode=must)")
+            continue
+        
         if has_auxiliary:
             aux_proof = 'Auxilirary Constructions:\n'
             for construction in auxiliary_constructions:
@@ -444,7 +483,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int) -> Dict
 
         problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
         problem_str =  ', '.join([str(construction) for construction in problem_constructions])
-        if variable_eqn:
+        if variable_eqn is not None:
             if 'pi' in str(variable_eqn):
                 variable_eqn = variable_eqn.subs(pi, 180) / 180
             problem_str = problem_str + ', ' + str(variable_eqn)
@@ -490,14 +529,22 @@ def main():
     rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
     max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "0"))
     base_output_dir = os.environ.get('OUTPUT_DIR', 'dataset')
+    auxiliary_mode = os.environ.get('AUXILIARY_MODE', 'allow').lower()
+    
+    if auxiliary_mode not in ('allow', 'forbid', 'must'):
+        raise ValueError(f"AUXILIARY_MODE must be 'allow', 'forbid', or 'must', got: {auxiliary_mode}")
+    
     os.makedirs(base_output_dir, exist_ok=True)
     max_problem_id = max_problem_id if max_problem_id > 0 else None
     problem_id = 0
+    
+    printt(f"Rank {rank}: Starting generation with AUXILIARY_MODE={auxiliary_mode}")
+    
     while True:
-        if max_problem_id is not None and cnt >= max_problem_id:
+        if max_problem_id is not None and problem_id >= max_problem_id:
             break
         try:
-            generated = generate_single_problem(rank=rank, problem_id=problem_id, output_dir=base_output_dir)
+            generated = generate_single_problem(rank=rank, problem_id=problem_id, output_dir=base_output_dir, auxiliary_mode=auxiliary_mode)
         except:
             generated = 0
             continue
