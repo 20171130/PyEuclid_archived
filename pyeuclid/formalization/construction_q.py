@@ -35,20 +35,6 @@ def sample_length(low=0, high=9999, special_values=[], scale=1):
     chosen = random.choice(values)
     return chosen
 
-class ConstructionQ(ConstructionRule):
-    def sample(angle_values=[], length_values=[]):
-        raise NotImplementedError()
-    
-    def point2coord(self, point):
-        return self.diagram.name2point[point.name]
-    
-    def __str__(self):
-        class_name = self.__class__.__name__
-        params = self.inputs + getattr(self, "params", [])
-        inputs = ",".join([str(item) for item in params]) 
-        outputs = ",".join(str(out) for out in self.outputs)
-        return f"{outputs} = {class_name}({inputs})"
-        
 @register("independent")
 class construct_segment_q(ConstructionQ):
     def __init__(self, ab:float = None, diagram=None):
