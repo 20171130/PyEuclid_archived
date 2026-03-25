@@ -7,19 +7,20 @@ import time
 import signal
 import threading
 import itertools
+import argparse
 from contextlib import contextmanager
 from typing import Optional, Dict, Any
 
-from pyeuclid.formalization.relation import *
-from pyeuclid.formalization.diagram import Diagram
-from pyeuclid.formalization.state import State
-from pyeuclid.formalization.construction_rule import *
-from pyeuclid.formalization.translation import get_constructions_from_goal
-from pyeuclid.engine.deductive_database import DeductiveDatabase
-from pyeuclid.engine.inference_rule import *
-from pyeuclid.engine.algebraic_system import AlgebraicSystem
-from pyeuclid.engine.proof_generator import ProofGenerator
-from pyeuclid.engine.engine import Engine
+from euclidea.formalization.relation import *
+from euclidea.formalization.diagram import Diagram
+from euclidea.formalization.state import State
+from euclidea.formalization.construction_rule import *
+from euclidea.formalization.translation import get_constructions_from_goal
+from euclidea.engine.deductive_database import DeductiveDatabase
+from euclidea.engine.inference_rule import *
+from euclidea.engine.algebraic_system import AlgebraicSystem
+from euclidea.engine.proof_generator import ProofGenerator
+from euclidea.engine.engine import Engine
 
 independent_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["independent"]]
 deterministic_rules = [rule for rule in construction_rule_sets["auxiliary_construction"] if rule in construction_rule_sets["deterministic"]]
@@ -110,7 +111,7 @@ def timeout_context(timeout_seconds: Optional[int] = None):
     old_sigterm = signal.signal(signal.SIGTERM, timeout_handler.timeout_handler)
 
     def handle_sigint(signum, frame):
-        print("SIGINT (Ctrl+C) received — exiting immediately")
+        print("SIGINT (Ctrl+C) received 鈥� exiting immediately")
         raise KeyboardInterrupt()
 
     old_sigint = signal.signal(signal.SIGINT, handle_sigint)
@@ -122,32 +123,30 @@ def timeout_context(timeout_seconds: Optional[int] = None):
         signal.signal(signal.SIGTERM, old_sigterm)
         signal.signal(signal.SIGINT, old_sigint)
 
-def generate_single_problem(rank: int, output_dir: str, problem_id: int,
+def generate_single_problem(output_dir: str, problem_id: int,
                             timeout_handler: TimeoutHandler,
-                            seed_offset: int = 0) -> Dict[str, Any]:
-    """Generate a single problem with timeout checking at key points.
-
-    `seed_offset` lets us retry the same problem_id with a different seed.
-    """
-    if timeout_handler.check_timeout():
-        return {"samples_generated": 0, "samples_with_auxiliary": 0, "timeout": True}
-
-    problem_output_dir = os.path.join(output_dir, f'rank_{rank}', f'problem_{problem_id}')
+                            ) -> Dict[str, Any]:
+    problem_output_dir = os.path.join(output_dir, f'problem_{problem_id}')
     os.makedirs(problem_output_dir, exist_ok=True)
 
-    # Make retries non-deterministic w.r.t. the same problem_id
-    base_seed = 42 + rank * 1000 + problem_id + 100000 * seed_offset
-    random.seed(base_seed)
-    np.random.seed(base_seed)
+    seed = random.randint(0, int(1e9))
+    hash_seed = os.environ.get("PYTHONHASHSEED")
+    assert hash_seed is not None, (
+        "For full reproducibility, please set the environment variable "
+        "`PYTHONHASHSEED`, e.g. `export PYTHONHASHSEED=0`."
+    )
+    random.seed(seed)
+    np.random.seed(seed)
+    sympy.core.random.seed(seed)
 
     state = State()
-    state.silent = True
+    state.silent = False
     deductive_database = DeductiveDatabase(state)
     algebraic_system = AlgebraicSystem(state)
     engine = Engine(state, deductive_database, algebraic_system)
     point2constructions = {}
 
-    diagram_path = os.path.join(problem_output_dir, f'diagram_rank_{rank}_problem_{problem_id}.jpg')
+    diagram_path = os.path.join(problem_output_dir, f'full_diagram.png')
     diagram = Diagram(cache_folder=None, save_path=diagram_path)
     state.diagram = diagram
 
@@ -156,8 +155,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
     points = 0
 
     max_steps = random.uniform(8, 10)
-    max_attempts = 100
     max_points = random.uniform(10, 16)
+    max_attempts = 100
+    
     constructions_list = []
     index = 0
     old_relations = []
@@ -238,6 +238,35 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             construction.construct(*outputs)
             constructions.append(construction)
 
+        # "problem": "a,b = construct_segment(), c = construct_lc_tangent(a,b), d = construct_on_bline(c,a), d = construct_angle_bisector(c,b,a)",
+        # "goal": "Perpendicular(b,d,c,d)",
+        # "auxiliary_constructions": "e = construct_intersection_ll(b,a,c,d)",
+        
+        # if step == 0:
+        #     construction = construct_segment()
+        #     outputs = [Point('a'), Point('b')]
+        #     construction.construct(*outputs)
+        #     constructions = [construction]
+        # elif step == 1:
+        #     construction = construct_lc_tangent(Point('a'), Point('b'))
+        #     outputs = [Point('c')]
+        #     construction.construct(*outputs)
+        #     constructions = [construction]
+        # elif step == 2:
+        #     construction1 = construct_on_bline(Point('c'), Point('a'))
+        #     outputs = [Point('d')]
+        #     construction1.construct(*outputs)
+        #     construction2 = construct_angle_bisector(Point('c'), Point('b'), Point('a'))
+        #     construction2.construct(*outputs)
+        #     constructions = [construction1, construction2]
+        # elif step == 3:
+        #     construction = construct_intersection_ll(Point('b'), Point('a'), Point('c'), Point('d'))
+        #     outputs = [Point('e')]
+        #     construction.construct(*outputs)
+        #     constructions = [construction]
+        # else:
+        #     break
+
         attempt += 1
         try:
             diagram.add_constructions(constructions)
@@ -255,7 +284,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         for p in outputs:
             point2constructions[p] = constructions
 
-        engine.run()
+        engine.search()
         for relation in state.relations:
             if relation not in old_relations:
                 ps = set(relation.get_points())
@@ -270,13 +299,9 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
                 old_equations.append(equation)
         
     if timeout_handler.check_timeout():
-        return {"samples_generated": 0, "samples_with_auxiliary": 0, "timeout": True}
+        return 0
 
     i = 0
-    samples_with_auxiliary = 0
-    sub_conclusions = set()
-    conclusions2dir = {}
-
     proof_generator = ProofGenerator(state, max_equation_length_perstep=None)
     # filter conclusions
     filtered_conclusions = []
@@ -308,7 +333,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         filtered_conclusions.append(relation)
     
     if not filtered_conclusions:
-        return {"samples_generated": 0, "samples_with_auxiliary": 0}
+        return 0
     
     final_conclusions = []
 
@@ -387,7 +412,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             new_algebraic_system = AlgebraicSystem(new_state)
             new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
             try:
-                new_engine.run()
+                new_engine.search()
             except:
                 continue
             if new_state.complete() is not None:
@@ -403,7 +428,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         new_algebraic_system = AlgebraicSystem(new_state)
         new_engine = Engine(new_state, new_deductive_database, new_algebraic_system)
         try:
-            new_engine.run()
+            new_engine.search()
             assert new_state.complete() is not None
         except:
             continue
@@ -413,7 +438,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
             new_proof_generator.run()
         except:
             continue
-        new_proof = new_proof_generator.get_proof()
         new_proof_str = new_proof_generator.get_proof_str()
 
         necessary_constructions = [construction for construction in sufficient_constructions if construction in new_proof_generator.source_constructions[key]]
@@ -467,26 +491,25 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
 
         has_auxiliary = len(auxiliary_constructions) > 0
         if has_auxiliary:
-            aux_proof = 'Auxilirary Construction:\n' if len(auxiliary_constructions) == 1 else 'Auxilirary Constructions:\n'
+            aux_proof = 'Auxilirary Constructions:\n'
             for construction in auxiliary_constructions:
                 aux_proof = aux_proof + str(construction) + '\n'
             new_proof_str = aux_proof + new_proof_str
-            samples_with_auxiliary += 1
         else:
             continue
 
         diagram.save()
-        sample_dir = os.path.join(problem_output_dir, f'sample_{i}')
+        sample_dir = os.path.join(output_dir, f'problem_{problem_id+i}')
         os.makedirs(sample_dir, exist_ok=True)
 
-        diagram_sample_path = os.path.join(sample_dir, 'diagram.jpg')
+        diagram_sample_path = os.path.join(sample_dir, 'diagram.png')
         diagram.save_path = diagram_sample_path
 
         goal_constructions = get_constructions_from_goal(relation)
         diagram.draw([], goal_constructions)
         diagram.draw_diagram(constructions=necessary_constructions+goal_constructions, save=True)
 
-        new_diagram_sample_path = os.path.join(sample_dir, 'diagram_with_auxiliary_constructions.jpg')
+        new_diagram_sample_path = os.path.join(sample_dir, 'diagram_with_auxiliary_constructions.png')
         diagram.save_path = new_diagram_sample_path
         diagram.auxiliary_constructions.extend(auxiliary_constructions)
         diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True)
@@ -496,6 +519,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         problem_constructions = sorted(necessary_constructions+added_constructions, key=lambda c: c.index)
 
         data = {
+            "problem_id": problem_id,
+            "seed": seed,
             "problem": ', '.join([str(construction) for construction in problem_constructions]),
             "goal": str(relation),
             "diagram": diagram_sample_path,
@@ -508,99 +533,67 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int,
         with open(os.path.join(sample_dir, "data.json"), "w") as f:
             json.dump(data, f, indent=4)
 
-        conclusions2dir[relation] = sample_dir
         i += 1
 
-    return {
-        "samples_generated": i,
-        "samples_with_auxiliary": samples_with_auxiliary,
-        "timeout": timeout_handler.check_timeout()
-    }
+    return i
 
-def generate_until_timeout(rank: int, output_dir: str, timeout_handler: TimeoutHandler,
-                           max_problem_id: Optional[int] = None) -> Dict[str, Any]:
-    """Generate problems until timeout with improved progress tracking.
 
-    Only advance problem_id when a problem yields at least one sample.
-    """
-    rank_output_dir = os.path.join(output_dir, f'rank_{rank}')
-    os.makedirs(rank_output_dir, exist_ok=True)
+def generate_until_timeout(output_dir: str, timeout_handler: TimeoutHandler,
+                           max_problem: Optional[int] = None) -> Dict[str, Any]:
+    problem_id = 1
+    
+    while not timeout_handler.check_timeout():
+        if max_problem and problem_id >= max_problem:
+            break
 
-    problem_id = 0
-    total_samples = 0
-    total_samples_with_auxiliary = 0
-    start_time = time.time()
-    problems_with_errors = 0
-    problems_with_timeouts = 0
-
-    # Track retries for the current problem_id; influences RNG seed
-    retries_for_problem_id = 0
-    try:
-        while not timeout_handler.check_timeout():
-            if max_problem_id and problem_id >= max_problem_id:
-                break
-
-            result = generate_single_problem(
-                rank, output_dir, problem_id, timeout_handler,
-                seed_offset=retries_for_problem_id
-            )
-
-            if result.get("timeout"):
-                problems_with_timeouts += 1
-                break
-
-            if result.get("error"):
-                problems_with_errors += 1
-
-            total_samples += result["samples_generated"]
-            total_samples_with_auxiliary += result["samples_with_auxiliary"]
-
-            if result["samples_generated"] > 0:
-                problem_id += 1
-                retries_for_problem_id = 0
-            else:
-                retries_for_problem_id += 1
-
-    except Exception as e:
-        print(f"Rank {rank}: Fatal error in generation loop: {e}")
-        raise
-
-    duration = timeout_handler.get_elapsed_time()
-
-    # Determine termination reason
-    if timeout_handler.check_timeout():
-        termination_reason = "timeout_during_problem" if problems_with_timeouts > 0 else "timeout"
-    elif max_problem_id and problem_id >= max_problem_id:
-        termination_reason = "max_problems_reached"
-    else:
-        termination_reason = "completed"
-
-    result = {
-        "total_samples": total_samples,
-        "total_problems": problem_id,
-        "samples_with_auxiliary": total_samples_with_auxiliary,
-        "problems_with_errors": problems_with_errors,
-        "problems_with_timeouts": problems_with_timeouts,
-        "termination_reason": termination_reason,
-        "duration": duration,
-        "problems_per_second": problem_id / duration if duration > 0 else 0,
-        "samples_per_second": total_samples / duration if duration > 0 else 0
-    }
-    return result
-
-def main():
-    rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
-    timeout_seconds = int(os.environ.get("TIMEOUT_SECONDS", "3600"))
-    max_problem_id = int(os.environ.get("MAX_PROBLEM_ID", "0"))
-    base_output_dir = os.environ.get('OUTPUT_DIR', 'dataset')
-
-    os.makedirs(base_output_dir, exist_ok=True)
-
-    with timeout_context(timeout_seconds if timeout_seconds > 0 else None) as timeout_handler:
-        result = generate_until_timeout(
-            rank, base_output_dir, timeout_handler,
-            max_problem_id=max_problem_id if max_problem_id > 0 else None
+        generated = generate_single_problem(
+            output_dir, problem_id, timeout_handler,
         )
 
-if __name__ == '__main__':
+        problem_id += generated
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--timeout-seconds",
+        type=int,
+        default=3600,
+        help="Maximum time (in seconds) to run generation before stopping. Use <=0 for no timeout.",
+    )
+    parser.add_argument(
+        "--max-problem",
+        type=int,
+        default=0,
+        help="Maximum number of problems to generate. Use <=0 for unlimited.",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=str,
+        default="dataset/auxiliary_constructions",
+        help="Directory to store generated problems.",
+    )
+
+    return parser.parse_args()
+
+
+def main():
+    args = parse_args()
+
+    timeout_seconds = args.timeout_seconds
+    max_problem = args.max_problem if args.max_problem > 0 else None
+    output_dir = args.output_dir
+
+    os.makedirs(output_dir, exist_ok=True)
+
+    with timeout_context(timeout_seconds if timeout_seconds > 0 else None) as timeout_handler:
+        generate_until_timeout(
+            output_dir,
+            timeout_handler,
+            max_problem=max_problem,
+        )
+
+
+if __name__ == "__main__":
     main()
