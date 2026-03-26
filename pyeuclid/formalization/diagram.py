@@ -469,6 +469,8 @@ class Diagram:
     def draw_diagram(self, constructions=None, show=False, save=True, equations=[]):
         imsize = 512 / 100
         self.fig, self.ax = plt.subplots(figsize=(imsize, imsize), dpi=300)
+        self.fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
+        self.ax.set_position([0, 0, 1, 1])
         self.ax.set_facecolor((1.0, 1.0, 1.0))
         
         if constructions is None:
@@ -674,8 +676,16 @@ class Diagram:
         x_margin = (xmax - xmin) * 0.1
         y_margin = (ymax - ymin) * 0.1
 
-        self.ax.set_xlim(xmin - x_margin, xmax + x_margin)
-        self.ax.set_ylim(ymin - y_margin, ymax + y_margin)
+        x_left = xmin - x_margin
+        x_right = xmax + x_margin
+        y_bottom = ymin - y_margin
+        y_top = ymax + y_margin
+        self.ax.set_xlim(x_left, x_right)
+        self.ax.set_ylim(y_bottom, y_top)
+        self.last_render_bounds = {
+            "bottom_left": [float(x_left), float(y_bottom)],
+            "top_right": [float(x_right), float(y_top)],
+        }
         
         if save:
             # print(f'Save diagram to {self.save_path}...')

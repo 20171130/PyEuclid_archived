@@ -19,18 +19,9 @@ from pyeuclid.engine.engine import Engine
 
 from pyeuclid.formalization.construction_q import ConstructionQ, construct_segment_q, construct_square_q, construct_rectangle_q, construct_angle_counterclockwise, construct_angle_clockwise, construct_point_on_circle, construct_point_on_line, construct_parallelogram_q, construct_eq_trapezoid_q, construct_r_triangle_q, construct_eq_triangle_q, construct_ieq_triangle_q, construct_r_trapezoid_q
 
-
-# import logging
-# Configure basic logging to console
-# logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-# # Get a logger
-# logger = logging.getLogger(__name__)
-
 from datetime import datetime
-from mpi4py import MPI
 
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
+rank = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
     
 def printt(s):
     # Get the current date and time
@@ -478,6 +469,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int, auxilia
         diagram.draw([], goal_constructions)
         diagram.save_path = diagram_before_auxiliary_png_path
         diagram.draw_diagram(constructions=necessary_constructions+goal_constructions, save=True, equations=equations)
+        diagram_before_auxiliary_bounds = diagram.last_render_bounds
         diagram.save_path = diagram_before_auxiliary_svg_path
         diagram.draw_diagram(constructions=necessary_constructions+goal_constructions, save=True, equations=equations)
 
@@ -488,6 +480,7 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int, auxilia
 
         diagram.save_path = diagram_after_auxiliary_png_path
         annotated_equations = diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=equations)
+        diagram_after_auxiliary_bounds = diagram.last_render_bounds
         diagram.save_path = diagram_after_auxiliary_svg_path
         diagram.draw_diagram(constructions=necessary_constructions+auxiliary_constructions+goal_constructions, save=True, equations=equations)
         if has_auxiliary:
@@ -513,7 +506,6 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int, auxilia
             "necessary_constructions": ', '.join([str(construction) for construction in necessary_constructions]),
             "unused_constructions": ', '.join([str(construction) for construction in sufficient_constructions if construction not in necessary_constructions]),
             "auxiliary_constructions": ', '.join([str(construction) for construction in auxiliary_constructions]),
-            "auxiliary_construction_plot_code": auxiliary_construction_plot_code_numeric,
             "auxiliary_construction_plot_code_numeric": auxiliary_construction_plot_code_numeric,
             "auxiliary_construction_plot_code_symbolic": auxiliary_construction_plot_code_symbolic,
             "goal": str(goal),
@@ -524,6 +516,8 @@ def generate_single_problem(rank: int, output_dir: str, problem_id: int, auxilia
             "diagram_before_auxiliary_svg": diagram_before_auxiliary_svg_path,
             "diagram_after_auxiliary_png": diagram_after_auxiliary_png_path,
             "diagram_after_auxiliary_svg": diagram_after_auxiliary_svg_path,
+            "diagram_before_auxiliary_bounds": diagram_before_auxiliary_bounds,
+            "diagram_after_auxiliary_bounds": diagram_after_auxiliary_bounds,
             "proof": new_proof_str,
             "rank": rank,
             "time_cost": time.time() - t0,
@@ -567,7 +561,9 @@ def main():
             break
         try:
             generated = generate_single_problem(rank=rank, problem_id=problem_id, output_dir=base_output_dir, auxiliary_mode=auxiliary_mode)
-        except:
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
             generated = 0
             continue
         problem_id += generated

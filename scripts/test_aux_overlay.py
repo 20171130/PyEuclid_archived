@@ -1,18 +1,21 @@
 import argparse
 import json
 import os
-import re
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 
-def parse_coordinates(coordinates_text):
-    points = []
-    pattern = r"[A-Za-z]+:\s*\(([^,]+),\s*([^)]+)\)"
-    for x_str, y_str in re.findall(pattern, coordinates_text):
-        points.append((float(x_str), float(y_str)))
-    return points
+def resolve_data_path(path_text, base_dir):
+    if os.path.isabs(path_text):
+        return path_text
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    root_relative = os.path.normpath(os.path.join(project_root, path_text))
+    if os.path.exists(root_relative):
+        return root_relative
+    sample_relative = os.path.normpath(os.path.join(base_dir, path_text))
+    if os.path.exists(sample_relative):
+        return sample_relative
+    return root_relative
 
 
 def main():
@@ -25,12 +28,8 @@ def main():
         data = json.load(f)
 
     base_dir = os.path.dirname(args.data_json)
-    before_path = data["diagram_before_auxiliary_png"]
-    after_path = data["diagram_after_auxiliary_png"]
-    if not os.path.isabs(before_path):
-        before_path = os.path.join(base_dir, before_path)
-    if not os.path.isabs(after_path):
-        after_path = os.path.join(base_dir, after_path)
+    before_path = resolve_data_path(data["diagram_before_auxiliary_png"], base_dir)
+    after_path = resolve_data_path(data["diagram_after_auxiliary_png"], base_dir)
 
     output_path = args.output
     if output_path is None:
@@ -42,25 +41,44 @@ def main():
         code_entries = data["auxiliary_construction_plot_code"]
     before_img = plt.imread(before_path)
 
-    coords = parse_coordinates(data["coordinates"])
-    xs = [p[0] for p in coords]
-    ys = [p[1] for p in coords]
-    xmin = min(xs)
-    xmax = max(xs)
-    ymin = min(ys)
-    ymax = max(ys)
-    x_margin = (xmax - xmin) * 0.1
-    y_margin = (ymax - ymin) * 0.1
+    bottom_left = data["diagram_before_auxiliary_bounds"]["bottom_left"]
+    top_right = data["diagram_before_auxiliary_bounds"]["top_right"]
+    x_left = float(bottom_left[0])
+    y_bottom = float(bottom_left[1])
+    x_right = float(top_right[0])
+    y_top = float(top_right[1])
 
     h, w = before_img.shape[:2]
     dpi = 300
     fig = plt.figure(figsize=(w / dpi, h / dpi), dpi=dpi)
+    fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
     ax = fig.add_subplot(111)
+    ax.set_position([0, 0, 1, 1])
     ax.set_facecolor((1.0, 1.0, 1.0))
+    x_span = x_right - x_left
+    y_span = y_top - y_bottom
+    image_aspect = w / h
+    bounds_aspect = x_span / y_span
+
+    padded_x_left = x_left
+    padded_x_right = x_right
+    padded_y_bottom = y_bottom
+    padded_y_top = y_top
+
+    if image_aspect > bounds_aspect:
+        padded_x_span = y_span * image_aspect
+        x_pad = (padded_x_span - x_span) / 2
+        padded_x_left = x_left - x_pad
+        padded_x_right = x_right + x_pad
+    else:
+        padded_y_span = x_span / image_aspect
+        y_pad = (padded_y_span - y_span) / 2
+        padded_y_bottom = y_bottom - y_pad
+        padded_y_top = y_top + y_pad
+
     ax.imshow(
         before_img,
-        extent=[xmin - x_margin, xmax + x_margin, ymin - y_margin, ymax + y_margin],
-        origin="lower",
+        extent=[padded_x_left, padded_x_right, padded_y_bottom, padded_y_top],
         interpolation="nearest",
     )
 
@@ -70,9 +88,9 @@ def main():
 
     ax.set_aspect("equal")
     ax.set_axis_off()
-    ax.set_xlim(xmin - x_margin, xmax + x_margin)
-    ax.set_ylim(ymin - y_margin, ymax + y_margin)
-    fig.savefig(output_path, dpi=dpi, bbox_inches="tight", pad_inches=0)
+    ax.set_xlim(padded_x_left, padded_x_right)
+    ax.set_ylim(padded_y_bottom, padded_y_top)
+    fig.savefig(output_path, dpi=dpi)
     plt.close(fig)
 
     print(output_path)
