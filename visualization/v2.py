@@ -253,9 +253,10 @@ def run(json_path: str, port: int):
     with open(json_path, "r", encoding="utf-8") as f:
         dataset = json.load(f)
     # Normalize: ensure 'images' field is a list
+    images_root = os.environ.get("IMAGES_ROOT", os.path.join(os.path.dirname(json_path), "images"))
     for item in dataset:
         imgs = item.get("images")
-        imgs[0] = os.path.join("/scratch/sophistz/workspace/PyEuclid_archived/data/task2/eval/", imgs[0].split("/")[-1])
+        imgs[0] = os.path.join(images_root, imgs[0].split("/")[-1])
         if imgs is None:
             item["images"] = []
         elif isinstance(imgs, str):
@@ -279,8 +280,7 @@ def run(json_path: str, port: int):
         server.server_close()
 
 if __name__ == "__main__":
-    # Defaults
-    json_path = "/scratch/sophistz/workspace/PyEuclid_archived/data/task2/eval/data.json"
+    json_path = "data/task2/eval/data.json"
     port = 8000
 
     # Simple args: viewer.py [json_path] [--port N]

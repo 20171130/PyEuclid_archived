@@ -1,1 +1,0 @@
-A,B,C = construct_eq_triangle_q(48,pi/4), D = construct_circumcenter(B,A,C), E = construct_lc_tangent(B,C), E = construct_eqdistance(D,D,C), F = construct_lc_tangent(C,A), F = construct_eqdistance(E,C,E), G = construct_on_line(F,D), G = construct_on_aline(A,B,C,F,D), H = construct_intersection_pp(E,B,F,D,G,C)

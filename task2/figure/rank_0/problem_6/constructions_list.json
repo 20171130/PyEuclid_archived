@@ -1,1 +1,0 @@
-a,b,c,d = construct_rectangle(), e = construct_on_pline(c,a,d), e = construct_on_bline(a,d), f = construct_eq_triangle(d,a), g = construct_on_circum(a,b,e), h = construct_eqangle2(b,e,a), i = construct_midpoint(e,b)

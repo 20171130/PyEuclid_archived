@@ -1,1 +1,0 @@
-A,B,C,D = construct_rectangle_q(5,2), E = construct_angle_counterclockwise(A,B,pi/4), E = construct_lc_tangent(C,A), F = construct_on_dia(E,D), F = construct_on_pline(D,B,A), G = construct_angle_clockwise(F,C,pi/4), G = construct_point_on_circle(F,6), H = construct_eqdistance(E,F,D), H = construct_on_bline(D,C)

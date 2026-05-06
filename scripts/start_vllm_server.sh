@@ -26,9 +26,11 @@ echo "[`date`] Launching vLLM on ${HOSTNAME}:${PORT}"
 
 NGPUS=$(nvidia-smi --query-gpu=index --format=csv,noheader 2>/dev/null | wc -l)
 
+ALLOWED_MEDIA_PATH="${ALLOWED_MEDIA_PATH:-$(pwd)/data}"
+
 vllm serve "${MODEL}" \
   --host "${HOST}" \
   --port "${PORT}" \
   --dtype auto \
   --tensor-parallel-size "${NGPUS}" \
-  --allowed-local-media-path /private/home/zhaoyuli/PyEuclid_archived/data/
+  --allowed-local-media-path "${ALLOWED_MEDIA_PATH}"

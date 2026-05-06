@@ -1,1 +1,0 @@
-a,b,c = construct_risos(), d = construct_angle_bisector(b,a,c), d = construct_on_circum(b,c,a), e = construct_lc_tangent(c,d), f = construct_on_circle(b,a), f = construct_on_bline(e,a), g = construct_intersection_lt(b,e,d,a,c)

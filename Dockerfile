@@ -1,8 +1,5 @@
 FROM python:3.11
-RUN git clone https://github.com/zhaoyu-li/PyEuclid
-# RUN mkdir /PyEuclid
-# COPY ./ /PyEuclid
-WORKDIR /PyEuclid
+RUN git clone https://github.com/anonymous/Euclid-Omni
+WORKDIR /Euclid-Omni
 RUN pip install .
-RUN tar -xvzf cache.tar.gz
-CMD python test_single.py
+CMD python tests/test_single.py --show-proof

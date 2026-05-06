@@ -1,1 +1,0 @@
-A,B,C,D = construct_square_q(8), E = construct_angle_counterclockwise(D,A,pi/3), E = construct_eqdistance(D,D,A), F = construct_angle_bisector(C,B,E), F = construct_on_line(A,C), G = construct_angle_clockwise(F,A,pi/4), G = construct_on_tline(D,F,C), H = construct_angle_clockwise(F,C,pi/12), H = construct_point_on_circle(D,10)

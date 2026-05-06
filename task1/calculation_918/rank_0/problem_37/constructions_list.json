@@ -1,1 +1,0 @@
-A,B,C,D = construct_square_q(6), E = construct_point_on_circle(B,6), E = construct_angle_bisector(A,C,D), F = construct_orthocenter(A,B,E), G = construct_point_on_circle(B,5), G = construct_on_circle(E,F)

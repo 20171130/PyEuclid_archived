@@ -3,19 +3,22 @@ import json
 import argparse
 from pathlib import Path
 from tqdm import tqdm
+import shutil
 
 def main():
-    ap = argparse.ArgumentParser(description="Build Alpaca VLM dataset with optional start/end slicing.")
+    ap = argparse.ArgumentParser(description="Build Alpaca VLM dataset with centralized images folder.")
     ap.add_argument("--dataset_dir", type=Path, default=Path("task1/calculation_922_new_llm"),
                     help="Root containing *data.json + diagram.jpg pairs.")
-    ap.add_argument("--out_json", type=Path, default=Path("data/task1_train_922_new.json"),
+    ap.add_argument("--out_json", type=Path, default=Path("data/task1_922/data.json"),
                     help="Output JSON path.")
+    ap.add_argument("--images_dir", type=Path, default=Path("data/task1_922/images"),
+                    help="Directory where all images will be copied.")
     ap.add_argument("--start", type=int, default=0, help="Start index (inclusive) after sorting.")
     ap.add_argument("--end", type=int, default=None, help="End index (inclusive) after sorting. Default: last.")
-    ap.add_argument("--abs_paths", action="store_true", help="Store absolute image paths.")
     args = ap.parse_args()
 
     args.out_json.parent.mkdir(parents=True, exist_ok=True)
+    args.images_dir.mkdir(parents=True, exist_ok=True)
 
     # Collect and sort pairs
     pairs = []
@@ -28,7 +31,7 @@ def main():
         print(f"[!] No pairs found under: {args.dataset_dir}")
         return
 
-    # Normalize slice bounds (end is inclusive in user semantics)
+    # Normalize slice bounds (end is inclusive)
     start_index = max(0, args.start)
     end_index = (total_all - 1) if args.end is None else min(args.end, total_all - 1)
 
@@ -36,15 +39,12 @@ def main():
         print(f"[!] Empty slice: start={start_index}, end={end_index}, total={total_all}")
         return
 
-    # Apply slice; Python slice uses exclusive end, so add +1
     pairs = pairs[start_index:end_index + 1]
 
     dataset = []
-    bad_json = []
-    missing_images = []
-    missing_keys = []
+    bad_json, missing_images, missing_keys = [], [], []
 
-    for (data_path, img_path) in tqdm(pairs, total=len(pairs), desc="Building (Alpaca)"):
+    for idx, (data_path, img_path) in enumerate(tqdm(pairs, total=len(pairs), desc="Building (Alpaca)")):
         try:
             with data_path.open("r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -63,17 +63,20 @@ def main():
         problem = data["refined_problem"]
         proof = data["refined_proof"]
 
-        img_ref = str(img_path.resolve()) if args.abs_paths else str(img_path)
+        # Copy image to centralized folder
+        new_img_name = f"{idx}.jpg"
+        new_img_path = args.images_dir / new_img_name
+        shutil.copy(img_path, new_img_path)
 
         sample = {
             "instruction": f"<image>\n{problem}",
             "input": "",
             "output": proof,
-            "images": [img_ref],
+            "images": [str(new_img_path)],
         }
         dataset.append(sample)
 
-    # Write output
+    # Write output JSON
     with args.out_json.open("w", encoding="utf-8") as f:
         json.dump(dataset, f, ensure_ascii=False, indent=2)
 

@@ -1,1 +1,0 @@
-A,B,C,D = construct_square_q(32), E = construct_eqdistance(B,A,D), E = construct_point_on_circle(A,4), F = construct_eqdistance(C,E,B), F = construct_on_tline(E,A,B), G = construct_angle_bisector(B,C,E), G = construct_on_line(D,F)

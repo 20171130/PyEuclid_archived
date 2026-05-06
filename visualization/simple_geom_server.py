@@ -8,7 +8,8 @@ import urllib.parse
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
-JSON_PATH = "./data/task2/eval/data.json"
+JSON_PATH = os.environ.get("JSON_PATH", "./data/task2/eval/data.json")
+IMAGES_ROOT = os.environ.get("IMAGES_ROOT", os.path.join(os.path.dirname(JSON_PATH), "images"))
 
 def load_and_normalize(path: str):
     with open(path, "r", encoding="utf-8") as f:
@@ -40,7 +41,7 @@ def load_and_normalize(path: str):
         p["instruction"] = re.sub(r"^\s*<image>\s*\n?", "", instr, flags=re.IGNORECASE)
         # Normalize images to list[str]
         imgs = p.get("images") or []
-        imgs[0] = os.path.join("/scratch/sophistz/workspace/PyEuclid_archived/data/task2/eval/", imgs[0].split("/")[-1])
+        imgs[0] = os.path.join(IMAGES_ROOT, imgs[0].split("/")[-1])
         if isinstance(imgs, str):
             imgs = [imgs]
         p["images"] = imgs

@@ -1,1 +1,0 @@
-A,B,C,D = construct_square_q(3), E = construct_angle_counterclockwise(C,D,pi/2), E = construct_eqdistance(B,B,D), F = construct_eqdistance(E,C,B), F = construct_angle_bisector(C,E,D), G = construct_circumcenter(C,A,B)

@@ -1,1 +1,0 @@
-A,B,C = construct_eq_triangle_q(20,2*pi/3), D = construct_on_dia(C,A), D = construct_on_dia(B,C), E = construct_angle_clockwise(A,D,pi/3), E = construct_angle_bisector(C,B,A), F = construct_on_dia(C,A), F = construct_angle_bisector(E,D,B), G = construct_angle_clockwise(B,C,pi/4), G = construct_angle_clockwise(F,E,pi/2)

@@ -1,1 +1,0 @@
-A,B = construct_segment_q(18), C = construct_on_bline(B,A), C = construct_on_dia(B,A), D = construct_on_dia(A,B), D = construct_angle_bisector(B,A,C), E = construct_on_tline(A,C,D), E = construct_on_tline(B,A,C), F = construct_point_on_circle(E,18), F = construct_on_aline(A,E,D,A,C), G = construct_intersection_cc(E,F,D)

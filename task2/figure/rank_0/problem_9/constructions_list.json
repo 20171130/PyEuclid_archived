@@ -1,1 +1,0 @@
-a,b,c = construct_ieq_triangle(), d = construct_on_circle(c,a), d = construct_on_pline(b,c,a), e = construct_on_tline(b,c,d), e = construct_on_dia(c,d), f = construct_on_aline(e,c,b,d,a), f = construct_on_bline(c,e), g = construct_on_line(b,c), g = construct_eqangle3(a,f,e,f,d), h = construct_circumcenter(a,c,g)

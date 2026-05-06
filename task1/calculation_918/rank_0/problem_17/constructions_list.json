@@ -1,1 +1,0 @@
-A,B,C,D = construct_square_q(13), E = construct_on_bline(D,C), E = construct_lc_tangent(C,A), F = construct_on_line(D,C), F = construct_point_on_circle(D,5), G = construct_eqdistance(A,E,D), G = construct_on_circle(D,C), H = construct_point_on_circle(A,12), H = construct_on_dia(G,D)

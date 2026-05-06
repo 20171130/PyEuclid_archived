@@ -1,1 +1,0 @@
-A,B,C = construct_eq_triangle_q(20,2*pi/3), D = construct_foot(A,C,B), E = construct_lc_tangent(D,C), E = construct_on_circle(D,B), F = construct_eqdistance(C,E,D), F = construct_on_circle(E,D), G = construct_on_bline(C,A), G = construct_lc_tangent(F,A)

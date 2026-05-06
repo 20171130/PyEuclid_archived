@@ -1,1 +1,0 @@
-a,b,c,d = construct_isquare(), e = construct_on_line(d,a), f = construct_on_circum(a,b,d), f = construct_angle_bisector2(b,e,a), g = construct_angle_mirror(b,e,d), g = construct_on_bline(a,e), h,i = construct_trisect(a,d,g), j = construct_eqangle2(a,b,e)

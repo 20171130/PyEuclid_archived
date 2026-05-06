@@ -1,1 +1,0 @@
-A,B,C,D = construct_square_q(15), E = construct_point_on_circle(C,15), E = construct_eqdistance(B,A,B), F = construct_on_tline(A,E,D), F = construct_on_tline(D,D,B), G = construct_incenter(B,C,E)

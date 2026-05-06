@@ -1,1 +1,0 @@
-A,B,C,D = construct_r_trapezoid_q(60,100,10), E = construct_on_dia(A,D), E = construct_lc_tangent(A,C), F = construct_angle_bisector(E,D,B), F = construct_angle_bisector(C,E,A), G = construct_orthocenter(F,B,E)

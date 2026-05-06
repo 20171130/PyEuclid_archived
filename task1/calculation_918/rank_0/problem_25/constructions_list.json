@@ -1,1 +1,0 @@
-A,B,C,D = construct_square_q(52), E = construct_angle_clockwise(C,A,pi/12), E = construct_angle_counterclockwise(B,D,pi/3), F = construct_on_bline(B,A), F = construct_on_line(D,B), G = construct_on_dia(D,C), G = construct_on_pline(D,E,A), H = construct_midpoint(C,D)

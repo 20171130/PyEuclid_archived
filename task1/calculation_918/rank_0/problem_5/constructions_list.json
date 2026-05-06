@@ -1,1 +1,0 @@
-A,B,C,D = construct_square_q(2), E = construct_on_pline(C,A,D), E = construct_on_circle(C,D), F = construct_intersection_ll(D,B,A,C), G = construct_mirror(E,A), H = construct_on_dia(G,B), H = construct_angle_bisector(D,G,E)

@@ -1,1 +1,0 @@
-a,b,c = construct_r_triangle(), d = construct_on_pline(b,a,c), d = construct_on_pline(c,a,b), e = construct_on_bline(d,c), e = construct_angle_bisector(d,b,c), f = construct_midpoint(a,c), g = construct_angle_bisector(a,b,d)

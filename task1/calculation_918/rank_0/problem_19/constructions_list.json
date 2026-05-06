@@ -1,1 +1,0 @@
-A,B,C = construct_r_triangle_q(15,36), D = construct_on_tline(A,B,C), D = construct_point_on_circle(B,39), E = construct_orthocenter(A,C,D), F = construct_point_on_circle(D,36), F = construct_angle_bisector(B,A,E), G = construct_lc_tangent(B,C), G = construct_on_line(F,C), H = construct_angle_clockwise(E,F,pi/4), H = construct_point_on_circle(D,30)

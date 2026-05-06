@@ -1,1 +1,0 @@
-A,B,C,D = construct_rectangle_q(3,2), E = construct_on_line(D,B), E = construct_point_on_circle(D,1), F = construct_foot(A,E,D), G = construct_intersection_tt(F,D,E,C,A,B), H = construct_intersection_lp(G,A,D,F,C)

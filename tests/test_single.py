@@ -68,9 +68,7 @@ def run_single_problem(args):
             proof_generator.run()
             proof_generator.show_proof(verbose=True)
             print(f"Proof generated in {time.time()-t0:.2f}s")
-        breakpoint()
     else:
-        breakpoint()
         print(f"Not solved in {t:.2f}s")
 
 if __name__ == '__main__':

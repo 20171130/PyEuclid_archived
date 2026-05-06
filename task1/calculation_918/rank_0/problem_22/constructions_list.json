@@ -1,1 +1,0 @@
-A,B,C = construct_eq_triangle_q(1,pi/2), D = construct_foot(A,B,C), E = construct_on_pline(D,A,B), E = construct_on_dia(C,B), F = construct_on_pline(E,A,D), F = construct_point_on_circle(A,2)

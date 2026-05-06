@@ -1,1 +1,0 @@
-A,B,C = construct_r_triangle_q(2,1), D = construct_on_circle(B,C), D = construct_on_dia(A,C), E = construct_lc_tangent(B,C), E = construct_angle_counterclockwise(C,D,pi/6), F = construct_on_line(E,C), F = construct_on_dia(A,E), G = construct_foot(E,D,A), H = construct_on_dia(F,A), H = construct_on_circle(D,A)

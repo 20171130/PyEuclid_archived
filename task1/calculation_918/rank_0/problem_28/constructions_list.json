@@ -1,1 +1,0 @@
-A,B,C,D = construct_r_trapezoid_q(3,5,5), E = construct_on_line(B,A), E = construct_on_tline(C,D,C), F = construct_intersection_lt(E,C,A,B,D), G = construct_angle_bisector(F,A,D), G = construct_on_aline(C,F,B,C,D), H = construct_angle_clockwise(C,D,pi/4), H = construct_eqdistance(D,A,G)
